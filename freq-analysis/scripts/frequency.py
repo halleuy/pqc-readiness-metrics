@@ -13,10 +13,22 @@ def count_frequencies(text):
     return results
 
 input_dir = "processed/"
+output_dir = "results/"
+
 for file in os.listdir(input_dir):
     if file.endswith(".txt"):
         with open(input_dir + file) as f:
             text = f.read()
 
         scores = count_frequencies(text)
-        print(file, scores)
+
+        output_file = output_dir + file.replace(".txt", "_results.txt")
+        
+        with open(output_file, "w") as out:
+            out.write(f"Framework: {file}\n")
+            out.write("=" * 40 + "\n")
+
+            for dim, score in scores.items():
+                out.write(f"{dim}: {score}\n")
+
+        print(f"Saved results to {output_file}")

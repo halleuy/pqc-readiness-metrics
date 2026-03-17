@@ -1,21 +1,26 @@
 DIMENSIONS = {
-    "Governance": {
-        "keywords": ["policy", "governance", "strategy", "management", "leadership"],
-    },
-    
-    "Cryptographic Inventory": {
-        "keywords": ["inventory", "asset discovery", "crypto asset", "key inventory", "visibility"],
-    },
-    
-    "Risk Assessment": {
-        "keywords": ["risk", "threat", "vulnerability", "impact", "risk assessment"],
-    },
-    
-    "Migration Planning": {
-        "keywords": ["migration", "transition", "roadmap", "upgrade", "deployment"],
-    },
-    
-    "Cryptographic Agility": {
-        "keywords": ["agility", "flexibility", "algorithm switching", "crypto agility"],
-    }
+    "crypto_assets": [
+        "cryptographic inventory", "crypto assets", "key usage",
+        "certificate", "tls", "vpn", "data at rest", "data in transit"
+    ],
+
+    "crypto_agility": [
+        "crypto agility", "algorithm agility", "key rotation",
+        "upgrade", "migration", "flexibility"
+    ],
+
+    "migration_planning": [
+        "migration plan", "transition", "roadmap",
+        "implementation strategy", "deployment"
+    ],
+
+    "risk_management": [
+        "risk assessment", "threat", "vulnerability",
+        "harvest now decrypt later", "hn-dl"
+    ],
+
+    "standards_compliance": [
+        "nist", "standard", "compliance",
+        "guidelines", "regulation"
+    ]
 }
