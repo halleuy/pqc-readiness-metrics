@@ -34,3 +34,7 @@ print(dimension_variance)
 weights = dimension_variance / dimension_variance.sum()
 print("\nDimension Weights:")
 print(weights)
+weights_df = weights.reset_index()
+weights_df.columns = ["Dimension", "Weight"]
+weights_df.to_csv("dimension_weights.csv", index=False)
+print("Saved dimension weights to dimension_weights.csv")
