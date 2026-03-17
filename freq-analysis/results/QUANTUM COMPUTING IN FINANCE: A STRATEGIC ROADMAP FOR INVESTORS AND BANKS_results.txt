@@ -1,0 +1,7 @@
+Framework: QUANTUM COMPUTING IN FINANCE: A STRATEGIC ROADMAP FOR INVESTORS AND BANKS.txt
+========================================
+crypto_assets: 0
+crypto_agility: 2
+migration_planning: 4
+risk_management: 1
+standards_compliance: 2

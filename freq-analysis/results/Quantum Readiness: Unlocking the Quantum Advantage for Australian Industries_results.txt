@@ -1,0 +1,7 @@
+Framework: Quantum Readiness: Unlocking the Quantum Advantage for Australian Industries.txt
+========================================
+crypto_assets: 0
+crypto_agility: 0
+migration_planning: 2
+risk_management: 0
+standards_compliance: 0

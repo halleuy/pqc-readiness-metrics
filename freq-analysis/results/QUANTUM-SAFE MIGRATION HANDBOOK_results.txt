@@ -1,0 +1,7 @@
+Framework: QUANTUM-SAFE MIGRATION HANDBOOK.txt
+========================================
+crypto_assets: 25
+crypto_agility: 110
+migration_planning: 37
+risk_management: 50
+standards_compliance: 33

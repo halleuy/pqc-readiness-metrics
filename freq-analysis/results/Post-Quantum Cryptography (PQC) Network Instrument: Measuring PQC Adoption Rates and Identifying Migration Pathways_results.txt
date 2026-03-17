@@ -1,0 +1,7 @@
+Framework: Post-Quantum Cryptography (PQC) Network Instrument: Measuring PQC Adoption Rates and Identifying Migration Pathways.txt
+========================================
+crypto_assets: 40
+crypto_agility: 5
+migration_planning: 2
+risk_management: 3
+standards_compliance: 16
