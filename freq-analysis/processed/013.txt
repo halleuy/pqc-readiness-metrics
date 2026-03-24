@@ -1,0 +1,1365 @@
+quantumsafe handbook 
+draft for public consultation
+quantumsafe
+migration
+handbook
+quantumsafe handbook 
+this document was developed based on contributions or publiclyavailable material from
+private and public sector organisations we thank those organisations for their valuable
+contributions the handbook provides practical advice on preparing and planning for
+quantumsafe migration this document is intended for informational purposes only and is
+not mandatory prescriptive or exhaustive
+developed by csa govtech imda based on contributions or publiclyavailable
+material from industry partners including
+ accenture
+ amazon web services
+ deloitte  touche llp
+ ibm
+ pqstation
+ the association of information security professionals aisp
+quantumsafe handbook 
+disclaimer
+the information provided in this document is voluntary and does not and is not intended to
+constitute legal advice all information is for general informational purposes only not all the
+considerations or measures listed in this document will be applicable to all organisations or
+environments organisations may also be at different stages of cybersecurity maturity or
+readiness and are advised to consider how to conduct the quantumsafe migration
+measures within their specific circumstances in addition to other measures relevant to
+their needs
+the information has been gathered across public and private collaborators referencing
+existing understanding and deployment of quantumsafe solutions technology
+advancements may render the information in this document inaccurate and outdated csa
+and its partners shall not be liable for any inaccuracies errors and or omissions contained
+herein nor for any losses or damages of any kind including any loss of profits business
+goodwill or reputation and or any special incidental or consequential damages in
+connection with any use of this handbook this document contains links to other thirdparty
+websites such links are informational and do not represent endorsement of content from
+these thirdparty sites
+version history
+version date released remarks
+  oct  release of draft quantumsafe handbook
+for public consultation
+quantumsafe handbook 
+preface
+the technology landscape is evolving rapidly and much remains uncertain the exact
+timeline for qday  when a quantum computer capable of breaking todays cryptography
+becomes available  cannot be predicted with precision nor can we be fully certain at this
+point about how technology will develop or which approaches will prove most effective the
+issue is complex and dynamic and will continue to evolve quickly with scientific
+breakthroughs and geopolitical shifts
+despite this uncertainty there is increasing consensus that organisations should start
+preparation as soon as practically possible especially for critical systems where the risks
+of inaction are the greatest this is because quantumsafe migration is likely to be a non
+trivial effort and will require resources funding and time to complete at the same time
+organisations need not rush into implementation there can be firstmover disadvantages
+given that the quantumsafe field continues to evolve some actions are noregrets and
+can be taken immediately other techniques and solutions are less well understood and
+require further monitoring and careful evaluation to avoid unintended costs or abortive
+efforts
+this handbook therefore aims to strike a practical balance to seed readiness for quantum
+safe migration in a considered way while staying adaptive to emerging developments and
+solutions
+quantumsafe handbook 
+table of contents
+understanding the quantum threat 
+quantumsafe migration 
+domain  risk assessment 
+domain  governance 
+domain  technology 
+domain  training and capability 
+domain  external engagements 
+unknowns assumptions and moving forward 
+quantumsafe handbook 
+purpose
+this handbook provides guidance for organisations in particular critical information
+infrastructure cii owners and government agencies in preparing for the transition to
+quantumsafe it explains what is at stake highlights key areas of focus and sets out
+practical considerations and resources for organisations to begin building readiness
+the advice in this handbook is voluntary and not all the considerations or measures listed
+in this document will be applicable to all organisations or environments organisations may
+also be at different stages of cybersecurity maturity or readiness and should consider
+relevance to their use cases as well
+quantumsafe handbook 
+understanding the quantum threat
+key takeaways
+ the threat of breaking cryptography is not new but quantum computing will
+amplify the likelihood scale and impact
+ the quantum threat affects the confidentiality integrity and availability of your
+organisations systems and data these have implications for your
+organisations risk posture business continuity and reputation
+cryptography underpins the security of our digital communications and data forming the
+foundation of trust in todays digital world it secures the messages we exchange online
+transactions conducted and the systems we depend on  from online banking and cloud
+applications to government platforms and critical services the threat of breaking
+cryptography is a longstanding one and there are significant security and downstream
+economic risks however computational problems underpinning cryptography continue to
+be intractable for classical computers even supercomputers today the arrival of powerful
+enough quantum computers will upend this paradigm assumption as it is expected that
+threat actors will misuse quantum computing to break encryption placing sensitive data
+and digital trust at significantly higher risk
+cryptography is used for a variety of use cases
+public key cryptography
+key establishment
+key establishment is a cryptographic process that allows two parties to establish a
+shared secret key this shared secret can subsequently be used to facilitate the
+encryption of communication between the two parties this can be achieved via key
+encapsulation where the secret is generated and encrypted by one party and sent to
+the other or via key exchange where public keys are exchanged between the two
+parties allowing them to derive the same secret based on their own private keys
+key establishment is used in secure communication protocols such as tls ssh
+ipsec and smime prior to confidential data being sent between the two parties key
+establishment may also be used in file encryption solutions where an entity wants to
+encrypt many files with different keys but does not wish to keep track of numerous
+secret keys examples of key establishment algorithms commonly used are rivest
+shamiradleman rsa elliptic curve diffiehellman ecdh dsa and diffiehellman
+dh
+quantumsafe handbook 
+digital signatures
+a digital signature analogous to a physical signature is a cryptographic algorithm
+where a party signs a piece of data this allows another party to verify that the signature
+is authentic the data has not been modified and the signer cannot repudiate the
+signature
+digital signatures are used primarily for authentication to prove that a party is who they
+claim to be or that the data received did indeed originate from the sender solutions
+where digital signatures are used include solutions for identity management access
+control electronic signatures as well as secure communication protocols where
+authentication of the communicating party is needed examples of digital signature
+algorithms commonly used are rsa elliptic curve digital signature algorithm ecdsa
+digital signature algorithm dsa
+symmetric ciphers
+a symmetric cipher is a cryptographic algorithm used to encrypt data using a secret key
+so that it can be decrypted later with the same key while encryption was the original
+motivation for cryptography it must often be used alongside many different types of
+cryptography to achieve the spectrum of logical security functionalities we use daily
+in secure communication symmetric ciphers are used to encrypt the data to be
+communicated while the secret key is established through a separate key
+establishment mechanism an example of a commonly used symmetric cipher is
+advanced encryption standard aes
+hash functions
+a hash function is a cryptographic algorithm used to produce a pseudorandom digest
+of fixed length from an input of any size it is based on the difficult problem of finding a
+suitable input that results in a specific output as hash functions can be used with or
+without cryptographic keys it is a very versatile algorithm that is combined with
+different types of cryptographic algorithms for many protocols examples of hash
+functions commonly used are secure hash algorithm sha sha and sha
+hash functions can be found in many security mechanisms including
+ password protection  the hash value of a password is stored instead of the
+password itself
+ digital signatures  the data to be signed may be hashed prior to signing
+quantumsafe handbook 
+ key derivation  the hash of specific data or password sometimes including a
+master key is used as a secret key
+ message authentication codes  the message is hashed together with a secret
+key to obtain a means to verify the authenticity of the message as well as its
+integrity
+ post quantum cryptography pqc  hash functions can be used not just with
+but also used to construct pqc examples of hashbased pqc are slhdsa
+xmss and lms
+the exact timeline for qday  when a cryptanalytically relevant quantum computer
+crqc is capable of executing algorithms that can break or significantly weaken todays
+widely deployed cryptography  cannot be predicted with precision expert estimates
+generally place this horizon within the next  years however this could shorten
+considerably due to unforeseen scientific advances algorithmic optimisations or covert
+developments by sophisticated actors
+qday can come much earlier than expected this could be due to unforeseen scientific
+advances algorithmic optimisations or covert developments by sophisticated actors
+there are currently two quantum computing algorithms that have been shown to break
+encryption
+ shors algorithm can solve the mathematical problem of large prime
+factorisation and discrete logarithm with an exponential speed up over classical
+methods as such public key cryptography used today that relies on the
+difficulty of solving this problem for their security cannot be relied on examples
+include
+o integer factoringbased rsa
+o discrete logarithmbased ecdsa ecdh dsa dh
+ grovers algorithm can solve unstructured search problems and has
+demonstrated quadratic reduction in the time needed for brute force key search
+attacks there is currently debate as to what the effective reduction in
+cryptographic security is due to the significant tradeoffs in terms of memory and
+hardware needed to implement such an attack nevertheless grovers can be
+used to improve brute force attacks on all cryptography even if its impact on their
+security is not as drastic as that of shors examples of cryptography that may
+need to be upgraded or replaced due to the threat from grovers algorithm but
+not shors include
+quantumsafe handbook 
+o symmetric ciphers aes
+o hash functions sha including sha sha sha
+the vulnerable cryptography algorithms listed here serve as most of the publickey
+cryptography in use today and will need to be replaced other than public key
+cryptography cryptography like symmetric ciphers and hash functions are also affected
+by the quantum threat albeit to a lesser degree these may still be used depending on
+the use case and security level needed we continue to observe new advancements in
+algorithms including optimisation for speed and performance that will further affect
+how fast the quantum threat manifests the reality is further complicated by limited
+visibility into quantum computing developments given that the field is subject to
+commercial competition and geopolitical sensitivities
+a crqc can be misused to undermine the confidentiality integrity and availability of your
+organisations systems and data
+confidentiality integrity availability
+exposure of sensitive manipulation of disruption of essential
+information at rest or in transactions and services
+transit processes
+examples  exfiltration and  compromised  compromised
+decryption of sensitive authenticity of controls authenticity of controls
+or confidential data eg forged signatures eg forged signatures
+such as personally that enable that enable the
+identifiable manipulation of manipulation of ics
+information pii transactions or and scada
+medical records modification of data commands that halt
+organisational secrets functionality of
+eroding trust and essential services eg
+violating privacy water filtration
+ exfiltration and
+decryption of security
+or systemrelated
+data such as
+passwords
+credentials and
+system configuration
+parameters that can
+be used to gain access
+to and exploit systems
+quantumsafe handbook 
+if unaddressed the quantum threat can hence lead to data breaches operational disruption
+and potential financial loss as well it can also expose organisations to legal and compliance
+risks such as privacy law violations and intellectual property theft ultimately leading to loss
+of stakeholder confidence and reputation damage that can be difficult to recover from
+quantumsafe handbook 
+quantumsafe migration
+key takeaways
+ qday is a when and not an if  organisations should start preparing and
+planning now as it will take significant effort and time to migrate
+ however there is no need to rush into implementation too quickly as the
+quantumsafe solution space is still developing use the time to seed
+readiness and build capability
+quantumsafe migration aims at ensuring that digital systems and cryptography assets are
+resistant to attacks from crqcs by removing vulnerable cryptography and putting in place
+quantumsafe solutions while quantumsafe solutions may be new the threat and
+mitigation processes involved are not in practice the associated efforts will cover  key
+domains
+ key domains for quantumsafe migration
+quantumsafe migration is likely to be a multiyear endeavour given the complexity and
+scale of the efforts required organisations should also note that migration of systems
+is likely to be executed in phases
+developing a roadmap with a multiyear planning horizon can be helpful to track what
+needs to be done to prepare now and what can wait while solutions and standards
+continue to mature there are different resources that may be useful in helping your
+organisation to break down the quantumsafe migration process into discrete more
+quantumsafe handbook 
+manageable tasks for example the postquantum cryptography coalition
+recommends a roadmap implementation per the figure below
+pqc roadmap categories from pqcc
+organisations may also refer to the following resources for examples of quantumsafe
+roadmaps
+ pqc migration roadmap pqcc 
+ sp b prelim  migration to pqc cryptographic discovery nist nccoe
+
+ tr   v  migration strategies  recommendations to quantumsafe
+cryptography etsi 
+ preparing for a postquantum world by managing cryptographic risk fsisac
+
+ the pqc migration handbook nd ed tnocwiaivd 
+ ibm quantum safe
+while there is uncertainty over the qday timeline preparation and planning for quantum
+safe migration should start as soon as practically possible this is especially so for critical
+systems where the risks of inaction are the greatest cryptography can be deeply embedded
+quantumsafe handbook 
+in infrastructural components such as software libraries and discovering and replacing
+vulnerable cryptography are likely to be a nontrivial effort experts also assess that the
+harvestnowdecryptlater threat is ongoing particularly for highvalue data as such
+migration is a risk management measure  the later it is conducted the wider the risk
+exposure window for your organisations systems and data
+harvestnowdecryptlater refers to a tactic where attackers capture and store
+encrypted data today with the intent to decrypt it in the future when a crqc is
+available high value data with long shelflife will be most vulnerable as future
+decryption could yield significant advantage or information examples of such data
+include intellectual property and personal financial and health records
+migration should not be seen only about addressing the quantum threat for some
+organisations the primary motivator may be the direct risk from the quantum threat for
+others the quantum threat can be seen as a catalyst to review and spring clean and
+strengthen your organisations cybersecurity hygiene and valueadd to your organisations
+competitiveness and ability to better conduct business and serve your customers
+the quantumsafe solution space continues to evolve and standards are still in
+development there can be first mover disadvantages given that the quantumsafe field
+continues to evolve this handbook therefore aims to strike a practical balance to seed
+readiness for quantumsafe migration in a considered way while maintaining space for
+emerging developments and solutions
+we cannot be fully certain at this point about how technology will develop or which
+approaches will prove most effective the field will continue to evolve quickly with
+scientific breakthroughs and geopolitical shifts
+as such this document will be kept live and updated to account for material
+developments as necessary organisations should continue to monitor developments
+consider their operating context to guide their quantumsafe migration plans and
+incorporate cryptographic agility where practical refer to domain  technology on
+cryptographic agility
+quantumsafe handbook 
+domain  risk assessment
+key takeaways
+ leverage risk assessments to inform how your organisation prioritises
+preparation and planning this helps to scope the problem down and focus
+efforts and resources rather than tackle organisationwide migration at once
+cybersecurity risk assessment is an integral part of an organisations enterprise risk
+management process and continues to be relevant in dealing with quantumrelated risks
+ given the diversity of systems and operating context across organisations there is
+no onesizefitsall solution to quantumsafe migration effective migration starts
+with conducting a risk assessment which will help your organisation to identify
+priorities potential risks and the appropriate risk management strategies taking a
+riskbased approach will enable prioritisation of efforts where it matters most
+ this assessment enables organisations to determine the level and area of exposure
+and to inform how to effectively allocate resources and implement appropriate
+actions to address these risks
+risk assessments can be conducted based on best practices or your organisations
+existing enterprise risk assessmentmanagement framework organisations can refer
+to established frameworks for business impact analysis continuity planning and
+quantitative risk assessment eg isots  business impact analysis iso 
+business continuity management systems nist sp  contingency planning or
+fair factor analysis of information risk organisations can also refer to csas
+published guides if applicable
+ guide to conducting cybersecurity risk assessment for critical information
+infrastructure
+ guide to cyber threat modelling
+we highlight three considerations to guide organisations risk assessments
+identifying which systems data or assets to prioritise
+organisations can first identify and prioritise their most critical business functions systems
+and information assets  socalled crown jewels
+quantumsafe handbook 
+this can help to break down migration into riskbased more digestible steps than
+addressing the wholeoforganisation at once which can be very complex and challenging
+such systems could be where compromise could result in significant operational financial
+or reputational impact these can take the form of data breaches compromising sensitive
+information operational interruptions affecting essential service delivery or key business
+services to customers noncompliance with regulatory requirements financial losses
+impacting business sustainability and or reputational damage
+identifying these critical assets will help your organisation understand where the risk impact
+is highest and where to focus migration efforts as a start
+examples of adverse business consequences
+data breaches exposure of sensitive customer partner and proprietary information
+operational compromised systems and service interruptions due to broken security
+disruption mechanisms
+legal and violation of privacy laws intellectual property theft and contractual
+compliance risk breaches
+financial loss costs arising from breach response regulatory penalties and legal
+liabilities
+reputational loss of stakeholder trust brand harm and the public fallout of large
+damage scale incidents
+cryptographic asset discovery
+for the identified critical systems conduct cryptographic asset discovery to determine
+where and what could be vulnerable cryptography this refers to the process of identifying
+and cataloguing cryptographic resources within your organisations systems to understand
+and manage their security posture
+cryptographic asset discovery involves locating assets such as cryptographic algorithms
+protocols and digital certificates within system components such as hardware security
+modules hsm smart cards or cryptographic tokens and trusted platform modules such
+discovery can be daunting as cryptographic assets can be deeply embedded within such
+components or even managed externally for a single function different cryptographic
+assets may be in place eg email content might use endtoend smime encryption while
+its clientserver communication channel relies on separate tls protection raising
+complexity of discovery efforts as such prioritising such efforts for critical assets can help
+to manage the resources and efforts involved as opposed to a comprehensive discovery
+effort across the organisation
+quantumsafe handbook 
+organisations may refer to the following examples of system components that may
+contain cryptographic assets to support their asset discovery activities
+sn category components
+ cryptographic modules  hardware security modules
+ smart cardscryptographic token
+ trusted platform modules
+ cryptographic libraries
+ cryptographic  secure email
+application  file and folder encryption
+ vpn clients
+ tls clientsservers
+ ssh clientsservers
+ database encryption
+ cryptographic system  public key infrastructure pkicertificate
+authorities
+ identity and access management
+ email exchange server
+ key management system
+ certificate management system
+asset discovery can be done in a phased and incremental way
+ first use what you already have and know by starting with existing documentation
+and technical artefacts you can gain meaningful initial insights with minimal
+disruption for example logs from components such as hardware security module
+hsm key management systems kms and certificate management systems cms
+can offer visibility into active keys and certificates configurations applied on load
+balancers and web servers can provide insights into the protocols and cipher suite
+used in external facing network paths network monitoring tools can provide visibility
+to the network protocols used in internal network traffic similarly network diagrams
+system inventories and penetration testing reports may already highlight where
+cryptographic controls are applied by starting with these readily available resources
+organisations can take a practical and less effortintensive approach to begin
+mapping out their cryptographic assets
+ second leverage automated cryptographic discovery and inventory acdi tools
+these have emerged as a promising way to enhance cryptographic discovery efforts
+and use automation to provide central visibility streamlining and reducing the
+quantumsafe handbook 
+manual workload involved in cryptographic asset discovery however many tools are
+still in the early stages of development and vendors continue to expand their
+roadmaps to support more cryptographic use cases asset types and deployment
+models as a result these tools are unlikely to be able to fully execute the asset
+discovery process at this point
+currently acdi tools scan for cryptographic assets based on three approaches
+ code scanning  involves examining source code to identify cryptographic
+libraries apis and functions that are imported and used during development if
+the organisation has inhouse development capabilities it is advisable to
+integrate code scanning tools into the continuous integrationcontinuous
+deployment cicd pipeline this enables automated and consistent detection
+of cryptographic usage potential vulnerabilities and policy violations early in
+the software development lifecycle
+ network analysis  involves analysing network traffic to detect the use of
+cryptographic protocols eg tls ssh and their configurations this helps
+identify nonquantum safe or insecure implementations weak cipher suites
+expired certificates or unencrypted traffic traversing the network
+ host scanning  examining endpoints servers and devices to detect stored
+cryptographic assets and usage
+when selecting and deploying acdi tools organisations should consider
+ your operating environment for example are your systems deployed on
+premise or via the cloud do you have access to source code
+ your needs and scope what type of assets do you have limited existing visibility
+over where tools are needed to support assets discovery what type of
+infrastructure needs to be scanned eg endpoints code repositories
+ integration with your current enterprise environment many acdi tools now
+feature builtin integration capabilities with existing enterprise security
+solutions eliminating the need for additional agents or sensors these native
+integrations commonly include firewalls endpoint detection and response
+edr systems extended detection and response xdr platforms
+configuration management databases cmdb and vulnerability management
+platforms
+quantumsafe handbook 
+ maturity and effectiveness of the solution ask the vendor for references of
+previous applications of their acdi tool to determine if it is relevant for your
+needs
+as the acdi tooling space continues to evolve organisations should continue to work
+with solution providers and vendors to understand what options are relevant to their use
+cases and systems before making significant investments in such tooling
+leverage threat modelling
+threat modelling can help to further supplement the risk assessment and inform where
+efforts should be prioritised threat modelling involves taking the perspective of an attacker
+to identify potential weaknesses and key attack vectors that should be addressed early
+we illustrate two threat modelling examples to show how it can be applied to better
+understand quantumrelated risks
+example  enterprise system accessed remotely by an employee
+this example highlights the scenario of a healthcare worker working remotely accessing
+the hospital network over the internet
+the diagram below shows the simplified process flow of a healthcare worker remotely
+accessing the hospital network
+a closer look at the components and connections reveals potential vulnerabilities
+transport layer security tls is used to provide endtoend security for communications
+with the hospital network however the underlying asymmetric cryptography rsa ecc
+used by tls is quantumvulnerable note at this juncture versions of tls older than 
+do not support pqc in this scenario the remote worker accesses the hospital network
+via the internet
+quantumsafe handbook 
+using the stridelm threat modelling framework the hospitals vpn infrastructure that
+secures internetfacing communications using rsaecc is at the highest risk of spoofing
+tampering repudiation and information disclosure stri by a quantumenabled threat
+actor
+based on the above and referencing the mitre attck framework a hypothetical attack
+path and threat scenario might look something like this
+step action threat scenario
+ collection t adversaryinthemiddle a quantumenabled threat
+a quantumenabled threat actor breaks the actor may successfully
+encryption used by the remote workers vpn and intercept and decrypt
+positions themselves between the internetfacing
+communication of the customer and the hospital communications between
+network remote workers and the
+hospital containing
+ exfiltration t automated exfiltration
+quantumsafe handbook 
+the threat actor automatically exfiltrates any sensitive patient data
+sensitive data that the remote worker accesses leading to sensitive
+information disclosure the
+ impact t financial theft threat actors may threaten
+the threat actor may use the sensitive data to to release the information
+extort the hospital by threatening to release the publicly or use the
+data and impact the hospitals reputation information for blackmail
+in this scenario the hospital should focus on understanding the external connectivity of
+their systems such as how its vpn clients connect to the vpn gateway and assess how
+pqc can be incorporated to secure the communication channels
+example  customer makes online purchase with a retailer
+this example highlights the scenario of a customer making an order with an online retailer
+the diagram below shows the simplified process flow of a customer making an order with
+an online retailer
+a closer look at the components and connections reveals potential vulnerabilities in this
+scenario the customer online store and payment processing gateway communicate via
+the internet generally internetfacing connections are at higherrisk and system owners
+have less control over external communication channels hence securing external
+connectivity should be prioritised
+using the stridelm threat modelling framework the identified threat areas show that
+the internetfacing communications using rsaecc are at the highest risk of spoofing
+tampering repudiation and information disclosure by a quantumenabled threat actor
+quantumsafe handbook 
+based on the above and referencing the mitre attck framework a hypothetical attack
+path and threat scenario might look something like this
+step action threat scenario
+ collection t adversaryinthemiddle a quantumenabled threat
+a quantumenabled threat actor breaks the actor may successfully
+encryption used by the secure channel between the intercept and decrypt
+customer and online store and positions internetfacing
+themselves between the communication of the communications and
+customer and online store possibly modify the
+quantumsafe handbook 
+ impact t transmitted data information being
+manipulation transmitted leading to
+the threat actor manipulates the transaction data fraudulent or inaccurate
+between the customer and online store possibly transactions if not detected
+making fraudulent orders that may have adverse
+impacts on the customer and online store
+in this scenario the retailer should focus on understanding the external connectivity of
+their systems particularly the connections between the customer and the web server
+hosting the online store and between the backend server and payment processing
+gateway this can then inform how pqc can be incorporated to secure these
+communication channels
+after conducting a risk assessment and prioritising areas to address based on the risk
+organisations can then identify and implement actions to secure the system this is detailed
+in the subsequent sections on governance technology external engagements and training
+and capability
+quantumsafe handbook 
+domain  governance
+key takeaways
+ being clear on the stakeholders involved and their roles and responsibilities
+as well as timelines and key milestones will help to ensure coordinated
+execution with accountability and measurable progress
+ quantumsafe migration should be incorporated into existing governance and
+risk management structures to streamline access to systems data and
+policy other levers
+ review your policies and strategies regularly to ensure relevance given the
+evolving quantum threat
+governance entails ensuring there are frameworks and or policies in place that set out the
+organisations strategy and approach for quantumsafe migration and the roles and
+responsibilities of stakeholders
+rather than conducting governance for quantumsafe migration as an isolated workstream
+organisations should embed it within their existing governance frameworks this will help to
+maintain alignment with established risk management and compliance structures across
+critical organisational functions
+establishing clear roles and responsibilities to support quantumsafe migration
+there are four key stakeholder groups within your organisation that are likely to be involved
+in quantumsafe migration
+ senior management and decision makers this can include your executive boards
+csuite this group will need to approve and support quantumsafe migration plans
+especially where they involve resources and efforts
+ cybersecurity teams this can entail the teams that report to the chief information
+security officer or equivalent teams that are responsible for protecting your
+organisations data and it systems from cyber threats this group will identify
+recommend and evaluate security solutions to address the quantum threat
+ it and technology strategy teams this can entail the teams that report to the chief
+information officer or equivalent teams that are in charge of the organisations
+overall it infrastructure and systems to meet business goals this group will need to
+identify systems that are businesscritical and should be prioritised for the quantum
+threat and will need to update the it policies infrastructure and systems to address
+the quantum threat with support of the cybersecurity teams
+quantumsafe handbook 
+ business units this entails the different teams and units that operate and execute
+their specific business functions and manage their own operations and resources
+this group will work with the security and technology strategy teams to align its goals
+and needs for quantumsafe migration including to ensure that business needs
+continue to be addressed and that any potential downtime and disruption are
+minimised
+establishing roles and responsibilities for quantumsafe migration based on these existing
+stakeholder groups will enable you to tap on established strengths and competencies as
+well as existing lines of communication and reporting in turn this will ensure that quantum
+safe migration is addressed in a sustainable and effective way it is possible to set up a
+separate team dedicated to execute quantumsafe migration but that team would still need
+to interact with these stakeholder groups and may incur tradeoffs in terms of clarity of roles
+and responsibilities as well as delays in starting work due to the need to establish new
+structures and capabilities
+for each of these stakeholder groups defining clear roles and responsibilities between
+teams as well as timelines and key milestones will help to ensure coordinated execution
+with accountability and measurable progress
+organisations can consider frameworks like the raci model to assign clear roles for
+tasks and deliverables in quantumsafe migration this can also help to ensure
+accountability
+ responsible does the work
+ accountable owns the work and approves it
+ consulted provides input
+ informed receives updates
+example of a raci model for quantumsafe migration
+based on pqc migration roadmap  postquantum cryptography coalition
+task  responsibility it steering ciso cio business
+committee owner
+stage  preparation
+  identify pqc relevancy a r r c
+ assign a lead to manage
+a c r i
+pqc migration
+quantumsafe handbook 
+ establish migration vision
+a c r r
+ governance
+ identify existing inventory i c r a
+stage  baseline understanding
+ prioritise highvalue
+i r r a
+systems and data
+ set a cryptographic
+i r a i
+discovery plan
+ build and maintain an
+uptodate cryptographic i r a i
+inventory
+stage  planning and execution
+ set a migration plan and
+i r a c
+budget
+ identify solutions
+a select pqc algorithms
+and migration strategies
+b implement and test pqc i r a c
+in systems
+c upgrade crypto libraries
+and configurations
+ coordinate vendor and
+i r a c
+thirdparty assessments
+stage  monitoring and evaluation
+ validate proper
+implementation
+a oversee compliance
+policy and assurance i r a c
+alignment
+b manage project
+milestones and reporting
+ assess workforce needs
+a conduct training and a r r c
+awareness activities
+ continuous monitoring i r a i
+quantumsafe handbook 
+reviewing and adapting organisational policies and strategies
+review your organisations existing policies to understand how to integrate quantumsafe
+requirements as the quantum threat presents a longterm risk with strategic and
+operational implications
+ update your organisations cryptographic policies to keep track of the cryptography
+inventory and timely disallowing of vulnerable cryptography andor integrating
+newer encryption algorithms
+ integrate quantumrelated risks as part of your broader enterprise risk management
+frameworks and business continuity planning the risk description should be guided
+by your assessments of the quantumrelated risks to your businesscritical systems
+and data accordingly integrate quantumsafe migration as part of risk treatment
+action plans this includes developing your multiyear roadmap or strategy for
+quantumsafe migration establish processes for monitoring progress across your
+organisation this can be measured against key performance indicators kpis and
+metrics including cryptographic inventory completion rates system migration
+milestones or percentages
+ update your procurement policies and frameworks to explicitly address quantum
+safe requirements this includes specifying cryptographic specifications in line with
+your cryptographic policies regulatory requirements or standards and
+cryptographic agility capabilities and requiring vendors to submit postquantum
+roadmaps as part of the evaluation process contractual clauses should also be
+reviewed where relevant clauses that address pqc support cryptographic
+algorithm update mechanisms service level agreements for quantumsafe
+transitions and escalation procedures for addressing emerging quantumrelated
+vulnerabilities can be included
+ third party risk management policies can also be updated to reflect evaluation
+criteria for assessing vendors quantum readiness or maturity eg current
+cryptographic implementations and pqc adoption timelines and their ability to
+support future cryptographic transitions without significant system overhauls more
+information on engaging vendors is in domain  external engagements
+migration should also be seen as an iterative process  rather than a oneoff effort  as
+quantum computers continue to grow more powerful and existing quantumsafe solutions
+may eventually become vulnerable to attacks as such organisations should review their
+policies and strategies regularly to ensure that they continue to be relevant organisations
+should also keep abreast of evolving standards guidance and regulatory requirements in
+this space such as by establishing the necessary processes or engagements to do so for
+standards the relevant bodies include the national institute of standards and technology
+nist international organization for standardization iso and etsi for singapore
+quantumsafe handbook 
+organisations should consult the csa as the national cybersecurity authority or sectoral
+regulators for advice
+international governments like the us and eu have issued guidelines outlining timelines
+and requirements for quantumsafe migration such as the us commercial national
+security algorithm suite cnsa  that provides requirements for national security
+systems and the eus quantumsafe cryptography roadmap on the timelines for
+transition to pqc for eu member states this reflects growing international momentum
+and interest to drive quantumsafe migration efforts
+for singapore we recognise the value of such guidance in supporting organisations
+quantumsafe migration journey we are engaging key stakeholders across industry and
+the government to develop practical and relevant guidance for our local context
+quantumsafe handbook 
+domain  technology
+key takeaways
+ evaluate existing quantumsafe solutions that are relevant to your quantum
+safe migration strategy while maintaining space to adapt to new threats and
+solutions as technology continues to advance
+ choose test validate and monitor your technology implementations to
+ensure that they address your migration goals
+technology refers to the technical solutions that your organisation will put in place as part
+of quantumsafe migration this can include classical solutions such as aes at sufficiently
+large key sizes that continue to be considered quantumsafe it also includes new
+techniques designed to be more resilient against quantumenabled attacks such as post
+quantum cryptography pqc and quantum key distribution qkd
+understanding the technology options
+quantumsafe cryptography qsc refers to cryptographic methods that are believed to be
+secure against both classical and quantum computing attacks these include existing
+symmetric ciphers and hash functions that are quantumresistant pqc as well as
+quantum technologies such as qkd qsc can also be used in hybrid or combination
+implementations
+post quantum cryptography
+pqc was developed as a response to the quantum threat to publickey cryptography the
+primary goal of pqc is to be an inplace replacement for classical publickey cryptography
+that can run on classical computing hardware with suitable options for every existing use
+case of publickey cryptography it is designed to resist attacks by classical adversaries and
+quantum algorithms such as shors algorithm and is designed to replace vulnerable
+classical encryption schemes such as asymmetric publickey cryptographic systems eg
+rsa ecdsa diffiehellman since  there has been a concerted global effort to
+develop pqc led by the us national institute of standards and technology nist
+pqc standardisation
+in  following eight years of review and study by international cryptographers nist
+published their first three pqc standards namely
+quantumsafe handbook 
+ fips  mlkem modulelattice key encapsulation mechanism based on
+algorithm crystalskyber
+ fips  mldsa modulelattice digital signature algorithm based on
+algorithm crystalsdilithium
+ fips  slhdsa stateless hashbased digital signature standard based on
+algorithm sphincs
+nist has also announced two further pqc algorithms that are pending standardisation
+ falcon a latticebased digital signature scheme
+ hamming quasicyclic hqc a codebased key encapsulation mechanism as
+a backup to mlkem
+ the security of pqc is based on the assumption that the underlying mathematical
+problems are too computationally complex for both quantum and classical
+computers to solve
+ there are different pqc algorithm families such as latticebased codebased hash
+based isogenybased and multivariate algorithms these descriptions refer to the
+underlying mathematical problems their security is based on
+ while pqc is ascertained to be quantumsafe against attacks based on known
+quantum algorithms future improvements in quantum and classical cryptanalysis
+may necessitate an upgrade of key sizes or a change in algorithms
+pqc offers a comprehensive suite of cryptographic functionalities including digital
+signatures key exchange and encryption making it wellsuited for integration into existing
+digital infrastructures with minimal disruption pqc can be implemented in software or
+hardware it can also be deployed into existing infrastructure and cryptographic libraries
+making it relevant for many existing use cases
+ some common use cases for pqc include network security eg tls vpn ssh
+ipsec secure emails and messaging eg smime pgp signing of software and
+firmware public key infrastructure pki authentication and access control eg
+smart cards security tokens encryption of storage eg hsm
+ deployment needs to account for performance overhead and impact due to
+increased pqc key sizes signature lengths and computation time compared to
+classical algorithms other requirements may include communication bandwidth
+and data storage as pqc may require larger public keys and signatures which can
+affect scenarios like tls handshake network resourceconstrained environments
+and certificate chains
+quantumsafe handbook 
+quantum key distribution
+qkd is a quantum technology technique that uses the principles of quantum mechanics to
+enable two parties to generate a shared secret qkdgenerated and communicated keys are
+considered highly secure as any attempt at eavesdropping attacks can be automatically
+detected by the sender and receiver given that it disturbs the quantum states of the photons
+involved
+for specific use cases eg where longterm confidentiality high assurance and critical
+infrastructure security are paramount qkd may serve as a complementary security
+mechanism
+ there are different types of qkd network architectures such as pointtopoint
+networks requiring direct links between communicating parties trusted node
+based networks that enable secure key exchange without direct pointtopoint links
+between each party and satellitebased networks that extend distances for long
+range qkd
+ some notable use cases of qkd adoption include secure communication between
+geographicallyseparated locations eg data centres enhancing network security
+protocols and encryption eg aes using qkdgenerated keys and securing
+backbone networks eg finance energy healthcare telecommunications services
+government and defence
+ qkd does not replace digital signatures  it does not provide authentication unless
+combined with preshared keys or pqc signatures
+ while qkd itself is theoretically secure robust implementation is needed to ensure
+that the physical setup is not vulnerable to sidechannel attacks the current state of
+technology also requires trusted nodes to be implemented to relay keys across
+longer distances these trusted nodes also need to be individually secure in order to
+maintain the security of the entire system
+use of qkd continues to move from lab environments into realworld deployment
+however given the potential vulnerabilities arising from realworld implementation
+eg to side channel attacks more testing and validation are needed to increase
+confidence in the use of qkd in wider adoption
+nonetheless standards bodies such as iso and etsi continue to develop standards for
+qkd security and testing these will support deployment and testing when ready
+quantumsafe handbook 
+it is generally considered more expensive and complex to implement qkd
+ physical infrastructure and integration are required for implementation including
+specialised qkd hardware as source of keys that are encoded in quantum states
+quantum and classical channels for transmission and distillation of keys and
+quantum key management systems to store and deliver qkdgenerated keys other
+potential factors affecting deployment include the cost of qkd devices scalability
+coverage distance and crossvendor interoperability
+ organisations may reduce the costs and complexity of owning specialised hardware
+and physical infrastructure by tapping on qkd solutions from service providers eg
+qkdasaservice
+organisations need to understand which of the existing cryptography they use today is
+vulnerable as well as the potential quantumsafe replacement options there may be
+performance and other operational tradeoffs for example larger keys and stronger
+hashing may impact latency and computational performance particularly in
+constrained environments eg iot and mobile
+key establishment
+key establishment may be accomplished using a preshared key used with a symmetric
+cipher or publickey cryptography the quantumsafe options include continuing to use
+a preshared symmetric key of a suitably large size eg aes a pqc key
+establishment mechanism mlkem or qkd note that a preshared key scheme
+assumes the existence of a secure mechanism to share this initial key so it does not by
+itself solve the problem of distributing keys between the two parties
+digital signatures
+digital signatures rely on publickey cryptography and the only quantumsafe options
+are pqc eg mldsa and slhdsa there are other older quantumsafe options for
+digital signatures based on stateful hash constructions namely xmss and lms but as
+the secure implementation and usage of these algorithms are tricky they are not
+expected to be widely adopted to complement the pqc options for digital signatures
+the search for more quantumsafe digital signatures is still ongoing to offer a greater
+variety of size and performance options
+symmetric ciphers
+as the security of symmetric ciphers is not dependent on the factoring problem nor the
+discrete logarithm problem they are not vulnerable to shors algorithm however given
+quantumsafe handbook 
+that grovers algorithm can impact their security the security of symmetric ciphers with
+smaller key sizes may potentially be broken with advancements in crqcs thus
+organisations need to consider using aes with key sizes larger than  bits to reduce
+the quantum risk for systems using the symmetric cipher
+hash functions
+like symmetric ciphers many existing hash functions are quantumsafe hash
+functions with output smaller than  bits are deemed as not quantumsafe and
+should no longer be used this applies to all use cases for hash functions
+enhancing cryptographic management practices
+quantumsafe migration also presents an opportunity for organisations to review their
+cryptographic management practices while these do not directly mitigate the quantum
+threat these are wellestablished costeffective practices that can be implemented now to
+improve the resilience security performance and manageability of existing systems
+organisations can consider
+ using stronger entropy sources for cryptographic schemes eg true random number
+generator trng these will introduce more unpredictability and randomness in the
+generation of cryptographic keys or values thereby strengthening the security of the
+scheme
+ strengthening key management practices across the key lifecycle from generation
+to destruction in practice this can include key rotation policies eg more frequent
+rotations limit the amount of data that could be exposed if a key is compromised
+audit logs to track and verify security across the key lifecycle and revocation
+mechanisms in case keys are found to be compromised organisations can also plan
+for pqcenabled certificates dualkey usage and key management across trust
+chains
+ they also enable systems to be cryptoagile during quantum safe migration to pqc
+and or qkd acting as fallback or backup cryptography during transition
+hybrid cryptography implementations
+hybrid cryptography approaches refer to the combined use of multiple cryptographic
+mechanisms this may involve classical cryptography algorithms pqc and or qkd
+protocols to provide defenceindepth
+quantumsafe handbook 
+while often discussed as interim solutions on a complete quantumsafe migration
+organisations can also consider hybrid implementations as part of the longerterm
+approach to optimise performance while raising quantum resistance hybrid
+implementations allow organisations to hedge against algorithmic uncertainty while
+maintaining interoperability with existing systems nonetheless such approaches may
+introduce performance and complexity tradeoffs and require careful planning prior to
+implementation
+pqcclassical and pqcpqc hybrid
+this section discusses two hybrid types
+ pqcclassical hybrid scheme in which a classical algorithm and a pqc algorithm
+are used in parallel for key exchange or digital signatures the combined result is
+used to perform functions like to secure a session authenticate a message verify a
+certificate or encrypt data the main goal is to integrate quantumresistant
+algorithms while maintaining compatibility with existing systems such a hybrid
+scheme also offers a failsafe mechanism for continued security and functionality
+even if the newly adopted pqc algorithms encounters unexpected vulnerabilities or
+implementation issues
+ pqcpqc hybrid in which two or more pqc algorithms are used within a single
+cryptographic operation this provides algorithmic diversity to avoid single points of
+cryptographic failure due to potential vulnerabilities in any single class of pqc
+algorithms eg latticebased hashbased
+use cases include
+ hybrid key exchange in which multiple key exchange algorithms are used to derive a
+shared session key
+ hybrid signatures to sign a digital message using both a classical signature
+algorithm eg rsa and a pqc signature algorithm eg mldsa followed by the
+independent verification of both signatures by the recipient
+ hybrid certificates contain multiple public keys and dual signatures enabling clients
+to authenticate using either classical and or postquantum methods
+such hybrid approaches typically require interoperability and support this may involve
+complexity in terms of support from cryptographic libraries and protocols certificate
+authorities endpoint software and libraries and key management systems organisations
+should consider operational and practical factors in choosing a hybrid scheme and the
+component algorithms including performance overhead eg computation time memory
+quantumsafe handbook 
+usage complexity of implementation compatibility with existing and legacy systems eg
+protocols like tls and ipsec libraries and software stacks pki and fallback options ie
+failsafe mechanism in case of pqc failure
+we continue to observe developments in hybrid pqcclassical and pqcpqc
+approaches
+ ietf is developing the standard for hybrid key exchange in tls  draftietftls
+hybriddesign such that even if one algorithm becomes compromised the
+other can still provide a secure foundation for the session key
+ nist is developing standards nist sp c on testing for performance and
+interoperability of pqc algorithms
+ there are other international standards developments such as the ietfs rfc
+ terminology for postquantum traditional hybrid schemes and the
+isoiec  stateful hashbased mechanisms
+as understanding of the benefits and potential tradeoffs of such hybrids continues to
+evolve organisations should weigh these against their operational context and use
+cases to inform adoption if at all
+qkdpqc hybrid
+qkdpqc cryptography combines both technologies to strengthen cryptographic systems
+with a defenceindepth strategy leveraging both quantumsafe algorithmic security and
+quantum physicsbased secrecy the goal behind this hybrid model is to ensure that even if
+one layer is compromised the other can still uphold security assurance for the system
+implementation would encompass requirements from both technologies where new
+infrastructure is needed for qkd eg quantum devices channels key management and
+software system upgrades are necessary for pqc other implementation factors could
+include additional support at protocol levels and interfaces to integrate both qkd and pqc
+derived keys as such given the implementation complexity and potential performance
+implications eg computational latency increased communications bandwidth
+organisations should define their security goals and use case requirements to assess if such
+a hybrid is meaningful or necessary this can in turn inform the appropriate deployment
+architecture possible hybrid deployments include
+ overlay pqc in a qkd network where pqc handles authentication and access
+control over a qkd backbone
+ qkd generates a shared secret key through quantum channels and authenticated
+classical communication while pqc is used to perform a separate key exchange
+quantumsafe handbook 
+the secure authentication of classical channels for qkd can be done via pqc or pre
+shared keys the two keys exchanged through qkd and pqc respectively are then
+combined to form a final hybrid session key
+ qkdgenerated keys are distributed across satellites in intercontinental links and
+integrated with pqc algorithms for terrestrial interconnects and vice versa
+cryptographic agility
+cryptographic agility refers to the capability of an organisation to rapidly adapt its
+cryptographic assets quickly and with minimal disruption theoretically it should enable
+seamless replacement or reconfiguration of algorithms protocols keys and supporting
+cryptographic libraries in response to technological shifts newly identified weaknesses or
+compliance obligations this is a valuable characteristic in quantumsafe migration given
+the expectation that algorithms that are considered quantumsafe today may become
+vulnerable as quantum computers grow more powerful
+cryptographic agility is an umbrella concept that relies on visibility flexible architectures
+automation as well as fitforpurpose governance approaches it should be seen as part of
+the organisations wider digital transformation agenda it supports initiatives such as it
+modernisation cloud adoption automation and compliance management by embedding
+flexibility and control into the cryptographic layer designing cryptographic services with
+centralised control and welldefined interfaces allows consistency across diverse platforms
+and simplifies integrations when new protocols or algorithms are required
+ comprehensive visibility fundamentally agility requires clear visibility into where
+and how cryptography is used organisations should establish processes to identify
+locate and understand their cryptographic assets as well as their interconnections
+within systems and supply chains this allows organisations to systematically
+pinpoint dependencies on outdated or vulnerable components rather than
+discovering risks reactively during incidents or audits or relying on adhoc
+inventorisation efforts
+ flexible and modular architecture agility requires software and systems to be
+designed for the modular and interchangeable implementation of cryptography
+applications should avoid embedding cryptographic parameters directly into code
+instead cryptographic functions can be externalised through secure apis
+abstraction layers or cryptographic service providers so algorithms can be replaced
+or upgraded without extensive redevelopment
+ automation automation is essential for maintaining agility at scale integrating
+cryptographic management within devsecops pipelines enables controlled testing
+validation and rollout of algorithm or configuration updates without manual
+quantumsafe handbook 
+intervention automated monitoring and configuration management tools can detect
+deprecated algorithms or misconfigurations early
+ fit for purpose governance sound governance ensures that cryptographic changes
+occur in a controlled and accountable manner organisations should define clear
+policies specifying how cryptographic mechanisms are selected updated and
+retired along with approval and review processes to manage these transitions
+effective governance also requires coordination between security engineering
+compliance and risk management teams to ensure that updates align with
+regulatory requirements internal risk tolerances and business continuity objectives
+however the concept of cryptographic agility is still maturing across the global
+cybersecurity community and there is no comprehensive outofthebox solution
+standards bodies regulators and industry groups are actively developing frameworks
+models and reference architectures to define and operationalise agility in practice these
+efforts aim to establish shared terminology and practical methodologies that help
+organisations assess their readiness and embed agility as a core element of their quantum
+safe transition strategy as these frameworks continue to evolve organisations should keep
+a close watch on emerging developments and align their approaches accordingly
+implementation testing and validating quantumsafe solutions
+organisations should consider the following when identifying technology solutions for their
+quantumsafe migration
+ choose quantumsafe solutions to best fit operational security risk and
+performance requirements organisations can also design hybrid implementations
+between classical and pqc algorithms to support the transition phase or for the long
+term refer to domain  technology for more information on the different technology
+options
+ prepare for integration and interoperability between quantumsafe and classical
+systems this can span several osi layers including the physical network and
+protocol levels
+ leverage automation to integrate cryptographic changes into devsecops pipelines
+where possible to reduce human error
+ plan for phased deployment to facilitate coexistence and gradual migration without
+disrupting existing services backward compatibility and integration with existing
+systems are important to enable gradual migration while maintaining system
+operations implement contingency options to revert systems to a stable state in
+case of issues
+quantumsafe handbook 
+ understand the impact of implementing quantumsafe technologies through proof
+ofconcept and pilot projects towards eventual deployment and transition these
+should leverage controlled but realistic environments before full deployment to
+operational systems
+comprehensive validation ensures that the implementation is robust compatible and
+secure preventing operational disruptions and the introduction of new security
+vulnerabilities key practices include to
+ verify cryptographic operations test encryption decryption signing and verification
+to ensure expected behaviour across all systems
+ assess system stability ensure migrated systems continue to support critical
+business processes and can recover safely from errors
+ evaluate performance under realistic conditions measure processing time resource
+consumption and response under normal and peak workloads to identify
+bottlenecks
+ check interoperability across systems confirm that implementation works
+seamlessly with other remaining systems applications and thirdparty integrations
+ identify vulnerabilities early conduct penetration testing to uncover implementation
+weaknesses
+quantumsafe migration may introduce both business and technical risks due to the
+complexity of replacing foundational cryptographic components without proper
+management these risks can lead to service disruption degraded security or increased
+operational burden a structured risk management approach helps ensure migration
+proceeds in a controlled and resilient manner key practices include to
+ conduct migrationspecific risk assessments evaluate potential business impacts
+eg service downtime compliance gaps reputational harm alongside technical
+risks eg interoperability failures or dependency issues
+ assess interdependencies and cascading risks map upstream downstream and
+thirdparty connections to prevent disruptions that may propagate across systems or
+business units
+ embed continuous risk review reassess and update risk registers as migration
+progresses incorporating new technical findings emerging pqc standards and
+operational lessons
+quantumsafe handbook 
+ plan for contingencies develop fallback options rollback procedures and recovery
+playbooks to mitigate the impact of migration failures or unexpected performance
+issues
+quantumsafe migration is an iterative process continuous monitoring and reviews will
+ensure that the implementation progresses according to plan and that systems remain
+secure and compliant it enables organisations to identify and address issues promptly
+while maintaining operational reliability and align with evolving standards and
+developments key practices include
+ compliance oversight verify ongoing alignment with regulatory and organisational
+standards as standards evolve
+ stakeholder communication keep business and technical teams informed about
+migration progress operational impact and value of pqc adoption
+example postquantum migration for endpoint device file encryption
+this case study examines an enterprise laptop equipped with softwarebased file
+encryption designed to safeguard sensitive corporate data stored locally on the device
+the current encryption model employs elliptic curve cryptography ecc for key
+management with files stored in the standard cryptographic message syntax cms
+format in this model
+ aes is used for file content encryption
+ the aes key is encrypted to the users x publickey certificate
+ files are digitally signed to ensure both authenticity and integrity
+with the advent of quantum computing threats the organisation intends to migrate from
+classical cryptography to pqc using algorithms such as mlkem for key encapsulation
+and mldsa for digital signatures this transition aims to preserve the confidentiality
+and integrity of data against future quantumcapable adversaries
+migration strategy
+file encryption on enterprise laptops is typically managed internally by the organisation
+and may not require interoperability with external parties in this specific context
+encryption is intended solely to protect a users own files rather than to facilitate secure
+sharing with other recipients the recommended approach is to adopt pqc directly for
+all new encryption operations avoiding hybrid or phased transitions
+quantumsafe handbook 
+engineering and implementation
+establish a pqccapable pki
+ deploy an enterprise pki supporting mlkem and mldsa with updated x
+certificate profiles for pqc keys
+ integrate certificate issuance distribution and revocation processes into
+existing device management workflows
+ treat the pqcbased pki as a core anchor for the migration as the encryption
+software will rely on it for all pqc operations
+develop pqcenabled file encryption software
+the endpoint file encryption application must retain the ability to decrypt and verify
+legacy eccencrypted files allowing users continued access to preexisting encrypted
+content however once a file is modified or newly created it should automatically be
+signed and encrypted exclusively with pqc algorithms
+the key design considerations are
+ architect a secure workflow for decrypting eccencrypted files by authorised
+users and reencrypting them with pqc
+ maintain legacy ecc decryption and signature verification capability
+ implement cms support for mlkem and mldsa in line with emerging pqc
+standards
+ ensure cryptoagility and precise object identifier tagging in accordance with
+ietf cms specifications to avoid ambiguity in cryptographic structure handling
+develop supporting tools for pqc migration
+while files will naturally migrate to pqc as users modify and save them it is advisable
+to proactively convert all existing encrypted files to pqc to eliminate any residual
+content vulnerable to quantum attack this can be achieved through dedicated
+migration tools that
+ scan for eccencrypted files
+ decrypt them with authorisation using ecc
+ resign and reencrypt content with pqc
+ operate unobtrusively in the background as lowpriority processes to minimise
+user disruption
+such tools mitigate the risk of harvestnow decryptlater hndl attacks by ensuring no
+legacy eccencrypted files remain on the device
+quantumsafe handbook 
+challenges
+standards and interoperability
+pqc support in cms and x is still evolving and some cryptographic libraries may
+lag in adopting the standards migrating data before standards are finalised risks
+producing large volumes of files that may require complex and costly reprocessing it is
+therefore prudent to defer largescale data migration until cms standards are formally
+established
+performance considerations
+while mlkem and mldsa generally offer comparable computational performance to
+ecc on modern enterprisegrade cpus their larger key sizes and signatures increase
+cms payload sizes this may marginally affect storage efficiency and performance
+particularly on systems handling large volumes of small files
+the reencryption of large files can be timeconsuming performance may be optimised
+by retaining the existing aes key and rewrapping it with pqc rather than generating a
+new one
+summary
+for enterprise laptop file encryption a secure and operationally efficient strategy is to
+migrate in a single step to pqc for all new encryption while preserving compatibility
+with existing eccprotected files
+by combining robust pki planning the development of pqcenabled applications and
+migration tools and the adoption of standardscompliant cryptographic structures
+organisations can carry out a smooth wellgoverned transition to pqcbased file
+encryption
+quantumsafe handbook 
+domain  training and capability
+key takeaways
+ your organisations stakeholders and people need to have the necessary
+information and skills to support quantumsafe migration
+ organisations will need to identify if where and how to build internal
+capabilities to support migration
+training and building capability seek to ensure that your organisation and people have the
+necessary skills and information to support your quantumsafe migration journey this
+entails education and awareness of the risks and migration strategies as well as technical
+competencies to support eventual execution
+based on the stakeholder groups indicated in domain  governance we identify
+competencies that could be useful to aid their quantumsafe migrationrelated roles and
+responsibilities as well as potential reference resources
+stakeholder related competenciesskills in order to references resources
+group
+senior  understanding the quantum  establish migration omb memorandum m
+management threat and potential vision and goals for migrating to postquantum
+and decision implications on business quantumsafe cryptography
+makers operations migration and
+ understanding regulatory approve resources commission recommendation
+requirements and efforts and eu 
+contractual obligations timelines
+report on postquantum
+cryptography us federal action
+plan
+nis cooperation group  a
+coordinated implementation
+roadmap for the transition to
+pqc
+canadian quantumreadiness
+best practices  guidelines v
+cybersecurity  threat modelling and risk  develop and nist sp c prelim
+teams assessment in relation to manage the migration to pqc interoperability
+the quantumthreat migration plan for compatibility  performance
+quantumsafe handbook 
+ identify test and evaluate systems of interest
+potential quantumsafe including budget fsisac preparing for a post
+solutions and standards to and resources quantum world by managing
+meet security requirements required with the cryptographic risk
+ configuration and upgrades ittech team
+of cryptographic and  execute the etsi tr   v quality of
+software libraries migration steps pqc implementation  migration
+ verify and validate including assessment
+implementation implementing
+solutions eg pqc nist cswp getting ready for post
+qkd working with quantum cryptography
+vendors as
+necessary
+ monitor progress fsisac risk model
+it and  identify and prioritise  develop and nist sp b prelim
+technology systems for migration in manage the migration to pqc discovery 
+strategy teams consultation with the migration plan for architecture
+security team systems of interest
+ identify existing including budget fsisac current state crypto
+cryptographic assets and and resources agility technical paper
+build and manage inventory required with the
+working with vendors and security team tnocwiaivd the pqc migration
+identifying appropriate tools  conduct handbook nd ed
+to do so cryptographic asset
+ configuration and upgrades discovery and etsi tr   v migration
+of cryptographic and create and manage strategies  recommendations
+software libraries an inventory
+ verify and validate  monitor progress
+implementation especially
+with a view to functionality
+and interoperability
+business units  understand the quantum  sign off and shape wef quantum readiness toolkit
+threat and potential the quantumsafe 
+implications on business migration strategy
+operations approach in tnocwiaivd pqc migration
+ understand regulatory alignment with handbook nd ed
+requirements and business
+contractual obligations operations and eu nis cooperation group pqc
+needs eg to roadmap
+manage downtime
+quantumsafe handbook 
+domain  external engagements
+key takeaways
+ work with your thirdparty vendors to understand their quantumsafe
+roadmaps and your risk exposure based on the products and services that you
+rely on
+ leverage expertise within the ecosystem to guide and drive migration efforts
+working with thirdparty solution providers and vendors
+many organisations depend on thirdparty solution providers and vendors for operational
+capabilities like cloud computing and enterprise applications to security solutions this
+creates complexity in quantumsafe migration as organisations may not have full visibility
+or control over their technology components and in turn cryptographic assets this means
+that
+ a significant part or all of quantumsafe migration can only be executed by the
+solution provider vendor which has implications on an organisations migration
+timeline and success and
+ if the solution provider vendor is slow to or unable to migrate to a quantumsafe
+solution they may present vulnerabilities or compliance risks for your organisations
+cybersecurity risk posture
+as such organisations that leverage such thirdparty solution providers should proactively
+engage vendors and partners early to confirm product readiness and pqc roadmap
+compatibility relatedly procurement and contractual requirements for such solution
+providers should align with your organisations goals for quantumsafe
+migration organisations should
+ communicate the importance of quantumsafe readiness to vendors and establish
+clear expectations for quantumsafe migration including developing contingency
+strategies such as hybrid approaches for legacy systems that cannot be updated
+quickly or at all
+ evaluate the solution providers current cryptographic practices and future migration
+plans to ensure alignment with your organisations goals
+ request a cryptographic inventory of algorithms and components for the products
+and services that you procure acquire from the solution provider
+quantumsafe handbook 
+ work with vendors to understand their ability to update algorithms as new quantum
+safe developments emerge
+ per domain  governance assess the vendors quantumsafe capabilities and use
+these assessments to inform procurement processes contract renewals and risk
+management activities
+we have compiled a list of questions that may be useful to ask solution providers
+vendors when engaging them as part of your quantumsafe migration journey
+roadmap and transition
+ what is your roadmap for integrating pqc into your products and services
+ which cryptographic algorithms are being prioritised for migration and what
+standards eg fips    do they comply with
+ what is your expected timeline for pqcenabled product releases or updates
+ what is your expected timeline for pqcenabled product certifications eg nist
+fips or common criteria
+implementation and costs
+ can you provide an inventory of cryptographic algorithms protocols schemes
+and components used across your products and services
+ will quantumsafe integration require software firmware or hardware changes
+for the organisation and what are the associated costs
+ how will you ensure interoperability and backward compatibility during the
+transition
+ how will you support and validate the cryptographic implementation in your
+solutions
+ what is your process for maintaining updating and replacing cryptographic
+components across different protocols as cryptography evolves
+experience and case studies
+ can you share examples or success stories of quantumsafe migration that you
+have supported
+ what are the potential challenges that my organisation should be aware of will
+there be downtime or operational disruption
+quantumsafe handbook 
+leveraging the broader ecosystem to support your quantumsafe migration journey
+the postquantum transition will take place over many years organisations can leverage
+the existing talent experience and expertise within industry and other relevant expert
+bodies to support their migration efforts it is therefore useful to build longterm
+partnerships and identify where you can leverage external capacity while preserving
+internal expertise and retaining control over your organisations critical decisions
+risk assessment potential references resources
+ companies and consultancies have started to fsisac risk model
+develop quantum readiness frameworks and can
+be engaged to support organisations across eys improving tomorrows security by
+different industry sectors in their migration decoding the quantum computing
+planning and assessments threat
+deloittes quantum cyber readiness
+services
+ vendors and opensource projects have started nist sp b quantum readiness
+to develop automated discovery tools and cryptographic discovery
+scanners that can scan applications apis and
+data flows to support cryptographic asset
+discovery even for niche environments
+governance
+ industry and nongovernmental organisations wef quantum readiness toolkit 
+have developed resources on governance
+templates roadmaps and best practices tnocwiaivd pqc migration handbook
+nd ed
+bsi migration to post quantum
+cryptography
+technology
+ the opensource community and postquantum open quantum safe oqs project aims to
+cryptographic providers have made available support the development and prototyping of
+source code and implementation libraries for quantumresistant cryptography and is part
+experimentation and integration test harnesses of the linux foundations postquantum
+and benchmark routines are also provided to cryptography alliance
+compare the performance of pqc algorithm
+implementations in a common framework
+quantumsafe handbook 
+pq code package is a collection of open
+source projects that aim to build high
+assurance implementations of standards
+track pqc algorithms
+ international standards organisations and ietf lamps  limited additional
+working groups including nist and ietf are mechanisms for pkix and smime is an ietf
+defining and specifying pqc standards for pki working group that aims to define
+etsi and isoiec are also spearheading initiatives extensions and algorithm identifiers to
+to standardise qkd focusing on interoperability incorporate postquantum primitives into
+interface definitions and security assurance existing x and cms structures
+frameworks
+ietf hackathon  pqc certificates the
+project provides repositories for x data
+structures and also provides a
+comprehensive compatibility matrix
+etsi quantumsafe cryptography working
+group
+etsi industry specification group qkd
+isoiec  security requirements test
+and evaluation methods for qkd
+httpswwwisoorgstandardhtml
+httpswwwisoorgstandardhtml
+ standards organisations independent the nist cryptographic algorithm
+laboratories and industry consortia are validation program cavp provides
+collaborating to support functional validations validation testing of fipsapproved pqc
+and facilitate plugfests for integration and algorithms pqc algorithm
+interoperability testing implementations successfully validated by
+nist are also added to the validation list
+the nist sp c led by the nccoe in
+collaboration with industry and academic
+partners conducts labbased testing of
+pqc to assess interoperability and
+performance it provides a public report
+that documents findings lessons learned
+and practical guidance
+the pki consortium manages a pqc
+capability matrix pqccm listing software
+applications libraries and hardware with
+postquantum support
+quantumsafe handbook 
+training and capability
+ industry associations are creating collaborative the pki consortium provides a
+learning communities that bring together collaborative platform for members to
+industry academia and government to share migration experiences tools and best
+strengthen trust and interoperability in public key practices for quantumsafe pki
+infrastructures and prepare for the postquantum deployment it promotes knowledge
+era exchange in conferences and technical
+handson workshops
+the cloud security alliances quantum
+safe working group supports the global
+community in the development and
+deployment of a framework to protect data
+in the postquantum era it also offers a
+range of publications and resources
+quantumsafe handbook 
+unknowns assumptions and moving forward
+key takeaways
+ we may never know when qday is it cannot form a reliable reference point
+for quantumsafe migration and organisations should start as soon as
+practically possible to start preparing and seeding changes
+ quantumsafe solutions available today can become obsolete in the future
+plan upfront to make changes to adapt to new technology options and
+developments
+ making investments in rd and working closely with international and
+industry partners to monitor the quantum computing landscape and raise
+awareness will support the ecosystem in being quantumsafe
+collectively cybersecurity industry leaders regulatory bodies and academic experts
+should consider how to work together to raise public awareness about the threat quantum
+computers pose to cryptographic security  and the profound impacts it may have on the
+economy and society right now public understanding is low due to a focus on the
+mechanics of quantum computing rather than the realworld implications for digital privacy
+secure communications and the reliability of essential operations while the technology
+itself is complex the message of the risk is simple the systems and processes that underpin
+daily life could become vulnerable to attack
+despite the ubiquity of digital communication and widespread digital literacy most people
+remain unaware of how quantum advancements threaten this way of life we can explore
+coordinated awareness campaigns and align our communications internationally to
+address this gap  not only to drive awareness and support for necessary investments but
+also to establish a channel for communicating updates on quantum developments and
+evolving cryptographic standards regulators and industry leaders have a role to play to
+advise the public on these emerging threats and in turn help to build public trust and
+prevent misinformation or unnecessary panic
