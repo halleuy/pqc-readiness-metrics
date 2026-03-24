@@ -1,7 +1,7 @@
 import os
 import pandas as pd
 
-results_dir = "results/"
+results_dir = "../results/"
 all_results = []
 
 for file in os.listdir(results_dir):
