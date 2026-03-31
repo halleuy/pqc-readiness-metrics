@@ -53,17 +53,6 @@ class NLPScorer:
         for dim, text in DIMENSION_REFERENCES.items():
             self.ref_embeddings[dim] = self.model.encode(text)
 
-    def load_text_for_nlp(pdf_path):
-        import pdfplumber
-
-        text = ""
-        with pdfplumber.open(pdf_path) as pdf:
-            for page in pdf.pages:
-                text += page.extract_text() + "\n"
-
-        text = ' '.join(text.split())
-        return text
-
     def score_document(self, text, chunk_size=512):
         words = text.split()
         chunks = []
@@ -102,6 +91,17 @@ class NLPScorer:
         else:
             return 1
         
+def load_text_for_nlp(pdf_path):
+    import pdfplumber
+
+    text = ""
+    with pdfplumber.open(pdf_path) as pdf:
+        for page in pdf.pages:
+            text += page.extract_text() + "\n"
+
+    text = ' '.join(text.split())
+    return text
+
 if __name__ == "__main__":
     SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
     PROJECT_DIR = os.path.dirname(SCRIPT_DIR)
@@ -118,7 +118,6 @@ if __name__ == "__main__":
         text = load_text_for_nlp(filepath)
 
         similarities = scorer.score_document(text)
-
         dimension_scores = {
             dim: scorer.similarity_to_score(sim)
             for dim, sim in similarities.items()
