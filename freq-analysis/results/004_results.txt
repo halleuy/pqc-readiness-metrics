@@ -1,0 +1,8 @@
+Framework: 004.txt
+Total Words: 9485
+========================================
+crypto_assets: 5
+crypto_agility: 101
+migration_planning: 20
+risk_management: 36
+standards_compliance: 35

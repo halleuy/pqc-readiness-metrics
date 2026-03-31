@@ -1,7 +1,0 @@
-Framework: POST-QUANTUM CRYPTOGRAPHY READINESS IN U.S. COMMUNITY BANKS AND FINANCIAL SMES: A CYBERSECURITY RISK ASSESSMENT FRAMEWORK.txt
-========================================
-crypto_assets: 1
-crypto_agility: 13
-migration_planning: 9
-risk_management: 10
-standards_compliance: 18

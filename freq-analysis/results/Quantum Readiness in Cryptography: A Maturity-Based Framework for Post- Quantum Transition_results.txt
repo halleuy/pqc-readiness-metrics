@@ -1,7 +1,0 @@
-Framework: Quantum Readiness in Cryptography: A Maturity-Based Framework for Post- Quantum Transition.txt
-========================================
-crypto_assets: 36
-crypto_agility: 46
-migration_planning: 33
-risk_management: 41
-standards_compliance: 64
