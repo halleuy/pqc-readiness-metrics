@@ -1,4 +1,5 @@
-Framework: QUANTUM COMPUTING IN FINANCE: A STRATEGIC ROADMAP FOR INVESTORS AND BANKS.txt
+Framework: 003.txt
+Total Words: 3101
 ========================================
 crypto_assets: 0
 crypto_agility: 2

@@ -1,4 +1,5 @@
-Framework: Quantum Readiness: Unlocking the Quantum Advantage for Australian Industries.txt
+Framework: 007.txt
+Total Words: 2509
 ========================================
 crypto_assets: 0
 crypto_agility: 0

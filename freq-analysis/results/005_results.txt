@@ -1,0 +1,8 @@
+Framework: 005.txt
+Total Words: 11542
+========================================
+crypto_assets: 27
+crypto_agility: 111
+migration_planning: 40
+risk_management: 59
+standards_compliance: 33

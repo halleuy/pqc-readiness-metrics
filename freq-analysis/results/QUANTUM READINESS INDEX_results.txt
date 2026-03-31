@@ -1,7 +1,0 @@
-Framework: QUANTUM READINESS INDEX.txt
-========================================
-crypto_assets: 4
-crypto_agility: 101
-migration_planning: 17
-risk_management: 14
-standards_compliance: 35
