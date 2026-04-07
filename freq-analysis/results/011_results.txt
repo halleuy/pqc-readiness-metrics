@@ -1,0 +1,8 @@
+Framework: 011.txt
+Total Words: 5053
+========================================
+crypto_assets: 4
+crypto_agility: 30
+migration_planning: 4
+risk_management: 1
+standards_compliance: 35

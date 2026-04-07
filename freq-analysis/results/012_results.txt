@@ -1,0 +1,8 @@
+Framework: 012.txt
+Total Words: 1538
+========================================
+crypto_assets: 2
+crypto_agility: 1
+migration_planning: 14
+risk_management: 15
+standards_compliance: 10

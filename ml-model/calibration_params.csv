@@ -1,0 +1,6 @@
+dimension,slope,intercept,cal_mae,loo_mae,spearman_rho
+crypto_assets,1.84191,1.966373,1.278,1.444,0.663
+crypto_agility,1.107565,2.048358,1.333,1.5,0.289
+migration_planning,1.009161,2.211067,1.111,1.111,0.0
+risk_management,0.967517,2.515203,1.167,1.167,0.0
+standards_compliance,0.759069,2.870406,1.0,1.0,0.0

@@ -1,0 +1,8 @@
+Framework: 016.txt
+Total Words: 11156
+========================================
+crypto_assets: 17
+crypto_agility: 5
+migration_planning: 14
+risk_management: 23
+standards_compliance: 10

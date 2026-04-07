@@ -1,0 +1,208 @@
+mir nc slc
+s
+th congress ll
+d session
+to encourage the migration of federal government information technology
+systems to quantumresistant cryptography and for other purposes
+in the senate of the united states
+llllllllll
+ms hassan for herself and mr portman introduced the following bill
+which was read twice and referred to the committee on
+llllllllll
+a bill
+to encourage the migration of federal government informa
+tion technology systems to quantumresistant cryptog
+raphy and for other purposes
+ be it enacted by the senate and house of representa
+ tives of the united states of america in congress assembled
+
+section  short title
+ this act may be cited as the quantum computing
+ cybersecurity preparedness act
+
+sec  findings sense of congress
+ a findingscongress finds the following
+mir nc slc
+
+  cryptography is essential for the national
+ security of the united states and the functioning of
+ the economy of the united states
+  the most widespread encryption protocols
+ today rely on computational limits of classical com
+ puters to provide cybersecurity
+  quantum computers might one day have the
+ ability to push computational boundaries allowing
+ us to solve problems that have been intractable thus
+ far such as integer factorization which is important
+ for encryption
+  the rapid progress of quantum computing
+ suggests the potential for adversaries of the united
+ states to steal sensitive encrypted data today using
+ classical computers and wait until sufficiently pow
+ erful quantum systems are available to decrypt it
+ b sense of congressit is the sense of con
+ gress that
+  a strategy for the migration of information
+ technology systems of the federal government to
+ postquantum cryptography is needed and
+  the governmentwide and industrywide ap
+ proach to postquantum cryptography should
+ prioritize developing applications hardware intellec
+mir nc slc
+
+ tual property and software that can be easily up
+ dated to support cryptographic agility
+
+sec  definitions
+ in this act
+  classical computerthe term clas
+ sical computer means a device that accepts digital
+ data and manipulates the information based on a
+ program or sequence of instructions for how data is
+ to be processed and encodes information in binary
+ bits that can either be s or s
+  director of cisathe term director of
+ cisa means the director of the cybersecurity and
+ infrastructure security agency
+  director of nistthe term director
+ of nist means the director of the national insti
+ tute of standards and technology
+  director of ombthe term director of
+ omb means the director of the office of manage
+ ment and budget
+  executive agencythe term executive
+ agency has the meaning given the term executive
+ agency in section  of title  united states
+ code
+mir nc slc
+
+  information technologythe term
+ information technology has the meaning given the
+ term in section  of title  united states code
+  postquantum cryptographythe
+ term postquantum cryptography means a cryp
+ tographic system that
+ a is secure against decryption attempts
+ using a quantum computer or classical com
+ puter and
+ b can interoperate with existing commu
+ nications protocols and networks
+  quantum computerthe term quan
+ tum computer means a computer that uses the col
+ lective properties of quantum states to perform cal
+ culations
+
+sec  inventory of cryptographic systems migra
+
+tion to postquantum cryptography
+ a inventory
+  establishmentnot later than  days
+ after the date of enactment of this act the director
+ of omb shall establish by rule or binding guidance
+ a requirement for each executive agency to establish
+ and maintain an inventory of each cryptographic
+ system in use by the agency
+mir nc slc
+
+  additional content in rule or bind
+ ing guidancein the rule or binding guidance es
+ tablished by paragraph  the director of omb
+ shall include in addition to the requirement de
+ scribed under that paragraph
+ a a description of information technology
+ to be prioritized for migration to postquantum
+ cryptography
+ b a description of the information re
+ quired to be reported pursuant to subsection
+ b and
+ c a process for evaluating progress on
+ migrating information technology to postquan
+ tum cryptography which shall be automated to
+ the greatest extent practicable
+  periodic updatesthe director of omb
+ shall update the rule or binding guidance established
+ by paragraph  as the director determines nec
+ essary
+ b agency reportsnot later than  year after
+ the date of enactment of this act and on an ongoing basis
+ thereafter the head of each executive agency shall provide
+ to the director of omb the director of cisa and the
+ national cyber director an inventory of all information
+mir nc slc
+
+ technology in use by the executive agency that is vulner
+ able to decryption by quantum computers
+ c migration and assessment
+  migration to postquantum cryptog
+ raphynot later than  year after the date on
+ which the director of nist has issued postquan
+ tum cryptography standards the director of omb
+ shall issue guidance requiring each executive agency
+ to develop a plan to migrate information technology
+ of the agency to postquantum cryptography
+  designation of systems for migra
+ tionnot later than  days after the date on
+ which the guidance required by paragraph  has
+ been issued the director of omb shall issue guid
+ ance for agencies to
+ a designate information technology to be
+ migrated to postquantum cryptography and
+ b prioritize information technology des
+ ignated under subparagraph a on the basis
+ of the amount of risk posed by decryption by
+ quantum computers to that technology for mi
+ gration to postquantum cryptography
+ d interoperabilitythe director of omb shall
+ ensure that the designations and prioritizations made
+mir nc slc
+
+ under subsection c are assessed and coordinated to
+ ensure interoperability
+ e report on postquantum cryptography
+ not later than  months after the date of enactment of
+ this act the director of omb shall submit to congress
+ a report on the following
+  a strategy to address the risk posed by the
+ vulnerabilities of information technology systems of
+ executive agencies to weakened encryption due to the
+ potential and possible capability of a quantum com
+ puter to breach that encryption
+  the amount of funding needed by executive
+ agencies to secure the information technology sys
+ tems described in paragraph  from the risk posed
+ by an adversary of the united states using a quan
+ tum computer to breach the encryption of informa
+ tion technology systems
+  a description of federal civilian executive
+ branch coordination efforts led by the national in
+ stitute of standards and technology including
+ timelines to develop standards for postquantum
+ cryptography including any federal information
+ processing standards developed under chapter  of
+ title  united states code as well as standards
+ developed through voluntary consensus standards
+mir nc slc
+
+ bodies such as the international organization for
+ standardization
+ f report on migration to postquantum
+ cryptography in information technology sys
+ temsnot later than  year after the date on which the
+ director of omb issues guidance under subsection c
+ and annually thereafter until the date that is  years after
+ the date on which postquantum cryptographic standards
+ are issued the director of omb shall submit to congress
+ with the report submitted pursuant to section c of
+ title  united states code a report on the progress of
+ executive agencies in adopting postquantum cryptography
+ standards
+
+sec  determination of budgetary effects
+ the budgetary effects of this act for the purpose of
+ complying with the statutory payasyougo act of 
+ shall be determined by reference to the latest statement
+ titled budgetary effects of paygo legislation for this
+ act submitted for printing in the congressional record
+ by the chairman of the house budget committee pro
+ vided that such statement has been submitted prior to the
+ vote on passage
