@@ -1,0 +1,641 @@
+in collaboration
+with deloitte
+quantum readiness toolkit
+building a quantumsecure economy
+w h i t e p a p e r
+j u n e    
+images getty images
+contents
+foreword 
+executive summary 
+ guiding principles to become quantum cyberready 
+ the principles to become quantum cyberready indepth analysis 
+ ensure the organizational governance structure institutionalizes 
+quantum risk
+ raise quantum risk awareness throughout the organization 
+ treat and prioritize quantum risk alongside existing cyber risks 
+ make strategic decisions for future technology adoption 
+ encourage collaboration across ecosystems 
+conclusion 
+appendix 
+contributors 
+endnotes 
+disclaimer
+this document is published by the
+world economic forum as a contribution
+to a project insight area or interaction
+the findings interpretations and
+conclusions expressed herein are a result
+of a collaborative process facilitated and
+endorsed by the world economic forum
+but whose results do not necessarily
+represent the views of the world economic
+forum nor the entirety of its members
+partners or other stakeholders
+  world economic forum all rights
+reserved no part of this publication may
+be reproduced or transmitted in any form
+or by any means including photocopying
+and recording or by any information
+storage and retrieval system
+quantum readiness toolkit building a quantumsecure economy 
+june  quantum readiness toolkit
+building a quantumsecure economy
+foreword
+leaders need to understand and take account
+of the quantum threat when strategizing about
+enterprise security
+jeremy jurgens isaac kohn colin soutar
+managing director partner deloitte switzerland managing director
+world economic forum deloitte usa
+accelerating developments in the field of quantum at the heart of these principles is a focus on risk
+computing will bring new challenges to the management and the need to take a proactive
+cybersecurity landscape organizations will need approach to security using technical and soft skills
+to adapt to the risk posed by quantum computers organizations must better understand the risk they
+which will have the potential to break many of the are exposed to so they can take the right steps to
+cryptographic systems that we rely on today for mitigate them this requires a willingness to invest
+secure communications and data protection today in the necessary tools and experience to
+become quantum cyberready
+last year the world economic forum in
+collaboration with deloitte published the white as we look to the future quantum computing
+paper transitioning to a quantumsecure economy will undoubtedly bring new challenges and
+outlining the risks of quantum computers and opportunities with the right approach however
+providing initial guidance for organizations to organizations can prepare so they are ready to
+transform their governance and security practices navigate this new landscape and protect their
+for the quantum era even if the quantum threat has critical assets and information we hope that the
+not materialized yet it is crucial for organizations principles presented in this white paper will serve as
+to start planning a secure and timely quantum a valuable resource for organizations as they seek
+transition to avoid a more significant impact in future to enhance their quantum security readiness
+to help organizations prepare for this new reality although the timescale for a fully mature
+this white paper presents a set of principles commericallyviable quantum computer being
+that organizations can use to help ensure they available is still under much debate there is
+are ready to enter the quantum computing era consensus that there is a real probability that one
+securely these principles cover a range of areas will exist in the future the real question is how long
+from strategizing about futureproof technology will it take you to upgrade your infrastructure and
+embedding quantum risk in governance structures what is the expected lifetime of your data if you do
+and existing risk management processes to finding not yet know the answers to these questions the
+the right talent to head this new challenge time to act is now
+quantum readiness toolkit building a quantumsecure economy 
+executive summary
+five guiding principles can help organizations
+embrace the quantumsecure economy
+quantum computers promise transformative multistakeholder effort which brings together a
+powers for businesses and organizations community of senior cyber and quantum executives
+across the globe and through a diverse range of and experts from business government regulators
+industries however they also introduce significant and academic institutions
+risks to the current digital economy in the near
+future sufficiently powerful and commercially organizations need to prioritize quantum
+available quantum computers will undermine risk alongside existing risks through the
+current cryptographic standards protecting most definition of a clear roadmap and clear roles
+digital communications and vast amounts of and responsibilities to face quantum risks
+sensitive data mitigating this security risk requires organizations need to raise awareness invest in
+organizations to implement quantumsecurity education and in technology adoption as well
+technologies that quantum computers cannot as collaborate with the ecosystem this toolkit
+break organizations need to embark on a large and the accompanying knowledge base aim to
+and complex transition to become resilient to provide leaders with guidance necessary to achieve
+quantum computer attacks organizationwide understanding of quantum
+risk and its governance  in order to thrive in a
+there is a need for a cohesive global cross quantumsecure economy
+border approach to cybersecurity and governing
+quantum risk this quantum readiness toolkit since organizations vary in size industry and
+provides a framework of five principles to guide maturity the toolkit does not serve as a one
+organizations to prepare for the quantumsecure sizefitsall solution the guidance laid out in the
+economy by providing steps for assessing their toolkit is suggestive and not exhaustive since
+quantum readiness and identifying and prioritizing all organizations will have to complete their own
+future actions the input arises from indepth quantum security transition the toolkit serves as
+conversations during the world economic a starting point to explore what an organizations
+forums quantum security working group a global unique strategy for quantum readiness can look like
+quantum readiness toolkit building a quantumsecure economy 
+guiding principles
+
+to become quantum
+cyberready
+five principles designed to guide and
+enable a quantumsecure transition
+the five guiding principles provide practical guidance understand where they are identify gaps in their
+to help organizations understand how to start their preparations to become quantum secure and
+quantumsecure transition it can help organizations improve their initial steps to quantum security
+figure  guiding principles to understand the quantumsecure transition
+ensure the organizational governance structure institutionalizes quantum risk
+the quantum threat requires organizations to align their governance structure to their quantum cyber readiness transition by
+defining clear goals roles and responsibilities and creating leadership buyin to enforce change effectively
+raise quantum risk awareness throughout the organization
+demystifying the quantum threat is key this requires that not only quantum cyber readiness experts but also senior leaders and risk
+managers understand the risk and impact of the threat to the organization
+treat and prioritize quantum risk alongside existing cyber risks
+a quantum cyberready organization follows a structured approach to evaluate and manage quantum risk and integrates mitigating
+this risk into existing cyber risk management procedures
+make strategic decisions for future technology adoption
+managing quantum risk provides organizations with opportunities to reassess their technology landscape specifically the use of
+cryptography to make the most out of technology solutions that help mitigate quantum risk organizations should make strategic
+technology decisions that support cryptoagility to achieve their security objectives
+encourage collaboration across ecosystems
+quantum risk is a systemic risk an effective quantum security strategy includes collaborating and sharing information with other
+organizations to identify risks throughout the ecosystem and suppliers to jointly mitigate such risks
+quantum readiness toolkit building a quantumsecure economy 
+the principles to
+
+become quantum
+cyberready
+indepth analysis
+each principle is defined with additional
+considerations and brief guidance to demonstrate
+effective adoption and implementation
+in navigating the complexities of the quantum era the quantum readiness
+toolkit ensures our ability to not just withstand quantumsecure transitions
+but to excel within them
+daniel cuthbert global head cybersecurity research banco santander
+ ensure the organizational governance
+structure institutionalizes quantum risk
+clear and structured governance is essential to across geographies can help large organizations
+building an organization that is resilient to current prevent conflicting requirements
+and future quantum risks such as quantum security
+transition programmes allocated responsibilities  start small start with a small team and tasks by
+and updated policies and operating procedures following an interactive stepbystep approach
+to enhance readiness the organizational in tandem with socialization activities to get all
+governance structure should institutionalize stakeholders on board splitting the transition
+quantum risk allowing for change to be enforced into several small segments eg limited to a
+effectively organizations need to formulate their specific section of the organization or product
+quantum security goals and roles clearly suite provides time for adoption and socialization
+lowering the entry barrier and maximizing
+integration lessons learned in future phases
+key considerations
+ establish that mitigating quantum risk
+becomes part of business as usual make
+ balance prescriptive versus openended quantum a recognized risk that is part of regular
+guidance no onesizefitsall approach cybersecurity activities embed quantum risk
+exists for mitigating quantum risk developing and future cryptographic risks in the existing
+international standards and creating consensus cybersecurity operating model
+quantum readiness toolkit building a quantumsecure economy 
+table  practices and activities to ensure the organizational
+governance structure institutionalizes quantum risk
+practices activities
+establish effective  assign appropriate responsibilities across the organization and include functions with respective ownership of
+governance and mitigating the quantum threat these functions include but are not limited to legal counsel data officers and
+mandates for operational managers
+quantum security
+ provide staff working on the quantum security transition with sufficient executive support and mandates
+projects
+to drive change
+ report progress and programme risks to an accountable and responsible function lead within security
+risk or related functions
+appoint  appoint or hire cryptographic champions that can drive and accelerate quantum cyber readiness as well
+cryptographic as be the point of contact to provide broader awareness of quantum risk and insights
+champions to
+ organize forums for crossfunctional collaboration to encourage discussions and collaboration between
+socialize the impact
+cryptographic champions and stakeholder groups eg security officers engineers it project managers to help
+of quantum risk and
+address concerns and questions related to quantum
+to drive quantum
+security plans within  enable relevant stakeholders such as cryptographic champions or quantum transition project teams to challenge
+the organization and provide feedback for quantum security transition plans then incorporate feedback and lessons learned into
+the quantum security roadmap
+develop a roadmap  create a quantum security roadmap with clearlyestablished objectives timelines milestones and the ability
+to become quantum to measure progress over time
+secure and align
+ develop an estimate of potential costs and timelines early in the quantum security transition to guide expectations
+the roadmap with
+and create awareness of transition costs
+quantum risk
+assessments and  align the quantum security roadmap to broader roadmaps eg the overarching cybersecurity roadmap along with
+organizational risk those for any relevant adjacent security or technology capabilities eg a large cloud transition
+appetite
+ implement feedback mechanisms to incorporate input from relevant affected stakeholder groups into the quantum
+security roadmap
+ document lessons learned from the quantum security transition and actively disseminateinclude them in the
+development of new strategies and largescale transformations
+ align quantum risk to relevant longterm strategic initiatives within the organization such as corporate responsibility
+programmes which will serve to gain more support and create more strategic cohesion
+periodically update  embed or develop quantum security requirements in cryptographic policies and standards within the organization
+policies and
+ periodically update cryptographic policies to incorporate novel insights organizational changes and industry
+procedures in line
+good practices
+with organizational
+changes  organize training sessions to help teams understand organizational changes and new ways of working
+and relevant
+developments  integrate requirements on the use of quantumsecure technology in thirdparty contracts
+quantum readiness toolkit building a quantumsecure economy 
+ raise quantum risk awareness
+throughout the organization
+the importance of acting on postquantum security cannot be
+overemphasized organizations often wonder when to start and how to start
+who should be the stakeholders etc the quantum readiness toolkit is the
+attempt to answer these questions and move forward
+reena dayal chairperson quantum ecosystems and technology council of india
+quantum risk is a novel concept to many  develop a creative talent strategy there is a
+stakeholders and is often misunderstood or viewed scarcity of talent and not everybody needs to
+as a highly complex technical topic for business be an expert in quantum physics mathematics
+leaders this perceived complexity tempts many or computer science the lack of available talent
+stakeholders to postpone any meaningful action means organizations should be creative with
+or to disregard the topic completely to raise hiring and reskilling existing talent to help ensure
+awareness of quantum risk organizations should sufficient expertise is available
+actively understand and discern quantum risk and
+spread focused knowledge on quantum risk to  tailor awareness and education activities
+relevant internal and external stakeholders various functions including csuite and broader
+security community should be kept up to date
+with advances in the quantum threat however
+key considerations without sufficient context news relating to
+the quantum threat might trigger organization
+leaders to approach the topic with fear and
+ avoid spreading fear uncertainty or doubt panic rather than a levelheaded and well
+many conversations around managing quantum thoughtout strategy therefore updates should
+risk are fearfocused treating the quantum put innovations and developments into the
+threat like other emerging cyberthreats aids in proper context
+clarity and with adequate preparation reduces
+the overall panic that surrounds the topic
+table  practices and activities to ensure the organizational governance structure
+institutionalizes quantum risk
+practices activities
+assess what  map all relevant roles within the organization eg cryptography talent human resources risk managers that
+knowledge is might be impacted by the quantum threat
+required across
+ develop a skills matrix that describes each roles knowledge requirements and needs to help prioritize and tailor
+stakeholder awareness activities use existing guides and examples such as quantumsafe canadas curriculum guide or the
+groups to make eus competence framework for quantum technologies methodology and version history
+the organization
+quantum ready
+enhance the  assess what quantum security talent is needed and develop a strategy that includes hiring training andor
+organizations upskilling of talent
+access to talent
+ establish partnerships and collaboration networks to augment quantum security talent
+specialized in the
+ provide tailored training and development opportunities for talent in functions that are critical to managing quantum
+quantum threat
+risk eg cryptographers product developers and network engineers
+build awareness and  develop and implement an actionable socialization plan that aims to create awareness for senior stakeholders in
+knowledge among the organization of the importance of becoming quantum ready
+relevant leaders in
+ appoint function leads within security risk management and related functions to serve as ambassadors
+the organization responsible for addressing quantum risk within their domains
+ support senior leadership in understanding that mitigating quantum risk is a shared responsibility and actively
+promotes this view amongst relevant stakeholders ie by making quantum risk a part of senior leadership meetings
+ support clevel employees in understanding quantum risk for instance by organizing tabletop exercises setting
+up a hype free hotline for adhoc support or by developing a quantum monitor which provides input on recent
+quantum risk developments and how the clevel employees should react to these events
+ communicate to leadership in a way that resonates with them ie by explaining quantum risk in business terms
+providing actionable next steps and using accessible language
+quantum readiness toolkit building a quantumsecure economy 
+ treat and prioritize quantum risk
+alongside existing cyber risks
+the quantum readiness toolkit is a valuable resource for cybersecurity leaders and
+practitioners alike as they prepare strategies to transition cybersecurity infrastructure
+to a quantumresilient posture the toolkit offers clear guidance on governance raising
+awareness and pathways for technology adoption i believe it to be an important asset
+for professionals tasked with managing the quantum risk to cybersecurity
+vikram sharma chief executive officer quintessencelabs
+many organizations realize that in order to thrive  learn from previous cybersecurity
+digitally they must effectively manage risks while transitions success factors and lessons
+allowing and enabling the business to prosper the learned from earlier transitions can and should
+risks of quantum computers to current cryptographic be reused similarly lessons learned from the
+methods fit under the cyber risk management quantum security transition should be applied to
+umbrella to treat and prioritize quantum risk mitigating future emerging threats
+organizations should follow a structured approach
+to evaluate and manage quantum risk as cyber risk  mitigate quantum risk through a combination
+and as part of an organizations existing cyber risk of risk management effective and upto
+management programme date documentation and technical tools
+documenting an organizations technology and
+the requirements for them to work correctly
+key considerations could be combined with creating a cryptographic
+bill of materials cbom that includes all the
+cryptographic components used in applications
+ acknowledge organizations have divergent and services across the organization ideally
+priorities they will also vary in what actions organizations will adopt a modular approach and
+should be undertaken to make their organizations separate cryptography from the applications
+quantum ready this means that specific which is a starting point for cryptographic agility
+objectives and approaches to managing quantum technologyfocused practices and activities
+risk can differ from one organization to the next will be discussed within the fourth principle on
+sustainable technology decisions
+table  practices and activities to treat and prioritize quantum risk alongside existing cyber risks
+practices activities
+perform quantum risk  assess the extent to which attackers using a quantum computer are a threat to the organization
+assessments to better eg by reviewing publicly available threat reports or performing a threat analysis
+understand and prioritize
+ perform an initial quantum risk assessment to get an idea of how serious quantum risk may affect the
+quantum risk organizations cybersecurity posture including by looking at how long data will remain potentially valuable
+for attackers based on data shelf life or data halflife
+ if possible prioritize the sequence of it assets being made quantum secure using existing risk
+management processes such as a business impact analysis bia this can also be used to identify and
+quantify systems vulnerable to harvestnow decryptlater hndl attacks
+ monitor highrisk technology such as systems and applications regularly and prioritize these technologies
+in the broader quantum security roadmap
+ explore the potential of partially managing quantum risk through other means than implementing
+quantumsecure technology for example with cybersecurity insurance or accepting any residual risk for
+lowrisk technology
+embed quantum risk  embed quantum risk into the organizations risk register or risk scorecard to track and prioritize within broader
+mitigation plans into risk management efforts considering the long materialization and mitigation timeline of quantum risk
+existing risk management  create quick wins by including quantum risk as part of annual data mapping exercises to identify systems
+procedures that are processing sensitive data and may therefore have a higher risk
+assess vendors and other  perform risk analyses on potential third parties to assess their quantum risk such as based on the value
+third parties to understand of the data they will be able to access and their existing quantum cyber readiness plans and progress
+how they might impact the
+ prioritize mitigating quantum risk of existing thirdparties based on their quantum risk and business value
+organizations strategy to engage with them to foster collaborative efforts across supply chains aiding quantum readiness
+become quantum secure
+quantum readiness toolkit building a quantumsecure economy 
+ make strategic decisions for future
+technology adoption
+the development and sharing of useful tools for preparing our digital platforms to be
+secure in the quantum era alongside the increasing imperative to manage systemic
+cyber risks posed by codebreaking advances will facilitate the evolution to a more
+secure and resilient cryptographic foundation for the global economy
+michele mosca professor and cofounder institute of quantum computing
+university of waterloo
+mitigating quantum risk requires organizations to  start experimenting and assessing now for
+reassess their technical infrastructure specifically adoption later organizations may not fully
+regarding their use of cryptography and make understand what cryptoagility looks like or what
+strategic decisions to maintain the confidentiality the impact and effectiveness of standardized
+availability and integrity of data this includes postquantum cryptography might mean for
+considering novel concepts such as cryptoagility them engaging with these concepts and
+and investing in new emerging technologies to standards will aid understanding and confidence
+make strategic decisions for future technology in adoption later organizations could start
+adoptions organizations need to think ahead enable experimenting with small proofs of concept or
+cryptoagility and ensure that cybersecurity capacities assessing what adopting these technologies
+are adaptable to the everevolving threat environment might mean for them and their risk profile
+ harness the technological adoption to mitigate
+key considerations existing cybersecurity risks organizations
+can make use of the implementation of
+quantumsecure technology as an opportunity
+ use tools and applications that are easy to to resolve longknown cybersecurity deficiencies
+use safely and secured by design ensuring eg implementing autoupdating of certificates
+tools are designed with proactive security to decrease system downtime
+objectives in mind developers can aid end
+users by making it hard for end users to trigger
+cybersecurity incidents
+table  practices and activities to make strategic decisions for future technology adoption
+practices activities
+design a crypto  assess the impact of quantumsecure technologies on existing services including stability and efficiency
+agile technology
+ create a cbom that provides an overview of all cryptography in use in the organization
+landscape that
+enables quick
+ assess quantum risk for individual cryptographic components for highrisk components that might be more
+and effective vulnerable to cryptanalytic attacks develop mitigation plans
+implementation
+and configuration  enable hybrid solutions where postquantum and classical algorithms are layered for broader protection
+of postquantum
+ consider both quantum threats but also potential new avenues of securing information using the positive
+cryptography
+application of quantum applications eg quantum key distribution or quantum networks
+create a product  create cryptoagility by designing strategies for systems affected by the quantum threat
+life cycle that
+ identify legacy technologies within the organization that might not be able to run quantumsecure technologies and
+supports products
+define tailored quantum risk mitigation plans
+becoming more
+quantum secure  embed quantumsecure requirements throughout the system development life cycle eg by mandating developers
+and engineers to use whitelisted cryptographic algorithms
+ include quantum security requirements such as the use of postquantum cryptography in the scope of technical
+security tests
+implement  include quantum security requirements in new or renewed product contracts
+appropriate
+ prioritize penetration tests for highrisk thirdparty products these should include quantum security requirements
+security controls
+for developers and
+thirdparty products
+quantum readiness toolkit building a quantumsecure economy 
+ encourage collaboration across
+ecosystems
+in the hyperconnected digital economy that todays key considerations
+organizations are a part of data is shared and
+stored across ecosystems many cybersecurity
+risks are systemic and therefore cannot be  collaborate to understand systemic risks
+mitigated by individual organizations to aid across your ecosystem an organization
+quantum cyber readiness across ecosystems providing key parts to another organization
+organizations must connect and engage with peers without considering quantum security could lead
+third parties governments and academia to discern to unknown vulnerabilities for the downstream
+and demystify quantum risk and its systemic organization using these key parts within their
+impact hence encouraging collaboration across products or network
+ecosystems allows organizations to work together
+and share relevant information and insights related  help cultivate a unified broad view across
+to mitigating quantum risk the ecosystem this includes a wide array of
+stakeholders including vendors supply chain
+partners and academia ecosystems can share
+leading practices create urgency within the
+industry and collaborate on reducing risk spread
+over multiple actors within supply chains
+collaboration with academia and students will
+aid innovation speed and getting insights on the
+latest research
+table  practices and activities to encourage collaboration across ecosystems
+practices activities
+connect with  create a broad view of the ecosystem and map all actors that impact or can be impacted by quantum risk
+ecosystems on
+ identify track and use existing platforms and initiatives that spread knowledge relevant to the quantum
+quantumreadiness
+security transition
+strategy
+ connect with industry groups informal connections or information sharing and analysis centers isacs
+to collectively mitigate systemic quantum risks
+contribute to  contribute to product certification regimes such as through common criteria
+initiatives building
+ facilitate interoperability by using shared technical standards where possible like the technical standard used
+shared technical
+for payments eg europay mastercard and visa emv
+standards
+ remain cognizant of any geographic or regulatory restrictions or importexport controls
+contribute to  invest in ecosystem initiatives that increase the collective knowledge base and future talent pool such as university
+collaborations on initiatives eg the columbia quantum initiative
+developing quantum
+ encourage employees to get quantumsecurityrelated certifications
+knowledge
+quantum readiness toolkit building a quantumsecure economy 
+conclusion
+as organizations around the globe formulate their plans to mitigate the cyber risk
+aspects of quantum computing these five principles will allow them to chart a
+course that is in line with the real threat posed by the technology and consistent
+with their more general cyber risk management practices
+colin soutar managing director deloitte usa
+sufficiently powerful quantum computers pose  act now nobody knows for sure when a
+a serious threat to todays digital economy and sufficiently powerful quantum computer will
+data protection requiring organizations to embark arrive but the timeline is shrinking everyone is
+on a quantum security transition this quantum aware that transitions take time and nobody
+readiness toolkit offers organizations guidelines wants to be too late organizations should start
+which they can use to assess prioritize and act now to give themselves sufficient time to start
+now to enhance the successful implementation small experiment and get acquainted with the
+of the principles organizations should consider to challenges and success factors that will allow a
+quantumsecure transition regulators can play
+ raise awareness of quantum risk and the an important role in driving timely action across
+need to mitigate it now provide decision ecosystems but they should contemplate
+makers with a clear and coherent message to guardrails that encourage adoption and support
+build meaningful partnerships and drive action organizations in becoming quantum secure
+despite the deep technical aspects of quantum
+risk mitigating it will be a people business this quantum readiness toolkit is a meaningful
+and require a workforce that understands and step in providing organizations guidelines on
+prioritizes the risk becoming quantum secure based on input from a
+global and diverse community of experts as more
+ realize there is no silver bullet no individual organizations become aware of the need to act
+quantum security solution policy or hired expert will now this can also lead to more interest in assessing
+make an organization quantum secure overnight to what extent peer organizations are becoming
+it will require a variety of tools adapted to the quantum secure driving and coordinating systemic
+environment and use cases focused on people change requires collective action and support
+governance and technology to make an organization from governments and organizations by providing
+resilient to present and future cryptographic additional guidance showcasing examples and
+risks of which quantum risk is only one quantitative metrics
+quantum readiness toolkit building a quantumsecure economy 
+appendix
+a methodology
+during the first year of the quantum security initiative level guidance for organizations in defining milestones
+the community developed a consensusbased in their quantum security transition the framework
+quantum security transition framework see figure consists of four layers define identify plan and
+ as part of the transitioning to a quantumsecure execute that help organizations structure their goals
+economy white paper this framework provided high and objectives for a secure quantum transition
+figure  quantumsecure transition framework
+ quantum security vision
+enable organizations to transition to quantumsecure ecosystems and mitigate quantum threats
+define
+ drivers for change
+ quantum threat  regulatory   cryptography
+market dynamics
+identify materialization pressures management needs
+ quantum security roadmap
+talent and education governance and processes technology and infrastructure
+plan
+post quantum random
+knowledge pool executive support
+quantum key number
+culture and socialization vision and roadmap cryptography distribution generation
+training and awareness cryptography champions
+product security
+policies and standards
+enterprise security
+thirdparty security
+ key factors for success
+technological innovation sustainable business and
+execute standards and certifications ecosystem cooperation and research longterm investments
+source world economic forum transitioning to a quantumsecure economy 
+in the second year of the initiative the community for each highlevel principle the toolkit contains
+convened in working sessions to further drive the good practices and detailed activities based on
+adoption of this framework by helping organizations the input provided in working sessions by forum
+with actionable guidance for each of the three pillars quantum security experts representing businesses
+talent and education governance and processes academia and government organizations are
+and technology and infrastructure the community encouraged to adopt the principles described
+defined good practices and detailed activities the organizations are encouraged to adopt the principles
+output of the working session led to the adoption of described develop a strategy and kickstart their
+a set of highlevel principles that have been used to journey to become quantum cyberready
+structure the quantum readiness toolkit
+quantum readiness toolkit building a quantumsecure economy 
+contributors
+world economic forum steering committee
+anne ardon jaya baloo
+project fellow quantum security world economic chief security officer rapid
+forum junior manager deloitte netherlands
+daniel cuthbert
+itan barmes global head cybersecurity research
+project fellow quantum security world economic
+forum specialist leader deloitte netherlands reena dayal
+chairperson quantum ecosystems and technology
+filipe beato council of india
+lead centre for cybersecurity
+world economic forum isaac kohn
+partner deloitte switzerland
+deloitte michele mosca
+professor and cofounder institute of quantum
+computing university of waterloo
+chris knackstedt
+senior manager deloitte usa vikram sharma
+chief executive officer quintessencelabs
+casper stap
+senior consultant deloitte usa colin soutar
+managing director deloitte usa
+acknowledgements
+this quantum readiness toolkit was cocreated maya bundt
+by many practitioners and diverse stakeholders in bloiseholding
+the world economic forums project community
+on quantum security as part of the quantum mark carney
+computing network that shared insights and banco santander
+lessons learned through interviews design
+workshops and consultation sessions the world daniel cuthbert
+economic forum would like to thank the following
+banco santander
+individuals for their insightful reviews and feedback
+michael daniel
+ibrahim almosallam
+cyber threat alliance
+saudi federation for cybersecurity and
+programming safcsp
+jrme desbonnet
+capgemini
+pavle avramovi
+financial conduct authority fca
+stefan deutscher
+boston consulting group bcg
+john beric
+mastercard
+gabrijela dreo rodosek
+university of the german federal armed forces
+arvinder bharath
+international monetary fund imf bundeswehr mnchen
+kirk bresniker ken durazzo
+hewlett packard enterprise dell technologies
+marijus briedis dimitri van esch
+nord security abn amro
+quantum readiness toolkit building a quantumsecure economy 
+roland fejfar arunima sarkar
+morgan stanley world economic forum
+jacques francoeur jacob sherson
+international telecommunication union itu university of aarhus
+tommaso gagliardoni rodney tan
+kudelski security cyber security agency of singapore
+roger a grimes salvador venegasandraca
+knowbe tecnologico de monterrey
+jack hidary marc verdonk
+sandboxaq deloitte netherlands
+ali el kaafarani desmond wan
+pqshield cyber security agency of singapore
+hoda al khzaimi mike wilkes
+new york university abu dhabi new york university tandon school of engineering
+antia lamaslinares carl j williams
+amazon web services aws national institute of standards and technology nist
+soon chia lim the forum also wishes to acknowledge expert
+cyber security agency of singapore contributions from taher elgamal and brian
+lamacchia for their thorough leadership insights and
+paul mee guidance throughout the development of this report
+oliver wyman mmc
+julian meyrick production
+international business machines ibm
+giulia moschetta laurence denmark
+world economic forum creative director studio miko
+toni pesonen sophie ebbage
+iqm quantum computers designer studio miko
+ana predojevic martha howlett
+stockholm university editor studio miko
+kelly richdale
+sandboxaq
+quantum readiness toolkit building a quantumsecure economy 
+endnotes
+ world economic forum quantum personas a multistakeholder approach to cyber risk management 
+httpswwwweforumorgdocswefquantumpersonasgfconcybersecuritypdf
+ quantumsafe canada quantumsafe skills development  an analysis of international models  httpsquantum
+safecawpcontentuploads 
+qscurriculumguidevfinalpdf
+ european union competence framework for quantum technologies methodology and version history 
+httpsopeuropaeuenpublicationdetailpublicationecfdcecbdeaaedalanguageen
+ global risk institute quantum threat timeline report  httpsglobalriskinstituteorgpublicationquantum
+threattimelinereport
+ information sharing and analysis centers isacs european union agency for cybersecurity enisa nd
+httpswwwenisaeuropaeutopicsnationalcybersecuritystrategiesinformationsharing
+ why emv emvco nd httpswwwemvcocomwhyemv
+ columbia quantum initiative columbia university in the city of new york nd httpsquantumcolumbiaedu
+ world economic forum transitioning to a quantumsecure economy  httpswwwweforumorgwhitepapers
+transitioningtoaquantumsecureeconomy
+quantum readiness toolkit building a quantumsecure economy 
+the world economic forum
+committed to improving
+the state of the world is the
+international organization for
+publicprivate cooperation
+the forum engages the
+foremost political business
+and other leaders of society
+to shape global regional
+and industry agendas
+world economic forum
+ route de la capite
+ch colognygeneva
+switzerland
+tel     
+fax     
+contactweforumorg
+wwwweforumorg

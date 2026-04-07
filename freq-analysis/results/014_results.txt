@@ -1,0 +1,8 @@
+Framework: 014.txt
+Total Words: 3323
+========================================
+crypto_assets: 0
+crypto_agility: 47
+migration_planning: 33
+risk_management: 19
+standards_compliance: 4

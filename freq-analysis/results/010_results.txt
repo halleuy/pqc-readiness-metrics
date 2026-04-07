@@ -1,0 +1,8 @@
+Framework: 010.txt
+Total Words: 2831
+========================================
+crypto_assets: 0
+crypto_agility: 0
+migration_planning: 0
+risk_management: 0
+standards_compliance: 2
