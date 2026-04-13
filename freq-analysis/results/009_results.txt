@@ -1,8 +1,8 @@
 Framework: 009.txt
-Total Words: 2723
+Total Words: 6593
 ========================================
-crypto_assets: 2
-crypto_agility: 1
-migration_planning: 6
-risk_management: 1
-standards_compliance: 22
+crypto_assets: 40
+crypto_agility: 5
+migration_planning: 2
+risk_management: 3
+standards_compliance: 16

@@ -1,8 +1,8 @@
 Framework: 018.txt
-Total Words: 12493
+Total Words: 2509
 ========================================
-crypto_assets: 1
-crypto_agility: 5
-migration_planning: 90
-risk_management: 76
-standards_compliance: 20
+crypto_assets: 0
+crypto_agility: 0
+migration_planning: 2
+risk_management: 0
+standards_compliance: 0

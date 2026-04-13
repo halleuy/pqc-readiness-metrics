@@ -1,861 +1,1534 @@
- ieee international conference on quantum computing and engineering qce
-postquantum cryptography pqc network instrument
-measuring pqc adoption rates and
-identifying migration pathways
-jakub sowa  bach hoang  advaith yeluru steven qie 
-anita nikolich  ravishankar iyer phuong cao 
-national center for supercomputing applications university of illinois at urbanachampaign
-abstracttheproblemofadoptingquantumresistantcrypto this paper describes i the design of a postquantum
-graphicnetworkprotocolsorpostquantumcryptographypqc cryptography pqc network instrument placed in a
-is critically important to democratizing quantum computing
-nationalscale supercomputing center ii the latest results
-the problem is urgent because practical quantum computers
-on pqc adoption rate across a wide spectrum of widely
-will break classical encryption in the next few decades past
-encrypted data has already been collected and can be de used network protocols secure shell  ssh transport layer
-crypted in the near future the main challenges of adopting security  tls etc iii the current state of pqc im
-postquantum cryptography lie in algorithmic complexity and plementation in key scientific applications eg openssh
-hardwaresoftwarenetworkimplementationthegrandquestion
-scitokens iv the challenges of being quantumresistant
-of how existing cyberinfrastructure will support postquantum
-and v discussion of potential novel attacks our result is
-cryptography remains unanswered
-critically important regarding adopting national institute of this paper describes i the design of a novel postquantum
-cryptography pqc network instrument placed at the na standards and technology nists draft algorithms such as
-tional center for supercomputing applications ncsa at the crystalskyber for encryption falcon and spincs
-university of illinois at urbanachampaign and a part of the for digital signature and kemtals for key exchange 
-fabric testbed ii the latest results on pqc adoption rate
-and protocolspecific pqc adaptation such as hybrid stream
-acrossawidespectrumofnetworkprotocolssecureshellssh
-lined ntru ringbased public key cryptosystem prime
-transport layer security  tls etc iii the current state of
-pqcimplementationinkeyscientificapplicationsegopenssh sntrup and x with sha sntrupx
-orscitokensivthechallengesofbeingquantumresistantand sha in openssh  
-v discussion of potential novel attacks motivationthecryptographicalgorithmsweusetosecure
-this is the first largescale measurement of pqc adoption
-and verify all this data today are far more complex than
-at nationalscale supercomputing centers and fabric testbeds
-in centuries past yet still heavily reliant on the hardness
-our results show that only openssh and google chrome have
-successfully implemented pqc and achieved an initial adoption of certain mathematical problems these hard problems
-rateofoutofforopensshconnections such as integer prime factorization and the discrete logarithm
-at ncsa coming from major internet service providers or problem form the basis of modern cryptosystems such as
-autonomous systems ases such as oarnet gtt google
-rsa and ecliptic curve cryptography ecc respectively
-fiberwebpassusanduppsalalanslandstingswedenwith
-as long as no computer can efficiently solve these problems
-anoverallincreasingadoptionrateyearoveryearfor
-our analyses identify pathways to migrate current applications whichareassumedtobehardthesecurityofthecryptosystem
-to be quantumresistant should be maintained for example it would take an exascale
-supercomputer such as frontier   exaflops  longer
-i introduction thantheageoftheuniverseonaverageforanattacktoreveal
-the problem of adopting quantumresistant cryptographic the bit private key in the curve ecc cryptographic
-network protocols or postquantum cryptography pqc is scheme
-criticallyimportanttodemocratizingquantumcomputingthe withnewdevelopmentsinquantumcomputersandquantum
-problem is urgent because practical quantum computers  algorithms on the rise many of these problems previously
-will break classical encryption in the next few decades assumed to be hard appear much easier the  shors
-major applications such as cloud computing  including algorithm for solving both discrete logs and prime factoriza
-hpcsupercomputing financial services and health analyt tion efficiently on quantum computers shows the need for this
-ics  must be migrated to be quantumresistant the main postquantumcryptographypqcwhichismadeevenmore
-challengesofadoptingpostquantumcryptographylieinalgo urgent when you consider an adversary who is storing clas
-rithmiccomplexityandhardwaresoftwarenetworkimplemen sically encrypted traffic now to be decrypted with a quantum
-tation the grand question of how existing cyberinfrastructure computer soon when they are powerful and reliable enough
-will support postquantum cryptography remains unanswered the grand question of how existing cyberinfrastructure will
-support postquantum cryptography remains unanswered and
-correspondingauthorphuongcaodatahttpspmcaogithubiopqc will be addressed in this paper
-  ieee 
-doi qce
-ecq
-iod
-
-eeei
-
-
-
-ecq
-gnireenigne
-dna
-gnitupmoc
-mutnauq
-no
-ecnerefnoc
-lanoitanretni
-eeei
-
-authorized licensed use limited to university of illinois downloaded on november  at  utc from ieee xplore restrictions apply
-key contributions of standards and technology nist and migration pathways
- a novel network instrument to measure pqc adoption in for hpc developers 
-realtime and provides historical trends of the adoption
-rates across seven layers of computer network protocols
-ii approachoverview
- thefirststatisticalstudyofpqcsreadinessacrossseven thissectiondescribesthenetworktopologyarchitectureof
-layersofcomputernetworkandhpcapplicationswitha the network optical tap placement of our network instrument
-unique vantage point a petascale supercomputing center datacollectedandstatisticalmethodsusedfiguredescribes
-withnationscalevisibilitythroughthefabricteracore our network instrument using fabric testbed a we de
-network ployed our instrument at the ncsa site b to ingest zeek
- release of an open sample dataset containing meta connection metadata and parse session and application layer
-data of cryptographic suites across major network pro cipher suite information c d e an example of pqc key
-tocols ssh tls rdp etc  available online at exchangeandstatisticsthatweparsedisshownforthesecure
-httpspmcaogithubiopqc shell ssh protocol f g our instrument is embedded in
- discussion of potential novel pqc attacks and charac a nationscale network for monitoring a wide spectrum of
-terization of major challenges blocking the adoption of scientific workloads as follows
-pqc in hpc applications fabric testbed fabric  is a nationscale research
-major results our results highlight the difficulty of en infrastructure consisting of a teracore network between uni
-suring all systems are updated and using the most secure versities national labs and supercomputing facilities such
-connection options available which is important to reach as nsf cloud testbeds cloudlab ncsa and chameleon
-widespread pqc adoptions as follows figureafabricpowersexploratorynetworkingresearch
-at scale in a variety of applications including cybersecurity
- openssh and google chrome have successfully imple
-distributed computing highspeed storage artificial intelli
-mented pqc and achieved an initial adoption rate of
-gence and hpc workloads the unique approach to fabric
-  out of  for openssh connec
-is its application programming interface api allowing
-tions at ncsa
-experiments to programmatically compose extensible high
- the adoption rate for openssh is increasing yearover
-speed interconnected optical link networks compute and
-year for 
-storage
- top us large networks autonomous systems  ases
-ncsa the national center for supercomputing applica
-such as oarnet gtt google fiber webpass and
-tions ncsa offers cuttingedge cyberinfrastructure through
-comcastanduppsalalanslandstingswedenarehost
-thenationalpetascalecomputingfacilitynpcfthathouses
-ing clients that have already adopted pqc in openssh
-major ncsa infrastructure including the blue waters super
- over  of serverside ssh protocols were from 
-computertosupportdiverseresearchneedsmajorcomputing
-and earlier  years before sntrupx was even
-resources include  delta  nsffunded gpu system ideal
-introduced only about  of connections used tls
-for gpuaccelerated applications a and gatewaybased
-version  the most recent and most secure option for
-workflows with nearline storage infiniband interconnect 
-this use case the rest used tls version  which still
-hal cluster supporting deep learning system with ibm
-supports many of the weak cipher suites we found
-power cpus and testbeds for sciencedmz honeypot
-through experimental deployment at the edges our ap
-experiments and fpga boards all these resources are inter
-proachmayhelpidentifyempiricalnovelattacksagainstpqc
-connected with longterm tape archives petabytes and high
-implementations and give feedback to the national institute
-remarkourinstrumentistightlyintegratedwith
-remark  our research vs the state of the art
-zeek and network border gateways
-to the best of our knowledge this is the first net
-our zeekintegrated network instrument to mea
-work instrument that exists to monitor pqc adoption
-sure pqc adoption has three main components
-publicly there are a few related work  eg
-cloudflarereleasedasnapshotoftlsadoptioninfeb  parallel and memorysafe log parser to ingest
- through their content delivery network  on largevolumezeeklogsfromateracorenetwork
-the other hand our network instrument is the first  historical analyses scripts that perform regres
-of such to monitor the adoption of both openssh sion trend and statistics on the parsed metadata
-tls and other protocols at largescale highspeed of cipher suites
-gigabit to terabit interconnected networks with a  realtimesnapshotandcomparisonofourresults
-wide spectrum of not only traditional cloud but also vsothersifanytodetectnovelattacksandgive
-scientific workloads feedback to nist and security operators
-
-authorized licensed use limited to university of illinois downloaded on november  at  utc from ieee xplore restrictions apply
-a ncsa as a part of fabric teracorenetwork is a vantage point to measure pqc adoption
-fiu
-b
-arista optical tap
-hpc apps
-g example pqc cipher suite statistics
-c zeekintegrated network instrument to measure pqc adoption onlyconnectionmetadata actual data remains encrypted
-sshmsgkexecdhinit
-network connection metadata
-ciphersuites
-sntrup x
-ephemeral ephemeral
-keypair keypair
-policy script interpreter app d l n ic s at  i o s n c i  t s o s k h e  n r s d  p shared shared
-secret secret
-session tls
-sha sha
-event engine shared secret shared secret transport tcp
-appdata appdata
-network ip
-network
-example pqc secure shell ssh key exchange
-d raw network packets e o st u a r t i i s n t s ic t s ru o m f e s n e t s i s n io g n es  ts a p z p ee li k ca m ti e o t n a d la a y t e a r a m nd e t e a s d t a im ta ates fh x y  b  ri  d  s w tr i e th a m sh lin a e  d  n  t  r sn u t r p u r p im  e  s x n  t  ru  p     s  h a a n  d  
-locotorp
-application
-alert
-changecipherspec
-handshake
-drocer
-example ncsa network topology to illustrate the integration of
-the pqc network instrument
-fragmentation
-integrity
-authentication
-encryption
-fig  overview of our instrument deployed at ncsa our instrument has visibility into nationscale network traffic as ncsa is a part of
-fabric testbed a we deployed our instrument at the ncsas network b network topology subject to change to ingest zeek connection
-metadataandparsesessionandapplicationlayerciphersuiteinformationcdepartofcisderivedfromzeekdocumentationand an
-exampleofpqckeyexchangeandthestatisticalresultsthatweparsedisshownforthesecureshellsshprotocolfg
-
-authorized licensed use limited to university of illinois downloaded on november  at  utc from ieee xplore restrictions apply
-speedexternalconnectivitygbpstomajorresearchnet a wide range of cryptographic algorithms eg ecdh rsa
-works such as the energy sciences network esnet figure sha etc and elliptic curves eg x secpr
-b etc that are used for encryptions tasks such as key exchange
-both ncsa and fabric provide a wide gamut of hpc orkeyencapsulationmechanismsincethisdatasetiscollected
-workloadsthatwewillanalyzeforquantumresistantcryptog  for more than  months january   present it
-raphy provides the orthogonal view of pqc adoption in scientific
-zeek network security monitor zeek formerly bro  network traffic
-is a flexible opensource platform with decades of develop
-iv methodresults
-ment history in network security monitoring defenders use
-pqcnetworkinstrumentonopenssh
-zeeks network analyzers to perform deep packet inspections
-and provide a broad view of many network protocols zeek this section presents both i longitudinal studies of pqc
-enables highperformance highlevel stateful semantic analy adoption on the secure shell ssh protocol over  months
-sisattheapplicationlayerandisusedoperationallyatvarious jan   apr  and ii a detailed analysis of cipher
-large sites such as berkeley lab and ncsa the collection suites used in openssh on a sample working day
-and analysis of these data provide a comprehensive view of thefirstandmostinterestingprotocolwestudiedowingto
-pqc adoption as described below its wide usage across most operating systems was the secure
-ethicalconsiderationsourapproachworksonconnection shell ssh protocol which is well understood through our
-metadata produced by zeek we did not use maninthe prior studies  ssh metadata included information
-middle or traditional ssl termination equipment thus we on four types of cryptographic algorithms used to secure
-only see the encrypted data and not the original content the connections the data for each is shown in table  the
-however we have access to the timing information of con most immediately apparent detail in the data is that the vast
-nection establishment to derive the trend and seasonality of majority of the connections seem to be using some version
-the pqc adoption rate the connection metadata generally of openssh additionally there are a few deprecated and
-includes standard information such as ip address certificate insecure cryptographic algorithms in use which would be a
-and negotiation of cipher suites we do not see personally cause for more concern if not for their low usage numbers
-identifiable information pii the data stored as logs using the zeek network analysis
-framework is focused solely on connection metadata the
-iii datasets
-data was parsed and visualized in python using its library
-thissectionpresentsthedatasetthatournetworkinstrument matplotlib and are shown in figure    we first provide
-has collected which is built upon our prior work on the a background on pqc implementation in the latest version of
-security testbed at ncsa  we have collected a heteroge openssh version   then describe our results based on
-neous dataset containing metadata of cryptographic network ssh data
-protocols powering highspeed scientific workloads at ncsa
-a background on pqc adoption in openssh
-betweenintotalapproximatelytbofmetadata
-has been generated and collected using the zeek network this section presents details regarding the implementation
-observability framework from a gbps network border link of pq authentication into the openssh library the first ver
-on the ncsa network and partner facilities which supports a sion that openssh supports pqc is   this developing
-widerangeofscientificapplicationssuchasglobus standard pqc protocol has three main components
-scitokens and kubernetes  sntrup is a keyencapsulation mechanism kem in
-asummaryofourdatasetisspecifiedintableiourdataset a family of ringbased public key cryptosystems called
-contains network connections in encrypted applicationlayer streamlined ntru primes   in which  is
-protocolsabovelayertcpipsuchassecureshellssh a prime number serving as a parameter cryptosystems
-remotedesktopprotocolrdphypertexttransferprotocol in this family are parameterized by  positive integers
-secure https etc with metadata including network con pqw in which pq are prime numbers xpx is
-nections from various sources and destinations we recorded irreducibleinthepolynomialringzqxtheparameters
-of sntrup kem are a triplet of numbers pq 
-w  
-remark  uniqueness of our dataset  x is the widely implemented ellipticcurve
-diffiehellman ecdh key exchange protocol using
-our dataset is unique in its placement at a strategic
-curve as a underlying curve curve 
-network vantage point at the border gateway router is an montgomery elliptic curve in the form of y 
-to observe metadata of a wide spectrum of applica xaxx over the field zp in which p
-tions across different protocols validating our pqc
-is a prime number and a   is an integer that
-measurementforbothhistoricalandrealtimeadoption a is not a square modulo p
-rates
- sha is a secure cryptographic hash algorithm to
-ensure data integrity  the input for sha is a
-
-authorized licensed use limited to university of illinois downloaded on november  at  utc from ieee xplore restrictions apply
-
-
-     
-yearmonth
-elacs
-gol
-etar
-noitpoda
-ssh adoption rate tls adoption rate
-
-
-
-
-autonomous system as
-fig crossprotocolandcrosssitecomparisonof
-adoptionratebetweensshprotocolatncsaour
-analysis compared with publicly available tls
-adoption rate at cloudflare  ncsa records
-an average of   out of 
-ssh connections adoption rate for ssh while
-cloudflare recorded   percent adoption rate
-for tls more than  adoption came from
-chrome
-stnuoc
-oarnet
-gttbackbone 
-uppsala lans landsting
-
-google fiber webpass
- comcast
-
-
-
-     
-yearmonth
-fig  a histogram of autonomous systems
-adopting pqc in ssh showing that top  ases
-oarnegttgooglefibercomcastetcfrom
-us and uppsala lans landsting sweden ac
-counted for the majority of pqc in the head of
-the distribution a long list of ases is shown in
-thelongtail
-stnuoc
-sntrupxsha  confidence interval
-fig  increasing adoption rate of pqc
-in ssh key exchange sntrupx
-shaopensshcom starting from january
- with only  exchanges up to 
-exchangesinapril
-tablei
-heterogeneousmetadataofcryptographicnetworkprotocolspoweringhighspeedscientificworkloadsatncsa
-datacharacteristics datacollection description
-numberofprotocols majornetworkprotocols dnskerberosmodbusmysqlradiusxsslsshapplicationlogssyslog
-datagenerator zeek zeekparsesrawnetworkpacketsandproducesmetadataofnetworkconnections
-datagenerationrate gbcompressedlogsperday dataiscompressedintochunkseveryhourinthegzipformat
-networkspeed gbps thenetworkborderlinksaregbpsandisconnectedtoateracorelink
-dataamount tb totallongitudinaldatacollectedacrossallsevenlayersofnetwork
-format tabseparatedvaluestsv eachnetworkprotocolhasspecificfieldssourcedestinationhostkeyalgorithmetc
-privacy connectionmetadata onlycontainmetadataofhandshakekeyexchangeandpubliccertificatesnoperson
-allyidentifiableuserdata
-batchrealtimeaiinference
-workloadcharacteristics theseworkloadsmakeuseoftheabovenetworkprotocolsprovidingarichsourcefor
-largefiletransferpetabytes
-ouranalysis
-sourceanddestination ncsa and its partner facilities diversesetofpartnersprovideagoodvantagepointforouranalysis
-fabricsdscstarlightesnet
-scientificapplications representativeapplications scitokenskuberneteskerberosglobusandslurm
-timeperiod topresent dataarecollectedinrealtimeandstoredinanetworkattachedstoragesystem
-samplepqcprotocol secureshellsshconnection sample log xxxyyy  sshopensshp debian
-chachapolyopensshcom umacetmopensshcom
-sntrupxshaopensshcom ecdsashanistp
-message with a size up to  bits and the output is willbethefirsttoadoptpqcschemesthedescribedprotocol
-a word with a consistent length of  bits is secure because it combines  a hybrid approach using
-tovisualizethispqcprotocolweshowkeyexchangewith both a postquantum resistant algorithm sntrup and a
-a client and server in figure  traditional algorithm with strong security x to provide
- ephemeral key generation client and server generate fault tolerance and  sha a hashing function securing
-temporary ephemeral key pairs using both sntrup the final key such that no information about the individual
-and x algorithms shared secrets can be easily derived
- public key exchange client and server exchange their
-b results on pqc protocols adoption in ssh
-public keys for both sntrup and x
- sharedsecretcalculationeachsideusesitsprivatekey firstwecomparetheadoptionrateofsshwiththepublicly
-and the others public key to calculate a shared secret availableadoptionratefromcloudflarefigureshowscross
-for both the sntrup and x algorithms protocol and crosssite comparison of adoption rate between
- combining and hashing the two shared secrets are ssh protocol at ncsa our analysis and tls  protocol
-combined and then hashed using the sha algo at cloudflare  ncsa records   out of
-rithm  monthly adoption rate for ssh while cloudflare
- final key the result of this process is the final strong recordedpercentadoptionratefortlsmorethan
-key used to encrypt and decrypt the ssh communica  adoption came from chrome 
-tion figure  shows a histogram of autonomous systems adopt
-as ssh is widely adopted and frequently updated against ing pqc in ssh showing that the top  ases oarne
-vulnerabilities it is more likely that ssh clients and servers gtt google fiber comcast advanced communications
-
-authorized licensed use limited to university of illinois downloaded on november  at  utc from ieee xplore restrictions apply
-technology etc from us and uppsala lans landsting
-sshmsgkexecdhinit
-sweden accounted for the majority of pqc in the head of
-the distribution a long list of ases is shown in the long tail
-figure  shows the increasing adoption rate of pqc in
-ssh key exchange sntrupxshaopensshcom
-starting from january  with only  exchanges up to sntrup x
- exchanges in april  ephemeral ephemeral
-more interestingly it is clear that there are no pq algo keypair keypair
-rithms in use except for one the key exchange algorithm
-sntrupx using the sha hash this algorithm is shared shared
-an implementation of the postquantum ntru prime cryp secret secret
-tographic scheme specifically a hybrid streamlined ntru
-prime paired with the x ecdh key exchange method
-to preserve security against classical adversaries in case a sha sha
-shared secret shared secret
-vulnerability in ntru is found it was introduced in the
-openssh version  and added to the list of defaults in
-version  in  it was developed by openssh before
-appdata appdata
-the third round selections by nist took place later that year
-which actually ended up removing ntru after the second
-round in the process unfortunately we could only identify
-an insignificant amount of connections using this algorithm fig exampleflowofpostquantumcryptographykeyexchangeprotocol
-implementedinopensshderivedfrom
-for key exchange  for a sample day the overall
-average adoption rate is   out of 
-for the period in which we compare ssh adoption rate with
-v methodandresults
-cloudflares tls adoption rate figure 
-pqcnetworkinstrumentonotherprotocols
-c results on classical protocols in ssh this section describes our analysis extended to other major
-here we provide further detailed traffic analysis for a network protocols such as remote desktop protocol rdp
-regular working day in june  for the openssh protocol domain name system dns and transport layer security
-at ncsa network metadata was collected from a  gbps tlsnotethatthisanalysisisfocusedonasampleworking
-network border link on the ncsa network day to illustrate the adoption the objective is to measure
-importantly we see the presence of various deprecated the readiness level of applications using these protocols with
-algorithms used by some connections as shown in table ii regardtopostquantumcryptographyaswealreadyprovided
-this poses a security risk outside the scope of pqc and the trend and seasonality of ssh adoption over the last year
-warrantsanotherlookattheversionsofsshprotocolsinuse in this part we will provide a snapshot of other protocols in
-throughfurtherinspectionofmetadatalogswedetermined a working day of collected network traffic
-that over  of serverside ssh protocols were from 
-a rdp
-and earlier three years before sntrupx was even in
-troducedthishighlightsacommonprobleminthetechnology the next network protocol we looked at was the remote
-spacethe difficulty of ensuring all systems are updated and desktop protocol rdp for remote desktop visualization
-using the most secure connection options available this is of windows machines although the protocol today has no
-important if we are to ever reach a complete pqc adoption simple solution for using pqc it is still worth analyzing the
-cryptography available given the protocols prevalence in the
-itspaceanditshistoryasatoolforattackersrdpplays
-remark  quantumresistant property of stream a crucial role for many organizations as a way to manage
-lined ntru prime sntrup servers troubleshooting and remote work with the rise in
-the sntrup kem is a latticebased postquantum
-algorithm latticebased algorithms are relatively new remark  secure shell ssh are among first
-inthecryptographyworldandarethusnotasstrongly widely adopted pqc implementation
-tested against even prequantum adversaries as some
-moretraditionalschemesmanypqcimplementations ssh is among the first protocols to implement pqc
-such as this one thus combine a more established albeit with a low adoption rate of  recorded at
-cryptosystem to ensure immediate security if just one ncsa however as our results show clients increas
-of the involved algorithms is proven weak  ingly adopt pqc in ssh
-
-authorized licensed use limited to university of illinois downloaded on november  at  utc from ieee xplore restrictions apply
-tableii tableiii
-cryptographicalgorithmsfoundinsamplesshconnection alistofthetopciphersuitesfoundinsampletls
-datapostquantumclassicaldeprecatedalgorithmsas connectiondataintlsvconsiderednonsecure
-determinedbyietfnist
-tlsciphersuites occurrences
-encryptionalgorithm occurrences
-aesgcmopensshcom  tlsaesgcmsha 
-aesctr  tlsecdhersawithaes 
-chachapolyopensshcom  gcmsha
-aesgcmopensshcom  tlsaesgcmsha 
-aesctr  tlsecdhersawithaes 
-aescbc  gcmsha
-descbc  tlsdhanonwithaes 
-gcmsha
-macalgorithm occurrences tlsecdhanonwithaes 
-hmacshaetmopensshcom  cbcsha
-hmacsha  tlsecdhersawithnull 
-umacetmopensshcom  sha
-umacetmopensshcom  tlsecdheecdsawithaes 
-hmacsha  gcmsha
-hmacsha  tlsecdhersawith 
-chachapolysha
-hostkeyalgorithm occurrences tlsecdheecdsawithaes 
-ecdsashanistp  gcmsha
-sshed 
-sshrsa 
-rsasha 
-b dns
-keyexchangealgorithm occurrences
-curvesha 
-curveshalibsshorg  wethenbrieflyexaminedthedomainnamesystemdns
-diffiehellmangroupexchangesha 
-protocol used for deriving ip addresses from domain names
-diffiehellmangroupsha 
-sntrupx  historically with dns packets are not encrypted  this is
-shaopensshcom also true for the ncsa network however there are various
-diffiehellmangroupsha 
-ways of encrypting dns traffic namely through the https
-protocol or over a tls connection
-httpscanbeusedwithdnscalleddohtoencryptdns
-queries with https over port  this type of dns can be
-popularity of remote access solutions ensuring rdp meets enabled on some browsers such as firefox and chrome as
-future quantumsafe standards is necessary to not only protect a side effect dnsoverhttps makes distinguishing it from
-the integrity of data transmitted via rdp but also ensure that general web traffic in logs difficult
-rdpsessionsremainsecureinthefaceofquantumcomputing
-another form of secure dns is dnsovertls dot
-advancements
-dot creates encrypted tls channels for dns queries with
-a dnsovertls domain name resolver instead of the typical
-even though for rdp there was a minimal data set of 
-unencrypted dns resolver
-connections we were able to identify an interesting issue
-generally rdp can be configured to use two types of cryp withboththesemethodsofsecuringdnsandmanyothers
-tographic security enhanced encryption and networklayer not discussed here it should be noted that any security
-authentication nla enhanced encryption for rdp offers properties of dns are transferred from other network proto
-encryptionovertlsofeverythingaftertheconnectioninitia cols hence creating an opportune security dependence chain
-tionstageandalsoallowsauthenticationoftheserverfromthe discussed further in later sections
-client side nla requires the client to be authenticated before
-establishing a session with the server however out of all 
-connectionsonlytwoofthemusedthehybridexsecurity
-remark initial adoption of tls v with hybrid
-protocol setting which uses both enhanced encryption and
-pqc protocol is relatively slow
-nlaaswithsshthiscallsformorecarefulmanagementof
-individualmachinesandmakingsuretheyareallconfiguredto this difficulty in adopting tls v though is still
-use both enhanced encryption and nla for optimal security prevalent throughout the internet and not just here at
-ncsa it brings to light the unfortunate truth that if
-a final thing of note regarding rdp is that on connections
-widely adopting the newest tls has taken this many
-wherebothserverandclientareusingwindowsmachines
-years pqc adoption may show the same challenge
-it can be configured to run over tls  to add additional
-levels of security
-
-authorized licensed use limited to university of illinois downloaded on november  at  utc from ieee xplore restrictions apply
-c tls are not equipped with quantumresistant algorithms except
-for secure shell ssh and secure socket layer ssl ssh
-the final network protocol investigated in our study was
-protocol openssh library has implemented pqc for encryp
-the transport layer security tls protocol as with rdp
-tion in sntrupxshaopensshcom key exchange
-and dns there has not been tremendous work finished in the
-method after the release of its  version ssl protocol
-community regarding pqc implementation in this protocol
-opensslhasanotherlibrarycalledoqsproviderwhichis
-some companies and organizations have begun developing
-a provider to standard openssl to implement quantumsafe
-specifically tailored pqc implementations for their own use
-cryptography for kem key establishment in tls some
-but little has been developed for the common internet user
-quantumsafe algorithms that oqsprovider has implemented
-microsoftforexampleremainsintheprocessofcollaborating
-includekemalgorithmsbikecrystalskyberandsig
-with openssl to integrate pqc into their opensource tls
-nature algorithms falcon crystalsdilithium
-librariesbutthatisstillintheworkswiththatinmindit
-remainstobesaidthatnopqcwasfoundinthetlsnetwork
-vii casestudychallengesofmigrating
-traffic data at ncsa as with rdp though it is again worth
-scitokenstopqc
-lookingatthesecurityandpqcreadinessoftlshereanyway
-scitokens enables a federated ecosystem for authorization
-primarily the security of tls lies in its various cipher
-on distributed scientific computing infrastructures enabling
-suites or groupings of cryptographic algorithms used for
-researchers to authenticate themselves as valid users to access
-securing internet traffic this data was collected in table 
-scoped scientific computing resources  major supercom
-where we show the top ten cipher suites appearing in the
-puting and scientific instruments eg laser interferometer
-connections while the most commonly found cipher suites
-gravitationalwave observatory ligo open science grid
-in the data are today considered to be secure against classical
-extreme science and engineering discovery environment
-adversaries such as the top cipher suite tlsaesgcm
-xsederelyonscitokensitiscriticaltosafeguardscito
-sha a sizable portion of connections over  used
-kenswithquantumresistantcryptographytoavoidtheforgery
-weak cipher suites that have a concerning vulnerability
-of digital signatures used in tokens figure 
-eventhoughchromebrowserandaboveofferstls
-background the scitokens protocol uses json web
-hybridized kyber support for pqc the client does not turn it
-tokens jwts between various parties which will validate
-on by default in addition this problem is in part due to the
-any access to resources the process starts off by including
-other data point we examined the tls versions in use on the
-information within the jwt the information included most
-server end of the connections only about  of connections
-commonly consists of who issued the token who the token is
-used tls version  the most recent and most secure option
-assignedtowhenthetokenwillexpireandwhatpermissions
-for this use case the rest used tls version  which still
-and access the end user of such token will have the tokens
-supportsmanyoftheweakciphersuiteswefoundcontinuing
-are then signed cryptographically to be authentic and certified
-thismessageofheightenedsecuritymaintenancewouldgreatly
-when called upon to use the benefit of this approach is that
-improve the resilience of network traffic to adversaries at
-each organization or institution can issue its tokens allowing
-ncsa if all machines were to adopt support for tls v
-for easier and quicker access to resources without relying on
-vi currentpqcadoptionofnetworkprotocols onecentralauthoritytocontrolthedistributionofsuchtokens
-andtheirapplicationsandlibraries securing scitokens to be quantum resistant existing
-this section describes the current adoption of critical net efforts to secure tokenbased authentications include formal
-work protocols regarding postquantum cryptography pqc verification  the next level of security guarantee is
-theproblemofmigratingapplicationstobequantumresistant to make tokenbased authentication quantumresistant for
-is critical to ensure the security of key exchanges kex and this existing software must migrate cryptographic protocols
-the integrity of digital signatures as there is an increasing in three main steps signing key exchange and encryption
-concern about future attacks made by quantum algorithms key exchange and encryption are currently effective but the
-and computers knowing the current adoption rate in critical loomingthreatofquantumcomputingcouldcompromisethese
-protocols is crucial to ensure that these protocols are all safeguardspotentiallyexposingsensitivedataforscitokens
-secure against all these quantum computers to the best of
-ourknowledgeveryfewifanystudieshavedoneasystematic
-remarkotherthansshandtlsothernetwork
-survey of pqc adoption across network protocol layers and
-protocols are not ready for pqc
-the wide spectrum of workloads
-table iv described the current pqc adoptions of some of
-only ssh and ssl have had pqc implementation
-the most important protocols in the world some protocols
-with realworld adoptions the rest of the protocols
-are one of many protocols lying in the applications layer of
-must develop their quantumresistant cryptographic
-internetprotocolsuitesuchashttpdnsdhcpsshssl
-system or encapsulate their data in tls  hybrid
-etc in addition there are widely used communications and
-quantum key exchange
-authentication protocols such as kerberos modbus mysql
-sipandrdpasdescribedintableivmostcriticalprotocols
-
-authorized licensed use limited to university of illinois downloaded on november  at  utc from ieee xplore restrictions apply
-tableiv
-thecurrentstateofadoptionofscientificapplicationsandprotocolsregardingpostquantumcryptography
-naitemsshowinprogressorincompleteinformationtodeterminepqcreadiness
-protocols applicationslibraries descriptions quantumresistantimplemetation
-bhr ncsabhr blackholerouter na
-dhcp internetprotocol dynamichostconfigurationprotocol na
-dns internetprotocolsuite domainnameservice na
-dpd internetkeyexchange deadpeerdetection na
-http internetprotocolsuite hypertexttransferprotocol implementthroughssltls
-ftp sftp filetransferprotocol implementthroughopensshscp
-kerberos krb networkauthenticationprotocol na
-gssapi
-modbus modbustcp security clientserverdatacommunicationprotocol na
-
-mysql mysqlserver relationaldatabaseprotocol na
-ntlm newtechnologylanmanager na
-radius freeradius remoteauthenticationdialinuserservice na
-rdp freerdp remotedesktopprotocol na
-sip rtpsrtp sessioninitiationprotocol na
-smb samba servermessageblock na
-ssh openssh secureshell sntrupxshaopensshcom
-libssh keyexchangemethod
-ssltls openquantumsafe securesocketslayer kem bike crystalskyber signa
-turecrystalsdilithium
-smtp simplemailtransferprotocol na
-scitokens scitokens federatedauthorizationfordistributedscientificcomputing na
-the main critical component that must be quantum secure is resistant cryptography the general cryptography algorithm
-the signing step when a digital signature is forged the root is crystalskyber which is beneficial due to its small
-of trust about the integrity of the signed token is broken this encryption keys  the three digital signing algorithms
-underminestrustinhistoricaltransactionrecordsasthedigital are crystalsdilithium falcon and sphincs which
-signaturessecuringthemcouldbecompromisedbyaquantum are distinct from each other due to the high efficiency that
-computer crystalsdilithium and falcon provide but also due to
-the variance in terms of mathematical approach sphincs
-has 
-challenges of scitokens migration to pqc
- as these four algorithms that nist recommended are
-relatively new the mitigation documents are scarce there
-are protocol descriptions such as crystalsdilithium and
-falcon algorithms along with sphincs    but
-implementation guidelines are very few if there are any
- simply adapting scitokens using existing cipher suites
-such as rsa will create a new integration problem for
-example extending the length of the rsa digital signature
-from  bits to  bits will exceed the length of the
-x http header as defined in rfc  breaking jwt when
-pqc
-transmitted through intermediate proxies and interpreted by
-digital
-standard http servers
-signature forgery
-remark  uncertainty in adopting pqc
-fig quantumresistantscitokensmeansthedigitalsignaturesintokens
-cannotbeforgedbyaquantumcomputerpartofthefigureisadaptedfrom
-scitokensillustrationtoillustrateanadditionalsignatureschemeneeded to the developer community it is unclear what is
-tobeaddedtoscitokenstobequantumresistant theprocessofdeterminingwhichpostquantumsecure
-algorithmtouseandhowtoimplementthosecorrectly
-existing work the nist national institute of standards
-in the future we will work with the scitokens com
-and technology has determined four postquantum resistant
-munity to correctly implement its quantumresistant
-cryptographic algorithms while there are four determined
-digital signature algorithm
-oneofthealgorithmsappliestojustgeneralencryptionwhile
-the other three refer to the digital signing aspect of quantum
-
-authorized licensed use limited to university of illinois downloaded on november  at  utc from ieee xplore restrictions apply
- emerging sidechannel attacks targeting pqc imple remark  an open dataset containing metadata of
-mentations such as kyber and dilithium show that it is cryptographic suites for major network protocols
-challenging to have a correct implementation despite that the
-pqc protocols are correct  we are releasing an open dataset containing metadata
-ofcryptographicsuitesacrossmajornetworkprotocols
-viii lessonslearned
-ssh tls rdp etc upon the papers publication
-actionitemstopreemptnovelpqcattacks
-at httpspmcaogithubiopqc with our
-endtoend pqc requires both clientserver support to networkinstrumentinplacewewilltracktheadoption
-completely support pqc we have found that both client and of pqc algorithms give feedback to nist expect
-server have to support the same cipher suite widespread to discover potential novel pqc attacks in the wild
-adoption hinges upon effective protocol negotiation when and help migrate hpc applications to be quantum
-establishing the initial handshake followed by key exchanges safe finally we will expand our network instrument
-and digital signatures for effective postquantum security to to a set of networked vantage points pqc telescopes
-be possible it is thus necessary that as many machines as to continuously measure pqc adoption at the internet
-possible adopt postquantum versions of network protocols scale
-internetwide scan for pqc implementations another di
-rection is to create a web spider that measures postquantum
-cryptography at ncsa and other organizations constituting
-a network of pqc telescopes that actively scans ipv and pqc downgrade attack the security of a pqc scheme
-ipvspaceforpqcadoptionacrosswebservicesinaddition depends on both the protocol itself the implementation and
-each organization can adopt its own internal pqc compliance the effective negotiation of cipher suites eg hybrid during
-checking tool as an https service so users can visit and the migration period we hypothesize that future attacks may
-perform selfassessments not attempt to exploit the pqc scheme directly but rather
-tls v supporting pqc by default a more ambitious downgrade a pqc protocol to a classical protocol which is
-yet significant direction for pqc adoption would be the intro less secure similar to the ssl downgrade attack shown in
-duction of pqc directly into the tls standard as tls v 
-while some organizations are already working on integrating
-pqc as additions onto their tls versions  and  
-conclusionandfuturework
-distinguishing a fully postquantum implementation with a we have successfully implemented and deployed a novel
-new version number could prove to be essential in marketing network instrument to measure pqc adoption in realtime
-the dire urgency in tls adoption of pqc internetwide and provide historical trends of the adoption rates across
-this urgency is highlighted by the incredible potential seven layers of computer network protocols at the national
-of securing most network traffic against both quantum and center for supercomputing applications at the university of
-classical adversaries under tls we have shown in earlier illinois at urbanachampaign the instrument is placed at
-sections that there are various methods to secure protocols the network border router of nationscale highperformance
-such as dns and rdp using just tls as a wrapper in supercomputing centers and is a testbed for measurements
-addition to those methods tls termination proxies can also using only metadata of network connections without com
-be used as wrappers around current legacy infrastructures to promising users privacy we present the first statistical study
-securetrafficseamlesslywithmanytlsbasedsolutions of pqcs readiness across seven layers of computer network
-for cryptographically lacking protocols already out there it andhpcapplicationswithauniquevantagepointapetascale
-should not be unrealistic to extend this security to the post supercomputing center with nationscale visibility through the
-quantum world under a new version number implementation fabric teracore network
-and standard
-acknowledgements
-observing and preempting pqc attacks despite numerous
-attack attempts  and analyses against current pqc drafts we acknowledge dr jim basney for indepth discussions
-none of the attacks have been publicly confirmed we assert about scitokens dr santiago nunezcorrales dr edoardo
-that if there were any successful attacks they would highly giusto members of ncsa quantum task force dependable
-likely leave traces in the network metadata which would be classicalquantum computing systems engineering working
-measuredbyournetworkinstrumentorahoneypotgiven group and the illinois quantum information science and
-that we can achieve a widespread deployment on the internet technology center iquist faculty members particularly
-scalethereforeitisimportanttocontinuethislineofnetwork dr brian demarco for insightful feedback this work was
-instruments for pqc measurement to preempt attacks  partly supported by the national science foundation nsf
- and failures  particularly in hpc environments we under contract ccf  we also want to recognize
-suspect that futuristic malware  may employ pqc in the following organizationsprograms the nsfs trusted ci
-additiontoothertechniquessuchasmachinelearningtohide cybersecurity center of excellence ncsa student pushing
-themselves from forensic analyses innovation program spin illinois computes ibmillinois
-
-authorized licensed use limited to university of illinois downloaded on november  at  utc from ieee xplore restrictions apply
-discovery accelerator institute fabric pposs and the yorknyusaassociationforcomputingmachineryonline
-nsfs cybercorps scholarship for service sfs program availablehttpsdoiorg
- kuberneteskubernetes productiongrade container scheduling and
-access and delta allocations ncsa integrated cyberin
-management httpsgithubcomkuberneteskubernetes accessed on
-frastructureirst team particularly timothy boerner james 
-eyrich ryan walker christopher clausen and dr yang guo  kerberos the network authentication protocol httpswebmitedu
-kerberosaccessedon
-at the nist hpc security working group any opinions
- globushttpswwwglobusorgaccessedon
-findings conclusions or recommendations expressed in this  slurm workload manager  overview httpsslurmschedmdcom
-materialarethoseoftheauthorsanddonotnecessarilyreflect overviewhtmlaccessedon
- p cao e c badger z t kalbarczyk r k iyer a withers
-the views of their employers or the sponsors
-and a j slagell towards an unified security testbed and security
-analytics framework in proceedings of the  symposium and
-references
-bootcamponthescienceofsecurityserhotsos newyorkny
- t simonite ibms condor quantum computer aims for utilityscale usaassociationforcomputingmachineryonlineavailable
-quantum computing ieee spectrum  accessed  july  httpsdoiorg
-onlineavailablehttpsspectrumieeeorgibmcondor  pmcaoywussbanerjeejazoffawithersztkalbarczyk
- cphampcaozkalbarczykandrkiyertowardahighavail and r k iyer caudit continuous auditing of ssh servers
-ability cloud techniques and challenges in ieeeifip international to mitigate bruteforce attacks in th usenix symposium on
-conference on dependable systems and networks workshops dsn networked systems design and implementation nsdi   pp
- ieeepp 
- y cao p cao h chen k m kochendorfer a b trotter w l  y wu p cao a withers z t kalbarczyk and r k iyer poster
-galanter p m arnold and r k iyer predicting icu admissions miningthreatintelligencefrombillionscalesshbruteforceattacksin
-forhospitalizedcovidpatientswithafactorgraphbasedmodelin procnetwdistribsystsecuritypp
-multimodal ai in healthcare a paradigm shift in health intelligence  p cao h li k nahrstedt z kalbarczyk r iyer and a j
-springerpp slagell personalized password guessing a new security threat
- d sikeridis p kampanakis and m devetsikiotis postquantum in proceedings of the  symposium and bootcamp on the
-authentication in tls  a performance study httpseprintiacrorg science of security ser hotsos  new york ny usa
-pdfaccessedon association for computing machinery  online available
- mfriedljmojzisandsjosefssonsecureshellsshkeyexchange httpsdoiorg
-method using hybrid streamlined ntru prime sntrup and x  djbernsteincchuengsatiansuptlangeandcvanvredendaal
-with sha sntrupxsha internet engineering task ntru prime reducing attack surface at low cost cryptology eprint
-force tech rep  accessed  apr  online available archive vol  no  pp   last accessed  july
-httpswwwietforgarchiveiddraftjosefssonntruprimesshhtml onlineavailablehttpseprintiacrorg
- opensshcomtxtreleasehttpswwwopensshcomtxtrelease  jhoffsteinjpipherandjhsilvermanntruaringbasedpublic
-accessedon keycryptosystempp
- cqchoithebeatingheartoftheworldsfirstexascalesupercom  d j bernstein b b brumley ms chen c chuengsatiansup
-puterieeespectrum tlangeamarotzkebypengntuvericvanvredendaaland
- msrdpbcgr remote desktop protocol basic connectivity by yang ntru prime round  national institute of standards
-and graphics remoting  microsoft learn httpslearn andtechnologytechrepaccessedjulyonline
-microsoftcomenusopenspecswindows protocolsmsrdpbcgr availablehttpsntruprimecryptonistntruprimepdf
-fedeebeccredirectedfrommsdn  d j bernstein curve new diffiehellman speed records in
-accessedon publickeycryptographypkcserlecturenotesincomputer
- b chen y wang p shome c w fletcher d kohlbrenner science vol  springer  pp  accessed  july
-rpaccagnellaanddgenkingofetchbreakingconstanttimecryp  online available httpswwwiacrorgcryptodbarchive
-tographic implementations using data memorydependent prefetchers pkcpdf
-inusenixsecurity  nationalinstituteofstandardsandtechnologysecurehashstandard
- the state of the postquantum internet httpsblogcloudflarecom shsusdepartmentofcommercefederalinformationprocessing
-pqaccessedon standardspublicationaccessedjulyonline
- d sikeridis p kampanakis and m devetsikiotis postquantum au availablehttpsnvlpubsnistgovnistpubsfipsnistfipspdf
-thenticationintlsaperformancestudycryptologyeprintarchive  s josefsson hybrid x and streamlined ntru prime
- sntrup with sha chempatx internet engineering task
- g twardokus n bindel h rahbari and s mccarthy when cryp force internetdraft draftjosefssonntruprimehybrid jan 
-tography needs a hand practical postquantum authentication for vv work in progress online available httpsdatatrackerietforgdoc
-communicationscryptologyeprintarchive draftjosefssonntruprimehybrid
- cybersecurity and infrastructure security agency national security  a g john shier its oh so quiet  the sophos active ad
-agencyandnationalinstituteofstandardsandtechnologyquantum versary report for h  httpsnewssophoscomenus
-readiness migration to postquantum cryptography us department activeadversaryreporth april  accessed on
-of defense tech rep   accessed  july  online 
-available httpsmediadefensegovaug  k easterbrook and c paquin postquantum tls httpswww
-csiquantumreadinesspdf microsoftcomenusresearchprojectpostquantumtls accessed on
- i grigorik high performance browser networking what every web 
-developer should know about networking and web performance   ncsabhrsite blackhole router site httpsgithubcomncsabhrsite
-oreillymediainc accessedon
- i baldin a nikolich j griffioen i i s monga kc wang  krbkrbmirrorofmitkrbrepositoryhttpsgithubcomkrbkrb
-t lehman and p ruth fabric a nationalscale programmable ex accessedon
-perimental network infrastructure ieee internet computing vol   rfc   the kerberos version  gssapi mechanism https
-nopp datatrackerietforgdochtmlrfcaccessedon
- vpaxsonbroasystemfordetectingnetworkintrudersinrealtime  mb tcp security vpdf httpswwwmodbusorgdocs
-computernetworksvolnopp mbtcpsecurityv pdfaccessedon
- awithersbbockelmandweitzeldbrownjgaynorjbasney  mysqlmysqlserver mysql server the worlds most popular open
-t tannenbaum and z miller scitokens capabilitybased secure source database and mysql cluster a realtime open source transac
-access to remote scientific data in proceedings of the practice and tional database httpsgithubcommysqlmysqlserver accessed on
-experienceonadvancedresearchcomputingserpearc new 
-
-authorized licensed use limited to university of illinois downloaded on november  at  utc from ieee xplore restrictions apply
- freeradiusfreeradiusserver freeradius  a multiprotocol policy
-serverhttpsgithubcomfreeradiusfreeradiusserveraccessedon
-
- freerdphttpswwwfreerdpcomaccessedon
- sambateamsambahttpsgitlabcomsambateamsambaistheofficial
-gitlabmirrorofhttpsgitsambaorgsambagitmergerequestsshould
-be made on gitlab not on github httpsgithubcomsambateam
-sambaaccessedon
- openquantumsafeoqsprovider openssl  provider containing
-postquantum algorithms httpsgithubcomopenquantumsafe
-oqsprovideraccessedon
- schenmmccutchenpcaosqadeerandrkiyersvautha
-singlesignonintegrationsolutionwithruntimeverificationinruntime
-verificationthinternationalconferencervseattlewausa
-septemberproceedings springerpp
- awithersbbockelmandweitzeldbrownjgaynorjbasney
-t tannenbaum and z miller scitokens capabilitybased secure
-access to remote scientific data in proceedings of the practice and
-experienceonadvancedresearchcomputingpp
- n i of standards and technology nist announces first four
-quantumresistant cryptographic algorithms july  accessed on
-
- resources httpspqcrystalsorgdilithiumresourcesshtml
-accessedon
- aboutfalconhttpsfalconsigninfoaccessedon
- resources httpssphincsorgresourceshtml accessed on
-
- whatissslterminationhttpswwwfcomglossaryssltermination
-accessedon
- ychenquantumalgorithmsforlatticeproblemscryptologyeprint
-archive paper   accessed  july  online
-availablehttpseprintiacrorg
- v tay x li d mashima b ng p cao z kalbarczyk and r k
-iyer taxonomy of fingerprinting techniques for evaluation of smart
-grid honeypot realism in  ieee international conference on
-communicationscontrolandcomputingtechnologiesforsmartgrids
-smartgridcomm ieeepp
- cphamzestradapcaozkalbarczykandrkiyerreliability
-andsecuritymonitoringofvirtualmachinesusinghardwarearchitectural
-invariantsinthannualieeeifipinternationalconferenceon
-dependablesystemsandnetworks ieeepp
- pcaoebadgerzkalbarczykriyerandaslagellpreemptive
-intrusion detection theoretical framework and realworld measure
-ments in proceedings of the  symposium and bootcamp on the
-scienceofsecuritypp
- j basney p cao and t fleury investigating root causes of authen
-ticationfailuresusingasamlandoidcobservatoryinieeeth
-international conference on dependability in sensor cloud and big
-datasystemsandapplicationdependsyspp
- kchungpcaoztkalbarczykandrkiyerstealthmldata
-drivenmalwareforstealthydataexfiltrationinieeeinternational
-conferenceoncybersecurityandresiliencecsr ieeepp
-
- b moller t duong and k kotowicz this poodle bites exploiting
-thesslfallbacksecurityadvisoryvolpp
-
-authorized licensed use limited to university of illinois downloaded on november  at  utc from ieee xplore restrictions apply
+informative report
+number asc xf ir 
+title postquantum cryptography
+financial readiness needs
+assessment informative report
+developed by the x quantum
+computing risk study group
+informative reports developed through the accredited standards committee x
+inc x are copyrighted by x informative reports are available free of charge
+however all copyrights belong to and are retained by x for additional information
+contact the accredited standards committee x inc at asc x inc  west
+street suite  annapolis maryland 
+ asc x inc   all rights reserved
+asc xf ir 
+table of contents
+page
+draft informative report 
+acronyms and abbreviations  
+ executive summary  
+ overview  
+ scope  
+ data value and lifecycle  
+ determining data value  
+ how long does the data require protection  
+ cryptographic audit and inventory  
+ cryptographic inventory  
+ stored corporate assets  
+ digital walletvault  
+ password safe or key safe software  
+ pki certificates 
+ data delivery channels for data in transit  
+ third parties contractors and suppliers  
+ cryptographic risk assessment  
+ building a migration plan  
+ remediation best practices  
+ cryptography life cycle management  
+ cryptographically agile architectures  
+ cryptography bill of materials cbom  
+ crypto asset management  
+ cryptographic interoperability  
+ cryptography policy orchestration  
+ design tradeoffs and identifying dependencies  
+ certificate implementations and interoperability  
+ pure quantumsafe certificates  
+ composite quantumsafe certificates  
+ related certificates  
+ chameleon certificates  
+ dualkey certificates  
+ compliance assurance  
+ what new attacks could result from combining quantum computers and ai  
+ consider cloud service providers a vulnerable point in it infrastructure  
+ related work by x  
+ conclusion  
+annex a  nistapproved postquantum cryptographic algorithms  
+asc x inc   all rights reserved i
+asc xf ir 
+foreword
+this informative report has been approved and released by the accredited standards committee x incorporated
+located at  west street suite  annapolis md  this document is copyrighted by x it is not an
+american national standard and the material contained herein is nonnormative in nature comments on the
+content of this document should be sent to attn executive director accredited standards committee x inc
+ west street suite  annapolis md 
+this informative report was produced by the accredited standards committee x financial industry standards it
+was generated by the quantum computing risk study group established by the x board of directors in
+december  to research the state of quantum computing and to generate a report summarizing the findings of
+the group
+suggestions for improvement or revision of this report are welcome they should be sent to the x committee
+secretariat accredited standards committee x inc financial industry standards  west street suite 
+annapolis md  usa
+published by
+accredited standards committee x incorporated financial industry standards asc x or x
+ west street suite 
+annapolis md  usa
+x online httpwwwxorg
+copyright   asc x inc
+some graphics generated by ai
+all rights reserved
+no part of this publication may be reproduced in any form in an electronic retrieval system or otherwise without
+prior written permission of the publisher published in the united states of america members of asc x are
+granted permission to distribute copies of this publication within their company
+asc x inc   all rights reserved ii
+asc xf ir 
+x board of directors list of members
+at the time this informative report was published the asc x board of directors had the following member
+companies and company representatives and x had the following staff
+corby dear x board of directors chair
+michelle wright x board of directors vice chair
+steve stevens x executive director
+janet busch director of operations
+ambria calloway program manager
+lindsay conley project manager
+organization represented representative
+amazon smita mahapatra
+american bankers association karin flynn
+american bankers association ananda radhakrishnan
+american bankers association tab stewart
+american bankers association shannon williams
+american express travel related services company matt crothers
+american express travel related services company lauren helt
+american express travel related services company brian politz
+american express travel related services company wayne powell
+american express travel related services company sophie rainford
+bank of america rich clow
+bank of america chuck gruesbeck
+bank of america matt sharp
+bank of america michael smith
+bank of new york mellon kevin barnes
+bankvod sean dunlea
+bloomberg lp erik anderson
+bloomberg lp corby dear
+bloomberg lp rich robinson
+capital one matthew hines
+capital one diana muse
+citigroup inc sudha iyer
+communications security establishment jonathan hammell
+conexxus inc michael davis
+conexxus inc david ezell
+conexxus inc gray taylor
+conexxus inc alan thiemann
+cusip global servicesmatthew bastian
+cusip global servicesroger fahy
+cusip global servicesgerard faulkner
+cusip global servicesscott preiss
+deluxe corporation margiore romay
+deluxe corporation andy vo
+diebold nixdorf bruce chapa
+diebold nixdorf anne konecny
+diebold nixdorf alexander lindemeier
+digicert dean coclin
+asc x inc   all rights reserved iii
+asc xf ir 
+digicert tim hollebeek
+discover financial services carey ferro
+discover financial services gregory wren
+dover fuleing solutions harish veeravalli
+early warning systems adam klappholz
+early warning systems mark mcinnes
+factset research systems inc michele lieber
+federal reserve bank ainsley hargest
+federal reserve bank mark kielman
+firstbank ryan buerger
+fis prashant gupta
+fis tami harris
+fis cary jeffers
+fis gail lumsden
+fis prajoy prabhakaran
+fis gary sliger
+fis joe stein
+fiserv andrea beatty
+fiserv jacqueline dill
+fiserv dan otten
+fix protocol ltd  fpl james northey
+futurex ryan smith
+harland clarkevericast todd herndon
+harland clarkevericast andy marek
+hyosung tns inc jaewhan shin
+ibm corporation richard kisley
+ingenico steven bowles
+ingenico wayne burgess
+intuit inc naresh karri
+invenco by gvr bruce welch
+isitc jason brasile
+isitc lisa iagatta
+isitc rich robinson
+its inc shazam networks scott green
+its inc shazam networks manish nathwani
+jp morgan chase andrew francis
+jp morgan chase clinton jones
+jp morgan chase ted rothschild
+keyfactor tomas gustavsson
+mastercard europe sprl mark kamers
+member emeritus todd arnold
+member emeritus andi coleman
+member emeritus roy decicco
+member emeritus dave faoro
+member emeritus valerie hodge
+member emeritus darlene kargel
+member emeritus bill poletti
+member emeritus diane poole
+member emeritus ralph poore
+member emeritus david repking
+member emeritus mark tiggas
+member emeritus daniel welch
+merchant advisory group troy carrothers
+merchant advisory group steve cole
+merchant advisory group bryan penny
+nacha the electronic payments association kathy levin
+asc x inc   all rights reserved iv
+asc xf ir 
+national security agency mike boyle
+ncr atleos charlie harrow
+ncr atleos gordon mackay
+ncr voyix jackie farone
+office of financial research us department of the treasury paul damico
+office of financial research us treasury department jennifer bondcaswell
+office of financial research us treasury department thomas brown jr
+pci security standards council doug manchester
+pnc bank melinda tobolewski
+safari sop steve jatnieks
+safari sop tom melling
+swiftpan americas anne suprenant
+tecsec incorporated ed scheidt
+tecsec incorporated jay wack
+thales dis cpl usa inc james torjussen
+the clearing house jackie pagn
+thomson reuters kyle floyd
+thomson reuters taimur javed
+us bank bob walker
+us bank michelle wright
+us commodity futures trading commission cftc ken janoski
+us commodity futures trading commission cftc robert stowsky
+university bank stephen ranzini
+university bank michael talley
+usda food and nutrition service lisa gifaldi
+usda food and nutrition service sara klos
+verifone inc joachim vance
+viewpointe clearing settlement and associations services llc richard luchak
+visa andreas aabye
+visa adam clark
+visa eric le saint
+visa kim wagner
+wells fargo bank sotos barkas
+wells fargo bank peter bordow
+wells fargo bank dawn elliot
+wells fargo bank alan nguyen
+wells fargo bank jeff stapleton
+wolters kluwer andrea hearn
+wolters kluwer sayuj nambiar
+xf quantum computing risk study group members
+at the time this informative report was published the xf quantum computing risk study group had the following
+officers and members
+steve stevens study group cochair
+tim hollebeek and philip lafrance study group cochair
+organization represented representative
+accenture benjamin mccarty
+accredited standards committee x inc janet busch
+accredited standards committee x inc ambria calloway
+asc x inc   all rights reserved v
+asc xf ir 
+accredited standards committee x inc lindsay conley
+accredited standards committee x inc steve stevens
+ally financial lisa matthews
+american express travel related services company vinay singh
+american express travel related services company alejandro vences
+american express travel related services company kevin welsh
+bp cigin joseph
+british telecommunications nigel tedeschi
+capital one johnny lee
+capitol technology university amare geremew
+cisco scott fluhrer
+citigroup inc sudha iyer
+citigroup inc michael king
+common crypto authority troy anderson
+communications security establishment jonathan hammell
+communications security establishment erin mcafee
+conexxus inc david ezell
+cryptonext security ludovic perret
+diebold nixdorf alexander lindemeier
+digicert tim hollebeek
+discover financial services benjamin artus
+discover financial services dhaval chauhan
+federal reserve bank troy campbell
+federal reserve bank scott gaiti
+federal reserve bank dillon glasser
+federal reserve bank ray green
+federal reserve bank terry harris
+federal reserve bank mark kielman
+federal reserve bank francois leclerc
+federal reserve bank jeffrey ronay
+federal reserve bank fabio sanches
+federal reserve bank chris tsuboi
+fix protocol ltd  fpl james northey
+gis quantum solutions practice steven jasmin
+harrisburg university terrill frantz
+hsbc banking chris ratcliff
+ibm corporation marcone almeida
+ibm corporation wai choi
+ibm corporation anne dames
+ibm corporation erick de carty
+ibm corporation mike hocker
+ibm corporation richard kisley
+ibm corporation sunil landge
+ibm corporation michael osborne
+imperial college london andrew mendelsohn
+ingenico laurent pion
+introspect tech tony thompson
+invenco by gvr scott spiker
+invenco by gvr bruce welch
+isara corporation philip lafrance
+ita unibanco sa joao vieira da silva
+mayo clinic school of medicine horacio murillo
+member emeritus todd arnold
+member emeritus andi coleman
+member emeritus larry hines
+member emeritus bill poletti
+asc x inc   all rights reserved vi
+asc xf ir 
+member emeritus ralph poore
+member emeritus richard sweeney
+national security agency mike boyle
+national security agency austin calder
+national security agency nick gajcowski
+office of financial research us treasury department jennifer bondcaswell
+office of financial research us treasury department lynn calahan
+office of financial research us treasury department michael warner
+opentext timothy roake
+performance food group pinkaj klokkenga
+pnc financial services group stephanie decarlo
+publix super markets inc josh peak
+qrypt denis mandich
+quantum bridge technologies inc melchior aelmans
+quantum bridge technologies inc mattia montagna
+quantum bridge technologies inc paul oleary
+quantum bridge technologies inc bill wyche
+richter inc david lachmansingh
+sympatico mary horrigan
+tecsec incorporated ed scheidt
+tecsec incorporated jay wack
+thales dis cpl usa inc amit sinha
+the clearing house joel bucklew
+the clearing house jackie pagn
+us bank vikram andem
+university bank michael talley
+university of maryland jonathan katz
+university of waterloochin lee
+university of waterloomichele mosca
+utimaco inc jillian benedick
+verifone inc john barrowman
+verifone inc chetan katira
+verifone inc joachim vance
+visa yilei chen
+visa adam clark
+visa naga vinod duggirala
+visa eric le saint
+visa peihan miao
+visa kim wagner
+visa gaven watson
+wells fargo bank alexandria archer
+wells fargo bank peter bordow
+wells fargo bank shannon chang
+wells fargo bank sarah chen
+wells fargo bank kelle clark
+wells fargo bank josh cooper
+wells fargo bank joe janas
+wells fargo bank rameshchandra ketharaju
+wells fargo bank antoinette mccarthy
+wells fargo bank abhijit rao
+wells fargo bank juan rodriguez
+wells fargo bank jeff stapleton
+wells fargo bank tony stieber
+wells fargo bank hunter storm
+west point education lubjana beshaj
+whitebox advisors kerry manaster
+asc x inc   all rights reserved vii
+asc xf ir 
+acronyms and abbreviations
+aes advanced encryption standard symmetric encryption
+ansi american national standards institute  httpswwwansiorg
+cp certification authority
+cbc cipher block chaining
+cca common cryptographic architecture
+cisa us cybersecurity and infrastructure security agency  httpswwwcisagov
+csrc computer security resource center nist  httpscsrcnistgov
+cvc card verification code used by mastercard
+cvv card verification value used by visa
+dea data encryption algorithm
+des data encryption standard
+dsa digital signature algorithm
+dukpt derived unique key per transaction
+ec elliptic curve
+ecc elliptic curve cryptography
+etsi european telecommunications standards institute  httpswwwetsiorg
+fips federal information processing standards
+fpe format preserving encryption
+mac message authentication code
+mk master key
+mldsa modulelatticebased digital signature algorithm
+mlkem modulelatticebased keyencapsulation mechanism
+nsa us national security agency  httpswwwnsagov
+nist us national institute of science and technology  httpswwwnistgov
+oid object identifier
+owasp open web application security project  httpsowasporg
+pan personal account number
+pki public key infrastructure
+pqc post quantum cryptography
+qkd quantum key distribution
+rng random number generator
+rsa rivest shamir and adleman
+ asc x inc   all rights reserved 
+asc xf ir 
+sct signed certificate timestamp
+sha secure hash algorithm
+slhdsa stateless hashbased digital signature algorithm
+tdes triple des data encryption standard
+x or asc x accredited standards committee x inc httpwwwxorg
+ asc x inc   all rights reserved 
+asc xf ir 
+asc xf ir 
+postquantum cryptography financial readiness needs
+assessment informative report
+asc x  post quantum cryptography financial industry readiness needs
+assessment informative report
+ executive summary
+the transition to postquantum cryptography pqc will not
+necessarily be quick or inexpensive however ignoring the
+issue will likely lead to more costly missteps and increase
+the risk of overlooking potential issues resulting in greater
+time and financial losses implementing a companywide
+program to investigate internal security issues related to
+quantum computing and to create plans to address them
+provides the best opportunity for reducing migration
+expenses creating an environment secure against
+quantum attack reducing the likelihood of missed vulnerabilities and providing the opportunity to correct long
+standing problems while the scope of the work may be daunting the financial industry has faced similar challenges
+in the past with other cryptographic migrations such as des to des sha to sha and des to aes
+the fundamental difficulty in achieving an effective migration to pqc is the scale and effort required across multiple
+industry sectors systems and networks put another way the cryptographic migration task is a complex problem
+involving change at multiple levels in addition to these complexities the timeline for implementation must also be
+considered
+like any complex or challenging problem simplification is a good way to start the problem can be more easily
+managed by breaking it down into a prioritized sequence of individual steps however in terms of the pqc migration
+building such a list involves understanding the requirements of the standards community vendors and endusers
+this document and others being produced by x will aid organizations preparing to migrate to pqc for more
+information on related documents please visit the x website wwwxorg or contact x adminxorg
+ overview
+the cybersecurity and infrastructure security agency cisa defines national critical functions ncf as
+functions of government and the private sector so vital to the united states that their disruption corruption or
+dysfunction would have a debilitating effect on security national economic security national public health or safety
+ cisa ncf httpswwwcisagovtopicsriskmanagementnationalcriticalfunctions
+ asc x inc   all rights reserved 
+asc xf ir 
+or any combination thereof several of the  currently
+defined ncfs directly relate to activities of the financial
+services industry with several more pertaining to the
+provisioning and maintenance of cybersecurity the goal
+of this document is to provide a highlevel overview of
+options alternatives and guidance for mitigating the
+cybersecurity threats posed by quantum computers to the
+financial services industry
+the key challenge for x is to educate the financial
+industry on how to identify analyze prioritize and manage
+not only the significant risks posed by a future quantum
+computer but also how the industry will migrate to post
+quantum cryptography pqc to protect against these types of attacks
+pqc is a branch of cryptography concerned with asymmetric cryptographic systems resistant to attacks which utilize
+either quantum computers or classical computers standards bodies like asc x are working with organizations like
+the national institute of standards and technology nist to select secure pqc algorithms and incorporate them
+into our financial standards that said the effort to standardize a suite of pqc algorithms is still a work in progress
+with an initial set of postquantumalgorithms expected by late  in  nist has released their first batch of
+three pqc algorithms more details on these algorithms can be found in annex a of this document nist has started
+work on the next round of pqc candidates
+the migration to pqc will by necessity require significant work in many areas such as
+ educating personnel on the issues related to how quantum computers can break cryptography
+ creating a cryptographic asset inventory to identify all the cryptographic systems in use
+ prioritize current systems for remediation based on a risk assessment
+ developing and implementing a plan to migrate to pqc solutions where required
+ working with vendors to develop and deploy pqc solutions in third party products
+ using the pqc migration as an opportunity to investigate and incorporate features of an agile
+architecture where appropriate
+companies and government agencies are facing a critical challenge the need to migrate to postquantum
+cryptography in order to protect sensitive data and networks from attacks by quantum computers
+this paper provides guidance for the financial industry government agencies and other organization to help them
+prepare for the migration to pqc in addition this paper also identifies the challenges that companies and agencies
+will face in migrating to pqc these include
+ the need to educate personnel on quantum computing issues and the new pqc algorithms
+ there may be a need to select between multiple pqc algorithms for a given use case
+ the cost of developing and deploying pqc solutions
+ the need to coordinate the migration across multiple organizations and networks
+ httpswwwnistgovnewseventsnewsnistannouncescandidatesadvancesecondroundadditionaldigital
+ asc x inc   all rights reserved 
+asc xf ir 
+this paper concludes by calling for the financial industry and government agencies to act now to prepare for the
+migration to pqc the sooner planning begins the more time there will be to mitigate risks and ensure a smooth
+efficient transition to pqc
+note regarding due diligence we recognize that no required sequence or industry assessment for a cryptographic
+migration exists for if we had such a proven list we would use it
+as a point of reference and a good starting point the us department of homeland security has documented some
+of the actions agencies and organizations should take to prepare for pqc
+ scope
+this document provides general information and background for creating plans to migrate a companys
+organizations or agencys prequantum cryptographic infrastructure to a postquantum cryptographic infrastructure
+that at a minimum has significant resistance to quantum attacks or is considered secure against them a migration
+of this nature is complex but it can be managed through software tools detailed planning and adherence to
+standards the use of standards will mitigate the risks associated with the use of new technologies and provide
+guidance that includes best practices software tools can help reduce the overhead required to identify problems
+across an organization as well as plan and track corrective actions
+some of the areas addressed in the paper include
+ preparing for postquantum cryptography infographic us department of homeland security 
+httpswwwdhsgovpublicationpreparingpostquantumcryptographyinfographic
+ asc x inc   all rights reserved 
+asc xf ir 
+ crypto policy management
+o need for automated tools to manage the cryptographic life cycle including inventory management
+enforceable cryptography policy and agile selection of cryptography services
+ design tradeoffs
+o need for practical approaches to maintaining current cryptographic protections while smoothly
+transitioning to pqc
+ implementations and interoperability
+o need current cryptography systems and services to coexist that are interoperable
+ compliance assurance
+o need standardscompliant certified and documented replacement cryptography products we can
+rely upon to protect business operations in hybrid and multicloud environments
+ deployment guidelines
+o need a reference architecture for migration to guide a long transition period
+ data value and lifecycle
+when prioritizing cryptographic assets in the financial industry for protection
+against quantum attacks it is essential to consider the value and criticality of the
+data they safeguard the financial industry deals with a vast amount of sensitive
+information and not all data elements have the same level of importance
+ determining data value
+here are some steps to determine the value of data that needs protection from a
+quantum attack
+ data classification classify the data based on its sensitivity or importance categorize data into levels
+such as public internal confidential personally identifiable information pii financial transactions
+cryptographic keys and other critical assets
+ financial impact analysis assess the potential financial impact of a data breach or compromise for
+each category consider losses liabilities regulatory fines and the erosion of customer trust
+ regulatory compliance consider regulatory requirements specific to the financial industry identify
+data elements governed by regulations such as pci dss gdpr glba or local financial data
+protection laws prioritize protection for data that must comply with these regulations
+ business continuity dependence evaluate how the data supports business continuity and the
+smooth operation of financial systems prioritize data that is crucial for uninterrupted business
+processes
+ trade secrets and intellectual property identify data that constitutes trade secrets intellectual
+property or proprietary financial models such data is critical to maintaining a competitive edge and
+should be given high priority for protection
+ data usage and access analyze the frequency of data usage and the number of users who have
+access to each data category data that is frequently accessed or widely distributed may require
+stronger protection measures
+ interconnectedness and dependencies understand how different data elements are interconnected
+and their dependencies on one another prioritize protecting data that could serve as a gateway to
+accessing other sensitive information
+ asc x inc   all rights reserved 
+asc xf ir 
+ quantum vulnerability evaluate the susceptibility of different data elements to quantum attacks data
+vulnerable to harvest now decrypt later attacks should be prioritized for quantumsafe protection
+ customer and stakeholder trust consider the impact of a data breach on customer and stakeholder
+trust protecting data that directly affects client trust is crucial for maintaining a positive reputation
+ costbenefit analysis conduct a costbenefit analysis to evaluate the resources needed to implement
+quantumsafe protection for each data category balance the potential impact of a quantum attack
+against the investment needed for protection
+by following these steps financial institutions can effectively prioritize inventory items for protection from a quantum
+attack the goal is to focus resources on securing the most critical and sensitive data ensuring resilience against
+emerging quantum computing threats while complying with regulatory requirements and maintaining the trust of
+customers and stakeholders
+ how long does the data require protection
+the required protection lifespan of data significantly influences an
+organizations pqc migration strategy sensitive data requiring
+longterm protection is more vulnerable to harvest now decrypt
+later attacks than shortlived data and should therefore be
+prioritized in the postquantum migration process the duration for
+which data must be protected depends on a variety of legal
+regulatory business and security factors key factors influencing
+data protection timelines include
+ data retention policies organizations must adhere to
+data retention policies mandated by laws and regulations
+specific to their industry these policies outline the minimum and maximum duration for which certain types
+of data must be retained for compliance purposes
+ data classification different data categories have varying retention requirements based on their sensitivity
+and criticality highly sensitive data may require longer protection periods compared to less critical
+information
+ legal and regulatory requirements laws and regulations may specify specific retention periods for
+different types of data for example financial institutions may need to retain transaction records for a certain
+number of years to comply with financial reporting standards
+ contractual obligations agreements with customers partners or service providers may specify how long
+certain data must be retained and protected
+ statute of limitations in legal matters the statute of limitations determines the maximum period during
+which legal actions can be initiated based on specific events data related to potential legal disputes may
+need to be retained until the statute of limitations expires
+ business necessity some data may be required for ongoing business operations or historical analysis
+organizations may retain data for as long as it is deemed necessary to support business activities or
+decisionmaking processes
+ security considerations data sensitivity and exposure risk often determine how long protection must be
+maintained highly sensitive data typically requires extended retention
+ data lifecycle management data lifecycle management practices may influence the retention period
+organizations may determine specific stages for data retention archival and disposal based on the datas
+age and relevance
+ customer consent retention timelines may be governed by customer consent agreements which can
+define how long data may be stored
+ asc x inc   all rights reserved 
+asc xf ir 
+ data privacy regulations privacy regulations such as gdpr may impose limitations on data retention
+and require the erasure of personal data after a certain period once the purpose for which it was collected
+has been fulfilled
+it is essential for organizations to have welldefined data retention and protection policies that consider these various
+issues by understanding and adhering to legal requirements industry standards and best practices organizations
+can effectively manage data retention and protection to ensure data security and compliance with applicable
+regulations
+ cryptographic audit and inventory
+as part of an organizations cryptographic readiness
+analysis it is important to establish policies and procedures
+for conducting an organizationwide cryptographic audit and
+inventory
+many organizations are now facing the reality that they lack
+a clear and comprehensive understanding of their
+cryptographic footprintboth for data in motion and data at
+rest
+the key components of an organizational wide cryptographic audit and inventory include
+ cryptographic inventory including
+a data delivery channels for data in transit
+b rd parties contractors and suppliers
+ cryptographic risk assessment
+this challenge is compounded by the reliance on opensource and thirdparty software and systems and by the
+technical debt accumulated from decades of complex hardware software and cloud infrastructure
+as organizations adopt zero trust environments across converging it ot and iot systemsincluding on
+premises offpremises and cloudbased deploymentsthey must develop a comprehensive understanding of their
+cryptographic footprint the criticality of gaining a firm understanding of the entire cryptographic footprint is not only
+desired but required to properly safeguard organizations both today and for the future
+this problem is faced by all organizations globally and will be a critical hurdle that will need to be addressed as
+organizations go through their pqc migration process it is important to note that like most audits this will be a
+lengthy expensive and timeconsuming processand not one that can be easily addressed through ai or
+automation alone
+audits especially when performed for the first time are extremely labor intensive and require a wide array of skills
+and a large team to do it properly such that the results are both useful and exhaustive
+despite the uncertainty about when a cryptographically relevant quantum computer will be able to break current
+encryption standards properly inventorying all cryptographic assets in use is the essential first step in pqc migration
+preparednessand it is a today problem that financial institutions must begin addressing regardless of how they
+plan to approach the migration
+ asc x inc   all rights reserved 
+asc xf ir 
+the reality is that an organization cannot begin planning a large digital transformation projectsuch as a pqc
+migrationwithout first understanding the cryptographic assets currently in use across the enterprise
+through the adoption of best practices and policies and procedures around creating an organizational wide crypto
+system of record and beginning to implement cboms organizations can properly begin to discover inventory
+catalogue and manage their organizations cryptographic footprint
+ cryptographic inventory
+a critical component of cryptographic lifecycle management is maintaining an uptodate cryptographic product
+inventory such an inventory should include information about
+ software products related to cryptography procured or developed inhouse
+ vendors that provide a cryptographic product or service
+ algorithms used including name purpose and parameters used to operate
+ the location of static cryptographic keys both private and public
+ internal or thirdparty organization responsible for deployment and maintenance
+ protocols being used including configurations and
+ any information relevant to the management of cryptography within the organization
+by creating a cryptographic asset and product inventoryalong with a list of the organizations most sensitive and
+critical data assets requiring extended securityorganizations can conduct more effective risk analysis this
+approach helps us identify vulnerable data systems and processes safeguarding them against potential breaches
+the level of effort required to fully inventory and understand an organizations vulnerability to a quantumenabled
+threat actor is a function of the size and complexity of its enterprise network and computing assets this level of
+understanding can support not only the implementation of pqc but also the broader management and operation of
+the organizations security infrastructure other benefits include recovery from disasters security compromises as
+well as facilitate high availability
+as organizations conduct enterprisewide cryptographic audits they should also generate cryptography bills of
+materials cbomsstructured inventories that catalog the cryptographic components in a system including
+algorithms key types libraries protocols and usage contexts for legacy systems legacy systems are often the
+largest contributors to cryptographic technical debt these systems frequently rely on outdated algorithms
+hardcoded keys or undocumented libraries making them difficult to assess and remediate without visibility creating
+legacy cboms enables targeted remediation of these weaknesses and supports more accurate tracking of inherited
+technical debt in addition organizations may choose to share cbom data with vendors or partners using similar
+legacy systemspromoting a coordinated approach to reducing technical debt and strengthening the overall
+security posture across shared environments
+ stored corporate assets
+when assessing corporate assets for updates in a post
+quantum world be sure to include devices and software that
+store passwords cryptographic keys certificates or any
+other artifacts used to secure your it infrastructure these
+devices should use some sort of cryptography to protect the
+assets stored in them therefore it is critical to assess these
+algorithms to determine whether they need to be updated to
+pqccertified versions updating software products or
+physical devices will in most cases require updating software some physical devices might have to be replaced
+with updated devices the following subsections describe only a few examples of assets used to store cryptographic
+data
+ asc x inc   all rights reserved 
+asc xf ir 
+ digital walletvault
+some employees may be authorized to store or transport sensitive information such as cryptographic keys access
+codes financial account data identification information and more this information may be stored in portable
+devices know as a digital wallet or sometimes a digital vault the information stored on the device can be transferred
+to a receiving device for example by nearfield communication nfc bluetooth wifi or cellular technologies
+these devices generally rely on cryptography to securely store and transmit data many software and device vendors
+provide these types of devices
+some it administrators and field service personnel may use a digital wallet to store cryptographic information critical
+to your it infrastructure such as fido passkeys therefore these devices must be considered in a plan to upgrade
+to pqc transitioning these devices to pqc algorithms will likely require a vendorprovided upgrade or replacement
+along with reloading credentials or data encrypted using pqcbased keys
+note some devices that run a digital wallet may have insufficient computing power storage or other capabilities
+needed to support pqc thereby necessitating an upgrade or replacement of the device
+ password safe or key safe software
+this software is similar to a digital vault but has a more limited purpose it is designed to store account names along
+with their associated passwords and keys used for software or network functions this software is used by it
+personnel to gain access or to update software that is part of your it infrastructure this type of product must be
+included on any list of cryptographic assets to be reviewed for pqc support
+password vaults are software tools to safely store user passwords basically to avoid users writing passwords on
+sticky notes users might have different passwords for each application different passwords for each role to enforce
+separation of duties between regular versus administrative access or difference passwords for each environment
+to enforce separation between production and lower environments such as development or testing environments
+password vaults might be a local application running on an individuals workstation an enterprisewide central
+service or a combination of both some vaults protect passwords using unique encryption keys per user and protect
+the encryption keys using asymmetric cryptography these vaults also use pki to secure password transfers and
+therefore must be upgraded to support pqc algorithms
+ pki certificates
+pki public key infrastructure is a system used to create manage
+distribute and use digital certificates to protect data it is based on
+publicprivate key cryptography it is the general accepted belief that
+future quantum computers will be able to break current algorithm used
+by pki systems with minimal effort pki certificates are used to provide
+trust services such as protecting data and for authentication in
+activities in ecommerce and banking for example web browsers use
+pki to establish secure https connections for accepting credit card
+information and conducting online banking automatic teller machines
+atms use pki to communicate securely with bank servers to
+approve transactions as you can see pki is a fundamental building block of secure communications therefore it
+is critical that any use of pki is identified and included in a cryptographic inventory as they will need to be upgraded
+to quantum safe algorithms
+ asc x inc   all rights reserved 
+asc xf ir 
+ data delivery channels for data in transit
+data delivery channels are the mechanisms through which data is transmitted
+shared and accessed both within and between organizations as quantum
+computing advances traditional data delivery channels may become
+increasingly vulnerable to quantumenabled attacks to mitigate these risks
+organizations should include data delivery channels in their cryptographic
+audit and inventory then consider strengthening the following areas
+ quantumsafe encryption protocols implement encryption protocols that are resistant to quantum
+attacks and ensure the confidentiality and integrity of data in transit
+ postquantum key establishment use postquantum key exchange methods to securely establish
+communication channels quantumresistant key establishment ensures that cryptographic keys remain
+protected from quantum attacks
+ authentication mechanisms assess and update authentication mechanisms used in data delivery
+channels multifactor authentication and quantumsafe authentication methods should be adopted to
+prevent unauthorized access to sensitive data
+ quantumsafe vpn and tunnels for secure communication between different entities consider
+quantumsafe virtual private networks vpns and tunnels these solutions protect data as it traverses
+potentially untrusted networks
+ integrity and data validation implement measures to ensure the integrity and validation of data in
+transit techniques like digital signatures and message authentication codes macs can help detect
+and prevent data tampering
+ quantumresistant access controls strengthen access controls to prevent unauthorized access
+ensuring that permissions are properly assigned enforced and monitored
+ cryptoagility for channel updates plan for cryptoagility in data delivery channels enabling the
+swift adoption of new cryptographic methods when quantumsafe standards emerge this ensures a
+proactive response to quantum threats
+ regular security audits conduct regular security audits and assessments of data delivery channels
+to identify potential vulnerabilities and weaknesses address any issues promptly to enhance the overall
+security posture
+ endtoend encryption encourage the use of endtoend encryption for sensitive data in data delivery
+channels this ensures that data remains encrypted and secure throughout its entire journey
+ employee awareness and training promote best practices and data security through targeted
+training programs that address risks in data delivery channels educate personnel about the risks
+associated with quantum threats and the measures in place to protect data
+ thirdparty vendor assessments if data delivery channels involve thirdparty vendors or service
+providers assess their readiness for postquantum cryptography and ensure they adhere to robust
+security standards
+by addressing issues related to data delivery channels and implementing these measures as appropriate
+organizations can build a resilient and quantumsafe data communication infrastructure securing data during
+transmission and storage is essential to safeguarding the confidentiality integrity and availability of sensitive
+information in the face of emerging quantum threats a comprehensive approach to data delivery channels ensures
+that data remains protected and organizations can continue to operate securely in the postquantum era
+ asc x inc   all rights reserved 
+asc xf ir 
+ third parties contractors and suppliers
+financial institutions must adopt a systematic comprehensive approach to ensure post
+quantum cryptography readiness among thirdparty contractors and suppliers because
+these external entities often handle sensitive data it is crucial to include rd parties in
+the cryptographic audit and inventory and to ensure they adhere to required security
+standards
+here are some steps a financial institution can take to deal with thirdparty contractors
+and suppliers in relation to postquantum cryptography
+ vendor selection and due diligence prioritize vendors with a strong track record in data security and
+readiness for postquantum cryptography conduct thorough due diligence to evaluate their current
+practices
+ contractual obligations incorporate specific clauses and requirements related to postquantum
+cryptography readiness into contracts with thirdparty contractors and suppliers clearly outline the need
+for compliance with postquantum cryptographic standards and data protection measures
+ education and awareness ensure thirdparty partners understand the importance of postquantum
+cryptography and its implications for securing sensitive data
+ assessment of security measures request detailed information from thirdparty contractors and
+suppliers regarding their current security measures encryption methods and key management
+practices evaluate their readiness for postquantum cryptography and assess their ability to protect
+data against quantum computing threats
+ postquantum cryptography integration plan work collaboratively with thirdparty contractors and
+suppliers to develop a plan for integrating postquantum cryptographic solutions into their systems and
+services set clear timelines and milestones for implementation
+ testing and validation conduct joint testing and validation of postquantum cryptographic solutions
+in the systems of thirdparty contractors and suppliers ensure that the implementations are secure
+performant and compatible with the financial institutions requirements
+ ongoing monitoring and auditing establish ongoing monitoring mechanisms to assess the
+compliance of thirdparty contractors and suppliers with postquantum cryptography readiness conduct
+regular audits to verify their adherence to security practices and data protection standards
+ data privacy and sharing ensure that data sharing and access mechanisms with thirdparty
+contractors and suppliers are designed to protect the confidentiality and integrity of financial data
+enforce strict data privacy controls to mitigate risks associated with shared information
+ incident response and reporting collaborate with thirdparty contractors and suppliers to develop
+incident response plans that address potential security breaches and data incidents related to post
+quantum cryptography establish clear reporting procedures in case of security breaches
+ continual improvement foster a culture of continual improvement in data security practices with third
+party contractors and suppliers encourage regular updates to cryptographic methods and best
+practices to stay ahead of evolving threats
+by following these steps the financial institution can ensure a cohesive and secure approach to postquantum
+cryptography readiness with thirdparty contractors and suppliers collaboration and proactive engagement with
+external entities are essential to establish a unified front in protecting sensitive financial data from quantumenabled
+threats across the entire ecosystem
+ asc x inc   all rights reserved 
+asc xf ir 
+ cryptographic risk assessment
+before undertaking a migration to postquantum cryptography pqc
+organizations must understand not just what cryptographic assets they use but
+also which assets are most critical and why this involves identifying the data
+systems and cryptographic components that are most at risk from quantum
+enabled threats the prioritization process must be guided by an awareness of
+cryptographic dependencies key hierarchies data classification and external
+partnerships this section outlines key considerations that can help financial
+institutions evaluate their cryptographic landscape with precisionenabling
+smarter prioritization targeted remediation and more resilient longterm
+planning
+ understanding dependencies and cryptographic key hierarchies when prioritizing inventory items for
+data protection it is essential to identify those that warrant the highest level of attention this entails a
+comprehensive examination of how various data elements systems and processes interrelate particularly
+in the context of encryption and cryptographic key management
+ data dependencies and priority begin by mapping out data dependencies and determining their priority
+identify which data sets are not only reliant on others for functionality or business processes but also which
+ones if compromised would have the most severe impact for example financial transaction records might
+depend on customer account data and the loss of encryption keys protecting this data could have cascading
+effects on the entire financial ecosystem these highpriority data elements should be at the forefront of
+protection efforts
+ cryptographic key hierarchies and priority equally critical is the understanding of cryptographic key
+hierarchies and how they align with data priority modern security practices often use hierarchical key
+structures where distinct keys protect different layers of data identify root keys within these hierarchies and
+prioritize their protection compromising a root key can expose all data within its hierarchy making these
+keys of the utmost priority in the protection strategy
+ understanding external dependencies in addition to internal dependencies it is critical to assess
+external dependencies when prioritizing cryptographic protection efforts organizations in the financial
+industry often rely on external entities such as contractors suppliers and service providers to fulfill various
+aspects of their operations
+ contractor obligations and priority consider for instance the role of contractors in the supply chain
+contractors handling or processing sensitive data must meet defined obligations for security and
+compliance prioritize the protection of data entrusted to external partners based on its criticality ensuring
+that data with the highest priority receives the most stringent protection measures
+ external company dependencies and priority moreover your organization should acknowledge that it
+could be reliant on external companies for critical components of a comprehensive data protection solution
+this may encompass cloud service providers security software vendors or consulting firms specializing in
+cybersecurity the effectiveness of these external relationships directly impacts the organizations overall
+security posture prioritize the evaluation and continuous monitoring of external partners security measures
+giving higher priority to those whose services involve the most critical data
+by understanding and prioritizing both internal and external dependencies organizations in the financial industry
+can make informed decisions about where to allocate resources for data protection this approach ensures that the
+highestpriority items which if compromised would have the most significant impact on the organization receive
+the utmost attention and protection measures fortifying their security posture and resilience
+ asc x inc   all rights reserved 
+asc xf ir 
+ building a migration plan
+as quantum computing continues to evolve organizations must
+urgently update their cybersecurity and data security policies
+standards procedures and practices to mitigate the unique risks
+posed by quantum computing this process ensures that
+cryptographic methods and associated policies remain resilient in
+the face of emerging quantum threats the steps below illustrate
+how to update existing standards and procedures to integrate
+postquantum cryptography pqc requirements these steps
+serve as a general guide for organizations to evaluate and replace
+outdated standards with pqccompliant alternatives though the
+specifics will depend on each organizations needs
+ threat assessment start with an indepth analysis of the risks posed by quantum computing to your
+current infrastructure this assessment should be integrated into your ongoing risk management framework
+and will help identify systems most vulnerable to quantum threats illustrating the need for pqc solutions to
+maintain robust data protection and business continuity
+ cryptographic policy review conduct a comprehensive review of your organizations cryptographic
+policies to identify not only vulnerable algorithms but also any gaps in governance compliance and lifecycle
+management practices that could be exposed to quantum threats ensure that your policies incorporate
+robust guidelines for the adoption of postquantum cryptographic algorithms and an agile approach to future
+updates
+ standard evaluation assess the cryptographic standards currently implemented across systems and
+evaluate their effectiveness against quantum attacks prioritize standards that require revision or
+replacement with pqc alternatives considering not only technical resilience but also financial and
+operational impacts to ensure a costeffective sustainable migration
+ procedure and practice analysis review cryptographic procedures and practices such as key
+management certificate issuance and authentication mechanisms identify areas that will need modification
+to accommodate postquantum cryptographic requirements
+ postquantum cryptography adoption plan formulate a strategic phased adoption plan for integrating
+pqc standards this plan should outline the timeline for implementation potential challenges resource
+requirements and a clear strategy for aligning with business processes and longterm goals to ensure a
+smooth efficient transition
+ vendor and thirdparty engagement proactively engage with vendors and thirdparty service providers
+to assess their readiness for offering pqc solutions develop longterm collaborative relationships with
+external providers to ensure their products and services remain compliant with evolving postquantum
+standards and continue to align with your organizations security strategy
+ employee training establish rolebased training programs to ensure that all relevant employeesfrom
+system administrators to executivesare aware of the significance of postquantum cryptography training
+should include
+ handson workshops on the application of postquantum algorithms and their integration with
+existing systems
+ executive briefings to understand strategic impacts and investments required for pqc adoption
+ cybersecurity training focusing on the unique risks quantum computing poses to cryptography and
+security operations
+ ongoing refresher courses as new pqc standards evolve and are integrated into the organizations
+security architecture
+ asc x inc   all rights reserved 
+asc xf ir 
+ testing and validation implement rigorous testing and validation protocols for all postquantum
+cryptographic solutions to ensure they
+ meet established security standards and regulatory requirements
+ do not introduce vulnerabilities ensuring that postquantum cryptography is thoroughly vetted
+against potential attack vectors
+ perform operationally without significant performance degradation ensuring that systems can
+handle increased computational load or latency issues
+ integrate seamlessly with existing cryptographic systems in hybrid environments eg legacy and
+pqc systems coexisting
+ include user acceptance testing uat and involve end users in testing the operational readiness
+of the systems
+ include performance benchmarking to ensure that pqc integration does not negatively impact
+critical workflows
+ implementation and compliance adopt a phased implementation strategy for the migration to post
+quantum cryptography the strategy should
+ prioritize highrisk systems for early adoption of pqc
+ establish compliance checkpoints to ensure that each phase meets regulatory and industry
+standards
+ monitor integration progress continuously and adjust the approach based on lessons learned from
+earlier implementations
+ implement crossdepartmental oversight involving security compliance and technical teams in
+compliance verification
+ develop clear documentation for compliance reporting and audit purposes
+ continuous monitoring and review establish a realtime monitoring framework to continuously evaluate
+the effectiveness and security of postquantum cryptographic solutions this should include
+ automated security alerts for any cryptographic weaknesses or breaches
+ regular audits quarterly or biannually to assess the cryptographic infrastructures readiness
+against emerging quantum threats
+ datadriven reviews using threat intelligence feeds to stay up to date on the latest quantum
+computing advancements
+ policy review cycles to ensure that cryptographic practices evolve as new pqc algorithms and
+attack vectors are identified
+by following this structured process organizations can begin mitigating the cryptographic risks posed by quantum
+computing and transition toward standards that incorporate postquantum requirements this forwardleaning
+approach strengthens the organizations overall security posture and enhances the longterm protection of sensitive
+data in an evolving threat landscape
+ remediation best practices
+once a cryptographic audit and inventory have begun a parallel effort can
+be launched to develop the organizations remediation and migration
+strategy this includes establishing the necessary budgets timelines and
+workflows to secure the organization in a postquantum environment and
+to guide the pqc migration process
+organizations can work to overlay the results from their findings in the
+cryptographic audit and inventory process as outlined above to help
+prioritize and triage the remediation lifecycle
+ asc x inc   all rights reserved 
+asc xf ir 
+depending on the type of organization some infrastructure may become pqccompliant automaticallyprovided
+that libraries and critical code are updated it will be critical for organizations to work with their external key
+stakeholders vendors clients supply chain and independent compliance organizations and standards bodies to
+ensure that critical items are being remediated in a timely fashion and nothing is taken for granted
+important migration challenges include
+ cryptographic technical debt embedded in missioncritical legacy systems that often form the core of the
+financial services industry
+a in a lot of instances those systems cannot just be removed or upgraded without extensive testing
+and evaluation organizations must develop plans conduct research implement monitoring tools
+to track interconnected systems and establish policies for decommissioning and transitioning
+legacy systemswith rollback procedures in place in case of failure
+b if not properly managed migration failures could create global systemic risks due to the
+interconnected reliance that is found among the financial services industry the common
+assumption and best practices is that these legacy systems will need to be replaced and new
+systems finally installed while conceptually sound some of these systems are so complex it will
+take years to fully understand all of the various parts and pieces that will be affected by those
+changes
+ capability of legacy systems and edgebased hardware and software to do the more complex math required
+by the post quantum encryption algorithms and longer key sizes
+a in some instances the cryptographic process is actually performed on the silica or chips of
+embedded devices and systems and despite a desire to push an upgrade it is impossible for the
+device to actually perform the new complex calculations of the pqc algorithms without having an
+adverse effect on quality of service
+this is where the majority of resources budgets and expertise will need to be focused as these issues will not
+remediate themselves and will require organizational wide support and key stakeholder buy in to properly go through
+the upgrade cycle
+ cryptography life cycle management
+as cryptographic products age threat actors continue to develop more
+sophisticated attack methods capable of exploiting outdated or weakened
+algorithms to maintain a strong security posture it becomes essential to
+regularly update and manage cryptographic systems across the enterprise
+allowing cryptographic tools and libraries to operate without consistent
+maintenance or modernization introduces what is commonly referred to as
+cryptographic technical debta buildup of security risks and operational
+inefficiencies caused by legacy algorithms expired certificates or unsupported
+modules this form of technical debt not only increases an organizations
+exposure to compromise but can also create compliance challenges limit
+interoperability with modern systems and increase the cost and complexity of
+future migrations proactive cryptographic life cycle management helps mitigate
+this risk by ensuring cryptographic assets evolve in step with emerging threats evolving standards and regulatory
+expectations
+one of the challenges with cryptographic technical debt is that it often remains invisible until it causes a failure
+such as a broken integration an expired certificate or an exploit of a known algorithmic weakness these risks
+accumulate quietly over time and may not be adequately accounted for in traditional vulnerability assessments as
+advancements in computing power cryptanalysis and quantum research accelerate the risks posed by outdated
+ asc x inc   all rights reserved 
+asc xf ir 
+cryptographic components grow significantly without early detection and remediation technical debt can quickly
+become a systemic weakness that undermines an organizations broader security and compliance posture
+to effectively manage cryptographic technical debt organizations should implement a cryptographically agile
+architectureone designed to support rapid lowrisk updates to cryptographic algorithms libraries and protocols
+this agility enables teams to remediate vulnerabilities quickly integrate postquantum cryptographic standards as
+they become available and maintain compliance with evolving regulatory requirements by decoupling
+cryptographic functions from application logic and infrastructure cryptoagile systems reduce the operational burden
+of change and help futureproof security investments against emerging threats
+a cryptographically agile architecture empowers organizations to respond swiftly to emerging vulnerabilities while
+maintaining a proactive approach to security planning this dual capability minimizes exposure to known exploits
+supports rapid patching or algorithm updates and ensures continuity of operationseven during cryptographic
+transitions regular updates enabled by agile infrastructure reduce the risks associated with aging cryptographic
+components help meet regulatory demands and safeguard sensitive data against both current and future threats
+to improve visibility and reduce cryptographic technical debt organizations should automate cbom generation
+which ensures that every time cryptographic functionality is introduced into a product or system a corresponding
+record is created and maintained dynamically updated cboms can be integrated into development pipelines and
+shared with relevant stakeholders to support audits risk assessments and compliance reporting
+the following is a summary of cryptography life cycle management considerations
+ awareness and risk assessment
+ implementing cryptographically agile architectures
+ managing cryptographic technical debt
+ automating cryptographic asset tracking with cboms
+ enhancing security with maturity models
+effectively managing the cryptographic life cycle is essential to minimizing risk reducing technical debt and ensuring
+longterm resilience in a rapidly evolving threat landscape by adopting cryptoagile architectures maintaining up
+todate inventories through automated cboms and integrating lifecycle oversight into regular audits and policy
+enforcement organizations can stay ahead of both classical and quantumera threats these practices not only
+support operational continuity and compliance but also lay the groundwork for scalable secure cryptographic
+systems that can adapt as new standards and technologies emerge
+ cryptographically agile architectures
+cryptographic agility and cryptographically agile architectures do not yet
+have universally accepted industry definitions these are highlevel
+concepts currently being explored by many organizations and industry
+groups nevertheless there is a growing consensus that they will be
+essential for building and maintaining quantumsafe information systems
+more broadly these concepts are expected to become integral design
+requirements for future systems completely defining either of these
+concepts is outside the scope of this document however below are
+some potential characteristics of crypto agility and of crypto agile
+architectures and of how they might be adopted in enterprise
+environments
+ asc x inc   all rights reserved 
+asc xf ir 
+able to change its able to support has the speed and able to adopt new
+cryptographic multiple crypto flexibility to change technology faster with
+systems and protocols and course in response reduced operational
+processes as primitives with the to new risk while increasing
+needed without freedom to switch cryptographic competitive advantage
+compromising back and forth as security incidents
+consistency speed desired and threats
+or the ease of future
+changes
+table  example features of a cryptographically agile architecture
+cryptographic agility is an attribute of an information system that anticipates future requirements to change the
+cryptographic algorithms and primitives used by that system a cryptographically agile system is able to have the
+cryptography it uses be dynamically changed with minimal impact to the systems functionality or availability by
+introducing crypto agility the costs and impacts of future changes to a system can be greatly reduced
+while crypto agility is an attribute of a specific information system a cryptographically agile architecture refers to the
+architectural design of a collection of cryptographically agile systems and of how cryptography is managed within
+and between those systems the main purpose of a crypto agile architecture is to orchestrate security protocols and
+algorithms among the constituent systems while maintaining interoperability and workflows among those systems
+additionally these changes should be done such that the impacts to dependent systems and processes are
+minimized a cryptographically agile architecture enables administrators to fully utilize the crypto agility of the
+individual systems
+a crypto agile architecture can be used to provision quantumsafe encryption for data at rest or in transit throughout
+an it environment without significantly impacting the operation of the systems in that environment in contrast even
+if a given system has the cryptographically agile attribute there still needs to be a mechanism to control any
+cryptographic changes given a collection of crypto agile systems networked together administrators will need
+some way to orchestrate cryptographic changes among the systems again while ensuring their continued
+interoperability and operation ideally this is achieved through a welldesigned cryptographically agile architecture
+the following considers how cryptographically agile architectures might be built and deployed in the future
+it is common for maturity models to be defined for implementations of design concepts that is different
+implementations of a framework or a design philosophy can have different levels of capabilities where those levels
+are rigorously defined levels can range from immature lowcapability implementations to highlymature fully
+functional optimized implementations examples include stages in cisas zero trust maturity model v
+implementation tiers for the nist cybersecurity framework v capability levels for cobit  processes or
+even fips  security levels and common criteria evaluation assurance levels
+these levels are useful to organizations for several reasonsprimarily because they provide a structured stepby
+step approach to improving systems over time it is not usually reasonable for an information system to undergo a
+transformation from low capability to high capability in one step in practice such improvements are usually done
+over time in an intentional and tightly controlled manner secondly as not all systems require a fully capable
+ asc x inc   all rights reserved 
+asc xf ir 
+implementation of a given framework these levels help organizations identify the appropriate target maturity levels
+for their needs
+given the above it is reasonable to assume that in the near future a maturity model will be defined for
+cryptographically agile architectures that is real world implementations of the architecture can have a defined
+range of capabilities or maturity levels ranging from only offering the most basic form of crypto agility to being a
+complete architecture possibly able to automatically manage cryptographic policies dynamically change system
+configurations apply patches switch out algorithms cryptographic primitives protocols and software libraries
+perform key management certificate lifecycle management vulnerability and risk assessments and so on
+it is also reasonable to suggest that a fully mature cryptographically agile architecture will require the introduction of
+an abstracted cryptographic layer into the architecture design instead of embedding cryptography within physical
+systems or tightly coupling it with protocol implementations it can be abstracted into its own layer and modified via
+api calls moreover given the broad range of capabilities a fullymature crypto agile architecture might one day
+have it is sensible to predict that the architecture will heavily leverage many of the existing risk and change
+management processes and procedures organizations already use notably and especially for large organizations
+one would expect the evolution to a fully mature cryptographically agile architecture to take a decade or longer to
+achieve
+for readiness assessment consider
+ inventory phase to what extent does your organization implement a cryptographically agile architecture
+a consider an industryderived or custom maturity model as an evaluation tool
+ planning does the maturity of the cryptographic architecture meet the needs of the organization as they
+consider pqc adaptation
+a scope design  plan for any needed work to improve the maturity of the architecture
+ implementation consider industry best practices and partner dependenciesinterfaces as you enhance the
+maturity of your cryptographic architecture
+ cryptography bill of materials cbom
+cboms allow organizations to track and share detailed information about
+cryptographic assetsboth internally and externallyacross tools
+development kits software suites systems and technologies deployed within
+the organization or provided to customers partners vendors and clients
+cboms can be generated to support all it ot and iot infrastructures
+includingbut not limited tohardware systems embedded systems
+enterprise resource planning erp systems mobile applications virtual
+appliances and cloud environments
+not only do cboms contain technical information about the cryptography in use
+eg key strengths algorithm parameters primitives certificate data protocol
+version and configuration data and so on they also track dependency
+information knowing cryptographic dependencies is crucial for planning vulnerability remediations or cryptographic
+migrations
+cboms help organizations quickly identify and track remediation requirements when tools are deprecated or
+modified they also serve as valuable resources for managing cryptographic technical debt cboms can either be
+a standalone item or can be included as a subcomponent of a larger more general bill of materials bom for
+example the recent cyclonedx v specification allows cbom information to be embedded into a software bill of
+materials sbom or a hardware bill of materials hbom
+ owasp open web application security project is developing best practices and templates
+ cyclonedx cryptography bill of materials capabilities httpscyclonedxorgcapabilitiescbom
+ asc x inc   all rights reserved 
+asc xf ir 
+as organizations pursue crypto agility and interoperability for both data in transit and at rest it is essential to develop
+policies procedures and systems that automatically update and distribute cboms to all stakeholders in real time
+ crypto asset management
+cryptography is ubiquitous in modern business organizations and
+may be embedded in any form of digital information technology when
+it works as designed it is typically not obtrusive and we are frequently
+unaware of its presence when conducting everyday business
+like many it products cryptographic products hardware software
+and supporting libraries have a product lifecycle that requires periodic
+updates to maintain functionality and security as well as provide for
+product improvements and to maintain interoperability to keep pace
+with the cryptographic product lifecycle it is necessary to keep track
+of vendors products major and minor versions placement within
+your it infrastructure and hosting environment and the criticality of
+the cryptographic functions that may impact your business delivery
+as organizations strive to better understand and manage their cryptographic footprint it is important to consider
+implementing an organization wide cryptographic system of record csor a csor should be part of an
+organizations risk management framework and serve as a way to monitor and ensure that the organization is
+tracking all cryptographic assets and complying with all policies and procedures when it comes to managing the
+entire cryptographic service and delivery life cycle it should act as a central repository from which an organization
+can monitor and maintain all of the cryptographic policy orchestration tools outlined above
+given the sensitive nature of the csor it is critical that it exist entirely outside of the active cryptographic service
+and delivery work flows so that it can be securely updated monitored and controlled in real time a csor will
+become a critical addition to organizations as standards bodies seek to embrace crypto interoperability and a crypto
+agile mindset acting as a single point of accurate information for the entire organization a csor can help enhance
+the organizations security posture by
+ accelerating remediation cycles in the event of broken or deprecated cryptographic algorithms or primitives
+ ensuring that the organization is up to date with the latest international standards in relevant technologies
+and maintains compliance with regulatory requirements
+ allowing for an organization to dynamically update cryptographic bill of materials cboms in a
+cryptographically agile environment
+ ensure organizational governance and audit teams can assess systems to ensure compliance with it
+security policies derived from regulatory requirements and security controls
+ saving time and money by removing the need for manual audits in the future as once a csor is properly
+installed and maintained organizations may not need to provide manual audits of their cryptographic
+infrastructure
+ cryptographic interoperability
+cryptographic interoperability is critically important in todays
+interconnected digital world interoperability is commonly
+achieved through the use and adoption of standards these
+standards are developed collaboratively and undergo rigorous
+review and testing by the cybersecurity community organizations
+are advised to use open standards based cryptographic protocols
+examples of organizations that produce open standards include
+iso ietf and ansiaccredited bodies such as x and nist
+ asc x inc   all rights reserved 
+asc xf ir 
+an organization evaluating readiness for pqc adaptation is well advised to review during inventory the extent that
+their solutions and systems depend on open standards or on proprietary  custom libraries algorithms
+implementations and then consider update here are some key points highlighting the importance of interoperable
+cryptographic solutions based on public standards
+ secure communication and data exchange interoperable cryptographic systems ensure secure data
+exchange between different entities regardless of their underlying technologies this seamless
+communication fosters trust in digital interactions by safeguarding sensitive information from unauthorized
+access tampering and eavesdropping
+ global trust and adoption public standards enjoy broad acceptance and trust across industries
+governments and international communities when cryptographic solutions adhere to these standards they
+are more likely to gain global adoption due to their proven security and reliability promoting consistency
+and coherence in secure communication practices worldwide
+ avoiding vendor lockin interoperability based on public standards prevents organizations from being
+locked into proprietary cryptographic solutions instead they can choose from a variety of compliant
+products fostering healthy competition among vendors and allowing for flexible integration and future
+scalability
+ regulatory compliance the financial industry has very specific regulations including governance risk
+and compliance requirements concerning data protection and encryption cryptographic solutions based on
+public standards help ensure regulatory compliance as they align with industry best practices and
+established security measures
+ reducing complexity and integration challenges publicstandardsbased cryptographic interoperability
+simplifies integration across diverse systems applications and networks with welldocumented interfaces
+and compatibility guidelines organizations can more easily integrate cryptographic solutions into existing
+infrastructure reducing implementation complexity and minimizing errors
+ futureproof security public standards are regularly updated and improved to address emerging threats
+and vulnerabilities cryptographic solutions that adhere to these evolving standards are better equipped to
+withstand new security challenges and maintain robust protection against cyber threats
+ crossplatform compatibility interoperable cryptographic systems can function seamlessly across
+different platforms operating systems and devices this compatibility is crucial in todays diverse computing
+environment where users expect secure communication and data exchange across various devices and
+networks
+ cryptography policy orchestration
+effective cryptography policy orchestration requires not only
+continuous monitoring but also the proactive definition and
+automated enforcement of rules across all cryptographic
+systems and services by leveraging a centralized
+cryptographic system of record csor and a cryptoagile
+architecture organizations can ensure that their cryptographic
+assetsand the sensitive data they protectremain compliant
+and resilient against both classical and quantumera threats
+organizations would be well advised to review during
+inventory consider  update the extent of policybased 
+centralized cryptographic orchestration in their systems  to
+achieve a more flexible infrastructure
+the capabilities below illustrate how to achieve this in practice
+ cryptographic policy definition define and periodically review the organizations cryptographic
+policiesencompassing encryption algorithms key management practices certificate usage and module
+requirementsto keep pace with evolving quantum threats ensure crossdepartment collaboration it
+legal compliance in policy creation for comprehensive coverage
+ asc x inc   all rights reserved 
+asc xf ir 
+ cryptographic module validation employ both inhouse and thirdparty validation tools to confirm that
+cryptographic moduleslibraries meet industry standards and policy requirements formal certification and
+ongoing compliance checks are criticalespecially for highrisk or regulated systems note  remediation
+ certification  on going compliance
+ key management software deploy scalable key management solutions capable of handling both classical
+and postquantum keys automate key generation distribution rotation and destruction to minimize human
+errorand ensure seamless migration to quantumsafe algorithms
+ certificate management leverage automated lifecycle tools to issue renew revoke and track certificates
+build in a migration path to quantumsafe certificates without service interruption and integrate reporting on
+certificate status and compliance
+ hardware security modules hsms use hsms that support emerging pqc algorithms to protect master
+keys during migration ensure firmware updates and pqccapable interfaces are part of your vendor
+roadmap to avoid lockin with legacyonly devices
+ cryptoauditing tools integrate audittrail analysis into your tooling so you can continuously verify
+configurations flag deviations and generate compliance reports include realtime alerts for unauthorized
+changes
+ integrity checking extend monitoring to verify key integrityespecially when running hybrid
+classicalpqc setups use fileintegrity monitoring agents to detect tampering in real time and trigger
+automated remediation
+ continuous monitoring employ continuous monitoring solutions to detect and respond to any anomalies
+or security breaches related to cryptographic assets promptly
+ security information and event management siem use siem tools to correlate and analyze
+cryptographicrelated events and logs assisting in detecting and mitigating potential security incidents
+create pqcspecific correlation rules to identify quantumrelated attack patterns ensure siem covers logs
+from hsms key managers and certificate authorities for a consolidated threat view
+ digital signatures and authentication utilize software that enforces the proper use of digital signatures
+and authentication mechanisms to prevent unauthorized access and tampering of data
+ cryptographic algorithm compliance ensure that software and systems use approved cryptographic
+algorithms in accordance with the organizations policies and industry best practices
+ secure communication protocols use appropriate software tools to identify and enforce the use of
+secure communication protocols eg tlsssl to protect data during transmission phase out older
+protocols in a riskbased order beginning with internetfacing services
+ cryptographic policy enforcement implement softwarebased enforcement mechanisms to ensure that
+cryptographic policies are consistently applied across the system
+ auditing and reporting set up automated reporting and auditing mechanisms to monitor and report on
+cryptographic policy compliance regularly when possible use a unified dashboard to aggregate compliance
+metrics across all environments
+ training and awareness create rolebased training modules for it devops compliance and executive
+teams include handson labs for generating deploying and rotating pqc keys so each group understands
+their specific responsibilities
+by integrating these software tools and practices organizations can proactively monitor cryptographic policy
+compliance detect vulnerabilities early and ensure that cryptographic assets are continuously safeguarded against
+evolving threats regular threat modeling policy updates and assessments of new cryptographic standards are
+vital to stay ahead of emerging risks particularly in the face of quantum computing advancements these ongoing
+improvements will ensure that organizations maintain a resilient and adaptive cryptographic infrastructure capable
+of supporting longterm security needs in a dynamic threat landscape
+ nist cryptographic module validation program
+ asc x inc   all rights reserved 
+asc xf ir 
+ design tradeoffs and identifying dependencies
+when migrating to postquantum cryptography pqc it is essential to consider
+the following
+ dependencies between different cryptographic systems and
+components for example in some cases master keys must be
+migrated to pqc before subkeys
+ the order in which different pqc systems and components should be
+implemented this will help to minimize disruption and ensure a smooth
+transition
+approaches for this consideration
+ dependency graph audit cryptographic systems and create a dependency graph based on the
+relationships identified a dependency graph visually represents the relationships between systems and
+components it helps identify which elements must be migrated to pqc first and which can follow
+ riskbased approach identify the systems and components that are most at risk from quantum attacks
+and migrating those systems and components first note upstream or downstream components may need
+to be migrated beforeor concurrently withthe main component
+it may be beneficial to first migrate a lowervalue smaller project to gain insight and experience
+after identifying dependencies and determining the order of implementation organizations should develop a
+migration plan that outlines the steps required to transition each system and component to pqc the plan should
+also include a timeline for the migration and a budget
+here are some specific examples of dependencies and order of implementation considerations for pqc migration
+ master keys master keys should be migrated to pqc first this is because the master keys are used to
+generate and manage the subkeys
+ subkeys subkeys can be migrated to pqc after the master keys have been migrated
+ cryptographic protocols cryptographic protocols should be migrated to pqc in a coordinated manner
+this will help to ensure that all systems and components are using the same pqc algorithms and protocols
+see section titled standards polices and procedures for more details
+ systems and applications systems and applications should be migrated to pqc in a way that minimizes
+disruption this may require migrating some systems and applications first and others later
+it is important to note that there is no onesizefitsall approach to determining dependencies and order of
+implementation for pqc migration the specific dependencies and order of implementation will vary depending on
+the organizations specific needs and environment
+organizations should carefully consider the dependencies and order of implementation when migrating to pqc by
+doing so they can minimize disruption and ensure a smooth transition
+ certificate implementations and interoperability
+there are several options for transitioning from classic certificates to quantumsafe
+versions this is still an area of very active investigation and the standards are still
+evolving even basic questionssuch as what a quantumsafe certificate signing
+request csr should look likehave yet to be answered but several strategies for
+quantumsafe certificates are being considered
+ asc x inc   all rights reserved 
+asc xf ir 
+some techniques include both a classical and quantumsafe component in order to hedge against potential problems
+with either algorithm while others only use quantumsafe algorithms if two certificates old and new are being used
+during a transition period there is a proposal for a binding mechanism between the two
+in addition to certificates supporting technologies and protocols must also be upgraded these include but are not
+limited to crls csrs ocsp time stamping certificate transparency scts and so on
+ pure quantumsafe certificates
+the simplest approach to creating a quantumsafe certificate is to use a quantumsafe signature algorithm in place
+of rsa or ecc algorithm oids are available for mlkem mldsa and slhdsa on the nist website
+once the new algorithms are available in a crypto library it is relatively straightforward to include them into a
+certificate in the standard way the ietf lamps draft draftietflampsdilithiumcertificates describes how this will
+likely work for mldsa the ietf lamps draft draftietflampskybercertificates describes how this will likely work
+for mlkem both drafts are proceeding through the ietf publication process
+if the quantumsafe component or its implementation fails unexpectedly systems using such certificates could
+become vulnerable
+ composite quantumsafe certificates
+a composite quantumsafe certificate contains a single key made up of two components a classical key and a
+quantumsafe key it is referred to as a composite key because it combines the two parts typically by concatenating
+them standards in this area are still being developed but they are maturing rapidly when signing with a composite
+key signatures are generated with each key individually and then concatenated this produces a composite
+signature verification is similarly pairwise the advantage is that in the event of an implementation flaw in the
+quantumsafe algorithm the classical algorithm still provides protection against nonquantum attacks
+note that each individual signature is also independently valid the security risks of this need to be carefully
+considered in cases where that matters for secure operation both components of the signature need to be verified
+and the verification must fail if either verification fails
+ related certificates
+in both of the above cases a user or device may have both an old classic and new native or composite certificate
+during a transition period during the transition linking the two certificates can help ensure proper management a
+scheme for doing this is described in the ietf rfc 
+ chameleon certificates
+chameleon certificates are a clever way of supporting backwards compatibility while only having to manage a single
+certificate a chameleon certificate appears to be a quantumsafe certificate native or composite but has additional
+information in an extension that allows a legacy classic certificate to be regenerated and used this enables
+quantumaware systems to extract and use a legacy certificate when communicating with legacy systems this is
+similar to the older twokey certificate proposal described below but it offers several advantages
+ httpsdatatrackerietforgdocdraftietflampscertbindingformultiauth
+ httpscsrcnistgovprojectscomputersecurityobjectsregisteralgorithmregistration
+ httpsdatatrackerietforgdocdraftietflampspqcompositesigs
+ httpsdatatrackerietforgdochtmlrfc
+ asc x inc   all rights reserved 
+asc xf ir 
+ since the classic key is small compared to the postquantum key its inclusion in quantumsafe certificates
+is relatively cheap
+ the size of existing classic certificates is unchanged and doesnt drag along a large unnecessary key
+ since a quantumaware system makes the decision about which cert to send to legacy systems it can make
+policy decisions without requiring negotiation and being vulnerable to downgrade attacks
+ this allows the interface between server and the ca to be unchanged when requesting multiple certificates
+for a single subject
+ it reduces duplication as the components of the certificate that refers to the subject is only included once
+while interesting this idea is highly experimental and only beginning to be explored it is described in the
+independent draft draftbonnelllampschameleoncerts
+ dualkey certificates
+dualkey certificates are more complicated and require a bit more background in principle they allow both keys to
+be managed in a single certificate and allow systems that do not have quantum safe support to ignore the additional
+key in practice in many contexts and protocols active network attackers can force a downgrade to the old version
+limiting the utility of this approach during a transition the exact details depend on the application protocol
+environment and transition strategy it also has the downside that the large postquantum key is always transmitted
+even when it is not necessary or even understood by the other system the certificate formatting for this approach
+is standardized in rec itut x
+ compliance assurance
+vendor affirmations that a product process or service complies with a given
+standardor meets other stated requirementsare typically insufficient if a product
+claims to achieve certain properties and a user assumes the claim to be true then
+there can be significant risk to that user if in reality the claim is false in particular
+the risks associated with unverified or uncertified cryptography can be especially
+significant therefore to validate vendor claims and reduce user risk products
+should undergo objective formal verification and certification to ensure the
+requirements are met
+often for mature technologies there are corresponding mature standards and
+certification and validation processes which vendors and users can rely on
+unfortunately for nascent technologies there simply has not been enough time for
+the relevant standards and certification and verification processes to develop this
+is especially true for postquantum cryptography products
+to avoid subtle misconceptions the following definitions can be helpful
+ evaluation the process of evaluating the validity of the request that is presented
+ verification confirms that the design is capable of meeting all stated requirements
+ validation provides objective evidence that the product meets those requirements
+ certification formal recognition that the product has successfully passed validation
+there is often some confusion between verification and validation roughly speaking verification is something of a
+sanitycheck it is a process to ensure that the system is designed in such a way to achieve all stated requirements
+even if the system has not actually been built yet the goal is to verify the designs suitabilitythat is to answer the
+question will the product meet the requirements
+ asc x inc   all rights reserved 
+asc xf ir 
+validation occurs after the product has been built when the product is validated it is objectively tested and
+investigated to see whether the stated requirements have been met the goal is to validate the claims of
+compliancethat is to determine does the product meet the requirements
+certification is nothing more than a formalization of the compliance claims certification is often compared to earning
+a diploma or academic degree it is a formal statement from the relevant authority eg the college or university
+that the requirements of the program have been achieved at the end of the program an authority reviews that all
+degree requirements have been met validation and if so issues the degree certification
+it can also be helpful to draw a distinction between the terms compliance and assurance
+ compliance demonstrated ability to meet ie conform to stated requirements
+ assurance pertains to the level of trust and confidence in the quality of the product eg the security level
+provided
+some standards provide different levels of assurance where a higher assurance level instils higher confidence in
+the security properties of the product for example the seven evaluation assurance levels eals of the common
+criteria cc cryptographic module validation program cmvp provides four different levels which cryptographic
+hardware security modules hsms can be validated against to be clear a higher level of assurance is not simply
+the result of looking more closely at the product rather it is the result of compliance validation and certification of
+the product against a more stringent set of requirements the more stringent the requirements the higher the
+resulting assurance level
+below are some compliance and assurance considerations for the use of post quantum cryptography
+requirements gathering
+ which standards laws regulations policies contractual agreements etc does the product need to be
+compliant with
+o are those requirements finalized or are they still under development
+ what level of compliance is necessary
+o is a claim of compliance enough or is formal certification required
+ which bodies are responsible for creating or maintaining the given requirements
+ are there requirements for the specific environment in which the product will be used
+o in a hybrid or multicloud environment
+o in different geographies
+ what are the impacts of upcoming changes to requirements
+o impacts to internal technological roadmaps
+compliance and assurance
+ what compliance level is required
+ what assurance level is required
+ who is responsible for completing verification validation or certification
+o internal or external auditors
+ are validation authorities available
+o does an entity exist who can provide validation and certification eg through the cryptographic
+module validation program cmvp
+ httpscsrcnistgovprojectscryptographicmodulevalidationprogram
+ asc x inc   all rights reserved 
+asc xf ir 
+ what are the time or resource constraints for obtaining the required assurance or compliance levels
+ if the requirements are not yet set what compensating solutions can be implemented for the time being
+o can the product use post quantum cryptography in a hybrid mode with standardized
+cryptography in a way which maintains or enables certification
+ what new attacks could result from combining
+quantum computers and ai
+the combination of artificial intelligence ai and quantum
+computing has the potential to create new and formidable attack
+vectors by merging ais pattern recognition capabilities with
+quantum computings exponential problemsolving power while
+such threats remain speculative at this stage they warrant attention
+as both technologies continue to mature the key takeaway is that
+these aiquantum hybrid threats could accelerate the urgency of
+adopting postquantum cryptography pqc and implementing cryptoagile systems that can quickly respond to
+future cryptographic changes for further reading see the referenced springer document for further reading on the
+topic see the springer document
+ consider cloud service providers a vulnerable point in it infrastructure
+engaging with cloud service providers csps for postquantum
+cryptography pqc readiness requires a collaborative and proactive
+approach financial institutions must work closely with their csps to
+ensure the appropriate security measures are in place to protect sensitive
+data from emerging quantum threats heres a stepbystep guide that can
+help a financial institution can handle this process
+ assessment of new cloud vendor financial institutions should
+begin by evaluating a cloud providers readiness for postquantum
+cryptography pqc review their cryptographic protocols
+encryption schemes and keymanagement processesspecifically how keys are generated stored
+distributed and rotated robust key management underpins longterm data security in a quantumthreat
+environment
+ foster communication and education engage your provider in candid discussions about pqcits
+impact on data security the risks quantum computing poses to todays cryptographic schemes and the
+critical need to adopt quantumsafe algorithms
+ obtain a pqc readiness plan ask the provider for a comprehensive plan detailing how they will integrate
+pqccomplete with timelines milestones and implementation steps for quantumsafe cryptography
+ verify key management confirm the providers processes for key generation storage distribution and
+rotation under pqc effective key management is essential for maintaining data confidentiality
+ testing and validation work with the provider to test pqc solutions in their environment evaluating
+performance interoperability and security against quantumresilient criteria
+ security compliance and auditing require your provider to meet applicable security standards and
+submit to periodic audits confirm they maintain robust controls capable of withstanding quantumera
+threats
+ httpslinkspringercomchapter
+ asc x inc   all rights reserved 
+asc xf ir 
+ cryptoagility and futurereadiness verify the providers ability to smoothly adopt new quantumsafe
+algorithms and deprecate old ones this agility is essential to stay ahead of evolving quantum threats
+ service level agreements slas review and revise if necessary slas to specify pqc readiness
+requirements datasecurity metrics and escalation procedures clearly define both parties responsibilities
+for cryptographic safeguards
+ ongoing collaboration and monitoring set up periodic reviews and joint working sessions to track the
+providers pqc implementation progress continuously monitor their security posture for compliance and
+performance
+by proactively collaborating with cloud storage providers on pqc readiness financial institutions can strengthen
+their security posture and safeguard sensitive data against future quantumenabled threats
+ related work by x
+at the time of publication the xf work group was developing a technical report titled postquantum computing
+assessment guideline x this report will outline objectives and criteria that organizations can use for self
+assessment informal evaluation of thirdparty service providers or independent assessment by qualified information
+security professionals historically similar x reports have been adopted by auditors for the latest status of this
+report x please visit the x website
+ conclusion
+this postquantum cryptography financial industry readiness
+needs assessment serves as a vital resource for the financial
+sector to understand and prepare for the paradigm shift in
+cryptographic standards introduced by quantum computing the
+report explores the impact of quantum computing on current
+cryptographic methods and emphasizes the urgency of adopting
+postquantum solutions to safeguard critical financial data and
+transactions
+by offering a comprehensive analysis of the industrys readiness
+for postquantum cryptography this report highlights
+vulnerabilities and challenges that demand timely attention it
+underscores the importance of proactively updating
+cryptographic standards policies and practices to ensure data security and privacy against evolving quantum
+threats
+the reports findings and recommendations equip financial institutions with the insights needed to develop a robust
+cryptoagility strategy a cryptoagility platform enables the industry to track and remediate cryptographic technical
+debt efficiently helping it stay ahead of quantum adversaries and maintain a strong security posture
+as the financial sector navigates this transformative cryptographic era the insights from this needs assessment will
+be instrumental in building secure resilient infrastructure to withstand quantumera challenges by proactively
+adopting postquantum solutions institutions can strengthen trust instil confidence among stakeholders and ensure
+the integrity of their operations in an evolving cybersecurity landscape
+ asc x inc   all rights reserved 
+asc xf ir 
+annex a  nistapproved postquantum cryptographic algorithms
+on august   nist released the first three cryptographic algorithms approved as quantumsafe or resistant
+a federal information processing standard fips was published for each a summary of the algorithms follows
+the first set of nist algorithms consists of
+ fips  modulelatticebased key encapsulation mechanism mlkem derived from crystals
+kyber this generalpurpose algorithm allows two parties to establish a shared secret resistant to quantum
+attacks that secret can then be used to encrypt data and ensure integrity mlkem is based on structured
+lattices and is known for its speed and efficiency
+ fips  modulelatticebased digital signature algorithm mldsa derived from crystalsdilithium
+this latticebased signature algorithm is designed for general use offering relatively small keys and
+signatures and fast performance in key generation signing and verification
+ fips  stateless hashbased digital signature algorithm slhdsa derived from sphincs this
+stateless hashbased signature scheme is highly robust but may be less practical for some applications due
+to slower signing speeds and larger signature sizes
+with the official nist release of these quantumsafe algorithms x will work to incorporate them into standards for
+the us financial services industry for more information contact x
+the nist announcement can be viewed at the following url
+click on this link to go to the nist web site
+ asc x inc   all rights reserved 
+asc xf ir 
+end of document
+ asc x inc   all rights reserved 

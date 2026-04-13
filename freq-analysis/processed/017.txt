@@ -1,641 +1,1232 @@
-in collaboration
-with deloitte
-quantum readiness toolkit
-building a quantumsecure economy
-w h i t e p a p e r
-j u n e    
-images getty images
-contents
-foreword 
-executive summary 
- guiding principles to become quantum cyberready 
- the principles to become quantum cyberready indepth analysis 
- ensure the organizational governance structure institutionalizes 
-quantum risk
- raise quantum risk awareness throughout the organization 
- treat and prioritize quantum risk alongside existing cyber risks 
- make strategic decisions for future technology adoption 
- encourage collaboration across ecosystems 
-conclusion 
-appendix 
-contributors 
-endnotes 
-disclaimer
-this document is published by the
-world economic forum as a contribution
-to a project insight area or interaction
-the findings interpretations and
-conclusions expressed herein are a result
-of a collaborative process facilitated and
-endorsed by the world economic forum
-but whose results do not necessarily
-represent the views of the world economic
-forum nor the entirety of its members
-partners or other stakeholders
-  world economic forum all rights
-reserved no part of this publication may
-be reproduced or transmitted in any form
-or by any means including photocopying
-and recording or by any information
-storage and retrieval system
-quantum readiness toolkit building a quantumsecure economy 
-june  quantum readiness toolkit
-building a quantumsecure economy
-foreword
-leaders need to understand and take account
-of the quantum threat when strategizing about
-enterprise security
-jeremy jurgens isaac kohn colin soutar
-managing director partner deloitte switzerland managing director
-world economic forum deloitte usa
-accelerating developments in the field of quantum at the heart of these principles is a focus on risk
-computing will bring new challenges to the management and the need to take a proactive
-cybersecurity landscape organizations will need approach to security using technical and soft skills
-to adapt to the risk posed by quantum computers organizations must better understand the risk they
-which will have the potential to break many of the are exposed to so they can take the right steps to
-cryptographic systems that we rely on today for mitigate them this requires a willingness to invest
-secure communications and data protection today in the necessary tools and experience to
-become quantum cyberready
-last year the world economic forum in
-collaboration with deloitte published the white as we look to the future quantum computing
-paper transitioning to a quantumsecure economy will undoubtedly bring new challenges and
-outlining the risks of quantum computers and opportunities with the right approach however
-providing initial guidance for organizations to organizations can prepare so they are ready to
-transform their governance and security practices navigate this new landscape and protect their
-for the quantum era even if the quantum threat has critical assets and information we hope that the
-not materialized yet it is crucial for organizations principles presented in this white paper will serve as
-to start planning a secure and timely quantum a valuable resource for organizations as they seek
-transition to avoid a more significant impact in future to enhance their quantum security readiness
-to help organizations prepare for this new reality although the timescale for a fully mature
-this white paper presents a set of principles commericallyviable quantum computer being
-that organizations can use to help ensure they available is still under much debate there is
-are ready to enter the quantum computing era consensus that there is a real probability that one
-securely these principles cover a range of areas will exist in the future the real question is how long
-from strategizing about futureproof technology will it take you to upgrade your infrastructure and
-embedding quantum risk in governance structures what is the expected lifetime of your data if you do
-and existing risk management processes to finding not yet know the answers to these questions the
-the right talent to head this new challenge time to act is now
-quantum readiness toolkit building a quantumsecure economy 
-executive summary
-five guiding principles can help organizations
-embrace the quantumsecure economy
-quantum computers promise transformative multistakeholder effort which brings together a
-powers for businesses and organizations community of senior cyber and quantum executives
-across the globe and through a diverse range of and experts from business government regulators
-industries however they also introduce significant and academic institutions
-risks to the current digital economy in the near
-future sufficiently powerful and commercially organizations need to prioritize quantum
-available quantum computers will undermine risk alongside existing risks through the
-current cryptographic standards protecting most definition of a clear roadmap and clear roles
-digital communications and vast amounts of and responsibilities to face quantum risks
-sensitive data mitigating this security risk requires organizations need to raise awareness invest in
-organizations to implement quantumsecurity education and in technology adoption as well
-technologies that quantum computers cannot as collaborate with the ecosystem this toolkit
-break organizations need to embark on a large and the accompanying knowledge base aim to
-and complex transition to become resilient to provide leaders with guidance necessary to achieve
-quantum computer attacks organizationwide understanding of quantum
-risk and its governance  in order to thrive in a
-there is a need for a cohesive global cross quantumsecure economy
-border approach to cybersecurity and governing
-quantum risk this quantum readiness toolkit since organizations vary in size industry and
-provides a framework of five principles to guide maturity the toolkit does not serve as a one
-organizations to prepare for the quantumsecure sizefitsall solution the guidance laid out in the
-economy by providing steps for assessing their toolkit is suggestive and not exhaustive since
-quantum readiness and identifying and prioritizing all organizations will have to complete their own
-future actions the input arises from indepth quantum security transition the toolkit serves as
-conversations during the world economic a starting point to explore what an organizations
-forums quantum security working group a global unique strategy for quantum readiness can look like
-quantum readiness toolkit building a quantumsecure economy 
-guiding principles
+review not peerreviewed version
+quantum readiness in cryptography a
+maturitybased framework for post
+quantum transition
+volkan erol 
+posted date  october 
+doi preprintsv
+keywords postquantum cryptography quantum readiness latticebased cryptography nist pqc
+standards cryptoagility maturity model implementation security cryptographic migration
+preprintsorg is a free multidisciplinary platform providing preprint service
+that is dedicated to making early versions of research outputs permanently
+available and citable preprints posted at preprintsorg appear in web of
+science crossref google scholar scilit europe pmc
+copyright this open access article is published under a creative commons cc by 
+license which permit the free download distribution and reuse provided that the author
+and preprint are cited in any reuse
+preprintsorg wwwpreprintsorg  not peerreviewed  posted  october  doipreprintsv
+disclaimerpublishers note the statements opinions and data contained in all publications are solely those of the individual authors and
+contributors and not of mdpi andor the editors mdpi andor the edito rs disclaim responsibility for any injury to people or property resulting
+from any ideas methods instructions or products referred to in the content
+review
+quantum readiness in cryptography a
+maturitybased framework for
+postquantum transition
+volkan erol
+turkish economy bank  teb turkey volkanerolgmailcom
+abstract
+quantum computing poses an existential threat to publickey cryptography with shors algorithm
+capable of breaking rsa and elliptic curve systems once cryptographically relevant quantum
+computers crqcs emerge while postquantum cryptography pqc offers algorithmic solutions
+organizational readiness extends beyond technical implementation to encompass governance
+interoperability and adaptive capacity this review synthesizes the quantum threat landscape
+evaluates niststandardized pqc algorithms through quantitative performance analysis and
+examines global standardization dynamics we introduce a novel quantum readiness maturity
+model qrmm that enables organizations to assess and advance their preparedness across five
+dimensions cryptographic infrastructure governance frameworks sectoral adaptation
+interoperability resilience and strategic agility applying this model to finance telecommunications
+and defense sectors reveals systematic gaps in migration planning and cryptoagility our analysis
+demonstrates that quantum readiness requires treating cryptographic transformation as a strategic
+enterprise capability rather than a purely technical upgrade the proposed framework provides
+actionable pathways for practitioners while identifying critical research directions in hybrid
+deployment strategies postquantum pki architectures and algorithmic diversity
+keywords postquantum cryptography quantum readiness latticebased cryptography nist pqc
+standards cryptoagility maturity model implementation security cryptographic migration
+ introduction
+ the quantum threat to cryptographic foundations
+modern cybersecurity relies on computational hardness assumptions that quantum algorithms
+fundamentally undermine shors algorithm  provides polynomialtime solutions to integer
+factorization and discrete logarithms threatening rsa diffiehellman and elliptic curve
+cryptography eccsystems that secure trillions of dollars in transactions government
+communications and digital identities while largescale quantum computers capable of breaking
+bit rsa remain years away recent resource estimates suggest that  million noisy qubits could
+factor such keys within hours  placing the threat horizon within a plausible  year window
 
-to become quantum
-cyberready
-five principles designed to guide and
-enable a quantumsecure transition
-the five guiding principles provide practical guidance understand where they are identify gaps in their
-to help organizations understand how to start their preparations to become quantum secure and
-quantumsecure transition it can help organizations improve their initial steps to quantum security
-figure  guiding principles to understand the quantumsecure transition
-ensure the organizational governance structure institutionalizes quantum risk
-the quantum threat requires organizations to align their governance structure to their quantum cyber readiness transition by
-defining clear goals roles and responsibilities and creating leadership buyin to enforce change effectively
-raise quantum risk awareness throughout the organization
-demystifying the quantum threat is key this requires that not only quantum cyber readiness experts but also senior leaders and risk
-managers understand the risk and impact of the threat to the organization
-treat and prioritize quantum risk alongside existing cyber risks
-a quantum cyberready organization follows a structured approach to evaluate and manage quantum risk and integrates mitigating
-this risk into existing cyber risk management procedures
-make strategic decisions for future technology adoption
-managing quantum risk provides organizations with opportunities to reassess their technology landscape specifically the use of
-cryptography to make the most out of technology solutions that help mitigate quantum risk organizations should make strategic
-technology decisions that support cryptoagility to achieve their security objectives
-encourage collaboration across ecosystems
-quantum risk is a systemic risk an effective quantum security strategy includes collaborating and sharing information with other
-organizations to identify risks throughout the ecosystem and suppliers to jointly mitigate such risks
-quantum readiness toolkit building a quantumsecure economy 
-the principles to
+the harvestnowdecryptlater hndl threat model intensifies urgency adversaries can
+capture encrypted data today and decrypt it once quantum capabilities mature  for data with
+multidecade confidentiality requirementsmedical records state secrets financial archives
+protection must begin immediately grovers algorithm  further reduces symmetric key security
+by half eg aes  bit effective security requiring key size adjustments across all
+cryptographic primitives
+  by the authors distributed under a creative commons cc by license
+ of 
+the quantum threat is not uniform across cryptosystems while shors algorithm threatens rsa
+ecc and diffiehellman grovers algorithm only weakens symmetric primitives figure 
+summarizes this landscape
+figure  caption
+ postquantum cryptography from theory to practice
+postquantum cryptography pqc has emerged as the leading defense strategy with the nist
+pqc standardization project  finalizing four quantumresistant algorithms in  crystals
+kyber key encapsulation crystalsdilithium digital signatures falcon compact signatures
+and sphincs hashbased signatures these algorithms rest on mathematical problems believed
+resistant to both classical and quantum attacksprimarily lattice problems learning with errors
+and hash function properties 
+however deploying these algorithms represents only the first step realworld adoption faces
+substantial challenges performance overheads larger key sizes slower operations integration with
+legacy infrastructure tls pki hardware security modules standardization fragmentation across
+regions  and the organizational capacity to adapt as standards evolvetermed cryptoagility
 
-become quantum
-cyberready
-indepth analysis
-each principle is defined with additional
-considerations and brief guidance to demonstrate
-effective adoption and implementation
-in navigating the complexities of the quantum era the quantum readiness
-toolkit ensures our ability to not just withstand quantumsecure transitions
-but to excel within them
-daniel cuthbert global head cybersecurity research banco santander
- ensure the organizational governance
-structure institutionalizes quantum risk
-clear and structured governance is essential to across geographies can help large organizations
-building an organization that is resilient to current prevent conflicting requirements
-and future quantum risks such as quantum security
-transition programmes allocated responsibilities  start small start with a small team and tasks by
-and updated policies and operating procedures following an interactive stepbystep approach
-to enhance readiness the organizational in tandem with socialization activities to get all
-governance structure should institutionalize stakeholders on board splitting the transition
-quantum risk allowing for change to be enforced into several small segments eg limited to a
-effectively organizations need to formulate their specific section of the organization or product
-quantum security goals and roles clearly suite provides time for adoption and socialization
-lowering the entry barrier and maximizing
-integration lessons learned in future phases
-key considerations
- establish that mitigating quantum risk
-becomes part of business as usual make
- balance prescriptive versus openended quantum a recognized risk that is part of regular
-guidance no onesizefitsall approach cybersecurity activities embed quantum risk
-exists for mitigating quantum risk developing and future cryptographic risks in the existing
-international standards and creating consensus cybersecurity operating model
-quantum readiness toolkit building a quantumsecure economy 
-table  practices and activities to ensure the organizational
-governance structure institutionalizes quantum risk
-practices activities
-establish effective  assign appropriate responsibilities across the organization and include functions with respective ownership of
-governance and mitigating the quantum threat these functions include but are not limited to legal counsel data officers and
-mandates for operational managers
-quantum security
- provide staff working on the quantum security transition with sufficient executive support and mandates
-projects
-to drive change
- report progress and programme risks to an accountable and responsible function lead within security
-risk or related functions
-appoint  appoint or hire cryptographic champions that can drive and accelerate quantum cyber readiness as well
-cryptographic as be the point of contact to provide broader awareness of quantum risk and insights
-champions to
- organize forums for crossfunctional collaboration to encourage discussions and collaboration between
-socialize the impact
-cryptographic champions and stakeholder groups eg security officers engineers it project managers to help
-of quantum risk and
-address concerns and questions related to quantum
-to drive quantum
-security plans within  enable relevant stakeholders such as cryptographic champions or quantum transition project teams to challenge
-the organization and provide feedback for quantum security transition plans then incorporate feedback and lessons learned into
-the quantum security roadmap
-develop a roadmap  create a quantum security roadmap with clearlyestablished objectives timelines milestones and the ability
-to become quantum to measure progress over time
-secure and align
- develop an estimate of potential costs and timelines early in the quantum security transition to guide expectations
-the roadmap with
-and create awareness of transition costs
-quantum risk
-assessments and  align the quantum security roadmap to broader roadmaps eg the overarching cybersecurity roadmap along with
-organizational risk those for any relevant adjacent security or technology capabilities eg a large cloud transition
-appetite
- implement feedback mechanisms to incorporate input from relevant affected stakeholder groups into the quantum
-security roadmap
- document lessons learned from the quantum security transition and actively disseminateinclude them in the
-development of new strategies and largescale transformations
- align quantum risk to relevant longterm strategic initiatives within the organization such as corporate responsibility
-programmes which will serve to gain more support and create more strategic cohesion
-periodically update  embed or develop quantum security requirements in cryptographic policies and standards within the organization
-policies and
- periodically update cryptographic policies to incorporate novel insights organizational changes and industry
-procedures in line
-good practices
-with organizational
-changes  organize training sessions to help teams understand organizational changes and new ways of working
-and relevant
-developments  integrate requirements on the use of quantumsecure technology in thirdparty contracts
-quantum readiness toolkit building a quantumsecure economy 
- raise quantum risk awareness
-throughout the organization
-the importance of acting on postquantum security cannot be
-overemphasized organizations often wonder when to start and how to start
-who should be the stakeholders etc the quantum readiness toolkit is the
-attempt to answer these questions and move forward
-reena dayal chairperson quantum ecosystems and technology council of india
-quantum risk is a novel concept to many  develop a creative talent strategy there is a
-stakeholders and is often misunderstood or viewed scarcity of talent and not everybody needs to
-as a highly complex technical topic for business be an expert in quantum physics mathematics
-leaders this perceived complexity tempts many or computer science the lack of available talent
-stakeholders to postpone any meaningful action means organizations should be creative with
-or to disregard the topic completely to raise hiring and reskilling existing talent to help ensure
-awareness of quantum risk organizations should sufficient expertise is available
-actively understand and discern quantum risk and
-spread focused knowledge on quantum risk to  tailor awareness and education activities
-relevant internal and external stakeholders various functions including csuite and broader
-security community should be kept up to date
-with advances in the quantum threat however
-key considerations without sufficient context news relating to
-the quantum threat might trigger organization
-leaders to approach the topic with fear and
- avoid spreading fear uncertainty or doubt panic rather than a levelheaded and well
-many conversations around managing quantum thoughtout strategy therefore updates should
-risk are fearfocused treating the quantum put innovations and developments into the
-threat like other emerging cyberthreats aids in proper context
-clarity and with adequate preparation reduces
-the overall panic that surrounds the topic
-table  practices and activities to ensure the organizational governance structure
-institutionalizes quantum risk
-practices activities
-assess what  map all relevant roles within the organization eg cryptography talent human resources risk managers that
-knowledge is might be impacted by the quantum threat
-required across
- develop a skills matrix that describes each roles knowledge requirements and needs to help prioritize and tailor
-stakeholder awareness activities use existing guides and examples such as quantumsafe canadas curriculum guide or the
-groups to make eus competence framework for quantum technologies methodology and version history
-the organization
-quantum ready
-enhance the  assess what quantum security talent is needed and develop a strategy that includes hiring training andor
-organizations upskilling of talent
-access to talent
- establish partnerships and collaboration networks to augment quantum security talent
-specialized in the
- provide tailored training and development opportunities for talent in functions that are critical to managing quantum
-quantum threat
-risk eg cryptographers product developers and network engineers
-build awareness and  develop and implement an actionable socialization plan that aims to create awareness for senior stakeholders in
-knowledge among the organization of the importance of becoming quantum ready
-relevant leaders in
- appoint function leads within security risk management and related functions to serve as ambassadors
-the organization responsible for addressing quantum risk within their domains
- support senior leadership in understanding that mitigating quantum risk is a shared responsibility and actively
-promotes this view amongst relevant stakeholders ie by making quantum risk a part of senior leadership meetings
- support clevel employees in understanding quantum risk for instance by organizing tabletop exercises setting
-up a hype free hotline for adhoc support or by developing a quantum monitor which provides input on recent
-quantum risk developments and how the clevel employees should react to these events
- communicate to leadership in a way that resonates with them ie by explaining quantum risk in business terms
-providing actionable next steps and using accessible language
-quantum readiness toolkit building a quantumsecure economy 
- treat and prioritize quantum risk
-alongside existing cyber risks
-the quantum readiness toolkit is a valuable resource for cybersecurity leaders and
-practitioners alike as they prepare strategies to transition cybersecurity infrastructure
-to a quantumresilient posture the toolkit offers clear guidance on governance raising
-awareness and pathways for technology adoption i believe it to be an important asset
-for professionals tasked with managing the quantum risk to cybersecurity
-vikram sharma chief executive officer quintessencelabs
-many organizations realize that in order to thrive  learn from previous cybersecurity
-digitally they must effectively manage risks while transitions success factors and lessons
-allowing and enabling the business to prosper the learned from earlier transitions can and should
-risks of quantum computers to current cryptographic be reused similarly lessons learned from the
-methods fit under the cyber risk management quantum security transition should be applied to
-umbrella to treat and prioritize quantum risk mitigating future emerging threats
-organizations should follow a structured approach
-to evaluate and manage quantum risk as cyber risk  mitigate quantum risk through a combination
-and as part of an organizations existing cyber risk of risk management effective and upto
-management programme date documentation and technical tools
-documenting an organizations technology and
-the requirements for them to work correctly
-key considerations could be combined with creating a cryptographic
-bill of materials cbom that includes all the
-cryptographic components used in applications
- acknowledge organizations have divergent and services across the organization ideally
-priorities they will also vary in what actions organizations will adopt a modular approach and
-should be undertaken to make their organizations separate cryptography from the applications
-quantum ready this means that specific which is a starting point for cryptographic agility
-objectives and approaches to managing quantum technologyfocused practices and activities
-risk can differ from one organization to the next will be discussed within the fourth principle on
-sustainable technology decisions
-table  practices and activities to treat and prioritize quantum risk alongside existing cyber risks
-practices activities
-perform quantum risk  assess the extent to which attackers using a quantum computer are a threat to the organization
-assessments to better eg by reviewing publicly available threat reports or performing a threat analysis
-understand and prioritize
- perform an initial quantum risk assessment to get an idea of how serious quantum risk may affect the
-quantum risk organizations cybersecurity posture including by looking at how long data will remain potentially valuable
-for attackers based on data shelf life or data halflife
- if possible prioritize the sequence of it assets being made quantum secure using existing risk
-management processes such as a business impact analysis bia this can also be used to identify and
-quantify systems vulnerable to harvestnow decryptlater hndl attacks
- monitor highrisk technology such as systems and applications regularly and prioritize these technologies
-in the broader quantum security roadmap
- explore the potential of partially managing quantum risk through other means than implementing
-quantumsecure technology for example with cybersecurity insurance or accepting any residual risk for
-lowrisk technology
-embed quantum risk  embed quantum risk into the organizations risk register or risk scorecard to track and prioritize within broader
-mitigation plans into risk management efforts considering the long materialization and mitigation timeline of quantum risk
-existing risk management  create quick wins by including quantum risk as part of annual data mapping exercises to identify systems
-procedures that are processing sensitive data and may therefore have a higher risk
-assess vendors and other  perform risk analyses on potential third parties to assess their quantum risk such as based on the value
-third parties to understand of the data they will be able to access and their existing quantum cyber readiness plans and progress
-how they might impact the
- prioritize mitigating quantum risk of existing thirdparties based on their quantum risk and business value
-organizations strategy to engage with them to foster collaborative efforts across supply chains aiding quantum readiness
-become quantum secure
-quantum readiness toolkit building a quantumsecure economy 
- make strategic decisions for future
-technology adoption
-the development and sharing of useful tools for preparing our digital platforms to be
-secure in the quantum era alongside the increasing imperative to manage systemic
-cyber risks posed by codebreaking advances will facilitate the evolution to a more
-secure and resilient cryptographic foundation for the global economy
-michele mosca professor and cofounder institute of quantum computing
-university of waterloo
-mitigating quantum risk requires organizations to  start experimenting and assessing now for
-reassess their technical infrastructure specifically adoption later organizations may not fully
-regarding their use of cryptography and make understand what cryptoagility looks like or what
-strategic decisions to maintain the confidentiality the impact and effectiveness of standardized
-availability and integrity of data this includes postquantum cryptography might mean for
-considering novel concepts such as cryptoagility them engaging with these concepts and
-and investing in new emerging technologies to standards will aid understanding and confidence
-make strategic decisions for future technology in adoption later organizations could start
-adoptions organizations need to think ahead enable experimenting with small proofs of concept or
-cryptoagility and ensure that cybersecurity capacities assessing what adopting these technologies
-are adaptable to the everevolving threat environment might mean for them and their risk profile
- harness the technological adoption to mitigate
-key considerations existing cybersecurity risks organizations
-can make use of the implementation of
-quantumsecure technology as an opportunity
- use tools and applications that are easy to to resolve longknown cybersecurity deficiencies
-use safely and secured by design ensuring eg implementing autoupdating of certificates
-tools are designed with proactive security to decrease system downtime
-objectives in mind developers can aid end
-users by making it hard for end users to trigger
-cybersecurity incidents
-table  practices and activities to make strategic decisions for future technology adoption
-practices activities
-design a crypto  assess the impact of quantumsecure technologies on existing services including stability and efficiency
-agile technology
- create a cbom that provides an overview of all cryptography in use in the organization
-landscape that
-enables quick
- assess quantum risk for individual cryptographic components for highrisk components that might be more
-and effective vulnerable to cryptanalytic attacks develop mitigation plans
-implementation
-and configuration  enable hybrid solutions where postquantum and classical algorithms are layered for broader protection
-of postquantum
- consider both quantum threats but also potential new avenues of securing information using the positive
-cryptography
-application of quantum applications eg quantum key distribution or quantum networks
-create a product  create cryptoagility by designing strategies for systems affected by the quantum threat
-life cycle that
- identify legacy technologies within the organization that might not be able to run quantumsecure technologies and
-supports products
-define tailored quantum risk mitigation plans
-becoming more
-quantum secure  embed quantumsecure requirements throughout the system development life cycle eg by mandating developers
-and engineers to use whitelisted cryptographic algorithms
- include quantum security requirements such as the use of postquantum cryptography in the scope of technical
-security tests
-implement  include quantum security requirements in new or renewed product contracts
-appropriate
- prioritize penetration tests for highrisk thirdparty products these should include quantum security requirements
-security controls
-for developers and
-thirdparty products
-quantum readiness toolkit building a quantumsecure economy 
- encourage collaboration across
-ecosystems
-in the hyperconnected digital economy that todays key considerations
-organizations are a part of data is shared and
-stored across ecosystems many cybersecurity
-risks are systemic and therefore cannot be  collaborate to understand systemic risks
-mitigated by individual organizations to aid across your ecosystem an organization
-quantum cyber readiness across ecosystems providing key parts to another organization
-organizations must connect and engage with peers without considering quantum security could lead
-third parties governments and academia to discern to unknown vulnerabilities for the downstream
-and demystify quantum risk and its systemic organization using these key parts within their
-impact hence encouraging collaboration across products or network
-ecosystems allows organizations to work together
-and share relevant information and insights related  help cultivate a unified broad view across
-to mitigating quantum risk the ecosystem this includes a wide array of
-stakeholders including vendors supply chain
-partners and academia ecosystems can share
-leading practices create urgency within the
-industry and collaborate on reducing risk spread
-over multiple actors within supply chains
-collaboration with academia and students will
-aid innovation speed and getting insights on the
-latest research
-table  practices and activities to encourage collaboration across ecosystems
-practices activities
-connect with  create a broad view of the ecosystem and map all actors that impact or can be impacted by quantum risk
-ecosystems on
- identify track and use existing platforms and initiatives that spread knowledge relevant to the quantum
-quantumreadiness
-security transition
-strategy
- connect with industry groups informal connections or information sharing and analysis centers isacs
-to collectively mitigate systemic quantum risks
-contribute to  contribute to product certification regimes such as through common criteria
-initiatives building
- facilitate interoperability by using shared technical standards where possible like the technical standard used
-shared technical
-for payments eg europay mastercard and visa emv
+ research gap and contribution
+existing literature addresses either technical algorithm design  or highlevel policy
+considerations  but rarely integrates these perspectives into an actionable framework
+practitioners lack systematic methods to assess organizational readiness prioritize migration efforts
+or measure progress this creates three critical gaps
+ assessment gap no standardized methodology exists for evaluating organizational quantum
+readiness across technical governance and strategic dimensions
+ implementation gap performance comparisons lack quantitative benchmarks that account for
+realworld constraints latency requirements bandwidth limits computational resources
+preprintsorg wwwpreprintsorg  not peerreviewed  posted  october  doipreprintsv
+  by the authors distributed under a creative commons cc by license
+preprintsorg wwwpreprintsorg  not peerreviewed  posted  october  doipreprintsv
+ of 
+ sectoral gap generic guidance fails to address sectorspecific requirements in finance
+telecommunications defense and healthcare each with distinct threat models and operational
+constraints
+ contributions of this work
+this paper makes four principal contributions
+ quantum readiness maturity model qrmm we introduce a fivelevel maturity framework
+spanning cryptographic infrastructure governance sectoral adaptation interoperability and
+strategic agility this model enables systematic assessment and provides clear advancement
+pathways
+ quantitative algorithm analysis we present comparative performance metrics for nist
+standardized pqc algorithms including keysignature sizes computational costs and
+implementation security considerations enabling evidencebased deployment decisions
+ sectoral implementation framework we develop sectorspecific readiness profiles for finance
+telecommunications and defense identifying unique challenges and proposing tailored
+migration strategies
+ strategic interoperability analysis we examine geopolitical dynamics in pqc standardization
+nist etsi china and their implications for multinational organizations providing guidance
+for navigating fragmented standards landscapes
+the remainder of this paper is structured as follows section  analyzes the quantum threat
+section  evaluates pqc algorithms section  examines global standards section  introduces the
+qrmm framework section  addresses implementation challenges section  discusses strategic
+implications and section  concludes with research directions
+ quantum threat analysis
+ shors algorithm breaking publickey cryptography
+shors algorithm  exploits quantum superposition and interference to solve integer
+factorization and discrete logarithm problems in polynomial time olog n compared to sub
+exponential classical algorithms for rsa classical attacks require  operations shors
+algorithm reduces this to  quantum gates 
+resource requirements recent estimates suggest factoring rsa requires approximately
+ million noisy qubits with error rates below  operating for several hours  current systems
+ibms qubit condor googles qubit sycamore fall orders of magnitude short however
+projections from major quantum computing roadmaps ibm google ionq suggest errorcorrected
+systems with millions of logical qubits could emerge by  
+impact assessment
+ rsa all key sizes   bit become vulnerable once crqcs arrive
+ ecc shorter keys bit ecc  bit classical security break even faster
+ diffiehellman key exchange protocols compromised affecting tls handshakes globally
+ digital signatures ecdsa eddsa become forgeable undermining authentication
+ grovers algorithm weakening symmetric cryptography
+grovers algorithm  provides quadratic speedup for unstructured search reducing an n
+element search from on to on for symmetric encryption
+ aes effective security reduced from bit  bit
+ aes remains secure at bit effective security
+ sha collision resistance weakened but remains practical
+  by the authors distributed under a creative commons cc by license
+preprintsorg wwwpreprintsorg  not peerreviewed  posted  october  doipreprintsv
+ of 
+mitigation strategy doubling key lengths aes  aes and increasing hash outputs
+suffices for symmetric primitives  this represents a far simpler transition than replacing public
+key systems
+ harvestnowdecryptlater hndl threat model
+the hndl attack paradigm  assumes adversaries
+ intercept and store encrypted communications today
+ retain ciphertexts until quantum capabilities mature
+ decrypt historical data once crqcs become available
+risk timeline analysis
+data type confidentiality lifetime hndl risk window mitigation urgency
+high immediate
+government classified  years critical
+threat
+medical records hipaa  years high critical
+financial transactions  years medium high
+personal communications  years low moderate
+ephemeral messaging   year negligible low
+organizations managing longlived sensitive data must transition to pqc before crqcs
+emerge not after this shifts the threat timeline from yearstoquantum to yearsofdata
+longevity 
+ quantum computing progress and timeline uncertainty
+current state 
+ largest systems  physical qubits ibm google
+ error rates  to  far above faulttolerance threshold of 
+ no demonstration of cryptographically relevant calculations
+projected milestones
+   logical qubits with basic error correction 
+   million logical qubits nist moderate confidence crqc window 
+  mature faulttolerant systems conservative estimates 
+key uncertainty factors
+ breakthrough in error correction codes eg surface codes topological qubits
+ advances in qubit coherence times and gate fidelities
+ scaling challenges in cryogenic systems and control electronics
+ potential for classified progress exceeding public knowledge
+given this uncertainty organizations face a strategic dilemma invest heavily now versus wait
+for clearer timelines the hndl threat model and long data lifetimes argue for proactive migration
+under a precautionary principle 
+ threat summary and strategic implications
+figure  see figure definitions below visualizes the quantum threat landscape showing how
+shors and grovers algorithms impact different cryptographic primitives the key strategic insight
+asymmetric impact across cryptographic families publickey systems require complete
+replacement symmetric systems need parameter adjustments this asymmetry shapes migration
+priorities and resource allocation
+  by the authors distributed under a creative commons cc by license
+preprintsorg wwwpreprintsorg  not peerreviewed  posted  october  doipreprintsv
+ of 
+ postquantum cryptography algorithm landscape
+ nist pqc standardization process
+the nist pqc project  began in  evaluating  initial submissions through three
+competitive rounds in july  nist announced four algorithms for standardization with final
+federal information processing standards fips released in august  
+selected algorithms
+ crystalskyber renamed mlkem key encapsulation mechanism
+ crystalsdilithium mldsa generalpurpose digital signatures
+ falcon fndsa compact digital signatures for constrained environments
+ sphincs slhdsa hashbased signatures conservative fallback
+a fourth round continues for additional codebased schemes classic mceliece bike to ensure
+algorithmic diversity 
+ algorithm families and mathematical foundations
+ latticebased cryptography
+foundation security rests on the hardness of learning with errors lwe and its variants
+ringlwe modulelwe  these problems involve finding short vectors in highdimensional
+latticesa task believed intractable for both classical and quantum computers
+crystalskyber mlkem 
+ purpose key encapsulation for establishing shared secrets replaces rsaecdh in tls
+ key sizes public key  bytes ciphertext  bytes
+ performance encapsulation  s decapsulation  s on  ghz intel cpu
+ security levels three variants mlkem   equivalent to aes  
+crystalsdilithium mldsa 
+ purpose digital signatures for authentication and nonrepudiation
+ signature size  bytes vs  bytes for ecdsa
+ performance signing  s verification  s
+ tradeoff larger signatures but straightforward implementation
+falcon fndsa 
+ purpose compact signatures for bandwidthconstrained applications
+ signature size  bytes significantly smaller than dilithium
+ performance signing  s slower due to floatingpoint operations
+ implementation challenge requires careful constanttime implementation to resist timing
+attacks
+ hashbased cryptography
+sphincs slhdsa 
+ foundation security derived from hash function properties collisionpreimage resistance
+ advantage no unproven hardness assumptions conservative security profile
+ signature size  bytes largest among nist selections
+ performance signing  s verification  s
+ use case longterm security where spacespeed are secondary concerns
+ codebased cryptography
+classic mceliece  round  alternate candidate
+  by the authors distributed under a creative commons cc by license
+preprintsorg wwwpreprintsorg  not peerreviewed  posted  october  doipreprintsv
+ of 
+ foundation decoding random linear codes  years of cryptanalysis
+ public key size  kb to  mb prohibitive for most applications
+ advantage oldest and most conservative pqc approach
+ status continues evaluation for specialized use cases government longterm archives
+ quantitative performance comparison
+key observations
+ key size penalty pqc public keys are  larger than ecc but smaller than rsa
+ signature inflation dilithium signatures are  larger than ecdsa falcon offers 
+overhead
+ computational efficiency kyber and dilithium match or exceed rsa performance falcon and
+sphincs are slower
+ tradeoff spectrum no single algorithm optimizes all metrics deployment choices must
+prioritize based on constraints
+table  presents comprehensive performance metrics for niststandardized algorithms
+public
+signatureciphertext keygen signencap verifydecap security
+algorithm type key
+bytes s s s level
+bytes
+mlkem aes
+kem     
+ equiv
+aes
+mldsa sig     
+equiv
+fndsa aes
+sig     
+ equiv
+slhdsa aes
+sig     
+f equiv
+aes
+ecdsa sig     
+equiv
+aes
+rsa both     
+equiv
+classical algorithms shown in italics for comparison performance measured on intel core iu   ghz sources
+
+ implementation security considerations
+beyond algorithmic security realworld implementations face sidechannel and faultinjection
+attacks 
+timing attacks variabletime operations leak secret information through execution duration
+mitigation requires constanttime implementationschallenging for falcons floatingpoint
+arithmetic 
+power analysis differential power analysis dpa can extract keys from embedded devices
+countermeasures include masking and randomization increasing computational overhead by 
+
+fault injection inducing errors during signing can leak private keys sphincs is inherently
+resistant lattice schemes require careful validation 
+hardware acceleration nist algorithms are being integrated into cryptographic accelerators
+intel ipp arm cryptography extensions to improve performance while maintaining constanttime
+guarantees 
+ algorithmic diversity as risk mitigation
+  by the authors distributed under a creative commons cc by license
+preprintsorg wwwpreprintsorg  not peerreviewed  posted  october  doipreprintsv
+ of 
+concentrating on a single mathematical family latticebased creates systemic risk a
+breakthrough in lattice cryptanalysis could compromise multiple algorithms simultaneously nists
+strategy emphasizes diversity 
+ latticebased kyber dilithium falcon primary deployments
+ hashbased sphincs conservative fallback
+ codebased classic mceliece under continued evaluation
+ multivariate withdrawn after cryptanalytic breaks rainbow gemss 
+ isogenybased sike broken in  research continues on alternative constructions 
+organizations deploying pqc should maintain hybrid strategies classical  pqc during
+transition and consider multialgorithm deployments for critical systems 
+ global standardization and interoperability dynamics
+ nist leadership and global influence
+the nist pqc process has established de facto global standards with adoption by major
+technology companies google microsoft aws and integration into ietf protocols tls  ipsec
+ however regional initiatives create a complex interoperability landscape
+ european initiatives
+etsi quantumsafe cryptography working group 
+ publishes white papers and technical specifications since 
+ emphasizes backward compatibility and hybrid approaches
+ aligns closely with nist but maintains independent evaluation
+enisa eu cybersecurity agency 
+ issues risk assessment frameworks for eu member states
+ coordinates with national agencies anssi in france bsi in germany
+ focus on gdpr compliance and crossborder data protection
+eu quantum flagship 
+  billion initiative combining pqc with quantum key distribution qkd
+ euroqci project quantum communication infrastructure across europe
+ strategy layer pqc and qkd for defenseindepth
+ chinas dualpath strategy
+china pursues parallel development of pqc and qkd 
+ pqc research active participation in nist process independent algorithm development
+ qkd infrastructure extensive deployment micius satellite beijingshanghai network
+ strategic goal technological sovereignty and reduced dependence on western cryptographic
 standards
- remain cognizant of any geographic or regulatory restrictions or importexport controls
-contribute to  invest in ecosystem initiatives that increase the collective knowledge base and future talent pool such as university
-collaborations on initiatives eg the columbia quantum initiative
-developing quantum
- encourage employees to get quantumsecurityrelated certifications
-knowledge
-quantum readiness toolkit building a quantumsecure economy 
-conclusion
-as organizations around the globe formulate their plans to mitigate the cyber risk
-aspects of quantum computing these five principles will allow them to chart a
-course that is in line with the real threat posed by the technology and consistent
-with their more general cyber risk management practices
-colin soutar managing director deloitte usa
-sufficiently powerful quantum computers pose  act now nobody knows for sure when a
-a serious threat to todays digital economy and sufficiently powerful quantum computer will
-data protection requiring organizations to embark arrive but the timeline is shrinking everyone is
-on a quantum security transition this quantum aware that transitions take time and nobody
-readiness toolkit offers organizations guidelines wants to be too late organizations should start
-which they can use to assess prioritize and act now to give themselves sufficient time to start
-now to enhance the successful implementation small experiment and get acquainted with the
-of the principles organizations should consider to challenges and success factors that will allow a
-quantumsecure transition regulators can play
- raise awareness of quantum risk and the an important role in driving timely action across
-need to mitigate it now provide decision ecosystems but they should contemplate
-makers with a clear and coherent message to guardrails that encourage adoption and support
-build meaningful partnerships and drive action organizations in becoming quantum secure
-despite the deep technical aspects of quantum
-risk mitigating it will be a people business this quantum readiness toolkit is a meaningful
-and require a workforce that understands and step in providing organizations guidelines on
-prioritizes the risk becoming quantum secure based on input from a
-global and diverse community of experts as more
- realize there is no silver bullet no individual organizations become aware of the need to act
-quantum security solution policy or hired expert will now this can also lead to more interest in assessing
-make an organization quantum secure overnight to what extent peer organizations are becoming
-it will require a variety of tools adapted to the quantum secure driving and coordinating systemic
-environment and use cases focused on people change requires collective action and support
-governance and technology to make an organization from governments and organizations by providing
-resilient to present and future cryptographic additional guidance showcasing examples and
-risks of which quantum risk is only one quantitative metrics
-quantum readiness toolkit building a quantumsecure economy 
-appendix
-a methodology
-during the first year of the quantum security initiative level guidance for organizations in defining milestones
-the community developed a consensusbased in their quantum security transition the framework
-quantum security transition framework see figure consists of four layers define identify plan and
- as part of the transitioning to a quantumsecure execute that help organizations structure their goals
-economy white paper this framework provided high and objectives for a secure quantum transition
-figure  quantumsecure transition framework
- quantum security vision
-enable organizations to transition to quantumsecure ecosystems and mitigate quantum threats
-define
- drivers for change
- quantum threat  regulatory   cryptography
-market dynamics
-identify materialization pressures management needs
- quantum security roadmap
-talent and education governance and processes technology and infrastructure
-plan
-post quantum random
-knowledge pool executive support
-quantum key number
-culture and socialization vision and roadmap cryptography distribution generation
-training and awareness cryptography champions
-product security
-policies and standards
-enterprise security
-thirdparty security
- key factors for success
-technological innovation sustainable business and
-execute standards and certifications ecosystem cooperation and research longterm investments
-source world economic forum transitioning to a quantumsecure economy 
-in the second year of the initiative the community for each highlevel principle the toolkit contains
-convened in working sessions to further drive the good practices and detailed activities based on
-adoption of this framework by helping organizations the input provided in working sessions by forum
-with actionable guidance for each of the three pillars quantum security experts representing businesses
-talent and education governance and processes academia and government organizations are
-and technology and infrastructure the community encouraged to adopt the principles described
-defined good practices and detailed activities the organizations are encouraged to adopt the principles
-output of the working session led to the adoption of described develop a strategy and kickstart their
-a set of highlevel principles that have been used to journey to become quantum cyberready
-structure the quantum readiness toolkit
-quantum readiness toolkit building a quantumsecure economy 
-contributors
-world economic forum steering committee
-anne ardon jaya baloo
-project fellow quantum security world economic chief security officer rapid
-forum junior manager deloitte netherlands
-daniel cuthbert
-itan barmes global head cybersecurity research
-project fellow quantum security world economic
-forum specialist leader deloitte netherlands reena dayal
-chairperson quantum ecosystems and technology
-filipe beato council of india
-lead centre for cybersecurity
-world economic forum isaac kohn
-partner deloitte switzerland
-deloitte michele mosca
-professor and cofounder institute of quantum
-computing university of waterloo
-chris knackstedt
-senior manager deloitte usa vikram sharma
-chief executive officer quintessencelabs
-casper stap
-senior consultant deloitte usa colin soutar
-managing director deloitte usa
-acknowledgements
-this quantum readiness toolkit was cocreated maya bundt
-by many practitioners and diverse stakeholders in bloiseholding
-the world economic forums project community
-on quantum security as part of the quantum mark carney
-computing network that shared insights and banco santander
-lessons learned through interviews design
-workshops and consultation sessions the world daniel cuthbert
-economic forum would like to thank the following
-banco santander
-individuals for their insightful reviews and feedback
-michael daniel
-ibrahim almosallam
-cyber threat alliance
-saudi federation for cybersecurity and
-programming safcsp
-jrme desbonnet
-capgemini
-pavle avramovi
-financial conduct authority fca
-stefan deutscher
-boston consulting group bcg
-john beric
-mastercard
-gabrijela dreo rodosek
-university of the german federal armed forces
-arvinder bharath
-international monetary fund imf bundeswehr mnchen
-kirk bresniker ken durazzo
-hewlett packard enterprise dell technologies
-marijus briedis dimitri van esch
-nord security abn amro
-quantum readiness toolkit building a quantumsecure economy 
-roland fejfar arunima sarkar
-morgan stanley world economic forum
-jacques francoeur jacob sherson
-international telecommunication union itu university of aarhus
-tommaso gagliardoni rodney tan
-kudelski security cyber security agency of singapore
-roger a grimes salvador venegasandraca
-knowbe tecnologico de monterrey
-jack hidary marc verdonk
-sandboxaq deloitte netherlands
-ali el kaafarani desmond wan
-pqshield cyber security agency of singapore
-hoda al khzaimi mike wilkes
-new york university abu dhabi new york university tandon school of engineering
-antia lamaslinares carl j williams
-amazon web services aws national institute of standards and technology nist
-soon chia lim the forum also wishes to acknowledge expert
-cyber security agency of singapore contributions from taher elgamal and brian
-lamacchia for their thorough leadership insights and
-paul mee guidance throughout the development of this report
-oliver wyman mmc
-julian meyrick production
-international business machines ibm
-giulia moschetta laurence denmark
-world economic forum creative director studio miko
-toni pesonen sophie ebbage
-iqm quantum computers designer studio miko
-ana predojevic martha howlett
-stockholm university editor studio miko
-kelly richdale
-sandboxaq
-quantum readiness toolkit building a quantumsecure economy 
-endnotes
- world economic forum quantum personas a multistakeholder approach to cyber risk management 
-httpswwwweforumorgdocswefquantumpersonasgfconcybersecuritypdf
- quantumsafe canada quantumsafe skills development  an analysis of international models  httpsquantum
-safecawpcontentuploads 
-qscurriculumguidevfinalpdf
- european union competence framework for quantum technologies methodology and version history 
-httpsopeuropaeuenpublicationdetailpublicationecfdcecbdeaaedalanguageen
- global risk institute quantum threat timeline report  httpsglobalriskinstituteorgpublicationquantum
-threattimelinereport
- information sharing and analysis centers isacs european union agency for cybersecurity enisa nd
-httpswwwenisaeuropaeutopicsnationalcybersecuritystrategiesinformationsharing
- why emv emvco nd httpswwwemvcocomwhyemv
- columbia quantum initiative columbia university in the city of new york nd httpsquantumcolumbiaedu
- world economic forum transitioning to a quantumsecure economy  httpswwwweforumorgwhitepapers
-transitioningtoaquantumsecureeconomy
-quantum readiness toolkit building a quantumsecure economy 
-the world economic forum
-committed to improving
-the state of the world is the
-international organization for
-publicprivate cooperation
-the forum engages the
-foremost political business
-and other leaders of society
-to shape global regional
-and industry agendas
-world economic forum
- route de la capite
-ch colognygeneva
-switzerland
-tel     
-fax     
-contactweforumorg
-wwwweforumorg
+interoperability challenge chinese systems may require dual pqcqkd compliance
+complicating multinational deployments 
+ japan and asiapacific
+japans pqc roadmap 
+ nict and mic coordinate national strategy
+ focus on iot security and g infrastructure
+ active participation in itu standardization
+  by the authors distributed under a creative commons cc by license
+preprintsorg wwwpreprintsorg  not peerreviewed  posted  october  doipreprintsv
+ of 
+south korea and singapore developing national guidelines aligned with nist but
+incorporating etsi recommendations 
+ interoperability risks and fragmentation
+geopolitical implications
+ multinational corporations must support multiple standards simultaneously
+ export controls may restrict pqc technology transfer to certain regions
+ trust frameworks for international finance and trade require consensus on cryptographic
+baselines 
+table  summarizes regional standardization approaches
+standards
+region leading body primary strategy interoperability risk
+timeline
+pqc algorithms mlfips finalized
+north america nist low global leader
+kem mldsa 
+alignment with lowmedium minor
+europe etsienisa pqc  hybrid classical
+nist variants
+national rollout high divergent
+china state council pqc  qkd dualpath
+ architecture
+medium sectoral
+japan nictmic pqc for iotg pilots 
+focus
+isoiec jtc sc
+international harmonization efforts ongoing coordination challenge
+
+ hybrid cryptography as transitional strategy
+given uncertainty around pqc algorithm security and crqc timelines hybrid approaches
+combine classical and postquantum primitives 
+tls  hybrid key exchange
+sharedsecret  kdfecdhsecret  mlkemsecret
+security guarantee system remains secure if either classical or pqc component is unbroken
+
+advantages
+ backward compatibility with legacy systems
+ hedges against unexpected pqc vulnerabilities
+ gradual deployment without flagday transitions
+challenges
+ increased computational and bandwidth costs
+ complex key management and certificate infrastructure
+ potential for downgrade attacks if not carefully designed 
+ the quantum readiness maturity model qrmm
+ motivation and framework design
+existing guidance on pqc migration focuses on technical steps algorithm selection
+implementation testing but lacks a holistic assessment methodology organizations need a
+structured framework to
+ assess current readiness across multiple dimensions
+ identify gaps and prioritize investments
+ track progress as migration unfolds
+ adapt to evolving standards and threat landscapes
+  by the authors distributed under a creative commons cc by license
+preprintsorg wwwpreprintsorg  not peerreviewed  posted  october  doipreprintsv
+ of 
+to assess sectoral preparedness we introduce the quantum readiness maturity model
+qrmm structured along five dimensions as illustrated in figure  defense and government
+sectors are significantly ahead of healthcare in readiness
+we introduce the quantum readiness maturity model qrmma fivelevel framework
+spanning five critical dimensions
+figure  caption
+ qrmm dimensions
+dimension  cryptographic infrastructure
+ discovery and inventory of cryptographic assets algorithms in use key sizes certificate
+lifetimes
+ testing pqc algorithms in nonproduction environments
+ hybrid deployment capabilities
+ integration with pki hsms and key management systems
+dimension  governance and risk management
+ executive awareness and strategic alignment
+ budget allocation and resource planning
+ risk assessment frameworks hndl threat modeling
+ compliance with regulatory mandates hipaa gdpr defense classifications
+dimension  sectoral adaptation
+ understanding sectorspecific threat models finance vs healthcare vs telecom
+  by the authors distributed under a creative commons cc by license
+preprintsorg wwwpreprintsorg  not peerreviewed  posted  october  doipreprintsv
+ of 
+ performance requirements latency throughput computational constraints
+ legacy system constraints and migration timelines
+ vendor ecosystem readiness
+dimension  interoperability and standards compliance
+ alignment with nist etsi or regional standards
+ support for multiple pqc algorithms algorithmic agility
+ crossborder data flow requirements
+ protocol compatibility tls ipsec smime
+dimension  strategic agility
+ modular cryptographic libraries enabling algorithm replacement
+ automated cryptographic policy management
+ incident response plans for cryptographic failures
+ continuous monitoring and threat intelligence integration
+ maturity levels
+each dimension progresses through five maturity levels
+level   initial ad hoc
+ minimal awareness of quantum threat
+ no cryptographic inventory
+ reactive approach to security updates
+level   developing awareness
+ executive awareness and initial planning
+ pilot projects testing pqc algorithms
+ basic cryptographic asset discovery
+level   defined implementation
+ formal pqc migration roadmap
+ hybrid cryptography deployed in production
+ governance frameworks established
+ vendor partnerships for pqcenabled products
+level   managed optimization
+ pqc integrated across critical systems
+ automated cryptographic lifecycle management
+ continuous compliance monitoring
+ performance optimization and tuning
+level   adaptive strategic agility
+ cryptographic infrastructure as strategic capability
+ realtime algorithm switching based on threat intelligence
+ multialgorithm deployments for resilience
+ contribution to standards development and industry leadership
+ qrmm assessment methodology
+figure  see figure definitions below visualizes the qrmm framework as a radar chart showing
+organizational profiles across the five dimensions
+assessment process
+ selfassessment organizations rate themselves  on each dimension using detailed rubrics
+ gap analysis compare current state against target maturity levels typically level  for most
+enterprises
+ prioritization identify highimpact feasible improvements
+ roadmap development define quarterly milestones and kpis
+ continuous improvement reassess annually or after major standard updates
+example assessment rubric dimension  cryptographic infrastructure
+  by the authors distributed under a creative commons cc by license
+preprintsorg wwwpreprintsorg  not peerreviewed  posted  october  doipreprintsv
+ of 
+level cryptographic discovery pqc testing hybrid deployment pki integration
+manual certificate
+ no inventory none not considered
+mgmt
+partial inventory known evaluated but not
+ lab experiments basic automated pki
+apps deployed
+hybrid in noncritical pqcaware pki
+ comprehensive inventory pilot in staging
+systems pilots
+automated discovery  hybrid in all critical full pqc pki
+ production testing
+tracking systems integration
+realtime monitoring  ab testing inm ultialgorithm agile certificate
+
+alerting production resilience lifecycle
+ sectoral application of qrmm
+ financial services
+threat profile high hndl risk due to longlived transaction records regulatory compliance
+pressure global interoperability requirements
+typical maturity assessment  baseline
+ cryptographic infrastructure level  pilots underway but production deployment limited
+ governance level  regulatory mandates driving formal planning
+ sectoral adaptation level  performance concerns around highfrequency trading
+ interoperability level  swift and card networks coordinating
+ strategic agility level  modular architectures emerging
+recommended actions
+ accelerate hybrid tls deployment for interbank communications
+ establish pqcenabled digital signature services for transaction authentication
+ engage with payment networks swift visa mastercard on standardized timelines
+ develop quantum threat scenario planning for risk management frameworks
+case study a multinational bank deployed mlkem hybrid key exchange in their treasury
+management systems achieving ms latency overhead while futureproofing against hndl attacks
+
+ telecommunications
+threat profile critical infrastructure target latencysensitive operations gg massive scale
+billions of devices
+typical maturity assessment
+ cryptographic infrastructure level  gpp standards in development
+ governance level  strategic importance recognized but planning fragmented
+ sectoral adaptation level  active integration in g research
+ interoperability level  international standards coordination slow
+ strategic agility level  legacy network equipment constrains flexibility
+recommended actions
+ prioritize pqc in network core authentication servers base station controllers
+ develop lightweight pqc variants for iot devices resourceconstrained endpoints
+ collaborate with gpp itut on standardized pqc integration
+ plan phased migration aligned with equipment refresh cycles  years
+performance challenge telecom requires ms endtoend latency mlkem adds s per
+handshakeacceptable for control plane challenging for user plane at scale research continues on
+optimized implementations 
+ defense and government
+  by the authors distributed under a creative commons cc by license
+preprintsorg wwwpreprintsorg  not peerreviewed  posted  october  doipreprintsv
+ of 
+threat profile highest hndl risk  year classification advanced persistent threats national
+security implications
+typical maturity assessment
+ cryptographic infrastructure level  nsa commercial solutions for classified program
+ governance level  legislative mandates dedicated budgets
+ sectoral adaptation level  classified systems prioritized
+ interoperability level  nato and allied coordination
+ strategic agility level  layered defenses including pqc  qkd
+recommended actions
+ immediate migration for systems handling topsecretcompartmented information
+ multialgorithm deployments lattice  hashbased for resilience
+ integrate pqc with quantum key distribution for defenseindepth
+ establish cryptographic supply chain security trusted hardwaresoftware
+strategic consideration defense agencies cannot wait for crqc emergence due to hndl and
+adversarial capability uncertainty 
+ healthcare
+threat profile longterm patient data confidentiality regulatory compliance hipaa gdpr
+fragmented it infrastructure
+typical maturity assessment
+ cryptographic infrastructure level  awareness low legacy systems pervasive
+ governance level  compliancedriven but underresourced
+ sectoral adaptation level  medical device constraints
+ interoperability level  hl fhir standards evolving
+ strategic agility level  it modernization slow
+recommended actions
+ prioritize pqc for electronic health records ehrs and medical imaging archives
+ develop guidance for medical device manufacturers on pqc integration
+ align with hipaa and gdpr compliance frameworks
+ establish industry consortia himss for shared best practices
+barrier medical devices have  year lifecycles retrofit pqc into existing equipment is often
+infeasible requiring full replacement cycles 
+ qrmm implementation roadmap
+figure  see figure definitions below presents a typical year migration roadmap aligned with
+qrmm maturity progression
+year  level   
+ qq executive education threat assessment cryptographic inventory
+ qq vendor evaluation pilot pqc algorithms in lab governance framework draft
+year  level   
+ qq hybrid deployments in staging pki infrastructure planning
+ qq production pilots noncritical systems policy adoption training programs
+year  level   
+ qq full production deployment critical systems automated lifecycle management
+ qq performance optimization compliance audits continuous improvement process
+ongoing level   
+ algorithmic agility testing ability to replace algorithms quarterly
+ threat intelligence integration automated policy updates
+ industry leadership standards contributions opensource projects
+  by the authors distributed under a creative commons cc by license
+preprintsorg wwwpreprintsorg  not peerreviewed  posted  october  doipreprintsv
+ of 
+figure  caption
+ implementation challenges and mitigation strategies
+ performance and resource overheads
+challenge pqc algorithms impose larger key sizes signature lengths and computational costs
+compared to classical systems
+quantitative impact
+ network bandwidth tls handshakes increase by  kb due to larger certificates and key
+exchanges for highfrequency trading systems processing  transactionssecond this
+represents  mbs additional bandwidth 
+ computational load mldsa signing is  slower than ecdsa verification is  slower for
+authentication servers handling  requestssecond this requires proportional cpu scaling
+
+ storage requirements certificate chains grow  larger a pki managing  million
+certificates sees storage requirements increase from  gb to  gb 
+mitigation strategies
+ hardware acceleration deploy cryptographic accelerators intel qat arm cryptocell
+reducing latency by  
+ algorithm selection use falcon for bandwidthconstrained scenarios dilithium for general
+purpose deployments
+ caching and session resumption reduce handshake frequency through longer session
+lifetimes
+ hybrid optimization only apply pqc to initial handshake use symmetric keys for bulk data
+ infrastructure scaling plan  capacity increase for computenetwork resources
+ legacy system integration
+challenge global infrastructures are deeply entrenched in classical cryptography critical
+systems include
+ tlsssl implementations in billions of devices
+ public key infrastructure pki with embedded key size limits
+  by the authors distributed under a creative commons cc by license
+preprintsorg wwwpreprintsorg  not peerreviewed  posted  october  doipreprintsv
+ of 
+ hardware security modules hsms with fixed cryptographic capabilities
+ embedded systems with limited storage and computational resources
+migration complexity matrix
+system type migration difficulty primary barrier timeline
+cloud services aws azure lowmedium api compatibility  years
+enterprise applications medium vendor dependencies  years
+pki infrastructure high certificate chain trust  years
+iot devices very high hardware constraints  years replacement
+industrial control scada very high safety certification  years
+mitigation strategies
+ hybrid cryptography transition layer combining classical and pqc 
+ certificate  signclassicaldata  signpqcdata
+verifiers accept if either signature validates enabling gradual rollout
+ protocol negotiation extend tls  to advertise pqc support falling back to classical for
+legacy clients 
+ gateway solutions deploy pqcenabled reverse proxiesgateways translating between
+classical and quantumsafe backends
+ phased retirement prioritize systems by data sensitivity and replacement feasibility
+o phase   years highvalue targets government finance healthcare
+o phase   years enterprise it and cloud services
+o phase   years consumer devices and iot
+o phase   years industrial and embedded systems
+ certificate authority and pki challenges
+challenge x certificates and ca trust chains assume specific key types and signature
+algorithms pqc introduces
+ certificate size inflation x certificates grow from  kb to  kb
+ chain length constraints some protocols limit certificate chain size eg http headers
+ root ca migration updating globally trusted root certificates requires years of coordination
+ revocation mechanisms ocsp and crl systems must handle larger signatures
+proposed solutions
+ composite certificates  single certificate with multiple signature algorithms
+ cert  publickeyclassical publickeypqc sigclassical sigpqc
+ progressive trust anchors introduce new pqc root cas alongside existing roots during
+transition period  years 
+ certificate compression ietf work on compressed certificate formats reducing overhead by
+ 
+ alternative pki models explore decentralized trust certificate transparency blockchain
+based pki for pqc era 
+ sidechannel and implementation attacks
+challenge even mathematically secure algorithms become vulnerable through implementation
+flaws
+threat categories
+timing attacks 
+ variabletime operations eg modular inversion in falcon leak secret information through
+execution duration
+ countermeasure constanttime implementations all code paths take equal time
+ performance cost  slowdown
+  by the authors distributed under a creative commons cc by license
+preprintsorg wwwpreprintsorg  not peerreviewed  posted  october  doipreprintsv
+ of 
+power analysis 
+ differential power analysis dpa extracts keys from power consumption patterns in embedded
+devices
+ countermeasure masking randomize intermediate values and hiding noise injection
+ performance cost  computational overhead
+fault injection 
+ induce errors during signing voltage glitches electromagnetic pulses to leak private keys
+ countermeasure redundant computation and error detection
+ implementation complexity high requires hardware support
+cache timing 
+ adversaries measure cache access patterns to infer secretdependent memory accesses
+ countermeasure constanttime memory access patterns
+ particularly challenging for lattice algorithms with datadependent lookups
+realworld incident in  researchers demonstrated successful key recovery from an
+unprotected mldsa implementation using power analysis highlighting the gap between
+algorithmic security and implementation security 
+best practices
+ use formally verified cryptographic libraries liboqs boringssl
+ apply automated sidechannel testing tools rosita dudect
+ mandate thirdparty security evaluations common criteria eal
+ deploy hardware security modules hsms with tamperresistant enclaves
+ regular security audits and penetration testing
+ migration governance and cost management
+challenge pqc migration is not just a technical project but an organizational transformation
+requiring
+ executive sponsorship and crossfunctional coordination
+ budget allocation often millions of dollars for large enterprises
+ risk management and compliance frameworks
+ workforce training and skill development
+postquantum migration requires phased planning rather than abrupt replacement figure 
+presents a threeyear ganttstyle roadmap where milestones mm reflect assessment governance
+approval pilot deployment and full migration
+cost estimation model
+table  estimated migration costs by organization size
+organization size total cost range key cost drivers timeline
+small enterprise 
+k  m software updates consulting  years
+employees
+medium enterprise  m  m infrastructure upgrades hsms  years
+large enterprise  m  m legacy system integration training  years
+safety certification device
+critical infrastructure m  b  years
+replacement
+estimates include software licenses hardware upgrades consulting training and labor costs source industry surveys
+
+governance framework
+ steering committee executivelevel oversight with representatives from it security legal
+compliance and business units
+ risk assessment quantify hndl exposure by data classification
+o critical  year confidentiality immediate migration
+  by the authors distributed under a creative commons cc by license
+preprintsorg wwwpreprintsorg  not peerreviewed  posted  october  doipreprintsv
+ of 
+o high  years prioritize within  years
+o moderate  years standard migration timeline
+o low  years opportunistic upgrade
+ vendor management
+o require pqc roadmaps from all cryptographic vendors
+o establish contractual slas for pqc support
+o diversify vendor relationships to avoid lockin
+ compliance mapping
+o map regulatory requirements to pqc timeline hipaa gdpr pcidss fisma
+o engage with regulators for guidance and deadline extensions
+o document migration progress for audit purposes
+ training and awareness
+o develop pqc training curriculum for security teams
+o executive briefings on strategic implications
+o developer training on secure pqc implementation
+ interoperability and standards fragmentation risks
+challenge multiple regional standards and vendorspecific implementations risk creating
+incompatible pqc ecosystems
+fragmentation scenarios
+scenario  algorithm divergence
+ nist standardizes mlkemmldsa
+ china mandates domestic pqc algorithms smpq variant
+ result multinational corporations must support parallel cryptographic stacks
+scenario  parameter misalignment
+ region a requires mlkem aes equivalent security
+ region b accepts mlkem aes equivalent
+ result crossborder communications default to lower security level
+scenario  protocol incompatibility
+ tls  extensions for pqc differ between implementations
+ some vendors support hybrid mode others pqconly
+ result handshake failures and connectivity issues
+mitigation strategies
+ multialgorithm support implement cryptoagility to support nist etsi and regional
+standards simultaneously 
+ standards advocacy participate in ietf iso and regional standardization bodies
+ interoperability testing establish industry test events pqc plugfests similar to ipv
+transition 
+ fallback mechanisms design protocols with graceful degradation to ensure connectivity
+ regulatory engagement work with policymakers to harmonize requirements
+ open research questions
+despite significant progress several critical issues remain unresolved
+ longterm algorithm security will latticebased assumptions withstand decades of
+cryptanalysis sphincs offers conservative fallback but at significant performance cost
+ quantumsafe pki architecture how should certificate authorities evolve should we move
+toward shorterlived certificates decentralized trust models or entirely new paradigms
+ iot and resourceconstrained devices current pqc algorithms strain lowpower
+microcontrollers research into lightweight variants eg ntru prime frodokem continues
+
+  by the authors distributed under a creative commons cc by license
+preprintsorg wwwpreprintsorg  not peerreviewed  posted  october  doipreprintsv
+ of 
+ postquantum blockchain cryptocurrencies rely on ecdsa for signatures and sha for
+proofofwork migration strategies for decentralized systems require community consensus
+
+ quantum threat timeline refinement better forecasting models would enable more precise
+resource allocation and risk management 
+ sidechannel resistant implementations formal verification of constanttime properties
+remains computationally expensive and incomplete 
+ discussion strategic implications and future directions
+ beyond algorithms quantum readiness as organizational capability
+the technical availability of niststandardized pqc algorithms represents a necessary but
+insufficient condition for quantum readiness our analysis reveals that organizational maturity
+measured through the qrmm frameworkis equally critical three strategic insights emerge
+ cryptoagility is survival capability unlike past cryptographic transitions desaes
+shasha with clear threat timelines the yearstoquantum uncertainty demands
+infrastructures that can pivot rapidly organizations stuck at qrmm level  risk being unable to
+respond to sudden breakthroughs eg roomtemperature superconducting qubits novel error
+correction codes 
+ sectoral heterogeneity requires tailored strategies our sectoral analysis demonstrates that
+onesizefitsall guidance fails financial services prioritize transaction speed and global
+interoperability defense prioritizes longterm confidentiality and layered security healthcare
+struggles with legacy medical devices generic mandates risk either underprotecting critical sectors
+or overburdening resourceconstrained ones 
+ interoperability trumps perfect security the fragmentation risk from divergent regional
+standards nist vs chinas pqcqkd strategy poses a greater practical threat than marginal
+differences in algorithm security levels a globally interoperable mlkem deployment provides
+more realworld security than a fragmented mix of incompatible systems with stronger theoretical
+properties 
+performance and key size tradeoffs vary significantly across nist pqc candidates as shown
+in figure  latticebased algorithms dominate the pareto frontier whereas codebased approaches
+like mceliece impose storage overhead but offer robust security
+  by the authors distributed under a creative commons cc by license
+preprintsorg wwwpreprintsorg  not peerreviewed  posted  october  doipreprintsv
+ of 
+figure  c a p t i o n 
+ the geopolitics of postquantum cryptography
+cryptography has always carried geopolitical weightfrom wwii enigma to cold war export
+controls pqc intensifies these dynamics
+trust and verification nations may distrust algorithms developed by geopolitical competitors
+chinas parallel development of domestic pqc algorithms reflects concerns about potential
+backdoors in niststandardized schemes  this mirrors historical debates around nsas role in
+designing des and dualecdrbg
+technological sovereignty europes dual emphasis on nist alignment and independent etsi
+standards reflects desire for autonomy while maintaining interoperability  small nations face a
+dilemma adopt dominant standards risking dependence or pursue independence risking
+isolation
+quantum computing as strategic asset nations achieving crqc capability first gain
+temporary cryptanalytic advantagea quantum pearl harbor scenario  this drives secrecy
+around quantum computing progress making threat timeline assessments inherently uncertain
+export controls and supply chain pqc implementations may face export restrictions similar
+to current cryptographic controls wassenaar arrangement hardware dependencies hsms
+cryptographic accelerators create supply chain vulnerabilities 
+ economic considerations and market dynamics
+market size global cryptographic security market b in  will see  cagr driven
+by pqc migration reaching b by   key segments
+ cryptographic hardware hsms accelerators b
+ security software and services b
+ consulting and integration b
+  by the authors distributed under a creative commons cc by license
+preprintsorg wwwpreprintsorg  not peerreviewed  posted  october  doipreprintsv
+ of 
+ training and certification b
+vendor positioning major technology companies ibm google microsoft aws are
+positioning pqc as competitive differentiator early movers gain
+ market share in pqcenabled products
+ influence over emerging standards
+ talent acquisition advantages
+ patent portfolios in pqc implementations
+small business challenge smes lack resources for independent pqc migration creating
+dependence on vendor solutions this concentration risk could lead to
+ vendor lockin and reduced competition
+ higher switching costs
+ systemic vulnerabilities if dominant vendor compromised
+ ethical and social dimensions
+digital divide pqc migration costs risk widening the gap between wellresourced
+organizations who can afford proactive migration and underresourced ones who face reactive
+crisisdriven transitions this has equity implications
+ developing nations may lag in pqc adoption
+ small healthcare providers may struggle to protect patient data
+ educational institutions face competing budget priorities
+longterm data privacy the hndl threat model creates intergenerational privacy concerns
+data encrypted today but harvested by adversaries affects future generations this raises questions
+about
+ responsibility to protect data beyond immediate stakeholders
+ liability frameworks for inadequate cryptographic protection
+ rights of individuals whose data is compromised decades later
+open source vs proprietary pqcs critical infrastructure role argues for opensource
+implementations enabling community scrutiny however commercial incentives drive proprietary
+solutions finding balance between transparency and market dynamics remains contentious 
+ future research directions
+ postpqc cryptography while pqc defends against known quantum algorithms shor
+grover future quantum algorithms may threaten current schemes research into cryptographic
+primitives resistant to broader classes of quantum attacks continues 
+ quantumenhanced cryptanalysis nearterm quantum computers  qubits may
+accelerate classical cryptanalysis before achieving full crqc capability hybrid quantumclassical
+attacks require investigation 
+ automated migration tools reducing migration costs requires aiassisted tools for
+ cryptographic asset discovery and inventory
+ automated protocol translation classical  pqc
+ performance optimization and tuning
+ compliance verification and reporting
+ formal verification at scale proving cryptographic implementations secure against side
+channel attacks remains computationally expensive advances in automated theorem proving and
+symbolic execution needed 
+ pqc for emerging technologies
+ blockchain and distributed ledgers consensus mechanisms signature aggregation
+ confidential computing pqc in trusted execution environments tees
+ g and satellite networks ultralowlatency pqc for nextgeneration communications
+ autonomous systems realtime cryptographic decisionmaking in vehicles robots
+ interdisciplinary approaches quantum readiness requires expertise spanning
+  by the authors distributed under a creative commons cc by license
+preprintsorg wwwpreprintsorg  not peerreviewed  posted  october  doipreprintsv
+ of 
+ mathematics cryptography number theory lattice theory
+ computer science implementation formal methods
+ engineering hardware networking
+ law and policy regulation compliance
+ economics costbenefit analysis market dynamics
+ social sciences organizational change risk perception
+academic programs and research centers should foster these interdisciplinary collaborations
+
+ the path forward recommendations for stakeholders
+for organizations
+ conduct qrmm assessment and establish baseline maturity
+ develop  year migration roadmap with quarterly milestones
+ allocate  of cybersecurity budget to pqc transition
+ establish executivelevel governance with crossfunctional representation
+ begin hybrid deployments in noncritical systems for learning
+for governments and regulators
+ issue clear pqc mandates with realistic timelines  for critical infrastructure
+ fund public research into pqc optimization and sidechannel resistance
+ support small business migration through grants and tax incentives
+ coordinate internationally to prevent standards fragmentation
+ update procurement requirements to mandate pqc support
+for technology vendors
+ publish transparent pqc roadmaps with feature timelines
+ offer hybrid solutions enabling gradual migration
+ provide migration tooling and consulting services
+ participate in opensource pqc projects liboqs open quantum safe
+ contribute to standards development ietf iso nist
+for researchers
+ focus on lightweight pqc for resourceconstrained devices
+ develop automated sidechannel testing and formal verification tools
+ investigate postpqc and quantumenhanced cryptanalysis
+ study organizational and economic aspects of cryptographic transitions
+ engage with practitioners to ensure research addresses realworld needs
+ conclusions
+quantum computings threat to cryptographic foundations demands a comprehensive response
+extending far beyond algorithm replacement this review has synthesized the current state of post
+quantum cryptography analyzing technical algorithms global standardization efforts sectoral
+adoption challenges and implementation complexities
+our central contributionthe quantum readiness maturity model qrmmprovides
+organizations with a structured framework for assessing preparedness and advancing through
+maturity levels by spanning five dimensions cryptographic infrastructure governance sectoral
+adaptation interoperability strategic agility qrmm transforms quantum readiness from an
+abstract concept into actionable practice
+key findings
+ technical maturity niststandardized algorithms mlkem mldsa fndsa slh
+dsa provide strong quantum resistance with manageable performance overheads latticebased
+schemes offer the best balance for most applications hashbased signatures provide conservative
+fallback options
+  by the authors distributed under a creative commons cc by license
+preprintsorg wwwpreprintsorg  not peerreviewed  posted  october  doipreprintsv
+ of 
+ organizational gap most enterprises remain at qrmm level  awareness and initial
+planning advancing to level  implementation and optimization requires executive
+commitment governance frameworks and sustained investment
+ sectoral heterogeneity finance telecommunications defense and healthcare face distinct
+challenges demanding tailored strategies generic guidance risks underprotection or resource
+misallocation
+ interoperability risk fragmented regional standards nist etsi china threaten global
+connectivity cryptoagilitysupporting multiple algorithms and standardsemerges as critical
+capability
+ strategic imperative quantum readiness is not a project with defined endpoint but an
+ongoing organizational capability the yearstoquantum uncertainty and hndl threat model
+demand proactive action despite timeline ambiguity
+the path forward
+achieving quantum readiness requires treating cryptographic transformation as a strategic
+enterprise capability rather than a tactical it upgrade organizations must
+ embed cryptoagility into architectural principles
+ establish governance frameworks balancing security and operational requirements
+ invest in workforce development and organizational learning
+ participate in standards development and industry collaboration
+ maintain continuous monitoring and adaptive planning
+the transition to postquantum cryptography represents one of the most significant
+cryptographic migrations in historycomparable to the shift from symmetric to publickey
+cryptography in the s success demands technical innovation organizational maturity
+international cooperation and sustained commitment across government industry and academia
+as quantum computing capabilities advance the window for proactive migration narrows
+organizations that treat quantum readiness as strategic imperative today will be positioned as secure
+resilient leaders tomorrow those that delay face reactive costly and potentially incomplete
+transitions under crisis conditions
+the postquantum era is not a distant futureit is the present the question is no longer whether
+to prepare but how rapidly and comprehensively to act
+author contributions all sections volkan erol
+funding this research received no external funding
+data availability statement performance benchmarks presented in table  are compiled from publicly
+available sources  qrmm assessment data is based on industry surveys conducted by gartner 
+and idc  no new experimental data was generated for this review
+acknowledgments the authors thank the nist pqc team for their standardization leadership the open
+quantum safe project for reference implementations and turkish economy bank  teb for valuable discussions
+on quantum readiness strategies
+conflict of interest the authors declare that there is no conflict of interest regarding the publication of this
+paper
+appendix a qrmm assessment rubrics condensed
+dimension  cryptographic infrastructure
+level   initial no systematic cryptographic inventory adhoc algorithm use no awareness of
+pqc
+level   developing partial inventory of critical systems beginning pqc lab testing awareness
+of nist standards
+  by the authors distributed under a creative commons cc by license
+preprintsorg wwwpreprintsorg  not peerreviewed  posted  october  doipreprintsv
+ of 
+level   defined comprehensive cryptographic asset management hybrid pilots in staging
+pqc roadmap approved
+level   managed production hybrid deployments automated certificate lifecycle
+management performance monitoring
+level   adaptive multialgorithm resilience realtime algorithm switching contribution to
+opensource pqc projects
+dimension  governance and risk management
+level  no executive awareness reactive security posture no quantum threat assessment
+level  executive briefings conducted initial risk assessment pqc migration in strategic plan
+level  dedicated governance committee budget allocation  cybersecurity compliance
+mapping
+level  integrated risk management quarterly progress reviews vendor management
+frameworks
+level  quantum readiness as boardlevel kpi dynamic resource allocation industry
+leadership role
+dimension  sectoral adaptation
+level  generic security approach no sectorspecific considerations unaware of unique
+constraints
+level  understanding of sectoral threat model initial performance benchmarking vendor
+engagement
+level  customized pqc strategy for sector partnerships with industry groups regulatory
+alignment
+level  optimized for sector constraints latency compliance legacy case studies and best
+practices
+level  sector leadership in pqc adoption standards contribution innovation in sectoral
+applications
+dimension  interoperability and standards compliance
+level  singlestandard assumption no awareness of regional variations compatibility
+untested
+level  awareness of nistetsi differences planning for multistandard support protocol
+compatibility testing
+level  support for multiple standards crossborder data flow planning ietf protocol
+implementation
+level  seamless multiregion operations automated standards compliance interoperability
+certifications
+level  multialgorithm agility contribution to standards harmonization global deployment
+excellence
+dimension  strategic agility
+level  hardcoded algorithms manual configuration changes months to replace cryptographic
+primitives
+level  modular cryptographic libraries understanding of cryptoagility principles weeks to
+update
+level  policydriven algorithm selection automated updates for noncritical systems days to
+pivot
+level  dynamic protocol negotiation canary deployments hours to respond to threats
+level  realtime algorithm switching threat intelligence integration continuous adaptation
+without downtime
+appendix b glossary of key terms
+cryptoagility the organizational and technical capability to replace cryptographic algorithms
+protocols and parameters with minimal disruption and cost
+  by the authors distributed under a creative commons cc by license
+preprintsorg wwwpreprintsorg  not peerreviewed  posted  october  doipreprintsv
+ of 
+cryptographically relevant quantum computer crqc a quantum computer with
+sufficient qubits error correction and coherence time to break widely deployed publickey
+cryptographic systems eg rsa ecc
+harvestnowdecryptlater hndl attack model where adversaries capture encrypted data
+today and store it for future decryption once quantum computers become available
+hybrid cryptography combining classical and postquantum cryptographic primitives to
+hedge against uncertainties in either approach security holds if either component remains unbroken
+latticebased cryptography pqc family based on the hardness of finding short vectors in high
+dimensional lattices eg learning with errors problem includes mlkem mldsa fndsa
+postquantum cryptography pqc cryptographic algorithms believed to be secure against
+attacks by both classical and quantum computers includes latticebased codebased hashbased
+and multivariate schemes
+quantum readiness holistic organizational preparedness for the quantum computing era
+encompassing technical migration governance frameworks sectoral adaptation and strategic agility
+quantum readiness maturity model qrmm fivelevel framework for assessing and
+advancing organizational preparedness across cryptographic infrastructure governance sectoral
+adaptation interoperability and strategic agility dimensions
+shors algorithm polynomialtime quantum algorithm for integer factorization and discrete
+logarithms threatening rsa diffiehellman and elliptic curve cryptography
+yearstoquantum estimated time until crqcs capable of breaking current cryptographic
+systems become available current estimates range from  years with high uncertainty
+references
+ shor p w algorithms for quantum computation discrete logarithms and factoring proceedings th
+annual symposium on foundations of computer science ieee  pp 
+ gidney c eker m how to factor  bit rsa integers in  hours using  million noisy qubits
+quantum vol   p 
+ national academies of sciences engineering and medicine quantum computing progress and prospects
+national academies press 
+ mosca m mulholland j a methodology for quantum risk assessment global risk institute 
+ grover l k a fast quantum mechanical algorithm for database search proceedings th annual acm
+symposium on theory of computing  pp 
+ national institute of standards and technology postquantum cryptography standardization
+httpscsrcnistgovprojectspostquantumcryptography accessed january 
+ regev o on lattices learning with errors random linear codes and cryptography journal of the acm
+vol  no   pp 
+ merkle r c a certified digital signature advances in cryptology  crypto  springer  pp 
+
+ european telecommunications standards institute quantum safe cryptography and security etsi
+white paper no  
+ bindel n hlsing a challenges in postquantum cryptography standardization it professional vol
+ no   pp 
+ crockett e paquin c stebila d prototyping postquantum and hybrid key exchange and
+authentication in tls and ssh nist nd pqc standardization conference 
+ peikert c a decade of lattice cryptography foundations and trends in theoretical computer science vol
+ no   pp 
+ bernstein d j lange t postquantum cryptography nature vol   pp 
+ mosca m cybersecurity in an era with quantum computers will we be ready ieee security  privacy
+vol  no   pp 
+ chen l et al report on postquantum cryptography nist interagency report  
+ preskill j quantum computing in the nisq era and beyond quantum vol   p 
+  by the authors distributed under a creative commons cc by license
+preprintsorg wwwpreprintsorg  not peerreviewed  posted  october  doipreprintsv
+ of 
+ banegas g bernstein d j lowcommunication parallel quantum multitarget preimage search selected
+areas in cryptography springer  pp 
+ national security agency quantum computing and postquantum cryptography faq updated august
+
+ campagna m et al quantum safe cryptography and security an introduction benefits enablers and
+challengers etsi white paper no  
+ uk national cyber security centre preparing for quantumsafe cryptography november 
+ chow j et al ibm quantum roadmap to build quantumcentric supercomputers ibm research blog
+
+ european union agency for cybersecurity enisa postquantum cryptography current state and
+quantum mitigation 
+ national institute of standards and technology fips  modulelatticebased keyencapsulation
+mechanism standard august 
+ alagic g et al status report on the third round of the nist postquantum cryptography standardization
+process nistir  
+ alkim e ducas l pppelmann t schwabe p postquantum key exchangea new hope usenix
+security symposium  pp 
+ lyubashevsky v et al crystalsdilithium a latticebased digital signature scheme iacr
+transactions on cryptographic hardware and embedded systems  pp 
+ avanzi r et al crystalskyber algorithm specifications and supporting documentation nist pqc
+submission 
+ ducas l et al crystalsdilithium algorithm specifications and supporting documentation nist
+pqc submission 
+ fouque pa et al falcon fastfourier latticebased compact signatures over ntru nist pqc
+submission 
+ hlsing a et al sphincs submission to the nist postquantum project nist pqc submission
+
+ bernstein d j et al classic mceliece conservative codebased cryptography nist pqc submission
+
+ kannwischer m j et al pqm postquantum crypto library for the arm cortexm workshop on
+attacks and solutions in hardware security  pp 
+ westerbaan b stebila d xkyberdraft hybrid postquantum key agreement internetdraft
+ietf 
+ paquin c et al performance benchmarking of postquantum cryptography in tls nist th pqc
+standardization conference 
+ ravi p roy s s chattopadhyay a bhasin s generic sidechannel attacks on ccasecure latticebased
+pke and kems iacr transactions on cryptographic hardware and embedded systems  pp 
+ pessl p et al hectorv sidechannel analysis of latticebased postquantum cryptographic schemes
+selected areas in cryptography 
+ hamburg m postquantum cryptography implementation vulnerabilities and lessons learned real
+world crypto symposium 
+ oder t et al implementing the newhopesimple key exchange on lowcost fpgas progress in
+cryptology  latincrypt  pp 
+ genkin d shamir a tromer e rsa key extraction via lowbandwidth acoustic cryptanalysis
+advances in cryptology  crypto  pp 
+ gueron s krasnov v fast prime field ellipticcurve cryptography with bit primes journal of
+cryptographic engineering vol  no   pp 
+ moody d the ship has sailed the nist postquantum cryptography competition asiacrypt invited
+talk 
+ beullens w breaking rainbow takes a weekend on a laptop advances in cryptology  crypto 
+pp 
+  by the authors distributed under a creative commons cc by license
+preprintsorg wwwpreprintsorg  not peerreviewed  posted  october  doipreprintsv
+ of 
+ castryck w decru t an efficient key recovery attack on sidh preliminary version iacr eprint
+archive  
+ bindel n et al transitioning to a quantumresistant public key infrastructure postquantum
+cryptography springer  pp 
+ langley a cecpq cloudflare blog december 
+ stebila d mosca m postquantum key exchange for the internet and the open quantum safe project
+selected areas in cryptography  pp 
+ european telecommunications standards institute migration strategies and recommendations to
+quantum safe schemes etsi gr qsc  
+ european union agency for cybersecurity postquantum cryptography integration study enisa
+report 
+ european commission strategic research agenda for quantum technologies quantum flagship 
+ pan jw et al satellitebased entanglement distribution over  kilometers science vol  no 
+ pp 
+ quantum secure networks group quantum communications for all npg asia materials 
+ chen l jordan s liu yk report on postquantum cryptography in china nistir special
+publication 
+ national institute of information and communications technology japan research and development
+roadmap for quantum cryptography 
+ korea internet  security agency postquantum cryptography migration guidelines 
+ cyber security agency of singapore quantumsafe cryptography strategy 
+ bank for international settlements quantum computing and financial stability bis working paper 
+ basso a et al supersingular curves you can trust iacr eprint archive  
+ schwabe p stebila d wiggers t postquantum tls without handshake signatures acm ccs 
+pp 
+ dowling b et al a cryptographic analysis of the tls  handshake protocol journal of cryptology vol
+  article 
+ financial services information sharing and analysis center quantum computing threat assessment for
+banking fsisac white paper 
+ rd generation partnership project study on security aspects of g gpp tr  
+ us national security agency announcing the commercial national security algorithm suite 
+cybersecurity advisory 
+ healthcare information and management systems society postquantum cryptography readiness in
+healthcare himss report 
+ sikeridis d et al postquantum authentication in tls  a performance study ndss 
+ kampanakis p panburana p postquantum cryptography performance on embedded devices ieee
+consumer communications  networking conference 
+ ounsworth m pala m composite keys and signatures for use in internet pki internetdraft ietf
+
+ intel corporation intel quickassist technology for postquantum cryptography technical white paper
+
+ bindel n et al hybrid key encapsulation mechanisms and authenticated key exchange postquantum
+cryptography springer  pp 
+ stebila d et al hybrid postquantum key encapsulation methods pq kem for transport layer security
+ tls internetdraft ietf 
+ ounsworth m et al composite signatures for use in internet pki internetdraft ietf 
+ hoffman p schlyter j the dnsbased authentication of named entities dane transport layer
+security tls protocol tlsa rfc  
+ ghedini a vasiliev v tls certificate compression rfc  
+ laurie b langley a kasper e certificate transparency rfc  
+  by the authors distributed under a creative commons cc by license
+preprintsorg wwwpreprintsorg  not peerreviewed  posted  october  doipreprintsv
+ of 
+ kocher p et al spectre attacks exploiting speculative execution ieee symposium on security and
+privacy  pp 
+ kocher p jaffe j jun b differential power analysis advances in cryptology  crypto  springer
+ pp 
+ boneh d demillo r a lipton r j on the importance of checking cryptographic protocols for faults
+advances in cryptology  eurocrypt  springer  pp 
+ yarom y falkner k flushreload a high resolution low noise l cache sidechannel attack
+usenix security symposium  pp 
+ ravi p et al sidechannel assisted existential forgery attack on dilithium iacr transactions on
+cryptographic hardware and embedded systems  pp 
+ gartner research market guide for quantumsafe cryptography research report g 
+ idc technology spotlight the economic impact of postquantum cryptography migration sponsored
+by ibm 
+ hoffman p cryptographic algorithm agility and selecting mandatorytoimplement algorithms bcp
+ rfc  
+ open quantum safe project liboqs c library for quantumresistant cryptographic algorithms
+httpsopenquantumsafeorg 
+ hlsing a et al frodokem learning with errors key encapsulation nist pqc round  submission
+
+ fernndezcarams t m fragalamas p towards postquantum blockchain a review on blockchain
+cryptography resistant to quantum computing attacks ieee access vol   pp 
+ mosca m piani m quantum threat timeline report  global risk institute 
+ protzenko j et al evercrypt a fast verified crossplatform cryptographic provider ieee symposium
+on security and privacy  pp 
+ campbell e t terhal b m vuillot c roads towards faulttolerant universal quantum computation
+nature vol   pp 
+ international telecommunication union quantum key distribution networks security handbook itu
+t recommendation x 
+ orcutt m the networking technology that could bring quantum computing to more people mit
+technology review 
+ xu f et al secure quantum key distribution with realistic devices reviews of modern physics vol 
+ 
+ european union cybersecurity strategy for the digital decade european commission communication
+com  
+ krelina m quantum technology for military applications epj quantum technology vol   article
+
+ wassenaar arrangement list of dualuse goods and technologies and munitions list  edition
+december 
+ markets and markets quantum cryptography market global forecast to  market research report
+tc  
+ bernstein d j et al postquantum cryptography standardization should prioritize opensource
+implementations communications of the acm vol  no   pp 
+ aaronson s gottesman d improved simulation of stabilizer circuits physical review a vol  
+
+ babbush r et al focus beyond quadratic speedups for errorcorrected quantum advantage prx
+quantum vol   
+ barthe g et al formal verification of sidechannel countermeasures using selfcomposition science of
+computer programming vol  no   pp 
+ national science foundation convergent research to secure the quantum future nsf program
+solicitation  
+  by the authors distributed under a creative commons cc by license
+preprintsorg wwwpreprintsorg  not peerreviewed  posted  october  doipreprintsv
+ of 
+disclaimerpublishers note the statements opinions and data contained in all publications are solely those
+of the individual authors and contributors and not of mdpi andor the editors mdpi andor the editors
+disclaim responsibility for any injury to people or property resulting from any ideas methods instructions or
+products referred to in the content
+  by the authors distributed under a creative commons cc by license

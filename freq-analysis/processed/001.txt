@@ -1,477 +1,296 @@
-section a articles
-well testing
-postquantum cryptography readiness in us
-community banks and financial smes a cybersecurity
-risk assessment framework
-isabirye edward kezron
-ieuropeantechnologynet
-corresponding author
-abstract
-with quantum computing on the horizon rsa and elliptic curve cryptography ecc which
-secure cyberspace for financial institutions are under serious threat many important financial
-groups are getting ready for the new cryptographic age but us community banks and smes
-are not as prepared as they should be even with few technical tools such institutions have an
-important function in local economies rural areas and minority small businesses there is a
-danger that financial systems in the us could suffer cyberattacks using quantum technology
-in this study a focused framework for evaluating pqc preparedness is proposed for use in
-community banks and financial smes it evaluates cryptographic risks checks the capability
-of institutions and studies resource shortages using input from rules institutions surveys and
-details published on cases the framework mainly uses strategies incorporated in nists pqc
-migration roadmap for example using both cryptography standards managing pqk
-lifecycles evaluating the risks of vendors and building a capable cybersecurity workforce
-our project is designed to increase the cybersecurity readiness of financially underserved
-institutions by developing a workable scalable model of response the results support the
-countrys progress toward digitalization and help keep communitybased financial systems
-trustworthy as quantum computing gains importance
-keywords postquantum cryptography pqc cybersecurity risk assessment financial
-smes community banks quantumresilient encryption
-introduction
-with quantum computing there is a major shift coming that will let computers address
-problems traditional ones cant handle on the other hand these changes bring major
-cybersecurity issues to the financial industry shors quantum algorithm among others can
-break the important encryption systems used in public key cryptography that guard
-communications and online deals
-realizing that quantum computers pose a risk the national institute of standards and
-technology nist began a broad project to design and standardize postquantum
-cryptographic pqc algorithms in august  nist made fips  fips  and fips
- the first finalized quantumsafe pqc standards paving the way for better protection of
-digital systems to remain private and secure these standards are built so quantum computers
-would not be able to break them
-well testing volume  no s  issn   
-section a articles
-well testing
-since most community banks and smes are not financially nor technically prepared the use
-of pqcs is lagging behind for these groups these organizations are important for the countrys
-economy mainly because they focus on rural communities communities lacking services and
-minorityowned firms not being prepared for quantum threats puts all parts of the financial
-system in danger
-the project is designed to fill the gap by suggesting a risk assessment framework tailored to
-checking pqc readiness at us community banks and financial smes with a focus on
-cryptographic threats how prepared a business is and possible challenges in operations the
-framework tries to guide actions and tips in line with nists guidelines as a result the study
-helps make these important financial institutions more resistant to cyberattacks in the quantum
-age
-literature review
- background
-with quantum computing folks expect a new era of computing that can address issues
-traditional computers find difficult or impossible to handle but by taking this step banks now
-face new cybersecurity problems sharply the worlds security protocols used in digital
-communications and transactions could be compromised by new quantum algorithms like
-shors
-given this threat nist stepped in with a full program to put together and recommend pqc
-algorithms last august  nist approved fips standards   and  moving
-quantum resistant digital security a big step forward the point of these standards is to stay
-secure even as quantum computers are put to use
-while major financial corporations are starting to consider pqc smaller banks in the us
-often lack the time and abilities to change over to them many community institutions make a
-major impact on the national economy by helping rural areas less developed communities and
-minorityowned firms because they are not ready for quantum threats all of the financial
-sector is at risk
-this research is designed to fill this gap by suggesting a detailed framework for gauging how
-prepared us community banks and financial smes are for migrating to encryption standards
-the framework aims to support the organization by analyzing cryptographic risks its readiness
-and functional barriers to provide strategies compatible with nists pqc migration rules as
-a result of this work the cybersecurity of these critical financial institutions will improve as
-quantum technology becomes more common
-aim
-for the purpose of building a cybersecurity risk assessment framework that makes us
-community banks and financial smes better equipped for moving to postquantum
-cryptography by reducing the impact of cybersecurity threats
-objectives
- check the existing cryptographic arrangements in community banks and financial smes to
-find out what they are vulnerable to
-well testing volume  no s  issn   
-section a articles
-well testing
- discuss with counterparts to see if and what awareness preparation and resources exist for
-making the shift to pqcs
- prepare a special risk assessment framework that steps through the personalized issues
-community banks and smes have with pqc
- according to nist let the framework parallel nists plan for migrating to new pqc
-methods and its applicable standards
- introduce easy ways to move forward including using different kinds of cryptography
-managing keys over their lifetime and upskilling employees which will help the move to pqc
- help keep the us economy safe help secure americas financial system from upcoming
-risks by paying attention to frequently ignored financial institutions
-methodology
- research design
-this research employs a mixedmethods exploratory design aimed at assessing the current state
-of postquantum cryptography pqc readiness among us community banks and financial
-smalltomidsize enterprises smes the methodology integrates quantitative data eg
-surveys and public reports and qualitative data eg interviews and policy analysis to develop
-a robust cybersecurity risk assessment framework tailored to this sector
- conceptual framework
-the proposed risk assessment framework is informed by the nist cybersecurity framework
-nist csf  nistir  migration to postquantum cryptography and isoiec
- information security risk management the technologyorganization
-environment toe framework also provides a theoretical foundation for evaluating readiness
-particularly relevant for smes with limited infrastructure tornatzky  fleischer 
- data collection
- primary data sources
-a structured surveys
-surveys were distributed to it and cybersecurity officers at  us community banks and
-financial smes listed in the federal deposit insurance corporation fdic institution
-directory and independent community bankers of america icba membership database
-community banks were recognized in this study as those assetsized institutions listed in the
-fdic database with asset amounts less than  billion
-survey platform qualtrics
-response rate  institutions 
-data collected
- cryptographic practices eg rsaecc usage
- pqc awareness and planning
- cybersecurity staff capability
- vendor reliance and supply chain cryptography
- budget allocations for cybersecurity upgrades
-well testing volume  no s  issn   
-section a articles
-well testing
-b semistructured interviews
-conducted with  senior itsecurity executives from a purposive sample including
- rural credit unions sourced from the national credit union administration ncua
-directory
- minorityowned financial institutions identified via fdics minority depository institutions
-program
- fintech lenders and payment smes via finras small firm directory
-i conducted interviews about
- barriers to pqc migration
- policy and regulatory confusion
- human capital gaps
- realworld crypto incidents or transition pilot programs
-all interviews took  minutes and were recorded and transcribed using otterai so themes
-could be found
- framework development procedure
-step  cryptographic inventory mapping
-to do so survey findings were used to build a list of vulnerable cryptographic assets
- secure web portals tls  using rsaecc
- vpns and internal apis
- core banking software dependencies
- pki trust infrastructures
-we followed nistir  during this stage to catalog our cyber assets
-step  pqc readiness scoring tool
-a scoring matrix using five domains was established
- cryptographic inventory  exposure
- organizational awareness of pqc
- human resource capability
- budget and procurement preparedness
- governance  regulatory engagement
-scores were assigned from  none to  full readiness validated through factor analysis
-kmo  
-step  risk prioritization matrix
-according to isoiec  we mapped our risks within a  matrix
-likelihood of cryptographic compromise postquantum
-impact on operational continuity compliance and trust
-mitigation urgency was colorcoded green monitor yellow migrate in  years red
-migrate now
- framework validation
-expert panel review reviewed by experts from nist pqc team fsisac and the mitre
-corporation
-well testing volume  no s  issn   
-section a articles
-well testing
-case studies applied the framework to two anonymized financial smes
-a regional loan cooperative assets m
-a digital payments startup in atlanta series a funding stage
-reliability metrics cronbachs alpha   for readiness items pca showed five robust
-factors eigenvalues  
-results
- institutional demographics and profile
-the research engaged  institutions representing a crosssection of us community banks
-and financial smes these organizations exhibited diverse characteristics vital for
-contextualizing their cybersecurity readiness
- institution types a majority of respondents  were traditional community
-banks followed by  credit unions and  fintech smes reflecting the
-heterogeneous nature of the financial sme landscape
- asset size distribution institutions predominantly fell into the asset range below 
-billion with  under  million and  between  million and  billion
-this aligns with the fdics definition of community banks highlighting the studys
-focus on smallerscale institutions
- geographic spread participants spanned  states with strong representation from
-rural and underserved regions such as the midwest the south and appalachia this
-geographic diversity underscores the systemic importance of securing all layers of the
-us financial ecosystem especially areas historically underresourced in
-cybersecurity
- current cryptographic practices and exposure
-the studys cryptographic inventory analysis reveals persistent dependence on classical
-publickey cryptographic algorithms that are vulnerable to quantum attacks
- widespread use of rsa and ecc a striking  of institutions rely primarily on
-rsabased cryptography with  also utilizing elliptic curve cryptography ecc
-for securing their digital communications both rsa and ecc while currently robust
-are recognized as particularly vulnerable to quantum algorithms such as shors
-algorithm rendering them obsolete in a postquantum computing environment
- limited adoption of postquantum cryptography only  of respondents have
-begun exploratory or pilotlevel experimentation with postquantum algorithms this
-nascent adoption signals an early stage of technological transition and underlines a
-significant readiness gap
- incomplete cryptographic asset inventories approximately  of institutions
-lack comprehensive inventories of cryptographic assets and protocols many rely on
-legacy core banking systems and thirdparty apis that utilize quantumvulnerable
-algorithms posing latent risks not yet fully assessed or mitigated
-this widespread reliance on vulnerable algorithms coupled with insufficient asset tracking
-amplifies systemic risks and elevates the potential impact of quantumenabled cyberattacks
-well testing volume  no s  issn   
-section a articles
-well testing
- organizational awareness and preparedness
-readiness for pqc transition is highly dependent on organizational awareness governance
-and resource allocation the study uncovered critical gaps in these areas
- low to moderate awareness while  of surveyed institutions demonstrate
-moderate to high awareness of the quantum threat to cryptographic security a larger
-proportion  acknowledge the risk but remain uncertain about actionable steps or
-timelines notably  have no formal awareness initiatives or executivelevel
-engagement concerning pqc risks this disparity suggests that although the quantum
-threat is recognized at a conceptual level there is a pervasive lack of clarity and
-urgency
- budgeting and strategic planning deficits only  of respondents have
-earmarked budget allocations explicitly for pqc readiness or broader cybersecurity
-modernization meanwhile  express interest but are constrained by competing
-priorities cost concerns and unclear regulatory expectations
- human capital limitations a significant  report insufficient internal expertise
-in cryptography and quantum computing additionally  either lack formal
-training programs or are in the early stages of workforce upskilling given the
-complexity of pqc algorithms and integration challenges this shortage represents a
-critical bottleneck to successful migration
-these findings underscore the need for targeted awareness campaigns capacitybuilding
-programs and clearer regulatory guidance to accelerate institutional preparedness
- postquantum cryptography readiness scoring
-the composite pqc readiness score derived from five key domains provides a quantitative
-measure of institutional preparedness
-domain mean score  interpretation
+anssi views on the postquantum cryptography transition
+ follow up
+december  
+this document is an update of anssis position on the postquantum cryptography transition
+in view of the recent advances in the topic it should be read as an addendum to s
+publication  we will detail our recommendations in terms of postquantum algorithms and
+hybridation techniques
+anssi also decided to speedup the original agenda first french security visas for products
+implementinghybridpostquantumcryptographyareexpectedtobedeliveredaround
+the impact of a potential large scale quantum computer on our current digital infrastructures has been
+discussedinanssispositionpaper whilethequantumthreatdidnotundergoanygamechanging
+advancesincethepublicationofpostquantumcryptographypqcforshortisbecomingmoreandmore
+areality indeedtheresearchanddevelopmentecidortsonthedesignandanalysisofpostquantumalgorithms
+has highly increased in the last few years concerning both theoretical hardness and secure implementations
+perspectives this is attested by the increasing number of collaborative projects and scienticidc publications
+on the subject in europe and abroad
+forinstanceasrecentlypublishedinareportpagethefrenchgovernmenthasannouncedinvest
+ingmeurosinresearchprojectsonquantumtechnologiesinthepasttwoyears thisinvestmentincludes
+cidve postquantum cryptography research projects pqtls resque hyperform pqrs xpqc
+furthermore four schemes have gained the status of nist cidrst future pqc standards  crystals
+kyber  crystalsdilithium  falcon  and sphincs  the nist campaign for post
+quantum algorithms is still ongoing and other candidate algorithms will join the four future standards in
+the next years in parallel an increasing standardization ecidort on hybrid postquantum protocols is notice
+able    several companies report having now experimented hybrid protocols for a large variety of
+hardware and software products
+anssiconsidersthatsuchresearchecidortsandpracticaldevelopmentsareverypositiveandcontinuesto
+encourage designers of security products to start experimenting and prototyping hybrid postquantum and
+prequantum solutions especially for products aiming at a conciddentiality protection that will last beyond
+ or products that are likely to still be used after 
+ initial technical recommendations
+anssiencouragesallindustriestoincludethequantumthreatintheirriskanalysisandtoconsiderincluding
+quantum mitigation in the relevant cryptographic products
 
-cryptographic inventory  limited or fragmented asset tracking
-organizational awareness  moderate awareness but inconsistent action
-human resource capability  insufficient internal expertise and training
-budget  procurement  minimal dedicated resources and funding
-governance  regulatory  some policies exist regulatory clarity
-lacking
-well testing volume  no s  issn   
-section a articles
-well testing
-with an overall mean readiness of  out of  the results illustrate that most community
-banks and smes are in the incipient phase of pqc adoption governance and regulatory
-frameworks show relatively higher readiness scores potentially reflecting compliancedriven
-initiatives however technical and operational capacities lag significantly behind
- risk prioritization analysis
-by applying the risk matrix integrating likelihood and impact institutions were categorized
-into three risk zones reflecting their urgency for pqc transition
- highrisk group 
-institutions in this group face critical vulnerabilities due to heavy reliance on legacy
-cryptographic protocols without any mitigation strategies they predominantly
-operate aging core systems possess weak cryptographic inventories and have limited
-awareness or budgetary support these banks are at elevated risk for potential
-breaches once quantum adversaries emerge threatening operational continuity and
-customer data security
- mediumrisk group 
-constituting the largest segment these institutions acknowledge the quantum threat
-but lack comprehensive migration plans or technical pilot projects their risk is
-mitigated somewhat by governance awareness or incremental investments in
-cybersecurity yet they remain vulnerable in the medium term if pqc migration is not
-accelerated
- lowrisk group 
-these institutions are pioneers among community banks and smes actively
-experimenting with hybrid cryptographic systems or implementing thorough
-cryptographic inventories aligned with nist guidelines their proactive approach
-reduces immediate risk but requires continued vigilance and investment to maintain
-resilience
-this risk stratification highlights the uneven state of pqc readiness and the critical need for
-prioritized support to highrisk institutions
- qualitative insights challenges and emerging strategies
-interviews with it executives across various institution types enriched the quantitative
-findings revealing nuanced operational challenges and emergent best practices
- complexity of pqc algorithms and integration many interviewees articulated the
-technical difficulty of understanding the performance and compatibility of pqc
-algorithms with existing it infrastructure concerns include potential system
-downtime during migration and interoperability issues with thirdparty vendors
- resource constraints and funding priorities the limited financial resources
-typical of community banks and smes force cybersecurity upgrades to compete with
-other business priorities such as loan growth or digital customer experience
-improvements this fiscal limitation delays investment in experimental pqc
-technologies
-well testing volume  no s  issn   
-section a articles
-well testing
- regulatory ambiguity and guidance respondents expressed frustration with the
-lack of definitive regulatory mandates or clear timelines for pqc adoption while
-agencies such as fdic and ffiec have begun issuing cybersecurity advisories many
-institutions seek more concrete sectorspecific guidance
- vendor dependence heavy reliance on external vendors for core software and
-security products introduces risk since many vendors themselves are only beginning
-to incorporate pqc capabilities this dependency creates a supply chain vulnerability
-that community banks struggle to control
- human capital and training gaps there is a notable scarcity of cybersecurity
-professionals with expertise in quantumsafe cryptography institutions emphasized
-the urgent need for workforce development programs certification pathways and
-collaborative industry training initiatives
-conversely institutions pursuing hybrid cryptographic deploymentwhere classical
-algorithms are combined with quantumresistant algorithmsreported greater confidence in
-managing transition risks such hybrid models are viewed as pragmatic stopgaps allowing
-incremental migration without full system overhaul
-the results collectively depict a us community banking and sme financial sector at an
-early fragmented stage of pqc readiness there is recognition of the quantum threat but
-substantial gaps in technical capability budgeting and clear policy frameworks the sectors
-heterogeneous naturespanning asset size geography and institution typemeans that
-tailored riskbased frameworks and prioritized interventions are essential to avoid systemic
-vulnerabilities as quantum technologies mature
-discussion
-it is clear from the findings of this study that us community banks and financial smes are
-greatly unprepared to implement postquantum cryptography while many are aware of the
-risks from quantum computing most places are still making their first steps in changing to
-new cybersecurity systems the findings agree with earlier surveys that larger organizations
-and technology groups are often the first to use pqcs chen et al  singh  kumar
+ hybridation
+hybridation consists of combining asymmetric postquantum algorithms with well known and well studied
+prequantum asymmetric cryptography based on factorization or discrete logarithm see section  for more
+technical information
+as outlined in the previous position paper  anssi still strongly emphasizes the necessity of hybrida
 
-as our study found rsa and ecc are used widely because old cryptographic methods are
-deeply rooted in common use they can resist conventional attackers yet fall easily to shors
-algorithm when quantum adversaries use it shor  less than  of institutions using
-postquantum algorithms reveals a risky situation that might grow worse as quantum
-computing grows stronger
- being aware of your organization and the problem of readiness
-one main finding from the research is that knowing about a problem and solving it are not
-always the same even though a large number of ls respondents understand risks from pqc
-most have not put this knowledge into regular efforts to switch technologies or to increase
-budgets this situation is also seen in cybersecurity literature where awareness alone does
-not always encourage quick action due to things such as doubt a lack of resources or other
-important concerns vance et al  crossler et al 
-well testing volume  no s  issn   
-section a articles
-well testing
-because there arent strong rules things stay the same financial regulators are encouraging
-publications about quantum risks but have not set official rules or set dates which prevents
-most community banks and smes from investing in new quantum technologies today
-because there is so much confusion in regulations both risk awareness and preparedness at
-various institutions are uneven
-the fifth problem is human capital and technical capacity
-a lack of internal cryptography and quantum expertise is one of the biggest challenges in
-carrying out pqc transition as they need to focus strongly on their own operations most
-community banks and smes today cannot invest time and money in exploring the newest
-quantum inventions this idea also appears in wider research on sme cybersecurity where
-inadequate resources among humans stops companies from quickly adapting new security
-ideas ifinedo  aloul 
-what we discovered in our interviews points to the urgent requirement for the industry to
-invest in quantumsafe cryptography training starting with training then certifications and
-partnering with colleges could close the gap between industry and education likewise
-technologies used by community banks need to be updated by vendors so their clients dont
-have to worry about meeting pqc standards
-risk prioritization and the threat to the markets entire economic stability
-according to the analysis almost all of these institutions are at high risk because they lack
-any defenses against quantum attacks on their cryptography it is concerning since todays
-financial system works closely with others an attack on quantum hardware in just a few
-community banks or smes could endanger confidence in banks result in official penalties
-and upset the smooth running of important financial transactions nationwide fsisac
+tion wherever postquantum mitigation is needed both in the short and medium term
+indeed even if the postquantum algorithms have gained a lot of attention they are still not mature
+enoughtosolelyensurethesecurity forexampleseveralpostquantumschemeshavesucideredfromclassical
+attacks in the past years eg   this position is aligned with the one of other european cybersecurity
+agencies like bsi in germany  bsi has even restated the need for hybridation in their recent updated
+technical guideline on cryptographic mechanisms  section 
+ transition strategy
+anssi encourages all industries to decidne a progressive transition strategy towards quantumresistant cryp
+tography for relevant cryptographic products the use of hybrid postquantum mitigation is recommended
+especially for security products aimed at ocidering a longlasting protection of information until after 
+or that will potentially be used after  without updates
+ symmetric cryptography
+whilethereisnoconcreteevidencethatsymmetriccryptographicmechanismswouldbesignicidcantlythreat
+ened by quantum computers a speedup can be expected in certain cases with grover algorithm and other
+advanced groverbased algorithms thus as a conservative measure anssi also encourages to dimension
+the parameters of symmetric primitives as to ensure a conjectured postquantum security cid in practice at
+least the same security level as aes for block ciphers and at least the same security level as sha
+for hash functions this encouragement is slightly more conservative than nists  and bsis current
+recommendation  section 
+ postquantum algorithms
+anssitraditionallydoesnotprovideanyclosedlistofrecommendedalgorithmsinordertoavoidproscribing
+innovative stateoftheart algorithms that could be wellsuited for some particular use cases this is even
+more relevant for the evermoving postquantum cryptography we present below a non exhaustive list
+of postquantum asymmetric key encapsulation mechanisms kems and digital signature algorithms that
+wouldbeappropriatechoicesatleastformainstreamcryptographicproducts thislistisparticularlyaimed
+at nonexperts looking for directions on this emerging domain note that while some draft nist standards
+were recently published    pointing at cidxed correct manners to implement these algorithms is not
+possible at this stage as the standards are not cidnalized yet
+key encapsulation mechanisms
+cid crystalskyber also called mlkem   the security of this scheme is based on the
+modulelearningwitherrorslatticeproblemwerefertoasurveyformoreinformationonlattices
+this problem is itself related to the dicidculty of cidnding short vectors in structured lattices these
+latticebased problems have been particularly studied during the last decade besides the ecidciency of
+crystalskybermakesitcomparabletotheprequantumsolutions thecomputationtimeissimilar
+with a moderate expansion on the size of exchanged messages and keys its competitive ecidciency and
+simplicity are part of the reasons why crystalskyber was selected as a cidrst nist postquantum
+pleasenotethathybridationisnecessaryonlyifapostquantumprotectionisrelevant
 
-because of this systemic risk such institutions must be equipped with pqc early on
-government agencies and industry workgroups may install funding methods offer special
-assistance and build common migration tools to increase use where needed most urgently
- using a hybrid option for cryptography
-hybrid methods which join old and new cryptography ideas are seen as a reliable and low
-risk option for organizations starting their transition adopting this method matches with
-nist suggestions for incremental migration and was appreciated by those we interviewed
-yet carrying out hybrid deployment causes some difficulties such as more complicated
-computing and connecting with existing systems and rd party vendors dealing with these
-problems demands that groups in standards testing and vendor involvement coordinate
-policy implications and suggestions are found in this section
-findings indicate several ways that policies can improve preparation for pqc among
-community banks and financial smes
- the fdic occ and ffiec are encouraged to set out clear migration paths for small
-institutions and explain when the standards must be met
-well testing volume  no s  issn   
-section a articles
-well testing
- promote new grants or change tax policies to help fund piloting training and tech updates
-for public protection at community banks and smes
- support collaboration on helping to build specialized training programs and pqc
-certificates designed by financial institutions government and academia
- mode of accountability and vendor centification urge or require that vendors providing
-vital financial software and hardware have cryptography certification
- using proposed risk assessment frameworks like the one studied here allows institutions to
-emphasize actions that best address their own threats and how they operate
- what needs to be studied and what is lacking
-even though the study provides much useful information a few problems must be
-acknowledged just because the sample is representative doesnt guarantee that every
-regional or institutional detail is noticed because quantum technologies develop so rapidly
-regular evaluation is necessary to follow their progress future projects may examine pqc
-use over a long period and explore what happens when different sectors join forces to make
-systems more robust
-conclusion
-the fast development of quantum computing technology is a major threat to the way financial
-systems are secured around the world the study looks at how prepared us community banks
-and financial smes are since these institutions form essential parts of the economy in both
-rural and underserved areas our results point out that although awareness of quantum threats
-is rising very few pqc measures have been applied in practical use
-because rsa and ecc systems are often used and these are both at risk from quantum attacks
-financial smes are left very open to attack because there arent broad inventories of
-cryptographic methods along with unawareness among organizations incomplete budgets and
-not enough technical support there arent many advances in moving to quantumresistant
-systems because institutions are not yet prepared both they and the financial sector as a whole
-face a new kind of risk as quantum computing advances
-the framework from the study gives community banks and financial smes an easytouse
-approach to review their risks flag the most important needs for protection and improve their
-defenses following national rules in addition using a combination of traditional and modern
-cryptographic services supports smooth business operations until all questions about future
-regulations are settled
-national financial security and digital trust can be preserved only if strong action is taken
-immediately by all involved parties existing regulators have to make it clear what is required
-and must enforce courtenforceable schedules financial institutions should receive assistance
-with expanding skills training employees and securing their purchases also companies that
-develop technology products and services must help ensure that they are pqc ready
-as a result this research gives a key actionable guide for defending us community banks
-and financial smes from quantum threats if these institutions address the readiness gap today
-they will secure their own systems their customers and boost the overall ability of the financial
-system to weather quick changes brought by technology
-well testing volume  no s  issn   
-section a articles
-well testing
-according to this research the us must increase its efforts to prepare community banks and
-the countrys financial smes for the expected risk from quantum computing close cooperation
-between awareness and practical emergency steps will play a major role in defending the
-financial systems key areas in the future quantum age
+standard hence crystalskyber is expected to be the primary postquantum kem in security
+products and internet protocols
+while several theoretical results provide a good conciddence in the security of this scheme the post
+quantum security is only conjectured especially in the chosen range of concrete parameters
+if this scheme is chosen for being included in cryptographic products anssi makes the following
+recommendations
+ it is important to avoid modifying the parameters of the standardized instance
+ the parameters are decidned for several minimum security levels we recommend to use the
+highest nist security level as possible preferably level ie equivalent to aes or level
+ie equivalent to aes
+ we recommend to use ephemeral keys as much as possible the systematic use of ephemeral
+private keys allows to prevent many attacks like decryption failures ones
+ we also recommend to use the actively secure version indcca that will be standardized by
+nist there are some cases like in provable authenticated protocols where the passively secure
+indcpa version in static or ephemeral mode may still be secure but an extra care must then
+be paid to make sure that no decryption oracle is available under any circumstance even in the
+case of sidechannel attacks
+cid frodokem  this scheme is considered as a more conservative variant of crystalskyber
+its security is based on plain and not module learning with errors the unstructured property of
+the underlying lattice makes it more secure in theory as attacks might potentially leverage the lattice
+structureofcrystalskyberandmightbedefeatedbytheabsenceofstructureinthelatticeusedby
+frodokemthepricetopayforthismoreconservativesecurityliesintheperformance frodokemis
+heavier in terms of key sizes and slower than crystalskyber which makes it a less relevant option
+formanyusecases howeveranssiwouldencourageincludingfrodokemasavalidandconservative
+option in high security applications where the resulting performance penalty in particular in terms of
+bandwidth is not prohibitive
+if a designer chooses to include this conservative postquantum algorithm in a cryptographic product
+the recommendations for crystalskyber also apply for frodokem
+digital signatures
+cid crystalsdilithium also called mldsa   this signature belongs to the same suite as
+crystalskyber and has been chosen by nist as a future postquantum standard the security
+of this signature is also similarly based on structured lattice problems the design is close to schnorr
+signatures it is issued from a wellknown identicidcation protocol this scheme is relatively easy to im
+plementbutthesignaturesarenotascompactasprequantumsolutions similarlytootherstructured
+latticebased schemes note that one could not entirely preclude the discovery of weaknesses relative
+to the structured lattice underlying problem in the coming years
+forcryptographicproductsthatmayincludethisschemeanssimakesthefollowingrecommendations
+ it is important to avoid modifying the parameters of the standardized instance
+ theparametersaredecidnedforseveralminimumsecuritylevels werecommendtousethehighest
+levelaspossible preferablylevelie equivalenttoaesorlevelie equivalenttoaes
+
+
+cid falcon also called fndsa thissignaturehasbeenchosenbynistasafuturepostquantum
+standard it is a compact and more ecidcient alternative to crystalsdilithium since it is based on
+structuredlatticeproblemsthesamewarningaboutthesecurityapplies thedesignisherebasedona
+morerecentframeworkwithahashandsignparadigmonlattices itismoredicidculttoimplement
+and needs intermediate variables to be decidned as cidoats
+forcryptographicproductsthatmayincludethisschemeanssimakesthefollowingrecommendations
+ itisimportanttoavoidmodifyingtheparametersofthestandardizedinstance asimplementing
+falcon is not straightforward we recommend to pay attention to stick to the design in order
+to avoid misuse attacks we should also note that the gaussian distributions in falcon play an
+important role in the security and they should not be replaced
+ theparametersaredecidnedforseveralminimumsecuritylevels werecommendtousethehighest
+level as possible preferably level ie equivalent to aes
+ please note that sidechannel countermeasures are particularly dicidcult to apply and research has
+proved that sidechannel attacks may defeat unprotected implementations of falcon
+cid xmss   lms  these signature schemes were initially candidates in the nist postquantum
+standardization campaign but in  they have been moved into a separate standardization process
+the ietf version of their specicidcation is cited above these schemes are considered as conservative
+options because the underlying security hypothesis is very minimalist their security proofs are based
+on the security of hash functions the particularity of these signatures is their statefulness and the
+potentially limited number of possible signatures per key pair
+for contexts where the maximum number of signatures per key pair is restricted and where a state can
+be carefully stored typically for software updates for example anssi agrees that xmss or lms can
+be a relevant option with the following recommendations
+ it is important to avoid modifying the parameters of the standardized instance including the
+underlying hash function
+ the parameters should provide the highest security level as possible
+ hybridation see section  for more information is optional for this signature
+ the state is a very critical data and should be protected in integrity it should also be protected
+against replay attacks
+cid sphincs also called slhdsa   this signature scheme has been chosen by nist as a
+future postquantum standard it is a stateless variant of xmss this scheme is also considered as
+conservative as its proof relies on the security of hash functions as well it is less competitive in terms
+of performance and compactness which makes it dicidcult to apply in certain use cases
+for contexts where one can acidord sphincs anssi considers that this signature is a relevant and
+conservative option hybridation for sphincs may also be optional see section  for more infor
+mation the cidrst three recommendations for xmss  lms also apply here
+we recall that some other postquantum schemes may be good options too for example candidates that are
+still in the run for the nist standardization campaign we always recommend to use algorithms that are
+well studied and analyzed in a large number of research publications
+ hybridation modes
+thehybridationconsistsincombiningtwoormorecryptographicschemesachievingthesamefunctionality
+in a robust way in other words the combination should be secure in the classicalquantum computation
+
+model as long as one underlying scheme is secure in that model we refer to  for more details about the
+decidnition
+ hybridation modes for key encapsulation mechanisms
+consider a prequantum key encapsulation scheme based on rsa or dicidehellman for instance ecdh to
+prevent the quantum threat the goal is to combine the derived key with one or more extra keys of the
+following types
+cid
+a preshared key can be stored by both parties this technique ensures a certain postquantum
+resistance as it relies on a symmetric cryptographic basis depending on the context this technique
+might be seen as a good though non perfect solution in specicidc contexts eg vpns but anssi
+raises the following warnings
+ the conciddentiality and integrity of the preshared key is a crucial prerequisite
+ each preshared key must only be shared by two parties and not by a group of three or more
+parties
+ note that such a technique fails to ensure perfect forward secrecy pfs against quantum adver
+saries
+cid
+anotherpreferredsolutionthatdoesnotsuciderfromthelimitationsofanhybridationwithapreshared
+key is to compute extra keys with postquantum kems algorithms like the ones outlined in section 
+once all these keys are derived the issue boils down to the way both keys are combined together and the
+way the exchange is authenticated
+how to securely combine the keys together there are actually many ways to design combining
+techniques let us remark that concatenating the keys would not ensure security against passive attackers
+indcpaasifanunderlyingkeyiscompromisedtheconcatenatedkeyisnotuniform inadditionxoring
+the keys together provides security against passive attackers  lemma  but not against active attackers
+because of mix and match attacks  lemma  one essential building block for securely combining keys
+together is the use of a key derivation function kdf such functions allow to output one or more keys
+from a common input key material the hybridation modes presented in  contain  a parallel combiner
+that consists of a concatenation and kdf application and  a cascade mode that can be viewed as a serial
+combiner both are backedup by security proofs and seem good solutions for combining keys together
+ingeneralasforanycryptographicfunctionanssirecommendstousestandardsorwellstudiedmodes
+with validated security proofs
+theimplementationsecurityofthehybridationisalsoveryimportanttoavoidattacksthatwouldbypass
+certain key encapsulations
+is hybridation available in existing protocols thereissomeworktoincludepostquantumcryptog
+raphy as an option in tls with an hybridation mode using concatenation and kdf  the protocol ike
+is also evolving to include hybrid postquantum cryptography in the rfc published in may   the
+design uses hybridation modes inspired from both combiners presented in 
+ hybridation modes for signatures
+the solutions for hybrid signatures are less diverse than hybrid kem solutions let us consider a set of
+prequantumandpostquantumsignatureschemes arobustandnaturalwayofcombiningthesesignatures
+togetherconsistsofconcatenatingthesignaturesandacceptingsuchaconcatenationofsignaturesasavalid
+
+signature if and only if all of them are valid this combiner is proved secure in the more common security
+model for signatures eufcma
+on a higher level the hybridation of signatures can be performed at a certicidcate level however the
+designs and security proofs of such hybrid certicidcate protocols are still currently moving anssi did not yet
+identify any welldecidned design that could be cited here
+ update on the french security visas delivery process
+as described in  anssi intends to follow a phase roadmap for delivering security visas the start date
+ofthesecondphasewasinitiallyplannedaround werecallthatinthesecondphasethecryptographic
+evaluation tasks of security visa evaluation comprise an analysis of all cryptographic algorithms including
+the postquantum algorithms with mandatory hybridation in addition to the classical stateoftheart
+assurancerecognitionthesecurityvisareportcannowmentionthepresenceofstateoftheartpostquantum
+protection
+anssiiscurrentlyspeedinguptheoriginalagenda firstphasesecurityvisasforproductsimplement
+ing hybrid postquantum cryptography are expected to be delivered around 
+developers interested in evaluating their products implementing hybrid pqc are invited to contact
+itsefsfordetails inthefollowingweprovideaclaricidcationregardingevaluationofproductsimplementing
+hybrid pqc that was not included in the original publication 
+let us distinguish two types of security products end products and intermediate products the cidrst
+typemeanscidnalproducts inthatcaseanyproductthatincludespostquantummitigationshallimplement
+hybridation except if the quantum mitigation only relies on hashbased signatures like xmss lms or
+
+sphincs for which hybridation is optional 
+the second type consists of platform products that provide raw cryptographic functionalitites to an
+upper applicative layer in the context of the security evaluation of such products implementing mere
+postquantum cryptography without hybridation can sometimes be relevant as hybridation will be part
+of upper useroriented layers anssi evaluation teams will require in that case  an implementation
+of an hybridation mode for test purposes and  the inclusion in the user guidance documentation of a
+recommendation to exclusively use the provided postquantum algorithm in combination with a recognized
+classical algorithm as part of an hybridation mode
 references
-aloul f  the need for effective information security awareness journal of advances
-in information technology   httpsdoiorgjait
-chen l wang y  zhang h  postquantum cryptography adoption in financial
-institutions challenges and strategies international journal of cybersecurity and
-digital trust   httpsdoiorgijcdtvi
-crossler r e johnston a c lowry p b hu q warkentin m  baskerville r
- future directions for behavioral information security research computers 
-security   httpsdoiorgjcose
-financial services information sharing and analysis center fsisac  quantum
-computing risks to financial services a systemic threat analysis fsisac
-httpswwwfsisaccomreportsquantumthreats
-ifinedo p  understanding information systems security policy compliance an
-integration of the theory of planned behavior and the protection motivation theory
-computers  security   httpsdoiorgjcose
-kaur p  singh m  cybersecurity challenges for smes and role of postquantum
-cryptography a review journal of information security and applications 
- httpsdoiorgjjisa
-liao x yuan j  zhang y  postquantum cryptography algorithms and their
-performance evaluation in financial services ieee access  
-httpsdoiorgaccess
-liu j  zhu h  a framework for postquantum cryptographic migration in
-financial smes journal of network and computer applications  
-httpsdoiorgjjnca
-mller j  buchmann j  postquantum cryptography current state and open
-problems advances in information security   httpsdoiorg
+ anssi anssi views on the postquantum cryptography transition httpscybergouvfren
+publicationsanssiviewspostquantumcryptographytransition
+ anssi slection par le nist de futurs standards en cryptographie postquantique httpscybergouvfr
+actualitesselectionparlenistdefutursstandardsencryptographiepostquantique
+ w beullens breaking rainbow takes a weekend on a laptop in y dodis and t shrimpton editors advances
+in cryptology cid crypto  pages cid cham  springer nature switzerland
+ bsi migration to post quantum cryptography httpswwwbsibunddeshareddocsdownloadsenbsi
+publicationsbrochurequantumsafecryptographyhtml
+ bsi technical guideline on cryptographic mechanisms recommendations and key lengths
+ httpswwwbsibunddeshareddocsdownloadsenbsipublicationstechguidelinestg
+bsitrpdfblobpublicationfile
+thisisneverthelessanonstandardalgorithmchoicecomparedtotheuseofcurrentstandards thussomeanalysisofthe
+algorithm may have to be performed by anssi as part of an evaluation and this may lead to an increase of the certicidcation
+processduration
 
-national institute of standards and technology nist  nistir  transitioning
-to postquantum cryptography us department of commerce
-httpsdoiorgnistir
-nguyen l  kim j  risk assessment and mitigation strategies for quantum
-computing threats in financial institutions journal of financial regulation and
-compliance   httpsdoiorgjfrc
-shor p w  algorithms for quantum computation discrete logarithms and factoring
-in proceedings of the th annual symposium on foundations of computer science
-pp  ieee httpsdoiorgsfcs
-well testing volume  no s  issn   
-section a articles
-well testing
-singh r  kumar s  challenges in implementing postquantum cryptography in
-banking systems journal of financial cybersecurity  
-httpsdoiorgjfc
-vance a siponen m  pahnila s  motivating is security compliance insights
-from habit and protection motivation theory information  management 
- httpsdoiorgjim
-wang x  li f  enhancing cybersecurity resilience in financial smes a post
-quantum cryptography perspective computers  security  
-httpsdoiorgjcose
-zhao y  tang j  postquantum cryptography readiness an empirical study of
-us financial institutions information systems frontiers advance online
-publication httpsdoiorgs
-well testing volume  no s  issn   
+ w castryck and t decru an ecidcient key recovery attack on sidh preliminary version cryptology eprint
+archive paper   httpseprintiacrorg
+ etsi quantumsafe hybrid key exchanges
+ cgentrycpeikertandvvaikuntanathan trapdoorsforhardlatticesandnewcryptographicconstructions
+pages cid 
+ f giacon f heuer and b poettering kem combiners in m abdalla and r dahab editors publickey
+cryptography cid pkc  pages cid cham  springer international publishing
+ f government france national quantum strategy httpswwwgouvernementfrsitesdefaultfiles
+contenupiecejointefrancequantiquerapportactivitevdefpdf
+ a hulsing d j bernstein c dobraunig m eichlseder s fluhrer sl gazdag p kampanakis s kolbl
+t lange m m lauridsen f mendel r niederhagen c rechberger j rijneveld p schwabe jp
+aumasson b westerbaan and w beullens sphincs technical report national institute of stan
+dards and technology  available at httpscsrcnistgovprojectspostquantumcryptography
+selectedalgorithms
+ a hulsing d butin s gazdag j rijneveld and a mohaisen xmss extended merkle signature scheme
+httpsdatatrackerietforgdocrfc
+ ietf postquantum use in protocols pquip  httpsdatatrackerietforgwgpquipabout
+ v lyubashevsky l ducas e kiltz t lepoint p schwabe g seiler d stehl and s bai crystals
+dilithium technical report national institute of standards and technology  available at https
+csrcnistgovprojectspostquantumcryptographyselectedalgorithms
+ d mcgrew m curcio and s fluhrer leightonmicali hashbased signatures httpsdatatrackerietf
+orgdocrfc
+ m naehrig e alkim j bos l ducas k easterbrook b lamacchia p longa i mironov v niko
+laenko c peikert a raghunathan and d stebila frodokem technical report national institute of stan
+dards and technology  available at httpscsrcnistgovprojectspostquantumcryptography
+postquantumcryptographystandardizationroundsubmissions
+ nist modulelatticebased digital signature standard httpscsrcnistgovpubsfipsipd
+ nist modulelatticebased keyencapsulation mechanism standard httpscsrcnistgovpubsfips
+ipd
+ nist stateless hashbased digital signature standard httpscsrcnistgovpubsfipsipd
+ nist faq on postquantum cryptography  httpscsrcnistgovprojects
+postquantumcryptographyfaqs
+ c peikert a decade of lattice cryptography cryptology eprint archive report   https
+eprintiacrorg
+ tprestpafouquejhocidsteinpkirchnervlyubashevskytpornintricossetgseilerwwhyte
+and z zhang falcon technical report national institute of standards and technology  available at
+httpscsrcnistgovprojectspostquantumcryptographyselectedalgorithms
+ p schwabe r avanzi j bos l ducas e kiltz t lepoint v lyubashevsky j m schanck
+g seiler d stehl and j ding crystalskyber technical report national institute of stan
+dards and technology  available at httpscsrcnistgovprojectspostquantumcryptography
+selectedalgorithms
+ d stebila s fluhrer and s gueron hybrid key exchange in tls  draft ietf httpsdatatracker
+ietforgdocdraftietftlshybriddesign
+ c tjhai m tomlinson g bartlett s fluhrer d vangeest o garciamorchon and v smyslov multiple
+key exchanges in ikev ietf httpsdatatrackerietforgdochtmlrfc
+

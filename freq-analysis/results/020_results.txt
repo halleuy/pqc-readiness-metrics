@@ -1,0 +1,8 @@
+Framework: 020.txt
+Total Words: 6559
+========================================
+crypto_assets: 10
+crypto_agility: 9
+migration_planning: 39
+risk_management: 10
+standards_compliance: 59

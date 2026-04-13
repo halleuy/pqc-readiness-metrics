@@ -1,183 +1,217 @@
-preparing for quantumsafe cryptography
-an ncsc whitepaper about mitigating the threat to cryptography from development
-in quantum computing
-this white paper sets out the ncsc position on mitigating the threat to
-cryptography posed by developments in quantum computing it is intended to
-help technical policymakers make informed decisions as they prepare for
-quantumsafe cryptography
-quantum computers
-quantum computers are not just more powerful supercomputers they
-represent a new paradigm in computing
-quantum computers use properties of quantum mechanics to compute in a
-fundamentally different way from todays digital classical computers they are
-theoretically capable of performing certain computations that would not be
-feasible for classical computers
-quantum computers exist today but are small and suffer from relatively high
-error rates in each operation they perform current devices are early examples
-of noisy intermediatescale quantum nisq computers and these are starting
-to find important applications in quantum simulation and quantum chemistry
-quantum computers are one of several quantum technologies with applications
-to cyber security the ncsc positions on quantum key distribution and quantum
-random number generation are set out in the ncsc white paper on quantum
-security technologies
-publickey cryptography
+an official website of the united states government heres how you know
+product categories for technologies that use post
+quantum cryptography standards
+publish date january  
+related topics critical infrastructure security and resilience topicscriticalinfrastructuresecurityand
+resilience risk management topicsriskmanagement
+executive summary
+in response to the june   executive order eo  sustaining select efforts to strengthen the
+nations cybersecurity and amending executive order  and executive order  the
+cybersecurity and infrastructure security agency cisa is providing and regularly updating the below
+lists to aid in postquantum cryptography pqc adoption the lists include hardware and software
+categories with example types of widely available products that use pqc standards to protect sensitive
+information the lists focus on categories of available products typically acquired by the federal
+government that utilize cryptographic algorithms because pqccapable products are widely available
+in the listed categories organizations should acquire only pqccapable products when planning
+acquisitions and procuring products in these categories
+introduction
+purpose
+the lists below are cisas response to executive order eo  which instructed
+by december   the secretary of homeland security acting through the director of the
+cybersecurity and infrastructure security agency cisa and in consultation with the director of the
+national security agency shall release and thereafter regularly update a list of product categories in
+which products that support postquantum cryptography pqc are widely available
+when a particular category offers widely available pqccapable products organizations should plan
+acquisitions to procure only pqccapable products from that category
+scope and definitions
+the scope of the lists below includes categories of hardware and software products that areor are
+anticipated to bewidely available and use pqc standards
+note widely available describes products that are generally available in the marketplace and
+agencies can acquire them in accordance with their typical procurement policies and procedures
+the categories cover hardware and software products that apply pqc standards for encryption and
+authentication through the following cryptographic functions
 
-the security of nearly all internet communications today is based on publickey
-cryptography
-publickey cryptography pkc is the technology that enables secure
-communication at scale on the internet and other networks
-the principal functions of pkc are
-key agreement  used to establish a shared cryptographic key for secure
-communication
-digital signatures  used to underpin proofofidentity and trust on a
-network
-the security of all widelyused conventional pkc today relies on the difficulty of
-the mathematical problems of integer factorisation and calculating discrete
-logarithms these problems have been extensively studied for decades and
-when suitably parametrised provide longterm security against classical
-computers
-however it has been shown that these mathematical problems would be easy to
-solve on a large generalpurpose quantum computer known as a
-cryptographically relevant quantum computer crqc
-quantum threat to cryptography
-a quantum computer will allow the attacker to read information that has been
-encrypted in the past and forge information in the future
-quantum computers that exist today are not a threat to pkc many engineering
-physical and mathematical challenges must be overcome before the
-construction of a crqc will become possible industry governments and
-academia around the world are devoting significant resources to research in
-quantum computing but there are competing technology choices and the
-commercial drivers for research are still emerging as such it is impossible to
+key establishment a function in the lifecycle of keying material the process by which
+cryptographic keys are securely established among cryptographic modules using manual transport
+methods eg key loaders automated methods eg keytransport andor keyagreement
+protocols or a combination of automated and manual methods consisting of key transport plus
+key agreement
 
-predict with confidence how progress towards largescale generalpurpose
-quantum computing will evolve
-the threat to key agreement is that an adversary collecting encrypted data
-today would be able to decrypt it in future should they have access to a crqc
-therefore although a crqc does not exist today the possibility of one is a
-relevant threat now to organisations that need to provide longterm
-cryptographic protection of data
-given the amount of old data that would need to be stored by an attacker
-working today and the cost of doing so such an attack is only likely to be
-worthwhile for very highvalue information
-the threat to digital signatures is that an adversary in possession of a crqc
-could forge signatures and impersonate the legitimate private key owner or
-tamper with information whose authenticity is protected by a digital signature
-this attack should be considered before a crqc exists when deploying high
-value rootlevel public keys that are intended to have a long operational lifetime
-in contrast with pkc the security of symmetric cryptography is not significantly
-impacted by quantum computers and with suitable key sizes existing symmetric
-algorithms  such as aes  can continue to be used
-mitigations to the quantum computing threat
-quantumsafe cryptography provides the best mitigation for the quantum
-computing threat
-quantum key distribution qkd mitigates the quantum threat to key agreement
-using properties of quantum mechanics rather than hard mathematical
-problems to provide security however qkd requires specialist hardware and
-does not provide a way of doing digital signatures for these reasons the ncsc
-does not endorse qkd for any government or military applications
-it is also possible to mitigate the threat to key agreement by using preplaced
-symmetric keys in addition to key agreement with conventional pkc however
-
-this approach brings key management and usability challenges and is not
-suitable as a generalpurpose solution for internet communications
-quantumsafe cryptography qsc replaces the quantumvulnerable
-mathematical problems used in pkc with mathematical problems that are
-believed to be intractable for both classical and quantum computers both key
-agreement and digital signatures can be made quantumsafe and qsc can be
-implemented in both software and hardware the ncsc believes that adoption of
-qsc will provide the most effective mitigation for the quantum computing threat
-quantumsafe cryptography
-there is unlikely to be a single quantumsafe algorithm suitable for all
-applications
-many algorithms for qsc have been proposed there is large variation in
-performance characteristics between different algorithms more so than for
-conventional pkc this means that some algorithms will be more suited to
-particular usecases than others add to this the everexpanding set of
-requirements for cryptography including deployment in constrained devices
-and it seems unlikely there will be a single algorithm suitable for all applications
-the drive to standardise qsc algorithms is encouraging much research on all
-options for qsc but the security against classical and quantum computing
-attacks is still better understood for some candidate algorithms than others
-standardisation of quantumsafe cryptography
-nist standards for quantumsafe cryptography will be available from 
-in  the national institute of standards and technology nist started a
-process to standardise quantumsafe algorithms for key agreement and digital
-signatures the field of candidate algorithms has been narrowed down and draft
-
-standards are expected in  this long period allows for thorough public
-scrutiny of the various proposals
-there are existing stateful hashbased signature algorithms like xmss and lms
-that have niche applications such as signing firmware however these are not
-suitable for generalpurpose use the nist process aims to standardise digital
-signature algorithms suitable for other use cases
-the nist process draws on cuttingedge research from academia industry and
-government worldwide ncsc guidance for quantumsafe algorithms will follow
-the outcome of the nist process by recommending specific algorithms for
-representative use cases
-preparation for transition
-large organisations should factor the threat of quantum computer attacks into
-their longterm roadmaps
-the ncsc expects that major commercial products and services will transition to
-qsc once nist standards are available and protocols ipsec tls etc are
-updated to support qsc the recommended course of action for the majority of
-users is to follow normal cyber security best practice and wait for the
-development of standardscompliant qsc products
-organisations that manage their own cryptographic infrastructure should factor
-quantumsafe transition into their longterm plans and conduct investigatory
-work to identify which of their systems will be high priority for transition priority
-systems could be those that process sensitive personal data or the parts of the
-publickey infrastructure that have certificate expiry dates far into the future and
-would be hardest to replace
-for organisations needing longterm cryptographic protection the ncsc can
-advise on the deployment of suitable mitigations
-there is likely to be a period during which organisations will be required to
-operate both conventional and quantumsafe cryptography in order to ease
-
-transition between the two it will therefore be necessary to continue support for
-conventional pkc for the interim period
-additional considerations
-early adoption of nonstandardised qsc is not recommended
-transition to any form of new cryptographic infrastructure is an inherently
-complex and expensive process that must be planned and managed with care
-there are risks to security as systems and cryptographic keys are changed and
-risks to business continuity if there are unforeseen dependencies on
-cryptographic components that require replacement
-standards bodies such as nist and etsi are working with industry to develop
-guidance for the transition to qsc which will allow organisations to mitigate risks
-in qsc transition effectively
-the ncsc cautions against early adoption of nonstandardised qsc the security
-level may be unverifiable if the product is not based on a standardised algorithm
-and such products are unlikely to interoperate with future standardscompliant
-products this could lead to unnecessary expenditure in having to transition a
-second time to standardscompliant qsc
-summary
-the ncsc recognises the serious threat that quantum computers pose to long
-term cryptographic security qsc using standardscompliant products is the
-recommended mitigation for the quantum threat once such products become
-available
-the ncsc has confidence in the research activity underpinning nists qsc
-standardisation work our guidance for qsc algorithms will follow the outcome of
-
-the nist process recommending specific algorithms for representative use
-cases
-organisations that manage their own cryptographic infrastructure should note
-the work of etsi and nist on planning qsc transition when making longterm
-investment decisions robust and secure transition will take time to plan and
-deliver and there is risk in beginning transition to qsc before standards
-compliant products are available
-further reading
-further information and reading materials
-ncsc white paper on quantum security technologies
-getting ready for postquantum cryptography nist cybersecurity white
-paper
-migration strategies and recommendations to quantum safe schemes etsi
-technical report
-published
- november 
-version
-
-written for
-large organisations
-public sector
-cyber security professionals
-
+digital signaturesthe result of a cryptographic transformation of data that when properly
+implemented provides the services of  origin authentication  data integrity and  signer non
+repudiation
+key establishment is often essential for establishing confidential communication using encryption
+among two or more parties digital signatures are often essential for authenticating the parties
+participating in a communication and for establishing the authenticity of data products and services
+automated cryptographic discovery and inventory products are out of scope of these lists
+considerations for products that use pqc
+standards
+pqc transition of information technology it infrastructure
+recognizing the global need to support pqc algorithms product manufacturers are developing new
+products and updating existing products to incorporate postquantum cryptographic standards
+national institute of standards and technology
+in  the national institute of standards and technology nist initiated a process to solicit evaluate
+and standardize one or more quantumresistant publickey cryptographic algorithms the ongoing pqc
+standardization process has produced pqc standards and will likely standardize additional algorithms in
+the coming years
+the nist internal report ir  transition to postquantum cryptography standards describes
+nists expected approach to transitioning from quantumvulnerable cryptographic algorithms to post
+quantum digital signature algorithms and keyestablishment schemes the report identifies existing
+quantumvulnerable cryptographic standards and the current quantumresistant standards that
+organizations will use in the transition the report informs the efforts and timelines of federal agencies
+industry and standards organizations for transitioning products services and infrastructure to pqc
+nist will revise this report and feed into other algorithms and applicationspecific guidance for the
+transition to pqc as necessary to support transition timelines
+table  shows three nist pqc standards along with a recommendation for stateful hashbased signature
+algorithms that support quantumresistant standards
+table  nist standard pqc algorithms
+cryptographic algorithm standard standard
+function
+cryptographic algorithm standard standard
+function
+key modulelatticebased key encapsulation federal information
+establishment mechanism mlkem processing
+standards fips
+ https
+csrcnistgovpubs
+fipsfinal
+digital modulelatticebased digital signature federal information
+signature algorithm mldsa processing
+standards fips
+ https
+csrcnistgovpubs
+fipsfinal
+digital stateless hashbased digital signature federal information
+signature algorithm slhdsa processing
+standards fips
+ https
+csrcnistgovpubs
+fipsfinal
+digital stateful hashbased digital signature nistsp 
+signature algorithms leightonmicali signature httpscsrcnistgov
+scheme lms hierarchical merkle pubsspfinal
+signature scheme hms extended
+merkle signature scheme xmss
+extended merkle signature scheme with
+multitree xmssmt
+product lists
+table  details widely available categories with respective types of hardware and software products that
+use pqc standards to protect sensitive information well into the foreseeable future including after the
+advent of a cryptographically relevant quantum computer crqc organizations building pqc
+migration plans can use these categories as a guide to assess future technological needs once a
+category is listed as having pqccapable products widely available organizations should plan
+acquisitions to procure only pqccapable products in that category
+table  does not list categories of pqccapable products that are currently widely available instead it
+lists product categories where manufacturer implementation and testing of pqc capabilities are
+encouraged it is important that the products listed in table  implement pqc for core features and for
+all secondary functionality such as for software updates as the table  product categories mature their
+capabilities and transition to pqc cisa will move them from table  to the list in table 
+tables  and  consider efforts within the general services administration gsa cisa nist and the
+national security agency nsa note tables  and  are not exhaustive lists cisa will periodically
+update these tables as needed to cover new examples of widely available products that use pqc
+standards
+table  widely available hardware and software product categories that use pqc standards
+product category example product type
+cloud services platformasaservice paas infrastructureasaservice iaas
+collaboration software chatmessaging
+web software web browsers web servers
+endpoint security data at rest dar security full disk encryption
+ most of these categories have implemented pqc for key encapsulation and key agreement but have
+not yet widely implemented pqc for digital signatures and authentication as a result these categories
+are not considered to be fully quantum resistant cisa includes them on this list because one of their
+main security services is quantum resistant and federal civilian executive branch fceb departments
+and agencies should procure them appropriately
+table  hardware and software product categories transitioning to use pqc standards
+product category example product type
+product category example product type
+networking hardware proxy servers routers firewalls switches appliances
+networking software softwaredefined network sdn domain name service
+dns network operating systems
+cloud services softwareasaservice saas
+telecommunications desk phones fax machine voice over ip voip radio
+hardware
+computers physical and operating systems hypervisors containers
+virtual
+computer peripherals wireless keyboards wireless headsets
+storage area network appliances operating systems applications
+identity credential and identity management systems identity provider and
+access management icam federation services certificate authorities access
+software brokers access management software public key
+infrastructure pki management software
+identity credential and hardware security modules hsm authentication
+access management icam tokens badgescards badgecard readers
+hardware
+collaboration software email clients email servers conferencing file sharing
+data database structured query language sql server
+endpoint security password managers antivirusantimalware software
+asset management
+product category example product type
+enterprise security continuous diagnostics and mitigation cdm tools
+intrusion detectionmonitoring inspection systems
+security information and event monitoring siem
+note the above listsexclude categories of hardware and software products such as operational
+technology ot and internet of things iot devices that are not considered traditional it products
+these also should be transitioning to pqc standards as well but are out of scope for these lists
+notes
+ per eo  the secretary of homeland security acting through the director of the cybersecurity
+and infrastructure security agency cisa and in consultation with the director of the national
+security agency shall release and thereafter regularly update a list of product categories in which
+products that support postquantum cryptography pqc are widely available
+ httpscsrcnistripglossarytermkeyestablishment httpscsrcnistripglossarytermkeyestablishment
+ httpscsrcnistripglossarytermdigitalsignature httpscsrcnistripglossarytermdigitalsignature
+ even once a product that supports pqc standards is procured it may need to use nonpqc
+algorithms for a time for interoperability reasons
+ httpsbuygsagovapisystemfilesdocumentsfinalcpqcbuyersguidepdf https
+buygsagovapisystemfilesdocumentsfinalcpqcbuyersguidepdf
+ httpswwwgsagovtechnologyitcontractvehiclesandpurchasingprogramsmultipleaward
+scheduleit httpswwwgsagovtechnologyitcontractvehiclesandpurchasingprogramsmultipleawardschedule
+it
+ httpswwwcisagovsitesdefaultfilescdmfileshwaminitializationguidepdf httpswwwcisagov
+sitesdefaultfilescdmfileshwaminitializationguidepdf
+ httpswwwnistgovitlexecutiveorderimprovingnationscybersecuritycriticalsoftware
+definitionexplanatory httpswwwnistgovitlexecutiveorderimprovingnationscybersecuritycriticalsoftware
+definitionexplanatory
+ httpswwwniapccevsorgproducts httpswwwniapccevsorgproducts
+ the principal security service of the endpoint security category is not naturally quantum vulnerable
+when procuring one needs to ensure that other relevant features of the product such as firmware
+updates are utilizing postquantum cryptography pqc
+please share your thoughts
+we welcome your feedback
+cisa product survey
+tags
+language english english
+topics critical infrastructure security and resilience topicscriticalinfrastructuresecurityand
+resilience risk management topicsriskmanagement
+related resources
+feb   external publication jan   publication
+guidance and strategies to protect interagency security committee
+network edge devices compliance policy and compliance
+resourcestools
+benchmarks  edition
+resourcesguidanceandstrategiesprotectnetworkedge resources
+devices toolsresourcesinteragencysecuritycommittee
+compliancepolicyandcompliancebenchmarks
+edition
+dec   publication dec   publication
+mobile communications best physical security performance goals
+practice guidance for faithbased communities 
+resourcestoolsresources
+spanish translation
+mobilecommunicationsbestpracticeguidance resourcestools
+resourcesphysicalsecurityperformancegoalsfaith
+basedcommunitiesspanishtranslation
+return to top
+topics topics spotlight spotlight resources  tools resourcestools
+news  events newsevents careers careers about about
+cisa central
+saycisa contactcisadhsgov
+cisagov
+an official website of the us department of homeland security
+about cisa about budget and performance https dhsgov httpswwwdhsgov
+wwwdhsgovperformancefinancial
+reports
+foia requests httpswwwdhsgovfoia no fear act nofearact office of inspector general https
+wwwoigdhsgov
+privacy policy privacypolicy subscribe the white house https
+wwwwhitehousegov
+usagov httpswwwusagov website feedback formsfeedback

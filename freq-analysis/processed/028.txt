@@ -1,0 +1,3278 @@
+quantumsafe cryptography 
+fundamentals current developments and
+recommendations
+quantumsafe cryptography
+ 
+quantumsafe cryptography  foreword
+foreword
+quantum technologies will change our lives perma with this in mind bsi has initiated the migration to
+nently it has been known since the s that quantum postquantum cryptography and published initial rec
+mechanical effects can be exploited for example to accel ommendations in april  this publication updates
+erate calculations or to measure physical quantities more and expands them and includes recommendations on
+precisely today there are already first implementations qkd in addition a detailed exposition of the underlying
+of quantum computers and the german government is fundamentals puts the recommendations into context
+promoting the development and production of quan
+germanydigitalsecure bsi  this is our mission in
+tum technologies in germany the construction of two
+the quantum age also this publication is intended in
+quantum computers in germany is planned as part of the
+particular as a guide for manufacturers and operators
+corona economic stimulus package in total two billion
+of information technology to initiate the migration to
+euros are being invested in quantum technologies
+quantumsafe cryptography in good time and to make
+quantum technologies will have a major impact on in it secure first of all it is important to be aware of the
+formation security in particular it has been known since problem and then as a first step to take stock of your
+the s that the development of powerful quantum own systems this document is intended to support you
+computers threatens the security of publickey cryptog in this process because digitization and information
+raphy used today the quantum computers currently security are inseparable they are two sides of the same
+available are not yet capable of this but development is coin and of bsi
+progressing rapidly moreover it is not yet foreseeable
+i hope you find it an enlightening read
+what possibilities other quantum technologies will offer
+the federal office for information security bsi as the
+federal governments cybersecurity authority is actively
+involved in the necessary cryptographic transition
+since the threat to publickey cryptography posed by
+quantum computers has been known for a long time
+there are also solutions  some of which have existed for
+a long time  as to how this can be countered on the one
+hand cryptographic schemes which are assumed to be
+unbreakable by quantum computers  and of course also
+unbreakable by classical computers  are currently being
+developed and standardized these schemes are referred
+to as postquantum cryptography
+on the other hand an alternative proposal quantum
+key distribution qkd is also attracting strong interest
+worldwide both in the eu and in germany intensive
+work is being done on qkd networks qkd promises
+theoretical security based on physical principles but
+there are still many open questions about the security of
+real implementations and their use in communication arne schnbohm
+networks from bsis point of view the focus should president of the federal office
+therefore currently be on the use of postquantum cryp for information security
+tography
+ see httpswwwbundesfinanzministeriumdewebenissuespublicfinancesstimuluspackageforevery
+ 
+onestimuluspackageforeveryonehtml
+quantumsafe cryptography  summary
+summary
+cryptography is in a state of flux while for a long time  the mathematician peter shor published quantum
+it played a role mainly in special applications such as algorithms which can efficiently solve the mathematical
+in the government sector it is now ubiquitous and its problems mentioned above with the development of a
+use continues to increase cryptography is not only quantum computer on which shors algorithms can be
+needed to protect sensitive data but is mandatory in implemented for sufficiently large input sizes the basis of
+many applications to ensure secure functionality and todays publickey cryptography would thus be removed
+availability just think of the internet iot longlived it should be noted that even today an attacker can record
+industrial machines or critical infrastructures at the communications in order to obtain their contents later
+same time the socalled second quantum revolution store now decrypt later for symmetric cryptography
+has begun physical principles discovered about  years grovers algorithm would still halve the effective key
+ago are becoming industrially controllable products length moreover quantum computers could also be used
+and applications such as quantum computers quantum to speed up classical cryptographic attacks it is also con
+cryptography quantum sensors and quantum simulators ceivable that sidechannel attacks on implementations of
+are developing which will have an impact on the design cryptographic mechanisms could be improved with the
+of secure cryptographic systems help of quantum sensors
+today the security of digital infrastructures is largely as of now no quantum computer is available that would
+based on publickey cryptography also known as asym be suitable for breaking cryptographic schemes never
+metric cryptography this in turn is essentially based theless the us national security agency nsa issued an
+on the assumed difficulty of certain mathematical prob urgent warning in  about the imminent threat to cur
+lems for example the problem of decomposing a natural rent public key cryptography posed by the development of
+number into its prime factors from these mathematical quantum computers in order to obtain a wellfounded as
+problems oneway functions can be derived ie func sessment of the current state of development or the poten
+tions that are easy to compute but difficult to reverse tial future availability of a quantum computer the study
+in the example given the function that is believed to be status of quantum computer development was conduct
+oneway is the multiplication of two very large primes ed on behalf of bsi from  to  bsi large com
+which can be done quickly so far no efficient classical panies such as google and ibm have published ambitious
+algorithm is known that can decompose such a large roadmaps for the development of quantum computers for
+product back into its two prime factors this observation high security systems bsi acts on the working hypothesis
+is the basis for the rsa cryptosystem named after its that cryptographically relevant quantum computers will
+developers rivest shamir adleman which is used for be available in the early s bt bt
+encryption as well as for digital signatures the second it should be emphasised that this statement is not a fore
+mathematical problem which is the basis for todays cast of the availability of quantum computers but rather
+publickey cryptography is the socalled discrete loga represents a timeline for risk assessment bsi has therefore
+rithm problem dlp on the basis of the dlp algorithms initiated the shift to quantumsafe cryptography in line
+for key exchange can be constructed for example with the framework programme quantum technologies
+ from basic research to market bmbf
+usually cryptographic keys are agreed upon using a pub
+lic key cryptosystem in order to subsequently encrypt also in the recently published cybersecurity strategy for
+messages with a symmetric algorithm such as aes germany  bmi of the federal ministry of the inte
+according to the current state of knowledge the com rior building and community bmi the goal of ensur
+mon publickey cryptography used today cannot be bro ing it security through quantum technologies is backed
+ken with classical computers however the situation will up with a series of metrics one goal in the cybersecurity
+change fundamentally when universal quantum com strategy for example is the migration to quantumsafe
+puters of sufficient performance are available already in cryptography for highsecurity systems
+ 
+quantumsafe cryptography  summary
+but what exactly does the term quantumsafe cryptog however the development and standardization of
+raphy mean new algorithms is not sufficient on the one hand the
+algorithms do not fit easily into existing cryptographic
+in cryptographic research a new field of work developed protocols such as the transport layer security tls
+parallel to the progress in the development of quantum protocol on the other hand potential vulnerabilities
+technologies postquantum cryptography postquan that only arise from the concrete implementation of a
+tum cryptography deals with the development and new algorithm are not yet as well studied as is the case
+investigation of cryptographic algorithms that are as with algorithms that have been in use for some time
+sumed to be unbreakable even with quantum computers therefore quantum computerresistant methods should
+these algorithms are based on mathematical problems not be used alone  at least in a transitional period  but
+for whose solution neither efficient classical algorithms only in hybrid mode ie in combination with a classical
+nor efficient quantum algorithms are known today method for this purpose protocols must be modified
+therefore these solutions are said to be computationally or supplemented accordingly in addition public key
+secure infrastructures for example must also be adapted here
+too the question arises as to whether a signature with a
+quantum cryptography offers an alternative solution for postquantum procedure is sufficient or whether hybrid
+quantum computerresistant schemes it uses quantum certificates are required many of these questions are
+mechanical effects to achieve security for cryptographic largely independent of the selection of concrete algo
+applications the protocols of quantum cryptography are rithms and are therefore already being addressed
+supposed to be secure in the sense of information theory
+ie they cannot be broken even by attackers with unlim since the security of cryptographic schemes or the
+ited computing power in real implementations however suitability of key lengths cannot be guaranteed for a
+this promise is hard to keep one example of quantum long time a great need arises for socalled cryptographic
+cryptography is quantum key distribution qkd which agile solutions that allow the secure and easy exchange
+however still leaves many questions unanswered about of cryptographic procedures or even protocols and
+theoretical and practical security and about embed implementations to achieve the goal of cryptographic
+ding it in existing infrastructures nevertheless qkd is agility in the long run the permanent use of hybrid
+attracting more and more interest and a large number solutions is also an important building block likewise
+of projects for the realization of qkd can be observed quantumsafe solutions for software updates should be
+in germany and the european union for example the included where possible bsi published these and other
+qunet and euroqci projects are being carried out the recommendations for migration to postquantum cryp
+latter aiming at the establishment of a european quan tography in march  this guide supplements and
+tum communication infrastructure for the evaluation updates the recommendations explains them and puts
+of qkd devices bsi is developing a protection profile them into context
+according to common criteria in cooperation with etsi
+in addition to research and development various stand
+ardization activities have begun in order to make the
+schemes available for industrial applications one of the
+best known is the standardization process postquan
+tum cryptography of the us national institute of
+standards and technology nist at the end of which a
+selection of postquantum algorithms should be availa
+ble
+ 
+ see httpscsrcnistgovprojectspostquantumcryptography
+quantumsafe cryptography  summary
+aim of the document and relation to
+other documents
+this guide is intended to provide an overview of the quantum technologies  from basic research to market
+most important developments in the field of quantum bmbf in march  bsi published recommen
+technologies from the point of view of it security as well dations for action for the migration to postquantum
+as recommendations for action for migrating to quan cryptography bsib which were very positively re
+tumsafe cryptography the transition to quantumsafe ceived and led to many queries and comments however
+cryptography leads to numerous open questions for these recommendations for action are very concise and
+example the selection of suitable algorithms necessary are now no longer up to date furthermore they have
+adaptations to protocols and standards and many more been limited to recommendations on postquantum
+which are discussed in this document as a basis for this cryptography however the rapid developments and
+discussion the possibilities and the state of development great advancement in the field of quantum cryptography
+of quantum computers are roughly described first then make it necessary to assess qkd as a possible solution
+the document discusses postquantum cryptography for quantum computer resistant schemes in more detail
+and quantum cryptography in detail and distinguishes and to give more detailed recommendations for the use
+between these two complementary proposals of qkd problems are identified that could in principle
+stand in the way of a practical use of qkd in largescale
+there is now a vast number of projects on quantum networks in addition the use of quantum random num
+technologies and quantumsafe cryptography this ber generators is also discussed and put into the context
+document presents an incomplete selection of projects of bsis assessment methodology furthermore this doc
+funded by the federal government or in which germany ument not only provides recommendations for action
+is involved as well as activities of bsi on quantum topics but also identifies open questions that should be further
+the projects described are primarily researched it thus also pursues the goal of further ad
+those involving bsi information on vancing the discussion on security in the quantum age
+bsi projects aimed at increasing
+security in the quantum age can be
+found at
+this guide deals with technical topics but it is neither a
+scientific treatise nor does it make any statements about
+patents rather the aim is to familiarise readers with
+terminology to provide an overview of current devel
+opments and to highlight their interrelationships the
+guide endeavours to provide as comprehensive an over
+view as possible of the current state of knowledge but
+does not claim to be exhaustive the potential absence of
+an aspect should not automatically lead to its exclusion
+from further consideration likewise the present docu
+ment should also be considered in its temporal context
+in the future since the technologies described here are
+developing rapidly and unforeseen leaps in development
+are entirely possible
+there are already several overview and strategy papers
+on the topics of quantum technologies and postquan
+tum cryptography examples include the etsi white pa
+per quantum safe cryptography and security etsi
+and the german governments framework programme
+ 
+quantumsafe cryptography  contents
+contents
+foreword
+foreword arne schnbohm president of the federal office for information security 
+summary 
+aim of the document and relation to other documents 
+ quantum computers and their application in cryptography 
+ q uantum computers 
+ quantum algorithms 
+ shors algorithms 
+ grovers algorithm 
+ the hhl algorithm 
+ combination of classical algorithms with quantum algorithms 
+ bsi study status of quantum computer development 
+ key points 
+ postquantum cryptography 
+ stateoftheart cryptography and the threat of quantum computers 
+ postquantum cryptography 
+ codebased cryptography 
+ latticebased cryptography 
+ hashbased cryptography 
+ standardization of postquantum cryptography 
+ key transport 
+ signature schemes 
+ key points 
+ further development of cryptographic protocols 
+ hybrid approaches for key agreement and digital signatures 
+ key agreement 
+ hybrid signatures and adaptation of public key infrastructures 
+ internet key exchange protocol version  ikev 
+ transport layer security tls 
+ 
+quantumsafe cryptography  contents
+ x certificates 
+ key points 
+ quantum key distribution 
+ qkd protocols 
+ security of qkd protocols 
+ security definitions and proofs 
+ informationtheoretic security 
+ sidechannel attacks 
+ authentication 
+ random number generators 
+ limitations and opportunities of quantum cryptography 
+ predistributed keys 
+ limited range 
+ costs and manufacturer 
+ opportunities of qkd 
+ standardization and certification 
+ assessment and recommendations 
+ key points 
+ developments in politics research and industry 
+ framework programs of the federal government 
+ economic stimulus and future package of the federal government 
+ eu flagship programme quantum technologies 
+ eurohpc ju 
+ qunet 
+ qlinkx and qrx 
+ euroqci 
+ industrial associations 
+ recommendations 
+ preparation 
+ cryptographic agility 
+ shortterm protective measures 
+ key lengths for symmetric encryption 
+ 
+quantumsafe cryptography  contents
+ hybrid solutions 
+ postquantum algorithms for key agreement 
+ hashbased signature schemes for firmware updates 
+ general signature schemes for authentication 
+ adaptation of cryptographic protocols 
+ migration to quantumsafe public key infrastructures 
+ recommendations for quantum key distribution 
+ migration to postquantum cryptography has priority over the use of qkd 
+ need for further research on quantumsafe cryptography 
+list of abbreviations 
+bibliography 
+legal notice 
+ 
+quantumsafe cryptography   quantum computers and their application in cryptography
+
+ 
+quantumsafe cryptography   quantum computers and their application in cryptography
+ quantum computers and their
+application in cryptography
+our society is increasingly shaped by digitalization and have been achieved qec represents an immense tech
+networking we have become accustomed to digital nological challenge currently even with great progress
+computers that store and process bits taking values  or  building a powerful errortolerant quantum computer is
+as the smallest unit of information as early as the s expected to be a scientific and technological challenge
+however proposals were made to build computers that
+currently realized quantum computers that are not
+compute on socalled qubits instead of bits see info bits
+fully error corrected are called noisy intermediate scale
+vs qubits using the quantum mechanical effects of
+quantum nisq computers these are considered an in
+superposition and entanglement see info superposition
+termediate stage on the way to faulttolerant and univer
+and entanglement on the one hand some problems
+sally programmable quantum computers alternatively
+that would classically require a lot of memory can be
+other approaches such as adiabatic quantum computers
+solved with relatively few qubits on the other hand the
+or quantum annealers are already in use today they
+use of these effects leads to an intrinsic parallelization of
+require less error correction but it is debatable whether
+some calculations and thus to an acceleration that would
+quantum annealers have already demonstrated advan
+not be possible with conventional computers
+tages over traditional computers
+a quantum algorithm ie a sequence of manipulations
+the first prototypical applications of the currently avail
+of qubits exploits precisely this parallelization among
+able nisq computers focus among others on quantum
+the best known quantum algorithms are the search
+simulation as well as solving certain optimization prob
+algorithm of lov grover  and the algorithms of
+lems the former is primarily used to emulate real quan
+peter shor  which can be used to factorize integers
+tum systems eg in the context of chemical processes
+and compute discrete logarithms in particular the latter
+or new materials in order to better predict their behav
+algorithms break current publickey cryptography such
+iour the latter can be used for example in prediction
+as rsa elliptic curve diffiehellman or elgamal de
+models in the financial sector in transportation or in it
+spite the immense impact on current cryptography the
+security eg anomaly detection in networks quantum
+development of quantum computers is mainly motivated
+algorithms are also promising in the context of artificial
+by the potential applications in areas such as pharmacy
+intelligence ai in the sense that they can potentially
+material science chemistry or logistics acatech
+improve the representational capability and efficiency
+in this chapter we give a brief introduction to quantum
+of purely classical ai methods and enable the design of
+computers report on their state of development and also
+completely new types of learning methods in order to be
+describe the main quantum algorithms that are current
+able to set new research directions from the perspective
+ly known to be cryptographically relevant
+of it security in the area of quantum machine learning
+qml and to identify targeted further activities bsi has
+ quantum computers
+launched the project quantum machine learning in the
+context of it security  fundamentals qmlsec
+various hardware platforms are being used worldwide
+for the realization of quantum computers leading plat in principle nisq computers allow the development and
+forms are currently based on trapped ions and supercon evaluation of quantum algorithms but they have not yet
+ductors the central challenge here is the susceptibility been able to outperform classical computers in concrete
+of quantum computers to errors quantum systems are applications for an academic problem with no known
+very sensitive to disturbances and therefore require an direct industrial application however such a hardware
+elaborate error correction which is called quantum error platform from google could already achieve the mile
+correction qec its practical implementation is the stone of superiority over classical computers known as
+subject of intense research and although initial successes quantum supremacy aab wil
+ 
+faulttolerant quantum computation
+algorithms on multiple qubits
+operations on single logical qubits
+logical memory with longer lifetime than physical qubits
+qnd measurements for error correction and control
+algorithms on multiple physical qubits
+operations on single physical qubits
+ 
+ytixelpmoc
+quantumsafe cryptography   quantum computers and their application in cryptography
+time
+figure development stages for the construction of a faulttolerant quantum computer
+source superconducting circuits for quantum information an outlook httpsdoiorgscience
+in the field of cryptanalysis using quantum algorithms ds bsi a layer model has been established based
+there are proposals such as factorization on adiabatic on these requirements which can be used to classify
+quantum computers bsi  and socalled varia the development stage of a qubit technology starting
+tional factorization bsi  which do not require from basic operations on a qubit ie the smallest unit of
+quantum error correction for both algorithms however information of a quantum computer up to the execution
+a speedup compared to classical factorization algorithms of quantum algorithms such as those of shor and grover
+has not been proven in general cryptanalytic tasks and it is first necessary to master the structural challenge of
+algorithms do not seem to be feasible with nisq com the required quantum error correction
+puters so far bsi  therefore taking into account
+such a layer model is not fundamentally new even on
+all described approaches to the realization of a quantum
+todays commercially available digital computers such
+computer faulttolerant and universally programmable
+as pcs servers or tablets algorithms are broken down
+quantum computers currently possess the highest cryp
+into elementary operations and executed in processors
+tographic relevance
+ie integrated circuits however while digital integrated
+in the development of a faulttolerant quantum com circuits are inherently faulttolerant the quantum error
+puter various technological development stages have to correction required to realize a faulttolerant quantum
+be reached until a quantum algorithm can be executed computer poses significant challenges to science and
+correctly whilst being scalable to different problem sizes industry these challenges are currently being addressed
+as already described the errorproneness or decoher by strong industry players as well as large research pro
+ence of quantum mechanical systems represents a grams ibm has announced ambitious goals in realizing
+central challenge in the construction of a faulttolerant nisq computing with a roadmap for scaling quan
+quantum computer or a scalable qubit technology in tum technology the two projects funded in the eu
+addition to isolating measures such as electromagnetic quantum technology flagship programme  aqtion
+traps and cryogenic temperatures a quantum compu and opensuperq each pursue the goal of realising a
+tation must be actively error corrected in the literature european quantum computer
+ see httpswwwibmcomblogsresearchibmquantumroadmap
+ see httpswwwqteu
+ see httpsqteuaboutquantumflagshipprojectsaqtion
+quantumsafe cryptography   quantum computers and their application in cryptography
+in addition to these largescale projects the commercial uals access to nisq computers similar platforms are
+ization of quantum computers has begun for example offered by microsoft azure quantum and by amazon
+through the availability of quantum as a service qaas amazon braket
+ibms qaas service ibm quantum also offers individ
+algorithms
+an algorithm is a unique set of instructions for solving a ers built in the th century with the zuse z eniac and
+problem algorithms are the fundamental starting point edvac in largescale projects ie computers that could
+for our modern data processing but they do not represent solve many problems based on their range of functions the
+a technical but a conceptual view of solving a problem and electronic discrete variable automatic computer edvac
+can therefore be written down on paper the euclidean constructed in the s is the first computer that treated
+algorithm ca  bc for computing the greatest common instructions just like the data to be processed by encoding
+divisor of two integers is considered the oldest known them in binary and keeping them in internal memory vn
+nontrivial algorithm charles babbage took a significant knu this architecture is ubiquitous in modern digital
+step toward modern computing with the design of the computers such as pcs servers and tablets and is referred
+analytical engine in the th century for this mechanical to as the von neumann architecture the universality of
+calculating machine with memory and arithmetic unit ada todays computers is essentially realized with the basic ele
+lovelace wrote a program to calculate bernoulli numbers mentary operation nand not and accordingly quantum
+she is therefore considered to be the person who wrote the computers also have a set of elementary operations that can
+first computer program while the analytical engine was be used to efficiently build all quantum operations
+never actually built there were generalpurpose comput
+euclidean algorithm ada lovelaces program edvac iii nand according to
+in euclids elements for calculating bernoulli din  iv
+book  proposition  numbers on the analytical
+and i engine ii
+source
+i httpwwwclaymathorgeuclidindexb
+ii httpsdewikipediaorgwikidateidiagramforthecomputationofbernoullinumbersjpg
+iii httpsdewikipediaorgwikidateiedvacjpg
+iv httpsdewikipediaorgwikidateilogicgatenanddesvg
+ see httpsqteuaboutquantumflagshipprojectsopensuperq
+ see httpswwwibmcomquantumcomputing
+ see httpsazuremicrosoftcomdedeservicesquantum
+ see httpsawsamazoncomdebraket
+ 
+ see httpswwwdpmadedpmaveroeffentlichungenaktuellespatentefrauenadalovelaceindexhtml
+quantumsafe cryptography   quantum computers and their application in cryptography
+bits vs qubits
+the word bit is a portmanteau of binary digit and refers to a the state of a qubit is thus completely described mathemati
+measure of the smallest unit of information in todays digital cally by a point on the bloch sphere this is the simplest exam
+computers such as pcs servers tablets or smartphones bits ple of a quantum state quantum states differ from classical
+are usually represented by  or  the word creation and the states such as those of a bit for example in that they do not
+concept of a bit go back to the work of mathematicians john behave deterministically when observed but only assume one
+w tukey and claude shannon in the s of the states  or  in the case of the qubit with a certain
+probability see info box superposition
+parallel to the development of digital computers paul be
+nioff and richard feynman started thinking about quantum
+computers in the s one of the first joint milestones
+was the physics of computation conference held in 
+in the context of quantum computers the values  and 
+act as basic values like the north and south poles of a sphere
+noted as  and  and pronounced ket and ket and
+can be combined in socalled superposition to represent any
+point on the sphere this representation is called the bloch
+sphere and the elementary storage unit a qubit ie quantum
+bit in contrast to digital bits these additional degrees of
+freedom ie the possibility of superposition of a qubit lead
+to an intrinsic parallelization a quantum algorithm ie a
+sequence of manipulations of qubits exploits exactly this
+parallelization figure bloch sphere
+ quantum algorithms
+an algorithm on a classical computer is  roughly speak that for the search problem solved by grovers algorithm
+ing  a rule that describes a sequence of manipulations see section  asymptotically at most a quadratic
+of bits see info box algorithms in contrast quantum speedup is achievable by a quantum algorithm bb
+algorithms which can be implemented on quantum numerous mathematical problems are assumed not to be
+computers use qubits as the smallest unit of informa solved efficiently even by quantum computers details on
+tion in principle any quantum algorithm can also be this can be found for example in shor postquantum
+simulated on a classical computer see info box quan cryptography is based on such problems see chapter 
+tum algorithms vs classical algorithms however this in the following we briefly present the most important
+requires an exponentially higher effort on the other cryptographically relevant quantum algorithms that
+hand quantum effects such as superposition and entan solve certain problems faster than any classical algo
+glement open up the possibility of solving some prob rithm known so far this selection does not make any
+lems much faster on quantum computers than is possible claim of completeness the quantum algorithm zoo
+at least with all the classical algorithms known today which is maintained by stephen jordan is a comprehen
+it should be borne in mind however that quantum sive collection of quantum algorithms
+computers are far from being able to significantly speed
+up all problem solutions for example it has been shown
+ 
+ s ee httpsquantumalgorithmzooorg
+quantumsafe cryptography   quantum computers and their application in cryptography
+superposition
+a classical bit assumes only the two states  or  a qubit this property is what makes quantum algorithms so special
+on the other hand can also assume a superposition of two  one can operate on many pieces of information in superpo
+states  and  in this case it exists to some extent in sition simultaneously but a final measurement provides only
+both states simultaneously if a qubit is in such a superposi severely limited information about the actual outcome of the
+tion state it only decays with a certain probability into either quantum operation for a nontrivial quantum algorithm it
+one or the other state when measured this destroys the is necessary to design a superposition and operations on it in
+original superposition state and no further information can such a way that the hint generated by a measurement is still
+be obtained about it useful
+a prominent thought experiment in this context is schrding
+ers cat here a cat is in a specially prepared closed box in
+which with a certain probability a lethal substance is released
+in a given period of time through radioactive decay assuming
+that the quantum mechanical effects can be applied to the cat
+the cat in the closed box is in a superposition state of dead
+and alive different interpretations of quantum mechanics
+all consistent with the mathematical formalism give different
+answers to the question of when the cat transitions from such
+a superposition state to one of the two states of dead or
+alive as described this superposition or superposition state
+of a qubit can be maintained only as long as the information
+remains unobserved and is not extracted by a measurement figure schrdingers cat as catket
+entanglement
+the term entanglement refers to composite physical systems entangled qubits are spatially far apart  a phenomenon albert
+such as two qubits two or more qubits are said to be einstein called spooky action at a distance
+entangled if the information represented in them cannot be
+entanglement plays a central role in quantum computers
+described solely by the individual information stored in each
+quantum algorithms exploit this inherent property to produce
+qubit for example two qubits may be entangled such that
+entangled states and thus encode information as densely as
+a measurement of the first qubit assumes the state  or 
+possible a classical digital computer would have to simulate
+with probability  in each case and the second qubit is
+these relationships at great expense moreover the principle
+guaranteed to have assumed the same state as the first after
+of entanglement is fundamental for quantum error correction
+this measurement this means that a measurement of the first
+and thus faulttolerant computing with quantum computers
+qubit changes the state of the second qubit even if the two
+ 
+a b
+  
+
+
+
+
+
+
+
+
+   
+ 
+figure experiments with entangled photons
+source httpsadvancessciencemagorgcontenteaaw
+ 
+stnuoc stnuoc
+quantumsafe cryptography   quantum computers and their application in cryptography
+ 
+quantum algorithms vs classical algorithms
+the way quantum algorithms and classical algorithms work research question whether there are problems that can be
+differs significantly classical algorithms on which our com solved efficiently ie in polynomial runtime with quantum
+puters are based today perform calculations by operations on algorithms but not with classical algorithms factorization
+discrete bits quantum algorithms on the other hand operate of natural numbers into their prime factors is possibly such a
+on qubits using quantum mechanical effects such as superpo problem however it has not yet been proved that no classical
+sition and entanglement algorithm with polynomial runtime exists for this
+nevertheless every quantum algorithm can in principle be of special interest in complexity theory are the problems of
+simulated on a classical computer this is because a quantum the class np these are problems in which a given solution can
+mechanical state is completely describable by a complex be verified in polynomial time the most difficult problems in
+vector furthermore a quantum algorithm consists essentially np to which all others can be reduced with only polynomial
+of unitary operations on state vectors which can be described overhead are called npcomplete so far no algorithms with
+on a classical computer by matrices and measurements of polynomial runtime are known for npcomplete problems
+qubits which can be expressed by projection mappings and despite intensive research however it has not yet been
+associated probabilities in this respect all computations on proved that there are indeed no polynomial algorithms for
+quantum computers can also be performed on classical com npcomplete problems this is one of the most significant
+puters however this can be associated with a significantly open problems in theoretical computer science and is known
+higher effort in terms of runtime and memory as the p vs np problem moreover there are also no known
+quantum algorithms that solve npcomplete problems in
+the great potential of quantum algorithms is precisely that
+polynomial runtime assuming that there are no efficient
+they can solve some problems faster than classical algorithms
+classical algorithms for npcomplete problems some results
+for example for searching an unsorted database grovers al
+suggest that quantum algorithms are not able to do so either
+gorithm see gro provides a quadratic speedup compared
+see for example shor bb
+to the best possible classical algorithm however it is an open
+quantumsafe cryptography   quantum computers and their application in cryptography
+ shors algorithms suppose an unsorted list with n entries is given this
+could be for example entries of an unstructured database
+the security of much of the publickey cryptography
+or a list of numbers this list is to be searched for an entry
+used today is essentially based on assumptions about
+with a certain property the checking of the respective
+the complexity of certain mathematical problems for
+property can be modelled quite generally by a black box
+example an algorithm that efficiently decomposes
+function that takes a list entry as input and indicates as
+large natural numbers into their prime factors would
+output whether the property is satisfied or not
+break the widely used rsa scheme to date no classical
+algorithm is known to solve the factorization problem if the list is searched with a classical computer then in the
+efficiently an algorithm is considered efficient if it solves worst case all n elements must be traversed and the black
+the problem in a runtime that depends polynomially on box function applied to each element grovers algorithm
+the length of the number to be factorized the fastest on the other hand uses a superposition of quantum
+known classical factorization algorithm is the number states in which each list element is contained with equal
+field sieve which has subexponential but not polynomial probability by repeatedly applying the socalled grov
+runtime in the mids however peter shor published er transformation which also includes the black box
+an efficient quantum algorithm for the factorization function the socalled probability amplitude for the
+problem shor searched elements is gradually increased thus with high
+probability an entry with the required property can be
+here we will only roughly sketch how it works strictly
+determined after only about n steps thus grovers
+speaking shors factorization algorithm does not solve
+algorithm does not provide an exponential speedup but
+the factorization problem directly rather it can first be
+at least a quadratic one which can make a significant
+reduced in a classical way to the problem of determining
+difference for very large n
+the period of a certain periodic function shors factori
+zation algorithm starts there and determines this period because of its generality and great flexibility grovers
+in polynomial runtime in doing so the superposition algorithm is applicable in many contexts where prob
+property of quantum states is exploited in a clever way lems can be formulated as search problems relevant in
+shors factorization algorithm is a probabilistic algo cryptography is for example the search of the key space
+rithm and gives the correct result with high probability in symmetric algorithms for keys of  bits in length
+in practice the correct factorization is obtained with the key space can theoretically be searched in about 
+few repetitions in addition to the factorization prob quantum operations using grovers algorithm however
+lem a large part of the public key schemes in use today for a key length of  bits an order of magnitude of 
+are based on the discrete logarithm problem for which quantum operations is required which is not considered
+ similar to the factorization of integers  no efficient feasible today from a practical point of view implement
+classical algorithm is known today in the same publi ing a grover search on quantum computers places high
+cation in which he describes his factorization algorithm demands on quantum circuits for example a key search
+shor shor also presents a quantum algorithm that for aes would require the aes algorithm for the black
+computes discrete logarithms in polynomial runtime box function to be implemented in the circuit symmetric
+his two algorithms use essentially similar ideas and cryptographic algorithms however can only be imple
+techniques and are known as shors algorithms mented in a quantum circuit with great effort due to their
+nonlinearity
+ grovers algorithm
+shortly after peter shor in  gro lov grover
+published a probabilistic search algorithm for quantum
+computers that finds an element in an unsorted list of n
+elements with high probability in n steps with classical
+algorithms finding an element can only be guaranteed
+after n steps
+ 
+quantumsafe cryptography   quantum computers and their application in cryptography
+ the hhl algorithm factorized fewer logical qubits are needed however an
+exact analysis for concrete orders of magnitude such as
+the hhl algorithm of harrow hassidim and lloyd
+for the factorization of a bit rsa modulus is diffi
+hhl is a quantum algorithm for solving systems of
+cult thus no reliable statement can be made at present
+linear equations under some conditions on the linear
+to what extent this algorithm offers an advantage over
+system of equations for example it must be sparse the
+shors algorithm for cryptographically relevant orders of
+hhl algorithm provides an exponential speedup over the
+magnitude but it is at least conceivable that this algo
+known classical algorithms
+rithm is less complex to implement and thus becomes
+linear systems of equations underlie many mathematical cryptographically relevant earlier than shors original
+problems in this respect numerous applications of the quantum algorithm
+hhl algorithm are conceivable among others in the field
+as shown before grovers algorithm can be used to search
+of machine learning possible cryptographic applications
+the key space of a symmetric encryption scheme faster
+arise for example in the decryption of symmetric en
+than is possible with classical algorithms in mm it is
+cryption algorithms such as aes this can be traced back
+shown how sidechannel information about the key space
+to the solution of a system of polynomial equations to
+can be included in the search the result of a sidechannel
+which hhl can be applied when solving a related system
+analysis is usually a quantitative statement about the dis
+of linear equations
+tribution of individual parts of the secret key from this a
+however the actual practical cryptographic use of hhl key rank can be calculated which ranks the possible keys
+is currently unclear this is partly because the runtime of according to their probability taking into account the
+the algorithm depends on a characteristic of the system given sidechannel information the paper mentioned
+of equations under consideration called the condition describes how to efficiently enumerate the keys within a
+and the condition is difficult to estimate second there is given rank range grovers algorithm can then be used to
+currently little work in the literature on efficient quan search the most likely key ranges one by one instead of
+tum circuits for hhl previous work suggests that the searching the entire key space immediately compared
+practical implementation of hhl for cryptanalysis is very to a classical search with sidechannel information this
+complex and these ideas are currently only theoretically achieves a quadratic speedup
+relevant see for example sv and bsi 
+ bsi study status of quantum
+ combination of classical algorithms
+computer development
+with quantum algorithms
+in order to make an independent assessment of the threat
+quantum algorithms can also be combined with classical bsi had a study on the development status of quantum
+algorithms and thus accelerate solving certain problems computers carried out and published in the period 
+compared to purely classical algorithms as an example  bsi ck the aim of the study was to provide
+two cryptographically relevant combinations of grovers a sound and independent assessment of the current state
+algorithm with a classical algorithm are presented below of development of a cryptographically relevant quantum
+computer cryptographically relevant in this context
+the number field sieve is the fastest known classical
+means a sufficiently powerful quantum computer to
+factorization algorithm for large numbers such as rsa
+perform for example the shor algorithms for key lengths
+numbers in bbm bernstein biasse and mosca use the
+used today in realistic runtime only publicly availa
+grover algorithm to speed up an important step of the
+ble and verified information was to be used due to the
+number field sieve by doing so they do not achieve poly
+rapidly progressing developments in the field of quantum
+nomial runtime like shors factorization algorithm but at
+technologies and especially quantum computers bsi
+least a speedup over the number field sieve moreover this
+intends to continue the study on the development status
+algorithm requires asymptotically fewer logical qubits
+of quantum computers
+see section  than shors factorization algorithm this
+means that at least for sufficiently large numbers to be
+ 
+quantumsafe cryptography   quantum computers and their application in cryptography
+a central challenge for the development of a scalable
+a all qubit functionalities met
+qubit technology is the errorproneness or decoherence
+of quantum mechanical systems in addition to isolating
+b reaches high fidelities
+measures such as electromagnetic traps and cryogenic
+temperatures a quantum computation must be actively
+c allows for error correction
+errorcorrected this results in the layered model ae
+summarized in the study which can be used to classify a executes faulttolerant
+d
+operations
+candidate qubit technology starting from basic functions
+a up to errortolerant elementary operations d and faulttolerant
+e
+algorithms
+the assembled implementation of quantum algorithms
+e the path leads via the operational quality of a single
+figure l ayer model for the construction of a faulttolerant
+qubit b and systematic quantum error correction c
+quantum computer
+see info box classical error correction and quantum error source bsi study status of quantum computer development
+correction
+classical error correction and quantum error correction
+a classical bit is either in state  or  the only error and there theorem of quantum mechanics perfectly copying arbitrary
+fore the only unintended change that can occur in a single bit quantum states is impossible secondly there is a continuum
+is the bit flip this changes  to  or  to  classical errorcor of infinitely many possible error cases
+recting codes add redundancy to correct for individual bit flips
+by exploiting specific properties of quantum systems it is
+a simple example is the repetition code which repeats each
+nevertheless possible to develop suitable mechanisms for
+bit for example encoding  as  and  as  a single bit
+quantum error correction the essential idea can be roughly
+flip can be corrected by simple majority voting for example
+described as follows the state of a single qubit is mapped
+correcting  to 
+onto a system of several entangled qubits in such a way that
+the state of a qubit is described by a point on the bloch an error can be detected and subsequently corrected without
+sphere thus in contrast to the classical bit a qubit can destroying the essential information about the original state
+assume an infinite number of different states which initially by a measurement the process of this indirect detection is
+results in an infinite number of possible error cases ie called syndrome measurement syndrome measurement is de
+unintended changes of the original state these errors are signed to project the faulty state of the entangled qubits into
+caused for example by the decoherence of a quantum one of finitely many error cases thereby reducing the infinitely
+mechanical state ie the interaction with the environment or many error cases to finitely many for example the correction
+by imperfections in the technical realization of quantum gates of arbitrary errors on a qubit can be reduced to the correction
+operating on qubits of only bit and phase flips kl the result of the syndrome
+measurement reveals which of the finitely many error cases
+thus at first sight two difficulties arise in the error correc
+occurred so that the corresponding reversal operation can be
+tion of quantum mechanical states compared to classical
+performed and the original state restored
+bits firstly the state of a qubit cannot simply be redundantly
+repeated as in classical bits since according to the nocloning
+ 
+only a high operation quality allows for efficient traps ibm have been identified as qubit technologies
+quantum error correction this relationship is precisely which with their currently achieved operation quality
+described in the quantum threshold theorem by aharo allow a functioning quantum error correction in princi
+nov and benor ab d transmons google and ion ple but cannot yet be scaled up to a larger extent
+a basic function b quality c error correction de
+figure classification of different platforms in the layer model
+source bsi study status of quantum computer development
+ 
+plattforms topological spins molecular dots gaasquantum donors silicon resonance nuclear
+magnetic
+photons color
+centers
+dots sigequantum dtransmons atoms rydberg flux
+qubits
+dtransmonen ionenfallen
+quantumsafe cryptography   quantum computers and their application in cryptography
+for these technologies it is possible to extrapolate a mechanically connected system of data and syndrome
+quantum computer based on them eg for the factoriza qubits called a logical qubit representatives of such
+tion of a bit rsa module for this a single socalled codes are the qubit code introduced by peter shor 
+physical qubit must be converted into an errorcorrect and the currently leading architecture referred to as the
+ing architecture classical errorcorrection mechanisms surface code the expansion factor in the transition from
+encode information redundantly but are not applica physical to logical qubits and thus the overall extrapola
+ble to quantum states due to the nocloning theorem tion are decisively influenced by the operation quality or
+instead a quantum errorcorrecting code transfers the error rate and the applied quantum error correction
+state of a physical qubit to an entangled ie quantum
+the nocloning theorem
+for any given classical bit sequence such as  it see wz and impressively illustrates that classical and
+is easy to describe a procedure to duplicate it read the quantum mechanical states have very different properties in
+sequence one bit at a time from left to right and make a many respects
+copy of each bit after each read in the example this yields
+even if exact copying of arbitrary quantum states is not
+  two perfect copies of the original bit
+possible at least approximate copies of arbitrary quantum
+sequence
+states can be created up to a certain degree moreover in
+classical states describable by bit sequences can thus be many contexts it is sufficient to copy only selected quantum
+copied arbitrarily this is in contrast to quantum states  in states as accurately as possible this can lead to copies
+the simplest case the states of qubits it follows from the of these quantum states that have a better quality than if
+principles of quantum mechanics that there is no quan the best possible copies of arbitrary states are aimed for
+tum mechanical operation that can create an independent there are numerous results on the conditions under which a
+identical copy of any given quantum state this result is certain quality of copied quantum states can be achieved an
+known as the nocloning theorem of quantum mechanics overview of results can be found in siga
+factoring with dtransmons discrete logarithm with dtransmons
+ 
+ 
+ 
+ 
+ 
+   
+problem size n problem size n
+ 
+stibuq
+lacisyhp
+stibuq
+lacisyhp
+quantumsafe cryptography   quantum computers and their application in cryptography
+ day  day
+ days  days
+ days  days
+time optimal time optimal
+     
+figure s ize of a d transmon quantum computer for factorization and calculation of a discrete logarithm at todays error rate of 
+source bsi study status of quantum computer development
+from the extrapolation of the study based on the surface spacetime tradeoff because an extrapolation does not
+code and an established error rate of  a d transmon result from an isolated consideration of quantum error
+quantum computer with a few billion physical qubits correction alone in addition it is necessary to relate this
+would factorize a bit rsa module in  days to elementary operations and cycle times in the study
+at a generally targeted error rate of  it would first the algorithms of grover and shor are decomposed
+take a few million physical qubits due to technological into elementary steps here we make use of the con
+advances these figures are subject to constant change struction of kitaev kit and solovay sol which
+in the continuation of the study the extrapolation will describes a set of elementary operations from which each
+be updated the addition of in  days results from a quantum operation can be efficiently composed
+quantumsafe cryptography   quantum computers and their application in cryptography
+factoring discrete logarithm on ef 
+p
+n qubits elementary operations m qubits elementary operations
+         
+         
+         
+         
+         
+figure elementary operations and logical qubits required for a factorization and to compute a discrete logarithm
+on a generic elliptic curve
+source bsi study status of quantum computer development
+ key points
+the study describes and illustrates the interrelation
+ships and concepts outlined here in detail it provides an
+ c urrently used publickey cryptography such as rsa
+overview and classification of current technologies and
+diffiehellman elgamal or ecc is threatened by
+stakeholders algorithmic innovations such as the opti
+quantum computing
+mization of known or the description of new quantum
+algorithms leading eg to alternative quantum computer  c urrent cryptographically relevant quantum algo
+realizations or less required quantum error correction rithms essentially require successful quantum error
+or lower number of required qubits are included the correction qec
+peripherals for operating a quantum computer are also
+ i nnovations in quantum algorithms can reduce the
+considered and residual risks such as potential rapid de
+technological demands for the realization of quan
+velopments are specifically identified overall the study
+tum computers
+provides a structured view of the development status of
+quantum computers it shows that an enormous effort  c ryptanalytical advances based on already available
+would currently be required to achieve cryptographically noisy intermediate scale quantum nisq devices
+relevant scaling at the same time however it becomes cannot be ruled out
+clear that the development has gained momentum due to
+ t he commercialization of quantum computing has
+strong industrial players and large research programmes
+already begun for example with widespread availa
+and that further commercial applications could acceler
+bility of quantum as a service qaas
+ate it even more
+ 
+quantumsafe cryptography   quantum computers and their application in cryptography
+ 
+quantumsafe cryptography   postquantum cryptography
+
+ 
+quantumsafe cryptography   postquantum cryptography
+ postquantum cryptography
+virtually all asymmetric cryptographic schemes cur asymmetric cryptographic schemes have the advantage
+rently in use are threatened by the potential develop that secret keys do not have to be distributed securely in
+ment of powerful quantum computers postquantum advance each communication party has a pair of keys
+cryptography is one way to address this threat its secu one of the keys is public the second one is secret for
+rity is based on the difficulty of mathematical problems this reason asymmetric cryptography is also known as
+that are currently believed not to be efficiently solvable publickey cryptography an appropriate illustration is a
+ even with quantum computers mailbox into which anyone can deliver messages which
+are then protected from access by third parties because
+only the owner of a key for the mailbox can retrieve and
+ s tateoftheart cryptography
+read the messages to encrypt a message in publickey
+and the threat of quantum
+cryptography it is encrypted with the recipients public
+key and only the owner of the secret key can decrypt the
+computers
+message compared to symmetric cryptography how
+symmetric and asymmetric cryptographic schemes dif ever asymmetric algorithms are generally less efficient
+fer in the way the cryptographic keys are distributed asymmetric methods are used in particular for exchang
+ing keys see info box key agreement for symmetric
+with symmetric cryptographic schemes the communi
+methods via open communication networks such as
+cation partners must be in possession of a shared secret
+the internet and for generating signatures see info box
+key this is comparable to a safe that protects contents
+digital signatures
+from access by third parties and can only be opened
+by those who have the matching key one advantage
+of symmetric methods is their efficiency which is why
+they are generally used for encryption a disadvantage
+however is that the keys have to be securely exchanged
+between the communication partners in advance public
+key
+plaintext ciphertext
+key
+private
+key
+plaintext ciphertext
+figure s chematic representation of asymmetric encryption and
+decryption
+key
+figure s chematic illustration of a symmetric encryption
+or decryption
+ 
+quantumsafe cryptography   postquantum cryptography
+key agreement
+in a key agreement protocol two parties agree on a common transport key encapsulation mechanism kem in a key
+cryptographic key this key is then usually used to commu exchange both parties contribute to the jointly negotiated
+nicate with each other in encrypted form using a symmetric key the classic example is the socalled diffiehellman key
+encryption scheme however to agree on this symmetric key exchange in a key transport procedure in simple terms one of
+an asymmetric algorithm publickey cryptography is used to the two parties generates a symmetric key and sends it to the
+enable secure exchange via a potentially insecure channel other party in an asymmetrically encrypted form however in
+some of the currently discussed key transport procedures see
+in key agreement a distinction is made between two different
+section  the public key of the second party enters into the
+mechanisms key exchange key exchange kex and key
+generation of the key
+asymmetric cryptography is based on the construction however with the development of a powerful quantum
+of socalled oneway functions these are functions that computer on which shors algorithms see section 
+are relatively easy to calculate but whose inversion is not can be used the security of the publickey cryptography
+considered feasible in practice an example is the multipli used today will be seriously endangered in the future
+cation of two very large prime numbers   bits ie a this also affects commonly used key agreement schemes
+number with about  decimal digits while the multi see info box key agreement which is an essential
+plication can be computed very quickly the inversion ie element for protecting the confidentiality of data this
+the decomposition of the approximately  bit result is especially true for data that must be kept confidential
+into its two prime factors is not possible in an acceptable over a long period of time for example if a key exchange
+amount of time according to the state of the art on clas is recorded by an attacker today it is possible that in
+sical computers available today this forms the basis for the future once cryptographically relevant quantum
+todays common rsa schemes for encryption and digital computers become available the attacker will be able to
+signatures which are intended to guarantee the confiden calculate the shared key and decrypt and read the data
+tiality and authenticity of messages another mathemat encrypted with it this scenario is also known as store
+ical basis for the construction of oneway functions is the now decrypt later
+socalled discrete logarithm problem dlp methods for
+key agreement for example are based on this problem
+digital signatures
+in a digital signature scheme a message is provided with a attack an attacker inserts himself into a communication
+value that allows the authenticity integrity and nonrepudia without the original communication partners being aware of
+ble authorship of the message to be verified digital signature this mutual authentication using digital signatures effectively
+schemes are asymmetric cryptosystems the private key is prevents this attack
+used for signature generation the public key can be used to
+authentication by means of a digital signature requires that
+verify a signature
+the originator of the signature can be confirmed for this
+digital signatures are for instance used to prevent maninthe purpose digital certificates are used a digital certificate binds
+middle mitm attacks as part of key agreement in a mitm a public key to the identity of its owner within the framework
+ 
+ there are also more complex variants in which more than two parties
+agree on a common key however these are not considered here
+quantumsafe cryptography   postquantum cryptography
+of a public key infrastructure pki common certificate validating certificates based on the x standard that is
+formats are pgp rfc and x x as a rule a strictly hierarchically structured by means of certification
+public key infrastructure is understood to be a system for authorities cas
+in contrast to key agreement digital signature schemes broken by quantum computers using shors algorithms
+are not affected by the store now decrypt later scenar symmetric primitives such as block ciphers eg aes
+io this is due to the fact that the validity period of the or hash functions eg sha sha are considered
+signatures can usually be limited and thus a renewal of fundamentally resistant to quantum computer attacks
+the signature or the replacement of the signature pro according to current research as long as the key lengths
+cedure can be designed as required this consideration are adjusted accordingly this is because while brute
+ considered on its own  is indisputable for the authenti force attacks or algorithms for finding collisions in hash
+cation of a key agreement however a smooth migration functions can be accelerated by quantum algorithms
+of existing digital infrastructures is costly and takes a such as grovers search algorithm they still cannot be
+certain amount of time these migration periods must carried out efficiently in polynomial time cf section
+be taken into account especially in the case of signatures  in the case of aes for example it is assumed that the
+valid for longer periods eg in the context of public key use of a key length of  bits provides sufficient protec
+infrastructures tion against quantum computer attacks in the long term
+while asymmetric cryptosystems based on the factori
+zation or discrete logarithm problem can be completely
+how much time is left for migration
+to estimate when the migration to quantumsafe cryptog  y be the number of years needed to convert the
+raphy is necessary the following consideration by theoreti corresponding system to quantum computerresistant
+cal physicist m mosca from mos is very illustrative cryptography and
+let  z be the number of years it will take for quantum comput
+ x be the number of years that the data to be protected ers to exist that threaten the cryptography currently in use
+must remain secured
+then if xy  z you have a problem
+y x
+z data are no longer protected
+time
+figure illustration of moscas theorem
+ 
+quantumsafe cryptography   postquantum cryptography
+this statement has become known as moscas theorem assume that xyz holds then one can intercept the last
+even though it is of course a rather obvious statement in the data that is not yet secured in a quantumsafe manner and
+following we give a few more details decrypt it within the time in which it should be secured
+thus the migration to quantumsafe cryptography must
+if the migration to quantumsafe cryptography is started
+start early enough that xyz still holds for all data to be
+today it will be completed after y years how large y is
+protected but how large is z
+depends on various factors such as the extent to which
+systems are affected and the availability of quantumsafe al for national security systems bsi works under the hypoth
+ternatives an important first step is therefore to take stock esis that cryptographically relevant quantum computers will
+and develop a migration plan see section  be available in the early s bt bt
+it should be emphasised that this statement is not to be
+the last data that was still encrypted with the old methods
+understood as a forecast of the availability of quantum
+will thus be generated in y years and should then be secured
+computers but rather represents a benchmark for risk
+for another x years in the case of realtime communication
+assessment bsi has therefore initiated the shift to quan
+this time period x can be vanishingly small in contrast
+tumsafe cryptography in line with the federal governments
+sensitive medical information for example should remain
+framework programme quantum technologies  from basic
+secure for several decades
+research to market bmbf
+ p ostquantum cryptography
+to counter the threat to todays asymmetric cryptogra  h ashbased cryptography the security of hash
+phy by quantum computers a new field of cryptographic based signature schemes is based on the security
+research has emerged postquantum cryptography properties of the hash function used
+postquantum cryptography deals with the development  i sogenybased cryptography isogenybased schemes
+and investigation of asymmetric cryptosystems which base their security on the fact that it is difficult to
+according to current knowledge cannot be broken even find an isogeny between two supersingular elliptic
+with powerful quantum computers these methods are curves if one exists
+based on mathematical problems for whose solution nei
+ m ultivariate cryptography the security of multi
+ther efficient classical algorithms nor efficient quantum
+variate cryptography is based on the assumption that
+algorithms are known today in current research various
+multivariate polynomial systems of equations over
+approaches are being pursued to realize postquantum
+finite fields are hard to solve
+cryptography these include among others
+in the following only the first three classes will be dis
+ c odebased cryptography the security of code
+cussed further since the postquantum schemes currently
+based schemes is based on the difficulty of efficiently
+recommended by bsi belong to these classes multivariate
+decoding general errorcorrecting codes
+schemes have a long history of attacks and fixes currently
+ l atticebased cryptography the security of lat bsi does not intend to recommend the use of multivariate
+ticebased schemes is based on the difficulty of solv schemes cryptography based on isogenies mappings
+ing certain computational problems in mathematical between elliptic curves with special properties is an inter
+lattices esting research topic that bsi believes should be explored
+further before a recommendation is considered
+ 
+quantumsafe cryptography   postquantum cryptography
+ codebased cryptography
+errorcorrecting codes
+errorcorrecting codes make it possible to detect and that this problem is nphard in general bmt ie it is a
+correct errors in stored or transmitted data they are used in difficult computational problem as long as pnp essentially
+all storage and communication solutions such as cddvd all approaches focus on solving a linear system of equations
+dvb wlan mobile radio and satellite communication yzh where y is the received message and h describes the
+their history goes back to the pioneers of modern informa general code to then find a minimal element z among all
+
+tion theory richard hamming and claude shannon solutions
+the simplest example of an errorcorrecting code is the
+repetition code which repeats each piece of information  
+multiple times and corrects errors using majority voting
+that is a bit sequence  is encoded as     if
+ 
+one receives a packet  this is decoded as  in general
+error detection and correction depend on the socalled
+hamming distance
+ 
+modern error correction methods with special encoding
+rules allow highly efficient correction mechanisms a much
+more general question is posed by the general decoding  
+problem the problem of decoding a received message figure hamming distance in a bit example
+based on a random or unstructured code it is well known source httpsuserscecsanueduaujkshamminghtml
+codebased cryptography refers to encryption key agree a major disadvantage is the space requirement of the pub
+ment and signature algorithms whose security is based lic key this can be reduced by a variant of the mceliece
+on the general decoding problem cryptosystem described by harald niederreiter nie
+in  but still remains in the megabyte range for
+its most prominent representative is the mceliece crypto
+highsecurity applications on the other hand however
+system an asymmetric encryption scheme introduced in
+the ciphertexts of codebased key agreement schemes
+ by robert mceliece mce its security is based on
+are very small about  bytes and the encryption and
+two assumptions the first assumption is that the binary
+decryption is much more efficient than rsa or ecbased
+goppa codes used are indistinguishable from random
+asymmetric encryption schemes recent proposals have
+linear codes the second assumption is that random
+introduced more structure into the class of codes used to
+linear codes can only be decoded with exponential effort
+significantly reduce the space required by the public key
+due to the general decoding problem both on digital
+eg mb however these additional structures have led
+and quantum computers apart from an adaptation of
+to successful attacks on some of these proposals fo
+the parameters originally proposed by mceliece these
+have been attacked in the light of modern computing traditional codebased signature schemes eg cfs
+power in  by bernstein lange and peters in about  have so far exhibited significant efficiency problems and
+operations blp after more than  years of research are therefore only of theoretical interest alternative
+it has not been possible to find a structural weakness of approaches for more efficient signature schemes bb
+the mceliece cryptosystem when binary goppa codes are which are based on coding theory are still at a very early
+used thus the mceliece cryptosystem can be considered stage
+to be one of the oldest unbroken quantumsafe proposals
+ 
+quantumsafe cryptography   postquantum cryptography
+ latticebased cryptography
+mathematical lattices
+a lattice is a discrete subgroup of an ndimensional real vec problems such as the learning with errors lwe problem
+tor space in simplified terms subgroup here means that you here one is given a noisy linear system of equations in the
+can add lattice points and thereby get a lattice point again form of a matrix a and a vector base mod q for an integer
+discrete essentially means that there is a minimum distance modulus q and is supposed to find the secret vector s the
+greater than zero so that any two different lattice points error vector e which is also secret is a short vector that
+have at least this distance thus lattice points cannot be can be interpreted as a perturbation of the linear system of
+arbitrarily close to each other it is easy to see in the figure equations one can show that the lwe problem is asymptot
+why this is called a lattice there are also special lattices that ically at least as hard to solve as a variant of the svp given a
+have additional algebraic structure this additional structure suitable parametrisation
+allows to construct more efficient cryptosystems however
+it may also provide a bigger attack surface
+for example a difficult computational problem in lattic
+es is the socalled shortest vector problem svp the
+problem of finding a shortest nonzero lattice vector ie
+
+ 
+a nontrivial lattice point that is as close as possible to the
+origin while one can still solve the problem relatively easily 
+for lowdimensional lattices for example using the lll al
+gorithm lll neither classical algorithms nor quantum
+algorithms are known which solve the problem efficiently in
+higher dimensions for general lattices
+however modern latticebased cryptosystems are often
+not based directly on this problem but on computational figure example of a dimensional lattice
+the security of many cryptographic schemes is based on ich goldwasser and halevi ggh were introduced
+the assumed hardness of lattice problems  from basic however the standard version of the ntru problem is
+primitives such as encryption key agreement and digital currently not proven to be at least as hard as worstcase
+signatures to cryptographic schemes with extended lattice problems nevertheless given a suitable choice of
+functionality such as fully homomorphic encryption parameters ntrubased methods have not been broken
+to date
+for cryptographic applications the work of ajtai ajt
+is of fundamental theoretical importance proving another milestone in the history of latticebased cryp
+worstcase to averagecase reductions for certain lattice tography was the introduction of the socalled learning
+problems one of the first latticebased schemes is by with errors lwe problem see info box mathemati
+ajtai and dwork ad which is however relatively cal lattices by regev reg in  many of todays
+inefficient latticebased encryption and key agreement schemes are
+based on the lwe problem or one of its variants
+in search of practical lattice schemes the ntru encryp
+tion scheme of hoffstein pipher and silverman hps these variants such as ring lwe lpr or module lwe
+and the ajtaidwork inspired cryptosystem of goldre bgv ls were introduced to increase efficiency and
+ 
+quantumsafe cryptography   postquantum cryptography
+reduce key sizes they are based on the assumption that latticebased cryptosystems have received broader atten
+lattice problems are hard to solve even in lattices with tion at the latest since the latticebased method new hope
+additional algebraic structure the ntru cryptosys was experimentally tested in googles chrome browser
+tem mentioned above is also based on lattice problems they have received a lot of attention in cryptographic
+in structured lattices however besides the increased research and make up a large part of the finalists in the
+efficiency the additional structure in such latticebased current nist standardization process see section 
+cryptosystems also carries the risk of potentially pro
+a more detailed insight into the history of latticebased
+viding further attack vectors whether structured and
+cryptography can be found in pei bsi has commis
+unstructured lattices provide the same level of security is
+sioned a study to evaluate latticebased schemes bsi
+an important research question that should be investi
+this study also describes the basics of latticebased
+gated further cf also section 
+cryptography
+ hashbased cryptography
+hash functions
+hash functions are compression functions that basically map
+input data of any length to fixed length values eg  bits
+usually a cryptographic hash function h is used which has
+the following security properties
+figure merkledamgrd construction
+ oneway function preimage resistance it is practically source httpsdewikipediaorgwikidateimerkledamgardsvg
+impossible to find an input value x for a given hash value y
+such that hxy
+ weak collision resistance second preimage resistance
+it is practically impossible to find a second x for a given
+input value x such that the hash values match hxhx
+ strong collision resistance it is practically impossible to
+find two input values x and x such that the hash values
+match hxhx
+commonly approved construction principles for hash func
+tions are the merkledamgrd and sponge construction for figure sponge construction
+source httpsdewikipediaorgwikidateispongeconstructionsvg
+the sha and sha families respectively
+ 
+quantumsafe cryptography   postquantum cryptography
+onetime signatures and hash trees
+onetime signature schemes ots allow a private key only lateral environment with many communication partners
+to be used once to generate a signature the lamportdiffie onetime signature schemes are highly unpractical this
+or winternitz ots are among the bestknown such schemes problem was solved by ralph merkle in  mer he is
+onetime signature schemes can be illustrated with the credited with the invention of the hash tree or merkle tree
+following example in which the public keys hx and hx in the example are
+compressed in pairs using a cryptographic hash function
+suppose a person a wants to be able to communicate a yes
+this procedure is repeated until one arrives at the socalled
+no decision to a fixed reference person b on short notice via
+root of the resulting binary tree the value of the root in this
+an untrusted channel for this purpose a can make use of
+merkle signature procedure is now the public key which is
+a oneway function h eg a cryptographic hash function
+the same for all individual private keys
+compute two values y hx for yes and y hx for
+no and communicate the values y and y as well as the
+used oneway function h to his fixed reference person b
+eg in person before such a decision occurs person a is
+now able to reliably communicate his decision over an open
+channel he either transmits x for yes or x for no for
+example if person b receives x b computes the value hx
+and determines y hx ie yes because of the oneway
+function no one is able to manipulate the decision as long as
+x and x are kept secret by a
+the example illustrates that a private key here x and x
+may only be used once if one wants to make many authentic
+yesno decisions eg sign a binaryencoded message
+  one potentially needs a large set of
+private and public keys therefore in a digital and multi figure merkle tree
+hashbased cryptography is a generic term for cryp procedure results in the loss of security and thus high
+tographic constructions based on the security of hash requirements are imposed on the implementation and
+functions essentially the terminology refers to digital usage in addition the number of possible signatures is
+signatures that are constructed with the help of hash limited when generating keys a tradeoff must be made
+trees and onetime signature schemes a distinction is between signature size and the number of signatures that
+made between stateful and stateless hashbased signa can be created therefore merkle signatures in addition
+tures to symmetric methods are particularly suitable for fu
+tureproof software update concepts where statefulness
+the construction of hashbased signatures goes back to
+can be handled well and the maximum number of re
+ralph merkle mer which is why they are also referred
+quired signatures can be estimated accordingly merkle
+to as merkle signatures the security properties of merkle
+signatures are recommended in technical guideline tr
+signatures are very well understood and in their current
+ under the satellite data security act satdsig as
+form lms lm xmss bdh they are considered
+futureproof digital signature schemes for updateable
+to be mature quantumsafe signature schemes how
+crypto module by signature methods tr 
+ever a key drawback is their statefulness the signer
+in general bsi has long recommended merkle signatures
+must keep exact track of which onetime signature keys
+mer as quantumsafe signatures in its technical
+have already been used any error in this track keeping
+ 
+quantumsafe cryptography   postquantum cryptography
+guideline tr tr the stateful hash the first round in january  based on public com
+based signature schemes lms and xmss have already ments from the research community and nists internal
+been standardized by the ietf as rfc rfc  and analysis nist selected  of these candidates to advance
+rfc rfc  respectively nist has adopted these to the second round these  secondround candidates
+standards as special publication  sp include  schemes for asymmetric encryption or key
+both standards were also incorporated into tr agreement and  digital signatures schemes then in
+in  in parallel hashbased signature schemes in the july  nist announced the candidates that will
+form of lms have found their way into cryptographic advance to the third round nist divided the third round
+message syntax cms rfc  and concise binary candidates into finalists and alternate candidates
+object representation cose rfc  cms and cose the reasons why some schemes were named alternate
+are basic data formats that are used for example in s candidates vary widely it is anticipated that a selection
+mime and iot respectively of finalists will be standardized at the end of the third
+round nist announced in june  that there will be a
+as a stateless variant of a hashbased signature scheme
+fourth round at the end of which additional candidates
+sphincs bh has been developed in recent years it
+may be standardized the finalists of the third round
+goes back to a design by goldreich gol while it is no
+are the four asymmetric encryption or key agreement
+longer necessary to keep track of which signature keys
+schemes classic mceliece abc crystalskyber
+have been used this statelessness entails certain efficien
+sab ntru cdh and saber dkr as well
+cy disadvantages eg signature size due to its design
+as the three signature schemes crystalsdilithium
+principles compared to lms and xmss in a concrete ap
+ldk falcon pfh and rainbow dcp
+plication scenario it must be assessed whether sphincs
+the eight alternate candidates are bike abb fro
+is a suitable solution despite the efficiency disadvantages
+dokem nab hqc mab ntru prime bb
+sike jac gemss cfm picnic zcd and
+ s tandardization of postquantum
+sphincs hb
+cryptography
+one class of cryptographic schemes that nist has
+considered separately are stateful hashbased signature
+in recent years postquantum cryptography has gained
+schemes sp this is because they were standard
+considerable importance in august  the us na
+ized early on by the ietf due to their wellunderstood
+tional security agency nsa warned about the impact
+security properties see section 
+of quantum computers on the security of cryptographic
+schemes and initiated a migration to postquantum according to nist the first drafts of standards from the
+cryptosystems as justification the nsa has cited ad nist process are not expected until between  and
+vances in physics and technology that could enable the  and final standards not before  due to the
+development of a cryptographically relevant quantum urgency of the transition to quantum computerresistant
+computer the nsa did not name any specific postquan key agreement procedures bsi has recommended two
+tum algorithms but referred to the future standards of these schemes in its technical guideline tr
+of the national institute of standards and technology tr already at the beginning of  for the first
+nist time at the same time this should provide orientation
+for the german crypto industry and allow it to develop
+in the past nist has conducted competitions that
+marketready products at an early stage and it will help
+have produced the widely recognized algorithms aes
+bsi to focus security investigations on relevant algo
+and sha in line with the nsa announcement nist
+rithms the two schemes are the latticebased frodokem
+started a process in november  at the end of which
+nab and the codebased classic mceliece abc
+a selection of postquantum schemes should be avail
+both of which were in the second round of the nist
+able this process is conducted in several rounds by
+process at the time while classic mceliece is now among
+the november  submission deadline a total of 
+the finalists for the third round frodokem was included
+proposals were submitted of which  met the mini
+in the list of alternate candidates see section 
+mum criteria and were accepted by nist as candidates in
+ 
+ see httpscsrcnistgovprojectspostquantumcryptography
+quantumsafe cryptography   postquantum cryptography
+parallel to the nist process and also in the context of thus frodokems standardization could likely wait until
+postquantum cryptography there are other standardi after the end of the third round and frodokem could
+zation activities the chinese association for cryptologic also serve as a conservative backup if cryptanalytic
+research cacr held a national competition from  advances were made regarding lattices with additional
+to  the russian technical committee for stand algebraic structure since the reason frodokem was not
+ardization cryptography and security mechanisms included in the list of thirdround finalists does not con
+tc of the national standards organization rosstan cern the security of the scheme bsi continues to stand
+dart established a working group in february  that by its recommendation of frodokem
+aims to finalize draft standards by the end of  fed
+classic mceliece is a codebased key transport scheme
+bsi welcomes the nist process as a method of defining based on niederreiters variant nie of the mceliece
+standards in a transparent international process that can encryption scheme mce instantiated with binary
+then be used worldwide it is particularly opposed to a goppa codes the original mceliece cryptosystem was
+separate process for standardising german or european introduced as early as  so it has a long history of not
+algorithms a proliferation of international standards being broken compared to other postquantum crypto
+would both hamper interoperability and reduce the systems one drawback of the scheme is that it requires
+market opportunities of crypto producers in addition a very large public keys compared to other candidates
+splitting of personnel and research resources would lead which could make its use problematic for some scenar
+to a lower evaluation quality for those algorithms that ios
+are ultimately selected
+the other finalists in the nist process among the key
+agreement schemes are the structured latticebased
+ k ey transport
+crystals kyber ntru and saber the remaining
+alternate candidates are the codebased methods bike
+the nist process originally sought methods for both
+and hqc the structured latticebased ntru prime and
+key transport and encryption however it has become
+the isogenybased scheme sike
+apparent that the submissions essentially focused on
+key transport and defined asymmetric encryption only
+ signature schemes
+as a preliminary stage for such a mechanism therefore
+the description in this section is limited to key trans
+the finalist candidates for signature schemes in the
+port procedures it mainly deals with the frodokem
+third round of the nist process are the latticebases
+and classic mceliece methods which are recommend
+schemes crystals dilithium and falcon and the
+ed by bsi frodokem is a latticebased key transport
+multivariate scheme rainbow
+scheme whose security is based on the assumption that
+the socalled learning with errors lwe problem see the security of crystalsdilithium is based on the
+info box mathematical lattices is difficult to solve for lattice problems modulelwe and modulesis which
+classical and quantum computers unlike many other are structured variants of the lwe and sis short integer
+latticebased schemes in the nist process frodokems solution problems respectively overall dilithium has
+underlying lattices have no additional algebraic struc good performance moderate key and signature sizes
+ture although it is not known whether such additional and is easier to implement than falcon according to
+structure can be exploited by attackers frodokem thus nist maa
+eliminates this risk on the other hand frodokem is
+the security of falcon is based on the sis problem
+somewhat more inefficient compared to some other
+instantiated with socalled ntru lattices which also
+latticebased key transport schemes further informa
+have additional structure one design goal of falcon is
+tion on frodokem can also be found in the bsi magazine
+compactness ie minimizing the sum of the sizes of the
+hag nist justifies the decision to include frodokem
+public key and the signature signing and verification
+in the list of alternate candidates by stating that although
+with falcon are also efficient but key generation is
+frodokem has potential security advantages over other
+slower compared to dilithium
+latticebased schemes it also offers poorer performance
+ 
+ see httpsfiscacrnetorgcn
+quantumsafe cryptography   postquantum cryptography
+due to new attacks on multivariate methods in the third
+round of the nist process it is currently not expected
+that rainbow will be standardized beu nist has
+announced that it will not standardize both dilithium
+and falcon at least not at the end of the third round
+furthermore nist plans to accept new proposals for
+signature schemes within  months after the end of
+the third round of the standardization process in this
+case especially those schemes will be considered which
+are not based on structured lattices see also nist
+among the alternate candidates in the nist process
+sphincs hb is a conservative choice as a stateless
+hashbased method nist sees sphincs as a directly
+available alternative should cryptanalytic advances
+limit confidence in the security of the finalists other
+alternate candidates include picnic and gemss where
+picnic is based on symmetric primitives and zeroknowl
+edge techniques and gemss is a multivariate signature
+scheme
+ key points
+ t he development of powerful quantum computers is
+a threat to publickey cryptography used today
+ for highsecurity applications bsi works under the
+hypothesis that cryptographically relevant quantum
+computers will be available in the early s
+ postquantum cryptography offers a quantumsafe
+alternative to currently used publickey cryptosys
+tems these schemes can be implemented on conven
+tional hardware
+ postquantum cryptography is currently being
+standardized in a process by the us national institute
+of standards and technology however final stand
+ards will not be available until  at the earliest
+ bsi has already made recommendations for
+postquantum key agreement mechanisms in 
+from a security perspective the two recommended
+schemes are conservative choices
+ hashbased signatures are recommended by bsi but
+cannot be used for every application
+ 
+quantumsafe cryptography   further development of cryptographic protocols
+
+ 
+quantumsafe cryptography   further development of cryptographic protocols
+ further development of
+cryptographic protocols
+for the future use of postquantum cryptography it is not a key derivation function kdf is a function that is used
+sufficient to standardize cryptographic algorithms rather to derive cryptographic key material from a shared secret
+it is also necessary to adapt cryptographic protocols to the for example for the encryption of user data this is used for
+new algorithms this is due for example to the fact that example to bind key material to protocol data or to derive
+in many protocols the lengths allowed for the public keys session keys from a master key such a kdf may be used in
+are limited and are no longer sufficient for the new algo the context of a hybrid key agreement for example to de
+rithms the essential point however is that postquantum rive a common cryptographic key from the resulting shared
+algorithms should generally not be used alone but only in secrets of the individual key exchanges if necessary in ad
+hybrid mode ie in combination with a classical proce dition to the shared secrets a common predistributed key
+dure changes in protocols and standards must be initiated a socalled preshared key can also be accepted as input
+and codesigned by the industry this work is already in bsi recommends a key derivation function according to
+progress for many protocols this chapter describes what spc which also takes the hybrid case into account
+bsi understands by a hybrid approach and reports on the
+bsi does not recommend combining the shared secrets
+current developments in ikev tls and x
+using a pure xor because it has theoretical weaknesses for
+example this construction only preserves the indcpa
+ h ybrid approaches for key
+security of the key agreement algorithms ghp lemma 
+and  the stronger indcca security of corresponding
+agreement and digital signatures
+key agreement algorithms is generally lost
+at present postquantum cryptographic schemes are
+if a qkd key see chapter  is to be used in a hybrid key
+generally not yet trusted to the same extent as established
+agreement scheme this is currently regarded by bsi as an
+cryptosystems since they have not been equally well stud
+additional optional input two additional inputs would then
+ied in terms of sidechannel resistance and implementation
+still be required
+security for example at the same time however a switch
+to quantumsafe schemes must be made in a timely man
+ner for this reason the idea of not using postquantum
+cryptography in isolation but only in combination with
+established algorithms has generally gained acceptance
+ k ey agreement
+the idea of hybrid key agreement can be described as
+follows one performs a classical key exchange and an
+other key agreement with a quantumsafe algorithm the
+obtained shared secrets are then combined in a suitable way
+to obtain a secret key for the encryption of the payload data
+difficulties arise if one wants to implement this idea in an
+existing protocol for example the internet key exchange
+ike protocol furthermore the question arises how the
+derivation of the secret key from the shared secrets should
+be done concretely this will be discussed in the following
+ 
+quantumsafe cryptography   further development of cryptographic protocols
+keys from at least  of the following
+ a classical key exchange
+ a postquantum key exchange
+ preshared keys
+optional in addition qkdkey
+additional parameter requested length
+n of key
+kdf
+additional input
+hybrid key of length n
+figure s chematic representation of the hybrid key agreement by
+means of a key derivation function kdf
+ hybrid signatures and adaptation of classical algorithms such as ecdsa in the form of
+public key infrastructures
+hybrid certificates is an obvious idea for public key
+infrastructures migration paths for the introduction of
+when using digital signature algorithms for message quantumsafe schemes are currently being worked on as
+authentication and the design of public key infrastruc an alternative to migrating in one go at a fixed deadline
+tures one faces similar problems as with key agreement or using parallel pkis these aspects and specifically the
+in security protocols here too using a combination x certificate format are discussed in more detail in
+of quantumsafe signature algorithms and established section 
+ internet key exchange protocol
+version  ikev
+internet key exchange ike
+the internet key exchange ike protocol is used to negoti rfc  the original version ikev is deprecated but
+ate the key material and to authenticate the communication still in use the figure shows the sequence of a key negotia
+partners for ipsec connections the current version is ikev tion with ikev
+ 
+quantumsafe cryptography   further development of cryptographic protocols
+initiator responder
+ikesainit
+ hdr sa  ke n
+i i i
+ hdr sa  ke n certreq
+r r r
+ikeauth
+ hdr sk id cert certreq
+i
+id auth sa  ts ts
+r i i r
+ hdr sk id cert id auth
+i r
+sa  ts ts
+r i r
+in the ikesainit messages the security association only a diffiehellman key exchange is provided in the key
+payload sai or sar is used to negotiate which algorithms exchange payload kei and ker the public keys for this
+are to be used for encryption key agreement and authenti diffiehellman key exchange are transmitted
+cation more precisely the initiator sends proposals and the
+during the ikeauth phase the key agreement performed
+responder selects one from each of these the methods are
+in the ikesainit phase and all data exchanged up to that
+encoded in transform types for the key agreement there
+point are subsequently authenticated
+is currently only the transform type dhgroup because
+key negotiation via the internet key exchange ike   postquantum cryptography brings new key ex
+protocol is essentially based on a classical diffiehellman change methods most of these methods that are
+key exchange over finite fields dh or elliptic curves known to date have much larger public keys than
+ecdh see info box internet key exchange so quan conventional diffiehellman public keys directly
+tumsafe alternatives are urgently needed using these methods in ikev might lead to a num
+ber of problems due to the increased size of initial
+the ip security maintenance and extensions ipsecme
+ikev messages the working group will analyze the
+working group of the ietf is responsible for adjustments
+possible problems and develop a solution that will
+and extensions to ipsec in the ipsecme charter there
+make adding postquantum key exchange methods
+are two fields of action related to the resistance of ikev
+more easy the solution will allow post quantum key
+against quantum computers
+exchange to be performed in parallel with or instead
+of the existing diffiehellman key exchange
+  ikev using shared secret authentication was
+partially resistant to quantum computers ikev
+the first point refers to the fact that ikev offers the
+removed this feature to make the protocol more us
+possibility of using a key distributed by other means
+able the working group will add a mode to ikev or
+preshared key for authentication which is additionally
+otherwise modify the sharedsecret mode of ikev to
+included in the derivation of the session keys for ipsec
+have similar or better quantum resistant properties
+this provides a quantumsafe mechanism for key nego
+to those of ikev
+tiation at least for a limited set of participants provided
+that the cryptographic techniques used for key deriva
+tion provide an appropriate level of security
+ 
+ see httpsdatatrackerietforggroupipsecmeabout
+quantumsafe cryptography   further development of cryptographic protocols
+with ikev there is also the possibility to authenticate previously and do not fit into the key exchange payload
+via a predistributed key but this key does not enter into of the initial ike message ikesainit in addition
+the key derivation thus in this case the session keys for ikev does not provide a way to fragment these initial
+ipsec are only based on the asymmetric ecdh secret messages this can lead to fragmentation at the ip level
+and are thus not quantumsecure to change this an during the usual transport via udp and thus to the loss
+internet draft for a request for comments rfc was of individual packets at some network nodes and conse
+published back in september  by scott fluhrer et al quently to the failure of the negotiation of the security
+to enable the use of predistributed keys for key deriva association transmission of large keys is possible via the
+tion in ikev this internet draft was adopted by ipsec ikeintermediate messages since there is an ikespecific
+me in october  and has since been published as rfc mechanism for fragmentation of these see rfc 
+ rfc  it should be noted that in this solution here too however the size of the keys is limited by the
+the preshared key is included in the authentication keys size of an ike encryptedpayload
+and the key for further key derivation but not in the keys
+another potential protocol change that would enable
+with which the ike messages are encrypted and protect
+the use of large public keys is the adjustment of the
+ed against manipulation this means that authentication
+maximum ikev payload size from the current  kb
+and the ipsec connection are quantumsafe but not the
+this limitation goes back to the specification to encode
+ike connection as long as it is not renewed by rekeying
+the length of a payload in a field of size  bytes various
+the use of preshared keys is a transitional solution that approaches are currently being discussed as to how large
+can only be implemented with a small group of partici messages can be transported in ikev messages despite
+pants due to the complex key management the inter this length limitation ths
+net draft tt offers a proposal for a more promising
+solution it proposes an approach for hybrid key agree
+ment that is very flexible this uses a socalled inter
+mediate exchange which is described in the internet
+draft smy here another pair of messages ikein
+termediate is exchanged between ikesainit and
+ikeauth see info internet key exchange ike in
+tt seven new transform types are defined that can
+be included in the initial message each of these trans
+form types contains a list of supported quantumsafe
+key agreement algorithms thus up to seven additional
+key negotiations can be performed however each of
+these key negotiations requires an additional interme
+diate exchange in addition transform type  which
+was previously used for negotiating the group used for
+the diffiehellman key exchange and is consequently
+named diffiehellmangroup is renamed kemethod
+ke  key exchange the list for selecting the possible
+methods that can be negotiated via transform type  is
+the same as the list from which the methods for the other
+key exchanges are selected this means that a classical
+diffiehellman exchange does not necessarily have to be
+carried out for the initial key agreement but a quan
+tumsafe method can already be selected
+one potential problem here is that the public keys of
+some algorithms are considerably larger than those used
+ 
+quantumsafe cryptography   further development of cryptographic protocols
+ transport layer security tls
+transport layer security tls
+the transport layer security tls protocol is used for client server
+the secure transmission of data on the internet the latest
+client hello
+version is  rfc  in a socalled tls handshake the
+supported cipher suites
+required keys are negotiated and the communication part key share server hello
+chosen cipher suite
+ners are mutually authenticated key share
+certificate  signature
+finished
+finished
+http get
+http answer
+figure rough procedure of a handshake in tls 
+up to now classical methods such as rsa or ecdh in april  the ietf tls working group published
+have been used for key negotiation in the tls handshake a draft rfc sfg proposing a solution for hybrid key
+agreement in tls  with the intention to submit it
+back in  google conducted an experiment in which
+for final approval by the internet engineering steering
+the new hope algorithm was implemented on a test
+group iesg the draft is based on earlier drafts by d
+basis in the chrome browser for key negotiation for
+stebila university of waterloo s fluhrer cisco sys
+tls  connections this experiment has continued
+tems and s gueron amazon web services and essen
+over the last few years in mid a langley and m
+tially proposes to register new object identifiers oids
+braithwaite of google investigated the extent to which
+for combinations of one classical and one postquantum
+key negotiation algorithms submitted to nist can be
+scheme each and to negotiate them via the supported
+integrated into a tls  handshake a key point here
+groups extension in the handshake sfg  negotia
+is that in tls  unlike tls  a client hello includes
+tion however for each combination that the client of
+not only the supported cipher suites but also public keys
+fers it should also already send the corresponding public
+matching the cipher suites this can lead to a huge over
+keys in its client hello message this approach leads on
+head for some of the postquantum schemes submitted
+the one hand to a large number of required new oids and
+to nist which is why schemes with too large a public key
+on the other hand to very large client hello messages
+for example codebased schemes were not considered
+in the project experiments based on structured lattices in the context of tls and postquantum cryptography
+hrssntru hr and isogenies sike jac and in particular of hybrid key agreement many other
+continued in  and were completed in  considerations and concrete efficiency measurements or
+hrssntru and sike were each used with ecdhe in a benchmarks have been made cps pst pdt
+hybrid key agreement the final summary spoke out in skd so that some experience in this is already avail
+favour of structured lattices the results were presented able
+at a workshop of the nist postquantum cryptography
+standardization process ksl
+ see httpswwwimperialvioletorgcecpqhtml  see httpswwwimperialvioletorg
+ see siehe httpswwwimperialvioletorgpqconftlshtml pqsivsslhtml  
+ see e httpswwwimperialvioletorgcecpqhtml  see httpsdatatrackerietforgwgtlshistory
+quantumsafe cryptography   further development of cryptographic protocols
+ x certificates
+digital certificates
+in digital communication certificates are used to authen of the international telecommunication union itu since
+ticate and verify public keys these certificates bind the version  x this standard provides for the possibility
+public key to the identity of its owner within a public key of certificate extensions which for example restrict the
+infrastructure the essential function of a certificate is to intended use of the key the data formats for certificates and
+make the public key of an owner verifiable as authentic their processing are specified in rfc  there steps for
+and belonging to the owner this is achieved by establish the validity check of a certificate the socalled certification
+ing a cryptographic link to a trust anchor via the socalled path validation are described in detail
+certification path to establish this connection each issued
+bsi has developed a certification path
+certificate in the path can be verified with the public key of
+validation test tool cpt to test
+the preceding one by a cryptographic signature further
+implementations of certification path
+more important information is included in each certificate
+validation in libraries and applications
+this can include for example references to the owner or
+information that restricts the intended use or validity of the
+certificate since the associated fields are also included in the tool is available at httpsbsibunddecpt require
+the calculation of the certificates cryptographic signature ments for certificates and certification path validation
+generated by the issuer these values are also trusted as part have also been compiled in technical guideline tr
+of the certificate verification tr
+the most common standard for the format of certificates
+is the x standard of the standardization sector itut
+in october  itut published an update of the described approach does not represent a hybrid solu
+xv standard x for the first time this docu tion if the alternative values for key algorithm and
+ment addresses the problem that new signature schemes signature are available only these should be used or
+must be introduced into certificates or public key checked thirdly the adaptations in the certificate struc
+infrastructures without a migration at a fixed deadline ture are only intended as a transitional solution until the
+the itut concludes it is unlikely that it is possible to migration process to quantumsafe signature schemes
+change cryptographic algorithms simultaneously for all is completed in this regard the itu writes after the
+entities within a pki to enable migration from old to migration period it is expected that new publickey certif
+new schemes certificate extensions subjectaltpublick icates be issued without these extensions and with the new
+eyinfo altsignaturealgorithm and altsignaturevalue set of cryptographic algorithms and the digital signature in
+are specified so that an x certificate can contain an the base part of the publickey certificate x 
+alternative public key x  among the cer
+in addition to the described changes to the certificate
+tificate creation and validation rules described in this
+structure there are initial attempts to define quan
+context as well as the implications for crls and avls
+tumsafe signature schemes within the x standard
+three aspects stand out firstly for compatibility reasons
+especially for the already standardized hashbased sig
+it is recommended to mark the new certificate extensions
+nature procedures lms and xmss there was an advance
+as noncritical x   so that applications
+here in the form of an ietf internet draft vgf which
+that are not aware of the new extensions can also check
+however expired in september  in bsis view these
+the validity of corresponding certificates secondly the
+ 
+quantumsafe cryptography   further development of cryptographic protocols
+signature schemes are most suitable for the design of
+longlived root certificates and less suitable for endus
+er certificates due to them being stateful this view is
+also expressed in the aforementioned rfc hashbased
+signature schemes can thus serve to build a mixed pki a
+mixed pki is understood to mean that different signature
+schemes are used in the enduser certificates than in the
+root certificates
+the ietf working group limited additional mecha
+nisms for pkix and smime lamps has written sev
+eral aspects into its agenda regarding the migration to
+postquantum cryptography on the one hand lamps
+wants to specify the procedures standardised by nist for
+use within the internet profile of x certificates pkix
+see rfc  and within the cryptographic message
+syntax cms on the other hand formats identifiers
+etc for hybrid solutions for key agreement and for digital
+signatures dual signature are to be specified there
+are already first drafts for rfcs for example ogm
+opa opb further details on the discussions of
+lamps regarding postquantum cryptography can be
+found at httpsdatatrackerietforgmeetingproceedings
+in the meeting minutes of the working group
+ k ey points
+ protocols and standard formats must support
+postquantum schemes and in particular hybrid
+solutions
+ the changes must be initiated and shaped by the
+industry the work on this has already been initiated
+for many protocols
+ especially for the migration of public key infrastruc
+tures there are still many open questions
+ hashbased signatures can be a solution for root
+certificates
+ s ee httpsdatatrackerietforggrouplampsabout  
+quantumsafe cryptography   quantum key distribution
+
+ 
+quantumsafe cryptography   quantum key distribution
+ quantum key distribution
+postquantum cryptography develops classical algo look at some important security aspects and limitations
+rithms for encryption authentication and key exchange of qkd discuss certification and standardization activi
+that are intended to be resistant to attacks by quantum ties and conclude with an assessment of the possible use
+computers in contrast quantum cryptography uses of qkd
+quantum physical effects to construct quantumsafe
+cryptographic schemes in contrast to postquantum
+ q kd protocols
+cryptography this usually requires specialized hardware
+to generate quantum states for example moreover the in a qkd protocol two parties usually called alice and
+security of quantum cryptographic schemes is usually bob want to agree on a secret key over an open channel
+attributed to quantum physical principles and not to an attacker who can listen in on and manipulate the
+assumptions on the complexity of certain mathematical communication between alice and bob should not be
+problems able to gain knowledge of the agreed key in contrast to
+classical key agreement methods alice and bob ex
+currently the most widespread and practical technology
+change quantum states in addition to classical informa
+within quantum cryptography is quantum key distri
+tion in qkd protocols moreover the security of qkd
+bution qkd qkd is often discussed as an alternative or
+protocols is not supposed to be based on the complexity
+complement to postquantum key agreement schemes it
+of mathematical problems as is the case with currently
+should be noted that qkd has special security properties
+used schemes but ultimately on quantum mechanical
+and limitations the race to deploy quantum cryptog
+principles in the following the basic principles of how
+raphy was initiated in  with the launch of a chinese
+qkd works will be described
+satellite that uses qkd to generate keys for secure com
+munication a fiberbased qkd network between beijing
+and shanghai has also now been implemented chen
+numerous other qkd networks  also in europe  are
+currently under development after a brief explanation
+of how qkd works in the following we will take a closer
+figure p hoton source developed by fraunhofer iof for the
+generation of entangled photon pairs
+source fraunhofer iof
+ 
+quantumsafe cryptography   quantum key distribution
+qkd system
+rng rng
+classical channel
+alice bob
+quantum channel
+shared key shared key
+plaintext ciphertext plaintext
+encyptor decyptor
+figure systematic representation of a prepareandmeasure qkd system
+a qkd system consists of one qkd device with random number generator at alices end and one at bobs end as well as a
+classical channel and a quantum channel through which the qkd devices are connected to each other the qkd devices
+hand over the shared key to each of the users after the qkd protocol has been successfully executed it can be used for
+example to encrypt messages
+as a prerequisite for a qkd protocol alice and bob practical requirements which cannot be presented in
+must be connected at least via a classical channel and detail here one important class of protocols are the
+via a quantum channel the latter is usually an optical prepareandmeasure protocols here alice encodes a
+channel over which photons are exchanged quantum random sequence of bits in quantum states and sends
+states can be realized for example by the polarization them to bob who makes a measurement on these states
+of photons moreover even before performing the qkd after that alice and bob have correlated bit sequences
+protocol alice and bob must be in possession of a shared using classical postprocessing which requires authen
+secret key for authenticating the classical channel which ticated communication over the classical channel they
+they exchange beforehand by other means this is why extract from it a common shorter bit sequence that forms
+qkd is sometimes referred to as quantum key growing the key the communication over the classical channel
+since strictly speaking qkd protocols use an existing is public but must be authenticated to prevent a simple
+shared key to agree on a longer key in addition many maninthemiddle attack
+protocols require reliable random number generators
+there are a large number of concrete qkd protocols
+with different theoretical security guarantees and
+ 
+quantumsafe cryptography   quantum key distribution
+bb
+the first qkd protocol was proposed by bennett and without being noticed due to the nocloning theorem see
+brassard in  and is now known as bb bb it is a info box the nocloning theorem eve cannot copy the
+prepareandmeasure protocol in which alice sends polar photons because nonorthogonal states are used to encode
+ized photons to bob to generate a shared key the bits it follows from the laws of quantum mechanics
+that any kind of interaction with quantum states by which
+the bb protocol proceeds as follows first alice gen
+information about them can be obtained will on average
+erates random bits and encodes them as photons polar
+cause a change in the quantum states in the process the
+ized either horizontally vertically right diagonally or left
+polarizations of some photons are distorted of course such
+diagonally these photons are transmitted to bob via an
+errors can also occur due to noise in the channel due to the
+optical channel but the information about the polariza
+errors introduced probably some of bobs measurements
+tion is initially kept secret for each incoming photon bob
+of the photons are now giving false results to detect this
+must randomly decide whether to measure it in either the
+alice and bob publish a portion of their measurement results
+horizontalvertical basis or the rightdiagonalleftdiago
+and compare the polarizations if they determine that too
+nal basis in practice this is often accomplished by a beam
+many of the photons were corrupted eve may have learned
+splitter for each photon measured by bob in the same basis
+too much information about the states of the photons and
+in which alice sent it bob learns the correct polarization of
+the protocol is aborted otherwise they begin classical
+the photon by his measurement if bob has chosen the other
+postprocessing in this process a common bit string is first
+basis he gets a random measurement result now alice and
+generated from the two bit strings b and b for which error
+bob publish the bases they chose for each photon over the
+correction is used to ensure that it is identical for alice and
+classical communication channel the information about
+bob with as high of a probability as possible then in the
+the photons for which they did not use the same basis is
+socalled privacy amplification a shorter bit string is derived
+discarded from the polarizations of the other photons alice
+from this bit string about which eves information is negligi
+and bob derive a bit string b and b respectively
+ble this can now be used as a key by alice and bob
+suppose an attacker eve tries to intercept information
+about the photons alice sends to bob in the optical channel
+receiver bob
+sender alice hv basis
+horizon p t o a l l a ly ri  z v in er g t i fi c l a t l e ly r  
+diagonally polarizing    basis
+filter
+photon
+alices bits            
+source
+bobs basis
+bobs result            
+key            
+figure principle of the bb protocol
+ 
+quantumsafe cryptography   quantum key distribution
+the bestknown prepareandmeasure protocol is the an attacker has many other options for example even if
+bb protocol bb see info box bb in addition to perfect cloning of general quantum states is not possible
+prepareandmeasure protocols there are also entan at least approximate copies can be made see info box
+glementbased protocols in which correlated bit strings the nocloning theorem in order to consider and
+are produced by entangled quantum states entangle exclude all paths of attack and also to make quantitative
+mentbased protocols are discussed especially in the statements about the security guarantees of the agreed
+context of satellitebased qkd the best known such pro key it is therefore essential to find a suitable precise
+tocol is the e protocol developed by ekert e security definition and to prove the security of concrete
+protocols
+ security of qkd protocols
+initially the research community considered accessible
+information as a security criterion this criterion re
+there are numerous ways to attack such a qkd protocol
+quires that the probability is very low that alice and bob
+the simplest conceivable attack is a receiveandres
+agree on a key about which an attacker can gain more
+end approach in a prepareandmeasure protocol an
+than a negligible amount of information the first securi
+attacker intercepts the quantum states makes measure
+ty proofs use this notion of security for example sp
+ments on them to retrieve information and then sends
+however it was later found that the criterion based on
+the quantum states on to bob however the security
+accessible information does not provide sufficient secu
+of the protocol relies on the fact that according to the
+rity guarantees kr therefore the trace distance
+principles of quantum mechanics quantum states would
+criterion see info box the trace distance criterion
+generally be altered by a measurement which would
+was subsequently proposed as a new security criterion
+be noticed by alice and bob in a statistical error esti
+which has been widely adopted in qkd research some
+mate similarly according to the nocloning principle of
+operational interpretations of this criterion have been
+quantum mechanics general quantum states cannot be
+criticized yuen a useful operational interpretation
+copied perfectly so an attacker would not be able to sim
+of the security criterion is important to be able to set an
+ply duplicate the transmitted quantum states in general
+appropriate value of the safety parameter for a desired
+without changing the original states
+security level current work on security proofs relies
+mainly on the trace distance criterion it would be desir
+ security definitions and proofs
+able to develop a complete security proof for a practically
+used protocol that takes into account the most general
+the security of qkd at least against a receiveandres
+attack model and realworld circumstances such as finite
+end attack is thus based on the fact that interaction with
+key lengths
+the quantum channel results in a change of quantum
+states and can be detected by alice and bob however
+the trace distance criterion
+after the successful execution of a qkd protocol in which an in comparison we consider another fictitious protocol
+attacker eve has interacted with the quantum states there is first the same qkd protocol as before is performed and
+a shared state consisting of the state s of the generated key subsequently the generated key is replaced by a new key
+and the state e of eve which are entangled with each other independent of it and equally distributed described by a
+ 
+quantumsafe cryptography   quantum key distribution
+quantum state s  this can be considered an ideal protocol of the qkd protocol and the ideal protocol ie se and se
+since eve has no more knowledge about the state of the key in the trace norm is bounded from above by a small security
+the trace distance criterion now roughly requires that for parameter  the choice of the size of the security parameter
+any possible attack strategy the qkd protocol aborts with  depends on the desired level of security see for example
+high probability or the distance between the shared states pr for more details on qkd security criteria
+ i nformationtheoretic security for these reasons bsi rejects the sole use of the onetime
+pad and recommends the use of keys agreed via qkd
+the advantage of qkd over classical methods and with a recommended symmetric encryption algorithm
+postquantum cryptography is often cited as the fact that see tr hybrid solutions are conceivable
+qkd provides informationtheoretic security whereas however in which messages are first encrypted with
+the security of classical key agreement schemes is based a recommended symmetric procedure and then addi
+on the fact that certain mathematical problems cannot tionally with the onetime pad in any case symmetric
+be solved in realistic time encryption methods that provide computational security
+must be used independently of this it must be ensured
+even if satisfactory security proofs for practical proto
+that the components used for encryption are trustwor
+cols are available however the intended use of the keys
+thy components from untrusted sources could allow
+must also be considered for example if they are to be
+unauthorized information leakage
+used for encryption an informationtheoretically secure
+algorithm such as the onetime pad would also have
+ sidechannel attacks
+to be used to maintain informationtheoretic securi
+ty however this is not conceivable for most practical
+even if a system like qkd is theoretically secure a
+applications as the key rates of practical qkd systems are
+secure practical implementation must also be ensured
+currently too low regardless of practicality the onetime
+sidechannel attacks target weaknesses in the imple
+pad introduces other problems since using the same key
+mentation of cryptographic systems even in practical
+twice compromises its security completely it is necessary
+qkd systems numerous sidechannel attacks have been
+to ensure that each key is used only once this makes
+demonstrated over the years and intensive research
+key management more complicated furthermore the
+is still being conducted in this area sm in a qkd
+onetime pad alone does not provide integrity protection
+device due to its high technical complexity it is im
+however without using an additional authentication
+perative to prevent all known sidechannel attacks to
+method it is easy to selectively manipulate individual
+advance research on yet unknown sidechannels and to
+bits of a message encrypted with onetimepad without
+thoroughly investigate the devices for their resistance to
+needing to know the secret key moreover even little
+known sidechannels
+partial knowledge of the key used can be highly prob
+lematic with the onetime pad for example if individual
+bits of the key are known the corresponding bits of the
+plaintext can be reconstructed from a message encrypted
+with the onetime pad which is not as easy to do with
+aesencrypted messages for example
+ 
+quantumsafe cryptography   quantum key distribution
+photon number splitting and trojanhorse
+if one wants to carry out a prepareandmeasure protocol also be detected using improved protocols in one variant
+with socalled discrete variables such as the bb protocol the photon source sometimes emits socalled decoy states
+see info box bb one actually needs an efficient photon instead of the socalled signal states in which it is less likely
+source for this which only sends individual photons at that more than one photon is sent but even more likely that
+a time in practice however this is hard to realize most no photon is sent at all if an attacker applies the photon
+practical photon sources therefore always send several number splitting attack described above to all photons this
+photons having the same quantum state at once with a can now be determined by statistical methods for this it
+certain probability such quantum states can be realized is important that an attacker cannot distinguish the signal
+for example by the polarization of the photons in the case states and decoy states from each other
+of photon sources a compromise must always be made be
+one attack relevant in current research is the trojanhorse
+tween the probability that more than one photon is sent and
+attack sm here an attacker sends a strong light pulse
+the probability that a photon is sent at all in the simplest
+via the quantum channel into a device of the qkd system
+form of the photon number splitting attack it is precisely
+part of the light is reflected back to the attacker interaction
+this weakness of photon sources that is exploited if alices
+of the light with the optical components of the qkd device
+source sends multiple photons at once an attacker eve will
+changes the properties of the reflected light for example
+split off a photon from it and keep it in quantum storage
+under favourable circumstances light reflected from a
+after alice and bob announce their chosen bases over the
+polarizing filter is polarized perpendicular to the filter thus
+classical information channel eve can measure her photon
+by analysing the reflected light an attacker can examine
+in the correct basis and knows the polarization without
+the configuration of some components of the qkd system
+having disturbed the polarization of the other photons if
+from the quantum channel as countermeasures against
+the photon source does not send multiple photons eve
+the trojanhorse attack for example optical isolators or
+will block the quantum channel assuming eve can store
+spectral filters are built into qkd devices however privacy
+the quantum states she can thus gain full knowledge of
+amplification see info box bb also plays a major role
+the photons shared between alice and bob this attack
+in minimizing the information that an attacker obtains from
+can obviously be prevented by using a photon source that
+the trojanhorse attack
+actually sends only one photon at a time however it can
+ authentication qkd systems raises further questions for example with
+regard to how the security of the overall qkd system
+the messages sent via the classic channel of the qkd and the security of the authentication influence each
+system must be authenticated to prevent a simple man other for example in many practical qkd implemen
+inthemiddle attack see info box digital signatures a tations part of the key agreed upon via a qkd protocol
+classical authentication mechanism is required for this is used for authentication in a later round indeed in
+the wegmancarter protocol each key may be used to
+one possible option for this is wegmancarter authen
+authenticate at most one message since a small amount
+tication wc see info box macs and wegmancarter
+of information about the qkd key always leaks out the
+authentication which provides informationtheoretic
+security level of the system decreases with the number
+security and is therefore often favoured in the context
+of protocol passes performed pr thus after a certain
+of qkd in principle this method is mathematically well
+period of time the authentication key must be reinitial
+understood in its own right however there is a lack
+ized with a random key generated outside the system for
+of suitable standards and a better delimitation of the
+an adequate security analysis wegmancarter authenti
+possible variants of the procedure and the parameters
+cation or other possible authentication methods can thus
+in addition the use of wegmancarter authentication in
+ 
+quantumsafe cryptography   quantum key distribution
+not be considered in isolation from the rest of the qkd cation partners on the other hand the security of the
+system overall system against maninthemiddle attacks is thus
+ultimately based on the security of postquantum algo
+in addition to the use of wegmancarter authentication
+rithms the extent to which key agreement via qkd then
+other authentication methods such as postquantum
+offers a security gain compared to pure postquantum
+signature schemes using a public key infrastructure are
+methods for key agreement must always be considered in
+also being discussed this simplifies the initial key dis
+the specific case
+tribution problem considerably since secret symmetric
+keys no longer have to be distributed for all communi
+macs and wegmancarter authentication
+some of the main security objectives of secure commu the property that even if a messagechecksum pair m  t
+nication are authenticity and integrity this means being is known for every other message m every checksum is
+able to trace the origin of data and to detect changes to at least approximately equally likely as long as the key k
+it in addition to digital signatures see info box digital is not known it follows that even if a valid keydependent
+signatures which are public key schemes and which can checksum for a given message is known an attacker has no
+also achieve nonrepudiation as an objective in addition to better attack option than to randomly guess the checksum
+authenticity and integrity there are also symmetric schemes for a modified message in order to forge it it is impera
+for data authentication with message authentication codes tive to note however that each key k may only be used to
+macs for the use of macs both communication partners authenticate a single message a new key must be used for
+must be in possession of common secret keys in advance each additional message in practice slight variations of this
+if the sender now wants to send a message he calculates a procedure are often used where only a part of the key has to
+keydependent checksum using the selected scheme which be renewed in each round
+is sent along with the message
+wegmancarter authentication is constructed as an infor
+wegmancarter authentication is an example of a mac mationtheoretically secure method which means that its
+that is often considered in the context of qkd and was first security does not require any assumptions about the limi
+described by wegman and carter in wc in  here tation of an attackers computational power in exchange
+each key k determines a function h which is applied to a wegmancarter authentication is much more inefficient in
+k
+message m to be authenticated and yields a short checksum terms of key consumption compared to macs widely used
+th m in wegmancarter authentication the set of all today such as hmac rfc  cmac spb and
+k
+functions h for all possible keys k is a socalled strongly gmac spd
+k
+twouniversal family of hash functions such a family has
+ 
+quantumsafe cryptography   quantum key distribution
+ random number generators  l imitations and opportunities of
+quantum cryptography
+an essential part of qkd protocols is that random
+numbers with high quality must be available the use
+in addition to security aspects such as theoretical secu
+of quantum random number generators qrngs is
+rity and sidechannel resistance there are also practical
+often proposed in this context bsi in cooperation with
+limitations of quantum cryptography that make this
+fraunhofer iof has organized two workshops to evalu
+technology difficult to use some of these are presented
+ate qrngs qrngs are a special type of physical random
+in this section and future opportunities for quantum
+number generators a priori qrngs are not superior to
+cryptography are also discussed
+conventional physical random number generators cer
+tainly false are general statements of the type qrngs
+ predistributed keys
+provide random numbers based on natural laws and are
+therefore automatically secure it cannot be assumed
+for the authentication of the classical channel a secret
+that ideal random number generators exist in the real
+shared key must already be present at both ends wish
+world ie that devices can extract digitized sequences of
+ing to communicate with each other before the start
+independent and equally distributed bits from a physical
+of a qkd protocol consequently secret keys must be
+phenomenon in the strict mathematical sense and even
+distributed between all pairs of qkd devices that wish to
+if ideal random number generators did exist this could
+communicate with each other before use this signifi
+not be demonstrated at best when evaluating a real
+cantly limits the scalability of qkd networks or at least
+random number generator one can show that it behaves
+makes them more costly the predistributed key is used
+almost like an ideal random number generator in some
+for the initial authentication of the classical channel
+sense in bsis methodology for the evaluation and certi
+after which a part of the agreed qkd key is to be used
+fication of random number generators ais  suita
+for this purpose since no qkd key is perfectly equally
+ble qrngs can be assigned to functionality class ptg
+distributed and a certain amount of information always
+or with appropriate cryptographic postprocessing to
+leaks out the exact amount is quantified by the security
+functionality class ptg to date there is no certified
+parameter it becomes necessary after a certain lifetime
+qrng with a certificate accepted in germany
+to distribute a new shared secret key from the outside to
+in principle bsi recommends the use of hybrid random both communicating parties if the qkd protocol is to
+number generators with cryptographic postprocessing continue to operate securely
+which in addition to the informationtheoretic security
+of the physical entropy source also provide complexi
+ limited range
+tytheoretic security computational security this as
+pect is of particular importance if the random numbers signal losses in optical fibers grow exponentially as a
+are used for schemes such as the onetime pad cf section function of distance therefore it is currently not pos
+ where even minor statistical defects in the keys sible to transmit a key over a distance much larger than
+have a negative impact on the security properties about km using fiberbased qkd according to the
+nocloning theorem of quantum mechanics there can
+be no signal amplifiers in the conventional sense where
+quantum states are copied and retransmitted thus
+over long distances trusted nodes must be introduced
+so that a key is agreed between neighbouring nodes at
+a time thus endtoend security cannot be achieved
+over fiberbased qkd and long distances at present one
+possible solution is quantum repeaters based on quan
+tum entanglement which are currently the subject of
+intensive research however it is not foreseeable that
+marketready quantum repeaters will be available in the
+ 
+quantumsafe cryptography   quantum key distribution
+ standardization and certification
+near future another approach to guarantee endtoend
+security over longer distances is satellitebased qkd
+the future interoperable use of quantum communica
+which is however relatively costly and raises questions
+tion requires the standardization of many basic building
+about availability
+blocks this concerns the protocols used the authentica
+tion methods used key management the integration of re
+ costs and manufacturer
+peaters and network aspects the standardization of qkd
+protocols with associated security proofs is particularly
+in contrast to classical methods and postquantum
+important in the context of certifications and approvals to
+cryptography qkd also requires specialized hardware
+be able to assess their security there are activities on these
+currently the acquisition of this equipment represents a
+tasks in various standardization bodies such as iso itu
+costintensive investment furthermore no qkd man
+cen cenelec or etsi the ietf has already established
+ufacturer from the european union has yet established
+a working group the quantum internet research group
+itself in acatech the importance of digital sov
+to standardize the quantum internet a report on the
+ereignty in encryption technologies is pointed out and
+necessary steps comes from the us department of energy
+the development of comprehensive own competences is
+doe overall however this work is still in its infancy
+mentioned as a necessary factor this applies in particu
+lar to quantum communication ideally qkd promises security based on the laws of phys
+ics and suitability for highsecurity applications for this
+however it is not enough to know a theoretically secure
+ opportunities of qkd
+protocol  with the open questions described in section 
+despite all the limitations of qkd it also offers new op it must also be implemented securely an internationally
+portunities even though the mathematical problems un recognised standard for evaluating it security products is
+derlying the security of postquantum cryptography are the common criteria cc in cooperation with etsi isg
+wellstudied it is not impossible that these methods can qkd bsi has started to develop a socalled protection
+be broken in the future by algorithmic advances quan profile pp a pp is a kind of blueprint for security targets
+tum cryptography presents itself as a possible backup if st to be created later by manufacturers of qkd devices
+qkd is operational it may thus provide a complement to which describe concrete products as a first step how
+postquantum schemes for key agreement ever the pp only covers prepareandmeasure qkd and
+is limited to pointtopoint connections both entangle
+in addition the technologies developed for quantum com
+mentbased qkd and network aspects remain open for the
+munication can be used to allow quantum computers to
+time being
+interact with each other these quantum networks can be
+used for example for distributed computing on quantum the pp should correspond to the evaluation assurance
+computers due to the increasing relevance of quantum level ealavavanalcdvs whereby a high
+computing alone it makes sense to continue research into attack potential is assumed appropriate to the area of
+the underlying technologies of quantum cryptography application and the life cycle of the product is taken into
+quantum communication is an emerging new technol account there are certainly voices that consider a lower
+ogy that should lead in several steps to larger quantum assurance level eal  to be appropriate this assessment
+networks with the establishment of a global quantum is not shared by bsi but eal is seen as a minimum
+network as a longterm goal cf vdi page  requirement because qkd represents a significant invest
+ment that should provide high security eal  does not
+the idea of a socalled quantum internet is also contro
+meet this requirement
+versially discussed cf acatech page  while this
+idea seems feasible to optimists as early as  qdelta in addition a certification ecosystem for qkd products
+other experts criticize the quantum internet as a term must be established in which test criteria and evaluation
+that is still undefined cf acatech page  the methods  for example for sidechannel attacks are coor
+quantum internet will probably only be a supplement to dinated and further developed
+the classical internet
+ see httpsdatatrackerietforgrgqirgabout
+ s ee httpswwwcommoncriteriaportalorg  
+ s ee httpswwwetsiorgcommitteeqkd
+quantumsafe cryptography   quantum key distribution
+ assessment and
+switch to quantumsafe schemes this urgency alone
+recommendations makes the migration to postquantum cryptography the
+standardisation of which is already well advanced in the
+the french anssi has already commented on the use of nist process a clear priority from bsis point of view
+qkd in a position paper anssi it mentions the lim furthermore postquantum algorithms are much more
+itations that have already been discussed here among flexible as they can be implemented in existing infra
+other things the complex and costintensive acquisition structure they are more costeffective do not require
+the large number of demonstrated sidechannel attacks secret predistributed keys and offer endtoend security
+against qkd devices the limited range and the lack of
+in contrast to classical and postquantum schemes qkd
+endtoend security over longer distances are consid
+promises informationtheoretic security however this
+ered problematic anssi concludes that postquantum
+requires suitable security proofs for practically used
+cryptography provides an alternative that is simpler and
+protocols and the most general attack model from bsis
+cheaper to implement and is not subject to many of the
+point of view the theoretical foundations of qkd have
+limitations of qkd therefore the focus should be on
+not yet been satisfactorily worked out in this respect in
+advancing postquantum cryptography as quantumsafe
+view of this and the susceptibility of implementations to
+cryptography
+sidechannel attacks assessments of qkd as ultrase
+the nsa also points out the technical limitations of cure or supersecure that are sometimes made appear
+qkd these include the need to distribute keys for inappropriate
+authentication the expensive acquisition of special
+consequently from bsis point of view there are still
+ized hardware and the high vulnerability to attacks on
+numerous issues to be clarified and limitations to
+the physical implementation and to denialofservice
+be addressed before qkd can be recommended as a
+attacks for these reasons nsa is opposed to the use of
+securitycritical technology for practical applications
+qkd in national security systems until the aforemen
+however qkd and postquantum cryptography have
+tioned limitations are addressed
+the potential to complement each other especially since
+the uk ncsc also opposes the use of qkd in govern they are based on different principles the use of qkd is
+ment and military applications ncsc currently conceivable mainly in the context of experi
+ments for restricted use cases where practical limitations
+as discussed earlier qkd is subject to many practical
+are less significant in hybrid mode as an addon in con
+limitations some of these may be overcome in the
+junction with classical and postquantum key agreement
+future particularly desirable would be the development
+techniques in addition this can also provide endtoend
+of quantum repeaters to maintain endtoend security
+security over longer distances further research in quan
+however this is not to be expected in the next few years
+tum communication is welcome also because there may
+furthermore no european qkd products are currently
+be promising applications outside cryptography
+available on the market even if european products are
+developed they must first be evaluated according to
+ k ey points
+criteria that have yet to be developed it is true that bsi is
+taking first steps in this direction with the development
+ q kd is feasible with technology available today and
+of a protection profile however this protection profile is
+provides key agreement schemes whose security is
+limited for the time being to prepareandmeasure pro
+based on quantum mechanical principles and which
+tocols and pointtopoint connections and still requires
+are expected to be informationtheoretically secure
+the subsequent creation of extensive accompanying
+at the protocol level
+documentation
+ in addition to theoretical security implementation
+taking into account the working hypothesis that a
+security must also be considered
+cryptographically relevant quantum computer will be
+available in the early s bsi believes that it is already  qkd is subject to some restrictions and is therefore
+urgently necessary to take appropriate measures to only suitable for certain application scenarios
+   s ee httpswwwnsagovcybersecurityquantumkeydistributionqkdandquantumcryptographyqc
+quantumsafe cryptography   quantum key distribution
+ standards for example on protocols and certified
+products are still lacking
+ qkd should only be used in hybrid mode with classi
+cal and postquantum key agreement schemes
+ using the onetime pad alone for encryption is not
+recommended
+ 
+quantumsafe cryptography   developments in politics research and industry
+
+ 
+quantumsafe cryptography   developments in politics research and industry
+ developments in politics
+research and industry
+quantum technologies are still in their infancy but it under the leadership of the bmbf the federal govern
+is now undisputed that they have enormous economic ments research framework programme quantum
+potential and will also influence information security technologies  from basic research to market bmbf
+to a great extent quantum sensor technology quantum will provide federal funding of  million for the
+communication and quantum computers are increasing development of quantum technologies in germany
+ly becoming the focus of successful longterm economic between  and  the focus here is on funding
+development in germany and europe applicationoriented research work with the prospect
+of commercial exploitation of the research results the
+in recent years major international programmes have
+funded projects cover a broad spectrum of quantum
+been launched to promote quantum technologies some
+technologies and are oriented towards the focus areas
+german and european initiatives are described here
+of quantum computers and simulation quantum
+which go far beyond individual measures and focus on
+communication quantumbased measurement tech
+innovative research with a subsequent implementation
+nology basic technologies for quantum systems and
+of these research results in marketable products and
+outreach in the latter priority the quantum futur
+services
+programme is dedicated to the promotion of young
+scientists a detailed overview of the individual funding
+ f ramework programs of the
+projects can be found on the framework programme
+website since many of these projects are directly or
+german federal government
+indirectly related to it security bsi is assigned a number
+the federal ministry of education and research bmbf of tasks in the framework programme bmbf 
+has declared its intention to promote the development
+in the abovementioned framework programme quan
+of longterm secure cryptography and its efficient
+tum technologies  from basic research to market a
+implementation in applications as part of the federal
+potential continuation has already been considered
+governments research framework programme on it
+bmbf  to this end an agenda process initiated in
+security selfdetermined and secure in the digital world
+ took place under the title quantum systems the
+ bmbf to this end a guideline for funding
+aim of this process was to develop an agenda supported
+research projects on the topic of postquantum cryp
+by the specialist community which sets out the bmbfs
+tography was published in august  within this
+strategy for the further development of this area in ger
+framework a total of seven projects is funded in the pe
+many over the next few years and from which concrete
+riod  to integrate postquantum cryptography
+measures can subsequently be derived in the form of a
+into applications aquorypt public key infrastructures
+new funding programme to this end workshops were
+floqi the botan crypto library kbls medical data
+held on individual topics such as quantum commu
+processing pqcmed embedded systems quantum
+nication and quantum technologies  education
+risc networks quasimodo and critical infrastruc
+training outreach and cooperation  networks in
+tures sikrinkryptov the total volume across all
+which bsi participated other focus points of the agenda
+these projects is  million euros with the bmbfs
+process were quantum computing and simulation
+funding share amounting to approximately  million
+quantum measurement and sensor systems and inte
+euros
+grated quantum systems and enabling technologies
+ see httpswwwbmbfdefoerderungenbekanntmachunghtml
+ see httpswwwforschungitsicherheitkommunikationssystemedefoerderungbekanntmachungenpqk
+ s ee httpswwwquantentechnologiende  
+quantumsafe cryptography   developments in politics research and industry
+the final agenda quantensysteme  vdi was hand the opensuperq project focuses on superconducting
+ed over to federal minister anja karliczek in march  qubits similar to ibm google and rigetti computing
+the agenda serves as a basis for the bmbfs upcoming pro the goal of the project is to eventually provide a quantum
+gramme on quantum systems which will start in  computer prototype with  qubits and good oper
+ational quality at the jlich supercomputing center as a
+platformasaservice to this end in addition to scaling up
+ economic stimulus and future
+and improving the chips the surrounding technological
+package of the german federal
+ecosystem is supposed to be created including in the areas
+of cryogenics electronics and firmware the quantum
+government
+computer is supposed to be designed for applications with
+the federal governments stimulus and future package out error correction but will also be able to demonstrate
+provides a total of  billion euros for the development of initial error correction steps in principle the project with
+quantum technologies and in particular for quantum a volume of approximately  million euros is coordinated
+computing of which approximately  billion euros are by the saarland university
+allocated to the bmbf and approximately  million
+the project aqtion uses trapped ions the goal of the
+euros to the federal ministry for economic affairs and
+project is to realize portable and in principle commercial
+energy bmwi
+izable hardware for quantum computers at the level of
+specifically in connection with the promotion of quantum more than  qubits again this includes the ecosystem
+computing an advisory committee appointed in october including optics middleware compilation and scala
+ has drawn up a roadmap quantencomputing on ble benchmarking the goal is to try and achieve a true
+behalf of the federal government vdi motivated by quantum advantage the project which also has a volume
+this the bmbf has initiated specific funding measures for of about  million euros is coordinated by the university
+quantum computer demonstration assemblies and of innsbruck
+application network for quantum computing within
+a midterm report of the quantum technologies flag
+the funding framework of the currently running pro
+ship eca on the progress of the projects over the first
+gramme quantum technologies  from basic research to
+ months was published in september 
+market
+the majority of the funding administered by the bmwi is
+ e urohpc ju
+concentrated on the german aerospace center dlr with
+the aim of developing a german quantum computer and the european high performance computing joint un
+corresponding software and applications dertaking eurohpc ju pursues the goals of building a
+european supercomputing infrastructure and promoting
+research and innovation in this field following a reori
+ e u flagship programme
+entation of the programme in september  the budget
+quantum technologies
+for the period  is now  billion euros and includes
+the construction of a quantum computing and quantum
+the eu flagship programme on quantum technologies
+simulation infrastructure to integrate into the high per
+started on  october  with a total of  research
+formance computing hpc infrastructure the intention
+projects the programme is designed for  years and has
+is to construct such a stateoftheart pilot by 
+a total volume of  billion euros in the first phase from oc
+tober  to september  it will provide a total of 
+ q unet
+million euros for the  projects
+the projects cover the aspects basic science quan qunet cf also bt is a national research project
+tum simulations quantum sensing and metrology on quantum key distribution using various technologies
+quantum communications and quantum computing with a project volume of  million euros until 
+these and their roadmaps are described in the strategic of which the bmbf is contributing  million euros in
+research agenda euqf ecb in particular the funding the core institutes involved in qunet are the
+programme on quantum computing contains two projects fraunhofer institute for applied optics and precision
+for the construction of a european quantum computer engineering iof the fraunhofer heinrich hertz insti
+ 
+quantumsafe cryptography   developments in politics research and industry
+tute hhi the institute of communication and naviga and stored ultrasecurely and capable of linking critical
+tion of the german aerospace center dlrikn and the public communication assets all over the union
+max planck institute for the science of light mpl the
+this illustrates that euroqci should be designed to meet
+project will develop concepts of an overall network and the
+the highest security requirements and is one of the rea
+necessary system architecture as well as new key technol
+sons for the selection of eal for the protection profile
+ogies for quantum communication standardization and
+which is being developed by bsi in cooperation with etsi
+certification requirements of overall qkd systems will also
+isg qkd the mentioned space component is developed
+be taken into account part of the qunetalpha subproject
+within the project saga
+was the establishment of an encrypted connection be
+tween the bmbf and bsi in bonn in august of  it was
+ i ndustrial associations
+designed as a hybrid scheme by combining a postquantum
+scheme and qkd for key agreement
+the increased interest in quantum technologies is also
+reflected in the formation of interest groups examples
+ qlinkx and qrx
+include the german industry association for quan
+tum security divqsec wwwdivqsecde the european
+the range of qkd is very limited due to signal losses in
+quantum industry consortium quic httpsqteu
+optical fibers in order to achieve longer ranges for fib
+aboutquantumflagshipthequantumflagshipcommu
+erbased qkd without trusted nodes as needed to build a
+nityquic  and the quantum technology  application
+national network while maintaining endtoend security
+consortium qutac httpswwwqutacde
+repeaters are required however due to the nocloning
+theorem of quantum mechanics it is not possible to use
+conventional signal amplifiers repeaters in the sense of
+quantum communication therefore use more complex
+protocols that exploit quantum mechanical effects and
+quantum memories  see httpswwwbmbfdebmbfshareddocskurzmeldungen
+deuebergabederagendaquantensystemehtml
+in the qlinkx project which is funded by the bmbf  see httpswwwbundesfinanzministeriumdewebenissues
+publicfinancesstimuluspackageforeveryonestimuluspack
+with about  million euros until  different approach ageforeveryonehtml
+es for quantum repeaters are being investigated practically  s ee httpswwwbmbfdebmbfshareddocspressemittei
+lungendekarliczekmitgrossenschritteuantencomput
+and theoretically they are to be demonstrated in practice
+ermadeingermanyhtml
+in the followup project qrx numerous universities  s ee httpswwwbmwideredaktiondepressemittei
+lungenbmwifoerdertquanten
+and research institutes from germany are participating in
+technologienmitmillioneneurohtml
+the project  see httpswwwbundesregierungdebregdesuchequanten
+computing
+ see httpswwwquantentechnologiendeforschungfoerd
+ e uroqci erungquantencomputerdemonstrationsaufbautenhtml
+ s ee httpswwwquantentechnologiendeforschungfoerd
+erunganwendungsnetzwerkfuerdasquantencomputinghtml
+the european quantum communication infrastructure
+ see httpswwwqteu
+euroqci is an initiative that shall ultimately lead to a  s ee httpsdigitalstrategyeceuropaeuenpoliciesquan
+tumtechnologiesflagship and httpsqteuaboutquan
+european quantum communication infrastructure in
+tumflagshipprojects
+ germany was one of the first signatories of the euro  s ee httpsqteuaboutquantumflagshipprojectsopensu
+qci declaration in the meantime it has been signed by all perq
+ s ee httpsqteuaboutquantumflagshipprojectsaqtion
+eu member states
+ s ee httpsdigitalstrategyeceuropaeuenpolicieseurohpcju
+ s ee httpseceuropaeucommissionpresscornerdetailde
+it states among other things
+ip
+ s ee httpsdigitalstrategyeceuropaeuenpoliciesquantum
+the participating member states  plan to work together
+ s ee httpswwwqunetinitiativede
+to establish a cooperation framework  euroqci  for explor  s ee httpswwwqlinkxde
+ing within the next  months the possibility of developing  s ee httpsquantenrepeaterlink
+ s ee httpsdigitalstrategyeceuropaeuennewsfuturequan
+and deploying in the union within the next  years a certi
+tumeucountriesplanultrasecurecommunicationnetwork
+fied secure endtoend quantum communication infrastruc  see httpswwwetsiorgcommitteeqkd
+ s ee httpwwwesaintapplicationstelecommunicationsin
+ture qci composed of spacebased and terrestrialbased
+tegratedapplicationseuropeanquantumcommunications
+solutions enabling information and data to be transmitted networktakesshape
+ 
+quantumsafe cryptography   recommendations
+
+ 
+quantumsafe cryptography   recommendations
+ recommendations
+from bsis point of view the question of if or when even if cryptographic agility is implemented however
+there will be quantum computers is no longer in the fore this does not mean that users can rely on it being availa
+ground postquantum cryptography will become the ble for the entire lifetime of a product or that all the data
+standard in the long term depending on the use case it one wants to protect will also be protected in the long
+should be considered at an early stage and continuously term for example quite often software is only main
+adapted to current developments within the frame tained by the manufacturer for a limited period of time
+work of moderate risk management whether and when in the case of longlived products it is not even guaran
+a switch to quantumsafe schemes should be made in teed that the manufacturer will still be there at the end
+the following some measures are pointed out as to how a of the products life with very shortlived products on
+migration to postquantum cryptography can already be the other hand it can be more economical to replace
+initiated today and general recommendations are given endangered products quickly instead of implementing
+for a futureproof use of cryptography cryptographic agility
+using blockchain applications as an example bsi 
+ p reparation
+argues that an exchange of cryptographic mechanisms
+does not automatically preserve the original security
+the first step before migration is a survey of the exist
+guarantees this is especially true when encrypted data
+ing situation and the development of a migration plan
+is stored publicly
+this should include answering the following questions
+what cryptographic algorithms or products are used in
+ s hortterm protective measures
+my organization how critical is the data that is being
+processed and how long is its lifespan where is there an
+typically asymmetric cryptography is required to
+immediate need for action do the protocols used need to
+exchange a shared secret between the communication
+be adapted are there already solutions for this and of
+partners from which symmetric session keys are then
+course many more recommendations for the develop
+derived as a shortterm protection measure against
+ment of a migration plan have already been published by
+attacks with quantum computers a predistributed sym
+the european telecommunications standards institute
+metric longterm key can be used for the key derivation
+etsi etsi the us nist is also currently working on
+in addition similarly it is possible to symmetrically
+recommendations bps
+encrypt an asymmetric key exchange using a predis
+tributed secret of course the problem of distributing the
+ cryptographic agility
+symmetric longterm keys must be solved in each case
+concerning further development of applications par for cryptography on elliptic curves the use of secret
+ticular attention should be paid to making cryptographic curve parameters offers some protection against attacks
+mechanisms as flexible as possible in order to be able to with quantum computers it should be noted that the
+react to developments implement upcoming recommen curve parameters can usually be computed given knowl
+dations and standards and possibly replace algorithms edge of three points on the curve thus measures eg
+in the future that no longer guarantee the desired level point compression must be taken to protect the curve
+of security cryptographic agility this is particularly parameters in addition it must be ensured that the
+important due to the threat posed by quantum com curves used are cryptographically suitable details on
+puters though not exclusively classical attacks can also this can be found in rfc 
+evolve and make encryption schemes or key lengths once
+considered secure obsolete cryptographic agility should
+therefore become a design criterion for new products 
+irrespective of the development of quantum computers
+ 
+ s ee httpswwwnccoenistgovprojectsbuildingblockspostquantumcryptography
+quantumsafe cryptography   recommendations
+ key lengths for symmetric  h ashbased signature schemes
+encryption for firmware updates
+as mentioned above symmetric encryption algorithms as described in section  stateful hashbased signature
+are much less threatened by the development of quan schemes have certain disadvantages for example they
+tum computers than asymmetric methods however can only be used to create a number of signatures that is
+when using keys with a length of  bits or less quan limited in advance however they are particularly suitable
+tum computer attacks with grovers search algorithm for signing firmware updates since only a small number of
+cannot be completely ruled out especially if longterm signatures are required for this purpose thus they provide
+protection of data is important a key length of  bits an important contribution towards cryptographic agility
+should therefore be provided for new developments in as of version  the technical guideline tr
+which a symmetric encryption algorithm is to be imple tr of bsi recommends the hashbased signature
+mented schemes lms and xmss as a good method for creating
+longterm secure signatures
+ h ybrid solutions
+ general signature schemes
+the quantumsafe algorithms that are currently being
+for authentication
+standardized are not yet as well researched as the clas
+sical methods for example rsa and ecc this applies
+the migration to hybrid solutions using postquantum
+in particular to weaknesses that largely only become
+signature schemes should also be prepared for digital
+apparent in applications such as typical implementation
+signatures here the two latticebased schemes chrys
+errors possible sidechannel attacks etc bsi therefore
+tals dilithium and falcon should be considered in
+recommends that postquantum cryptography should
+particular one of which is expected to be standardized by
+not be used in isolation if possible but only in hybrid
+nist sphincs can also be considered as a particularly
+mode ie in combination with classical algorithms see
+conservative choice although the size of the signatures and
+section  for highsecurity systems bsi calls for the
+the performance limit the possible areas of application here
+use of hybrid solutions this applies in particular to key
+in the case of signature schemes in particular the further
+agreement procedures but also to all postquantum sig
+standardization process should also be observed as it is
+nature schemes provided that the limitations of stateful
+likely to be extended by further schemes in the next few
+schemes are carefully considered hashbased signatures
+years see section 
+can in principle also be used on its own ie not in hybrid
+mode in particular stateful schemes should only be
+ adaptation of cryptographic
+used in systems where the reuse of key material can be
+excluded rfc   rfc  
+protocols
+the migration to postquantum algorithms in particular
+ p ostquantum algorithms
+the use of hybrid solutions requires adjustments in the
+for key agreement
+cryptographic protocols and standard formats used today
+these can be carried out or at least started independently
+as discussed in chapter  for quantumsafe key agree
+of the concrete selection and standardisation of postquan
+ment the latticebased scheme frodokem and the code
+tum schemes depending on the protocol in question there
+based scheme classic mceliece are the most conservative
+are also initial proposals and some finalised solutions
+choices among the candidates in the nist process from
+for this see chapter  since different technical issues are
+bsis perspective since the protection of longterm se
+relevant here these adaptations cannot be assessed purely
+crets may require timely action bsi decided in late 
+from a cryptographic perspective manufacturers should
+not to wait for nists decision and since version 
+keep an eye on current developments here and if neces
+of its technical guideline tr tr recom
+sary contribute concrete requirements in particular it is of
+mends the two schemes mentioned in a hybrid solution
+course important to check their own proprietary proto
+see section 
+cols for resistance to attacks with quantum computers
+ 
+quantumsafe cryptography   recommendations
+ migration to quantumsafe  need for further research on
+public key infrastructures quantumsafe cryptography
+as described in section  although signatures for how well cryptographic algorithms can be attacked with
+authentication usually only need to be valid for a short quantum computers depends not only on the progress
+time the associated signature keys may be longlived made in building quantum computers but also signif
+this applies in particular to the root ca keys of a public icantly on algorithmic innovations for example are
+key infrastructure pki stored in root certificates vari there cryptographically relevant quantum algorithms
+ous solutions are currently being discussed here such as that require fewer qubits or that get by with less or no
+migration at a fixed deadline parallel pkis mixed pkis quantum error correction or that have a lower circuit
+as described in section  bsi also recommends hybrid depth can cryptographic attacks be accelerated using
+solutions for signature schemes since the change to specialpurpose quantum computers these questions
+quantumsafe public key infrastructures will be costly show that it is important to combine research on quan
+and lengthy it is advisable to initiate this on time tum computers and quantum algorithms
+there are also still numerous open questions concern
+ recommendations for quantum
+ing postquantum cryptography on the one hand the
+sidechannel resistance and implementation security
+key distribution
+of these cryptosystems have not yet been sufficiently
+qkd as a technology for key agreement is based on com investigated on the other hand further research is of
+pletely different principles than postquantum methods course needed on possible cryptanalytic advances both
+for key agreement and thus represents an interesting with classical computers and with quantum computers
+addition with regard to the practical use of qkd further in particular the question of whether structured and
+experience should first be gathered within the frame unstructured lattices provide the same security is an
+work of suitable test networks bsi currently recom important research question that should be pursued
+mends the use of qkd only as an addon in hybrid mode
+as described in chapter  there are still many questions
+together with postquantum key agreement and classical
+regarding the theoretical security secure implemen
+procedures in this manner qkd can provide additional
+tation and use of qkd which should be investigated
+protection for which however trusted components are
+further before deployment beyond the necessary field
+necessary with a view to possible future approvals it
+experiments in the medium term bsi intends to make
+is therefore important that european manufacturers
+further recommendations on the use of the agreed keys
+establish themselves on the market to secure technolog
+and on suitable qkd protocols and authentication mech
+ical sovereignty agreed keys can be used for encryption
+anisms
+by means of an established and recommended algorithm
+such as aes bsi does not recommend the sole use of the
+onetime pad
+ migration to postquantum
+cryptography has priority over
+the use of qkd
+as discussed in chapter  qkd is subject to some practi
+cal limitations and there are currently no certified prod
+ucts thus qkd is not yet ready to use in applications
+with high security needs due to the urgency of migrat
+ing to quantumsafe solutions migration to postquan
+tum cryptography should therefore be a priority
+ 
+quantumsafe cryptography  list of abbreviations
+ 
+quantumsafe cryptography  list of abbreviations
+list of abbreviations
+abbreviation lms
+explanation leightonmicali signature
+anssi lwe
+agence nationale de la scurit des systmes dinformation learning with errors
+bmbf mac
+federal ministry of education and research message authentication code
+bmf ncsc
+federal ministry of finance national cyber security centre
+bmwi nisq
+federal ministry for economic affairs and energy noisy intermediate scale quantum
+ca nist
+certification authority national institute of standards and technology
+cacr nsa
+chinese association for cryptologic research national security agency
+cms ntru
+cryptographic message syntax nth degree truncated polynomial ring
+cose pgp
+concise binary object representation pretty good privacy
+dh pki
+diffiehellman public key infrastructure
+dlp qaas
+discrete logarithm problem quantum as a service
+dlr qec
+german aerospace center quantum error correction
+ecc qkd
+elliptic curve cryptography quantum key distribution
+ecdh rfc
+diffiehellman elliptic curve request for comments
+ecdhe rng
+elliptic curve diffiehellman ephemeral random number generator
+ecdsa rosstandart
+elliptic curve digital signature algorithm federal agency on technical regulating
+and metrology
+etsi
+european telecommunications standards institute rsa
+rivest shamir adleman
+hpc
+highperformance computing smime
+secure  multipurpose internet mail extensions
+ietf
+internet engineering task force sike
+supersingular isogeny key encapsulation
+ike
+internet key exchange sphincs
+stateless practical hashbased incredibly nice cryptographic
+ip signatures
+internet protocol
+tls
+ipsec transport layer security
+internet protocol security
+udp
+kdf user datagram protocol
+key derivation function
+xmss
+kem extended merkle signature scheme
+key encapsulation mechanism
+ai
+artificial intelligence
+ 
+quantumsafe cryptography  bibliography
+ 
+quantumsafe cryptography  bibliography
+bibliography
+aab bb
+arute f arya k babbush r et al quantum supremacy d j bernstein b b brumley ms chen c chuengsatiansup
+using a programmable superconducting processor nature  t lange a marotzke by peng n tuveri c van vredendaal
+  by yang ntru prime national institute of standards and
+available at technology 
+httpsdoiorgs available at
+httpscsrcnistgovprojectspostquantumcryptography
+abb roundsubmissions
+n aragon p barreto s bettaieb l bidoux o blazy jc
+deneuville p gaborit s gueron t guneysu c a melchor r bb
+misoczki e persichetti n sendrier jp tillich g zemor v m baldi m battaglioni f chiaraluce a horlemanntraut
+vasseur s ghosh bike national institute of standards and mann e persichetti p santini v weger a new path to code
+technology  based signatures via identification schemes with restricted
+available at errors august 
+httpscsrcnistgovprojectspostquantumcryptography available at
+roundsubmissions httpsarxivorgabs
+abc bbm
+m r albrecht d j bernstein t chou c cid j gilcher t d bernstein jf biasse and m mosca a lowresource
+lange v maram i von maurich r misoczki r niederhagen quantum factoring algorithm postquantum cryptography
+k g paterson e persichetti c peters p schwabe n sendrier  th international workshop pqcrypto  utrecht the
+j szefer c j tjhai m tomlinson w wang classic mceliece netherlands    juni  proceedings lecture notes in
+national institute of standards and technology  computer science vol  springer  s 
+available at
+httpscsrcnistgovprojectspostquantumcryptography bdh
+roundsubmissions j buchmann e dahmen a huelsing xmss  a practical
+forward secure signature scheme based on minimal security
+ab assumptions lecture notes in computer science postquan
+d aharonov m benor faulttolerant quantum computa tum cryptography 
+tion with constant error rate siam journal on computing
+vol  iss  beu
+w buellens breaking rainbow takes a weekend on a laptop
+acatech february 
+national academy of science and engineering the innovation available at
+potential of secondgeneration quantum technologies march httpseprintiacrorg
+
+available at bgv
+httpswwwacatechdepublikationinnovationspoten z brakerski c gentry v vaikuntanathan leveled fully
+zialederquantentechnologien homomorphic encryption without bootstrapping itcs 
+s 
+acatech
+national academy of science and engineering digital sover bh
+eignty  status quo and perspectives march  d bernstein d hopwood a huelsing t lange r nieder
+available at hagen l papachristodoulou m schneider p schwabe z
+httpswwwacatechdepublikationdigitalesouveraenitaetsta wilcoxohearn sphincs practical stateless hashbased
+tusquoundhandlungsfelder signatures lecture notes in computer science advances in
+cryptology  eurocrypt 
+ad
+m ajtai c dwork a publickey cryptosystem with worstcase blp
+averagecase equivalence stoc  s  d bernstein t lange c peters attacking and defending the
+mceliece cryptosystem proceedings of the nd international
+ajt workshop on postquantum cryptography  s 
+m ajtai generating hard instances of lattice problems quad
+erni di matematica   bmbf
+federal ministry of education and research selfdetermined
+anssi and secure in the digital world the german govern
+agence nationale de la scurit des systmes dinformation ments research framework programme on it security march
+anssi should quantum key distribution be used for secure 
+communications technical position paper may  available at
+available at httpswwwforschungitsicherheitkommunikationssystemede
+httpswwwssigouvfruploadsanssitechnicalposi servicepublikationenselfdeterminedandsecureinthedigital
+tionpapersqkdpdf world
+bb bmbf
+c h bennett g brassard quantum cryptography public key federal ministry of education and research quantum tech
+distribution and coin tossing proceedings of ieee internation nologies  from basic research to market a federal govern
+al conference on computers systems and signal processing ment framework programme september 
+volume  s   available at
+httpswwwquantentechnologiendefileadminpublic
+bb redaktiondokumentepdfpublikationenfederalgov
+c h bennett e bernstein g brassard u vazirani strengths ernmentframeworkprogrammequantumtechnolo
+and weaknesses of quantum computing siam journal on giesbfcpdf
+computing  s  
+ 
+quantumsafe cryptography  bibliography
+bmi cfm
+federal ministry of the interior and community cyber secu a casanova jc faugere g macariorat j patarin l perret
+rity strategy for germany  october  j ryckeghem gemss national institute of standards and
+available at technology 
+httpswwwbmibunddeshareddocsdownloadsenthemen available at
+itdigitalpolicycybersecuritystrategyforgermanyhtml httpscsrcnistgovprojectspostquantumcryptography
+roundsubmissions
+bmt
+e berlekamp r mceliece h tilborg on the inherent in cfs
+tractibility of certain coding problems ieee transactions on n courtois m finiasz n sendrier how to achieve a mce
+information theory vol it no   liecebased digital signature scheme asiacrypt 
+available at advances in cryptology  asiacrypt  pp 
+httpsauthorslibrarycaltecheduberieeetitpdf
+chen
+bps chen et al an integrated spacetoground quantum commu
+w barker w polk m souppaya getting ready for postquan nication network over  kilometres nature vol  s
+tum cryptography exploring challenges associated with  
+adopting and using postquantum cryptographic algorithms
+nist cybersecurity white paper gaithersburg md april  ck
+available at a cordel s kousidis quantum computers  a bsistudy
+httpsnvlpubsnistgovnistpubscswpnistcswp on the development status bsimagazine  s 
+pdf available at
+httpswwwbsibunddeshareddocsdownloadsenbsipub
+bsi licationsmagazinbsimagazinpdfblobpublica
+federal office for information security evaluation of lat tionfilev
+ticebased cryptographic algorithms january 
+available at cps
+httpswwwbsibunddeshareddocsdownloadsdebsipub e crockett c paquin d stebila prototyping postquantum
+likationenstudiengitterbasierteverfahrengitterbasiertever and hybrid key exchange and authentication in tls and ssh
+fahrenhtml available at
+httpseprintiacrorgpdf
+bsi
+federal office for information security towards secure block dcp
+chains march  j ding ms chen a petzoldt d schmidt by yang m kan
+available at nwischer j patarin rainbow national institute of standards
+httpswwwbsibunddeentopicscryptographyblockchain and technology 
+blockchainnodehtml available at
+httpscsrcnistgovprojectspostquantumcryptography
+bsi roundsubmissions
+federal office for information security  status of quantum
+computer development  november  dkr
+available at jp danvers a karmakar s s roy f vercauteren j m ber
+wwwbsibunddeqcstudie mudo mera m van beirendonck a basso saber national
+institute of standards and technology 
+bsib available at
+federal office for information security migration zu httpscsrcnistgovprojectspostquantumcryptography
+postquantenkryptografie august  roundsubmissions
+available at
+httpswwwbsibunddeshareddocsdownloadsdebsikryp doe
+topostquantenkryptografiehtml us department of energy from longdistance entanglement
+to building a nationwide quantum internet june 
+bt available at
+deutscher bundestag antwort der bundesregierung auf die httpswwwenergygovsitesprodfilesfquantum
+kleine anfrage der abgeordneten manuel hferlin frank sitta wkshprptfinalnavpdf
+grigorios aggelidis weiterer abgeordneter und der fraktion der
+fdp  drucksache   hochsicheres quantennetzwerk e
+qunet a ekert quantum cryptography based on bells theorem
+available at physical review letters    s 
+httpsdserverbundestagdebtdpdf
+eca
+bt european commission midterm report of the quantum tech
+deutscher bundestag antwort der bundesregierung auf die nologies flagship september 
+kleine anfrage der abgeordneten dr anna christmann available at
+kai gehring margit stumpp weiterer abgeordneter und der httpseceuropaeunewsroomdaedocumentcfmdocid
+fraktion bndnis   die grnen  drucksache  
+httpsdserverbundestagdebtdpdf ecb
+european commission new strategic research agenda on
+bt quantum technologies february 
+deutscher bundestag antwort der bundesregierung auf die available at
+kleine anfrage der abgeordneten dr konstantin von notz httpsdigitalstrategyeceuropaeuennewsnewstrategicre
+tabea rner dr irene mihalic weiterer abgeordneter und der searchagendaquantumtechnologies
+fraktion bndnis   die grnen  drucksache  
+httpsdserverbundestagdebtdpdf etsi
+european telecommunications standards institute quantum
+cdh safe cryptography and security  an introduction benefits
+c chen o danba j hoffstein a hulsing j rijneveld j m enablers and challenges 
+schanck p schwabe w whyte z zhang t saito t yamak available at
+awa k xagawa ntru national institute of standards and httpswwwetsiorgimagesfilesetsiwhitepapersquan
+technology  tumsafewhitepaperpdf
+available at
+httpscsrcnistgovprojectspostquantumcryptography etsi
+roundsubmissions european telecommunications standards institute migration
+strategies and recommendations to quantum safe schemes tr
+ 
+available at
+httpswwwetsiorgdeliveretsitr
+trvppdf
+ 
+quantumsafe cryptography  bibliography
+euqf knu
+eu quantum technologies flagship strategic research agen d knuth von neumanns first computer program comput
+da march  ing surveys vol  no  
+available at httpsdlacmorgdoi
+httpsqteuaboutquantumflagshipresources
+kr
+fed r knig r renner a bariska u maurer small accessible
+a fedorov quantumsafe cryptography research and develop information does not imply security physical review letters
+ment activities in russia etsi quantum safe cryptography   
+technical event 
+ksl
+fo k kwiatkowski n sullivan a langley d levin a mislove
+jc faugre a otmani l perret f de portzamparc jp measuring tls key exchange with postquantum kem
+tillich structural cryptanalysis of mceliece schemes with available at
+compact keys designs codes and cryptography vol  issue httpscsrcnistgovpresentationsmeasuringtlskeyex
+  s  changewithpostquantumkem
+ggh ldk
+o goldreich s goldwasser s halevi publickey crypto v lyubashevsky l ducas e kiltz t lepoint p schwabe g
+systems from lattice reduction problems crypto  s seiler d stehle s bai crystalsdilithium national
+ institute of standards and technology 
+available at
+ghp httpscsrcnistgovprojectspostquantumcryptography
+giacon f heuer f poettering b kem combiners in abdalla roundsubmissions
+m dahab r eds publickey cryptography  pkc  pkc
+ lecture notes in computer science vol  springer lll
+cham httpsdoiorg ak lenstra h w lenstra jr l lovsz factoring polynomi
+als with rational coefficients mathematische annalen 
+gol   s 
+o goldreich two remarks concerning the goldwassermica
+lirivest signature scheme advances in cryptology crypto lm
+ vol  lncs s  httpswwwwisdomweizmann t leighton s micali large provably fast and secure digital
+acilodedpsxgmrpdf signature schemes from secure hash functions us patent
+ july 
+gro
+l grover a fast quantum mechanical algorithm for database lpr
+search proceedings th annual acm symposium on the v lyubashevsky c peikert o regev on ideal lattices and
+theory of computing s   learning with errors over rings eurocrypt  s 
+hag ls
+h hagemeier frodo is the new hope bsimagazine  a langlois d stehl worstcase to averagecase reductions
+s  for module lattices des codes cryptogr  s 
+available at 
+httpswwwbsibunddeshareddocsdownloadsenbsipub
+licationsmagazinbsimagazinpdfblobpublica maa
+tionfilev d moody g alagic d apon d cooper q dang j kelsey y
+liu c miller r peralta r perlner a robinson d smithtone
+hb j alperinsheriff status report on the second round of the
+a hlsing d j bernstein c dobraunig m eichlseder s nist postquantum cryptography standardization process
+fluhrer sl gazdag p kampanakis s kolbl t lange m  nist interagencyinternal report nistir national
+m lauridsen f mendel r niederhagen c rechberger j ri institute of standards and technology gaithersburg md on
+jneveld p schwabe jp aumasson b westerbaan w beullens line httpsdoiorgnistir
+sphincs national institute of standards and technology
+ mab
+available at c a melchor n aragon s bettaieb l bidoux o blazy jc
+httpscsrcnistgovprojectspostquantumcryptography deneuville p gaborit e persichetti g zmor j bos hqc
+roundsubmissions national institute of standards and technology 
+available at
+hhl httpscsrcnistgovprojectspostquantumcryptography
+a harrow a hassidim s lloyd quantum algorithm for roundsubmissions
+solving linear systems of equations physical review letters
+   mb
+r misoczki p barreto compact mceliece keys from goppa
+hps codes selected areas in cryptography sac  august 
+j hoffstein j pipher j h silverman ntru a ringbased
+public key cryptosystem ants  s  mce
+r j mceliece a publickey cryptosystem based on algebraic
+hr coding theory technical report nasa 
+a hlsing j rijneveld j schanck p schwabe ntruhrss httpstmojplnasagovprogressreportnpdf
+kem  algorithm specification and supporting documenta
+tion  november  mer
+r merkle secrecy authentication and public key systems
+jac stanford university information systems laboratory technical
+d jao r azarderakhsh m campagna c costello l de feo report  
+b hess a jalali b koziel b lamacchia p longa m naehrig
+j renes v soukharev d urbanik g pereira k karabina a mm
+hutchinson sike national institute of standards and tech d martin a montanaro e oswald d shepherd  quan
+nology  tum key search with side channel advice in selected areas in
+available at cryptography  sac  sac  lecture notes in computer
+httpscsrcnistgovprojectspostquantumcryptography science vol  springer
+roundsubmissions
+mos
+kl m mosca  cybersecurity in an era with quantum com
+e knill r laflamme theory of quantum errorcorrecting puters will we be ready
+codes phys rev a    available at
+httpseprintiacrorgpdf
+ 
+quantumsafe cryptography  bibliography
+nab rfc 
+m naehrig e alkim j bos l ducas k easterbrook b m lochter j merkle elliptic curve cryptography ecc
+lamacchia p longa i mironov v nikolaenko c peikert a brainpool standard curves and curve generation rfc 
+raghunathan d stebila frodokem national institute of march 
+standards and technology 
+available at rfc 
+httpscsrcnistgovprojectspostquantumcryptography c kaufman p hoffman y nir p eronen t kivinen internet
+roundsubmissions key exchange protocol version  ikev rfc  oktober
+
+ncsc
+national cyber security center quantum security technolo rfc 
+gies whitepaper  march  v smyslov internet key exchange protocol version  ikev
+available at message fragmentation rfc  november 
+httpswwwncscgovukpdfswhitepaperquantumsecuri
+tytechnologiespdf rfc 
+a huelsing d butin s gazdag j rijneveld a mohaisen
+nie xmss extended merkle signature scheme ietf rfc 
+h niederreiter knapsacktype cryptosystems and algebraic may 
+coding theory problems of control and information theory available at
+ s   httpstoolsietforghtmlrfc
+nist rfc 
+national institute of standards and technology nist status e rescorla the transport layer security tls protocol version
+update on the rd round july   rfc  august 
+available at
+httpscsrcnistgovpresentationsstatusupdateonthe rfc 
+rdround d mcgrew m curcio s fluhrer leightonmicali hashbased
+signatures ietf rfc  april 
+ogm available at
+m ounsworth j gray s mister composite encryption for httpstoolsietforghtmlrfc
+use in internet pki july  available at httpsdatatracker
+ietforgdocdraftounsworthpqcompositeencryption rfc 
+r housley use of the hsslms hashbased signature algo
+opa rithm in the cryptographic message syntax cms ietf rfc
+m ounsworth m pala composite public and private keys for  february 
+use in internet pki february  available at
+available at httpstoolsietforghtmlrfc
+httpswwwietforgiddraftounsworthpqcompositekeys
+html rfc 
+r housley use of the hsslms hashbased signature algo
+opb rithm with cbor object signing and encryption cose ietf
+m ounsworth m pala composite signatures for use in inter rfc  april 
+net pki february  available at
+available at httpstoolsietforghtmlrfc
+httpsdatatrackerietforgdocdraftounsworthpqcomposite
+sigs rfc 
+s fluhrer p kampanakis d mc grew v smyslov mixing
+pdt preshared keys in ikev for postquantum security rfc 
+p schwabe d stebila t wiggers postquantum tls without june 
+handshake signatures ccs  proceedings of the  acm available at
+sigsac conference on computer and communications securi httpsdatatrackerietforgdochtmlrfc
+ty httpsdoiorg
+sab
+pei p schwabe r avanzi j bos l ducas e kiltz t lepoint v ly
+c peikert a decade of lattice cryptography found trends ubashevsky j m schanck g seiler d stehle crystalsky
+theor comput sci  s   ber national institute of standards and technology 
+available at
+pr httpscsrcnistgovprojectspostquantumcryptography
+c portmann r renner cryptographic security of quantum roundsubmissions
+key distribution preprint arxiv 
+sfg
+pr d stebila s fluhrer s gueron hybrid key exchange in tls
+c portmann r renner security in quantum cryptography  july  ietf rfc draft
+available at httpsdatatrackerietforgdochtmldraftietftlshybriddesign
+httpsarxivorgabs
+shor
+pst p shor progress in quantum algorithms quantum informa
+c paquin d stebila g tamvada benchmarking postquan tion processing  s  
+tum cryptography in tls pqcrypto 
+httpsdxdoiorg shor
+p shor algorithms for quantum computation discrete loga
+qdelta rithms and factoring proceedings th annual symposium on
+quantum delta nederland economic impact of quantum in foundations of computer science ieee comput soc press s
+the netherlands  
+available at
+httpsquantumdeltanlpdfqutecheco siga
+nomicimpactofquantumvfinalpdf v scarani s iblisdir n gisin a acn quantum cloning rev
+mod phys   
+reg
+o regev on lattices learning with errors random linear skd
+codes and cryptography stoc  s  d sikeridis p kampanakis m devetsikiotis postquantum
+authentication in tls  a performance study network and
+rfc  distributed systems security ndss symposium 
+m bellare r canetti h krawczyk hmac keyedhashing for httpsdxdoiorgndss
+message authentication rfc  
+ 
+quantumsafe cryptography  bibliography
+sm vgf
+s sajeed c minshull n jain v makarov invisible tro d van geest s fluhrer algorithm identifiers for hss and
+janhorse attack scientific reports   xmss for use in the internet x public key infrastructure
+ietf rfc draft march 
+smy
+v smyslov intermediate exchange in the ikev protocol vn
+august  draftietfipsecmeikevintermediate j von neumann first draft of a report on the edvac 
+sp wil
+p shor j preskill simple proof of security of the bb quan f wilhelmmauch quantum computers and quantum supe
+tum key distribution protocol physical review letters   riority bsimagazin  s 
+ s  available at
+httpswwwbsibunddeshareddocsdownloadsenbsi
+spb publicationsmagazinbsimagazinpdfblobpubli
+national institute of standards and technology recommen cationfilev
+dation for block cipher modes of operation the cmac mode
+for authentication special publication sp b  wc
+c wegman carter new hash functions and their use in au
+spd thentication and set equality journal of computer and system
+national institute of standards and technology recommen science  
+dation for block cipher modes of operation galoiscounter
+mode gcm for confidentiality and authentication special wz
+publication sp d november  w k wootters w h zurek a single quantum cannot be
+cloned nature    
+spc
+national institute of standards and technology recom x
+mendation for keyderivation methods in keyestablishment internationale fernmeldeunion itut recommendation
+schemes special publication sp c rev  august  x  october 
+httpsdoiorgnistspcr available at
+httpswwwituintitutrecommendationsrecaspxrecx
+sp
+national institute of standards and technology recommen yuen
+dation for stateful hashbased signature schemes special h yuen security of quantum key distribution ieee access
+publication sp  vol  pp  
+available at
+httpscsrcnistgovpublicationsdetailspfinal zcd
+g zaverucha m chase d derler s goldfeder c orlandi
+sv s ramacher c rechberger d slamanig j katz x wang v
+a scherer b valiron sc mau s alexander e van den berg kolesnikov d kales picnic national institute of standards
+t e chapuran concrete resource analysis of the quantum and technology 
+linear system algorithm used to compute the electromagnetic available at
+scattering cross section of a d target quantum inf process httpscsrcnistgovprojectspostquantumcryptography
+   roundsubmissions
+ths
+cj thai t heider v smyslov beyond kb limit of ikev
+payload july 
+available at
+httpstoolsietforghtmldrafttjhaiikevbeyondklimit
+tr
+federal office for information security bsi tr cryp
+tographic mechanisms recommendations and key lengths
+available at
+httpswwwbsibunddeenservicenavipublicationstechni
+calguidelinestrbsitrhtml
+tr
+federal office for information security bsi tr
+xzertifikate und zertifizierungspfadvalidierung 
+tr
+federal office for information security tr technical
+guideline satdsig
+available at
+httpswwwbsibunddedethemenunternehmenundorgan
+isationenstandardsundzertifizierungtechnischerichtlinien
+trnachthemasortierttrtrnodehtml
+tt
+c tjhai m tomlinson g bartlett s fluhrer d van geest
+o garciamorchon v smyslov multiple key exchanges in
+ikev july  draftietfipsecmeikevmultipleke
+vdi
+vdi technologiezentrum gmbh roadmap quantencomput
+ing october 
+httpswwwquantentechnologiendefileadminpublicredak
+tiondokumentepdfpublikationenroadmapquantencom
+putingbfcpdf
+vdi
+vdi technologiezentrum gmbh agenda quantensysteme
+ march 
+httpswwwquantentechnologiendefileadminpublicreda
+ktiondokumentepdfpublikationenagendaquantensys
+temewebcpdf
+ 
+wwwbsibundde
+legal notice
+design
+faktor  ag
+published by
+federal office for information security bsi content and editing
+federal office for information security bsi
+source
+dr stephan ehlen dr heike hagemeier dr tobias hemmert
+federal office for information security bsi
+dr stavros kousidis dr manfred lochter stephanie reinhardt and
+godesberger allee 
+dr thomas wunderer
+ bonn
+image credits
+email
+s  adobestock visual generation s  adobestock visual
+quantumbsibundde
+generation s  adobestock visual generation s  adobe
+phone stock hasan s  adobestock visual generation s  adobe
+    stock vectormine s  adobestock visual generation
+s  adobestock feodora s  adobestock feodora
+fax
+    diagrams
+federal office for information security bsi
+last updated
+oktober  item number
+bsibro
+printed by
+appel  klinger druck und medien gmbh schneckenlohe this brochure is part of the federal office for information securitys
+public relations work it is provided free of charge and is not
+intended for sale

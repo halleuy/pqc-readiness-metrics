@@ -1,8 +1,8 @@
 Framework: 007.txt
-Total Words: 2509
+Total Words: 4158
 ========================================
-crypto_assets: 0
-crypto_agility: 0
-migration_planning: 2
-risk_management: 0
-standards_compliance: 0
+crypto_assets: 5
+crypto_agility: 13
+migration_planning: 9
+risk_management: 19
+standards_compliance: 18

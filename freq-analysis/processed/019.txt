@@ -1,0 +1,1137 @@
+bis papers
+no 
+quantum computing
+and the financial system
+opportunities and risks
+by raphael auer angela dupont leonardo
+gambacorta joon suk park koji takahashi and
+andras valko
+monetary and economic department
+october 
+jel classification c c c m g g
+keywords quantum computing quantum algorithm
+quantum cryptography quantumresilient
+cryptography artificial intelligence computational
+finance project leap
+the views expressed are those of the authors and not necessarily the views of the bis
+this publication is available on the bis website wwwbisorg
+ bank for international settlements  all rights reserved brief excerpts may be
+reproduced or translated provided the source is stated
+issn  online
+isbn  online
+quantum computing and the financial system
+opportunities and risks
+raphael auer angela dupont leonardo gambacorta joon suk park koji takahashi
+and andras valko
+abstract
+quantum computers are still in an experimental phase but in the future they may
+have a profound impact on the financial system by providing faster and potentially
+more efficient solutions quantum computers have the potential to solve certain
+complex problems that are of paramount interest in the field of economics and
+finance for example quantum simulation algorithms can be leveraged in stress
+testing and macroeconomic analysis and quantum optimisation can be used in asset
+pricing meanwhile the advent of quantum computers also introduces a potential
+threat to financial stability especially through their ability to breach some of the most
+widely used cryptographic algorithms despite the nascent state of quantum
+computing development the potential for sensitive data to be stored now with the
+intention to be decrypted later necessitates immediate preparation this paper
+explores the transformative potential of quantum mechanics and its applications to
+the financial system including the potential benefits as well as the main risks it also
+highlights current actions within the central bank community to address these
+potential risks including project leap started by the bank for international
+settlements innovation hub the banque de france and deutsche bundesbank
+keywords quantum computing quantum algorithm quantum cryptography
+quantumresilient cryptography artificial intelligence computational finance project
+leap
+jel classification c c c m g g
+
+raphael auer and leonardo gambacorta are with the bank for international settlements bis and
+affiliated with the center for economic and policy research koji takahashi joon suk park and andras
+valko are with the bis angela dupont is with the bis and the banque de france we thank giulio
+cornelli and ilaria mattei for assistance with data and figures and christophe laforge and david
+koepfer for valuable comments on earlier drafts the authors acknowledge the use of gpt for
+proofreading and style edits the views expressed are those of the authors and not necessarily those
+of the bis and the banque de france
+quantum computing and the financial system opportunities and risks 
+ introduction
+in recent years the pace of research and development rd in quantum computing
+has accelerated following the initial idea in the s feynman  the concept
+was brought closer to reality in  when researchers at oxford university created
+the first twoqubit quantum computer qc demonstrating the potential of
+leveraging quantum physics to perform calculations jones et al  between
+ and  experimental qcs reached  qubits in size atom computing
+ ibm  marking a significant increase in computational capabilities as of
+ though qcs are still in experimental phase technology developers have further
+extended the horizon with roadmaps to systems with  logical qubits ibm
+ aiming to provide the full power of quantum computing beyond  graph
+
+evolution of quantum computing over time graph 
+sources vandersypenet al  gartner ibm quantum roadmap nist stanford encyclopedia of philosophy archive authors elaboration
+a qubit or quantum bit is the basic unit of information in qcs similar to bits in
+classical computing while a classical bit must always be in one of two possible states
+ or  a qubit can exist in a superposition of those two states with a certain
+probability of being a  and a certain probability of being a  this property is
+counterintuitive to those used to classical physics but it is fundamental in quantum
+mechanics the ability of qubits to be in superposition combined with another
+property called entanglement meaning that multiple qubits can share a common
+quantum state opens the possibility to build computers working fundamentally
+differently from classical computers
+while a single qubit can represent a combination of two states due to
+superposition a qubit qc has theoretically the capability to represent 
+different states simultaneously qcs utilise the entanglement between qubits and
+ this doesnt mean a qc stores all  states simultaneously in the classical sense but rather that it
+can represent a quantum superposition involving all those states
+ quantum computing and the financial system opportunities and risks
+probabilities relating to superpositions to perform a series of operations this allows
+them to perform some calculations much more efficiently than classical computers
+creating the possibility of faster and more accurate computations in some cases than
+with any computer available today
+this potential and the rapid development in the field have attracted the attention
+of all relevant actors researchers investors financial market operators and
+policymakers graph a the increasing interest in the new opportunities provided
+by qcs gives rise to a reciprocal interaction between surging investments by venture
+capitalists in quantum computingrelated projects and new discoveries in this field of
+research graph b
+increasing attention and rd activities in quantum computing graph 
+a public attention to quantum computing b rd activity in quantum computing
+index usd mn number of applications
+ 
+ 
+ 
+ 
+ 
+        
+investment by vcs lhs patents rhs
+ google trends index for quantum computing retrieved on  december   investment by vcs indicates the total value invested by
+venture capitalists in firms involved in quantum computing projects  the number of the patents is based on the patents that include
+quantum in their abstract and are applied to us and european patent offices
+source google trends patentscope pitchbook
+quantum machines operate on fundamentally different principles and bring new
+solutions for intractable challenges some of the most promising fields include
+simulations optimisation and search problems indeed one of the first application
+areas will likely be the simulation of quantum mechanical phenomena in addition
+quantum computing has potential applications in many other sectors such as
+chemical and biological engineering and complex manufacturing bova et al 
+this paper examines the impact of qcs on the financial system with a focus on
+potential applications including opportunities and risks indeed qcs hold the
+ quantum computers will not merely be faster versions of todays general purpose computers in
+practice classical and quantum computers are expected to complement each other classical
+computers will continue to handle routine tasks efficiently while quantum computers will tackle
+specific complex problems that are infeasible for classical computing
+quantum computing and the financial system opportunities and risks 
+promise of benefiting the financial system through their ability to implement novel
+algorithms which can significantly improve complex pricing and risk evaluation
+processes conversely as highlighted above qcs pose a threat to the security of the
+financial system by potentially breaking current cryptographic protocols that are
+securing financial data the paper highlights both of these aspects and discusses
+strategies that central banks and financial intermediaries can employ to mitigate the
+threats arising from the advancement of qcs
+in the financial sector qcs could offer new possibilities by enhancing risk
+assessment optimising portfolio management improving macro analysis and many
+other areas combined with artificial intelligence it may also provide significant value
+for example in fraud detection or trading strategies further new applications will
+continue to emerge as evidenced for example by the strong growth of literature on
+quantum algorithms for financial applications
+at the same time qcs pose a serious threat to the financial system due to their
+expected ability to break some commonly used encryption techniques in digital
+communications and in financial systems cryptographic schemes are based on
+mathematical problems which are prohibitively difficult for todays computers to
+solve however some of these problems will be solvable by future qcs opening the
+possibility for malicious actors to hack encryption without proper action
+authentication and encryption methods reliant on current cryptographic techniques
+will become ineffective compromising confidentiality and integrity and potentially
+leading to substantial financial and reputational damages bis 
+the remainder of this paper is structured as follows section  provides an
+overview of quantum computing and quantum algorithms section  delves into the
+potential applications of qcs within the financial sector including advancements at
+the confluence of quantum computing and artificial intelligence in section  we
+discuss the economic effect of these potential applications in section  we describe
+the effects of quantum mechanics on cryptography including risks and opportunities
+based on this section  discusses potential impacts on the financial system and
+possible actions to mitigate risks section  summarises the main conclusions
+ quantum computing and quantum algorithms
+quantum computing is a groundbreaking technology that utilises the principles of
+quantum mechanics to perform computations unlike classical computers which
+process information in binary digits bits that can be either  or  a qc uses quantum
+bits or qubits a qubit can exist in a state of superposition with a certain probability
+of being a  and a certain probability of being a  in addition two qubits can be in
+entanglement meaning that they share a common quantum state these phenomena
+of superposition and entanglement defy explanation through classical physics and
+often seem counterintuitive without a deep understanding of quantum mechanics in
+a nutshell these two properties enable qcs to perform calculations in radically new
+ways compared with classical computers
+ quantum computing and the financial system opportunities and risks
+while the concept of qcs has been known since the s and the first
+experimental smallscale qcs were built in the late s practical qc
+implementations are not yet available and currently it is impossible to know if or
+when they will be a main challenge is related to keeping qubits in a quantum state
+for the time of computations if the qubits are not sufficiently isolated from their
+environment their quantum state can collapse introducing noise in the calculations
+to mitigate this issue qcs require an even larger number of qubits than would
+otherwise be required this allows for redundancy in data representation inside the
+qc and ensures that even if some qubits are compromised by noise others can
+continue to function correctly
+a key research direction relates to increasing the number of qubits in a qc a
+significant milestone in the evolution of this technology was googles announcement
+in  that its qubit qc had surpassed classical computers in a specific task arute
+et al  ibms introduction of a qubit qc in  marks another
+considerable advance in qc capabilities at the time of writing the largest
+experimental qcs have just over  physical qubits while according to some
+estimates  million physical qubits are needed for qcs to start addressing practical
+problems nec 
+yet another line of research is looking at computational techniques and
+algorithms that can take advantage of a future qc classical computers have
+operating systems to hide the details of the physical implementation of bits so that
+a programmer can implement an algorithm without thinking about the physical
+details of a computer similarly the field of quantum computing is developing its own
+set of algorithms and computational techniques that can be applied to a future qc
+irrespective of exactly how qubits will be implemented
+qcs will not be faster versions of todays computers and they will not be
+applicable to all tasks performed by classical computers today in fact as understood
+today quantum computing is suited for a specific narrow set of computational tasks
+only for these tasks a qc could outperform classical supercomputers by several
+orders of magnitude making it possible to solve some computational problems that
+are practically unsolvable today
+quantum supremacy is the milestone of using a qc to solve a problem that no
+classical computer can solve within a realistic time frame the term does not have an
+exact definition for example there are different views on whether the problem must
+be a useful realworld application or whether it can be an artificial test case
+ building qcs presents several complex challenges such as the need for quantum systems to be
+cooled to near absolute zero temperature to maintain coherence developing a large number of
+precisely controlled qubits is a challenge that is being actively addressed by researchers but
+significant advancements are required before reaching largescale practical qcs
+ the term logical qubit is sometimes used to represent a hypothetical errorfree qubit implemented
+using a collection of physical qubits
+ other researchers have pointed out that the selected use case involved a highly specialised problem
+with limited applicability beyond the demonstration additionally it is feasible to improve classical
+algorithms to achieve comparable results within a reasonable time frame kalai et al 
+quantum computing and the financial system opportunities and risks 
+correspondingly there is no consensus on whether quantum supremacy has already
+been achieved kalai et al  while some research teams claim they have already
+achieved quantum supremacy many experts believe that a practical qc is many years
+away and some argue that it might never be realised dyakonov  based on a
+survey of  leading global experts in quantum computing mosca and piani 
+estimate that a cryptographically relevant qc could emerge within five to  years
+an optimistic view of the responses suggests an  likelihood of a
+cryptographically relevant qc within five years up from  in  and a 
+chance within  years up from  in  even under a pessimistic scenario
+there is an estimated  likelihood of a disruptive quantum threat within the next
+ years
+in theory without time and computing limitations any computational problem
+that is solvable by a qc is also solvable by a classical computer and any problem
+solvable by classical computers can also be solved by future qcs nielsen and chuang
+ however certain problems are significantly quicker to solve using a qc
+because of its specific computational approach a subset of problems though
+theoretically solvable by classical computers would require a prohibitively large
+computational time even using todays largest supercomputers but would be
+solvable by a qc in reasonable time quantum algorithms is a field of research looking
+into these problems and into how they would be addressed by a future qc of
+sufficient size
+a number of algorithm families have emerged in the literature such as quantum
+fourier transform amplitude amplification and quantum walks montanaro  a
+specific subclass of algorithms uses a combination of quantum and classical
+computing and is supposed to be used in mixed computing environments since qcs
+are still in an experimental phase most of this work is currently theoretical these
+algorithms are either only described mathematically and not yet implemented or
+they are tested in an emulated qc which does not provide the quantum speedup that
+future real implementations promise
+ quantum computing applications in the financial system
+the financial system is characterised by complex calculations for analysis forecasting
+and optimisation given the high dimensionality of the underlying issues todays
+highperformance computers can struggle to handle the computational complexity
+of these tasks quantum computing with its potential ability to process vast numbers
+of solution states and perform complex calculations efficiently holds great promise
+for addressing some of these challenges indeed finance is projected to be one of
+the first industries to reap the benefits from quantum computing mnard et al 
+pistoia et al  interest in applications in finance is thus mounting as also
+evidenced by the increasing number of publications in the field see graph 
+ quantum computing and the financial system opportunities and risks
+quantum computers and finance google scholar results
+graph 
+
+
+
+
+
+
+          
+ google scholar results
+note the yaxis of the graph represents the number of search results retrieved from google scholar quantified in absolute terms each data
+point corresponds to the total count of entries eg articles papers theses returned by google scholar for a given search query the xaxis
+delineates the specific time periods under investigation with each corresponding point reflecting the cumulative number of indexed results
+for  data up to  june  were used
+source google scholar
+graph  illustrates the broad range of quantum computing applications in
+finance one area where the technology could be useful is evaluating financial risk or
+performing more accurate stress tests in order to improve risk management
+another field where the impact of quantum computing may be significant is
+investments and portfolio management including financial market risk evaluation
+more accurate simulations and analysis could improve investment strategies and
+asset pricing it is expected that artificial intelligence ai and machine learning
+will gain substantial improvement with better fraud detection mechanisms or even
+better trading strategies in addition other areas such as payments and settlement
+and macro modelling would be positively impacted in what follows we discuss each
+of these areas in more detail
+risk management
+risk management quantum algorithms for certain financial use cases are expected to
+offer a quadratic speedup  compared with classical algorithms this covers
+applications from risk simulations to systemic risk evaluation this approach promises
+to transform how financial risks are modelled and mitigated in some cases qcs are
+capable of performing tasks that are beyond the reach of traditional computers they
+ a quadratic speedup refers to a significant improvement in the computational efficiency of an
+algorithm or problemsolving process the time required to solve a problem using a specific
+algorithm is reduced by a factor proportional to the square of the input size for instance assume
+solving a problem necessitating a bruteforce search and the prevailing algorithm exhibits a quadratic
+time complexity if a novel algorithm can solve the same problem with linear time complexity it would
+be considered a quadratic speedup
+quantum computing and the financial system opportunities and risks 
+enable more precise risk metric evaluations such as value at risk var which is
+widely used specifically for the capital requirements of financial institutions
+potential advantages of quantum mechanics in the financial sector graph 
+source authors elaboration
+incorporating quantum computing into risk management enables a re
+evaluation of how risk management is operated it offers the potential to perform
+complex calculations at an unprecedented speed quantum algorithms developed for
+risk estimation in financial asset portfolios have the potential to accelerate
+calculations in other words as the input size of the problem increases the best
+classical algorithms require an exponentially growing number of steps whereas a
+quantum algorithm needs at most a linear number of steps egger et al 
+estimate that a qc could perform the var calculations for a  millionasset portfolio
+in a runtime of  minutes this is however dependent on several factors such as
+the number of scenarios the complexity of the portfolio the selected var
+methodology and the efficiency of the implemented algorithms in contrast these
+specific calculations could take several hours using traditional computing
+financial risk is frequently assessed through the utilisation of models such as
+monte carlo simulations zhang et al  highlight the benefits of quantum
+computing in these simulations these are crucial for modelling processes with
+inherent randomness with quantum computing financial risk assessment models
+can be enhanced and hence prediction accuracy can be improved
+ quantum computing and the financial system opportunities and risks
+quantum algorithms have been tested for accelerating pricing and risk analysis
+of financial derivatives stamatopoulos et al  compare quantum classical and
+semiquantum circuits that allow a quadratic speedup of derivative pricing the
+authors also investigate a method requiring fewer resources than existing methods
+this advancement will significantly improve the process of evaluating potential risks
+in terms of required precision and runtime
+quantum computing brings advantages to the financial system that could result
+in more accurate estimations and simulations it also allows some complex problems
+to be performed that are intractable with the classical computing available today
+financial networks are so interconnected that it is exceedingly difficult to assess the
+impact of potential financial crashes such as asset price perturbations orus et al
+ highlight this challenge stating that the mathematical problem of forecasting
+a damaging event is unsolvable with classical algorithms even for a small network
+they argue that a problem involving a network composed of  to  organisations
+would take more than the age of the universe to be solved with classical computing
+aboussalah et al  envisage a quantum approach to systemic risk analysis
+in financial networks they demonstrate how quantum computing techniques can
+provide insights into the resilience of financial systems while quantum risk
+management is evolving at a fast pace and concrete applications are under active
+research the potential improvements depend on the development of qcs capacities
+it is expected that further research will allow new quantum algorithms to be
+developed making risk management one of the key application areas
+investment and portfolio management
+portfolio optimisation is a delicate balancing act it involves minimising risk and
+maximising return simultaneously the complexity of these optimisation problems
+can result in highly complex calculations in some cases these can take classical
+computers days or months to compute or even exceed their capabilities altogether
+the emergence of qcs may offer new possibilities to solve these challenging
+problems presenting a competitive advantage for investment institutions with access
+to quantum computing
+bova et al  introduce the concept of quantum advantage they highlight
+the potential for qcs to generate more profitable outcomes for the most intractable
+problems for instance option pricing involves calculating the fair value of options
+based on various factors including the underlying asset price volatility time to
+expiration and interest rates traditional methods provide approximate solutions but
+may not capture all market complexities accurately with the enhanced
+computational speed of quantum systems investment institutions could achieve
+superior results in portfolio optimisation
+several researchers have proposed quantum algorithms for various portfolio
+management tasks doriguello et al  focus on stochastic optimal stopping
+problems ghysels et al  look at derivatives pricing both research teams
+demonstrate the accelerated computations enabled by quantum computing
+quantum computing and the financial system opportunities and risks 
+rebentrost and lloyd  also showcase the applicability of quantum algorithms
+in portfolio optimisation
+the time it takes to complete a complex calculation is a variable to consider when
+assessing potential benefits of quantum computing however it is equally relevant to
+evaluate its potential economic advantage while qcs offer enhanced computational
+speed classical supercomputers may still provide a more costeffective solution as
+bova et al  point out the demanding computational requirements of certain
+optimisation problems must be carefully evaluated building a qc is costly compared
+with classical computing and this cost must be taken into account
+payments and settlements
+the payments sector is another area where quantum computing can bring significant
+advantages
+mcmahon et al  explore an innovative use of quantum computing to
+improve liquidity when settling payment transactions their proposal could lead to
+faster more efficient settlements the experiment operated payment transactions on
+a day sample from a canadian payment system providing a practical example of
+these benefits they use a hybrid quantum annealing solver to test potential
+improvements in daily liquidity the results are promising with significant liquidity
+savings estimated between cad  million and cad  million this
+demonstrates the tangible benefits that quantum computing can bring to the
+payments and settlements sector
+macroeconomic modelling
+dynamic economic models which provide a representation of the evolution of
+economic factors over time pose a significant computational challenge to provide
+an analogy consider the challenge of solving a large and intricate puzzle the larger
+and more complex the puzzle the longer it takes to fit in each piece given the need
+to test each piece individually against each of the others this complexity is a point
+emphasised by hull et al  who note that computational costs rise exponentially
+with the number of variables this challenge makes it difficult to accurately represent
+and solve these models with powerful traditional computing resources in contrast
+the ideal solution would involve testing all pieces simultaneously to understand how
+they fit together this is akin to what a qc can perform
+fernndezvillaverde and hull  demonstrate that today quantum
+annealers can already solve certain dynamic programming problems an order of
+magnitude faster than classical computers these authors implement a wellknown
+economic model namely the real business cycle rbc on a quantum annealer this
+quantum machine  already available today albeit with limited capacity  solved the
+rbc model in  of the computation time that a traditional computer would take
+the paper introduces a new method to solve performing dynamic programming
+displaying the potential of quantum hardware for economic modelling
+ quantum computing and the financial system opportunities and risks
+quantum computing and ai a new frontier in machine learning
+researchers are actively exploring synergies between quantum computing and ai a
+burgeoning field of research relates to the use of quantum computing algorithms to
+enhance ai and machine learning which rely on classical computing potential
+domains within ai that could benefit from the integration of quantum computing
+include reinforcement learning deep learning and support vector machines among
+other areas
+reinforcement learning is a type of machine learning that allows an agent or an
+aidriven system to learn to make decisions by interacting with its environment li
+ the agent determines its next action based on its current state and receives
+feedback in the form of rewards or penalties after each action since the aim of the
+agent is to maximise rewards its learning process includes finding actions that lead
+to the highest rewards through trial and error and developing a strategy that
+maximises rewards quantum reinforcement learning algorithms can leverage the
+principles of quantum mechanics to accelerate the learning and decisionmaking
+processes these algorithms could introduce new approaches to exploring
+reinforcement learning problems potentially resulting in more effective strategies for
+finding optimal policies lockwood and si  examine specifically the use of
+quantum circuits in reinforcement learning highlighting how quantum computing
+can offer innovative methods for policy optimisation saggio et al  provide
+empirical evidence of a quantum speedup in a reinforcement learning task
+underscoring the potential of quantum algorithms to enhance reinforcement
+learning
+deep learning a subset of machine learning techniques represents another area
+where quantum computing may enhance computational efficiency and thereby
+increase the capabilities of ai deep learning involves training artificial neural
+networks to analyse data and make decisions these networks consist of layers
+including an input layer one or more hidden layers and an output layer each node
+acts as an artificial neuron forming connections with others through assigned weights
+and thresholds the term deep in deep learning refers to the networks multiple
+layers despite its widespread success deep learning faces challenges related to
+memory and time efficiency which quantum computing could address quantum
+deep learning holds promise for enhancing the speed and efficiency of the training
+process with potential advancements in quantum neural networks through the use
+of quantum gradient descent algorithms these algorithms aim to expedite training
+by estimating gradients more efficiently through quantum principles wiebe et al
+
+although integrating ai with quantum computing presents significant
+challenges researchers are actively investigating this avenue to potentially augment
+ai capabilities these two domains could bolster each others development as
+highlighted by the growing body of research on the application of ai techniques in
+quantum computing development dunjko and briegel  while realising
+practical applications involves surmounting considerable obstacles such as costs and
+quantum computing and the financial system opportunities and risks 
+technical limitations the potential impact of the synergy between these two fields
+warrants attention
+ economic effect of qcs from shortterm benefits to a
+new general purpose technology
+despite growing interest and new quantum algorithm proposals the practical
+benefits of quantum computing in reallife problems are difficult to assess choi et al
+ present a framework to understand where quantum computing will provide an
+advantage over classical computing and conclude that reallife use cases with a
+practical quantum advantage will be few they argue that classical computers solve
+problems of small to moderate complexity faster than qcs the authors point out that
+only problems where the algorithmic gain is large will benefit from quantum
+computing they assert that since very large algorithmic gains are rare in practice
+and theorised to be rare even in principle their analysis suggests that the benefits
+from quantum computing will flow to a small set of use cases and mostly to those
+processing very large amounts of data they illustrate this with the example of an
+unstructured search where quantum advantages appear if the problem size exceeds
+ graph a
+impact of quantum computing graph 
+a quantum algorithm superiority for large problem sizes b impact of quantum computing
+achievable value of a portfolio
+sources adapted from choi et al  authors graphical analysis
+in addition to the algorithmic challenge biamonte et al  identify two
+additional obstacles data initialisation and output measurement to illustrate these
+challenges following castelvecchi  the quantum computing process could be
+decomposed into three steps  initialising the qc with dataencoded quantum
+states  performing operations on these configured qubits and  extracting
+information from the final quantum state while most quantum algorithms focus on
+ quantum computing and the financial system opportunities and risks
+optimising step  steps  and  can be timeconsuming initialising large data
+sets by converting them into quantum states can be inefficient and extracting
+meaningful information from the final qubit string can also be computationally
+expensive potentially overshadowing the speed gains achieved with quantum
+algorithms aaronson  many of the use cases studied in the current literature
+address problems that are being solved today by classical computers for such
+problems the shortterm benefits of quantum computing often come in the form of
+faster computation with similar results for instance sanzfernndez et al 
+utilise a quantum computing algorithm to solve dynamic portfolio optimisation
+problems and find that quantum annealing completes the task in approximately three
+minutes while the computational time using classical computers exceeds one day
+the shortterm economic value of such a speedup varies between use cases as
+a simple upper bound on the potential benefits of qc for any specific use case one
+can consider how much value we would be able to realise with classical computers of
+infinite computing capacity for example in the case of an optimisation problem this
+corresponds to finding the global optimum in zero computational time for some use
+cases this would have a large economic value but in many practical use cases the
+immediate value is limited for example because of intrinsic uncertainties and noisy
+input data which reduce the value of more accurate calculations or because the
+computations need to be performed rarely and a speedup does not directly convert
+to immediate economic value these considerations also apply to the economic
+benefits achievable by solving the same problems with a qc graph b
+one rough intuitive gauge of the shortterm impact of qcs is the market that is
+most directly affected by them  the one for highperformance computing this
+market is expected to grow to around usd  billion in  years although there is
+high uncertainty in this projection see graph  by assuming an average increase in
+performance derived from quantum computing compared with classical computing
+we can estimate potential savings for example if a  reduction in costs is assumed
+this would imply a saving of usd  billion per year
+ alternative approaches explore the utilisation of inherently quantum data obtained through methods
+such as quantum sensing see cerezo et al  for details
+ analysts also estimate that the banking financial services and insurance sector has the thirdhighest
+share as an end user in the market
+ indeed this rough backoftheenvelope calculation is well grounded in economic theory hulten
+ shows that in production networks incremental ie up to a first order technological
+improvements in different sectors contribute to overall economic growth in proportion to the size of
+the affected sectors and to sectoral productivity growth the key underlying idea is that even if
+technological advancements occur in just a few sectors they can still have significant impacts on the
+aggregate economy depending on the economic weight of those sectors
+quantum computing and the financial system opportunities and risks 
+projection for the global market size of a highperformance computer
+in billions of us dollars graph 
+note average indicates the average projections from the reports published by market survey companies
+sources fortune business insights future market insights inc grand view research marketsandmarkets precedence research sns insider
+the international market analysis research and consulting group verified market research authors calculations
+however one needs to differentiate the shortterm benefits of the technology
+and the longrun implications historical technology transitions offer an insightful
+parallel to the longrun economic potential of quantum computing and suggest that
+much larger economic effects may be expected in the long run one case in point is
+the shift from steam engines to electric power in industrial settings initially the
+adoption of electricity may bring modest improvements if a factory replaces a
+centralised steam engine without reconfiguring the broader infrastructure ie it still
+distributes power in the factory via belts and shafts however the longterm effects
+can be much more profound as wiring allows the factory to dramatically reshape the
+distribution of power with electric motors automating a large set of smaller steps in
+the production process devine  david  another example is the internet
+which provided shortterm gains such as improved communication and information
+access however its longterm impacts have been monumental enabling teams to
+work in distant settings and hence also facilitating the evolution of global value
+chains cairncross 
+the longterm implications of quantum computing could also be transformative
+while many existing use cases see only a qc speedup computational tasks that are
+not yet performed today because they are not feasible using classical computers may
+become possible with qcs through these use cases quantum computing may
+revolutionise data processing and algorithmic calculations leading to entirely new
+applications across multiple domains including materials science cryptography ai
+and finance
+thus while the immediate benefits of quantum computing are modest its
+potential to drive fundamental transformations in computational capabilities could
+mirror the widespread impacts seen with the electrification of factories marking
+another significant leap in technological evolution
+ quantum computing and the financial system opportunities and risks
+ quantum implications on cryptography
+quantum computing and other emerging applications of quantum physics
+simultaneously present both challenges and opportunities for cryptography and
+thereby for the security and stability of financial systems in what follows we first
+provide an overview of the cryptographic methods used in todays systems followed
+by a description of the most important opportunities and challenges represented by
+quantum physics
+cryptography in todays financial systems
+conventional cryptography uses algorithms based on complex mathematical
+problems to protect sensitive data two communicating entities usually rely on a
+shared secret key to protect their messages from eavesdropping this is called
+symmetric key encryption the sender uses the shared key to encode the information
+and the receiver uses the same key to decode the received information and restore
+the original message the algorithms used for encryption and decryption are
+standardised and only the key is kept secret
+one challenge in symmetric cryptography is the need to create the shared secret
+between the communicating entities traditionally they would have had to agree on
+a shared key in advance by physically transmitting the key from one endpoint to the
+other for example on paper or on some electronic device in todays digital systems
+this initial step is usually replaced by creating a shared secret using public key
+cryptography also known as asymmetric key cryptography
+graph  illustrates the difference between symmetric and asymmetric key
+cryptography in a symmetric key scenario shown in the upper part of the figure alice
+and bob agree to use a shared key for encrypting and decrypting their secret
+messages alice encrypts the secret messages using the shared key and sends them
+to bob upon receiving the encrypted messages bob decrypts them using the same
+shared key
+in asymmetric key cryptography shown in the bottom part of graph  alice and
+bob each possess two different keys a public key and a corresponding private key
+as implied by its name a public key is accessible to anyone while a private key
+remains confidential it is not feasible to infer a private key by analysing its public
+counterpart alice encrypts secret messages using bobs public key when bob
+receives encrypted messages from alice he decrypts them using his private key
+public key cryptography does not require a shared secret between the
+communicating endpoints hence it avoids the need to transmit the key prior to
+secret communication instead the communicating entities can simply publish their
+public keys to be used by anyone willing to send them encrypted messages
+quantum computing and the financial system opportunities and risks 
+difference between symmetric and asymmetric key encryption graph 
+source adapted from deodoro et al 
+in public key cryptography the challenge is how can alice be certain that the
+public key she uses belongs to bob what if a hacker masquerading as bob sends
+their own public key to alice to intercept the secret messages to verify the
+authenticity of the public key a public key infrastructure pki that manages digital
+certificates and public key encryption is used digital certificates are electronic
+documents issued by a certificate authority to prove the match between an entitys
+identity and its public key if alice wishes to verify that bobs public key indeed
+belongs to bob she needs to obtain a digital certificate that authenticates bobs
+public key as legitimate for bob to receive his digital certificate he must submit his
+identity and public key to a certificate authority a trusted thirdparty organisation
+that issues bobs certificate this digital certificate includes a digital signature that
+validates bobs ownership of his public key the digital signature is created by
+encrypting the message using the private key of the certificate authority alice and
+others can confirm that the digital signature is authentic by decrypting the signature
+with the public key of the certificate authority which is stored on their it devices
+in todays financial systems and indeed in most it systems security relies on a
+combination of symmetric key cryptography public key cryptography and pki most
+of the messages are encrypted by symmetric key cryptography because it is more
+efficient than asymmetric key cryptography however asymmetric key cryptography
+is used to create the shared secret between the communicating entities before a
+communication session starts and pki is used to verify the authenticity of public keys
+ the risk of a hacker stealing secret messages using a fraudulent public key purported to be bobs is
+inherent to the protocol illustrated in this example and does not necessarily stem from the
+development of qcs
+ quantum computing and the financial system opportunities and risks
+graph  illustrates this combined solution using the example of https a
+protocol used to secure online and mobile banking transactions the graph shows a
+simplified sequence of establishing a secure channel between a client and a server
+within https where the client is typically a customer and the server represents a
+bank the process unfolds as follows
+ the client initiates a secure connection by sending a hello message to the
+server
+ the server responds with its own hello message to the client including its
+digital certificate which contains the server information and public key
+ the client verifies the servers digital certificate by decrypting it using the public
+key of the central authority ensuring the certificate is indeed signed by the
+central authority
+ the client then sends information regarding the secret symmetric key encrypted
+with the servers public key
+ the server retrieves the shared symmetric key by decrypting it with its private
+key subsequently both the client and the server can exchange messages
+encrypted with the shared symmetric key completing the establishment of a
+secure connection
+overview of an https connection graph 
+source authors graphical analysis
+quantum threat to legacy cryptography
+both symmetric and asymmetric key cryptography rely on mathematical algorithms
+to encode and decode messages using the respective keys the algorithms are
+constructed such that by examining the encoded version of the message it is
+practically impossible to deduce the original message or the secret key the emphasis
+quantum computing and the financial system opportunities and risks 
+is on the word practically in theory there are algorithms that can break
+cryptography and find out the secret key but with sufficiently large keys this would
+require prohibitively large computation time even for the largest supercomputers
+hence conventional cryptography is generally considered sufficiently secure for
+todays needs
+the emergence of qcs brings a change in this respect because they will be able
+to perform some of these computations faster than classical computers potentially
+rendering current security obsolete the problem impacts asymmetric key
+cryptography more than symmetric key schemes
+for symmetric key cryptography a quantum algorithm called grovers algorithm
+can be used for attacks grover  however this algorithm can achieve only
+limited speedup compared with attacks using a traditional computer therefore
+security experts believe that legacy symmetric key encryption can continue to be
+used provided that the key length is increased rao et al 
+qcs represent a more profound impact to asymmetric key cryptography where
+some existing algorithms will no longer be secure if scalable qcs exist specifically
+public key cryptographic methods such as rivestshamiradleman rsa and elliptic
+curve cryptography ecc which are prevalent in todays financial systems are at risk
+of becoming obsolete with the advent of qcs
+rsa encryption is based on a mathematical problem called factorisation to
+create the keys the algorithm randomly generates two large prime numbers and then
+multiplies them together the product of this multiplication forms part of the public
+key while the two large prime numbers are used to generate the private key the
+security of this algorithm comes from the oneway nature of this operation
+multiplying two large numbers is easy but factoring large numbers is very hard using
+classical computers and with large enough numbers it becomes practically
+impossible however the factoring problem is one of those areas where qcs will
+potentially significantly outperform todays computers van meter et al 
+mathematician peter shor demonstrated that a sufficiently large qc could
+perform factorisation in reasonable time and be used to break currently widely used
+encryption algorithms shor  in  researchers demonstrated the practical
+feasibility of shors algorithm which further emphasised the potential of qcs to
+render some existing cyber security measures unsecure
+the ability of qcs to hack todays cryptographic schemes has a profound impact
+on the security of financial systems deodoro et al  identify the most vulnerable
+areas as  onlinemobile banking  payment transactions including cash
+withdrawals  businesstobusiness privacy and  virtual private network vpn
+communications in onlinemobile banking an attacker utilising a qc could
+compromise and eavesdrop on communications between users and financial
+institutions during authentication and authorisation processes similarly during
+payment transactions or atm withdrawals such an attacker could intercept these
+exchanges corporations often use secure communication channels based on public
+key encryption however these channels could be fully accessed by attackers if
+ quantum computing and the financial system opportunities and risks
+compromised with quantum computing techniques vpns used by employees
+working remotely could also be vulnerable to these attacks
+quantumresistant cryptography
+the ongoing use of certain asymmetric key cryptographic methods in financial
+communications specifically rsa and ecc represents a looming risk to the security
+of financial systems amid rapid advances in quantum computing the theoretical
+capacity of qcs to effectively breach these cryptographic algorithms calls for pre
+emptive actions to safeguard the enduring security of financial operations
+in response to this threat researchers have been developing new cryptographic
+algorithms designed to be resistant to qcs graph  yellow arrow somewhat
+counterintuitively it does not take a qc to protect against attacks by a qc it is
+possible to encrypt data using classical computers such that qcs will not be able to
+break the encryption qcs will be very efficient at solving certain types of problems
+such as factorisation so the solution lies in designing new cryptographic algorithms
+based on mathematical problems that do not fall into these categories
+quantum computer threats to financial systems graph 
+sources vandersypen et al  gartner ibm quantum roadmap nist stanford encyclopedia of philosophy archive
+in  the us national institute of standards and technology nist initiated
+a standardisation process for such cryptographic algorithms to denote such
+algorithms the terms quantumresistant or postquantum cryptography are often
+used interchangeably as part of this process nist announced in  the first four
+encryption and digital signature algorithms selected for standardisation with the first
+ see nist postquantum cryptography standardization cyber security resource center  august
+ csrcnistgovprojectspostquantumcryptographypostquantumcryptography
+standardization
+quantum computing and the financial system opportunities and risks 
+standards published in august  this ongoing process will proceed with the
+selection of additional algorithms offering varied approaches to encryption
+though qcs do not yet exist there is an urgent need to deploy quantum
+resistant algorithms specifically for highly sensitive data this is due to the potential
+threat of socalled harvest now decrypt later hndl attacks graph  white arrow
+even though qcs capable of breaking current encryption are not yet available
+malicious entities might still intercept financial data today with the intention of
+decrypting it in the future until quantumsecure solutions are fully deployed the
+vulnerability of highly sensitive data to hndl attacks remains a critical concern this
+looming threat highlights the urgent need for preemptive measures to safeguard
+the authenticity integrity and confidentiality of data findings from a survey of central
+banks conducted in  by the global cyber resilience group at the bank for
+international settlements bis doerr et al  indicate that the financial system
+could face substantial losses if stakeholders do not prepare for hndl type attacks
+quantum cryptography
+while qcs represent a threat to legacy cryptography other applications of quantum
+physics bring a new opportunity to strengthen the security of it systems including
+the financial system quantum cryptography utilises the inherent principles of
+quantum mechanics such as superposition uncertainty coherence and the no
+cloning theorem entanglement to create secured communications
+a pivotal element of quantum cryptography is quantum key distribution qkd
+which is based on quantum properties of particles typically photons this enables the
+parties of a communication channel to obtain a shared secret key with the assurance
+that any interception attempts will be detected aditya and shankar rao  a
+study conducted by bank of italy explored the potential integration of qkd into
+payment systems shedding light on its potential implementation to enhance the
+security of current cryptographic systems tiberi and bucciol  nevertheless
+the practical implementation of this promising technology currently poses some
+difficulties in terms of scalability and integration into existing infrastructures the
+transmission of quantum information over long distances is still a challenge due to
+the lack of network infrastructures and significant implementation costs bsi et al
+ however this subfield of quantum information science is rapidly evolving and
+is considered a promising technology for the security of it systems different
+government and regional initiatives have been launched with the construction of fibre
+or even free space quantum networks aditya and shankar rao 
+other applications of quantum cryptography include for example quantum
+digital signatures and quantum money while these and other quantum cryptography
+ see nist nist announces first four quantumresistant cryptographic algorithms  july 
+wwwnistgovnewseventsnewsnistannouncesfirstfourquantumresistant
+cryptographicalgorithms and nist releases first  finalised postquantum encryption standards
+ august  httpswwwnistgovnewseventsnewsnistreleasesfirstfinalized
+postquantumencryptionstandards
+ quantum computing and the financial system opportunities and risks
+areas may represent new opportunities for the financial system in the long run they
+are currently conceptual and their potential impact is difficult to assess
+the terminology around quantum technologies and their impact on security can
+be somewhat confusing for example the names might suggest that postquantum
+cryptography is something that comes after quantum cryptography but this is not
+the case postquantum cryptography refers to algorithms that can be implemented
+on classical computers and these should be introduced before qcs become available
+to replace vulnerable cryptography used today in contrast quantum cryptography
+relies on quantum technology and is likely to be further away in time
+in graph  we summarise the most widely used terms and their interrelations
+legacy cryptography shown with blue lines and fonts consists of a combination of
+asymmetric key and symmetric key cryptography where the former creates the
+shared secret to be used by the latter quantum computing represents a threat by its
+potential ability to break existing versions of asymmetric key cryptography quantum
+resistant aka postquantum cryptography is a new family of asymmetric key
+cryptographic algorithms which rely on mathematical problems that are hard for qcs
+to crack this is a way to mitigate the risk coming from qcs quantum cryptography
+consists of new cryptographic methods built on the concepts of quantum physics
+which might support or replace some of the legacy techniques
+the impact of quantum technologies on cyber security
+graph 
+source authors graphical analysis
+quantum computing and the financial system opportunities and risks 
+ implications on financial system stability
+the potential impact on qc cyber attacks
+the stability of the financial system is fundamentally dependent on cryptographic
+security the emergence of quantum machines with their potential for advanced
+decryption capabilities introduces significant risks that could lead to considerable
+economic losses although it is challenging to quantify these risks due to the
+uncertain scope and magnitude of the quantum threat estimating potential losses is
+crucial for understanding its impact for example a particularly alarming scenario is
+a quantumenabled cyber attack on critical financial infrastructures such as fedwire
+funds service whose users include government agencies butler and herman 
+projected economic losses from a systemically relevant cyber attack enabled by
+quantum computing
+as a percentage of gdp graph 
+ the expected losses are derived by multiplying the magnitude of potential losses with the probability of quantum computing breaching
+rsa encryption within  hours over various time horizons the estimation of loss size is based on a survey question directed to central
+banks asking in your opinion what is the maximum loss in  of annual gdp that a systemically relevant cyberattack on traditional financial
+institutions could cause this query was posed to a sample comprising seven advanced economies aes and  emerging market economies
+emes the probability estimates are obtained from a professional survey of field experts the xaxis represents the projection horizon in
+years
+sources survey on doerr et al  mosca and piani 
+assessing the precise economic impact of such events is complex however a
+survey of central banks offers some insight into the scale of a systemically relevant
+cyber attack on financial institutions doerr et al  based on a professional
+assessment of the likelihood of qcs breaking current standard encryption the
+estimation indicates expected losses of about  of gdp on average within five
+years of the attack graph  the survey results suggest that with an increasing
+likelihood of decryption over time expected losses could surpass  of gdp within
+ to  years with emerging market economies potentially facing even larger losses
+ quantum computing and the financial system opportunities and risks
+this estimation is expected to rise as financial system digitalisation accelerates
+highlighting a significant concern for financial stability nevertheless transitioning to
+quantumresistant cryptography could greatly reduce these risks
+central banks defences against the quantum threat
+the crucial role of central banks in ensuring the proper functioning of financial market
+infrastructures and in maintaining financial stability inevitably leads to the security
+and integrity of their operations  a topic of utmost importance bis  securing
+data for example related to monetary policy formulation is highly critical given the
+potential impact of quantum computing on the financial system central banks are
+primarily affected and need to proactively prepare against this cyber risk in order to
+maintain trust and confidence in the financial system among other initiatives biss
+project leap helps central banks accelerate this process see box a
+responding to the cyber security threat posed by qcs requires a multifaceted
+approach investing in postquantum cryptography is one of them as these new
+algorithms that are under the nist standardisation process aim to secure information
+against the computational capabilities of qcs migrating from existing cryptographic
+protocols to quantumsafe cryptography is a complex timeconsuming and
+resourceintensive process a preparation phase needs to be planned in the shortest
+possible time frame as a migration plan will take substantial time to be completed
+when we consider these significant challenges posed by the implementation of new
+cryptographic algorithms this transition to quantumsafe schemes becomes a priority
+and needs to be integrated into cyber security roadmaps a quantumreadiness
+roadmap needs to be defined including the important milestones of a migration plan
+and a high level of flexibility agility and change management principles will be key
+for a successful transition with the perspective of the quantum era it systems will
+need to adapt continuously today the most immediate approach for transitioning
+to new protocols involves the implementation of postquantum cryptography which
+is a branch of quantumsafe solutions while this strategy enhances security it is
+important to acknowledge its potential vulnerability these new algorithms need to
+be extensively examined in concrete applications possibly requiring ongoing
+adjustments furthermore as qcs capabilities continue to increase the cyber security
+threat that quantum computing poses may evolve requiring more agile systems the
+ability of systems to rapidly switch from one algorithm or protocol to another is an
+important parameter to consider in the selection of new security frameworks relying
+on a unique protocol based for instance on asymmetric cryptography such as rsa
+protocols will no longer be possible
+one of the first steps when preparing for this cyber security threat is to create a
+dedicated team with the right competencies to formulate a quantumreadiness plan
+that considers the specifics of the organisation before concrete implementation
+central banks must identify their needs regarding upskill training for experts and
+cryptography asset and critical data inventories
+quantum computing and the financial system opportunities and risks 
+box a
+project leap  quantumproofing the financial system
+project leap a collaborative initiative by the bis innovation hub eurosystem centre bank of france and the deutsche
+bundesbank is designed to fortify the financial systems defences against potential cyber threats posed by quantum
+computers qcs recognising the critical role of central banks in maintaining financial stability the project aims at
+proactively preparing against novel cyber risks
+transitioning to quantumsafe cryptographic protocols is a complex process requiring both agility and robust change
+management the project emphasised the need for a comprehensive quantumreadiness roadmap including
+upskilling experts thorough testing of new algorithms and flexible migration strategies that consider the intricacies
+of legacy systems
+project leap has already made significant strides in its first phase implementing and testing postquantum
+cryptography when setting up a virtual private network vpn between germany and france initial testing
+demonstrated the secure transmission of financial data through a quantumsafe communication channel however it
+also revealed that the time needed to set up the vpn was affected an example of the experimental results is illustrated
+in graph a where the leftmost column called legacy represents that vpn setup time using classical cryptography
+and the other bars correspond to various versions of quantumresistant cryptography the time performance differs
+between different algorithms but they all represent an additional latency compared with legacy solutions this impact
+is not problematic for vpn setup which happens a few times during a workday but it will have significant
+consequences for timedemanding use cases such as instant payment systems indicating a necessary tradeoff
+between security and performance
+in its forthcoming second phase project leap plans to test quantumsafe cryptography in a more complex
+environment closer to realworld applications and including additional partners
+project leap testing the performance impact of postquantum security when
+settingup a vpn graph a
+
+
+
+
+
+le
+gacy
+ky
+ber
+
+dilit
+hi u
+m
+
+ky
+ber
+
+dilit
+hi u
+m
+
+ky
+ber
+falc o
+n
+
+fr o d
+oa
+
+dilit
+hi u
+m
+
+fr o d
+os
+
+dilit
+hi u
+m
+
+ky
+ber
+s
+p
+hi
+ncs
+
+ky
+ber
+s
+p
+hi
+ncs
+
+ike child
+ the red bar labelled ike represents the time needed to exchange the asymmetric keys and for the authentication the blue bar labelled
+child represents the time needed to exchange keys
+source bis 
+ quantum computing and the financial system opportunities and risks
+a transition plan needs to consider the complexity of legacy systems that often
+embed noncompatible cryptographic algorithms and protocols the implementation
+of new algorithms can be technically complex and may require significant adaptation
+of existing systems including fundamental changes to systems the migration from
+existing encryption algorithms to quantumsafe cryptographic protocols conceived
+to resist qc attacks need to be deployed at a large scale this transition involves
+updating a broad range of infrastructure components including software hardware
+and cryptographic libraries across various systems which requires significant
+coordination within and across organisations in addition every impacted cyber
+security process and risk management framework needs to be adapted to the new
+protocols
+by proactively addressing these challenges well in advance central banks can
+enhance the security of their digital systems and protect sensitive data in a quantum
+enabled world once the preparation and planning phases are completed the
+execution of the transition will follow with the concrete implementation of quantum
+resistant cryptographic schemes to protect systems
+ conclusion
+this paper discusses the new opportunities and challenges that qcs represent for the
+financial system this new technology will not replace existing computers and it will
+not be applicable in all areas of computation but in some selected areas it has the
+potential to significantly accelerate calculations we survey possible application areas
+in the financial system including risk management investment and portfolio
+optimisation artificial intelligence payments and settlement and macroeconomic
+modelling naturally most use cases described in the current literature address
+known computational problems that are being solved today using classical
+computers
+we also discuss the potential economic implications of applying qc in the
+financial system we conclude that initial gains are modest partly because qcs are
+still at an early stage of development and experiments are performed with small
+prototypes partly because the advantages of qc over classical computers become
+apparent only in a specific set of computational problems while early experimental
+use cases focus on computational problems successfully addressed today with
+classical computers the biggest gains can be expected in future use cases that are
+unsolvable using classical computers these will be identified gradually and mostly
+when qcs are already available it is possible that we will see only marginal economic
+gains in the early phases but a transformational effect in the longer run
+we go on to discuss the specific impact that quantum technology has on
+cryptography and thereby on the stability of the financial system current
+cryptography is based on mathematical problems that are unsolvable using classical
+computers but that can potentially be solved by future qcs this means that a future
+qc can break the encryption schemes protecting our financial system thereby
+representing a threat to financial stability while the benefits of qc will take time to
+develop the cyber security threat is imminent due to the possibility for malicious
+quantum computing and the financial system opportunities and risks 
+actors to intercept and store data today with the intention to decrypt it in the future
+when qcs become available
+we discuss central banks responsibility in addressing this challenge and the
+steps that need to be taken to mitigate the risk finally we look at how quantum
+technology can have a positive impact on security for example by using quantum key
+distribution a promising technology to distribute secret keys to communicating
+endpoints solving a major challenge in it systems today
+ quantum computing and the financial system opportunities and risks
+references
+aaronson s  read the fine print nature physics vol  no  pp 
+aboussalah a m c chi and cg lee  quantum computing reduces systemic
+risk in financial networks scientific reports vol  no 
+aditya j and p shankar rao  quantum cryptography mimeo stanford
+university
+arute f et al  quantum supremacy using a programmable superconducting
+processor nature vol  pp 
+atom computing  quantum startup atom computing first to exceed 
+qubits press release  october
+bank for international settlements bis  project leap quantumproofing the
+financial system june
+biamonte j p wittek n pancotti p robentrost n wiebe and s lloyd 
+quantum machine learning nature vol  pp 
+bova f a goldfarb and r melko  quantum computing is coming what can it
+do harvard business review july
+  quantum economic advantage nber working papers no 
+bsi anssi nlncsa and swedish armed forces  position paper on quantum
+key distribution
+butler a and a herman  prosperity at risk the quantum computer threat to the
+us financial system hudson institute april
+cairncross f  the death of distance rsa journal vol  no  pp 
+castelvecchi d  the aiquantum computing mashup will it revolutionize
+science nature january
+cerezo m g verdon hy huang l cincio and p coles  challenges and
+opportunities in quantum machine learning nature computational science vol 
+no  pp 
+choi s w moses and n thompson  the quantum tortoise and the classical
+hare a simple framework for understanding which problems quantum computing will
+accelerate and which it will not arxiv
+chuang i n gershenfeld and m kubinec  experimental implementation of fast
+quantum searching physical review letters vol  no  p 
+david p  the dynamo and the computer an historical perspective on the
+modern productivity paradox american economic review vol  no  pp 
+deodoro j m gorbanyov m malaika and t s sedik  quantum computing and
+the financial system spooky action at a distance imf working papers no 
+march
+quantum computing and the financial system opportunities and risks 
+devine w  from shafts to wires historical perspective on electrification
+journal of economic history vol  no  pp 
+doerr s l gambacorta t leach b legros and d whyte  cyber risk in central
+banking bis working papers no  september
+doriguello j a luongo j bao p rebentrost and m santha  quantum
+algorithm for stochastic optimal stopping problems with applications in finance
+arxivv
+dunjko v and h briegel  machine learning  artificial intelligence in the
+quantum domain a review of recent progress reports on progress in physics vol 
+no  
+dyakonov m  the case against quantum computing ieee spectrum accessed
+july 
+egger d c gambella j marecek s mcfaddin m mevissen r raymon a simonetto s
+woerner and e yndurain  quantum computing for finance stateoftheart
+and future prospects ieee transactions on quantum engineering vol  no 
+fernndezvillaverde j and i hull  dynamic programming on a quantum
+annealer solving the rbc model cesifo working paper no  june
+feynman r  simulating physics with computers international journal of
+theoretical physics vol  no  pp 
+ghysels e j morgan and h mohammadbaguerpoor  quantum computational
+algorithms for derivative pricing and credit risk in a regime switching economy
+arxiv
+grover l  a fast mechanical algorithm for database search in stoc
+proceedings of the twentyeighth annual acm symposium on the theory of computing
+pp 
+hull i o sattath e diamanti and g wendin  quantum technology for
+economists arxiv
+hulten c  growth accounting with intermediate inputs review of economic
+studies vol  no  pp 
+ibm  ibm quantum development  innovation roadmap
+jones j  m mosca r hansen  implementation of a quantum search algorithm
+on a nuclear magnetic resonance quantum computer nature vol  pp 
+kalai g y rinott and t shoham  googles  quantum supremacy claims
+data documentation and discussion arxiv
+li y  deep reinforcement learning an overview arxiv
+lockwood o and m si  reinforcement learning with quantum variational
+circuit in sixteenth aaai conference on artificial intelligence and interactive digital
+entertainment vol  no  pp 
+ quantum computing and the financial system opportunities and risks
+mnard a i ostojic m patel and d volz  a game plan for quantum
+computing mckinsey quarterly february
+mcmahon c d mcgillivray a desai f rivadeneyra jp lam t lo d marsden and
+v skavysh  improving the efficiency of payments systems using quantum
+computing bank of canada staff working papers no  december
+montanaro a  quantum algorithms an overview npj quantum information
+vol  no 
+mosca m and m piani  quantum threat timeline report  global risk
+institute and evolutionq inc
+nec  successful demonstration of a superconducting circuit for qubit control
+within largescale quantum computer systems press release  june
+nielsen m and i chuang  quantum computation and quantum information
+cambridge university press
+orus r s mugel and e lizaro  forecasting financial crashes with quantum
+computing arxiv
+pistoia m et al  quantum machine learning for finance iccad special session
+paper in  conference proceedings international conference on computeraided
+design iccad november
+rao k r d mahto d k yadav and d a khan  the aes cryptosystem resists
+quantum attacks international journal of advanced research in computer science
+vol  no  pp 
+rebentrost p and s lloyd  quantum computational finance quantum
+algorithm for portfolio optimization arxiv
+saggio v b e asenbeck a hamann t strmberg p schiansky v dunjko n friis n c
+harris m hochberg d englund s wlk h j briegel and p walther 
+experimental quantum speedup in reinforcement learning agents nature vol 
+pp 
+sanzfernndez c r hernndez c marciniak i pogorelov t monz f benfenati and
+r ors  quantum portfolio value forecasting arxiv
+shor p  algorithms for quantum computation discrete logarithms and
+factoring in proceedings of the th annual symposium on foundations of computer
+science pp 
+stamatopoulos n g mazzola s woerner and w zeng  towards quantum
+advantage in financial market risk using quantum gradient algorithms quantum
+vol  p 
+tiberi p and e bucciol  quantum safe payment systems bank of italy
+markets infrastructures payment systems working paper no  june
+van meter r k itoh and t ladd  architecturedependent execution time of
+shors algorithm controllable quantum states mesoscopic superconductivity and
+spintronics ms s pp 
+quantum computing and the financial system opportunities and risks 
+vandersypen l m steffen g breyta c yannoni m sherwood and i chuang 
+experimental realisation of shors quantum factoring algorithm using nuclear
+magnetic resonance nature vol  pp 
+wiebe n a kapoor and k svore  quantum deep learning arxiv
+yogendran b charlton d beddig m kolotouros i wallden p  big data
+applications on small quantum computers arxiv
+zhang y y huang j sun d lv and x yuan  quantum computing quantum
+monte carlo arxiv
+ quantum computing and the financial system opportunities and risks
+previous volumes in this series
+no title issue date
+bis papers no  keeping the momentum how finance can september 
+continue to support growth in emes
+bis papers no  embracing diversity advancing together  june 
+results of the  bis survey on central bank
+digital currencies and crypto
+bis papers no  central bank capital and trust in money june 
+lessons from history for the digital age
+bis papers no  generative artificial intelligence and cyber may 
+security in central banking
+bis papers no  the economic implications of services in the february 
+metaverse
+bis papers no  central banking in the americas lessons november 
+from two decades
+bis papers no  inflation and labour markets november 
+bis papers no  will the real stablecoin please stand up october 
+bis papers no  central banks macrofinancial stability and october 
+the future of the financial system
+bis papers no  digital safety nets a roadmap september 
+bis papers no  financial stability risks from cryptoassets in august 
+emerging market economies
+bis papers no  building an integrated surveillance framework july 
+for highly leveraged nbfis  lessons from the
+hkma
+bis papers no  making headway  results of the  bis july 
+survey on central bank digital currencies and
+crypto
+bis papers no  the energy transition and its macroeconomic may 
+effects
+bis papers no  global tightening banking stress and market april 
+resilience in emes
+bis papers no  the tworegime view of inflation march 
+bis papers no  information governance in sustainable december 
+finance
+bis papers no  central banking after the pandemic december 
+challenges ahead
+bis papers no  pricing of climate risks in financial markets a december 
+summary of the literature
+all volumes are available on the bis website wwwbisorg

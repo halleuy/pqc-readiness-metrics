@@ -1,8 +1,8 @@
 Framework: 002.txt
-Total Words: 6593
+Total Words: 14203
 ========================================
-crypto_assets: 40
-crypto_agility: 5
-migration_planning: 2
-risk_management: 3
-standards_compliance: 16
+crypto_assets: 37
+crypto_agility: 45
+migration_planning: 20
+risk_management: 20
+standards_compliance: 72

@@ -1,0 +1,1453 @@
+in collaboration
+with deloitte
+transitioning to a
+quantumsecure economy
+w h i t e p a p e r
+s e p t e m b e r    
+images getty unsplash
+contents
+foreword 
+executive summary 
+introduction 
+ why prioritize quantum security 
+ what are quantum computers 
+ when will the quantumthreat become mainstream 
+ what is the potential impact of the quantum threat 
+ how to begin the quantumsafe transition 
+ what are the steps to consider 
+ what can organizations start to do 
+ what are the deployment scenarios 
+ how to adopt a quantum risk management approach 
+ the quantumsecure transition framework 
+ what is required from different stakeholders 
+ recommendations for corporate leaders and boards 
+ recommendations for cyber leaders 
+ recommendations for policymakers 
+ quantum across the extended enterprise ecosystem 
+ what technologies are available to address the quantum threat 
+ postquantum cryptography 
+ quantum key distribution 
+ quantum random number generation 
+ what are the focus areas for future attention 
+ quantum technology predictions 
+ pathways and focus areas for future attention and innovation 
+conclusion 
+contributors 
+glossary 
+endnotes 
+disclaimer
+this document is published by the world economic forum   world economic forum
+as a contribution to a project insight area or interaction the all rights reserved no part of this
+findings interpretations and conclusions expressed herein are publication may be reproduced or
+a result of a collaborative process facilitated and endorsed transmitted in any form or by any
+by the world economic forum but whose results do not means including photocopying and
+necessarily represent the views of the world economic forum recording or by any information
+nor the entirety of its members partners or other stakeholders storage and retrieval system
+transitioning to a quantumsecure economy 
+september  transitioning to a quantumsecure economy
+foreword
+jeremy jurgens isaac kohn colin soutar
+managing director partner deloitte managing director
+world economic forum switzerland deloitte usa
+quantum technologies continue to fascinate and building an understanding among senior leaders of
+their applications have the potential to transform the risks and immediate steps required to ensure a
+our lives the quantum computing age is growing secure quantum transition is therefore a critical priority
+ever closer and it could render obsolete some identified by both the world economic forums global
+of the encryption on which most enterprises future council on cybersecurity and the community
+digital infrastructures and economies currently engaged in the future series cyber  initiative
+rely addressing this issue requires prompt action at
+the national and global levels over the past year the forum in collaboration with
+deloitte has worked with a community of senior
+unlike yk the impact of a corresponding yq executives and experts from business academia
+year to quantum is fairly well known but the government and nonprofit organizations to develop
+timeline is unpredictable further there is a belief a deeper understanding of the emerging risks and
+that data is being harvested now for decryption to provide insights and guidance to ensure a secure
+later once quantum computers are available the transition to the quantum economy we hope this
+uncertainty surrounding when quantum will be report will help drive individual and collective action
+mainstream makes it hard to discern the right time globally to address the key security challenges
+to take action and tends to lead to deprioritization while realizing the transformative potential of
+in favour of more immediate issues quantum technologies
+transitioning to a quantumsecure economy 
+executive summary
+to harness the potential opportunities
+opened by quantum computing
+organizations need to act now on the
+quantum threat
+quantum computing promises transformative  build awareness around the quantum threat
+simulation and modelling capabilities across by educating senior leaders on the systemic
+a diverse range of industries however these impact the quantum threat feels far away and
+advances in computational power will also introduce largely abstract for many organizations to combat
+significant risks via the potential threat of disruption this organizations will need to face what is known
+to some widely used encryption standards while but also accept there are implications that are still
+definitive timelines for both quantum computing unknown conducting initial quantum readiness
+applications and the associated quantum assessments will help leaders determine the
+cybersecurity threats have not yet fully materialized specific threats their organizations face executive
+organizations must act now to evaluate their buyin is key to ensure the quantum transition
+readiness to adapt to the quantum threat attracts appropriate investment and prioritization
+the quantum threat is expected to have a large and  plan and prepare by adopting a quantumsafe
+disruptive impact on the current digitally dependent strategy and transition roadmap addressing
+economy an orderly response is highly desirable the quantum threat requires organizations to plan
+over a reactive one it is a business imperative that and create a timeline that sequences immediate
+organizations start to think about what a secure nearterm  years and longerterm actions
+quantum transition could look like and understand organizations should consider adopting a
+their cryptographic and data exposure to avoid cryptoagile posture enabling them to readily
+disruption of business operations the unknown transition cryptographic capability this will help
+timeline of this quantum risk  which could lead to a them prioritize a transition to quantum security as
+not me not now response  may impose a more technology advancements and threat knowledge
+significant impact than is necessary continue to evolve
+this white paper arises from indepth discussions  initiate the transition leveraging hybrid
+between senior leaders and quantum experts solutions organizations adopting quantum
+from the quantum security working group part resistant security will more than likely leverage
+of the quantum computing network of the world hybrid solutions that integrate both classical
+economic forum the paper provides guidance for and quantumready approaches this will give
+a secure quantum transition which organizations organizations some assurance that existing
+need to embrace now to avoid playing catchup security remains intact while overlaying that
+with the technology to achieve this transition security with relatively new postquantum
+organizations need to cryptography algorithms
+transitioning to a quantumsecure economy 
+introduction
+the establishment of governance
+principles is key to building trust in
+quantum and to preempt possible risks
+before the technology is commercialized
+quantum computing has the potential to drive some of the applications being considered include
+transformational changes across industry and quantum machine learning simulation of complex
+society the growing interest and investment systems and modelling of material science
+in developing quantum computing by major however the arrival of quantum computing and its
+technology corporations national governments ability to speed up certain complex mathematical
+and venture capitalists highlight its importance computations could render obsolete the current
+in  the quantum computing market earned encryption on which most enterprises digital
+ million with estimates of public funding infrastructures and economies rely quantum
+surpassing  billion private investments in technologies therefore represent a significant and
+quantum startups have skyrocketed to more tangible risk to digital economies with potential
+than  billion the race to unlock the potential global impact if this risk materializes it could
+of quantum computing has the potential to drive overshadow the great benefits that quantum
+trillions of dollars of value across the global economy technologies could offer mankind it has even
+during the coming years with cybersecurity market recently been referred to as the encryptogeddon
+spending forecast to grow  billion per year to
+reach  billion by  these investments the timeline associated with the maturity of
+will likely drive further developments around quantum computing is still uncertain but recent
+diverse quantum security solutions such as advancements in the field have amplified the need
+postquantum cryptography quantum random to take nearterm actions to prepare a secure
+number generation quantum key distribution transition to the quantum era for example the
+the significant
+and quantum communication technologies canadian company xanadu quantum technologies
+risk to digital
+reported in june  that borealis their quantum
+economies posed
+the quantum computing age unlocks multiple computer in the cloud can perform a single task
+by quantum
+optimization and simulation opportunities across  million times faster than a classical computer
+computing has led
+industries through its ability to solve specific improving on the early results demonstrated by
+it to be dubbed mathematical problems in a significantly faster and chinas quantum computer in june  and
+encryptogeddon more efficient manner than was previously possible google in   
+transitioning to a quantumsecure economy 
+while the quantum risk is understood by some within see figure  the proactive establishment of
+the technical community and defensive solutions are governance principles is key to building trust in the
+being developed further clarification of the significant technology and to preempt possible risks before
+challenges and impacts needs to be developed in a the technology is commercialized cybersecurity
+way that is digestible by senior leadership diverse is one of the key principles for ensuring a safe
+global stakeholders including governments experts transition while harnessing the transformative
+and larger communities of interest have called for capabilities of quantum computing
+urgent action in may  us president biden
+announced an executive order and memorandum developing a coherent approach for transitioning
+to address the quantum threat by   in to a quantumsecure economy requires a broad
+july the uss national institute of standards and collaborative and critical approach from a diverse
+technology nist announced a list of four quantum and global community of business and cybersecurity
+resistant cryptographic algorithms after thorough leaders this white paper has been informed by a
+evaluation by the expert community yet while some wideranging group of participants from across the
+organizations have already started the transition forums quantum security community and global
+journey others are still questioning the real benefits future council for cybersecurity
+and challenges brought by the technology
+this paper seeks to help senior leaders policy
+to ensure the responsible development and use makers regulators business executives and
+of quantum computing the governance working decisionmakers in cybersecurity strategy
+group of the world economic forums quantum innovation and risk management to understand the
+computing network has developed a set of potential impact of quantum cyber risks and to take
+governance principles themes and core values the necessary steps to ensure a secure transition
+figure  quantum computing governance principles themes and core values
+sustainability transformative
+capabilities
+standardization
+g
+o
+o d
+accountability
+access
+ib
+ility
+in
+a
+f
+h
+r
+c
+a
+a
+c
+s
+rd
+t
+e
+r
+w
+s
+u
+s
+a
+c
+r
+t
+t
+e
+u
+o
+r e
+n t
+o r a
+m n
+m core s
+p
+o a
+c r
+e
+values n
+c
+y
+in
+c
+lu
+s e open
+privacy
+iv
+e n e s s
+m
+al e fi c e n
+c
+innovation
+equitability
+non
+creating
+cybersecurity awareness
+workforce development
+and capabilitybuilding
+source world economic forum
+transitioning to a quantumsecure economy 
+this white paper will this white paper will not
+ provide clarification on the impacts of the  explore general quantum computing
+quantum threat applications
+ present steps and a consensusbased framework  focus on systemic risks that are not created or
+to help guide organizations throughout the amplified by the quantum threat and quantum
+transition towards a quantumsafe environment security solutions
+ develop guidance for senior business leaders  provide detailed sectoral or geographical
+cyber leaders and policymakers to manage the perspectives in relation to the exploration or
+risks and secure the quantum transition mitigation of identified systemic risks
+ clearly articulate the characteristics of three  deliver indepth technical explanations of
+emerging technologies that can help mitigate quantum computing technologies or the
+the quantum threat postquantum cryptography cybersecurity dimensions of use cases
+pqc quantum key distribution qkd and
+quantum random number generation qrng  highlight specific products or solutions that
+can be used  instead we will use generic
+ determine emerging focus areas for research usecase descriptions
+and investment and enhance cybersecurity
+capabilities to counter future systemic risks
+how to read this report
+this report comprises six chapters that discuss the chapter  what is required from different
+potential impact of quantum on security as well stakeholders offers guidance for various
+as actions to take to ensure a secure transition audiences to initiate the postquantum transition
+towards a quantum economy
+chapter  what technologies are available to
+chapter  why prioritize quantum security address the quantum threat defines the current
+introduces quantum computing the threats technology landscape and differentiates
+opportunities and timeline key technology approaches
+chapter  how to begin the quantumsafe chapter  what are the focus areas for future
+transition discusses some of the independent attention identifies future research investment
+timelines for key drivers and identifies actions that and governance needs and opportunities
+can be taken now
+chapter  how to adopt a quantum risk
+management approach provides a global
+consensusbased framework to ensure action in
+the short medium and longterm
+transitioning to a quantumsecure economy 
+why prioritize
+
+quantum security
+quantum computing will enable
+great innovations in the future but
+will be accompanied by great risk
+emerging technologies such as artificial intelligence most notably it enabled the invention of the
+ai and cloud computing consistently promise semiconductor transistor which is the cornerstone of
+to address our most pressing problems giving the computer industry and is considered the highlight
+many a sense of both inspiration and scepticism of the first quantum revolution
+quantum technologies are no exception for
+many the word quantum is more likely to more recently a second quantum revolution has
+conjure thoughts of sciencefiction than one of been underway garnering attention for advanced
+todays news headlines yet what are quantum applications such as quantum computing
+computers when will the quantum threat become quantum sensing and quantum communications
+mainstream and most importantly what is the as opposed to the first quantum revolution where
+potential impact of the quantum threat quantum properties were used to manufacture
+superior devices lasers transistors etc the
+quantum
+quantum mechanics first conceived at the beginning second quantum revolution refers to the storage
+mechanics enabled
+of the th century explains foundational concepts and processing of information in quantum devices
+the invention of
+of how basic matter exists changes and interacts this emerging field of quantum information science
+the semiconductor
+over time those initial discoveries fascinated will have the capacity to drive highimpact use
+transistor the
+scientists for the next several decades and inspired cases in the future however its transformative
+cornerstone of the groundbreaking innovations such as lasers and power is still limited due to the infancy of todays
+computing industry magnetic resonance imaging systems perhaps quantum hardware
+transitioning to a quantumsecure economy 
+ what are quantum computers
+quantum computers are a new type of computing processing information these new building blocks
+device capable of performing specific calculations are used to construct quantum algorithms that in
+some of which are intractable with classical computers some cases significantly accelerate the ability to
+solve computational problems see figure 
+in classical computing all information is represented
+in bits as s and s quantum computers use there are already multiple quantum algorithms that
+qubits that combine s and s at the same time show potential to achieve significant speedup
+called superposition leveraging the principles of compared to classical algorithms these include
+superposition and entanglement the ability of remote algorithms for solving combinatorial problems
+qubits to be correlated to each other quantum simulation of physical systems accelerating
+computing enables a new way of storing and machine learning algorithms and more
+figure  classical vs quantum computer
+classical bit quantum qubit
+ 
+z
+or
+x y
+ 
+can be only in one state can be in a superposition state
+at the same time  or  by being in one of multiple states
+of  and  at the same time
+ when will the quantumthreat become mainstream
+experts forecast the field of quantum computing is still in its infancy regardless of this timeline organizations need to
+the quantum threat and the machines we have today are still far from take a risk management approach and understand
+will materialize in being mainstream and threatening cybersecurity that the timeline is accelerating towards the
+leading experts in the field forecast the quantum shelflife and danger zone see figure 
+ years  but it
+threat will materialize in about  years this with migrations of previous algorithms taking
+could be sooner
+timeline although uncertain could arguably be approximately  years it is vital for organizations
+given the secrecy
+even shorter  especially given the asymmetry of to pioneer the shift to quantumsafe cryptography
+of certain nations
+information and secrecy across the globe regarding to thrive and stay protected from cyberattacks
+looking for strategic the advancements in quantum computing by
+advantage certain nations looking for strategic advantage
+transitioning to a quantumsecure economy 
+the precise threat timeline you should focus on depends on your risk
+tolerance for very critical systems and assets the likelihood of quantum
+attacks in five years is becoming material and for most critical systems and
+assets i believe the year likelihood needs to be addressed assertively
+michele mosca university of waterloo canada
+figure  quantum threat timeline
+migration time shelflife time
+the number of years needed to properly the number of years the
+and safely migrate the system to a information must be protected by
+quantumsafe solution the cybersystem
+   
+threat timeline danger zone
+the number of years before the relevant
+threat actors will be able to break the
+quantumvulnerable systems
+source michele mosca university of waterloo canada
+ what is the potential impact of the quantum threat
+the quantum cyber threat is likely to materialize within the lifecycles
+of many itot systems being deployed today the cyber risk
+however particularly for longlived data is clear and present today
+vikram sharma founder  ceo quintessencelabs
+when quantum computing gains traction it will used to break the factorization problem in a matter
+break some of the current cryptographic algorithms of hours or even minutes rendering publickey
+a great deal of the security of our digital society cryptographic algorithms useless grovers algorithm
+relies on these cryptographic algorithms to can be used to speed up the search for the secret
+guarantee the confidentiality data privacy and key used by symmetric cryptography to guarantee
+integrity data accuracy of our message exchanges the confidentiality of most of our data exchanges and
+online banking operations and stored data in the storages as well as the search for the passwords we
+cloud most of these algorithms security builds use to secure our personal accounts
+on mathematical problems that are considered
+intractable on classical computers but that become the impact of the quantum threat does not stop
+solvable with quantum computers this threatens with cryptographic algorithms as its cascading
+the security of the cryptographic algorithms that are effects can be potentially large with infrastructure
+a fundamental part of our digital lives breakdowns being one of the main concerns for
+cyber leaders this places it among the highest
+there are currently two algorithms  shor and challenges business organizations face in the
+grover  that quantum computers can use to break future the examples below illustrate some of
+the hard mathematical problems that underpin some the systemic risks around how the quantum threat
+of our existing cryptography shors algorithm can be could affect our daily lives
+transitioning to a quantumsecure economy 
+ increasing data breaches of sensitive health replaced by digital versions this need becomes
+and financial personal data data breaches supremely important attacks using quantum
+m are already one of the largest cyber challenges computers could be used to challenge and
+for organizations with average costs per data forge the digital versions of information
+average cost breach reaching  million imagine if all identities and sensitive data
+per data breach your private and sensitive communications and
+information become public most information  breaking cryptocurrencies
+exchanges between organizations individual as cryptocurrencies become more mainstream
+citizens and financial and governmental they are increasingly a target for cyber attacks
+institutions are fully digital and rely on this is because they are built with blockchain
+cryptographic systems to ensure they are kept technology that relies heavily on cryptography
+private quantum computers provide the ability algorithms for data integrity transaction
+to intercept and decrypt this data this will lead processing proof of ownership and more
+to large reputational impacts for organizations quantum computing could pose a systemic
+as well as impacts on the privacy of individuals risk to cryptocurrencies by breaking their
+who could find their private sensitive information underlying cryptography recent research has
+in the public domain demonstrated that about  of bitcoins and
+ of ether coins could be vulnerable to a
+ threatening internet and message quantum attack at current rates this could
+exchanges in todays digital world internet represent more than  billion of value at risk
+traffic and instant messaging are a fundamental
+part of our daily lives with private and sensitive  risk of harvest now decrypt later attacks
+personal exchanges these exchanges are for certain types of data eg confidential and
+protected by a secure communication channel sensitive that have both high data value and
+that uses publickey encryption algorithms long shelflife characteristics the quantum
+to exchange a unique key to secure the threat might already be materializing today in
+communication quantum computers could the form of an attack known as harvest now
+about  be used to break this secure channel and decrypt later certain attackers may currently
+eavesdrop on practically every encrypted be intercepting encrypted data transmissions
+of bitcoins and
+exchange this makes all private and secret and storing them on a hard disk drive for later
+ of ether
+communications transparent to malicious users use although the encrypted data may not be
+coins could be
+of any value today it could still be of interest 
+vulnerable to a
+ challenging the integrity of digital or  years from now when the attacker has
+quantum attack
+documents in our increasingly digital society access to a cryptographically relevant quantum
+putting more
+there is a growing need to ensure the integrity computer this is of particular concern for
+than  billion and authenticity of data and information regulated industries that are required to keep
+of value at risk as paper documents and identities become sensitive customer data for long periods of time
+transitioning to a quantumsecure economy 
+how to begin the
+
+quantumsafe transition
+regardless of unpredictable timelines
+organizations should think about their
+transition to quantumsafe cryptography
+now as the process will take time
+ billion digital the world economic forums global future council machines tv settop boxes pointofsale systems
+devices will need on quantum computing estimates that  billion smartphones and a host of other devices and
+to be upgraded digital devices will need to be upgraded or replaced systems as a result algorithm replacement can be
+or replaced with with postquantum cryptography in the next  extremely disruptive and take years to complete
+postquantum years this upgrade is not a simple switchout or typically it requires upgrading or replacing
+patch because cryptography is entrenched across components of the cryptographic infrastructure
+cryptography in
+enterprises often in physically remote systems for this is one of the reasons organizations must start
+the next  years
+example migrating to postquantum cryptography now to consider what their migration plan should be
+will affect the performance requirements of and assume a posture of cryptoagility that would
+microprocessors that are embedded in atm allow them to quickly update
+ what are the steps to consider
+not all data build awareness of the quantum threat by take a fresh look at cryptographic governance
+generated today understanding the risk that quantum computing preparing cryptographic systems for the quantum
+will still be relevant poses to existing cryptographic and encryption computing era is a major technological challenge
+when the quantum systems as well as the macro impact to the in the same way that agile software delivery
+threat materializes organizations business model this awareness practices helped create more adaptable technology
+will help to educate senior leaders from the public organizations so a more agile approach to
+and private sectors including boards csuites cryptographic governance can create more flexible
+government heads policymakers and operational businesses and infrastructure that will quickly pivot
+level executives to gain broad support for investments and reprioritize in response to evolving security
+in a quantumsafe cryptography infrastructure challenges and requirements
+plan and prepare for the quantum threat by assess readiness for and work towards greater
+assessing the different areas of the digital and cryptoagility a more cryptoagile organization
+infrastructure environment to devise a prioritized is one that can efficiently update cryptographic
+action plan algorithms parameters processes and technologies
+to better respond to new protocols standards and
+understand the lifetime of data as it is expected security threats including those leveraging quantum
+to take some years before quantum computers computing methods to assess organizational
+can break cryptography not all data generated readiness for cryptoagility consider the following
+today will still be relevant when the quantum threat
+materializes it is therefore important to classify  data and cryptographic assets to help respond
+the longevity of data in order to assess whether to systemic changes such as new algorithms
+protection against the quantum threat is needed in organizations should provide an account of their
+the short term for example state secrets must be data assets to understand how they are currently
+kept secret for a long time even indefinitely while cryptographically protected this means
+the digital signature for a oneyear contract is not inventorying and prioritizing cryptographically
+likely to be relevant after the contract expires protected data transactions and other assets
+transitioning to a quantumsecure economy 
+to understand their retention requirements and methods which in turn could require
+locations eg are they onpremises or in the infrastructure upgrades as nist standards
+cloud it is important to note that inventorying develop it will be important to understand
+cryptographic assets is initially a timeintensive how they affect system infrastructure identify
+process and requires updating as new potential future infrastructure shortcomings and
+technology and services are adopted develop a plan for addressing them
+ cryptographic keys to identify and prioritize initiate the transition leveraging hybrid solutions
+future vulnerabilities business leaders should organizations adopting quantumresistant security
+review the types of cryptographic keys being technologies will more than likely leverage hybrid
+used their characteristics and their locations approaches that integrate both classical and
+in existing computer and communications quantumready solutions this will give organizations
+hardware operating systems application reassurance that existing security remains intact
+programs communications protocols key while overlaying that security with relatively
+infrastructures and access control mechanisms new postquantum cryptography algorithms
+organizations should set their short mid and
+ infrastructure limitations quantumsafe longterm goals review the different deployment
+cryptography may use substantially more scenarios opportunities and challenges they may
+processing power than current cryptographic face and fashion strategies that are fit for purpose
+box  understanding the steps to take on quantum salesforce
+like several organizations salesforce is currently nist and collaborating with potential partners to
+making the quantumsecure transition to build internal tools to address and mitigate the
+understand the potential impact and to define an quantum threat these steps allow salesforce
+action plan the first step involves a comprehensive to experiment with different potential publickey
+audit of all cryptographic assets at the same time standards and determine their impact on the
+salesforce is tracking publickey standards from environment while implementing new tools
+ what can organizations start to do
+organizations can start assessing the impacts that quantum risk might have on their operations
+before the quantum threat actually reaches them they can set short medium and longterm
+goals today to manage the risk and ensure a smooth quantum transition see figure 
+figure  goals to manage quantum risk and ensure a smooth transition
+shortterm midterm longterm
+ get familiar with the impact of  conduct largerscale experiments  transition to quantumsecure
+quantum computing with quantum applications ecosystem
+ conduct quantum readiness and  invest in proofs of concept eg  adopt fully agile cryptography
+quantum risk assessments risk prediction management
+ create a quantum roadmap  implement quantum solutions
+ trial smallscale proofs of concept where they provide added value
+eg cryptoagility
+ inventory cryptography assets
+very timeintensive
+ assess quantum opportunities
+and their value to the organization
+source world economic forum
+transitioning to a quantumsecure economy 
+box  partnering on developing quantum proof of concepts quantinuum and fujitsu
+as part of their vision to be ready for quantum encrypt network traffic over time this integration
+risks to network security fujitsu partnered with will incorporate postquantum algorithms as these
+quantinuum on a softwaredefined wide area become approved by nist and standardized
+network sdwan proof of concept poc which
+incorporated cryptographic keys that would remain the combination of new approved algorithms
+secure and unpredictable even as powerful and the poc approach for their configuration
+quantum computers are developed in the future integration and security benefits on cloud
+will provide enhanced sdwan security and
+the project focused on integrating quantinuums
+benefits for cloudhosted application solutions
+key generation platform into fujitsus sdwan
+the technical goal of deploying the solution is
+poc infrastructure the key generation platform
+uses quantum computers to generate probably a reduction in the potential for data breaches
+nearperfect cryptographic keys using a verified should the quantum risks to cryptography be
+and patented quantum process keys are delivered realized thanks to the strong guarantee of
+securely to the sdwan nodes and used to cryptographic key strength
+ what are the deployment scenarios
+there is often a debate on when is the right time national cybersecurity institutions  such as the
+to deploy emerging technologies  is it best to be uss national security agency nsa the uss
+an early adopter of proprietary technology to wait cybersecurity and infrastructure security agency
+for consensus standards to evolve to rely upon the cisa the agence nationale de la scurit
+use of frameworks that provide guidance on how des systmes dinformation anssi  frances
+to leverage standards or to wait until regulators computer security service the bundesamt
+force change fr sicherheit in der informationstechnik bsi
+ germanys federal office for information
+in the case of quantum underlying standards security canadas communications security
+hybrid and have been under development by nist since establishment cse and the uks national cyber
+or phased  nist announced the initial winners in july security centre ncsc  have started to issue
+ which will now be developed into federal implementation guidance and help organizations
+approaches to
+information processing standards fips some make decisions on relevant activities
+the quantum
+organizations will rely upon this directly much as
+transition offer the
+they do with fips  and related examples of nevertheless some organizations may wait either
+best balance for
+this type of document other organizations may deliberately or inadvertently until they are obliged
+most companies
+seek to wait until nist has offered up the material to act either by regulation or in response to an
+between potential
+for an international standard under the international actual reported attack on encryption by a quantum
+impacts and organization for standardization iso or the computer figure  presents four potential
+opportunities internet engineering task force ietf scenarios for adoption
+transitioning to a quantumsecure economy 
+figure  four potential deployment scenarios to address quantum risk
+scenario rationale potential impacts potential opportunities
+do nothing organizations that believe  no protection from quantum  no upfront financial outlay
+quantum computing is still at full impact on the digital
+an early stage and the benefits infrastructure
+of investing and embarking on
+ disruption of business
+the quantum transition are yet
+operations and processes
+to be defined
+ high risk of requiring a
+reactive direct changeover
+when the threat materializes
+adopt a hybrid as standards are created it  vulnerability of classical  provides legacy support
+approach is possible to have classical solutions to old solutions
+quantum and postquantum
+ low to medium financial  allows agility and flexibility
+cryptography solutions in a
+impact to adapt quickly to new
+hybrid mode the security of
+solutions
+the complete solution is as
+good as the strongest element  provides classical
+protection while pqc
+algorithms being further
+stress tested
+follow a phased phase investment to adopt  vulnerability of classical  prioritization of solutions
+approach quantum security solutions to solutions based on inventory
+replace impacted solutions
+ low to medium financial  phasebased
+impact improvement learnings
+ phased budget spending
+following quantums
+evolution
+direct changeover make a replacement of all  high financial impact  large  direct enhancement of
+impacted solutions replacing migrations can have higher security against quantum
+them with quantum and post costs risks for smaller novel
+quantum cryptography and less complicated
+ large disruption of business
+environments
+operations and processes
+each organization will have to assess its own cost versus impact of
+quantum risk activities relative to other priority strategic cyber initiatives
+determine which scenario is best and budget accordingly
+box  running a phased approach at a healthcare provider qusecure
+healthcare data remains relevant for years  and  overlay legacy network infrastructure  support
+often decades this puts the healthcare industry at expected network performance and  maintain
+risk of harvest now decrypt later attacks after communication with nonupgraded equipment
+learning about the quantum threat the leadership
+at a large healthcare provider sought help to start to begin the phased approach a combination
+a phased approach to adopting postquantum of quantum random number generator post
+cryptographic standards quantum cryptosystems protocols and traffic
+monitoring software was deployed in a single
+a network of clinics within the company has pilot clinic to demonstrate quantumresilient
+transmitted patient records between physical data transmission after successful testing the
+locations continuously for the past two decades healthcare provider is now rolling out the solution
+given the mix of legacy and modern equipment to a broader number of clinics to ensure a phased
+any proposed solution should and complete transition
+transitioning to a quantumsecure economy 
+how to adopt
+
+a quantum risk
+management approach
+first define your quantum security vision identify
+drivers for change then plan and execute your
+roadmap while enabling critical success factors
+the world economic forums quantumsecure the framework consists of four layers  define
+transition framework provides guidance for identify plan and execute  that help organizations
+organizations in defining their quantum security structure their goals and objectives for a secure
+transition by identifying the quantum risks and quantum transition see figure 
+their timelines against each organizations unique
+technology environment and digital ecosystem it is
+a consensusbased framework developed by the
+forums quantum security community
+one way of anticipating the quantum threat timeline could be
+by considering now which systems need to be left behind
+brian lamacchia distinguished engineer microsoft research
+figure  quantumsecure transition framework
+ quantum security vision see fig 
+define enable organizations to transition to quantumsecure ecosystems and mitigate quantum threats
+ drivers for change see fig 
+identify  quantum threat  regulatory pressures  market dynamics  cryptography
+materialization management needs
+ quantum security roadmap
+plan talent  education see fig  governance  processes see fig  technology  infrastructure see fig 
+knowledge pool executive support p c o ry s p t t q o u g a ra n p tu h m y q d u i a st n r t ib u u m ti o k n ey g r e n n a u e n m r d a b o t e i m o r n
+culture  socialization vision  roadmap product security
+training  awareness cryptography champions enterprise security
+policies  standards thirdparty security
+ key factors for success see fig 
+execute standards and certifications ecosystem cooperation technological innovation  research sustainable business 
+longterm investments
+source deloitte world economic forum
+transitioning to a quantumsecure economy 
+ quantumsecure transition framework
+ define a quantum security vision strategy cybersecurity and it plans and the
+organizations can define a quantum security market they operate in organizations can use their
+vision based on contextual factors see figure organizational context to create objectives for their
+ including but not limited to organizational quantum transition
+figure  contextual factors
+organizational plans cybersecurity and it external sources
+business strategy cybersecurity and it strategy market drivers
+strategic investment plans cybersecurity and it politics regulatory influences
+ identify drivers for change cryptography the drivers presented in figure 
+there are different drivers that could motivate an are representative and nonexhaustive they are
+organization to kickstart its quantum transition independent but possibly interlinked however it is
+see figure  these can be threatdriven but still unclear when the impacts of some drivers will
+there are also more businessdriven reasons for materialize how they will influence each other and
+an organization to explore new ways of managing how they will influence organizations to change
+figure  drivers for change
+ driver quantum threat materialization enabling attacks on traditional crytography
+either the reaction to an actual compromise or the understanding that it is imminent
+driver regulatory pressures to adopt standards
+
+the anticipation of national or international regulations will likely require action
+long before quantum computers become mature
+ driver market dynamics driven by early adopters who influence others to become quantumsecure
+after early adopters implement quantumsafe solutions the rest of the market is likely to follow
+driver cryptography management needs driven by nonquantum security threats
+
+cyber risk management initiatives that are not driven by quantum but by other current or
+emerging threats and operational challenges
+starting points for identifying
+key actions
+source deloitte world economic forum
+ plan a quantum security roadmap transition we have identified three workstreams
+based on the strategy and drivers organizations talent  education governance  processes
+can start defining what actions and approaches and technology  infrastructure detailed further
+need to be prioritized for their own quantum in figures   and 
+transitioning to a quantumsecure economy 
+figure  quantum security roadmap talent  education
+knowledge pool
+while the materialization of the quantum threat is still several years away organizations can start equipping their
+talent with the right knowledge on quantum security this includes addressing the talent gap
+culture  socialization
+quantum computers can change the threat landscape for organizations socializing this impact can aid the
+quantumsecure transition
+training  awareness
+early education and training on quantum and how quantum security impacts the organization provides teams
+with the ability to be ready when the quantum impact materializes and aids understanding of the threat
+talent  education approaches
+ create a realistic timeline now that showcases the time and  lack of understanding around the quantum timeline
+effort it will take to transition in order to educate leaders can be mitigated by demystifying quantum and framing
+who may believe the threat is too far away to act now it in relation to the corporate business model
+source deloitte world economic forum
+figure  quantum security roadmap governance  processes
+executive support
+projects and transitions revolve around getting proper support from senior leadership to
+enable appropriate sponsorship resources and mandate for change
+vision  roadmap
+as becoming quantumsecure becomes a higher priority initiatives should be
+bundled and supported with a quantum security roadmap
+cryptographic champions
+cryptographic champions can look beyond separate functions and amplify the quantum
+security message at the team level and coordinate adaptation across the organization
+policies  standards
+successful implementation of policies and standards brings organizations up to speed with
+regard to new ways of working and reducing the impact of quantum threats
+governance  processes approaches
+ integrate the risk of quantum into your general risk management framework
+to understand the level and likelihood of impact across your ecosystem
+source deloitte world economic forum
+transitioning to a quantumsecure economy 
+figure  quantum security roadmap technology  infrastructure
+postquantum cryptography quantum key distribution random number generation
+development and implementation deployment of cryptographic generating true random numbers
+of quantumsafe algorithms that protocols for distribution of symmetric based on the laws of quantum
+are secure against quantum keys in order to avoid vulnerable key mechanics as opposed to the
+computersupported attacks exchange mechanisms pseudorandom numbers generated
+by traditional techniques
+product security
+relates to the security of software development or other product design when conducting product security assessments
+teams must take into account the security of the cryptographic protocols in use for their organizations products
+enterprise security
+helps organizations understand whether they are secure and implementing sufficient measures to safeguard
+their business and people within enterprise security organizations need to prioritize quantum risk
+thirdparty security
+protects an organization against cybersecurity threats that originate from the supply chain vendors or customers
+assessments may be needed to gain insights into how the quantum threat changes the threat landscape
+technology  infrastructure approaches
+ to overcome a heavy dependency on vendors and their  to tackle budgetary restrictions piloting use cases
+solutions organizations can begin to have conversations with can demonstrate the opportunities that quantum
+vendors about the quantum threat to gain realistic expectations can bring to your business
+source deloitte world economic forum
+box  experimenting with specific applications banco santander
+financial institutions deal with very sensitive data  identify and assess use cases for random
+including customer data and information regarding number generation within the banks services
+transactions and contracts regulators often and the benefits of having a quantumbased
+require sensitive data to be stored for long periods random number generator solution such as
+making security a key requirement the advent of verifiability and improved performance these
+quantum threats could therefore have implications use cases aim to explore novel approaches
+on the security of financial institutions to prepare to improve the overall quality of the banks
+its enterprise against quantum threats banco random number generation in key areas
+santander has been experimenting with a number including cryptography financial simulations
+of strategic research projects outlined below and machine learning
+ understand the current risks of critical  initiate implementation of cryptographic
+functions handling sensitive information by agility by developing cryptographyasa
+mapping the potential threats and develop service to provide the bank with the ability
+a quantum readiness framework for a to move services over to postquantum
+prioritized transition this framework helps build cryptography as well as the opportunity to
+a roadmap to developing an understanding of make modern cryptographic automation
+the organizations confidential cloud and digital more widely and easily available within the
+signature resilience organization
+transitioning to a quantumsecure economy 
+ execute ensuring key factors for success the quantum threat organizations will face challenges
+with an initial roadmap in mind it is crucial to strategizing which solution is right for them and their
+strategize who should get involved in kickstarting the specific application and encounter implementation
+transition identifying the key stakeholders and best issues along the way there are four key factors that
+candidates to get the ball rolling there are no silver will help ensure the successful and robust execution
+bullets while executing a strategy and plan to address of a quantum security roadmap see figure 
+figure  key factors for success in executing a quantum security roadmap
+standards and certifications
+use of standards and certifications will enhance quantum security solutions
+ecosystem cooperation
+cooperation between ecosystem parties will help resolve or mitigate systemic risks
+technological innovation and research
+research leading to innovative solutions and new approaches mitigating quantum risk
+sustainable business and longterm investments
+longterm investments and responsible business strategies aiding implementation of quantumsecure solutions
+box  developing playbooks for change evolutionq
+the financial services industry is one of the most be harvested today and decrypted tomorrow by
+heavily regulated and relies on trust relationships malicious actors using quantum computers
+between customers and financial companies for
+its survival the quantum threat puts at risk the we then looked at the benefits of implementing
+backbone of todays financial infrastructure and a quantum key distribution qkd solution by
+worldwide economy in the coming years developing a multiphase playbook to define
+requirements for the potential rollout this allowed
+to educate multinational investment management us to establish a twophase approach that defines
+and financial services companies on the risk profile a qkd simulator enabling the bank to assess the
+and how to ensure a quantumsafe transition security and performance potential followed by the
+we have conducted detailed analysis on how project definition that will replace the simulator with
+the risk profile is changing risks are increasing actual qkd hardware
+with larger and more complex infrastructure and
+these risks will only grow with the massive rise the solution increases the banks layered
+in cloud platforms sophisticated mobile stacks cybersecurity defences by providing the vault to
+and the advent of edge computing with that in lock down the banks most important assets and
+mind we have reviewed the key data that could prevent the potential risks arising from codebreaking
+transitioning to a quantumsecure economy 
+what is required from
+
+different stakeholders
+all organizations will feel the impact of quantum
+the transition must begin with leaders setting
+the right level of support and direction
+like many other emerging and disruptive this chapter offers some recommendations
+technologies the quantum threat will affect for priority activities to the following actors
+almost everyone developing and implementing
+ corporate leaders and boards
+a successful quantum readiness plan requires
+coordination across many different industry  cyber leaders
+sectors governments and global stakeholders all  policymakers
+organizations will feel the impact of the quantum  leaders navigating the extended enterprise
+threat regardless of their size type and revenue  ecosystem
+including quantum technology vendors themselves
+smaller organizations or those without a dedicated
+the quantumsecure transition must begin with
+cyber security office or function could still appoint
+leadership to set the appropriate level of support
+an officer responsible for quantum reporting to
+and direction required to carry out such an effort
+management to ensure the quantum threat receives
+the right focus and prioritization
+ recommendations for corporate leaders and boards
+corporate leaders and boards represent the ceo and legal responsibilities and that various drivers
+other csuite leaders who establish the overall direction regulatory financial security etc can influence
+and priorities of organizations including initiatives the need for and speed of adoption
+pertaining to quantum computing technologies
+ invest in updating it systems and technical
+what you should know infrastructure and prioritize cryptoagility
+to avoid lockin and costly future changes
+ understand the capabilities and challenges of consider conducting thorough risk and impact
+adopting quantum technology and the business assessments on which solutions pqc qkd
+impact of quantum computing advances qrng etc might suit your organization best
+ grasp the individual and industrywide legal and  invest in the hiring and training of
+regulatory implications knowledgeable and skilled staff that
+understand the technology and the threats
+ learn how to navigate the hype and complexity during our interviews and working sessions
+of quantum risk solutions  and properly most organizations noted that this is the key
+evaluate the impact on your organization challenge for the coming years
+the quantumsecure transition framework
+presented in chapter  of this white paper can  coordinate quantum security efforts internally
+help organizations define their vision objectives in cooperation with other csuite stakeholders
+and key steps in line with their risk appetite and and risk management functions to build
+business drivers awareness and integration with supporting
+the key
+and affected corporate functions externally
+challenge in the
+what you should do today establish thirdparty risk management functions
+coming years will
+to include quantum risk preparedness these
+be hiring staff
+ adopt a holistic approach that balances the thirdparty stakeholders include key vendors
+skilled enough to
+potential opportunities of quantum computing and service providers channel partners
+understand the against the risks understand that taking risks infrastructure providers product vendors and
+quantum threat may be necessary to fulfil various regulatory and other ecosystem partners
+transitioning to a quantumsecure economy 
+ recommendations for cyber leaders
+cyber leaders represent the chief information what you should do today
+security officer ciso of the organization or
+whoever is the seniormost individual in the  champion quantum computing concerns
+organization specifically tasked with protecting its within your organization and educate corporate
+information and technology assets leaders and business stakeholders some
+organizations have successfully created the right
+what you should know level of urgency by linking the quantum threat to
+operational resilience and business strategies
+ understand the organizations individuals and and tailoring the impact of the quantum threat to
+entities driving the regulatory and standards the organizational context
+conversations nist enisa etc chapter 
+of this white paper sheds light on regulatory  launch initiatives to assess quantum computing
+developments and links these to various risks and exposures establish or modify
+scenarios for adopting quantum technologies processes to account for quantum computing
+now and in the future capabilities understand that crossfunctional
+collaboration between security operational and
+ keep informed of entities advancing in quantum business functions might be critical
+both security applications and quantum
+computing threats through liaising with  build a crypto inventory that includes data
+ecosystem partners supply chains and other assets to determine which ones need to be re
+organizations encrypted with quantumresistant cryptographic
+algorithms a complete inventory will provide
+ monitor quantum developments in your a clear overview of vulnerabilities and which
+organization by working with responsible systems might need to be prioritized in the
+individuals such as the owners of crypto secure quantum transition
+infrastructure and cybersecurity as well as
+privacy policy teams data owners and the data
+protection officer
+ recommendations for policymakers
+imagine policymakers represent national and international what you should do today
+the future of leadership along with standards organizations
+quantum  it is that are ultimately responsible for guiding the  support the development of international
+an everevolving governance of quantum technologies and efforts quantum cybersecurity and risk management
+technology with to mitigate their potential risk standards for quantum computing a starting
+point for this can be our quantumsecure
+some exciting
+what you should know transition framework presented in chapter 
+opportunities
+of this report
+ understand the commercial and national
+security implications of quantum computing  promote enhanced quantum awareness among
+both public and private sector leaders many
+ discern the relationships between different organizations stress the need for education
+standards to make a timely start in transitioning especially at a senior level
+to quantumsafe standards we are starting to
+see guidance from nsa anssi bsi and others  accelerate development of a cybersecure
+so keeping track of regulatory movements could global ecosystem by including quantum
+be useful in determining what is needed for cybersecurity technology as an area of focus
+organizations in your jurisdictions
+ consider incorporating advances in quantum
+ manage the balance between regulating the cybersecurity into existing standards originally
+technology too early stifling innovation and written during the classical era
+regulating the technology too late the debate
+on the right moment to deploy quantumsafe  imagine the future of quantum  it is an
+solutions is still ongoing and organizations are everevolving technology with some exciting
+looking towards policymakers and regulators to opportunities
+see when they need to act
+transitioning to a quantumsecure economy 
+ quantum across the extended
+enterprise ecosystem
+our modern digital economy is becoming more  clarify which enterprise technologies and
+granular and dispersed while at the same time services are the responsibility of the organization
+increasingly systemic and interdependent itself to make quantumsafe as opposed to those
+organizations rely heavily on connected that are the obligation of third parties to address
+technologies  both customdeveloped and offthe
+shelf  to execute and maintain their extended and  establish vendor relationships to understand the
+connected supply chains while organizations may timelines and expectations around addressing
+be responsible for legacy homegrown applications quantum threats in the products and services
+and databases and their own iot mobile devices those vendors provide
+and internal networks thirdparty vendors will most
+likely manage support technologies such as public thirdparty vendors should be continuously aware
+telecommunications cloud services and common of how quantum threats will impact their products
+business applications and take action to develop enhancements to those
+products and services thirdparties should therefore
+when it comes to the quantum transition
+organizations should  understand the risk and impact of the quantum
+threat to their products and services
+ understand their exposure to potential quantum
+threats through the lens of their digital supply  develop a plan to address quantum risks in their
+chain and full partner ecosystem this includes product andor service roadmap
+knowing about core technology solutions and
+the status of the encryption capabilities within  communicate their action plan to customers
+those products and stakeholders to build awareness and
+promote action
+box  creating awareness across the regulatory environment
+the uks financial conduct authority fca
+to better understand the potential impacts of council epsrc the national cyber security centre
+quantum information technologies qit on ncsc the national quantum computing centre
+financial services the fca has carried out several nqcc and internal stakeholders the aim of the
+activities in collaboration with the uk quantum workshop was to raise awareness of qit educate
+computing  simulation hub this is a valuable relevant stakeholders in its key potential impacts and
+example of how regulators can collaborate more identify areas of focus for financial regulators
+closely with academia to understand complex
+technological topics the findings from the fca workshop provided
+valuable insights around future policy implications
+in addition to an expert talk and a joint internal and potential regulatory challenges in the areas of
+report the fca coorganized a virtual workshop security and competition similarly it supported
+with more than  different stakeholders including conversations with other international regulators
+the bank of england six leading uk universities and prompted the sharing of insights across
+the uk quantum communications hub qch jurisdictions while gathering novel information
+the engineering and physical sciences research about relevant developments
+transitioning to a quantumsecure economy 
+what technologies are
+
+available to address
+the quantum threat
+quantum computings threat to publickey
+encryption has generated a market for quantum
+risk technologies with varying levels of maturity
+and relevance to organizations
+in todays nascent quantum cybersecurity market  quantum key distribution qkd develops
+several efforts are ongoing to develop technologies physicsbased quantum techniques to generate
+to mitigate the quantum threat these technologies secure communication channels which can
+do not represent a silver bullet but they can be used be used to distribute encryption keys qkd
+individually or in combination for certain applications can complement the use of pqc and other
+there are three technologies to mitigate the risk cryptographic algorithms by providing a secure
+posed by quantum to publickey cryptography that key distribution method
+have been garnering the majority of attention
+ quantum random number generation qrng
+ postquantum cryptography pqc uses new leverages fundamental quantum properties to
+mathematicsbased publickey cryptography generate random numbers with high entropy
+algorithms that are designed to be impervious randomness is a key part of cryptography
+to attacks by shors algorithm pqc will qrng produces better validated entropic
+fundamentally update what will become sources than conventional processes which
+insecure cryptographic algorithms may enhance security under certain conditions
+in the quantumsecure solutions market there is a large information asymmetry
+between buyers and sellers buyers dont always know how to pick the right
+technical solutions that will mitigate the specific threats their organization faces
+and sellers are incentivized to sell inferior products based on factors other than
+solely their technical qualifications this leads to an adverse selection problem
+which is a concern for the entire quantum security ecosystem
+jaya baloo chief information security officer avast
+transitioning to a quantumsecure economy 
+ postquantum cryptograpy
+postquantum cryptographic algorithms are added benefits
+based on hard mathematical problems which  considered to be secure against currently
+are very difficult to solve efficiently even for known quantum attacks
+quantum computers there are various options
+ softwarebased solutions can be implemented
+and approaches to develop these algorithms with
+within existing infrastructure
+different security levels and use cases to provide
+general guidance to where and how to use these current limitations
+algorithms in late  nist initiated a process  all known pqc schemes from the nist
+to solicit evaluate and standardize quantum standardization process have performance
+resistant publickey cryptographic algorithms drawbacks such as requiring long keys and
+in july  nist announced a list of four long processing times compared to currently
+quantumresistant cryptographic algorithms and is used algorithms eg rsa ecc which makes
+currently developing standards for postquantum them unsuitable as a direct dropin replacement
+cryptography to protect information exchanges in  developments in classical and quantum attacks
+the quantum era cryptoanalysis might impact the security of
+these schemes in the future
+ quantum key distribution
+current limitations
+quantum key distribution qkd is the most well
+known class of quantum protocols to establish a  significant financial investment as it requires
+secure communication channel in a way that stealth specialized hardware
+eavesdropping is not possible the protocol uses  distance limitations until quantum repeaters and
+the principle of superposition to ensure that an or satellite qkd infrastructure are developed
+eavesdropper cannot listen in to the communication and commercially available secured and trusted
+unnoticed this protocol is designed to exchange repeaters are needed in the meantime
+secret keys that are afterwards used to encrypt the
+ requires a separate authentication channel
+communication using quantumsecure symmetric
+which adds additional complexity to the solution
+key algorithms eg aes
+in contrast with current classical methods where
+authentication is part of the protocol
+added benefits
+ information theoretic security which means that
+no algorithms can be developed to access the
+exchanged keys
+ increased protection against harvestnow
+decryptlater attacks as the keyexchange
+protocol is not vulnerable to quantum attacks
+ can be used in combination with other schemes
+to add a new layer of security
+transitioning to a quantumsecure economy 
+ quantum random number generation
+quantum phenomena are inherently random in nature and so can be used to generate pure random
+numbers the generation of random numbers plays a crucial role in cryptography for both the
+generation of cryptographic keys as well as within some algorithms
+added benefits current limitations
+ while classical random number generators rngs  some applications require repeatability which
+are derived from some source of entropy eg is not possible for qrngs
+thermal noise qrngs are inherently random
+ difficult to quantify the improvement in security
+ the possibility of proof of randomness certifiable
+randomness for some implementations
+box  developing a quantum entropy service for a major global bank quintessencelabs
+a major global bank with an extensive virtual automatically replenished entropy pools before
+machine deployment hosting a range of starvation with quantum random numbers retrieved
+banking services was experiencing delays and from the appliances
+the potential for duplicate keys used by the
+cryptographic processes for securing data and previously during busy periods login and
+communication a quantum random number cryptographically intensive operations had
+generation qrng solution was explored response delays of several tens of seconds after
+to ensure the timely delivery of highquality the deployment of the qrng solution response
+randomness consumed by the cryptographic times improved by up to one hundred times and
+processes running in the virtual machines while prior to deployment of qrng  of virtual
+machine instances experienced duplicate keys
+the qrng network appliances were deployed after startup after deployment no duplicate keys
+in all of the banks data centres around the were generated the solution gave the client clear
+world delivering entropyasaservice the visibility of demand for randomness across the
+appliance monitored entropy levels and whole organization
+transitioning to a quantumsecure economy 
+what are the focus areas
+
+for future attention
+quantum computing offers great potential to
+solve critical problems  but it also presents
+challenges that will require new technologies
+and partnerships to tackle
+quantum computing  still in its early stages with happen in the future and explores the challenges
+nearterm gains in some niche industry use cases  that organizations committed to mitigating the
+offers great potential to help solve a range of critical quantum threat might face around technology
+problems this chapter looks ahead to what might partnerships and other themes
+the protection of the datacentric internet world needs a cryptoagile
+approach to keep pace with constant innovations starting with the
+quantum threat and continuing for more flexibility for the future
+taher elgamal chief technology officer salesforce
+ quantum technology predictions
+the current state of quantum technology is still nascent but short and longterm predictions suggest great
+potential for a technology that could open new opportunities in the cybersecurity area see figure 
+figure  quantum technology predictions
+shortterm longterm
+current state
+prediction prediction
+ quantum supremacy  proof that a  noisy intermediatescale quantum  quantum computing hardware
+quantum computer can solve some nisq hardware begins to advances to the point where
+problems better than a classical demonstrate instances of genuine decoherence a process that causes
+computer  was demonstrated in quantum advantage in certain quantum information to be lost
+ by a team at google areas of financial services eg a significant barrier to todays
+ in  the largest publicly capital markets quantum computers can be
+controlled via quantum error
+available quantum computer had  the public and private sectors
+correction and meaningful quantum
+ qubits but hardware firms are begin formally rallying behind
+advantage is solidified
+actively working to increase this quantum cryptography to align on
+number and enable additional uses standards and improve encryption  modern encryption techniques eg
+of the technology techniques rsa become easily decrypted by
+ initial proofs of concept are being  the use of quantum computing quantum computers however most
+conducted with success in financial eg quantum machine learning governments businesses and other
+services largely using hybrid begins to become a unique large organizations eg those that
+systems of quantum and classical differentiator for large institutions govern the encryption of the internet
+computers that split different parts most large cloud providers have a have moved on to quantumsecure
+of an algorithm across the two marketreadyquantumasa forms of encryption eglattice
+architectures to optimize performance service tool based methods
+transitioning to a quantumsecure economy 
+ pathways and focus areas for
+future attention and innovation
+quantum computing brings great potential for businesses and governments to harness whether
+to enhance their cyber capabilities or to explore new opportunities there are four focus areas
+that require the attention of public and private sector actors
+ establishing new partnerships
+ innovating through the adoption of emerging technologies
+ preparing for areas of disruption
+ exploring new research opportunities experimentation as a starting point for growth
+establishing new partnerships
+ kickstart your postquantum transition today  understand the emerging risks from the
+by starting to evaluate your infrastructure and interdependencies across organizations value
+systems using a quantum readiness framework and supply chains such as telecommunications
+or index that consists of benchmarks across cloud environments etc there may be
+industries plus guardrails and guidance challenges for example with the transition from
+for exploring the current encryption and smart technologies eg iot ot to quantum
+algorithm ecosystem this approach can help safe algorithms and unclear timelines around
+organizations identify challenges and bottlenecks when the quantum threat to those technologies
+associated with specific quantum security risks might become tangible
+and risks with postquantum adoption
+ develop a secure supply chain strategy inclusive
+ create an overarching framework to establish of software and hardware so that you can
+a common language for calibrating risks across prepare to substitute tech due to any crypto
+business governments policymakers and breakthrough quantum or classical plan and
+standardsetters start talking to your vendors to ask what their
+responses are to quantum and begin hardware
+ establish a platform to foster collaboration and software transitions as needed
+across industries to partner and align on
+quantumsecure capabilities and solutions  develop guidelines to create awareness and to
+provide clear action points to decisionmakers
+for managing a secure quantum transition
+innovating through the adoption of emerging technologies
+ the quantum threat provides an opportunity  there is a clear desire among participants in the
+to proactively review and solve generic and forums quantum security community to start
+legacy challenges encountered in cryptography experimenting with quantum security solutions
+management eg certificate management bad
+seeds etc  given that the quantum transition might include
+hybrid solutions systems with both classical
+ many organizations see quantum random cryptographic and quantumbased encryption
+number generators as key to ensuring sufficient components organizations should enhance
+entropy in a postquantum era their cryptoagility to build ongoing capabilities
+to evolve cryptographic standards and
+ at the same time opinion is divided on whether solutions this cryptoagile approach requires
+quantum key distribution would be a requirement taking a fresh look at cryptographic governance
+for secure communications in future and exploring novel ways to deploy cryptoagile
+software frameworks and architectures
+ organizations are not sure whether post
+quantum cryptography will mitigate the quantum
+threat on its own
+transitioning to a quantumsecure economy 
+preparing for areas of disruption
+ marketbased and public investment into attacks are something they should worry
+quantum security solutions testify to the about today
+importance of and growing interest in moving  decentralized systems running on blockchain
+towards a postquantum world setting the require a broad consensus before change can
+stage for a firstmover advantage race be implemented this could present a significant
+between countries challenge in the transition of cryptocurrencies
+ some organizations have expressed doubt decentralized finance defi platforms and web
+around whether harvestnow decryptlater to quantum secure solutions see box 
+box  reviewing the quantum risk to blockchain deloitte
+blockchain technology is disrupting many aspects transactions depends heavily on the performance
+of our lives including the use of cryptocurrencies of the underlying cryptography replacing the
+this technology is enabled by using sophisticated current algorithms with ones of lower performance
+cryptography protocols to replace a central could have a detrimental effect on the adoption
+authority with a decentralized governance system of blockchain applications furthermore the
+decentralized nature of blockchain technology
+the use of cryptography within blockchain
+requires a broad consensus before change can be
+technology makes it very powerful but also
+exposes it to a threat from quantum computers adopted this could result in a very long transition
+recent research shows that a significant period to postquantum cryptography  time that
+portion of cryptocurrencies could be stolen by a we may not have
+malicious actor with a cryptographically relevant
+it is therefore imperative to start preparing the
+quantum computer
+transition as soon as possible not just the
+the quantum risk to blockchain presents a number selection of new cryptographic algorithms but
+of unique challenges that need to be addressed also creating the consensus process needed to
+for example the performance of blockchain successfully undergo this transition
+exploring new research opportunities
+experimentation as a starting point for growth
+ organizations require more clarity on how to overcome stances shaped by backgrounds
+overcome the information asymmetry between rather than organizational risk profiles
+buyers and sellers to make informed decisions  organizations are encouraged to conduct
+on which quantum security solutions fit their ongoing assessments to monitor developments
+organization best in quantum computing as they relate to both
+ opinions and viewpoints are strongly shaped opportunities and threats
+by roles and background eg the physicists  organizations should address the talent gap by
+versus mathematicians and cybersecurity focusing on training and upskilling the current
+specialists problem there is a need for workforce while working with universities to
+collaboration and interdisciplinary research to educate and skill new professionals
+transitioning to a quantumsecure economy 
+conclusion
+quantum computing will take time to mature
+but that is no excuse to delay preparations
+take prudent action now to start your
+transition to a quantumsafe future
+it is difficult to as the quantum era continues to evolve and the field of quantum computing is still in its infancy
+accurately predict timelines for technological advancements become and the quantum machines we have today are still
+how long it will clearer it is important to understand how quantum far from being able to threaten cybersecurity it is
+take before this computers will impact cybersecurity how they may therefore difficult to accurately predict how long it
+threat materializes affect your organization specifically and when the will take before this threat materializes however this
+threat could potentially materialize based on your does not mean that organizations should wait before
+however this
+individual enterprise risk profile taking action established businesses startups
+does not mean
+and researchers are all working on solutions the
+that organizations
+the quantum transition process will be lengthy most common being postquantum cryptography
+should wait before
+regardless of when we think the threat will pqc quantum key distribution qkd and quantum
+taking action
+materialize you need to consider what steps need random number generation qrng
+to be taken now and what your organization can do
+to prepare consider creating a transition roadmap each of these solutions helps mitigate different
+to help you define your quantum security vision aspects of the quantum threat and each has its
+to get ready for a secure transition to a quantum own benefits and limitations innovation will bring
+safe economy organizations should identify key new opportunities and advances in quantum
+stakeholders including corporate leaders board which can in turn open doors to new partnerships
+members cyber leaders policymakers and technologies and research opportunities that can
+vendors and assign responsibility accordingly be used to expand current operations
+transitioning to a quantumsecure economy 
+contributors
+lead authors steering committee
+filipe beato jaya baloo
+lead centre for cybersecurity chief information security officer avast software
+world economic forum czech republic
+anne ardon taher elgamal
+junior manager deloitte netherlands chief technology officer security salesforce usa
+itan barmes isaac kohn
+specialist leader deloitte netherlands partner deloitte switzerland
+chris knackstedt brian lamacchia
+senior manager deloitte usa distinguished engineer microsoft research microsoft
+usa
+michele mosca
+professor university of waterloo canada
+vikram sharma
+founder and chief executive officer
+quintessencelabs australia
+colin soutar
+managing director deloitte usa
+acknowledgements
+this white paper was cocreated by many experts george miao
+and diverse stakeholders in the world economic credit suisse switzerland
+forums project community on quantum security
+as part of the quantum computing network that jason lau jacques francoeur
+shared insights and lessons learned through cryptocom hong kong sar
+interviews design workshops and consultation
+sessions the world economic forum would like soon chia lim jong chin roddy kok
+to thank the following individuals for their insightful cyber security agency of singapore singapore
+reviews and feedback
+michael daniel
+andrew fursman cyber threat alliance usa
+qb information technologies canada
+ken durazzo
+dimitri van esch dell technologies usa
+abn amro netherlands
+christian cruces mujica
+sigmund kristiansen deloitte usa
+aker bp norway
+marc verdonk
+antia lamaslinares deloitte netherlands
+amazon web services usa
+bushra alblooshi
+daniel cuthbert mark carney dubai electronic security center united arab
+banco santander sa spain emirates
+dimi stratakis andrew ward
+bank of new york mellon usa emirates integrated telecommunications
+company pjsc du united arab emirates
+transitioning to a quantumsecure economy 
+pavle avramovi john stewart kevin hanley
+financial conduct authority fca uk natwest group uk
+haimera workie hoda al khzaimi
+financial industry regulatory authority finra new york university abu dhabi uae
+usa
+bryan ware
+gabriel de alba lookingglass cyber solutions usa
+frontera energy canada
+mohammed zumla
+terril frantz ofgem uk
+harrisburg university usa
+ali el kaafarani
+bruce schneier pqshield uk
+harvard kennedy school of government usa
+rebecca krauthamer
+naveen kumar malik quantum thought usa
+hcl technologies uk
+stacey jeffery
+kirk bresniker qusoft netherlands
+hewlett packard enterprise usa
+ibrahim almosallam sara alghunaim
+duncan jones nidhi sharma saudi information technology company
+honeywell uk saudi arabia
+anand autar mike wilkes
+ing group netherlands securityscorecard usa
+james cemmell ana predojevic
+inmarsat global uk stockholm university sweden
+reena dayal maya bundt
+institute of electrical and swissre switzerland
+electronics engineers ieee india
+bob blakley
+william dixon team usa
+istari globalm uk
+rainer muller
+roger a grimes technische universitt braunschweig germany
+knowbe usa
+salvador venegasandraca
+tommaso gagliardoni tecnologico de monterrey mexico
+kudelski security switzerland
+marcos allende lopez
+hanna helin the interamerican development bank japan
+london stock exchange group uk
+jacob sherson
+john beric paul trueman university of aarhus denmark
+mastercard uk
+gabrijela dreo rodosek
+juhani eronen university of the german federal
+ministry of transport and armed forces bundeswehr mnchen germany
+communications of finland finland
+mark barwinski
+damien pang ubs switzerland
+monetary authority of singapore singapore
+arunima sarkar grigory shutko
+roland fejfar world economic forum
+morgan stanley  co usa
+the forum also wishes to acknowledge
+carl j williams contributions from alexey bocharnikov and
+national institute of standards piers clintontarestad from ey as well as scott
+and technology nist usa alexander and david shiu from arqit
+transitioning to a quantumsecure economy 
+glossary
+the table below provides definitions of the mostused terms throughout this document for reference
+the advanced encryption standard aes specifies a fipsapproved cryptographic algorithm that can
+be used to protect electronic data the aes algorithm is a symmetric block cipher that can encrypt
+aes
+encipher and decrypt decipher information aes represents the bit version while aes
+the bit version
+agence nationale de la scurit des systmes dinformation  the government agency responsible
+anssi
+for cybersecurity issues in france
+bundesamt fr sicherheit in der informationstechnik bsi  the german federal office
+bsi
+for information security
+the ability of a system to be able to rapidly switch between cryptographic algorithms cryptographic
+cryptoagile primitives and other encryption mechanisms without the rest of the systems infrastructure being
+significantly affected by these changes
+cryptographically
+quantum computers that are capable of actually attacking realworld cryptographic systems that
+relevant quantum
+would be unfeasible to attack with a normal computer
+computer
+cse communications security establishment  canadas national cryptology agency
+enisa the european union agency for cybersecurity  an agency of the eu
+a quantum mechanical phenomenon in which the quantum states of two or more objects have to be
+entanglement
+described with reference to each other even though the individual objects may be spatially separated
+federal information processing standard fips documents define rules regulations and standards for
+fips many aspects of the handling of information by computers and people they apply to all united states
+government employees and personnel including members of the armed forces
+information theoretic a cryptosystem is considered to have informationtheoretic security if the system is secure
+security against adversaries with unlimited computing resources and time
+ncsc the national cyber security centre of the united kingdom
+the national security agency is a nationallevel intelligence agency of the united states department
+nsa
+of defense under the authority of the director of national intelligence
+the demonstration of a quantum computer that can carry out tasks that are not possible or practical
+quantum supremacy
+with a traditional classical computer
+a publickey algorithm that is used for key establishment and the generation and verification of
+rsa
+digital signatures
+superposition the ability of a quantum system to be in multiple states at the same time until it is measured
+yq year to quantum the moment when quantum computers can mount attacks on current cryptography
+transitioning to a quantumsecure economy 
+endnotes
+ overview on quantum initiatives worldwide  update mid qureca  july 
+httpsqurecacomoverviewonquantuminitiativesworldwideupdatemid
+ temkin marina investors bet on the technologically unproven field of quantum computing pitchbook  september
+ httpspitchbookcomnewsarticlesquantumcomputingventurecapitalfunding
+ quantum security market expected to reach over  billion by middle of decade the quantum insider  november 
+httpsthequantuminsidercomquantumsecuritymarketexpectedtoreachoverbillionbymiddleofdecade
+ tett gillian encryptogeddon is coming for us all ft magazine  june 
+httpswwwftcomcontentaadbdffafaee
+ arute frank et al quantum supremacy using a programmable superconducting processor nature  october 
+httpswwwnaturecomarticless
+ lavoie jonathan and zachary vernon beating classical computers with borealis xanadu  june 
+httpswwwxanaduaiblogbeatingclassicalcomputerswithborealis
+ swayne matt chinas quantum supercomputer sets quantum supremacy the quantum insider  june 
+httpsthequantuminsidercomchinassuperconductingquantumcomputersetsquantumsupremacymilestone
+ executive order on enhancing the national quantum initiative advisory committee the white house us government 
+may  httpswwwwhitehousegovbriefingroompresidentialactionsexecutiveorderonenhancingthe
+nationalquantuminitiativeadvisorycommittee
+ national security memorandum on promoting united states leadership in quantum computing while mitigating risks to
+vulnerable cryptographic systems the white house us government  may  httpswwwwhitehousegovbriefing
+roomstatementsreleasesnationalsecuritymemorandumonpromotingunitedstatesleadershipinquantum
+computingwhilemitigatingriskstovulnerablecryptographicsystems
+ world economic forum quantum computing governance principles january 
+httpswwwweforumorgdocswefquantumcomputingpdf
+ global future council on cybersecurity world economic forum 
+httpswwwweforumorgcommunitiesgfconcybersecurity
+ mosca michele and marco piani quantum threat timeline report  global risk institute january 
+httpsglobalriskinstituteorgpublicationsquantumthreattimelinereport
+ mosca michele cybersecurity in an era with quantum computers will we be ready in ieee security  privacy vol 
+no  pp  septemberoctober  doi msp
+ gidney craig and martin ekera how to factor  bit rsa integers in  hours using  million noisy qubits quantum 
+   april  httpsquantumjournalorgpapersq
+ webber mark et al the impact of hardware specifications on reaching quantum advantage in the fault tolerant regime
+avs quantum science  january  httpsavsscitationorgdoi
+ postquantum cryptography nist july  httpscsrcnistgovprojectspostquantumcryptographypostquantum
+cryptographystandardizationevaluationcriteriasecurityevaluationcriteria
+ world economic forum global cybersecurity outlook  january 
+httpswwwweforumorgdocswefglobalcybersecurityoutlookpdf
+ quantum computers and the bitcoin blockchain deloitte httpswwwdeloittecomnlnlpagesinnovatieartikelen
+quantumcomputersandthebitcoinblockchainhtml
+ world economic forum global future council on quantum computing frequently asked questions june 
+httpswwwweforumorgdocswefglobalfuturecouncilonquantumcomputingpdf
+ nist announces first four quantumresistant cryptographic algorithms nist  july 
+httpswwwnistgovnewseventsnewsnistannouncesfirstfourquantumresistantcryptographicalgorithms
+ arute frank et al quantum supremacy using a programmable superconducting processor nature  october 
+httpswwwnaturecomarticless
+ ibm unveils breakthrough qubit quantum processor ibm newsroom  november 
+httpsnewsroomibmcomibmunveilsbreakthroughqubitquantumprocessor
+ quantum computers and the bitcoin blockchain deloitte httpswwwdeloittecomnlnlpagesinnovatieartikelen
+quantumcomputersandthebitcoinblockchainhtml
+transitioning to a quantumsecure economy 
+the world economic forum
+committed to improving
+the state of the world is the
+international organization for
+publicprivate cooperation
+the forum engages the
+foremost political business
+and other leaders of society
+to shape global regional
+and industry agendas
+world economic forum
+ route de la capite
+ch colognygeneva
+switzerland
+tel     
+fax     
+contactweforumorg
+wwwweforumorg

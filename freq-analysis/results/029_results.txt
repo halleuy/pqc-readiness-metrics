@@ -1,0 +1,8 @@
+Framework: 029.txt
+Total Words: 7715
+========================================
+crypto_assets: 31
+crypto_agility: 135
+migration_planning: 34
+risk_management: 11
+standards_compliance: 3
