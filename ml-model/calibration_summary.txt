@@ -1,35 +1,13 @@
-PQC NLP Scorer — Calibration Summary
-=============================================
-Trained on 18 frameworks
-Overall LOO MAE: 1.24
+PQC Readiness — Calibration Summary
+==================================================
 
-crypto_assets:
-  Equation:  score = 1.84 × raw + 1.97
-  Train MAE: 1.278
-  LOO MAE:   1.444
-  Spearman:  0.663
+Phase 1A (single-feature Ridge): MAE = 1.244  FAIL
+Phase 1B (multi-feature Ridge): MAE = 1.076  FAIL
+Phase 1C (pooled Ridge): MAE = 1.177  FAIL
 
-crypto_agility:
-  Equation:  score = 1.11 × raw + 2.05
-  Train MAE: 1.333
-  LOO MAE:   1.5
-  Spearman:  0.289
+Expert-scored frameworks used: 18
 
-migration_planning:
-  Equation:  score = 1.01 × raw + 2.21
-  Train MAE: 1.111
-  LOO MAE:   1.111
-  Spearman:  0.0
-
-risk_management:
-  Equation:  score = 0.97 × raw + 2.52
-  Train MAE: 1.167
-  LOO MAE:   1.167
-  Spearman:  0.0
-
-standards_compliance:
-  Equation:  score = 0.76 × raw + 2.87
-  Train MAE: 1.0
-  LOO MAE:   1.0
-  Spearman:  0.0
-
+Targets:
+  Phase 1: MAE < 1.0
+  Phase 2: MAE < 0.8 (Random Forest + frequency features)
+  Phase 3: MAE < 0.6 (LLM comparison)
