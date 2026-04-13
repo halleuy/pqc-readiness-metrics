@@ -1,292 +1,477 @@
- ieee international conference on quantum computing and engineering qce
-quantum readiness unlocking the quantum
-advantage for australian industries
-rebecca coates mohan baruwal chhetri
-environment business unit data
-commonwealth scientific and industrial commonwealth scientific and industrial
-research organisation research organisation
-brisbane australia melbourne australia
-rebeccacoatescsiroau mohanbaruwalchhetricsiroau
-abstractquantum technologies hold immense potential to domestic product gdp and directly employ  indi
-revolutionise industries society and our way of life however viduals while creating over  additional jobs across the
-unlocking its benefits requires a balanced approach one that
-broader economy 
-acknowledges its vast potential while proactively addressing
-however unlocking the full potential of quantum tech
-the potential risks and unforeseen challenges this position
-paper introduces the concept of quantum readiness  a proactive nologies necessitates a strategic approach that goes beyond
-and multifaceted strategy that equips government industry just recognising their economic and national security benefits
-academia and civil society to responsibly navigate the quantum understanding this the australian government unveiled its
-landscape quantum readiness encompasses two key aspects
-ambitiousnationalquantumstrategynqsinmay
-generalquantumreadinessforleveragingthepotentialbenefitsof
-this comprehensive roadmap outlines a bold vision by 
-quantum technologies and quantum cyber readiness to address
-the unique cybersecurity risks and challenges posed by these australiawillbearecognisedleaderintheglobalquantum
-advancements a proactive approach to quantum readiness can industry with these transformative technologies seamlessly
-unlock unprecedented opportunities for businesses government integrating into society fostering prosperity fairness and
-academia and civil society while mitigating emerging cyber
-inclusivity for all australians the strategy aims to achieve
-risks and ensuring a secure competitive and sustainable future
-this through five central themes listed below each with a set
-we also propose a systematic approach guided by responsi
-ble innovation theory for assessing the quantum readiness of of actions to be implemented over the next seven years
-industry sectors we are currently applying it to assess the
-quantumreadinessofaustralianindustrytoidentifycriticalgaps  thrivingresearchanddevelopmentinvestmentinanduse
-vulnerabilities and potential opportunities this assessment will of quantum technologies
-provide actionable insights to policymakers industry leaders  securing access to essential quantum infrastructure and
-and researchers enabling them to enhance australias overall materials
-quantum readiness and position itself as a global leader in  a skilled and growing quantum workforce
-responsible quantum technology development and adoption
-index termsquantum readiness quantum cyber readi  standardsandframeworksthatsupportnationalinterests
-ness quantum technologies responsible innovation  a trusted ethical and inclusive quantum ecosystem
-the nqs outlines a path to quantum leadership but re
-i introduction alising this vision demands a strong focus on quantum
-readiness given the nascent stage of quantum technologies
-quantum technologies stand at the forefront of australias
-as evidenced by their position in overlapping technological
-imminenttechnologydriventransformationpoisedtoreshape
-inventionordiscoveryandtechnologicalemergencephases
-both industry and society identified by australias depart
-in the scientific development pathway  there is an urgent
-ment of industry science and resources disr as one of
-need for quantum readiness assessments to identify gaps and
-the critical technologies that can impact australias national
-opportunities for australias quantum journey
-interests  quantum technologies hold immense potential
-to impact diverse industry sectors and improve the lives of to fully realise the potential of quantum technologies a
-australians some initial application areas of impact include comprehensive understanding of australias quantum readi
-improved data security drug discovery earthquake detection ness is essential in particular the readiness of early adopter
-mineral exploration medical imaging and optimisation in industries is crucial to australias overall quantum ecosystem
-sectors such as logistics utilities energy waste manage these industries at the forefront of technological innovation
-ment and banking  conservative estimates project that can serve both as pioneers and catalysts for broader industry
-by  quantum computing communications and sensing adoption understanding their needs challenges and oppor
-could contribute roughly  billion to australias gross tunities will be instrumental in developing tailored support
-programs and policies the following sections delve into
-bothauthorscontributedequallytothiswork defining and elaborating on the concept of quantum readiness
-  ieee 
-doi qce
-ecq
-iod
+section a articles
+well testing
+postquantum cryptography readiness in us
+community banks and financial smes a cybersecurity
+risk assessment framework
+isabirye edward kezron
+ieuropeantechnologynet
+corresponding author
+abstract
+with quantum computing on the horizon rsa and elliptic curve cryptography ecc which
+secure cyberspace for financial institutions are under serious threat many important financial
+groups are getting ready for the new cryptographic age but us community banks and smes
+are not as prepared as they should be even with few technical tools such institutions have an
+important function in local economies rural areas and minority small businesses there is a
+danger that financial systems in the us could suffer cyberattacks using quantum technology
+in this study a focused framework for evaluating pqc preparedness is proposed for use in
+community banks and financial smes it evaluates cryptographic risks checks the capability
+of institutions and studies resource shortages using input from rules institutions surveys and
+details published on cases the framework mainly uses strategies incorporated in nists pqc
+migration roadmap for example using both cryptography standards managing pqk
+lifecycles evaluating the risks of vendors and building a capable cybersecurity workforce
+our project is designed to increase the cybersecurity readiness of financially underserved
+institutions by developing a workable scalable model of response the results support the
+countrys progress toward digitalization and help keep communitybased financial systems
+trustworthy as quantum computing gains importance
+keywords postquantum cryptography pqc cybersecurity risk assessment financial
+smes community banks quantumresilient encryption
+introduction
+with quantum computing there is a major shift coming that will let computers address
+problems traditional ones cant handle on the other hand these changes bring major
+cybersecurity issues to the financial industry shors quantum algorithm among others can
+break the important encryption systems used in public key cryptography that guard
+communications and online deals
+realizing that quantum computers pose a risk the national institute of standards and
+technology nist began a broad project to design and standardize postquantum
+cryptographic pqc algorithms in august  nist made fips  fips  and fips
+ the first finalized quantumsafe pqc standards paving the way for better protection of
+digital systems to remain private and secure these standards are built so quantum computers
+would not be able to break them
+well testing volume  no s  issn   
+section a articles
+well testing
+since most community banks and smes are not financially nor technically prepared the use
+of pqcs is lagging behind for these groups these organizations are important for the countrys
+economy mainly because they focus on rural communities communities lacking services and
+minorityowned firms not being prepared for quantum threats puts all parts of the financial
+system in danger
+the project is designed to fill the gap by suggesting a risk assessment framework tailored to
+checking pqc readiness at us community banks and financial smes with a focus on
+cryptographic threats how prepared a business is and possible challenges in operations the
+framework tries to guide actions and tips in line with nists guidelines as a result the study
+helps make these important financial institutions more resistant to cyberattacks in the quantum
+age
+literature review
+ background
+with quantum computing folks expect a new era of computing that can address issues
+traditional computers find difficult or impossible to handle but by taking this step banks now
+face new cybersecurity problems sharply the worlds security protocols used in digital
+communications and transactions could be compromised by new quantum algorithms like
+shors
+given this threat nist stepped in with a full program to put together and recommend pqc
+algorithms last august  nist approved fips standards   and  moving
+quantum resistant digital security a big step forward the point of these standards is to stay
+secure even as quantum computers are put to use
+while major financial corporations are starting to consider pqc smaller banks in the us
+often lack the time and abilities to change over to them many community institutions make a
+major impact on the national economy by helping rural areas less developed communities and
+minorityowned firms because they are not ready for quantum threats all of the financial
+sector is at risk
+this research is designed to fill this gap by suggesting a detailed framework for gauging how
+prepared us community banks and financial smes are for migrating to encryption standards
+the framework aims to support the organization by analyzing cryptographic risks its readiness
+and functional barriers to provide strategies compatible with nists pqc migration rules as
+a result of this work the cybersecurity of these critical financial institutions will improve as
+quantum technology becomes more common
+aim
+for the purpose of building a cybersecurity risk assessment framework that makes us
+community banks and financial smes better equipped for moving to postquantum
+cryptography by reducing the impact of cybersecurity threats
+objectives
+ check the existing cryptographic arrangements in community banks and financial smes to
+find out what they are vulnerable to
+well testing volume  no s  issn   
+section a articles
+well testing
+ discuss with counterparts to see if and what awareness preparation and resources exist for
+making the shift to pqcs
+ prepare a special risk assessment framework that steps through the personalized issues
+community banks and smes have with pqc
+ according to nist let the framework parallel nists plan for migrating to new pqc
+methods and its applicable standards
+ introduce easy ways to move forward including using different kinds of cryptography
+managing keys over their lifetime and upskilling employees which will help the move to pqc
+ help keep the us economy safe help secure americas financial system from upcoming
+risks by paying attention to frequently ignored financial institutions
+methodology
+ research design
+this research employs a mixedmethods exploratory design aimed at assessing the current state
+of postquantum cryptography pqc readiness among us community banks and financial
+smalltomidsize enterprises smes the methodology integrates quantitative data eg
+surveys and public reports and qualitative data eg interviews and policy analysis to develop
+a robust cybersecurity risk assessment framework tailored to this sector
+ conceptual framework
+the proposed risk assessment framework is informed by the nist cybersecurity framework
+nist csf  nistir  migration to postquantum cryptography and isoiec
+ information security risk management the technologyorganization
+environment toe framework also provides a theoretical foundation for evaluating readiness
+particularly relevant for smes with limited infrastructure tornatzky  fleischer 
+ data collection
+ primary data sources
+a structured surveys
+surveys were distributed to it and cybersecurity officers at  us community banks and
+financial smes listed in the federal deposit insurance corporation fdic institution
+directory and independent community bankers of america icba membership database
+community banks were recognized in this study as those assetsized institutions listed in the
+fdic database with asset amounts less than  billion
+survey platform qualtrics
+response rate  institutions 
+data collected
+ cryptographic practices eg rsaecc usage
+ pqc awareness and planning
+ cybersecurity staff capability
+ vendor reliance and supply chain cryptography
+ budget allocations for cybersecurity upgrades
+well testing volume  no s  issn   
+section a articles
+well testing
+b semistructured interviews
+conducted with  senior itsecurity executives from a purposive sample including
+ rural credit unions sourced from the national credit union administration ncua
+directory
+ minorityowned financial institutions identified via fdics minority depository institutions
+program
+ fintech lenders and payment smes via finras small firm directory
+i conducted interviews about
+ barriers to pqc migration
+ policy and regulatory confusion
+ human capital gaps
+ realworld crypto incidents or transition pilot programs
+all interviews took  minutes and were recorded and transcribed using otterai so themes
+could be found
+ framework development procedure
+step  cryptographic inventory mapping
+to do so survey findings were used to build a list of vulnerable cryptographic assets
+ secure web portals tls  using rsaecc
+ vpns and internal apis
+ core banking software dependencies
+ pki trust infrastructures
+we followed nistir  during this stage to catalog our cyber assets
+step  pqc readiness scoring tool
+a scoring matrix using five domains was established
+ cryptographic inventory  exposure
+ organizational awareness of pqc
+ human resource capability
+ budget and procurement preparedness
+ governance  regulatory engagement
+scores were assigned from  none to  full readiness validated through factor analysis
+kmo  
+step  risk prioritization matrix
+according to isoiec  we mapped our risks within a  matrix
+likelihood of cryptographic compromise postquantum
+impact on operational continuity compliance and trust
+mitigation urgency was colorcoded green monitor yellow migrate in  years red
+migrate now
+ framework validation
+expert panel review reviewed by experts from nist pqc team fsisac and the mitre
+corporation
+well testing volume  no s  issn   
+section a articles
+well testing
+case studies applied the framework to two anonymized financial smes
+a regional loan cooperative assets m
+a digital payments startup in atlanta series a funding stage
+reliability metrics cronbachs alpha   for readiness items pca showed five robust
+factors eigenvalues  
+results
+ institutional demographics and profile
+the research engaged  institutions representing a crosssection of us community banks
+and financial smes these organizations exhibited diverse characteristics vital for
+contextualizing their cybersecurity readiness
+ institution types a majority of respondents  were traditional community
+banks followed by  credit unions and  fintech smes reflecting the
+heterogeneous nature of the financial sme landscape
+ asset size distribution institutions predominantly fell into the asset range below 
+billion with  under  million and  between  million and  billion
+this aligns with the fdics definition of community banks highlighting the studys
+focus on smallerscale institutions
+ geographic spread participants spanned  states with strong representation from
+rural and underserved regions such as the midwest the south and appalachia this
+geographic diversity underscores the systemic importance of securing all layers of the
+us financial ecosystem especially areas historically underresourced in
+cybersecurity
+ current cryptographic practices and exposure
+the studys cryptographic inventory analysis reveals persistent dependence on classical
+publickey cryptographic algorithms that are vulnerable to quantum attacks
+ widespread use of rsa and ecc a striking  of institutions rely primarily on
+rsabased cryptography with  also utilizing elliptic curve cryptography ecc
+for securing their digital communications both rsa and ecc while currently robust
+are recognized as particularly vulnerable to quantum algorithms such as shors
+algorithm rendering them obsolete in a postquantum computing environment
+ limited adoption of postquantum cryptography only  of respondents have
+begun exploratory or pilotlevel experimentation with postquantum algorithms this
+nascent adoption signals an early stage of technological transition and underlines a
+significant readiness gap
+ incomplete cryptographic asset inventories approximately  of institutions
+lack comprehensive inventories of cryptographic assets and protocols many rely on
+legacy core banking systems and thirdparty apis that utilize quantumvulnerable
+algorithms posing latent risks not yet fully assessed or mitigated
+this widespread reliance on vulnerable algorithms coupled with insufficient asset tracking
+amplifies systemic risks and elevates the potential impact of quantumenabled cyberattacks
+well testing volume  no s  issn   
+section a articles
+well testing
+ organizational awareness and preparedness
+readiness for pqc transition is highly dependent on organizational awareness governance
+and resource allocation the study uncovered critical gaps in these areas
+ low to moderate awareness while  of surveyed institutions demonstrate
+moderate to high awareness of the quantum threat to cryptographic security a larger
+proportion  acknowledge the risk but remain uncertain about actionable steps or
+timelines notably  have no formal awareness initiatives or executivelevel
+engagement concerning pqc risks this disparity suggests that although the quantum
+threat is recognized at a conceptual level there is a pervasive lack of clarity and
+urgency
+ budgeting and strategic planning deficits only  of respondents have
+earmarked budget allocations explicitly for pqc readiness or broader cybersecurity
+modernization meanwhile  express interest but are constrained by competing
+priorities cost concerns and unclear regulatory expectations
+ human capital limitations a significant  report insufficient internal expertise
+in cryptography and quantum computing additionally  either lack formal
+training programs or are in the early stages of workforce upskilling given the
+complexity of pqc algorithms and integration challenges this shortage represents a
+critical bottleneck to successful migration
+these findings underscore the need for targeted awareness campaigns capacitybuilding
+programs and clearer regulatory guidance to accelerate institutional preparedness
+ postquantum cryptography readiness scoring
+the composite pqc readiness score derived from five key domains provides a quantitative
+measure of institutional preparedness
+domain mean score  interpretation
 
-eeei
+cryptographic inventory  limited or fragmented asset tracking
+organizational awareness  moderate awareness but inconsistent action
+human resource capability  insufficient internal expertise and training
+budget  procurement  minimal dedicated resources and funding
+governance  regulatory  some policies exist regulatory clarity
+lacking
+well testing volume  no s  issn   
+section a articles
+well testing
+with an overall mean readiness of  out of  the results illustrate that most community
+banks and smes are in the incipient phase of pqc adoption governance and regulatory
+frameworks show relatively higher readiness scores potentially reflecting compliancedriven
+initiatives however technical and operational capacities lag significantly behind
+ risk prioritization analysis
+by applying the risk matrix integrating likelihood and impact institutions were categorized
+into three risk zones reflecting their urgency for pqc transition
+ highrisk group 
+institutions in this group face critical vulnerabilities due to heavy reliance on legacy
+cryptographic protocols without any mitigation strategies they predominantly
+operate aging core systems possess weak cryptographic inventories and have limited
+awareness or budgetary support these banks are at elevated risk for potential
+breaches once quantum adversaries emerge threatening operational continuity and
+customer data security
+ mediumrisk group 
+constituting the largest segment these institutions acknowledge the quantum threat
+but lack comprehensive migration plans or technical pilot projects their risk is
+mitigated somewhat by governance awareness or incremental investments in
+cybersecurity yet they remain vulnerable in the medium term if pqc migration is not
+accelerated
+ lowrisk group 
+these institutions are pioneers among community banks and smes actively
+experimenting with hybrid cryptographic systems or implementing thorough
+cryptographic inventories aligned with nist guidelines their proactive approach
+reduces immediate risk but requires continued vigilance and investment to maintain
+resilience
+this risk stratification highlights the uneven state of pqc readiness and the critical need for
+prioritized support to highrisk institutions
+ qualitative insights challenges and emerging strategies
+interviews with it executives across various institution types enriched the quantitative
+findings revealing nuanced operational challenges and emergent best practices
+ complexity of pqc algorithms and integration many interviewees articulated the
+technical difficulty of understanding the performance and compatibility of pqc
+algorithms with existing it infrastructure concerns include potential system
+downtime during migration and interoperability issues with thirdparty vendors
+ resource constraints and funding priorities the limited financial resources
+typical of community banks and smes force cybersecurity upgrades to compete with
+other business priorities such as loan growth or digital customer experience
+improvements this fiscal limitation delays investment in experimental pqc
+technologies
+well testing volume  no s  issn   
+section a articles
+well testing
+ regulatory ambiguity and guidance respondents expressed frustration with the
+lack of definitive regulatory mandates or clear timelines for pqc adoption while
+agencies such as fdic and ffiec have begun issuing cybersecurity advisories many
+institutions seek more concrete sectorspecific guidance
+ vendor dependence heavy reliance on external vendors for core software and
+security products introduces risk since many vendors themselves are only beginning
+to incorporate pqc capabilities this dependency creates a supply chain vulnerability
+that community banks struggle to control
+ human capital and training gaps there is a notable scarcity of cybersecurity
+professionals with expertise in quantumsafe cryptography institutions emphasized
+the urgent need for workforce development programs certification pathways and
+collaborative industry training initiatives
+conversely institutions pursuing hybrid cryptographic deploymentwhere classical
+algorithms are combined with quantumresistant algorithmsreported greater confidence in
+managing transition risks such hybrid models are viewed as pragmatic stopgaps allowing
+incremental migration without full system overhaul
+the results collectively depict a us community banking and sme financial sector at an
+early fragmented stage of pqc readiness there is recognition of the quantum threat but
+substantial gaps in technical capability budgeting and clear policy frameworks the sectors
+heterogeneous naturespanning asset size geography and institution typemeans that
+tailored riskbased frameworks and prioritized interventions are essential to avoid systemic
+vulnerabilities as quantum technologies mature
+discussion
+it is clear from the findings of this study that us community banks and financial smes are
+greatly unprepared to implement postquantum cryptography while many are aware of the
+risks from quantum computing most places are still making their first steps in changing to
+new cybersecurity systems the findings agree with earlier surveys that larger organizations
+and technology groups are often the first to use pqcs chen et al  singh  kumar
 
+as our study found rsa and ecc are used widely because old cryptographic methods are
+deeply rooted in common use they can resist conventional attackers yet fall easily to shors
+algorithm when quantum adversaries use it shor  less than  of institutions using
+postquantum algorithms reveals a risky situation that might grow worse as quantum
+computing grows stronger
+ being aware of your organization and the problem of readiness
+one main finding from the research is that knowing about a problem and solving it are not
+always the same even though a large number of ls respondents understand risks from pqc
+most have not put this knowledge into regular efforts to switch technologies or to increase
+budgets this situation is also seen in cybersecurity literature where awareness alone does
+not always encourage quick action due to things such as doubt a lack of resources or other
+important concerns vance et al  crossler et al 
+well testing volume  no s  issn   
+section a articles
+well testing
+because there arent strong rules things stay the same financial regulators are encouraging
+publications about quantum risks but have not set official rules or set dates which prevents
+most community banks and smes from investing in new quantum technologies today
+because there is so much confusion in regulations both risk awareness and preparedness at
+various institutions are uneven
+the fifth problem is human capital and technical capacity
+a lack of internal cryptography and quantum expertise is one of the biggest challenges in
+carrying out pqc transition as they need to focus strongly on their own operations most
+community banks and smes today cannot invest time and money in exploring the newest
+quantum inventions this idea also appears in wider research on sme cybersecurity where
+inadequate resources among humans stops companies from quickly adapting new security
+ideas ifinedo  aloul 
+what we discovered in our interviews points to the urgent requirement for the industry to
+invest in quantumsafe cryptography training starting with training then certifications and
+partnering with colleges could close the gap between industry and education likewise
+technologies used by community banks need to be updated by vendors so their clients dont
+have to worry about meeting pqc standards
+risk prioritization and the threat to the markets entire economic stability
+according to the analysis almost all of these institutions are at high risk because they lack
+any defenses against quantum attacks on their cryptography it is concerning since todays
+financial system works closely with others an attack on quantum hardware in just a few
+community banks or smes could endanger confidence in banks result in official penalties
+and upset the smooth running of important financial transactions nationwide fsisac
 
-
-ecq
-gnireenigne
-dna
-gnitupmoc
-mutnauq
-no
-ecnerefnoc
-lanoitanretni
-eeei
-
-authorized licensed use limited to nanyang technological university library downloaded on february  at  utc from ieee xplore restrictions apply
-withinthecontextofindustrysectorsitsconstituentelements  inclusive deliberation emphasises involving a diverse
-andamethodologicalframeworkforassessingitthroughalens range of stakeholders in the innovation process includ
-of responsible innovation ing researchers technology developers technology con
-sumerspolicymakersethicistsandthepublicincluding
-ii quantumreadiness differentperspectivesensuresthattheinnovationsaddress
-the needs and concerns of wider society
-quantum readiness is a multifaceted strategy that goes
-beyond simply acquiring quantum technology it is about  responsiveness highlights the need to be adaptable and
-change direction in response to stakeholder or public
-equipping key stakeholders  governments businesses and
-values and changing circumstances this could involve
-society  toharnessthepotentialofthesedisruptivetechnolo
-modifyingthetechnologydevelopingsafeguardsoreven
-gies quantum readiness encompasses two pillars  general
-halting development altogether
-quantum readiness and quantum cyber readiness these two
-pillars are interconnected and a successful quantum strategy despite an established foundation of principles and guide
-requires a balanced approach to both lines within the field of responsible innovation recent efforts
-from an industry perspective general quantum readiness have emphasised a need for a more rigorous and scientific
-starts with building a strong foundation of awareness and approach this ensures that responsible innovation is not just
-understanding of the potential of quantum technologies with aspirational but a repeatable and robust process csiros
-this knowledge industries can then identify and prioritise responsibleinnovationfuturescienceplatformhasdevel
-transformative use cases determine infrastructure require oped two innovative science frontiers responsible prediction
-mentssecureadequateinvestmentdeveloprelevantworkforce and social and ethical risk management  that set the
-training and capabilities and advocate for supportive policies conditions for responsible innovation to be used as an applied
-this initial groundwork paves the way for further actions science while responsible prediction explores new ways to
-such as developing a robust national quantum ecosystem and model and measure social systems and conditions social
-developing national standards for interoperability and ethical risk management seeks new methodologies that
-quantum cyber readiness prioritises understanding the demonstratemoresystematicandappliedscientificapproaches
-evolving cyber risks posed by quantum computing including to identifying and mitigating social and ethical risks
-the potential for breaking current cryptographic systems and drawing on the principles of anticipation reflexivity and
-compromising sensitive data it involves developing strategies inclusive deliberation we develop a methodology in the next
-tomitigatetheserisksthroughtheimplementationofquantum sectionforassessingindustriesquantumreadinessthisaligns
-resistant cryptographic algorithms risk assessments incident with csiros responsible innovation framework focusing on
-response plans workforce training and consumer awareness responsible prediction and socialethical risk management
-additionally staying informed about the latest advancements
-in quantum computing and cybersecurity is crucial for main iv quantumreadinessassessmenta
-taining a proactive defence posture responsibleapproach
-iii responsibleinnovation this section outlines a methodology informed by responsi
-ble innovation theory  to assess quantum readiness across
-responsible innovation refers to the idea that innovations
-diverseindustrysectorsourapproachgroundedintheprinci
-can be managed from conception through to implementation
-plesofanticipationreflexivityresponsiblepredictionandso
-and postimplementation in an engaged and interactive rela
-cial and ethical risk management enables a systematic explo
-tionship with society to achieve socially acceptable research
-ration of potential quantum technology applications and their
-and innovation outcomes  it holds the promise that the
-broader implications for informing strategic decisionmaking
-world can be opened up to new opportunities for creating
-we integrate responsible innovation principles throughout our
-value in society through science and technology 
-research not only to ensure responsible outcomes but also to
-the responsible innovation framework developed by owen
-contribute to the ongoing development of responsible innova
-et al  identifies four core dimensions of responsible in
-tion theory itself 
-novation  anticipation reflexivity inclusive deliberation and
-responsiveness
-a stage  anticipatory mapping of quantum use cases
- anticipation involves considering the potential conse
-quences both positive and negative of a new technol to understand the potential applications of quantum tech
-ogy before it is fully developed or released it prompts nologiesacrossvariousindustriesasystematicmappingexer
-researchers and organisations to ask what if questions ciseisessentialbyidentifyingpromisingusecasesandhigh
-to proactively identifying potential risks and benefits growth sectors this exercise is crucial for informing strategic
- reflexivity refers to critically examining the values and planning it allows us to anticipate the future landscape of
-assumptions that underlie innovative processes consider quantum technology applications and to predict potential
-ing who benefits who might be harmed and potential highimpactareasthatwillinfluencestrategicinvestmentsand
-biases that might be shaping technology development policy developments
-
-authorized licensed use limited to nanyang technological university library downloaded on february  at  utc from ieee xplore restrictions apply
- literature search and selection to comprehensively un generatedfromthereflectivestakeholderengagementcanpaint
-derstand the potential applications of quantum technolo a rich picture of the quantum landscape further this method
-giesamultistakeholderperspectiveisessentialthisin ologysupportsresponsiblequantumreadinessbyprovidingthe
-volvesathoroughreviewofrelevantgovernmentpolicies structure to produce rigorous data from across the diversity of
-marketanalysesacademicresearchandindustryreports theassessedindustrysectorsallowinganobjectivesnapshot
- use case identification and mapping next a system of the current state of quantum industry to be achieved we
-atic process is employed to identify and map potential propose that by generating data from the mapping exercise
-quantum technology applications based on the collected interviews and survey we are able to conduct predictive
-documents each use case is mapped to specific industry responsible research  that contributes to preparations for
-sectors and categorised according to its primary quan the realisation and more widespread application of quantum
-tum technology detailed descriptions and supporting technologies in society furthermore by incorporating stake
-evidence are recorded for each use case it is recom holder interviews and surveys that delve into the perceptions
-mended that multiple researchers independently review ofriskandethicalguidelinesthisresearchcontributestosocial
-the documents to ensure a thorough analysis and ethical risk management  the research findings can
- use case compilation identified quantum technology informstrategicdecisionmakingforbusinessesgovernments
-applications are consolidated into a comprehensive list and other stakeholders across the quantum ecosystem in the
-categorised by industry sector and primary quantum conduct of both predictive responsible research and social
-technology duplicate use cases are merged and detailed and ethical risk management this responsible methodology
-descriptions with supporting evidence are provided for is also well positioned to provide data and results that may
-each application influence how quantum science is developed and therefore
- usecaseanalysisacomprehensiveanalysisofthecom potentially the trajectory of the implementation of quantum
-piled usecases is conductedthis caninclude examining technologies in australia
-sectoraldistributiontechnologybreakdowncommonuse given the rapidly evolving nature of quantum technologies
-cases across sectors and stakeholders as well as poten the methodology is designed as an iterative process the
-tial economic social environmental health and policy findingsfromeachstageinformsubsequentstepsallowingfor
-impacts refinementsandadjustmentsasneededthisiterativeapproach
- usecaseprioritisationfinallyusecaseprioritisationis ensures the methodology remains responsive to the evolving
-done to inform the allocation of resources and the devel quantum landscape
-opment of a roadmap for quantum technology adoption shortfalls of the methodology it is important to acknowl
-prioritisation could be based on factors such as potential edge the limitations of this methodology the exclusive focus
-impactfeasibilityalignmentwithnationalprioritiesand onenglishlanguagedocumentsrestrictsthescopeofthemap
-available resources ping exercise potentially overlooking valuable insights from
-other nations quantum strategies additionally the absence
-b stage  reflective stakeholder engagement
-of a workforce capacity assessment also limits the scope of
-to gain a deeper understanding of the quantum landscape
-the analysis as industries that lack the right skills talent and
-andinformthemappingexerciseacomprehensivestakeholder
-expertise in the workforce will be illequipped to harness the
-engagementstrategyisemployedthisinvolvesacombination
-potential benefits while these factors constrain the studys
-of qualitative and quantitative research methods
-scope they do not diminish the value of its findings in
- qualitativeresearchindepthinterviewsindepthinter understanding the current quantum landscape
-views are conducted with a range of stakeholders across
-the quantum ecosystem on their understanding of quan v applicationofthemethodology
-tum technologies their perception of quantum readiness csiros responsible innovation future science platform
-and quantum cyber readiness within their organisation is applying the proposed methodology to assess the quan
-and attitudes towards ethical considerations tum readiness of the australian quantum ecosystem to gain
- quantitative research nationwide survey a quanti insights into industry quantum readiness we are applying
-tative questionnaire is designed to gather data from a the methodology to assess key australian industry sectors
-representative sample of stakeholders from across the by identifying promising use cases aligned with national
-quantum ecosystem a particular emphasis is placed on challenges and determining future infrastructure and material
-end users given their critical role in driving quantum needs we will directly contribute to the nqss goals this
-technology adoption the survey is designed to comple analysis will also inform workforce development regulatory
-ment the qualitative research and explore key emergent frameworks and responsible innovation initiatives
-themesrelatedtogeneralquantumreadinessandquantum to complement the industry focus research has been con
-cyber readiness ducted on the perceptions of cybersecurity professionals and
-theintegrationofqualitativeandquantitativedataprovides thegeneralpublicarecentstudylookedattheperspectivesof
-a comprehensive understanding of the quantum landscape cybersecurity professionals on the ethical and technical risks
-complementingthefindingsofthemappingexercisethedata of quantum computing  this project involving qualitative
-
-authorized licensed use limited to nanyang technological university library downloaded on february  at  utc from ieee xplore restrictions apply
-interviews and a survey revealed a significant gap in partic  departmentofindustryscienceenergyandresourcesnational
-ipants awareness of quantum computing risks which could quantumstrategyonlineavailablehttpswwwindustrygov
-aupublicationsnationalquantumstrategy
-be theorised as a lack of readiness for quantum technologies
- k e kendall the significance of information systems research on
-additionally another study is examining australian public emergingtechnologiesseveninformationtechnologiesthatpromiseto
-attitudes towards responsible innovation  conducted as improvemanagerialeffectivenessdecisionsciencesvolnopp
-
-a longitudinal study the third wave incorporates a survey
- r von schomberg prospects for technology assessment in a frame
-module assessing public awareness of both the risks and workofresponsibleresearchandinnovationtechnikfolgenabschatzen
-benefits of quantum technologies lehren bildungspotenziale transdisziplinarer methoden pp 
-
-these pioneering studies are the first in australia to gather
- rowenjstilgoepmacnaghtenmgormanefisheranddgus
-critical data from representative samples together they rep tonaframeworkforresponsibleinnovationresponsibleinnovation
-resent a collective exercise in inclusive deliberation diverse managing the responsible emergence of science and innovation in
-societypp
-australian populations are represented creating a picture of
- csiro responsible innovation future science platform 
-what the australian quantum ecosystem thinks in relation to onlineavailablehttpsresearchcsiroauri
-ethical and technical risks quantum readiness and awareness   responsible innovation at csiro apr  online avail
-able httpsresearchcsiroauriwpcontentuploadssites
-ofrisksandbenefitsofquantumtechnologiesrepresentingan
-responsibleinnovationatcsiropdf
-important body of work in responsible innovation  jstilgoerowenandpmacnaghtendevelopingaframeworkfor
-responsibleinnovationintheethicsofnanotechnologygeoengineer
-vi conclusion ingandcleanenergy routledgepp
- r coates m baruwal chhetri d liu j pieprzyk r richelle
-asindustriesmoveclosertowardsthebenefitsandadvance w kang s kwashie t wu and s nepal understanding the
-ethical implications of quantum computing for cybersecurity using
-ments offered by quantum technologies it is imperative to
-a responsible innovation framework csiro australia tech rep
-considertherisksandchallengesassociatedwiththemtaking csiroep
-a responsible innovation approach in this crucial phase of the  r mccrea r coates e hobman s schmidt and j lacey public
-perceptionsofresponsibleinnovationcsiroaustraliatechrep
-technologies development can mitigate risks while maximis
-csiroep
-ing benefits this paper proposed a twostage methodology
-grounded in responsible innovation theory and emphasising
-anticipation and reflection to navigate the challenges and
-opportunities presented by emerging quantum technologies
-firstly through anticipatory mapping of use cases we can
-systematicallyidentifyandcategorisepotentialapplicationsof
-quantum technologies across industries technology types and
-impacts secondly through reflective stakeholder engagement
-in the form of qualitative interviews and a survey we can
-capture rich contextual data from stakeholders from across
-the quantum ecosystem collectively these data sources form
-the basis for a responsible assessment of quantum readiness
-several avenues exist for extending this research this
-twostage methodology could be applied beyond the aus
-tralian context to gain a comprehensive understanding of
-globalquantumreadinessdoingsowouldallowintercountry
-comparisons of quantum readiness and would also take into
-account the global nature of many tech companies addition
-allyincorporatinganassessmentofworkforcecapacitywould
-significantly enhance the studys scope and relevance lastly
-a longitudinal component could be considered to track the
-evolution of the quantum landscape over time
-acknowledgement
-this work is funded by csiros responsible innovation
-future science platform and quantum technologies future
-science platform
+because of this systemic risk such institutions must be equipped with pqc early on
+government agencies and industry workgroups may install funding methods offer special
+assistance and build common migration tools to increase use where needed most urgently
+ using a hybrid option for cryptography
+hybrid methods which join old and new cryptography ideas are seen as a reliable and low
+risk option for organizations starting their transition adopting this method matches with
+nist suggestions for incremental migration and was appreciated by those we interviewed
+yet carrying out hybrid deployment causes some difficulties such as more complicated
+computing and connecting with existing systems and rd party vendors dealing with these
+problems demands that groups in standards testing and vendor involvement coordinate
+policy implications and suggestions are found in this section
+findings indicate several ways that policies can improve preparation for pqc among
+community banks and financial smes
+ the fdic occ and ffiec are encouraged to set out clear migration paths for small
+institutions and explain when the standards must be met
+well testing volume  no s  issn   
+section a articles
+well testing
+ promote new grants or change tax policies to help fund piloting training and tech updates
+for public protection at community banks and smes
+ support collaboration on helping to build specialized training programs and pqc
+certificates designed by financial institutions government and academia
+ mode of accountability and vendor centification urge or require that vendors providing
+vital financial software and hardware have cryptography certification
+ using proposed risk assessment frameworks like the one studied here allows institutions to
+emphasize actions that best address their own threats and how they operate
+ what needs to be studied and what is lacking
+even though the study provides much useful information a few problems must be
+acknowledged just because the sample is representative doesnt guarantee that every
+regional or institutional detail is noticed because quantum technologies develop so rapidly
+regular evaluation is necessary to follow their progress future projects may examine pqc
+use over a long period and explore what happens when different sectors join forces to make
+systems more robust
+conclusion
+the fast development of quantum computing technology is a major threat to the way financial
+systems are secured around the world the study looks at how prepared us community banks
+and financial smes are since these institutions form essential parts of the economy in both
+rural and underserved areas our results point out that although awareness of quantum threats
+is rising very few pqc measures have been applied in practical use
+because rsa and ecc systems are often used and these are both at risk from quantum attacks
+financial smes are left very open to attack because there arent broad inventories of
+cryptographic methods along with unawareness among organizations incomplete budgets and
+not enough technical support there arent many advances in moving to quantumresistant
+systems because institutions are not yet prepared both they and the financial sector as a whole
+face a new kind of risk as quantum computing advances
+the framework from the study gives community banks and financial smes an easytouse
+approach to review their risks flag the most important needs for protection and improve their
+defenses following national rules in addition using a combination of traditional and modern
+cryptographic services supports smooth business operations until all questions about future
+regulations are settled
+national financial security and digital trust can be preserved only if strong action is taken
+immediately by all involved parties existing regulators have to make it clear what is required
+and must enforce courtenforceable schedules financial institutions should receive assistance
+with expanding skills training employees and securing their purchases also companies that
+develop technology products and services must help ensure that they are pqc ready
+as a result this research gives a key actionable guide for defending us community banks
+and financial smes from quantum threats if these institutions address the readiness gap today
+they will secure their own systems their customers and boost the overall ability of the financial
+system to weather quick changes brought by technology
+well testing volume  no s  issn   
+section a articles
+well testing
+according to this research the us must increase its efforts to prepare community banks and
+the countrys financial smes for the expected risk from quantum computing close cooperation
+between awareness and practical emergency steps will play a major role in defending the
+financial systems key areas in the future quantum age
 references
- department of industry science and resources list of
-critical technologies of national interest  quantum technologies
- online available httpswwwindustrygovaupublications
-listcriticaltechnologiesnationalinterestquantumtechnologies
+aloul f  the need for effective information security awareness journal of advances
+in information technology   httpsdoiorgjait
+chen l wang y  zhang h  postquantum cryptography adoption in financial
+institutions challenges and strategies international journal of cybersecurity and
+digital trust   httpsdoiorgijcdtvi
+crossler r e johnston a c lowry p b hu q warkentin m  baskerville r
+ future directions for behavioral information security research computers 
+security   httpsdoiorgjcose
+financial services information sharing and analysis center fsisac  quantum
+computing risks to financial services a systemic threat analysis fsisac
+httpswwwfsisaccomreportsquantumthreats
+ifinedo p  understanding information systems security policy compliance an
+integration of the theory of planned behavior and the protection motivation theory
+computers  security   httpsdoiorgjcose
+kaur p  singh m  cybersecurity challenges for smes and role of postquantum
+cryptography a review journal of information security and applications 
+ httpsdoiorgjjisa
+liao x yuan j  zhang y  postquantum cryptography algorithms and their
+performance evaluation in financial services ieee access  
+httpsdoiorgaccess
+liu j  zhu h  a framework for postquantum cryptographic migration in
+financial smes journal of network and computer applications  
+httpsdoiorgjjnca
+mller j  buchmann j  postquantum cryptography current state and open
+problems advances in information security   httpsdoiorg
 
-authorized licensed use limited to nanyang technological university library downloaded on february  at  utc from ieee xplore restrictions apply
+national institute of standards and technology nist  nistir  transitioning
+to postquantum cryptography us department of commerce
+httpsdoiorgnistir
+nguyen l  kim j  risk assessment and mitigation strategies for quantum
+computing threats in financial institutions journal of financial regulation and
+compliance   httpsdoiorgjfrc
+shor p w  algorithms for quantum computation discrete logarithms and factoring
+in proceedings of the th annual symposium on foundations of computer science
+pp  ieee httpsdoiorgsfcs
+well testing volume  no s  issn   
+section a articles
+well testing
+singh r  kumar s  challenges in implementing postquantum cryptography in
+banking systems journal of financial cybersecurity  
+httpsdoiorgjfc
+vance a siponen m  pahnila s  motivating is security compliance insights
+from habit and protection motivation theory information  management 
+ httpsdoiorgjim
+wang x  li f  enhancing cybersecurity resilience in financial smes a post
+quantum cryptography perspective computers  security  
+httpsdoiorgjcose
+zhao y  tang j  postquantum cryptography readiness an empirical study of
+us financial institutions information systems frontiers advance online
+publication httpsdoiorgs
+well testing volume  no s  issn   

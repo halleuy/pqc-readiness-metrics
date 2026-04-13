@@ -1,0 +1,2118 @@
+datatracker sign in document search
+postquantum cryptography for engineers
+draftietfpquippqcengineers
+status iesg evaluation record iesg writeups email expansions history
+versions
+              
+draftarpquippqcengineers  
+draftietfpquippqcengineers          
+jun
+
+jul
+
+a
+
+ug
+
+oct
+
+feb
+
+may
+
+sep
+
+oct
+
+jan
+
+f
+
+eb
+
+may
+
+jul
+
+aug
+
+document type active internetdraft pquip wgj
+authors aritra banerjee tirumaleswar reddyk dimitrios schoinianakis tim hollebeek mike ounsworth
+last updated ww xlatest revision wwj
+replaces draftarpquippqcengineers
+rfc stream internet engineering task force xietfj
+intended rfc status informational
+formats  txt  html  xml  htmlized  bibtex  bibxml
+reviews iotdir telechat review of wj by malia vuini  not ready
+intdir telechat review of wj by dirk von hugo ready wnits
+artart telechat review of wj by thomas fossati ready wnits
+dnsdir telechat review of wj by scott rose ready
+opsdir ietf last call review of wj by sue hares ready
+artart ietf last call review of wj by thomas fossati ready wissues
+tsvart ietf last call review of wj by vidhi goel ready wnits
+secdir ietf last call review of wj by hilarie orman  has issues
+dnsdir ietf last call review of wj by scott rose ready wnits
+additional resources mailing list discussion
+stream wg state submitted to iesg for publication
+associated wg milestone may  wg adoption of an informational document on pqc for engineers
+document shepherd paul e hoffman
+shepherd writeup show last changed 
+iesg iesg state rfc ed queue
+action holders xnone
+consensus boilerplate yes
+telechat date xnone
+responsible ad paul wouters
+send notices to paulhoffmanicannorg
+iana iana review state version changed w review needed
+rfc editor rfc editor state rfcweditor
+details publication queue entry
+email authors email wg ipr references referenced by nits search email archive
+draftietfpquippqcengineers
+pquip a banerjee
+internetdraft t reddy
+intended status informational d schoinianakis
+expires  february  nokia
+t hollebeek
+digicert
+m ounsworth
+entrust
+ august 
+postquantum cryptography for engineers
+draftietfpquippqcengineers
+abstract
+the advent of a cryptographically relevant quantum computer crqc
+would render stateoftheart traditional public key algorithms
+depl doyaetda ttroadacyk eobrsolete as the mathematical assumptions underpinningsign in
+their security would no longer hold to address this protocols and
+infrastructure must transition to postquantum algorithms which are
+designed to resist both traditional and quantum attacks this
+document explains why engineers need to be aware of and understand
+postquantum cryptography pqc detailing the impact of crqcs on
+existing systems and the challenges involved in transitioning to
+postquantum algorithms unlike previous cryptographic updates this
+shift may require significant protocol redesign due to the unique
+properties of postquantum algorithms
+about this document
+this note is to be removed before publishing as an rfc
+status information for this document may be found at
+httpsdatatrackerietforgdocdraftietfpquippqcengineers
+discussion of this document takes place on the pquip working group
+mailing list mailtopqcietforg which is archived at
+httpsmailarchiveietforgarchbrowsepqc subscribe at
+httpswwwietforgmailmanlistinfopqc
+status of this memo
+this internetdraft is submitted in full conformance with the
+provisions of bcp  and bcp 
+banerjee et al expires  february  page 
+internetdraft pqc for engineers august 
+internetdrafts are working documents of the internet engineering
+task force ietf note that other groups may also distribute
+working documents as internetdrafts the list of current internet
+drafts is at httpsdatatrackerietforgdraftscurrent
+internetdrafts are draft documents valid for a maximum of six months
+and may be updated replaced or obsoleted by other documents at any
+time it is inappropriate to use internetdrafts as reference
+material or to cite them other than as work in progress
+this internetdraft will expire on  february 
+copyright notice
+copyright c  ietf trust and the persons identified as the
+document authors all rights reserved
+this document is subject to bcp  and the ietf trusts legal
+provisions relating to ietf documents httpstrusteeietforg
+licenseinfo in effect on the date of publication of this document
+please review these documents carefully as they describe your rights
+and restrictions with respect to this document code components
+extracted from this document must include revised bsd license text as
+described in section e of the trust legal provisions and are
+provided without warranty as described in the revised bsd license
+table of contents
+ introduction                         
+ terminology                          
+ threat of crqcs on cryptography                
+ symmetric cryptography                  
+ asymmetric cryptography                  
+ quantum sidechannel attacks               
+ traditional cryptographic primitives that could be replaced by
+pqc                            
+ nist pqc algorithms                      
+ nist candidates selected for standardization       
+ pqc key encapsulation mechanisms kems        
+ pqc signatures                    
+ iso candidates selected for standardization          
+ pqc key encapsulation mechanisms kems          
+ timeline for transition                    
+ pqc categories                        
+ latticebased public key cryptography           
+ hashbased public key cryptography            
+ codebased public key cryptography            
+ kems                             
+banerjee et al expires  february  page 
+internetdraft pqc for engineers august 
+ authenticated key exchange                
+ security properties of kems                
+ indcca                       
+ binding                        
+ hpke                           
+ dpqact asitrganactkuerers                        sign in
+ security properties of pqc signatures          
+ eufcma and sufcma                 
+ details of fndsa mldsa and slhdsa          
+ details of xmss and lms                 
+ lms key and signature sizes             
+ hashthensign                      
+ nist recommendations for security  performance tradeoffs   
+ comparing pqc kemssignatures vs traditional kems
+kexssignatures                     
+ postquantum and traditional hybrid schemes          
+ pqt hybrid confidentiality               
+ pqt hybrid authentication                
+ hybrid cryptographic algorithm combinations
+considerations and approaches              
+ hybrid cryptographic combinations          
+ composite keys in hybrid schemes           
+ key reuse in hybrid schemes             
+ future directions and ongoing research        
+ impact on constrained devices and networks          
+ security considerations                    
+ cryptanalysis                      
+ cryptographic agility                  
+ jurisdictional fragmentation               
+ hybrid key exchange and signatures bridging the gap
+between postquantum and traditional cryptography    
+ caution ciphertext commitment in kem vs dh       
+ iana considerations                      
+ further reading  resources                  
+ references                          
+ normative references                   
+ informative references                  
+acknowledgements                         
+authors addresses                        
+ introduction
+quantum computing is no longer just a theoretical concept in
+computational science and physics it is now an active area of
+research with practical implications considerable research efforts
+and enormous corporate and government funding for the development of
+practical quantum computing systems are currently being invested at
+the time this document is published cryptographically relevant
+banerjee et al expires  february  page 
+internetdraft pqc for engineers august 
+quantum computers crqcs that can break widely used asymmetric
+algorithms also known as public key algorithms are not yet
+available however there is ongoing research and development in the
+field of quantum computing with the goal of building more powerful
+and scalable quantum computers
+one common myth is that quantum computers are faster than
+conventional cpus and gpus in all areas this is not the case much
+as gpus outperform generalpurpose cpus only on specific types of
+problems so will quantum computers too have a niche set of
+problems on which they excel unfortunately for cryptographers
+integer factorization and discrete logarithms the mathematical
+problems underpinning much of classical public key cryptography
+happen to fall within the niche that quantum computers are expected
+to excel at as quantum technology advances there is the potential
+for future quantum computers to have a significant impact on current
+cryptographic systems predicting the date of emergence of a crqc is
+a challenging task and there is ongoing uncertainty regarding when
+they will become practically feasible crqcthreat
+extensive research has produced several postquantum cryptographic
+algorithms that offer the potential to ensure cryptographys survival
+in the quantum computing era however transitioning to a post
+quantum infrastructure is not a straightforward task and there are
+numerous challenges to overcome it requires a combination of
+engineering efforts proactive assessment and evaluation of available
+technologies and a careful approach to product development and
+deployment
+pqc is sometimes referred to as quantumproof quantumsafe or
+quantumresistant it is the development of cryptographic
+algorithms designed to secure communication and data in a world where
+quantum computers are powerful enough to break traditional
+cryptographic systems such as rsa rivestshamiradleman and ecc
+elliptic curve cryptography pqc algorithms are intended to be
+resistant to attacks by quantum computers which use quantum
+mechanical phenomena to solve mathematical problems that are
+infeasible for classical computers
+as the threat of crqcs draws nearer engineers responsible for
+designing maintaining and securing cryptographic systems must
+prep daraet afotrra tchkee srignificant changes that the existence of crqcs will sign in
+bring engineers need to understand how to implement postquantum
+algorithms in applications how to evaluate the tradeoffs between
+security and performance and how to ensure backward compatibility
+with current systems where needed this is not merely a oneforone
+replacement of algorithms in many cases the shift to pqc will
+involve redesigning protocols and infrastructure to accommodate the
+banerjee et al expires  february  page 
+internetdraft pqc for engineers august 
+significant differences in resource utilization and key sizes between
+traditional and pqc algorithms due to the wideranging nature of
+these impacts discussions of protocol changes are integrated
+throughout this document rather than being confined to a single
+section
+this document aims to provide general guidance to engineers working
+on cryptographic libraries network security and infrastructure
+development where longterm security planning is crucial the
+document covers topics such as selecting appropriate pqc algorithms
+understanding the differences between pqc key encapsulation
+mechanisms kems and traditional diffiehellman and rsa style key
+exchanges and provides insights into expected key ciphertext and
+signature sizes and processing time differences between pqc and
+traditional algorithms additionally it discusses the potential
+threat to symmetric cryptography and hash functions from crqcs
+it is important to remember that asymmetric algorithms also known as
+public key algorithms are largely used for secure communications
+between organizations or endpoints that may not have previously
+interacted so a significant amount of coordination between
+organizations and within and between ecosystems needs to be taken
+into account such transitions are some of the most complicated in
+the tech industry and will require staged migrations in which
+upgraded agents need to coexist and communicate with nonupgraded
+agents at a scale never before undertaken
+the national security agency nsa of the united states released an
+article on future pqc algorithm requirements for us national security
+systems cnsa based on the need to protect against deployments of
+crqcs in the future the german federal office for information
+security bsi has also released a pqc migration and recommendations
+document bsipqc which largely aligns with united states national
+institute of standards and technology nist and nsa guidance but
+differs in aspects such as specific pqc algorithm profiles
+crqcs pose a threat to both symmetric and asymmetric cryptographic
+schemes however the threat to asymmetric cryptography is
+significantly greater due to shors shors algorithm which can
+break widelyused public key schemes like rsa and ecc symmetric
+cryptography and hash functions face a lower risk from grovers
+grovers algorithm although the impact is less severe and can
+typically be mitigated by doubling key and digest lengths where the
+risk applies it is crucial for the reader to understand that when
+the word pqc is mentioned in the document it means asymmetric
+cryptography or public key cryptography and not any symmetric
+algorithms based on stream ciphers block ciphers hash functions
+macs etc which are less vulnerable to quantum computers this
+banerjee et al expires  february  page 
+internetdraft pqc for engineers august 
+document does not cover such topics as when traditional algorithms
+might become vulnerable for that see documents such as qcdns and
+others
+this document does not cover unrelated technologies like quantum key
+distribution qkd or quantum key generation which use quantum
+hardware to exploit quantum effects to protect communications and
+generate keys respectively pqc is based on conventional math not
+on quantum mechanics and software and can be run on any general
+purpose computer
+this document does not go into the deep mathematics or technical
+specification of the pqc algorithms but rather provides an overview
+to engineers on the current threat landscape and the relevant
+algorithms designed to help prevent those threats also the
+cryptographic and algorithmic guidance given in this document should
+be taken as nonauthoritative if it conflicts with emerging and
+evolving guidance from the irtfs crypto forum research group cfrg
+ terminology
+quantum computer a computer that performs computations using
+quantummechanical phenomena such as superposition and entanglement
+physical qubit the basic physical unit in a quantum computer which
+is p droantea ttroa ncokieser and errors sign in
+logical qubit a faulttolerant qubit constructed from multiple
+physical qubits using quantum error correction it is the effective
+unit for reliable quantum computation
+postquantum cryptography pqc cryptographic algorithms designed to
+be secure against quantum and classical attacks
+cryptographically relevant quantum computer crqc a quantum
+computer with sufficient logical qubits to break traditional
+asymmetric cryptographic algorithms eg rsa or ecc within a
+practical timeframe
+public key cryptography also called asymmetric cryptography a
+class of cryptographic algorithms in which separate keys are used for
+encryption and decryption or for signing and verification
+throughout this document the terms public key cryptography and
+asymmetric cryptography are used interchangeably
+there is ongoing discussion about whether to use the term post
+quantum quantum ready quantum resistant or quantum secure
+to describe algorithms that resist crqcs and a consensus has not yet
+banerjee et al expires  february  page 
+internetdraft pqc for engineers august 
+been reached nist has coined the term postquantum to refer to
+the algorithms that participated in its competitionlike selection
+process in this context the term can be interpreted to mean the
+set of algorithms that are designed to still be relevant after
+quantum computers exist and not a statement about their security
+quantum resistant or quantum secure is obviously the goal of
+these algorithms however some people have raised concerns that
+labelling a class of algorithms as quantum resistant or quantum
+secure could lead to confusion if one or more of those algorithms
+are later found to be insecure or to not resist quantum computers as
+much as theory predicted quantum ready is often used to refer to
+a solution  device appliance or software stack  that has
+reached maturity with regards to integration of these new
+cryptographic algorithms that said the authors recognize that
+there is great variability in how these terms are used this
+document uses any of these terms interchangeably to refer to such
+algorithms
+the terms current stateoftheart and ongoing as used in
+this document refer to work research investigations deployments
+or developments that are applicable at the time of publication
+ threat of crqcs on cryptography
+when considering the security risks associated with the ability of a
+quantum computer to attack traditional cryptography it is important
+to distinguish between the impact on symmetric algorithms and public
+key ones dr peter shor and dr lov grover developed two algorithms
+that changed the way the world thinks of security under the presence
+of a crqc
+quantum computers are by their nature hybrids of classical and
+quantum computational units for example shors algorithm consists
+of a combination of quantum and classical computational steps thus
+the term quantum adversary should be thought of as quantum
+enhanced adversary meaning they have access to both classical and
+quantum computational techniques
+despite that largescale quantum computers do not yet exist to
+experiment on the theoretical properties of quantum computation are
+very well understood this allows engineers and researchers to
+reason about the upper limits of quantumenhanced computation and
+indeed to design cryptographic algorithms that are resistant to any
+conceivable form of quantum cryptanalysis
+banerjee et al expires  february  page 
+internetdraft pqc for engineers august 
+ symmetric cryptography
+for unstructured data such as symmetric encrypted data or
+cryptographic hashes although crqcs can search for specific
+solutions across all possible input combinations eg grovers
+algorithm no quantum algorithm is known to break the underlying
+security properties of these classes of algorithms symmetrickey
+cryptography which includes keyed primitives such as block ciphers
+eg aes and message authentication mechanisms eg hmac
+sha relies on secret keys shared between the sender and receiver
+and remains secure even in a postquantum world symmetric
+cryptography also includes hash functions eg sha that are
+used for secure message digesting without any shared key material
+hmac d iast aa trsapecckiefirc construction that utilizes a cryptographic hash sign in
+function and a secret key shared between the sender and receiver to
+produce a message authentication code
+grovers algorithm is a quantum search algorithm that provides a
+theoretical quadratic speedup for searching an unstructured database
+compared to traditional search algorithms this has led to the
+common misconception that symmetric key lengths need to be doubled
+for quantum security when you consider the mapping of hash values
+to their corresponding hash inputs also known as preimage or of
+ciphertext blocks to the corresponding plaintext blocks as an
+unstructured database then grovers algorithm theoretically requires
+doubling the key sizes of the symmetric algorithms that are currently
+deployed at the time of publication to counter the quadratic speedup
+and maintain current security level this is because grovers
+algorithm reduces the amount of operations to break bit symmetric
+cryptography to  quantum operations which might sound
+computationally feasible however quantum operations are
+fundamentally different from classical ones as  classical
+operations can be efficiently parallelized  quantum operations
+must be performed serially making them infeasible on practical
+quantum computers
+grovers algorithm is highly nonparallelizable and even if one
+deploys c computational units in parallel to bruteforce a key
+using grovers algorithm it will complete in time proportional to
+c or put simply using  quantum computers will only
+reduce runtime by a factor of   quantum computers will only
+reduce runtime by a factor of  and so forth see nist and
+cloudflare due to this inherent limitation the general expert
+consensus is that aes advanced encryption standard remains
+secure in practice and key sizes do not necessarily need to be
+doubled
+banerjee et al expires  february  page 
+internetdraft pqc for engineers august 
+it would be natural to ask whether future research will develop a
+superior algorithm that could outperform grovers algorithm in the
+general case however christof zalka has shown that grovers
+algorithm achieves the best possible complexity for this type of
+search meaning no significantly faster quantum approach is expected
+groversearch
+finally in their evaluation criteria for pqc nist is assessing the
+security levels of proposed postquantum algorithms by comparing them
+against the equivalent traditional and quantum security of aes
+aes and aes this indicates that nist is confident in the
+stable security properties of aes even in the presence of both
+traditional and quantum attacks as a result bit algorithms can
+be considered quantumsafe for the foreseeable future however for
+compliance purposes some organizations such as the french national
+agency for the security of information systems anssi anssi and
+cnsa  commercial national security algorithm suite 
+cnsa recommend the use of aes
+ asymmetric cryptography
+shors algorithm efficiently solves the integer factorization
+problem and the related discrete logarithm problem which underpin
+the foundations of the vast majority of public key cryptography that
+the world uses today this implies that if a crqc is developed
+todays public key algorithms eg rsa diffiehellman and elliptic
+curve cryptography as well as less commonlyused variants such as
+elgamal rfc and schnorr signatures rfc and protocols
+would need to be replaced by algorithms and protocols that can offer
+cryptanalytic resistance against crqcs note that shors algorithm
+cannot run solely on a classical computer it requires a crqc
+for example studies show that if a crqc existed it could break
+rsa in hours or even seconds depending on assumptions about
+error correction rsashorrsahrsrsasc while such machines
+are purely theoretical at the time of writing this illustrates the
+eventual vulnerability of rsa to crqcs
+for structured data such as public keys and signatures crqcs can
+fully solve the underlying hard problems used in traditional
+cryptography see shors algorithm because an increase in the size
+of the keypair would not provide a secure solution short of rsa
+keys that are many gigabytes in size pqrsa a complete replacement
+of the algorithm is needed therefore postquantum public key
+cryptography must rely on problems that are different from the ones
+used in traditional public key cryptography ie the integer
+factorization problem the finitefield discrete logarithm problem
+and the ellipticcurve discrete logarithm problem
+banerjee et al expires  february  page 
+internetdraft pqc for engineers august 
+datatracker sign in
+ quantum sidechannel attacks
+cryptographic sidechannel attacks exploit physical implementations
+such as timing power consumption or electromagnetic leakage to
+recover secret keys
+the field of cryptographic sidechannel attacks potentially stands to
+gain a boost in attacker power once cryptanalytic techniques can be
+enhanced with quantum computation techniques quantside while a
+full discussion of quantum sidechannel techniques is beyond the
+scope of this document implementers of cryptographic hardware should
+be aware that current bestpractices for sidechannel resistance may
+not be sufficient against quantum adversaries
+ traditional cryptographic primitives that could be replaced by pqc
+any asymmetric cryptographic algorithm based on integer
+factorization finite field discrete logarithms or elliptic curve
+discrete logarithms will be vulnerable to attacks using shors
+algorithm on a crqc this document focuses on the principal
+functions of asymmetric cryptography
+ key agreement and key transport key agreement schemes typically
+referred to as diffiehellman dh or elliptic curve diffie
+hellman ecdh as well as key transport typically using rsa
+encryption are used to establish a shared cryptographic key for
+secure communication they are one of the mechanisms that can be
+replaced by pqc as they are based on existing public key
+cryptography and are therefore vulnerable to shors algorithm a
+crqc can employ shors algorithm to efficiently find the prime
+factors of a large public key in the case of rsa which in turn
+can be exploited to derive the private key in the case of
+diffiehellman a crqc has the potential to calculate the discrete
+logarithm of the short or longterm diffiehellman public key
+this in turn would reveal the secret required to derive the
+symmetric encryption key
+ digital signatures digital signature schemes are used to
+authenticate the identity of a sender detect unauthorized
+modifications to data and underpin trust in a system similar to
+key agreement signatures also depend on a publicprivate key pair
+based on the same mathematics as for key agreement and key
+transport and hence a break in existing public key cryptography
+will also affect traditional digital signatures hence the
+importance of developing postquantum digital signatures
+banerjee et al expires  february  page 
+internetdraft pqc for engineers august 
+ bbs signatures bbs bonehboyenshacham signatures are a
+privacypreserving signature scheme that offers zeroknowledge
+prooflike properties by allowing selective disclosure of specific
+signed attributes without revealing the entire set of signed data
+the security of bbs signatures relies on the hardness of the
+discrete logarithm problem making them vulnerable to shors
+algorithm a crqc can break the data authenticity security
+property of bbs but not the data confidentiality section  of
+idirtfcfrgbbssignatures
+ content encryption content encryption typically refers to the
+encryption of the data using symmetric key algorithms such as
+aes to ensure confidentiality the threat to symmetric
+cryptography is discussed in section 
+ nist pqc algorithms
+at time of writing nist have standardized three pqc algorithms with
+more expected to be standardised in the future nistfinal these
+algorithms are not necessarily dropin replacements for traditional
+asymmetric cryptographic algorithms for instance rsa rsa and ecc
+rfc can be used as both a key encapsulation method kem and as
+a signature scheme whereas there is currently no postquantum
+algorithm that can perform both functions when upgrading protocols
+it is important to replace the existing use of traditional algorithms
+with either a pqc kem or a pqc signature method depending on how the
+traditional algorithm was previously being used additionally kems
+as described in section  present a different api than either key
+agreement or key transport primitives as a result they may require
+protocollevel or applicationlevel changes in order to be
+incorporated
+ nist candidates selected for standardization
+ pqc key encapsulation mechanisms kems
+ mlkem modulelatticebased keyencapsulation mechanism
+standard fips
+datatracker sign in
+ hqc hamming quasicyclic coding algorithm which is based on the
+hardness of the syndrome decoding problem for quasicyclic
+concatenated reedmuller and reedsolomon rmrs codes in the
+hamming metric reedmuller rm codes are a class of block
+errorcorrecting codes commonly used in wireless and deepspace
+communications while reedsolomon rs codes are widely used to
+detect and correct multiplebit errors hqc has been selected as
+part of the nist postquantum cryptography project but has not yet
+been standardized
+banerjee et al expires  february  page 
+internetdraft pqc for engineers august 
+ pqc signatures
+ mldsa modulelatticebased digital signature standard fips
+
+ slhdsa stateless hashbased digital signature fips
+ fndsa fndsa is a lattice signature scheme fips
+section  and section 
+ iso candidates selected for standardization
+at the time of writing iso has selected three pqc kem algorithms as
+candidates for standardization which are mentioned in the following
+subsection
+ pqc key encapsulation mechanisms kems
+ frodokem key encapsulation mechanism based on the hardness of
+learning with errors in algebraically unstructured lattices
+ classicmceliece based on the hardness of syndrome decoding of
+goppa codes goppa codes are a class of errorcorrecting codes
+that can correct a certain number of errors in a transmitted
+message the decoding problem involves recovering the original
+message from the received noisy codeword
+ ntru key encapsulation mechanism based on the nth degree
+truncated polynomial ring units ntru lattices variants
+include streamlined ntru prime sntrup which is leveraged for
+use in ssh idietfsshmntruprimessh
+ timeline for transition
+the timeline and driving motivation for transition differs slightly
+between data confidentiality eg encryption and data
+authentication eg signature usecases
+for data confidentiality one is concerned with the socalled
+harvest now decrypt later hndl attack where a malicious actor
+with adequate resources can launch an attack to store sensitive
+encrypted data today that they hope to decrypt once a crqc is
+available this implies that every day sensitive encrypted data is
+susceptible to the attack by not implementing quantumsafe
+strategies as it corresponds to data possibly being deciphered in
+the future
+banerjee et al expires  february  page 
+internetdraft pqc for engineers august 
+for authentication it is often the case that signatures have a very
+short lifetime between signing and verifying such as during a tls
+handshake but some authentication usecases do require long
+lifetimes such as signing firmware or software that will be active
+for decades signing legal documents or signing certificates that
+will be embedded into hardware devices such as smartcards even for
+shortlived signatures use cases the infrastructure often relies on
+longlived root keys which can be difficult to update or replace on
+infield devices
+
+  
+ y  x 
+
+  
+ z  security gap
+
+figure  mosca model
+these challenges are illustrated nicely by the socalled mosca model
+discussed in threatreport in figure  x denotes the time that
+systems and data need to remain secure y the number of years to
+fully migrate to a pqc infrastructure and z the time until a crqc
+that d caatna btrraeackk ecurrrent cryptography is available the model assumes sign in
+either that encrypted data can be intercepted and stored before the
+migration is completed in y years or that signatures will still be
+relied upon for x years after their creation this data remains
+vulnerable for the complete x years of their lifetime thus the sum
+xy gives us an estimate of the full timeframe that data remain
+insecure the model essentially asks how one is preparing it systems
+during those y years in other words how one can minimize those
+y years to minimize the transition phase to a pqc infrastructure
+and hence minimize the risks of data being exposed in the future
+finally other factors that could accelerate the introduction of a
+crqc should not be underestimated like for example fasterthan
+expected advances in quantum computing and more efficient versions of
+shors algorithm requiring fewer qubits innovation often comes in
+waves so it is to the industrys benefit to remain vigilant and
+prepare as early as possible bear in mind also that while the
+industry tracks advances from public research institutions such as
+universities and companies that publish their results there is also
+a great deal of largebudget quantum research being conducted
+privately by various national interests therefore the true state
+of quantum computer advancement is likely several years ahead of the
+publicly available research at the date this is published
+banerjee et al expires  february  page 
+internetdraft pqc for engineers august 
+organizations should also consider carefully and honestly what their
+migration timeline y actually is if you think only of the time
+between receiving a patch from your technology vendor and rolling
+that patch out then y might seem as short as a few weeks
+however this represents the minority of migration cases more often
+a pqc migration will involve at least some amount of hardware
+replacement for example performancesensitive applications will
+need cpus with pqc hardware acceleration securitysensitive
+applications will need pqc tpms tees secure enclaves and other
+cryptographic coprocessors smartcard applications will require
+replacement of the cards as well as of the readers which can come in
+many formfactors tapforentry door and turnstile readers pin pad
+machines laptops with builtin smartcard readers and many others
+included in y is not only the deployment time but also preparation
+time integration testing auditing and recertification of
+cryptographic environments consider also upstream effects that
+contribute to y including leadtimes for your vendors to produce
+pqcready products which may itself include auditing and
+certification delays time for regulating bodies to adopt pqc
+policies time for auditors to become familiar with the new
+requirements etc if you measure the full migration time y from
+when your vendors begin implementing pqc functionality to when you
+switch off your last nonpqccapable device then y can be quite
+long likely measured in years for even most moderatelysized
+organizations this long tail should not discourage early action
+organizations responsible for protecting longlived sensitive data or
+operating critical infrastructure will need to begin transitioning
+immediately particularly in scenarios where data is vulnerable to
+hndl attacks pqt section  or pq key exchange is relatively self
+contained typically requiring changes only to the cryptographic
+library eg openssl in contrast migrating to postquantum or
+pqt digital signatures involves broader ecosystem changes including
+updates to certificates cas certificate management protocols hsms
+and trust anchors starting early with hybrid key exchange
+deployments allows organizations to gain operational experience
+while prototyping and planning for pqt or pq digital signature
+integration helps identify ecosystemwide impacts early this phased
+approach reduces longterm migration risks and ensures readiness for
+more complex updates
+banerjee et al expires  february  page 
+internetdraft pqc for engineers august 
+ pqc categories
+the postquantum cryptographic schemes standardized by nist can be
+categorized into three main groups latticebased hashbased and
+codebased other approaches such as isogenybased multivariate
+based and mpcintheheadbased cryptography are also being
+explored in research and standardization efforts in addition nist
+issued a call for additional digital signature proposals to expand
+the set of postquantum signatures under evaluation addsig
+ latticebased public key cryptography
+latticebased public key cryptography leverages the simple
+construction of lattices ie a regular collection of points in a
+euclidean space that are evenly spaced to create trapdoor
+problems these problems are efficient to compute if you possess the
+secr deta tianftroarmcakteiorn but challenging to compute otherwise examples ofsign in
+such problems include the shortest vector closest vector short
+integer solution learning with errors module learning with errors
+and learning with rounding problems all of these problems feature
+strong proofs for worsttoaverage case reduction effectively
+relating the hardness of the average case to the worst case
+latticebased public keys and signatures are larger than those of
+classical schemes such as rsa or ecc but typically by less than an
+order of magnitude for public keys about  and by roughly one
+to two orders of magnitude for signatures about  rather
+than by several orders of magnitude making them the best available
+candidates for generalpurpose use such as replacing the use of rsa
+in pkix certificates
+examples of this class of algorithms include mlkem fndsa mldsa
+and frodokem
+it is noteworthy that latticebased encryption schemes require a
+rounding step during decryption which has a nonzero probability of
+rounding the wrong way and leading to a decryption failure meaning
+that valid encryptions are decrypted incorrectly however the
+parameters of nist pqc candidates are carefully chosen so that the
+probability of such a failure is cryptographically negligible far
+lower than the probability of random transmission errors and
+implementation bugs in practical terms these rare decryption
+failures can be treated the same way as any fatal transport error
+both sides simply perform a fresh kem operation generating a new
+ciphertext and shared secret
+banerjee et al expires  february  page 
+internetdraft pqc for engineers august 
+in cryptanalysis an oracle refers to a system that an attacker can
+query to learn whether decryption succeeded or failed if such an
+oracle exists an attacker could significantly reduce the security of
+latticebased schemes that have a relatively high failure rate
+however for most of the nist pqc proposals the number of required
+oracle queries to force a decryption failure is above practical
+limits as has been shown in lattfail more recent works have
+improved upon the results in lattfail showing that the cost of
+searching for additional failing ciphertexts after one or more have
+already been found can be sped up dramatically lattfail
+nevertheless at the time this document is published the pqc
+candidates by nist are considered secure under these attacks and
+constant monitoring as cryptanalysis research is ongoing
+ hashbased public key cryptography
+hash based pkc has been around since the s when it was developed
+by lamport and merkle it is used to create digital signature
+algorithms and its security is based on the security of the
+underlying cryptographic hash function many variants of hashbased
+signatures hbs have been developed since the s including the
+recent xmss rfc hsslms rfc or bpqs bpqs schemes
+unlike many other digital signature techniques most hashbased
+signature schemes are stateful which means that signing necessitates
+the update and careful tracking of the state of the secret key
+producing multiple signatures using the same secret key state results
+in loss of security and may ultimately enable signature forgery
+attacks against that key
+stateful hashbased signatures with long service lifetimes require
+additional operational complexity compared with other signature
+types for example consider a year root key there is an
+expectation that  years is longer than the expected lifetime of the
+hardware that key is stored on and therefore the key will need to be
+migrated to new hardware at some point disasterrecovery scenarios
+where the primary node fails without warning can be similarly tricky
+this requires careful operational and compliance consideration to
+ensure that no private key state can be reused across the migration
+or disaster recovery event one approach for avoiding these issues
+is to only use stateful hbs for shortterm use cases that do not
+require horizontal scaling for example signing a batch of firmware
+images and then retiring the signing key
+banerjee et al expires  february  page 
+internetdraft pqc for engineers august 
+the slhdsa algorithm which was standardized by nist leverages the
+horst hash to obtain random subset with trees technique and remains
+the only standardized hash based signature scheme that is stateless
+thus avoiding the complexities associated with state management
+slhdsa is an advancement on sphincs which reduces the signature
+sizes in sphincs and makes it more compact
+ codebased public key cryptography
+this d aarteaa troaf cckreyprtography started in the s and s based on the sign in
+seminal work of mceliece and niederreiter which focuses on the study
+of cryptosystems based on errorcorrecting codes some popular error
+correcting codes include goppa codes used in mceliece
+cryptosystems encoding and decoding syndrome codes used in hamming
+quasicyclic hqc or quasicyclic moderate density parity check
+qcmdpc codes
+examples include all the unbroken nist round  finalists classic
+mceliece hqc selected by nist for standardization and bike
+ kems
+a key encapsulation mechanism kem is a cryptographic technique used
+for securely exchanging symmetric key material between two parties
+over an insecure channel it is commonly used in hybrid encryption
+schemes where a combination of asymmetric public key and symmetric
+encryption is employed the kem encapsulation results in a fixed
+length symmetric key that can be used with a symmetric algorithm
+typically a block cipher in one of two different ways
+ derive a data encryption key dek to encrypt the data
+ derive a key encryption key kek used to wrap a dek
+these techniques are often referred to as hybrid public key
+encryption hpke rfc mechanism
+the term encapsulation is chosen intentionally to indicate that kem
+algorithms behave differently at the api level from the key agreement
+or key encipherment  key transport mechanisms that are in use today
+key agreement schemes imply that both parties contribute a public 
+private key pair to the exchange while key encipherment  key
+transport schemes imply that the symmetric key material is chosen by
+one party and encrypted or wrapped for the other party kems on
+the other hand behave according to the following api primitives
+pqcapi
+ def kemkeygen  pk sk
+banerjee et al expires  february  page 
+internetdraft pqc for engineers august 
+ def kemencapspk  ss ct
+ def kemdecapsct sk  ss
+where pk is the public key sk is the secret key ct is the
+ciphertext representing an encapsulated key and ss is the shared
+secret the following figure illustrates a sample flow of a kem
+based key exchange
+ 
+ client   server 
+ 
+  
+ pk sk  kemkeygen  
+  
+ 
+ pk 
+
+  
+  ss ct  kemencapspk
+  
+ 
+ ct 
+
+  
+ ss  kemdecapsct sk  
+  
+ 
+figure  kem based key exchange
+ authenticated key exchange
+authenticated key exchange ake with kems where both parties
+contribute a kem public key to the overall session key is interactive
+as described in section  of rfc however singlesided kem
+such as when one peer has a kem key in a certificate and the other
+peer wants to encrypt for it as in smime or openpgp email can be
+achieved using noninteractive hpke rfc the following figure
+illustrates the diffiehellman dh key exchange
+banerjee et al expires  february  page 
+internetdraft pqc for engineers august 
+ 
+d a t a tr a c k e r  client   server  sign in
+ 
+  
+ longterm client key   
+ sk pk  
+  
+ 
+ pk 
+
+  
+  longterm server key 
+   sk pk 
+   ss  keyexpk sk 
+  
+ 
+ pk
+
+  
+ ss  keyexpk sk   
+ encryptcontentss  
+  
+ encrypted 
+ content 
+
+  
+   decryptcontentss 
+  
+figure  diffiehellman based ake
+whats important to note about the sample flow above is that the
+shared secret ss is derived using key material from both the client
+and the server which classifies it as an ake there is another
+property of a key exchange called noninteractive key exchange
+nike which refers to whether the sender can compute the shared
+secret ss and encrypt content without requiring active interaction
+an exchange of network messages with the recipient figure  shows
+a diffiehellman key exchange which is an ake since both parties are
+using longterm keys which can have established trust for example
+via certificates but it is not a nike since the client needs to
+wait for the network interaction to receive the receivers public key
+pk before it can compute the shared secret ss and begin content
+encryption however a dh key exchange can be an ake and a nike at
+the same time if the receivers public key is known to the sender in
+advance and many internet protocols rely on this property of dh
+based key exchanges
+banerjee et al expires  february  page 
+internetdraft pqc for engineers august 
+ 
+ client   server 
+ 
+  
+ longterm client key   
+ sk pk  
+ longterm server key   
+ pk   
+ ss  keyexpk sk   
+ encryptcontentss  
+  
+ 
+ pk 
+ encrypted 
+ content 
+
+  
+  longterm server key 
+   sk pk 
+   ss  keyexpk sk 
+   decryptcontentss 
+  
+figure  diffiehellman based ake and nike simultaneously
+the complication with kems is that a kem encaps is non
+deterministic it involves randomness chosen by the sender of that
+message therefore in order to perform an ake the client must wait
+for the server to generate the needed randomness and perform encaps
+against the client key which necessarily requires a network round
+trip therefore a kembased protocol can either be an ake or a
+nike but cannot be both at the same time consequently certain
+internet protocols will necessitate a redesign to accommodate this
+distinction either by introducing extra network roundtrips or by
+making tradeoffs in security properties
+banerjee et al expires  february  page 
+internetdraft pqc for engineers august 
+datatracker sign in
+ 
+ client   server 
+ 
+  
+ pk sk  kemkeygen  
+  
+ 
+pk 
+
+  
+  ss ct  kemencapspk
+   pk sk  kemkeygen 
+  
+ 
+ ctpk
+
+  
+ ss  kemdecapsct sk 
+ ss ct  kemencapspk 
+ ss  combinerss ss  
+  
+ 
+ct 
+
+  
+  ss  kemdecapsct sk
+   ss  combinerss ss 
+  
+figure  kem based ake
+here combinerss ss often referred to as a kem combiner is a
+cryptographic construction that takes in two shared secrets and
+returns a single combined shared secret the simplest combiner is
+concatenation ss  ss but combiners can vary in complexity
+depending on the cryptographic properties required for example if
+the combination should preserve indcca section  of either
+input even if the other is chosen maliciously then a more complex
+construct is required another consideration for combiner design is
+socalled binding properties introduced in keepingup which may
+require the ciphertexts and recipient public keys to be included in
+the combiner kem combiner security analysis becomes more
+complicated in hybrid settings where the two kems represent different
+algorithms for example where one is mlkem and the other is ecdh
+for a more thorough discussion of kem combiners see keepingup
+iddraftounsworthcfrgkemcombiners and
+idirtfcfrghybridkems
+banerjee et al expires  february  page 
+internetdraft pqc for engineers august 
+ security properties of kems
+the security properties described in this section indcca and
+binding are not an exhaustive list of all possible kem security
+considerations they were selected because they are fundamental to
+evaluating kem suitability in protocol design and are commonly
+discussed in current pqc work
+ indcca
+indcca indistinguishability under adaptive chosenciphertext
+attack is an advanced security notion for encryption schemes it
+ensures the confidentiality of the plaintext and resistance against
+chosenciphertext attacks an appropriate definition of indcca
+security for kems can be found in cs and bhk mlkem
+mlkem and classic mceliece provide indcca security
+understanding indcca security is essential for individuals involved
+in designing or implementing cryptographic systems and protocols in
+order to evaluate the strength of the algorithm assess its
+suitability for specific use cases and ensure that data
+confidentiality and security requirements are met understanding
+indcca security is generally not necessary for developers migrating
+to using an ietfvetted key establishment method kem within a given
+protocol or flow indcca is a widely accepted security notion for
+public key encryption mechanisms making it suitable for a broad
+range of applications when an ietf specification defines a new kem
+its security considerations should fully describe the relevant
+cryptographic properties including indcca
+ binding
+kems also have an orthogonal set of properties to consider when
+designing protocols around them binding keepingup this can be
+ciphertext binding public key binding context binding or any
+other property that is important to not be substituted between kem
+invo dcaattiaontrsa c kien rgeneral a kem is considered to bind a certain valuesign in
+if substitution of that value by an attacker will necessarily result
+in a different shared secret being derived as an example if an
+attacker can construct two different ciphertexts which will
+decapsulate to the same shared secret or can construct a ciphertext
+which will decapsulate to the same shared secret under two different
+public keys or can substitute whole kem exchanges from one session
+into another then the construction is not ciphertext binding public
+key binding or context binding respectively similarly protocol
+designers may wish to bind protocol state information such as a
+transaction id or nonce so that attempts to replay ciphertexts from
+one session inside a different session will be blocked at the
+banerjee et al expires  february  page 
+internetdraft pqc for engineers august 
+cryptographic level because the server derives a different shared
+secret and is thus is unable to decrypt the content
+the solution to binding is generally achieved at the protocol design
+level it is recommended to avoid using the kem output shared secret
+directly without integrating it into an appropriate protocol while
+kem algorithms provide key secrecy they do not inherently ensure
+source authenticity protect against replay attacks or guarantee
+freshness these security properties should be addressed by
+incorporating the kem into a protocol that has been analyzed for such
+protections even though modern kems such as mlkem produce full
+entropy shared secrets it is still advisable for binding reasons to
+pass it through a key derivation function kdf and also include all
+values that you wish to bind then finally you will have a shared
+secret that is safe to use at the protocol level
+ hpke
+modern cryptography has long used the notion of hybrid encryption
+where an asymmetric algorithm is used to establish a key and then a
+symmetric algorithm is used for bulk content encryption the
+previous sections explained important security properties of kems
+such as indcca security and binding and emphasized that these
+properties must be supported by proper protocol design one widely
+deployed scheme that achieves this is hpke hybrid public key
+encryption rfc
+hpke hybrid public key encryption rfc works with a
+combination of kems kdfs and aead authenticated encryption with
+additional data schemes hpke includes three authenticated
+variants including one that authenticates possession of a preshared
+key and two optional ones that authenticate possession of a key
+encapsulation mechanism kem private key hpke can be extended to
+support hybrid postquantum kem idietfhpkepq mlkem does not
+support the staticephemeral key exchange that allows hpke based on
+dh based kems and its optional authenticated modes as discussed in
+section  of iddraftconnollycfrgxwingkem
+ pqc signatures
+any digital signature scheme that provides a construction defining
+security under a postquantum setting falls under this category of
+pqc signatures
+ security properties of pqc signatures
+banerjee et al expires  february  page 
+internetdraft pqc for engineers august 
+ eufcma and sufcma
+eufcma existential unforgeability under chosen message attack
+gmr is a security notion for digital signature schemes it
+guarantees that an adversary even with access to a signing oracle
+cannot forge a valid signature for an arbitrary message eufcma
+provides strong protection against forgery attacks ensuring the
+integrity and authenticity of digital signatures by preventing
+unauthorized modifications or fraudulent signatures mldsa fndsa
+and slhdsa provide eufcma security
+sufcma strong unforgeability under chosen message attack builds
+upon eufcma by requiring that an adversary cannot produce a
+different valid signature for a message that has already been signed
+by the signing oracle like eufcma sufcma provides robust
+assurances for digital signature schemes further enhancing their
+security posture mldsa fndsa and slhdsa also achieve sufcma
+security
+understanding eufcma and sufcma security is essential for designing
+or implementing cryptographic systems in order to ensure the
+security reliability and robustness of digital signature schemes
+these notions allow for informed decisionmaking vulnerability
+anal dysaitsa trcaomcpkleiarnce with standards and designing systems that sign in
+provide strong protection against forgery attacks for developers
+migrating to using an ietfvetted pqc signature scheme within a given
+protocol or flow a deep understanding of eufcma and sufcma
+security may not be necessary as the schemes vetted by ietf adhere
+to these stringent security standards
+eufcma and sufcma are considered strong security benchmarks for
+public key signature algorithms making them suitable for most
+applications ietf specification authors should include all security
+concerns in the security considerations section of the relevant rfc
+and should not assume that implementers are experts in cryptographic
+theory
+ details of fndsa mldsa and slhdsa
+mldsa mldsa is a digital signature algorithm based on the
+hardness of lattice problems over module lattices ie the module
+learning with errors problem mlwe the design of the algorithm is
+based on the fiatshamir with aborts lyu framework introduced
+by lyubashevsky that leverages rejection sampling to render lattice
+based fiatshamir fs schemes compact and secure mldsa uses
+uniformlydistributed random number sampling over small integers to
+compute coefficients in error vectors which makes the scheme easier
+to implement compared with fndsa fndsa which uses gaussian
+banerjee et al expires  february  page 
+internetdraft pqc for engineers august 
+distributed numbers necessitating the need to use floating point
+arithmetic during signature generation
+mldsa offers both deterministic and randomized signing and is
+instantiated with  parameter sets providing different security
+levels security properties of mldsa are discussed in section  of
+idietflampsdilithiumcertificates
+fndsa fndsa is based on the gpv hashandsign latticebased
+signature framework introduced by gentry peikert and
+vaikuntanathan which is a framework that requires a certain class of
+lattices and a trapdoor sampler technique
+the main design principle of fndsa is compactness ie it was
+designed in a way that achieves minimal total memory bandwidth
+requirement the sum of the signature size plus the public key size
+this is possible due to the compactness of ntru lattices fndsa
+also offers very efficient signing and verification procedures the
+main potential downsides of fndsa refer to the nontriviality of its
+algorithms and the need for floating point arithmetic support in
+order to support gaussiandistributed random number sampling where
+the other lattice schemes use the less efficient but easier to
+support uniformlydistributed random number sampling
+implementers of fndsa need to be aware that fndsa signing is highly
+susceptible to sidechannel attacks unless constanttime bit
+floatingpoint operations are used this requirement is extremely
+platformdependent as noted in nists report
+the performance characteristics of mldsa and fndsa may differ based
+on the specific implementation and hardware platform generally ml
+dsa is known for its relatively fast signature generation while fn
+dsa can provide more efficient signature verification the choice
+may depend on whether the application requires more frequent
+signature generation or signature verification see liboqs for
+further clarity on the sizes and security levels please refer to the
+tables in section  and section 
+slhdsa slhdsa utilizes the concept of stateless hashbased
+signatures where each signature is unique and unrelated to any
+previous signature as discussed in section  this property
+eliminates the need for maintaining state information during the
+signing process slhdsa was designed to sign up to  messages
+under a given key pair and it offers three security levels the
+parameters for each of the security levels were chosen to provide 
+bits of security  bits of security and  bits of security
+slhdsa offers smaller public key sizes larger signature sizes
+slower signature generation and slower verification when compared to
+banerjee et al expires  february  page 
+internetdraft pqc for engineers august 
+mldsa and fndsa slhdsa does not introduce a new hardness
+assumption beyond those inherent to the underlying hash functions
+it builds upon established foundations in cryptography making it a
+reliable and robust digital signature scheme for a postquantum
+world
+all of these algorithms mldsa fndsa and slhdsa include two
+sign datautrae trmaodcekse rpure mode where the entire content is signed sign in
+directly and prehash mode where a digest of the content is signed
+ details of xmss and lms
+the extended merkle signature scheme xmss rfc and
+hierarchical signature scheme hss  leightonmicali signature lms
+rfc are stateful hashbased signature schemes where the secret
+key state changes over time in both schemes reusing a secret key
+state compromises cryptographic security guarantees
+xmss and lms can be used for signing a potentially large but fixed
+number of messages and the number of signing operations depends upon
+the size of the tree xmss and lms provide cryptographic digital
+signatures without relying on the conjectured hardness of
+mathematical problems instead leveraging the properties of
+cryptographic hash functions multitree xmss and lms ie xmssmt
+and hss respectively use a hypertree based hierarchical approach
+with a merkle tree at each level of the hierarchy rfc
+describes both singletree and multitree variants of xmss while
+rfc describes the leightonmicali onetime signature lmots
+system as well as the lms and hss ntime signature systems
+comparison of xmss and lms is discussed in section  of rfc
+the number of tree layers in multitree xmss and hss provides a
+tradeoff between signature size on the one side and key generation
+and signing speed on the other side increasing the number of layers
+reduces key generation time exponentially and signing time linearly
+at the cost of increasing the signature size linearly hss allows
+for customization of each subtree whereas xmssmt does not electing
+instead to use the same structure for each subtree
+due to the complexities described above the xmss and lms are not a
+suitable replacement for traditional signature schemes like rsa or
+ecdsa applications that expect a long lifetime of a signature like
+firmware update or secure boot are typical use cases where those
+schemes can be successfully applied
+banerjee et al expires  february  page 
+internetdraft pqc for engineers august 
+ lms key and signature sizes
+the lms scheme is characterized by four distinct parameter sets the
+underlying hash function sha or shake the length of the
+digest  or  bytes the lms tree height parameter that controls
+a maximal number of signatures that the private key can produce and
+the width of the winternitz coefficients see rfc section 
+that can be used to tradeoff signing time for signature size
+parameters can be mixed providing  possible parameterizations of
+the scheme
+the public pk and private sk key size depends on the length of
+the digest m the signature size depends on the digest the
+winternitz parameter w the lms tree height h and the length of
+the digest the table below provides key and signature sizes for
+parameterization with the digest size m of the scheme
+
+ pk  sk  w  h  h  h  h  h 
+
+                
+
+                
+
+                
+
+                
+
+table 
+ hashthensign
+within the hashthensign paradigm the message is hashed before
+signing it by prehashing the onus of resistance to existential
+forgeries becomes heavily reliant on the collisionresistance of the
+hash function in use the hashthensign paradigm has the ability to
+improve application performance by reducing the size of signed
+messages that need to be transmitted between application and
+cryptographic module and making the signature size predictable and
+manageable as a corollary hashing remains mandatory even for short
+messages and assigns a further computational requirement onto the
+verifier this makes the performance of hashthensign schemes more
+consistent but not necessarily more efficient
+using a hash function to produce a fixedsize digest of a message
+ensures that the signature is compatible with a wide range of systems
+and dpraottaoctroalsck erergardless of the specific message size or format sign in
+banerjee et al expires  february  page 
+internetdraft pqc for engineers august 
+crucially for hardware security modules hashthensign also
+significantly reduces the amount of data that needs to be transmitted
+and processed by a hardware security module hsm consider
+scenarios such as a networked hsm located in a different data center
+from the calling application or a smart card connected over a usb
+interface in these cases streaming a message that is megabytes or
+gigabytes long can result in notable network latency ondevice
+signing delays or even depletion of available ondevice memory
+note that the vast majority of internet protocols that sign large
+messages already perform some form of content hashing at the protocol
+level so this tends to be more of a concern with proprietary
+cryptographic protocols and protocols from nonietf standards
+bodies protocols like tls  and dnssec use the hashthensign
+paradigm in tls  rfc certificateverify messages the
+content that is covered under the signature includes the transcript
+hash output section  of rfc while dnssec rfc uses
+it to provide origin authentication and integrity assurance services
+for dns data similarly the cryptographic message syntax cms
+rfc includes a mandatory message digest step before invoking
+the signature algorithm
+in the case of mldsa it internally incorporates the necessary hash
+operations as part of its signing algorithm mldsa directly takes
+the original message applies a hash function internally and then
+uses the resulting hash value for the signature generation process
+in the case of slhdsa it internally performs randomized message
+compression using a keyed hash function that can process arbitrary
+length messages in the case of fndsa the shake hash function
+is used as part of the signature process to derive a digest of the
+message being signed
+therefore mldsa fndsa and slhdsa offer enhanced security over
+the traditional hashthensign paradigm because by incorporating
+dynamic key material into the message digest a precomputed hash
+collision on the message to be signed no longer yields a signature
+forgery applications requiring the performance and bandwidth
+benefits of hashthensign may still prehash at the protocol level
+prior to invoking mldsa fndsa or slhdsa but protocol designers
+should be aware that doing so reintroduces the weakness that hash
+collisions directly yield signature forgeries signing the full un
+digested message is recommended where applications can tolerate it
+banerjee et al expires  february  page 
+internetdraft pqc for engineers august 
+ nist recommendations for security  performance tradeoffs
+this information is a reprint of information provided in the nist
+pqc project nist as of the time this document is published the
+table  denotes the five security levels provided by nist for pqc
+algorithms neither nist nor the ietf make any specific
+recommendations about which security level to use in general
+protocols will include algorithm choices at multiple levels so that
+users can choose the level appropriate to their policies and data
+classification similar to how organizations today choose which size
+of rsa key to use the security levels are defined as requiring
+computational resources comparable to or greater than an attack on
+aes   and  and shasha algorithms ie exhaustive key
+recovery for aes and optimal collision search for shasha
+
+ pq security  aessha  pqc algorithm 
+ level  hardness  
+
+   aes exhaustive  mlkem fndsa 
+  key recovery  slhdsashashakefs 
+
+   shasha  mldsa 
+  collision search  
+
+   aes exhaustive  mlkem mldsa 
+  key recovery  slhdsashashakefs 
+
+   shasha  no algorithm tested at 
+  collision search  this level 
+
+   aes exhaustive  mlkem fndsa 
+  key recovery  mldsa slhdsasha 
+   shakefs 
+
+table 
+datatracker sign in
+the slhdsaxyfs fs in the above table denotes whether slhdsa
+is using shake or sha as an underlying hash function x and
+whether it is the fast f or small s version for y bit aes
+security level refer to idietflampscmssphincsplus for
+further details on slhdsa algorithms
+the following table compares the signature sizes for different slh
+dsa algorithm categories at equivalent security levels using the
+simple version the categories include f for fast signature
+generation and s for smaller signature size and faster
+banerjee et al expires  february  page 
+internetdraft pqc for engineers august 
+verification although with slower signature generation both
+sha and shake parameterizations produce the same signature
+sizes and are therefore included together in the table
+
+ pq  algorithm  public private signature 
+ security   key key  size in 
+ level   size size  bytes 
+   in in  
+   bytes bytes  
+
+   slhdsashashakef      
+
+   slhdsashashakes      
+
+   slhdsashashakef      
+
+   slhdsashashakes      
+
+   slhdsashashakef      
+
+   slhdsashashakes      
+
+table 
+the following table illustrates the impact of performance on
+different security levels in terms of private key sizes public key
+sizes and ciphertextsignature sizes
+banerjee et al expires  february  page 
+internetdraft pqc for engineers august 
+
+ pq  algorithm  public key  private  ciphertext 
+ security   size in  key size  signature 
+ level   bytes  in bytes  size in 
+     bytes 
+
+   mlkem       
+
+   fndsa       
+
+   mldsa       
+
+   mlkem       
+
+   mldsa       
+
+   fndsa       
+
+   mlkem       
+
+   mldsa       
+
+table 
+ comparing pqc kemssignatures vs traditional kems
+kexssignatures
+this section provides two tables for comparison of different kems and
+signatures respectively in the traditional and postquantum
+scenarios these tables focus on the secret key sizes public key
+sizes and ciphertextsignature sizes for the pqc algorithms and
+their traditional counterparts of similar security levels
+the first table compares traditional vs pqc kems in terms of
+security public and private key sizes and ciphertext sizes
+banerjee et al expires  february  page 
+internetdraft pqc for engineers august 
+ datatrackersign in
+ pq security  algorithm  public  private  ciphertext 
+ level   key  key  size in 
+   size  size  bytes 
+   in  in  
+   bytes  bytes  
+
+ traditional  phkdfsha       
+
+ traditional  phkdfsha       
+
+ traditional  xhkdfsha       
+
+   mlkem       
+
+   mlkem       
+
+   mlkem       
+
+table 
+the next table compares traditional vs pqc signature schemes in
+terms of security public private key sizes and signature sizes
+
+ pq security  algorithm  public key  private  signature 
+ level   size in  key size  size in 
+   bytes  in bytes  bytes 
+
+ traditional  rsa       
+
+ traditional  ecdsap       
+
+   fndsa       
+
+   mldsa       
+
+   mldsa       
+
+   fndsa       
+
+   mldsa       
+
+table 
+banerjee et al expires  february  page 
+internetdraft pqc for engineers august 
+as is clear from the above table pqc kems and signature schemes
+typically have significantly larger keys and ciphertextssignatures
+than their traditional counterparts these increased key and
+signatures sizes could introduce problems in protocols as an
+example ikev uses udp as the transport for its messages one
+challenge with integrating a pqc kem into ikev is that ike
+fragmentation cannot be utilized in the initial ikesainit exchange
+to address this issue rfc introduces a solution by defining a
+new exchange called the intermediate exchange which can be
+fragmented using the ike fragmentation mechanism rfc then
+uses this intermediate exchange to carry out the pqc key exchange
+after the initial ikev exchange and before the ikeauth exchange
+another example from spc section  shows that increased
+key and signature sizes cause protocol key exchange messages to span
+more network packets therefore it results in a higher total loss
+probability per packet in lossy network conditions this may
+increase the latency of the key exchange
+ postquantum and traditional hybrid schemes
+the migration to pqc is unique in the history of modern digital
+cryptography in that neither the traditional algorithms nor the post
+quantum algorithms are fully trusted to protect data for the required
+lifetimes the traditional algorithms such as rsa and ecdh will
+fall to quantum cryptanalysis while the postquantum algorithms face
+uncertainty about the underlying mathematics compliance issues
+unknown vulnerabilities and hardware and software implementations
+that have not had sufficient maturing time to rule out traditional
+cryptanalytic attacks and implementation bugs
+during the transition from traditional to postquantum algorithms
+there may be a desire or a requirement for protocols that use both
+algorithm types idietfpquippqthybridterminology defines the
+terminology for the postquantum and traditional pqt hybrid
+schemes
+ pqt hybrid confidentiality
+the dpqatta htryabrcikde cronfidentiality property can be used to mitigate bothsign in
+harvest now decrypt now and hndl attacks described in section 
+if the pq portion were to have a flaw the traditional t algorithm
+which is secure against todays attackers prevents immediate
+decryption harvest now decrypt now if the t algorithm is
+broken in the future by crqcs the pq portion assuming it remains
+secure prevents later decryption harvest now decrypt later a
+hybrid construction therefore provides confidentiality as long as at
+least one component remains secure two types of hybrid key
+agreement schemes are discussed below
+banerjee et al expires  february  page 
+internetdraft pqc for engineers august 
+ concatenated hybrid key agreement scheme the final shared secret
+that will be used as an input of the key derivation function is
+the result of the concatenation of the secrets established with
+each key agreement scheme for example in
+idietftlshybriddesign the client uses the tls supported
+groups extension to advertise support for a pqt hybrid scheme
+and the server can select this group if it supports the scheme
+the hybridaware client and server establish a hybrid secret by
+concatenating the two shared secrets which is used as the shared
+secret in the existing tls  key schedule
+ cascaded hybrid key agreement scheme the final shared secret is
+computed by applying as many iterations of the key derivation
+function as the number of key agreement schemes composing the
+hybrid key agreement scheme for example rfc extends the
+internet key exchange protocol version  ikev to allow one or
+more pqc algorithms in addition to the traditional algorithm to
+derive the final ike sa keys using the cascade method as explained
+in section  of rfc
+various instantiations of these two types of hybrid key agreement
+schemes have been explored one must be careful when selecting which
+hybrid scheme to use the chosen scheme for protocols like tls 
+idietftlshybriddesign has indcca robustness that is ind
+cca security is guaranteed for the scheme as long as at least one of
+the component algorithms is indcca secure
+ pqt hybrid authentication
+the pqt hybrid authentication property provides resilience against
+catastrophic breaks or unforeseen vulnerabilities in pqc algorithms
+allowing systems additional time to stabilize before migrating fully
+to pure pq deployments
+banerjee et al expires  february  page 
+internetdraft pqc for engineers august 
+this property ensures authentication using a pqt hybrid scheme as
+long as at least one component algorithm remains secure for
+example a pqt hybrid certificate idietflampspqcompositesigs
+can be employed to facilitate a pqt hybrid authentication protocol
+however a pqt hybrid authentication protocol does not need to use a
+pqt hybrid certificate separate certificates could be used for
+individual component algorithms
+idietflampscertbindingformultiauth when separate
+certificates are used it may be possible for attackers to take them
+apart or put them together in unexpected ways including enabling
+crossprotocol attacks the exact risks this presents are highly
+dependent on the protocol and use case so a full security analysis
+is needed best practices for ensuring that pairs of certificates
+are only used as intended are discussed in more detail in
+section  and section  of this document
+the frequency and duration of system upgrades and the time when crqcs
+will become widely available need to be weighed to determine whether
+and when to support the pqt hybrid authentication property
+ hybrid cryptographic algorithm combinations considerations and
+approaches
+ hybrid cryptographic combinations
+it is also possible to use more than two algorithms together in a
+hybrid scheme with various methods for combining them for post
+quantum transition purposes the combination of a postquantum
+algorithm with a traditional algorithm is the most straightforward
+and recommended the use of multiple postquantum algorithms with
+different mathematical bases has also been considered combining
+algorithms in a way that requires both to be used together ensures
+stronger security while combinations that do not require both will
+sacrifice security but offer other benefits like backwards
+compatibility and crypto agility including a traditional key
+alongside a postquantum key often has minimal bandwidth impact
+ d actoamptroasictkee kreys in hybrid schemes sign in
+when combining keys in an and mode it may make more sense to
+consider them to be a single composite key instead of two keys
+this generally requires fewer changes to various components of pki
+ecosystems many of which are not prepared to deal with two keys or
+dual signatures to those protocol or applicationlayer parsers a
+composite algorithm composed of two component algorithms is
+simply a new algorithm and support for adding new algorithms
+generally already exists treating multiple component keys as a
+single composite key also has security advantages such as
+banerjee et al expires  february  page 
+internetdraft pqc for engineers august 
+preventing crossprotocol reuse of the individual component keys and
+guarantees about revoking or retiring all component keys together at
+the same time especially if the composite is treated as a single
+object all the way down into the cryptographic module
+all that needs to be done is to standardize the formats of how the
+two keys from the two algorithms are combined into a single data
+structure and how the two resulting signatures or kems are combined
+into a single signature or kem the answer can be as simple as
+concatenation if the lengths are fixed or easily determined at the
+time this document is published security research is ongoing as to
+the security properties of concatenationbased composite signatures
+and kems vs more sophisticated signature and kem combiners and in
+which protocol contexts those simpler combiners are sufficient
+one last consideration is the specific pairs of algorithms that can
+be combined a recent trend in protocols is to only allow a small
+number of known good configurations that make sense often referred
+to in cryptography as a ciphersuite instead of allowing arbitrary
+combinations of individual configuration choices that may interact in
+dangerous ways the current consensus is that the same approach
+should be followed for combining cryptographic algorithms and that
+known good pairs should be explicitly listed explicit
+composite instead of just allowing arbitrary combinations of any
+two cryptographic algorithms generic composite
+the same considerations apply when using multiple certificates to
+transport a pair of related keys for the same subject exactly how
+two certificates should be managed in order to avoid some of the
+pitfalls mentioned above is still an active area of investigation
+using two certificates keeps the certificate tooling simple and
+straightforward but in the end simply moves the problems with
+requiring that both certs are intended to be used as a pair must
+produce two signatures which must be carried separately and both
+must validate to the certificate management layer where addressing
+these concerns in a robust way can be difficult
+at least one scheme has been proposed that allows the pair of
+certificates to exist as a single certificate when being issued and
+managed but dynamically split into individual certificates when
+needed iddraftbonnelllampschameleoncerts
+banerjee et al expires  february  page 
+internetdraft pqc for engineers august 
+ key reuse in hybrid schemes
+an important security note particularly when using hybrid signature
+keys but also to a lesser extent hybrid kem keys is key reuse in
+traditional cryptography problems can occur with socalled cross
+protocol attacks when the same key can be used for multiple
+protocols for example signing tls handshakes and signing smime
+emails while it is not bestpractice to reuse keys within the same
+protocol for example using the same key for multiple smime
+certificates for the same user it is not generally catastrophic for
+security however key reuse becomes a large security problem within
+hybrids
+consider an rsa mldsa hybrid key where the rsa key also appears
+within a singlealgorithm certificate in this case an attacker
+could perform a stripping attack where they take some piece of data
+signed with the rsa mldsa key remove the mldsa signature and
+present the data as if it was intended for the rsa only certificate
+this leads to a set of security definitions called nonseparability
+properties which refers to how well the signature scheme resists
+various complexities of downgrade  stripping attacks
+iddraftietfpquiphybridsignaturespectrums therefore it is
+recommended that implementers either reuse the entire hybrid key as a
+whole or perform fresh key generation of all component keys per
+usage and must not take an existing key and reuse it as a component
+of a hybrid
+ future directions and ongoing research
+datatracker sign in
+many aspects of hybrid cryptography are still under investigation
+lamps wg at ietf is actively exploring the security properties of
+these combinations and future standards will reflect the evolving
+consensus on these issues
+ impact on constrained devices and networks
+pqc algorithms generally have larger keys ciphertext and signature
+sizes than traditional public key algorithms this has particular
+impact on constrained devices that operate with limited data rates
+in the iot space these constraints have historically driven
+significant optimization efforts in the ietf eg lake core to
+adapt security protocols to resourceconstrained environments
+as the transition to pqc progresses these environments will face
+similar challenges larger message sizes can increase handshake
+latency raise energy consumption and require fragmentation logic
+work is ongoing in the ietf to study how pqc can be deployed in
+constrained devices see idietfpquippqchsmconstrained
+banerjee et al expires  february  page 
+internetdraft pqc for engineers august 
+ security considerations
+ cryptanalysis
+traditional cryptanalysis exploits weaknesses in algorithm design
+mathematical vulnerabilities or implementation flaws that are
+exploitable with classical ie nonquantum hardware whereas
+quantum cryptanalysis harnesses the power of crqcs to solve specific
+mathematical problems more efficiently another form of quantum
+cryptanalysis is quantum sidechannel attacks in such attacks a
+device under threat is directly connected to a quantum computer
+which then injects entangled or superimposed data streams to exploit
+hardware that lacks protection against quantum sidechannels both
+pose threats to the security of cryptographic algorithms including
+those used in pqc developing and adopting new cryptographic
+algorithms resilient against these threats is crucial for ensuring
+longterm security in the face of advancing cryptanalysis techniques
+recent attacks on the sidechannel implementations using deep
+learning based power analysis have also shown that one needs to be
+cautious while implementing the required pqc algorithms in hardware
+two of the most recent works include one attack on mlkem kyberside
+and one attack on saber saberside an evolving threat landscape
+points to the fact that lattice based cryptography is indeed more
+vulnerable to sidechannel attacks as in sidech latticeside
+consequently there were some mitigation techniques for side channel
+attacks that have been proposed as in mitigate mitigate and
+mitigate
+ cryptographic agility
+cryptographic agility is recommended for both traditional and quantum
+cryptanalysis as it enables organizations to adapt to emerging
+threats adopt stronger algorithms comply with standards and plan
+for longterm security in the face of evolving cryptanalytic
+techniques and the advent of crqcs
+several pqc schemes are available that need to be tested
+cryptography experts around the world are pushing for the best
+possible solutions and the first standards that will ease the
+introduction of pqc are being prepared it is of paramount
+importance and a call for imminent action for organizations bodies
+and enterprises to start evaluating their cryptographic agility
+assess the complexity of implementing pqc into their products
+processes and systems and develop a migration plan that achieves
+their security goals to the best possible extent
+banerjee et al expires  february  page 
+internetdraft pqc for engineers august 
+an important and often overlooked step in achieving cryptographic
+agility is maintaining a cryptographic inventory modern software
+stacks incorporate cryptography in numerous places making it
+challenging to identify all instances therefore cryptographic
+agility and inventory management take two major forms first
+application developers responsible for software maintenance should
+actively search for instances of hardcoded cryptographic algorithms
+within applications when possible they should design the choice of
+algorithm to be dynamic based on application configuration second
+administrators policy officers and compliance teams should take
+note of any instances where an application exposes cryptographic
+configurations these instances should be managed either through
+organizationwide written cryptographic policies or automated
+cryptographic policy systems
+datatracker sign in
+numerous commercial solutions are available for both detecting hard
+coded cryptographic algorithms in source code and compiled binaries
+as well as providing cryptographic policy management control planes
+for enterprise and production environments
+ jurisdictional fragmentation
+another potential application of hybrids bears mentioning even
+though it is not directly pqcrelated that is using hybrids to
+navigate interjurisdictional cryptographic connections traditional
+cryptography is already fragmented by jurisdiction consider that
+while most jurisdictions support elliptic curve diffiehellman those
+in the united states will prefer the nist curves while those in
+germany will prefer the brainpool curves china russia and other
+jurisdictions have their own national cryptography standards this
+situation of fragmented global cryptography standards is unlikely to
+improve with pqc if and mode hybrids become standardized for the
+reasons mentioned above then one could imagine leveraging them to
+create ciphersuites in which a single cryptographic operation
+simultaneously satisfies the cryptographic requirements of both
+endpoints
+ hybrid key exchange and signatures bridging the gap between
+postquantum and traditional cryptography
+postquantum algorithms selected for standardization are relatively
+new and they have not been subject to the same depth of study as
+traditional algorithms pqc implementations will also be new and
+therefore more likely to contain implementation bugs than the battle
+tested crypto implementations that are relied on today in addition
+certain deployments may need to retain traditional algorithms due to
+regulatory constraints for example fips spc or pci
+compliance pci hybrid key exchange is recommended to enhance
+banerjee et al expires  february  page 
+internetdraft pqc for engineers august 
+security against the harvest now decrypt later attack
+additionally hybrid signatures provide for time to react in the case
+of the announcement of a devastating attack against any one
+algorithm while not fully abandoning traditional cryptosystems
+hybrid key exchange performs both a classical and a postquantum key
+exchange in parallel it provides security redundancy against
+potential weaknesses in pqc algorithms allows for a gradual
+transition of trust in pqc algorithms and in backwardcompatible
+designs enables gradual adoption without breaking compatibility with
+existing systems for instance in tls  a hybrid key exchange
+can combine a widely supported classical algorithm such as x
+with a postquantum algorithm like mlkem this allows legacy
+clients to continue using the classical algorithm while enabling
+upgraded clients to proceed with hybrid key exchange in contrast
+overheadspreading hybrid designs focus on reducing the pq overhead
+for example approaches like those described in
+idhalemlscombiner amortize pq costs by selectively applying pq
+updates in key exchange processes allowing systems to balance
+security and efficiency this strategy ensures a postquantum secure
+channel while keeping the overhead manageable making it particularly
+suitable for constrained environments
+while some hybrid key exchange options introduce additional
+computational and bandwidth overhead the impact of traditional key
+exchange algorithms eg key size is typically small helping to
+keep the overall increase in resource usage manageable for most
+systems in highly constrained environments however those hybrid
+key exchange protocols may be impractical due to their higher
+resource requirements compared to pure postquantum or traditional
+key exchange approaches however some hybrid key exchange designs
+distribute the pqc overhead making them more suitable for
+constrained environments the choice of hybrid key exchange design
+depends on the specific system requirements and use case so the
+appropriate approach may vary
+ caution ciphertext commitment in kem vs dh
+the ciphertext generated by a kem is not necessarily directly linked
+to the shared secret it produces kems allow for multiple
+ciphertexts to encapsulate the same shared secret which enables
+flexibility in key management without enforcing a strict onetoone
+correspondence between ciphertexts and shared secrets this allows
+for secret reuse across different recipients sessions or
+operational contexts without the need for new secrets for each use
+simplifying key distribution and reducing computational overhead in
+contrast cryptographic schemes like diffiehellman inherently link
+the public key to the derived shared secret meaning any change in
+banerjee et al expires  february  page 
+interne dtadtraaftrta c k e r pqc for engineers august sign in
+the public key results in a different shared secret
+ iana considerations
+this document has no iana considerations
+ further reading  resources
+a good book on modern cryptography is serious cryptography nd
+edition by jeanphilippe aumasson isbn 
+the open quantum safe oqs project oqs is an opensource project
+that aims to support the transition to quantumresistant
+cryptography
+the ietfs pquip working group pquipwg maintains a list of pqc
+related protocol work within the ietf
+ references
+ normative references
+classicmceliece
+classic mceliece nd httpsclassicmcelieceorg
+fndsa fast fourier latticebased compact signatures over ntru
+httpsfalconsigninfo
+frodokem frodokem nd httpsfrodokemorg
+grovers a fast quantum mechanical algorithm for database search
+nd httpsdlacmorgdoi
+idietflampsdilithiumcertificates
+massimo j kampanakis p turner s and b
+westerbaan internet x public key infrastructure 
+algorithm identifiers for the modulelatticebased digital
+signature algorithm mldsa work in progress internet
+draft draftietflampsdilithiumcertificates  june
+ httpsdatatrackerietforgdochtmldraftietf
+lampsdilithiumcertificates
+mldsa fips modulelatticebased digital signature
+standard httpsnvlpubsnistgovnistpubsfips
+nistfipspdf
+banerjee et al expires  february  page 
+internetdraft pqc for engineers august 
+mlkem fips modulelatticebased keyencapsulation
+mechanism standard
+httpsnvlpubsnistgovnistpubsfips
+nistfipspdf
+ntru ntru nd httpsntruorgindexshtml
+rfc arends r austein r larson m massey d and s
+rose resource records for the dns security extensions
+rfc  doi rfc march 
+httpswwwrfceditororgrfcrfc
+rfc mcgrew d igoe k and m salter fundamental elliptic
+curve cryptography algorithms rfc 
+doi rfc february 
+httpswwwrfceditororgrfcrfc
+rfc hao f ed schnorr noninteractive zeroknowledge
+proof rfc  doi rfc september 
+httpswwwrfceditororgrfcrfc
+rfc huelsing a butin d gazdag s rijneveld j and a
+mohaisen xmss extended merkle signature scheme
+rfc  doi rfc may 
+httpswwwrfceditororgrfcrfc
+rfc rescorla e the transport layer security tls protocol
+version  rfc  doi rfc august 
+httpswwwrfceditororgrfcrfc
+rfc mcgrew d curcio m and s fluhrer leightonmicali
+hashbased signatures rfc  doi rfc
+april  httpswwwrfceditororgrfcrfc
+rfc barnes r bhargavan k lipp b and c wood hybrid
+public key encryption rfc  doi rfc
+february  httpswwwrfceditororgrfcrfc
+datatracker sign in
+rfc smyslov v intermediate exchange in the internet key
+exchange protocol version  ikev rfc 
+doi rfc may 
+httpswwwrfceditororgrfcrfc
+rfc tjhai cj tomlinson m bartlett g fluhrer s van
+geest d garciamorchon o and v smyslov multiple
+key exchanges in the internet key exchange protocol
+version  ikev rfc  doi rfc may
+ httpswwwrfceditororgrfcrfc
+banerjee et al expires  february  page 
+internetdraft pqc for engineers august 
+rsa a method for obtaining digital signatures and publickey
+cryptosystems
+httpsdlacmorgdoipdf
+shors polynomialtime algorithms for prime factorization and
+discrete logarithms on a quantum computer nd
+httpsarxivorgpdfquantph
+slhdsa fips stateless hashbased digital signature
+standard httpsnvlpubsnistgovnistpubsfips
+nistfipspdf
+ informative references
+addsig addsig nd httpscsrcnistgovprojectspqcdig
+sigstandardization
+anssi anssi views on the postquantum cryptography transition
+nd httpscybergouvfrsitesdefaultfilesdocument
+followuppositionpaperonpostquantumcryptographypdf
+
+bhk subtleties in the definition of indcca when and how
+should challengedecryption be disallowed
+httpseprintiacrorg
+bike bike nd httppqchqcorg
+bpqs bpqs nd httpseprintiacrorgpdf
+bsipqc quantumsafe cryptography  fundamentals current
+developments and recommendations may 
+httpswwwbsibunddeshareddocsdownloadsenbsi
+publicationsbrochurequantumsafe
+cryptographyhtmlnn
+cloudflare
+nists pleasant postquantum surprise
+httpsblogcloudflarecomnistpostquantumsurprise
+cnsa announcing the commercial national security algorithm
+suite  httpsmediadefensegov
+maycsacnsaalgorithmspdf
+crqcthreat
+crqcthreat nd
+httpssamjaquesappspotcomquantumlandscape
+banerjee et al expires  february  page 
+internetdraft pqc for engineers august 
+cs design and analysis of practical publickey encryption
+schemes secure against adaptive chosen ciphertext attack
+httpseprintiacrorg
+gmr a digital signature scheme secure against adaptive
+chosenmessage attacks
+httpspeoplecsailmitedusilvio
+selectedscientificpapersdigitalsignatures
+adigitalsignatureschemesecureagainstadaptivechosen
+messageattackpdf
+groversearch
+c zalka grovers quantum searching algorithm is
+optimal physical review a vol  pp 
+
+hqc hqc nd httppqchqcorg
+iddraftbonnelllampschameleoncerts
+bonnell c gray j hook d okubo t and m
+ounsworth a mechanism for encoding differences in paired
+certificates work in progress internetdraft draft
+d a t a tr abocnkneelrllampschameleoncerts  april  sign in
+httpsdatatrackerietforgdochtmldraftbonnell
+lampschameleoncerts
+iddraftconnollycfrgxwingkem
+connolly d schwabe p and b westerbaan xwing
+generalpurpose hybrid postquantum kem work in
+progress internetdraft draftconnollycfrgxwingkem
+  july  httpsdatatrackerietforgdochtml
+draftconnollycfrgxwingkem
+iddraftietfpquiphybridsignaturespectrums
+bindel n hale b connolly d and f d hybrid
+signature spectrums work in progress internetdraft
+draftietfpquiphybridsignaturespectrums  june
+ httpsdatatrackerietforgdochtmldraftietf
+pquiphybridsignaturespectrums
+iddraftounsworthcfrgkemcombiners
+ounsworth m wussler a and s kousidis combiner
+function for hybrid key encapsulation mechanisms hybrid
+kems work in progress internetdraft draftounsworth
+cfrgkemcombiners  january 
+httpsdatatrackerietforgdochtmldraftounsworth
+cfrgkemcombiners
+banerjee et al expires  february  page 
+internetdraft pqc for engineers august 
+idhalemlscombiner
+jol hale b mularczyk m and x tian flexible
+hybrid pq mls combiner work in progress internetdraft
+drafthalemlscombiner  september 
+httpsdatatrackerietforgdochtmldrafthalemls
+combiner
+idietfhpkepq
+barnes r postquantum and postquantumtraditional
+hybrid algorithms for hpke work in progress internet
+draft draftietfhpkepq  june 
+httpsdatatrackerietforgdochtmldraftietfhpkepq
+
+idietflampscertbindingformultiauth
+becker a guthrie r and m j jenkins related
+certificates for use in multiple authentications within a
+protocol work in progress internetdraft draftietf
+lampscertbindingformultiauth  december 
+httpsdatatrackerietforgdochtmldraftietflamps
+certbindingformultiauth
+idietflampscmssphincsplus
+housley r fluhrer s kampanakis p and b
+westerbaan use of the slhdsa signature algorithm in the
+cryptographic message syntax cms work in progress
+internetdraft draftietflampscmssphincsplus 
+january  httpsdatatrackerietforgdochtml
+draftietflampscmssphincsplus
+idietflampspqcompositesigs
+ounsworth m gray j pala m klauner j and s
+fluhrer composite mldsa for use in x public key
+infrastructure work in progress internetdraft draft
+ietflampspqcompositesigs  july 
+httpsdatatrackerietforgdochtmldraftietflamps
+pqcompositesigs
+idietfpquippqchsmconstrained
+reddyk t wing d s b and k kwiatkowski
+adapting constrained devices for postquantum
+cryptography work in progress internetdraft draft
+ietfpquippqchsmconstrained  july 
+httpsdatatrackerietforgdochtmldraftietfpquip
+pqchsmconstrained
+banerjee et al expires  february  page 
+internetdraft pqc for engineers august 
+idietfpquippqthybridterminology
+d f p m and b hale terminology for postquantum
+traditional hybrid schemes work in progress internet
+draft draftietfpquippqthybridterminology 
+january  httpsdatatrackerietforgdochtml
+draftietfpquippqthybridterminology
+idietfsshmntruprimessh
+friedl m mojzis j and s josefsson secure shell
+ssh key exchange method using hybrid streamlined ntru
+d a t a tr aprcikmee rsntrup and x with sha sign in
+sntrupxsha work in progress internetdraft
+draftietfsshmntruprimessh  august 
+httpsdatatrackerietforgdochtmldraftietfsshm
+ntruprimessh
+idietftlshybriddesign
+stebila d fluhrer s and s gueron hybrid key
+exchange in tls  work in progress internetdraft
+draftietftlshybriddesign  july 
+httpsdatatrackerietforgdochtmldraftietftls
+hybriddesign
+idirtfcfrgbbssignatures
+looker t kalos v whitehead a and m lodder the
+bbs signature scheme work in progress internetdraft
+draftirtfcfrgbbssignatures  july 
+httpsdatatrackerietforgdochtmldraftirtfcfrg
+bbssignatures
+idirtfcfrghybridkems
+connolly d barnes r and p grubbs hybrid pqt key
+encapsulation mechanisms work in progress internet
+draft draftirtfcfrghybridkems  july 
+httpsdatatrackerietforgdochtmldraftirtfcfrg
+hybridkems
+keepingup
+keeping up with the kems stronger security notions for
+kems and automated analysis of kembased protocols nd
+httpseprintiacrorg
+kyberside
+a sidechannel attack on a hardware implementation of
+crystalskyber httpseprintiacrorg
+banerjee et al expires  february  page 
+internetdraft pqc for engineers august 
+lattfail
+decryption failure attacks on indcca secure lattice
+based schemes httpslinkspringercom
+chapterchapterinfo
+lattfail
+one failure is not an option bootstrapping the search
+for failures in latticebased encryption schemes
+httpslinkspringercom
+chapter
+latticeside
+generic sidechannel attacks on ccasecure latticebased
+pke and kem schemes httpseprintiacrorg
+liboqs liboqs  open quantum safe
+httpsgithubcomopenquantumsafeliboqs
+lyu v lyubashevsky fiatshamir with aborts applications
+to lattice and factoringbased signatures asiacrypt
+ httpswwwiacrorgarchive
+asiacryptpdf
+mitigate
+polka towards leakageresistant postquantum ccasecure
+public key encryption
+httpseprintiacrorg
+mitigate
+leakageresilient certificatebased authenticated key
+exchange protocol
+httpsieeexploreieeeorgdocument
+mitigate
+postquantum authenticated encryption against chosen
+ciphertext sidechannel attacks
+httpseprintiacrorg
+nist postquantum cryptography standardization
+httpscsrcnistgovprojectspostquantumcryptography
+postquantumcryptographystandardization
+nistfinal
+nist releases first  finalized postquantum encryption
+standards nd httpswwwnistgovnews
+eventsnewsnistreleasesfirstfinalizedpost
+quantumencryptionstandards
+banerjee et al expires  february  page 
+interne dtadtraaftrta c k e r pqc for engineers august sign in
+oqs open quantum safe project nd
+httpsopenquantumsafeorg
+pci payment card industry data security standard nd
+httpsdocs
+prvpcisecuritystandardsorgpcidssstandardpcidss
+vpdf
+pqcapi pqc  api notes
+httpscsrcnistgovcsrcmediaprojectspostquantum
+cryptographydocumentsexamplefilesapinotespdf
+pqrsa postquantum rsa april 
+httpscryptopaperspqrsapdf
+pquipwg postquantum use in protocols pquip working group
+nd
+httpsdatatrackerietforggrouppquipdocuments
+qcdns quantum computing and the dns
+httpswwwicannorgoctoenpdf
+quantside
+quantside nd httpsarxivorgpdf
+rfc housley r cryptographic message syntax cms std 
+rfc  doi rfc september 
+httpswwwrfceditororgrfcrfc
+rfc selander g preu mattsson j and f palombini
+ephemeral diffiehellman over cose edhoc rfc 
+doi rfc march 
+httpswwwrfceditororgrfcrfc
+rsasc breaking rsa encryption  an update on the stateofthe
+art httpswwwquintessencelabscomblogbreakingrsa
+encryptionupdatestateart
+rsahrs how to factor  bit rsa integers in  hours using 
+million noisy qubits httpsarxivorgabs
+rsashor circuit for shors algorithm using n qubits
+httpsarxivorgpdfquantphpdf
+banerjee et al expires  february  page 
+internetdraft pqc for engineers august 
+saberside
+a sidechannel attack on a masked and shuffled software
+implementation of saber
+httpslinkspringercomarticle
+s
+sidech sidechannel attacks on latticebased kems are not
+prevented by higherorder masking
+httpseprintiacrorg
+spc
+migration to postquantum cryptography quantum readiness
+quantumresistant cryptography technology interoperability
+and performance report
+httpswwwnccoenistgovsitesdefaultfiles
+pqcmigrationnistspcpreliminarydraftpdf
+spc
+recommendation for keyderivation methods in key
+establishment schemes
+httpsnvlpubsnistgovnistpubsspecialpublications
+nistspcrpdf
+threatreport
+quantum threat timeline report 
+httpsglobalriskinstituteorgpublicationsquantum
+threattimelinereport
+acknowledgements
+this document leverages text from an earlier draft by paul hoffman
+thanks to dan wing florence d thom wiggers sophia grundner
+culemann panos kampanakis ben s sofia celi melchior aelmans
+falko strenzke deirdre connolly hani ezzadeen britta hale scott
+rose hilarie orman thomas fossati roman danyliw mike bishop
+malia vuini ric vyncke deb cooley dirk von hugo and daniel van
+geest for the discussion review and comments
+in particular the authors would like to acknowledge the
+cont driabtuatitroansc kteo rthis document by kris kwiatkowski sign in
+authors addresses
+aritra banerjee
+nokia
+london
+united kingdom
+email aritrabanerjeenokiacom
+banerjee et al expires  february  page 
+internetdraft pqc for engineers august 
+tirumaleswar reddy
+nokia
+bangalore
+karnataka
+india
+email ktirumaleswarreddynokiacom
+dimitrios schoinianakis
+nokia
+athens
+greece
+email dimitriosschoinianakisnokiabelllabscom
+timothy hollebeek
+digicert
+pittsburgh
+united states of america
+email timhollebeekdigicertcom
+mike ounsworth
+entrust limited
+ solandt road  suite 
+ottawa ontario kk g
+canada
+email mikeounsworthentrustcom
+banerjee et al expires  february  page 
+ietf iesg iab irtf ietf llc ietf trust rfc editor iana privacy statement
+about ietf datatracker version  release  dcj system status  report a bug githubemail

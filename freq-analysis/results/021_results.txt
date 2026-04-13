@@ -1,0 +1,8 @@
+Framework: 021.txt
+Total Words: 5369
+========================================
+crypto_assets: 0
+crypto_agility: 1
+migration_planning: 37
+risk_management: 22
+standards_compliance: 4

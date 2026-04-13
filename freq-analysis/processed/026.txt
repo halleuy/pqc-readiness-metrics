@@ -1,0 +1,2302 @@
+nist special publication b
+migration to postquantum cryptography
+quantum readiness cryptographic discovery
+volume b
+approach architecture and security characteristics of public key application discovery tools
+william newhouse david mcgrew david hook
+murugiah souppaya cisco systems inc keyfactor
+national institute of san jose california independence ohio
+standards and technology
+rockville maryland anne dames raul garcia
+ibm microsoft
+william barker yorktown heights new york redmond washington
+dakota consulting
+silver spring maryland vladimir soukharev evgeny gervis
+infosec global safelogic inc
+chris brown toronto canada palo alto california
+the mitre corporation
+mclean virginia philip lafrance eunkyung kim
+isara corporation changhoon lee
+panos kampanakis ontario canada samsung sds co ltd
+amazon web services inc seoul republic of south
+aws anthony hu korea
+arlington virginia wolfssl
+seattle washington
+marc manzano
+sandboxaq
+palo alto california
+december 
+preliminary draft
+this publication is available free of charge from
+httpswwwnccoenistgovcryptoagilityconsiderationsmigratingpostquantumcryptographicalgorithms
+preliminary draft
+ disclaimer
+ certain commercial entities equipment products or materials may be identified by name or company
+ logo or other insignia in order to acknowledge their participation in this collaboration or to describe an
+ experimental procedure or concept adequately such identification is not intended to imply special sta
+ tus or relationship with nist or recommendation or endorsement by nist or nccoe neither is it in
+ tended to imply that the entities equipment products or materials are necessarily the best available
+ for the purpose
+ national institute of standards and technology special publication b natl inst stand technol
+ spec publ b  pages december  coden nspue
+ feedback
+ this initial draft offers  a functional test plan that exercises the cryptographic discovery tools to
+ determine baseline capabilities  a use case scenario to provide context and scope for our
+ demonstration  an examination of the threats addressed in this demonstration  a multifaceted
+ approach to the discovery process that most organizations can start today and  a highlevel
+ architecture based on our use case that integrates contributed discovery tools in our lab
+ you can improve this initial public draft by submitting comments we are always seeking feedback on
+ our publications and how they support our readers needs we are particularly interested in learning
+ from readers if this initial draft is helpful to you and what you want to see covered in future versions of
+ this publication
+ the project will soon have a repository in httpsgithubcomusnistgov to provide the data shared in
+ this initial draft and relevant data created by the project in the future
+ comments on this publication may be submitted to appliedcryptopqcnistgov
+ public comment period december   through february  
+ all comments are subject to release under the freedom of information act
+ national cybersecurity center of excellence
+ national institute of standards and technology
+  bureau drive
+ mailstop 
+ gaithersburg md 
+ email nccoenistgov
+nist sp b migration to postquantum cryptography ii
+preliminary draft
+ national cybersecurity center of excellence
+ the national cybersecurity center of excellence nccoe a part of the national institute of standards
+ and technology nist is a collaborative hub where industry organizations government agencies and
+ academic institutions work together to address businesses most pressing cybersecurity issues this
+ publicprivate partnership enables the creation of practical cybersecurity solutions for specific
+ industries as well as for broad crosssector technology challenges through consortia under
+ cooperative research and development agreements cradas including technology partnersfrom
+ fortune  market leaders to smaller companies specializing in information technology securitythe
+ nccoe applies standards and best practices to develop modular adaptable example cybersecurity
+ solutions using commercially available technology the nccoe documents these example solutions in
+ the nist special publication  series which maps capabilities to the nist cybersecurity framework
+ and details the steps needed for another entity to recreate the example solution the nccoe was
+ established in  by nist in partnership with the state of maryland and montgomery county
+ maryland
+ to learn more about the nccoe visit httpswwwnccoenistgov to learn more about nist visit
+ httpswwwnistgov
+ nist cybersecurity practice guides
+ nist cybersecurity practice guides special publication  series target specific cybersecurity
+ challenges in the public and private sectors they are practical userfriendly guides that facilitate the
+ adoption of standardsbased approaches to cybersecurity they show members of the information
+ security community how to implement example solutions that help them align with relevant standards
+ and best practices and provide users with the materials lists configuration files and other information
+ they need to implement a similar approach
+ the documents in this series describe example implementations of cybersecurity practices that
+ businesses and other organizations may voluntarily adopt these documents do not describe regulations
+ or mandatory practices nor do they carry statutory authority
+ keywords
+ algorithm cryptography encryption identity management key establishment and management post
+ quantum cryptography publickey cryptography quantumresistant vulnerable cryptography discovery
+ acknowledgments
+ we are grateful to the following individuals for their generous contributions of expertise and time
+name organization
+cameron bytheway amazon web services inc aws
+torben hansen amazon web services inc aws
+nist sp b migration to postquantum cryptography iii
+preliminary draft
+name organization
+brian jarvis amazon web services inc aws
+jake massimo amazon web services inc aws
+wesley rosenblum amazon web services inc aws
+martin schaef amazon web services inc aws
+alex weibel amazon web services inc aws
+avani wildani cloudflare inc
+natasha eastman cybersecurity and infrastructure security agency cisa
+garfield jones cybersecurity and infrastructure security agency cisa
+nancy pomerleau cybersecurity and infrastructure security agency cisa
+judith furlong dell technologies
+corey bonnell digicert
+avesta hojjati digicert
+boris balacheff hp inc
+tommy charles hp inc
+thalia laing hp inc
+wai choi ibm
+christopher meyer ibm
+michael osborne ibm
+emily ratliff ibm
+kelsey holler information security corporation
+nist sp b migration to postquantum cryptography iv
+preliminary draft
+name organization
+philip george infosec global
+york lam infosec global
+ninaa persad infosec global
+julien probst infosec global
+jackie parker isara corporation
+rob williams isara corporation
+atsushi yamada isara corporation
+hubert le van gong jpmorgan chase bank na
+john m chan jpmorgan chase bank na
+roy basmacier keyfactor
+alexander scheel keyfactor
+ted shorter keyfactor
+bryan uhri keyfactor
+benjamin rodes microsoft
+lily chen national institute of standards and technology nist
+david cooper national institute of standards and technology nist
+daniel eliot national institute of standards and technology nist
+dustin moody national institute of standards and technology nist
+andy regenscheid national institute of standards and technology nist
+mike jenkins national security agency nsa
+nist sp b migration to postquantum cryptography v
+preliminary draft
+name organization
+brendan zember national security agency nsa
+sean morgan palo alto networks public sector llc
+graeme hickey pqshield
+michael hutter pqshield
+kris kwiatkowski pqshield
+ben packman pqshield
+axel poschmann pqshield
+jihoon cho samsung sds co ltd
+yoonchan jhi samsung sds co ltd
+hyojin yoon samsung sds co ltd
+hunhee yu samsung sds co ltd
+eric ahlstrom sandboxaq
+jackson beall sandboxaq
+nikolai chernyy sandboxaq
+nick hamilton sandboxaq
+tarun sibal sandboxaq
+michael toney sandboxaq
+daniel cuthbert santander
+jaime gomez santander
+robert burns thales dis cpl usa inc
+nist sp b migration to postquantum cryptography vi
+preliminary draft
+name organization
+jane gilbert thales trusted cyber technologies
+dnan godfrey thales trusted cyber technologies
+gina scinta thales trusted cyber technologies
+kaitlyn laohoo the mitre corporation
+neil mcnab the mitre corporation
+jessica walton the mitre corporation
+volker krummel utimaco
+lee e sattler verizon
+ the technology partnerscollaborators who participated in this build submitted their capabilities in
+ response to a notice in the federal register respondents with relevant capabilities or product
+ components were invited to sign a cooperative research and development agreement crada with
+ nist allowing them to participate in a consortium to build this example solution we worked with
+migration to post quantum cryptography technology collaborators
+amazon web services inc information security corporation samsung sds co ltd
+aws
+cisco systems inc infosec global sandboxaq
+cloudflare inc isara corporation santander
+ssh communications security
+cryptoa technologies inc jpmorgan chase bank na
+corp
+cryptonext security keyfactor thales dis cpl usa inc
+cybersecurity and infrastruc thales trusted cyber technolo
+microsoft
+ture security agency cisa gies
+dell technologies national security agency nsa utimaco
+nist sp b migration to postquantum cryptography vii
+preliminary draft
+migration to post quantum cryptography technology collaborators
+palo alto networks public sector
+digicert verizon
+llc
+entrust pqshield vmware inc
+hp inc quantumxchange wolfssl
+ibm safelogic inc
+ document conventions
+ the terms shall and shall not indicate requirements to be followed strictly to conform to the
+ publication and from which no deviation is permitted the terms should and should not indicate that
+ among several possibilities one is recommended as particularly suitable without mentioning or
+ excluding others or that a certain course of action is preferred but not necessarily required or that in
+ the negative form a certain possibility or course of action is discouraged but not prohibited the terms
+ may and need not indicate a course of action permissible within the limits of the publication the
+ terms can and cannot indicate a possibility and capability whether material physical or causal
+ call for patent claims
+ this public review includes a call for information on essential patent claims claims whose use would be
+ required for compliance with the guidance or requirements in this information technology laboratory
+ itl draft publication such guidance andor requirements may be directly stated in this itl publication
+ or by reference to another publication this call also includes disclosure where known of the existence
+ of pending us or foreign patent applications relating to this itl draft publication and of any relevant
+ unexpired us or foreign patents
+ itl may require from the patent holder or a party authorized to make assurances on its behalf in writ
+ ten or electronic form either
+ a assurance in the form of a general disclaimer to the effect that such party does not hold and does not
+ currently intend holding any essential patent claims or
+ b assurance that a license to such essential patent claims will be made available to applicants desiring
+ to utilize the license for the purpose of complying with the guidance or requirements in this itl draft
+ publication either
+  under reasonable terms and conditions that are demonstrably free of any unfair discrimination
+ or
+  without compensation and under reasonable terms and conditions that are demonstrably free
+ of any unfair discrimination
+nist sp b migration to postquantum cryptography viii
+preliminary draft
+ such assurance shall indicate that the patent holder or third party authorized to make assurances on its
+ behalf will include in any documents transferring ownership of patents subject to the assurance provi
+ sions sufficient to ensure that the commitments in the assurance are binding on the transferee and that
+ the transferee will similarly include appropriate provisions in the event of future transfers with the goal
+ of binding each successorininterest
+ the assurance shall also indicate that it is intended to be binding on successorsininterest regardless of
+ whether such provisions are included in the relevant transfer documents
+ such statements should be addressed to appliedcryptopqcnistgov
+nist sp b migration to postquantum cryptography ix
+preliminary draft
+contents
+
+  summary  
+  challenge  
+  outcomes  
+  preparing for the new postquantum standards  
+  publickey cryptographic technologies  
+  demonstration activity  
+  how to use this guide  
+  approach the migration to postquantum cryptography projects
+ contribution to quantum readiness  
+  audience  
+  scope  
+  example discovery scenario for a mediumsized business  
+  project execution of example scenario in our lab  
+  vulnerable cryptographic algorithms  
+  terminology  
+  risk assessment  
+  threats to classical cryptography 
+  vulnerabilities  
+  survey of risk methodologies  
+  architecture  
+  architecture description  
+  protecting the code development pipeline  
+  operational systems and applications  
+  transport protocols and network services  
+  common output elements for identifying vulnerable systems  
+  technologies  
+  consortium members  
+  cisco  
+  ibm  
+  infosec global isg  
+  isara corporation  
+nist sp b migration to postquantum cryptography x
+preliminary draft
+  keyfactor  
+  microsoft  
+  safelogic  
+  samsung sds  
+  sandboxaq  
+  wolfssl  
+  products and technologies  
+  future project considerations  
+ appendix a list of acronyms  
+ appendix b references  
+ appendix c discovery platform lab functional demonstration plan  
+ c use case   
+ c use case   
+ c use case   
+ c use case   
+ c use case   
+ c use case   
+ c use case   
+ c use case   
+ appendix d ibm z remote discovery platform functional
+ demonstration plan  
+ d use case   
+ d use case   
+ d use case   
+ d use case   
+ d use case   
+ d use case   
+list of figures
+
+ figure  nist cryptographic standards and guidelines  
+ figure  conceptual vulnerable cryptography discovery workflow 
+nist sp b migration to postquantum cryptography xi
+preliminary draft
+ figure  conceptual ci pipeline 
+ figure  sensor data flow  
+ figure  passive network discovery  
+list of tables
+
+ table  ssdf practice groups  
+ table  security characteristic mapping to ssdf tasks  
+ table  scope of vulnerable algorithms  
+ table  submitted cwe  
+ table  software development components  
+ table  networkbased discovery data elements  
+ table  tool component property specification  
+ table  runstoolrules property specification  
+ table  runsresults property specification 
+ table  runstoolsrulesmessage elements  
+ table  vulnerable algorithm identifiers  
+ table  products and technologies  
+nist sp b migration to postquantum cryptography xii
+preliminary draft
+ summary
+
+ in  the national institute of standards and technology nist published cswp getting ready
+ for postquantum cryptography exploring challenges associated with adopting and using post
+ quantum cryptographic algorithms  and the national cybersecurity center of excellence nccoe
+ initiated the migration to post quantum cryptography project  to develop practices and demonstrate
+ capabilities for easing migration from the current set of publickey cryptographic algorithms to
+ replacement algorithms that are resistant to quantumcomputerbased attacks the replacement
+ algorithms were then identified and selected under a nist postquantum standards program initiated in
+  subsequently on may   the white house issued a national security memorandum nsm
+ on promoting united states leadership in quantum computing while mitigating risks to vulnerable
+ cryptographic systems  this nsm reinforced the nccoes project priority by directing nist to
+ establish a migration to postquantum cryptography project as the united states begins the multiyear
+ process of migrating vulnerable computer systems to quantumresistant cryptography
+ the advent of a cryptanalytically relevant quantum computer crqc will render current standard
+ publickey cryptographic algorithms ineffective these publickey algorithms are widely used in
+ protecting the integrity and confidentiality of digital information replacement of cryptographic
+ algorithms is both technically and logistically challenging it can take years or even decades to complete
+ working with the public and private sectors to address cybersecurity challenges posed by the transition
+ to quantumresistant cryptography the nccoe is undertaking a practical demonstration of technology
+ and tools that can assist organizations to develop a migration plan sometimes called a quantum
+ readiness roadmap two demonstration activities were selected to enable and inform migration one
+ demonstration is focused on tools that discover where and how public key algorithms are being used
+ the second involves experiments that measure the performance of the emerging quantumresistant
+ algorithms for security functions and protocols that are currently reliant on quantumvulnerable
+ algorithms
+ this volume covers the demonstration activities focused on the use of automated discovery tools these
+ tools identify instances of quantumvulnerable publickey algorithms that are widely deployed across an
+ organization to create a cryptographic algorithm inventory that will help an organization to develop its
+ migration roadmap
+ a separate volume will be published on the development and improvement of migration strategies
+ enabled by demonstrating the interoperability and performance of postquantum algorithm
+ implementations and sharing our tools and findings with standards developing organizations and
+ industry sectors reliant on cryptographic protection
+ the reader should note this is a preliminary draft of the document and while the content is considered
+ to be stable changes are expected to occur there are gaps in the content and the overall document is
+ still incomplete nist welcomes early informal feedback and comments which will be adjudicated after
+ the specified public comment period organizations may consider experimenting with guidelines with
+ the understanding that they will identify gaps and challenges
+nist sp b migration to postquantum cryptography 
+preliminary draft
+  challenge
+ a cryptographic inventory should be viewed as an asset that supports an organizations overall
+ cybersecurity risk management strategy a cryptographic inventory is needed to apply cryptographic
+ policy across an organizations digital infrastructures to react quickly to security issues involving
+ cryptography and to inform transformations such as migrating cryptography services to the cloud or
+ deploying postquantum cryptography
+ this publication shares insights and findings about the use of cryptographic discovery tools to create a
+ cryptographic inventory this information may help organizations to start or improve their inventories
+ this publication is one of the first focused on practices for creating expanding or using a cryptographic
+ inventory to support migration to quantumresistant cryptographic technologies as an initial draft it
+ offers  a functional test plan that exercises the cryptographic discovery tools to determine baseline
+ capabilities  a usecase scenario to provide context and scope our demonstration  the threats we
+ will address in this demonstration  a multifaceted approach for the discovery process that most
+ organizations can start today and  a highlevel architecture based on our use case that integrates
+ contributed discovery tools in our lab
+  outcomes
+ this preliminary practice guide can help your organization with the following
+  identifying where and how publickey algorithms are being used in your information systems
+  raising internal awareness and understanding of riskbased cryptographic migration planning
+ through the demonstration of tools practice and guidance
+  developing a riskbased playbookinvolving people processes and technologies while
+ connecting with existing risk management toolsfor performing a migration to postquantum
+ cryptography
+  preparing for the new postquantum standards
+ in recent years there has been a substantial amount of research on quantum computers  machines
+ that exploit quantum mechanical phenomena to solve mathematical problems that are difficult or
+ intractable for conventional computers if largescale quantum computers are ever built they will be
+ able to break many of the publickey cryptosystems currently in use this would seriously compromise
+ the confidentiality and integrity of digital communications on the internet and elsewhere
+ in  nist began developing standards for postquantum cryptography also called quantum
+ resistant cryptography to enable cryptographic systems that are secure against both quantum and
+ classical computers and can interoperate with existing communications protocols and networks new
+ standards that specify key establishment and digital signature schemes that are designed to resist future
+ attacks by quantum computers will be published in 
+ previous initiatives to update or replace installed cryptographic technologies have taken many years
+ while the pqc standards are in development organizations are encouraged to begin cryptographic
+ discovery activities to identify the organizations current reliance on quantumvulnerable cryptography
+nist sp b migration to postquantum cryptography 
+preliminary draft
+  publickey cryptographic technologies
+ cryptographic technologies are used throughout government industry and academia to authenticate
+ the source and protect the confidentiality and integrity of information that we communicate and store
+ cryptographic technologies include a broad range of protocols schemes and infrastructures but they
+ rely on a relatively small collection of cryptographic algorithmsthey are mathematical functions that
+ transform data generally using a variable called a key to protect information the protection of these
+ key variables is essential to the continued security of the protected data
+ publickey also known as asymmetric cryptographic algorithms require the originator to use one key
+ and the recipient to use a different but related key one of these asymmetric keys the private key must
+ be kept secret but the other key the public key can be shared or even made public without degrading
+ the security of the cryptographic process symmetric algorithms require a secret key to be shared by
+ sender and receiver the asymmetric publickey algorithms are used for data integrity eg digital
+ signature and protected exchange of shared keys used by symmetric algorithms the symmetric
+ algorithms are more efficient for protection of bulk information but the secure exchange and
+ establishment of shared keys generally requires protection by asymmetric cryptography
+ from time to time the discovery of a cryptographic weakness constraints imposed by dependent
+ technologies or advances in the technologies that support cryptanalysis make it necessary to replace a
+ cryptographic algorithm practical quantum computing is a technological advance that will make the
+ standard publickey algorithms now in use inadequate for provision of confidentiality of information
+ including secret keys most algorithms on which we depend are used worldwide in components of many
+ different communications processing and storage systems cryptography has become ubiquitous it is
+ embedded in systems and components as different as operating systems communications products
+ and internet of things devices in environments as different as space vehicles automobiles enterprise
+ data centers household appliances and embedded medical devices information system owners are
+ often unaware of what components have cryptography embedded or how the cryptography is used in
+ each case
+ also almost all information systems lack cryptographic agilitythat is they are not designed to
+ encourage support of rapid adaptations of new cryptographic primitives and algorithms without making
+ significant changes to the systems infrastructure as a result an organization may not be able to easily
+ alter or replace its cryptographic mechanisms when needed while some components of some systems
+ tend to be replaced by improved components on a relatively frequent basis eg cell phones other
+ components are expected to remain in place for a decade or more eg components in electricity
+ generation and distribution systems
+ communications interoperability and records archiving requirements introduce additional constraints
+ on system components as a general rule cryptographic algorithms cannot be replaced until all
+ components of a system are prepared to process the replacement updates to protocols schemes and
+ infrastructures often must be implemented when introducing new cryptographic algorithms
+ consequently algorithm replacement can be extremely disruptive and often takes a long time to
+ complete unfortunately the implementation of postquantum publickey standards is likely to be even
+ more problematic than the past introduction of new classical cryptographic algorithms in the absence
+nist sp b migration to postquantum cryptography 
+preliminary draft
+ of significant implementation planning it is likely to be decades before the community replaces most of
+ the quantumvulnerable publickey systems currently in use
+ it would be ideal to have dropin replacements for quantumvulnerable algorithms eg rsa and
+ diffiehellman for each of these purposes unfortunately each of the new quantumresistant
+ algorithms has at least one requirement for secure implementation that makes dropin replacement
+ unsuitable sometimes for example the selected algorithms have large signature sizes involve excessive
+ processing require large public andor private keys require operations that are asymmetric between
+ sending and receiving parties and require the responder to generate a message based on the initiators
+ public value andor involve other uncertainties with respect to computational results depending on the
+ algorithm and the operation using that algorithm secure implementation may need to address issues
+ such as publickey validation publickey reuse decryption failure even when all parameters are
+ correctly implemented and the need to select new auxiliary functions eg hash functions used in
+ digital signature schemes even where secure operation is possible performance and scalability issues
+ may demand significant modifications to protocols and infrastructures
+ different postquantum algorithms can have significantly different performance characteristics and
+ implementation constraints with respect to key sizes signature sizes resource requirements etc
+ consequently different algorithms can be more suitable than others for specific applications for
+ example the signature or key size might not be a problem for some applications but can be
+ unacceptable for others some widely used protocols need to be modified to handle larger signatures or
+ key sizes eg using message segmentation implementations of new applications will need to
+ accommodate the demands of postquantum cryptography pqc and the schemes developed that
+ incorporate pqc for digital signatures and key establishment in fact pqc requirements may actually
+ shape some future application standards the replacement of algorithms generally requires changing or
+ replacing cryptographic libraries implementation validation tools hardware that implements or
+ accelerates algorithm performance dependent operating system and application code communications
+ devices and protocols and user and administrative procedures security standards procedures and best
+ practice documentation are being changed or replaced and the same will be needed for installation
+ configuration and administration documentation
+ when a decision is made to replace an algorithm it is necessary to develop a playbook that takes all of
+ the above factors into consideration some elements of the playbook are dependent on the
+ characteristics of both the algorithms being replaced and the replacement algorithms other elements
+ needed for developing a detailed migration playbook can be determined before the replacement
+ algorithms are selected and documentedfor example discovery and documentation of systems
+ applications protocols and other infrastructure and usage elements that use or are dependent on the
+ algorithms being replaced
+ the first step in pqc migration planning is to identify where and for what purpose publickey
+ cryptography is currently being used publickey cryptography has been integrated into existing
+ computer and communications hardware operating systems application programs databases
+ communications protocols key infrastructures and access control mechanisms examples of publickey
+ cryptography uses include
+  digital signatures used to provide source authentication and integrity authentication as well as
+ support the nonrepudiation of messages documents or stored data
+nist sp b migration to postquantum cryptography 
+preliminary draft
+  identity authentication processes used to establish an authenticated communication session or
+ authorization to perform a particular action
+  key transport of symmetric keys eg keywrapping data encryption message authentication
+ keys and other keying material eg initialization vectors
+ this volume focuses on meeting the challenge of discovering where and how an enterprises publickey
+ cryptography is used
+  demonstration activity
+ to support the first step in migrating to postquantum algorithms  identifying where and for what
+ purpose publickey cryptography is being used within an enterprise  this project will document a
+ demonstration activity which leverages discovery tools and platforms identifying assets such as
+ hardware and software as part of an inventory is a core function of the cybersecurity framework csf
+ and a basic precondition for any organization to effectively manage cybersecurity risk this project
+ extends an existing inventory capability by identifying cryptographic assets and subsequently correlating
+ them to hardware software and services that have been previously inventoried
+ this project takes a holistic approach for the discovery of cryptographic assets by using a combination of
+ active and passive discovery techniques that are described in detail in this document in summary we
+ focus on vulnerable cryptographic algorithms within an organizations digital systems and codebases
+ and use the discovered cryptographic assets to support the prioritization of their replacement lab
+ demonstrations aim to leverage existing enterprise tools code repositories governance risk and
+ compliance grc platforms siem solutions configuration management databases etc and will use
+ multiple commercially available and opensource discovery tools to achieve project objectives
+ we have selected an interchange format to demonstrate using the output from the discovery tools for
+ postdiscovery risk analysis we invite implementers to use the interchange format as part of an
+ organizations approach to leveraging discovery results
+ how to use this guide
+
+ this nist cybersecurity practice guide focuses on one identified practice to ease migration from the
+ current set of publickey cryptographic algorithms to replacement algorithms that are resistant to
+ quantum computerbased attacks it is an initial preliminary public draft that shares what has been
+ learned todate regarding the use of automated cryptographic algorithm discovery tools
+ readers in it roles such as security architects and system administrators who are responsible for
+ monitoring the state of implementation of pqc standards in technology to inform their migration plan
+ may also want to refer to a separate document in this series nist sp c quantumresistant
+ cryptography technology interoperability and performance report that report summarizes the
+ outcomes from the performance and interoperability workstream testing in which we identified the
+ challenging problems and bottlenecks that integrators will face when transitioning systems to post
+ quantumready algorithms
+ this guide and nist sp c were preceded by nist sp a executive summary migration to
+ postquantum cryptography preparation for considering the implementation and adoption of quantum
+nist sp b migration to postquantum cryptography 
+preliminary draft
+ safe cryptography business decision makers including chief information security and technology
+ officers should refer to this document to understand the drivers for this project and the challenges we
+ plan to address
+ this guide uses a monospace typeface for javascript object notation json examples
+ approach the migration to postquantum cryptography
+
+projects contribution to quantum readiness
+
+ a successful postquantum cryptography migration will take time to plan and conduct and can be
+ described by a multistep approach the approach is consistent with the activities below from the
+ quantumreadiness migration to postquantum cryptography factsheet  created in partnership with
+ the department of homeland securitys cybersecurity  infrastructure security agency cisa and the
+ national security agency nsa
+  establish a quantumreadiness roadmap
+  prepare a cryptographic inventory
+  discuss quantum safe roadmaps with technology vendors
+  determine supply chain quantumreadiness
+ the findings of the discovery activity and subsequent interoperability and performance activity can be
+ used in refining organizations quantumreadiness roadmaps as the scope distribution characteristics
+ and requirements of their quantumvulnerable implementations emerge
+ one aspect that the nccoe migration to postquantum cryptography project approach focuses on is
+ automated tools that address step  prepare a cryptographic inventory this step should be taken to
+ identify vulnerable cryptographic algorithms used by an organization automated tools should identify
+ the cryptographic algorithms used in hardware and software modules libraries and embedded code
+ automated tools should also identify the cryptographic algorithms currently used by an enterprise to
+ support cryptographic key establishment and management underlying the security of cryptographically
+ protected information and access management processes as well as algorithms used to protect the
+ source and content integrity of data at rest in transit and in use
+ after the vulnerable publickey cryptography components and associated assets in the enterprise are
+ identified the next objective of the project is to prioritize those components that need to be considered
+ first in the migration using a risk management methodology informed by the sensitivity and criticality of
+ the information being protected over time
+ in  nist invited organizations to provide letters of interest describing products and technical
+ expertise to support the migration to postquantum cryptography project this notice was the initial
+ step for the nccoe in collaborating with technology companies to address cybersecurity challenges
+ identified under this project commercial and opensource software and hardware technology providers
+ responded with technology and tools that can provide organizations a head start to migrate to post
+ quantum cryptography and signed cooperative research and development agreement crada with
+nist sp b migration to postquantum cryptography 
+preliminary draft
+ nist to become project collaborators the project collaborators first met in june  and established
+ two workstreams each of which focuses on a specific aspect of migration to pqc
+ this initial draft incorporates the contributions of consortium members in terms of their technologies
+ and also offers initial strategies on how to leverage discovery to prioritize migration technologies
+ updates to this document will be made when additional demonstrations are completed section 
+ discusses areas we have identified for future work in this workstream
+  audience
+ this document shares insights for medium to large enterprises using cryptographic technologies
+ products and services including cloud services that include quantumvulnerable publickey
+ cryptographic algorithms and for companies that supply services and products that employ quantum
+ vulnerable publickey cryptographic algorithms within these audiences we focus on individuals
+ supporting those responsible for system provisioning maintenance and security this audience may
+ include business decision makers such as authorizing officials and data owners and operators who are
+ concerned with cryptographic risk analysis capabilities
+ additionally us federal agencies may find the capabilities and products that we demonstrate useful
+ for assigned tasks in the november  office of management and budget omb memorandum on
+ migrating to postquantum cryptography m  this memorandum includes steps for agencies
+ to take to transition to pqc
+  scope
+ this publication includes an example scenario to frame the challenge of cryptographic discovery from
+ the perspective of an organization beginning its migration to pqc the scenario also scopes the desired
+ outcomes in section  we discuss the approaches we will take to realize the outcomes described in
+ section  in section  we specify the cryptographic algorithms that are considered vulnerable in
+ the context of this demonstration
+  example discovery scenario for a mediumsized business
+ the following scenario describes a fictional company and its approach to migration to pqc
+ zetamsb inc zeta is a mediumsized business that provides it consultancy services regionally zeta has
+ approximately  employees with two office locations however a quarter of the employees are
+ primarily remote workers further each employee is issued an organizationally managed laptop to
+ access proprietary zeta data to support it consultancy clients this proprietary knowledge base is stored
+ on a mixture of leased bare metal servers that zeta manages and cloud services zeta also has a
+ development team that creates software and services which support its clients and zeta internal
+ processes
+ zetas ciso has recently been tasked with coming up with a strategy to protect zetas critical
+ information and its competitive edge far into the future to that end the forwardlooking ciso has
+ started to read about the potential future impacts of quantum computing  specifically the threats to
+ the integrity and confidentiality of data the ciso consequently becomes concerned about zetas
+ current cryptographic posture and how competitors or other bad actors could use cryptanalytically
+nist sp b migration to postquantum cryptography 
+preliminary draft
+ relevant quantum computers crqcs to exfiltrate proprietary data while stored on zetas servers or in
+ transit to their remote workers
+ zeta has a fairly mature cybersecurity program that leverages the nist cybersecurity framework csf
+ and as such periodically identifies future threats as part of risk management as a result the ciso
+ decides to develop a plan that will address crqc threats to their organization by incorporating into their
+ longterm cyber strategy the migration of their systems and services that use vulnerable cryptography to
+ quantumresistant cryptography hereafter referred to as postquantum cryptography pqc the ciso
+ adopts a phased approach covering multiple years due to their products having dependencies on third
+ party software that does not yet incorporate pqc however they conclude that the initial phase could
+ be started immediately by expanding current hardware and software inventory processes to identify
+ quantumvulnerable cryptography in use within zeta
+ in consultation with stakeholders across the organization the ciso derives a threepronged approach
+ for identifying the uses of vulnerable cryptography within the organization first zetas newly formed
+ migration team will identify digital cryptographic assets on operational systems fielded to zeta
+ employees and on systems and devices that are managed by zetas it department these include
+ operating systems communications servers and controllers for wired and wireless internal and external
+ networks thirdparty application software application software developed inhouse security systems
+ such as firewalls and key generation and management systems in addition employees may use cloud
+ services that are not managed by zetas it department but that provide cryptographic protection for
+ zeta information the migration team concludes the best way to identify these services is to capture
+ traffic from operational networks and examine it for instances of vulnerable cryptography usage with a
+ focus on the information that traverse the public internet finally to align with the organizations shift
+ left methodology the migration team recommends identifying vulnerable cryptography used by their
+ devops team in their codebases this would enable the devops team to update their codebases with
+ postquantum cryptography after documenting this approach the ciso directs the migration team to
+ automate as much of the discovery process as possible leveraging existing enterprise services if feasible
+ the zeta migration team proceeds to perform market research on vulnerable cryptography discovery
+ tools available in commercial and opensource products they conclude that multiple products may be
+ necessary to achieve their desired outcomes that presents a challenge to the team however because
+ there is a discrete reporting format for each discovery platform to provide a common data format for
+ collecting the data as a result to support automation each discovery platforms reporting format will
+ need to be normalized into a common format in order to integrate into existing security event
+ aggregation and reporting tools
+ resources for the migration task are limited at zeta because of other planned it modernization efforts
+ occurring in the same timeframe as a result the ciso must follow a riskbased approach to prioritize
+ which systems will be migrated first after the inventory has been completed fortunately zeta has
+ identified processes and knowledge assets that are critical to the viability of its business by way of past
+ csf activities these processes and assets will be mapped to operational systems and services identified
+ by the discovery platforms and given higher priority in the migration effort
+nist sp b migration to postquantum cryptography 
+preliminary draft
+  project execution of example scenario in our lab
+ to create an implementation in our nccoe migration to pqc lab environment for the scenario above
+ the nccoe team is collaborating with consortium members to create an appropriate environment
+ including vulnerable algorithm discovery tools representative enterprise infrastructure and test data
+ the enterprise infrastructure includes virtual and hardware endpoint computing devices such as
+ laptops with common software installed such as web browsers and business productivity software this
+ will be complemented by servers that leverage cryptographic services such as https and secure shell
+ ssh the devops environment will be built using common components that are described later in this
+ document
+ finally test data will include captured network traffic that has protocols using known vulnerable
+ cryptography these captures can support scenarios in which network traffic is replayed to simulate an
+ operational network where networkbased sensors for discovering vulnerable cryptography can
+ perform an analysis in real time it also supports an alternative discovery scenario where an organization
+ has historical captures that are uploaded to the discovery tool for analysis the captures will function as
+ repeatable known answer tests where the inputs vulnerable cryptography are known and should be
+ detected by the discovery tools
+ additional test data will include a representative code base that leverages classical cryptography that is
+ scanned for vulnerable cryptography usage in two scenarios
+  code that exists in a cloud and onpremises code repository
+  a project in active development where code is scanned before each pull or merge request
+ the first scenario allows for analysis of existing codebases while the second detects and flags potential
+ vulnerabilities before developer code is merged into the main code branch as a result the flagged code
+ is reviewed and the individual who is responsible for maintaining the repository directs the developer to
+ modify the pull request such that quantumresistant code or libraries are implemented once the
+ changes are made to the satisfaction of the maintainer the pull request is approved and the devops
+ process proceeds
+ with the preceding context weve decomposed the discovery of vulnerable algorithms into the
+ following use cases
+  vulnerable cryptography used in code compiled binaries or dependencies during a continuous
+ integrationcontinuous delivery cicd development pipeline
+  vulnerable cryptography used in assets on enduser systems and servers to include applications
+ and associated libraries
+  vulnerable cryptography used in network protocols enabling traceability to specific systems
+ using active scanning and historical traffic captures
+ the remainder of this section discusses each use case including the scope and existing best practices
+ that will be leveraged
+nist sp b migration to postquantum cryptography 
+preliminary draft
+  protecting the code development pipeline
+ protecting the code development pipeline in the context of migration to pqc is closely related to the
+ outcomes listed for the nccoe devsecops project  which describes devsecops as helping to ensure
+ that security is addressed as part of all devops practices by integrating security practices and
+ automatically generating security and compliance artifacts throughout the processes and environments
+ including software development builds packaging distribution and deployment the devsecops
+ project leverages the secure software development framework ssdf  to define the tasks that can
+ be implemented as part of a devsecops approach similarly we align our migration tasks with the
+ framework provided by the ssdf
+ the ssdf defines secure software development practices that are organized into four practice groups
+ shown in table  this demonstration will focus on the protect the software ps produce wellsecured
+ software pw and respond to vulnerabilities rv groups
+ table  ssdf practice groups
+practice group description
+prepare the organiza organizations should ensure that their people processes and technology
+tion po are prepared to perform secure software development at the organization
+level many organizations will find some po practices to also be applicable
+to subsets of their software development like individual development
+groups or projects
+protect the software organizations should protect all components of their software from tam
+ps pering and unauthorized access
+produce wellsecured organizations should produce wellsecured software with minimal security
+software pw vulnerabilities in its releases
+respond to vulnerabil organizations should identify residual vulnerabilities in their software re
+ities rv leases and respond appropriately to address those vulnerabilities and pre
+vent similar ones from occurring in the future
+ table  maps our project security characteristics to tasks in the ssdf
+ table  security characteristic mapping to ssdf tasks
+ssdf task description migration to pqc characteristic
+task id
+ps collect safeguard maintain and share provenance data creation of a cryptography bill
+for all components of each software release eg in a of materials cbom
+software bill of materials sbom
+pw use compiler interpreter and build tools that offer fea inspection of source code de
+tures to improve executable security pendent libraries and contain
+erized software via continuous
+integration actions
+nist sp b migration to postquantum cryptography 
+preliminary draft
+ssdf task description migration to pqc characteristic
+task id
+pw perform the code review andor code analysis based on inspection of source code via
+the organizations secure coding standards and record continuous integration actions
+and triage all discovered issues and recommended re
+mediations in the development teams workflow or is
+sue tracking system
+rv review analyze andor test the softwares code to inspection of existing source
+identify or confirm the presence of previously unde code in a repository
+tected vulnerabilities
+ as noted in table  this demonstration will experiment with the creation of a cryptographic bill of
+ materials cbom cboms are related to and build upon a software bill of materials sbom which is a
+ digital record containing the details and supply chain relationships of various components used in
+ building software a cbom extends an sbom by defining an object model to describe cryptographic
+ assets and their dependencies cboms when integrated into reporting and software development
+ practices have the potential to enable organizations to manage and report usage of cryptography
+ benefiting asset inventory activities the cbom model is still developing and may not address every use
+ case for all organizations and in future drafts of this publications we will describe our approach to
+ automating the creation of cboms or other formats as well as incorporating cboms into a broader asset
+ inventory effort
+  operational systems and applications
+ the list below is a nonexhaustive set of typical cryptographic assets that are in scope for this
+ demonstration based on the capabilities exercised in the lab environment thus far note that individual
+ discovery platforms may have extended capabilities the list is sectioned into two categories executable
+ and nonexecutable file objects executables are components of runnable software and non
+ executables are filesystem objects referenced by executables nonexecutables include keystores and
+ other formats that may contain both public and private asymmetric keys this example implementation
+ detects and reports publicprivate keypairs which implement one of the vulnerable algorithms listed in
+ table  note that formats may support passwordbased encryption of private keys which may affect
+ the fidelity of the discovery results
+  executables
+  application binaries
+  cryptographic libraries
+  java archives
+  nonexecutables
+  keystores pkcs java keystores key data sets
+  other key formats openpgp keys x certificates openssh keys pkcs pkcs
+nist sp b migration to postquantum cryptography 
+preliminary draft
+  transport protocols and network services
+ the canadian national quantum readiness best practices and guidelines document  suggests a
+ number of technology protocols that organizations should scan for vulnerable cryptography for this
+ demonstration based on exercising the discovery platforms in our lab environment our initial scope is
+ three core protocolstransport layer security tls secure shell ssh and internet protocol security
+ ipsec we chose these protocols due to their ubiquitous enterprise usage tls is a secure tunneling
+ protocol widely implemented in browsers and web servers tls is used to protect multiple application
+ layer protocols including https smtp via starttls imaps pops and microsoft remote desktop
+ protocol rdp contemporary versions of tls make use of x certificates and corresponding private
+ keys which rely on quantumvulnerable signature and key exchange algorithms the ssh protocol
+ enables a user or an automated process to remotely access the shell of a server system like tls
+ asymmetric cryptographic keys are used to authenticate and establish encrypted ssh connections
+ finally ipsec enables cryptographicbased security for ipv and ipv and is typically used in virtual
+ private networks vpns
+  vulnerable cryptographic algorithms
+ we have based our vulnerable algorithm discovery on the nist postquantum cryptography
+ standardization process figure  represents the nist cryptographic standards and guidelines which
+ includes public key asymmetric signature and key establishment schemes symmetric cryptographic
+ primitives such as block ciphers and hash functions are not as drastically impacted by the advent of a
+ cryptographically relevant quantum computer  and are not in scope for this project this scoping
+ provides the basis to develop a discovery policy across disparate platforms
+nist sp b migration to postquantum cryptography 
+preliminary draft
+ figure  nist cryptographic standards and guidelines
+ in this demonstration the algorithms listed in table  are considered vulnerable
+ table  scope of vulnerable algorithms
+algorithm function specification
+elliptic curve diffie hellman ecdh asymmetric algorithm for digital signa nist sp 
+key exchange tureskey exchange abc
+menezes qu vanstone mqv key asymmetric algorithm for key exchange nist sp 
+exchange abc
+elliptic curve digital signature algo asymmetric algorithms for digital signa fips pub 
+rithm ecdsa tureskey exchange
+diffie hellman dh key exchange asymmetric algorithms for digital signatures ietf rfc 
+rsa encryption algorithm asymmetric algorithms for digital signa sp b rev
+tureskey establishment 
+rsa signature algorithm asymmetric algorithms for digital signa fips pub 
+tureskey exchange
+nist sp b migration to postquantum cryptography 
+preliminary draft
+algorithm function specification
+digital signature algorithm asymmetric algorithms for digital signa fips pub 
+tureskey exchange
+edwardscurve digital signature al asymmetric algorithms for digital signatures fips pub 
+gorithm eddsa
+  terminology
+ this document and future volumes will align with the terminology defined in ietfs terminology for
+ postquantum traditional hybrid schemes  the document is intended to be used as a reference and
+ to ensure consistency and clarity across different protocols standards and organizations in particular
+ the remainder of this document references the following terms followed by their definitions
+ traditional or classical cryptographic algorithm an asymmetric cryptographic algorithm based on
+ integer factorization finite field discrete logarithms or elliptic curve discrete logarithms
+ postquantum cryptographic algorithm an asymmetric cryptographic algorithm that is believed to be
+ secure against attacks using quantum computers as well as classical computers the algorithms
+ identified as postquantum algorithms are defined in
+  fips  draft modulelatticebased keyencapsulation mechanism standard  specifies a
+ cryptographic scheme called module learning with errors key encapsulation mechanism or
+ mlwekem which is derived from the crystalskyber algorithm
+  fips  draft modulelatticebased digital signature standard  specifies the module
+ learning with errors digital signature algorithm or mldsa which is based on the crystals
+ dilithium submission
+  fips  draft stateless hashbased digital signature standard  specifies the stateless
+ hashbased digital signature algorithm or slhdsa which is based on the sphincs
+ submission
+ these initial quantumresistant algorithms and stateless hashbased signature standard will augment
+ the publickey cryptographic algorithms already contained in fips  digital signature standard
+ dss  as well as sp a revision  recommendation for pairwise keyestablishment schemes
+ using discrete logarithm cryptography  and sp b revision  recommendation for pairwise
+ key establishment using integer factorization cryptography  additional quantumresistant
+ algorithms will be defined as the standardization effort progresses
+ finally several members of our consortium have moved to use the terms quantumsafe or quantum
+ ready as opposed to postquantum to refer to the algorithms and technologies that are protected
+ against cryptographically relevant quantum computer crqc attacks this document continues to use
+ postquantum and will be updated as these terms evolve
+  risk assessment
+ in this section we discuss threats to classical algorithms and the specific attacks that researchers have
+ determined are feasible when a crqc is operational next we consider the vulnerabilities that a crqc
+nist sp b migration to postquantum cryptography 
+preliminary draft
+ will introduce with a discussion of a proposed common weakness enumeration cwe that
+ organizations could potentially use during their internal prioritization efforts finally we discuss existing
+ research efforts to develop a risk methodology that have influenced this projects approach to
+ demonstrating a migration prioritization list
+  threats to classical cryptography
+ at this time there are two quantum algorithms that are projected to be used in attacks against data
+ protection schemes such as digital encryption and signatures the first is shors algorithm which
+ provides an efficient method for computing the discretelogarithm problem and the elliptic curve
+ discretelogarithm problem as well as the problem of factoring large integers thus breaking current key
+ exchange digital signature and public key encryption methods that are based on asymmetric
+ cryptography because of shors algorithm new cryptographic algorithms are needed that are resistant
+ to attacks that can be launched from both classical and quantum computers the second quantum
+ algorithm is grovers algorithm which can be used to speed up the identification of a secret key in a key
+ address space to thwart this type of attack strong encryption algorithms are needed with keys whose
+ key address space is large enough to be considered not vulnerable
+ digital encryption and signature schemes are widely used in transport protocols like dtls ikevipsec
+ quic and ssh they all include a key exchange phase where the peers exchange asymmetric keys which
+ enable them to establish a shared secret using ecdh they then proceed to derive a symmetric key
+ which is used to symmetrically encrypt data exchanged between the peers the authentication phase
+ includes providing an asymmetric signature of a transcript of the exchanged data which proves that the
+ peer signed this data with its private key the corresponding public key is usually included with the
+ identity of the peer and is authenticated by using pki or other methods that way the peers can verify
+ they are talking to the peer with the expected identity who holds the expected public key
+ a quantum computer could break the asymmetric schemes for key exchange and signing shors
+ algorithm could break ecdh which means that a quantumcapable threat actor could recover the
+ symmetric key used to encrypt data specifically for encryption although there is no crqc today
+ someone could be storing data encrypted with tls or other protocols today in order to retroactively
+ decrypt them in the future with a quantum computer more commonly known as harvest and decrypt or
+ store now decrypt later attacks
+ consequently protection of data is needed at rest in transit and in use as a reference we have listed
+ below a variety of techniques an adversary can use to enable the harvesting of encrypted data today as
+ documented in mitres attck framework  a globallyaccessible knowledge base of adversary
+ tactics and techniques based on realworld observations further it may not be necessary for the
+ adversary to own their own crqc as it is expected that adversaries will have cloud access to crqcs in
+ the future to conduct their attacks
+  adversaryinthemiddle  adversaries may attempt to position themselves between two or
+ more networked devices using an adversaryinthemiddle aitm technique to support follow
+ on behaviors such as network sniffing or transmitted data manipulation by abusing features of
+ common networking protocols that can determine the flow of network traffic eg arp dns
+ llmnr adversaries may force a device to communicate through an adversarycontrolled
+ system so they can collect information or perform additional actions
+nist sp b migration to postquantum cryptography 
+preliminary draft
+  automated collection  once established within a system or network an adversary may use
+ automated techniques for collecting internal data methods for performing this technique could
+ include use of a command and scripting interpreter to search for and copy information fitting
+ set criteria such as file type location or name at specific time intervals in cloudbased
+ environments adversaries may also use cloud apis command line interfaces or extract
+ transform and load etl services to automatically collect data this functionality could also be
+ built into remote access tools
+  data from cloud storage  adversaries may access data from improperly secured cloud storage
+  data from local system  adversaries may search local system sources such as file systems and
+ configuration files or local databases to find files of interest and sensitive data prior to
+ exfiltration
+  data from network shared drive  adversaries may search network shares on computers they
+ have compromised to find files of interest sensitive data can be collected from remote systems
+ via shared network drives host shared directory network file server etc that are accessible
+ from the current system prior to exfiltration interactive command shells may be in use and
+ common functionality within cmd may be used to gather information
+ for a more indepth discussion on threats to existing security architectures which employ vulnerable
+ cryptography we recommend readers review the content produced by other organizations such as the
+ accredited standards committees quantum computing risks to the financial services industry  and
+ the quantumreadiness working groups qrwg of the canadian forum for digital infrastructure
+ resilience cfdir best practices and guidelines 
+  vulnerabilities
+ during some workstream discussions the project team identified the need to report quantum
+ vulnerabilities to existing upstream risk management systems in a standardized format we chose
+ common weakness enumeration cwe  a communitydeveloped list of software and hardware
+ weakness types due to its widespread use in industry it serves as a common language and a baseline
+ for weakness identification mitigation and prevention efforts
+ cwes in the cryptographic domain are currently categorized as a failure in a protection mechanism
+ cwe these include existing cwes cwe use of a broken or risky cryptographic algorithm
+ and cwe inadequate encryption strength for example that address weak algorithms
+ the cwe concept is targeted around existing vulnerabilities future vulnerabilities such as those coming
+ from a quantum threat do not appear to easily fit into this concept weaknesses only manifest if certain
+ conditions are met leading to the potential of many false positives nevertheless a major benefit in
+ using the cwe approach would be to signal future issues in a way that allows remediation development
+ to be planned for in advance as a feature rather than later as a remediation action this could be
+ handled in different ways within the cve scheme
+  through the use of additional attributes
+  through defining a separate block of codes for future weaknesses or
+  through logic in evaluating additions to existing blocks
+nist sp b migration to postquantum cryptography 
+preliminary draft
+ during project workstream meetings a proposed cwe was created see table  to capture the
+ particular weakness of algorithms that are quantumvulnerable but are otherwise safe due to the
+ nature of this weakness not all proposal elements were applicable it was proposed to be a child of
+ cwe cwe use of a broken or risky cryptographic algorithm with this description
+  cryptographic algorithms are used to protect the confidentiality and authenticity stored in or
+ transmitted through an untrusted medium quantumvulnerable algorithms will be exploitable if
+ or when a cryptographically relevant quantum computer crqc is built in which case sensitive
+ information could be exposed data could be undetectably modified and the identities of users
+ and devices could be spoofed among other impacts
+  data that is encrypted by a quantumvulnerable encryption or key establishment algorithm and
+ has a long data protection period is especially at risk because an adversary can store encrypted
+ data today and decrypt it later with a crqc such an attack is called storenowdecryptlater
+ and it creates significant risk for longterm data confidentiality additionally an adversary with a
+ crqc could forge signatures for quantumvulnerable algorithms creating a risk for signatures
+ with a long data protection period especially those used to sign software images in devices
+ where the root of trust cannot be upgraded
+ table  submitted cwe
+elements to value
+include
+name use of a quantumvulnerable algorithm
+summary the use of a quantumvulnerable algorithm is a risk that may result in the exposure of
+sensitive information if and when a cryptographically relevant quantum computer be
+comes available
+extended the use of a quantumvulnerable algorithm creates a risk if a cryptographically rele
+description vant quantum computer crqc becomes available a crqc could threaten all public
+key algorithms based in the integer factorization and elliptic curve discrete loga
+rithm problem and compromise whatever data has been protected in particular an
+adversary storing encrypted data today could theoretically decrypt them later with a
+crqc such an attack is called harvestnowdecryptlater and it creates significant
+risk for longterm data confidentiality additionally an adversary with a crqc could
+forge signatures for quantumvulnerable algorithms creating risk for signatures with
+a long data protection period
+modes of in architecture and design
+troduction
+potential use standardized quantumsafe asymmetric algorithms or hybrid schemes that incor
+mitigations porate both postquantum and traditional asymmetric algorithms
+common confidentiality
+conse technical impact read application data
+quences
+the confidentiality of sensitive data may be compromised by the use of a quantum
+vulnerable cryptographic algorithm
+integrity
+nist sp b migration to postquantum cryptography 
+preliminary draft
+elements to value
+include
+technical impact modify application data
+the integrity of sensitive data may be compromised by the use of a quantumvulnera
+ble cryptographic algorithm
+accountability
+nonrepudiation
+technical impact hide activities
+if the cryptographic algorithm is used to ensure the identity of the source of the data
+such as digital signatures then the use of a quantumvulnerable algorithm will com
+promise this scheme and the source of the data cannot be proven
+applicable all
+platforms
+demonstra na
+tive exam
+ples
+observed ex na
+amples
+relation na
+ships
+references the references provided were to nsa commercial national security algorithm suite
+ httpsmediadefensegovsep
+csacnsaalgorithmspdf and nist postquantum cryptography
+httpscsrcnistgovprojectspostquantumcryptography
+ at the time of writing the proposal has been submitted to the cwe team for feedback
+  survey of risk methodologies
+ this project aims to leverage a reusable generalized approach that could facilitate the migration process
+ for many organizations the following subsections describe several risk methodologies specifically to
+ address the threat of a crqc at the time of writing the methodologies are similar in that they all
+ describe a cryptographic asset discovery activity from which a prioritization list can be derived
+ however some of the methodologies describe sectorspecific guidance to perform a risk assessment
+  moscas theorem
+ moscas theorem is commonly referenced as the starting point for organizations initiating a migration to
+ postquantum algorithms once the publickey cryptography components and associated assets in the
+ enterprise are identified the next element of the scope of the project is to prioritize those components
+ that need to be considered first in the migration using a risk management methodology informed by
+ moscas theorem and other recommended practices the global risk institute describes  one such
+ approach below
+nist sp b migration to postquantum cryptography 
+preliminary draft
+  phase   identify and document information assets and their current cryptographic protection
+  phase   research the state of emerging quantum computers and quantumsafe cryptography
+ estimate the timelines for availability of these technologies influence the development and
+ validation of quantumsafe cryptography
+  phase   identify threat actors and estimate their time to access quantum technology z
+  phase   identify the lifetime of your assets x and the time required to transform the
+ organizations technical infrastructure to a quantumsafe state y
+  phase   determine quantum risk by calculating whether business assets will become
+ vulnerable before the organization can move to protect them x  y  z
+ moscas theorem has been applied in the report preparing for postquantum critical infrastructure by
+ the rand corporation  the report performed highlevel assessments of quantum vulnerabilities in
+ the  national critical functions ncfs the report found six ncfs are high priority for assistance in
+ migration  are medium priority and  are low priority
+  crypto agility risk assessment framework caraf
+ the crypto agility risk assessment framework caraf  provides an extension to moscas theorem
+ by focusing on developing information systems that encourage support of rapid adaptations of new
+ cryptographic primitives and algorithms without making significant changes to the systems
+ infrastructure otherwise known as cryptographic agility  there are five phases to the framework
+ summarized below
+  phase   identify threats
+  phase   inventory of assets
+  phase   risk estimation
+  phase   secure assets through risk mitigation
+  phase   organizational roadmap
+ phases  are similar to moscas algorithm in that the output of the risk analysis is a probability based
+ on a timeline given a threat such as the development of a quantumcapable system phases  and  aim
+ to facilitate informed decision making to accept mitigate or reject the risk from lack of crypto agility as
+ well as plan to address the risk when appropriate
+  financial sector fs  isac risk model
+ the fsisac postquantum cryptography working group has developed an infrastructure inventory
+ technical paper  which suggests that financial organizations develop a cryptographic agility index
+ cai the cai is described as a holistic view that reflects several specific points around prioritization
+ controls business capabilities vendors mitigation and implementation plans
+ a notable differentiator in the cai methodology is whether a cryptographic asset is organizationally
+ developed or from a thirdparty vendor in other words an organization should incorporate the risk of
+ the continued use of thirdparty software in the overall risk calculation the cai also suggests sector
+ specific services such as the swift banking system are carefully considered in the migration risk
+ calculation process
+nist sp b migration to postquantum cryptography 
+preliminary draft
+  telecom sector
+ in september  the gsm association published a white paper titled guidelines for quantum risk
+ management for telco  to put forward a methodology that supports telecommunication service
+ providers and the extended telecommunication supply chain by using telecomrelevant use cases as an
+ example in this white paper the authors analyze two existing quantum risk assessment methodologies
+  moscas xyz quantum risk model described in section  and caraf described in section
+  drawbacks to each approach specific to the telecom sector are identified and recommendations
+ are provided to modify the frameworks to better align with telecom technical and regulatory
+ constraints
+  cybersecurity and infrastructure security agency us dhscisa
+ the dhs roadmap for the transition to postquantum algorithms  advises organizations to consider
+ the following factors when evaluating systems during the risk assessment process
+  is the system a highvalue asset based on organizational requirements
+  what is the system protecting eg key stores passwords root keys signing keys personally
+ identifiable information sensitive personally identifiable information
+  what other systems does the system communicate with
+  to what extent does the system share information with federal entities
+  to what extent does the system share information with other entities outside of your organiza
+ tion
+  does the system support a critical infrastructure sector
+  how long does the data need to be protected
+ these factors are geared towards us federal government system owners however they can also be
+ applied to the private sector especially organizations that support operational critical infrastructure
+  cyber physical systems cps
+ a report titled quantum computing threat modelling on a generic cps setup  proposes a risk
+ methodology for cpss based on a process of attack simulation and threat analysis pasta threat
+ modeling exercise complemented with attack trees and the stride model for identifying threats the
+ report concluded that a threatbased model is a valid approach when assessing risk in the context of
+ cpss
+nist sp b migration to postquantum cryptography 
+preliminary draft
+ architecture
+
+ the proposed project architecture is designed to align with the conceptual workflow depicted in figure
+  based on lab discovery technology research and the use case described in section  in section
+  we present a systemslevel view of an architecture that implements vulnerable algorithm discovery
+ in the three areas within the scope of the project  the code development pipeline operational network
+ services and protocols and operational systems and applications finally we describe our approach to
+ normalize the output from the discovery platforms into the common format in future versions of this
+ document we will detail the architecture components that will ingest the normalized discovery platform
+ output and produce a prioritization list
+ figure  conceptual vulnerable cryptography discovery workflow
+  architecture description
+ this section describes the to be architecture for each vulnerable algorithm discovery use case this is
+ subject to change as we continue to experiment with the platforms and receive feedback from the
+ larger community of interest this section may also help inform decision makers in your organization as
+ use cases are developed to transition systems to pqc in future revisions of this document we will map
+ these capabilities to existing cybersecurity best practices and describe a final architecture that will
+ identify the usage of vulnerable algorithms within an organization and prioritize their replacement
+  protecting the code development pipeline
+ typical cicd pipeline components are described in nists implementation of devsecops for a
+ microservicesbased application with service mesh  and are reproduced in table  in this example
+ implementation we focus on pipeline software sdlc software and repository components this
+ document describes the cicd processes at a high level and the reader is encouraged to review the
+ code development resources below for an indepth review
+nist sp b migration to postquantum cryptography 
+preliminary draft
+ table  software development components
+component description
+pipeline software ci pulls code from a code repository invokes the build software invokes test
+tools and stores tested artifacts to image registry
+pipeline software cd pulls out artifacts packages and deploys the package based on computing
+network and storage resource descriptions
+sdlc software build tools eg ides
+testing tools eg sast dast sca
+repositories source code repositories eg github
+container image repositories or registries
+observability or moni logging and log aggregation tools
+toring tools
+tools that generate metrics
+tracing tools sequence of application calls
+visualization tools combine data from above to generate dashboardalerts
+ using the tools described in table  we created a code development pipeline that integrates vulnerable
+ algorithm discovery at the build stage in the first scenario an analyst can extract data from an existing
+ codebase to create a queryable database once the database is created the analyst creates and
+ executes a query that detects the usage of vulnerable algorithms in the existing codebase the query is
+ executed from a commandline tool or an ide plugin the output is generated in sarif format described
+ in section  where it is consumed by the enterprise visualization platform
+ we also demonstrate two automated versions of this process by integrating the query into an existing
+ enterprise ci platform in the first an onpremises ci system analyzes the codebase using the command
+ line version of the tool as part of the build process in the second we use the builtin automation tools
+ from a cloudbased code repository that are executed on each pull request  the full code pipeline
+ with vulnerable cryptography discovery activities described above are highlighted below as static
+ application security testing in figure 
+ figure  conceptual ci pipeline
+nist sp b migration to postquantum cryptography 
+preliminary draft
+  operational systems and applications
+ filesystem scanning sensors are used to detect quantumvulnerable algorithms in software an
+ organization may choose to deploy scanners to enduser devices or servers through existing automated
+ enterprise deployment tools scans are triggered either manually or through an automated mechanism
+ and the resulting output is transmitted to te backend analysis engine or in the manual case uploaded
+ to the backend by the operator this architecture demonstrates scanning of x linux and windows
+ hosts but other platforms may be supported by individual discovery platforms further some discovery
+ scanning solutions may offer integrations with endpoint detection and response edr platforms which
+ combine realtime continuous monitoring and collection of endpoint data with rulesbased automated
+ response and analysis capabilities such integrations offer the benefit of leveraging alreadyexisting
+ cybersecurity processes and dashboarding capabilities the scan is also performed on the binaries to
+ discover algorithms that there might not be a source code for as for example in thirdparty
+ applications
+ figure  describes an architecture where the discovery platform sensor output is transmitted to the
+ analysis engine
+ figure  sensor data flow
+nist sp b migration to postquantum cryptography 
+preliminary draft
+  transport protocols and network services
+ in the scenario described above we identified two network discovery capabilities  realtime scanning
+ and discovery and passive scanning and discovery from historical packet captures in figure  we
+ consider traffic capture from the cloud onpremises and untrusted networks the cloud segment
+ contains systems both bare metal and virtual that host internal corporate services network packets
+ are mirrored to the cloudbased network traffic capture appliance however the implementation is
+ dependent on the cloud provider the network traffic is routed to the pqc vulnerable discovery platform
+ via a secure tunnel to the onpremises network the onpremises segment contains systems that also
+ host internal services and additionally supports endpoint devices eg laptops that are operated by end
+ users and managed by the organization here network traffic is mirrored from a physical switch and
+ routed to the network traffic capture appliance finally network traffic from corporately managed
+ endpoint systems that are operated by remote users cannot be directly forwarded to the pqc
+ vulnerable discovery platform in realtime in this scenario network traffic is captured as a file and
+ forwarded asynchronously to the discovery platform via a secure tunnel eg vpn similarly filebased
+ historical network traffic captures are uploaded directly to the discovery platform for asynchronous
+ analysis
+ figure  passive network discovery
+nist sp b migration to postquantum cryptography 
+preliminary draft
+  common output elements for identifying vulnerable systems
+ while discovery platforms can provide their own reporting capabilities that enable an administrator to
+ quickly view the results of the discovery process this demonstration integrates the reports from these
+ platforms into the context of an enterprisewide dashboard capability such an approach consolidates
+ reports from disparate security products that an enterprise may already have fielded such as edr
+ platforms further consolidation of vulnerable algorithm discovery reports with other cybersecurity
+ product reports enables enterpriselevel risk management rather than performing an analysis in
+ isolation
+ the reports produced by the discovery platforms in this demonstration are unique in that they do not
+ use a common format for representing the discovery results in a contrived example a network
+ discovery platform may identify a host system as hostexamplecom whereas another may
+ omit the port number hostexamplecom therefore we identified the need for a common format
+ to represent normalized discovery reports ideally by leveraging existing normalization efforts to the
+ extent possible the remainder of this section defines a preliminary version of a normalization scheme
+ across all discovery platforms that would allow an organization to make a risk decision it does not
+ define a schema but instead defines descriptive data elements and how they can be obtained from
+ passive network observations active network scans endpoint monitoring or configuration information
+ and how those elements can be compared
+ in alignment with our project goal to support automation wherever feasible the first step in our
+ normalization effort was to identify structured machinereadable report formats such as extensible
+ markup language xml or javascript object notation json that were supported by each discovery
+ platform from there we identified the application programming interface api calls necessary to
+ access the resulting report if the discovery platform offered this capability apis are typically serviced
+ via synchronous httpbased requestresponse paradigm
+  network discovery analysis
+ this section defines the data elements that are used to identify vulnerable algorithms used in protocols
+ as mentioned in section  identified in section  first table  below lists each data element
+ and its corresponding representation format
+ table  networkbased discovery data elements
+data element representation
+ip v or v address string
+destination port number
+hostname string
+application layer protocol string service name or tls alpn id
+application software string common platform enumeration cpe 
+operating system string common platform enumeration cpe 
+device vendor string common platform enumeration cpe 
+nist sp b migration to postquantum cryptography 
+preliminary draft
+ next we describe how each fields value is populated and note other constraints that may affect the
+ translation of data presented in the discovery platform to our profile generally string and number data
+ types are as defined in rfc  the javascript object notation json data interchange format 
+ service names are as per rfc   section  and are registered by the internet assigned
+ numbers authority iana the registry can be accessed at httpswwwianaorgassignmentsservice
+ namesportnumbersservicenamesportnumbersxhtml tls application layer protocol negotiation
+ alpn identifiers id are defined in rfc   and registered at
+ httpswwwianaorgassignmentstlsextensiontypevaluestlsextensiontypevaluesxhtmlalpn
+ protocolids cpe strings are as defined in the common platform enumeration naming specification
+ version  nist ir  
+ ip address data element description
+ in an ip packet containing a tls client hello the ip source address is that of the client in an ip packet
+ containing a tls server response the ip source address is that of the server a packet contains a single ip
+ address that corresponds to the client or the server
+ in a pkix certificate a subjectaltname ipaddress field holds the address of the host associated
+ with the certificate certificates most often are associated with servers a certificate can contain
+ multiple ip addresses
+ a host observation of an address can contain multiple ip addresses due to multihoming
+ destination port data element description
+ in an ip packet containing a tls client hello the destination port is associated with the service in an ip
+ packet containing a tls server response the source port is associated with that service
+ the destination port is essential in identifying a server tls is used to protect several protocols and
+ some protocols may appear on more than one port for instance the destination port  is registered
+ for the https protocol but https is also used by other registered protocols including amtsoaphttps
+ appservhttps commtacthttps icroshttps llsurfuphttps oobwshttps oracleashttps pcsync
+ https pgpkeyhttps plysrvhttps sunsrhttps sunuserhttps tungstenhttps wappushhttps wbem
+ exphttps and wbemhttps additionally tls is registered for use by several nonhttps protocols
+ hostname data element description
+ a dns hostname is a string of labels each containing up to  octets separated by dots the 
+ character with a maximum total length of  octets  a label is a string that starts and ends with
+ an alphanumeric character and contains only alphanumeric characters and hyphens
+ in a tls client hello the hostname of the server often appears in the server name extension with the
+ nametype of hostname rfc  section   requires this field to contain dns hostnames and
+ not string representations of addresses though some clients send addresses in this field the standard
+ requires that no more than a single hostname appears in this extension
+ in a tls server certificate the hostname of the server often appears in the subjectname or
+ subjectaltname multiple hostnames can appear in the certificate
+nist sp b migration to postquantum cryptography 
+preliminary draft
+ application layer protocol data element description
+ the application layer protocol used in tls is negotiated between the client and server in a tls client
+ hello the alpn field contains a list of alpn ids the server response contains a single alpn id some
+ alpn ids are intentionally overloaded to hinder network monitoring in particular dns over https
+ doh uses the alpn id of https thus active scanning obtains more accurate measurements of the
+ application layer protocols supported by a server as compared to passive monitoring
+ application software data element description
+ application software can be identified by a cpe string with a part of a on a host identification can
+ be performed directly on a network it can be performed through banner scraping or behavioral
+ fingerprinting
+ operating system data element description
+ an operating system can be identified by a cpe string with a part of o on a host identification can
+ be performed directly on a network it can be performed through banner scraping or behavioral
+ fingerprinting
+ device vendor data element description
+ a hardware device can be identified by a cpe string with a part of h on a host identification can be
+ performed directly on a network it can be performed through ieee organizational unit identifier oui
+ reporting or behavioral fingerprinting
+ while the cbom object model is still in its nascent stages it could potentially provide the necessary
+ structure and extensibility to capture the common data elements in a machinereadable format
+ readers of this document are encouraged to reference the cyclonedx bill of materials specification as it
+ provided the basis for the cbom structure a cbom defines a cryptoasset which is a representation of
+ a bom component type a cryptoasset is defined by its cryptoproperties object that describes
+ predefined assettypes in the case of network discovery we choose the protocol assettype which is
+ described by the tlsciphersuites property the tlsciphersuites property defines the tls cipher suites
+ supported by the tls protocol instantiation reported by the discovery platform finally we leverage the
+ properties array a namevalue store defined in the core sbom specification to communicate the
+ remainder of the common elements an example follows below of a complete cbom
+ 
+ bomformat cyclonedx
+ components 
+ 
+ bomref oid
+ cryptoproperties 
+ assettype protocol
+ protocolproperties 
+ tlsciphersuites 
+ tlsecdhersawithaesgcmsha ecdhx
+ 
+nist sp b migration to postquantum cryptography 
+preliminary draft
+ 
+ scanner product name here
+ 
+ name tlsv
+ properties 
+ 
+ name internalipaddress
+ value 
+ 
+ 
+ name internaldestination port
+ value 
+ 
+ 
+ name internalhostname
+ value somewebsitecom
+ 
+ 
+ name internalapplication layer protocol
+ value http over tls
+ 
+ 
+ name internalapplication
+ value cpeagooglechrome
+ 
+ 
+ name internaloperating system
+ value cpeoicrosoftwindowshx
+ 
+ 
+ name internaldevice vendor
+ value de
+ 
+ 
+ type cryptoasset
+ 
+ 
+ specversion 
+ version 
+ 
+  static analysis
+ in sections  and  we identified a need to run vulnerable algorithm discovery tools to help
+ scan and detect vulnerable code in source code files and databases this demonstration normalizes the
+ results in sarif static analysis results interchange format  as it defines a standard format for the
+nist sp b migration to postquantum cryptography 
+preliminary draft
+ output of static analysis tools and can be used to streamline how static analysis tools share their results
+ in this section we specify our profile of the run object which describes a single run of an analysis tool
+ and contains the output of that run within the run object a tool component describes the specific
+ tool in the context of this project a discovery engine which has completed a scan table  lists the
+ properties of the tool component
+ table  tool component property specification
+property status notes
+name mandatory consortium memberprovided name
+version optional sarif includes many tool driver properties that can help to identify
+the tool version information that was used to create the sarif log it
+is recommended to use at least one of these properties to help iden
+tify the tool version and therefore the rules version at a later date
+downloaduri optional a uri from which this version of the tool can be downloaded
+informationuri optional a uri from which information about this version of the tool can be
+found
+rules optional see rules property section below
+ an example output of the sarif tool property is presented below
+ tool 
+ driver 
+ name discovery platform name
+ organization company name
+ product product name
+ fullname product name 
+ version 
+ semanticversion 
+ downloaduri httpsdownloaduricontosocomv
+ informationuri httpsinformationuricontosocomv
+ rules 
+ runstoolrules property description
+ the rules property encapsulates an array of zero or more reportingdescriptor objects which
+ contain the information describing a reporting item generated by the tool which is either a the result of
+ the tools analysis or b a notification encountered by the tool although there are many ways to define
+ a sarif log document one recommended approach is to enumerate all the rules a tool has executed as
+ a whole even if there are no findings then record all unique findings under the results property this
+ strategy will assist to identify what rules were executed but found nothing to report
+nist sp b migration to postquantum cryptography 
+preliminary draft
+ table  runstoolrules property specification
+property status notes
+id mandatory it is recommended that the id is a readable and stable identifier it
+may be an opaque identifier
+name optional a localizable optionally string that represents an identifier that is
+understandable for the end user
+fulldescription mandatory a localizable object that describes in detail the reporting item use
+the text subproperty for a description string
+messagestrings optional a localizable object that defines the strings that will be generated
+when the tool execution happens it is recommended to define the
+messagestringsdefault with a string so it can be used with the re
+sults property for this project we use strings with placeholders to
+unify as much as possible the elements of the quantumvulnerable
+cryptography elements found for details see the recommended
+message placeholder elements section
+helpuri optional an absolute uri of the primary documentation for the reporting
+item
+ an example output of the sarif runtoolrules property is presented below
+ rules 
+ 
+ id sqlqvcmssqlqvs
+ name certificate detection
+ fulldescription 
+ text full description
+ 
+ messagestrings 
+ default 
+ text vulnerable algorithm  certificate id  with subject  key
+ length  expiration date  that is using quantumvulnerable cryptography was detected
+ 
+ 
+ helpuri httpswwwexamplecomrulessqlqvcmssql qvs
+   
+ runsresults property description
+ the results property is an array of result objects which each represent a single result detected by the
+ tool during a run following the idea of specifying all rules that were executed under the
+ runstoolrules property the properties in table  are used to represent the actual findings in the
+ tool execution
+nist sp b migration to postquantum cryptography 
+preliminary draft
+ table  runsresults property specification
+property status notes
+ruleid mandatory although the sarif specification denotes that this property ex
+istence depends on many circumstances we recommend us
+ing it this property would match a value from the id property
+from an object defined under runstoolrules
+message optional assuming the corresponding object of the runstoolrules array
+has a message this object will define which one of the mes
+sagestrings within the message property for the rule is used
+and the values for the placeholders
+messageid mandatory the id value corresponding to the messagestring element that
+will be reported
+messagearguments mandatory an array of values that correspond to the string placeholders
+that match the messageid
+locations mandatory it should include a value that corresponds to the physical eg
+file uri or logical eg fully qualified function name location
+of the element where the issue was found the actual imple
+mentation of the location may change for each tool but it is
+typically described as a uri file etc and may include a
+region eg starting rowcolumn end rowcolumn
+ an example output of the sarif runsresults property is presented below
+ results 
+ 
+ ruleid sqlqvcmssqlcertificatesdetection
+ ruleindex 
+ message 
+ id default
+ arguments 
+ rsa
+ certpvkmk
+ private key protected by master key
+ 
+   am
+ 
+ 
+ locations 
+ 
+ physicallocation 
+ artifactlocation 
+ uri syscertificates
+ uribaseid reporoot
+nist sp b migration to postquantum cryptography 
+preliminary draft
+ index 
+ 
+ 
+ 
+ 
+ recommended message property placeholder elements
+ this section describes the recommended elements that should be included as part of the
+ runstoolrulesmessage placeholders to describe the elements found by the tool
+ the custom elements listed in table  allow upstream tools and aggregating tools to find and present
+ these elements with ease within the sarif log for standardization purposes we recommend publicly
+ documenting the elements included in your tool and rules version table  adds recommended values
+ to use when communicating the discovered vulnerable algorithm
+ table  runstoolsrulesmessage elements
+index element description notes
+ name for the quan the textual representation of the algorithm object identifier being de
+tumvulnerable algo tected as at risk for example idecpublickey or rsaencryp
+rithm detected tion as listed in table 
+ a unique identifier a unique identifier for the detected element that can be used to de
+for the particular ele tect its usage and dependencies elsewhere for example in the case
+ment of a certificate it could be a fingerprint of the certificate a key
+opaque identifier or a uri where a key is stored in a vault if no
+unique identifier is available any hint to find the element at risk in a
+system would be an acceptable alternative
+ other starting on index  it may be useful to include data that may provide
+additional information on how the finding may have been used eg
+what data it may be signing or protecting or other elements that
+may assist x properties other pieces of metadata etc
+ table  vulnerable algorithm identifiers
+algorithm friendly name algorithm textual algorithm object identifier reference
+representation
+rsa keys rsaencryption  rfc  
+dsa signature keys iddsa  rfc 
+diffiehellman key ex dhpublicnumber  rfc 
+change keys
+ecdsa and ecdh keys idecpublickey  rfc 
+rsassapss public keys idrsassapss  rfc  
+nist sp b migration to postquantum cryptography 
+preliminary draft
+algorithm friendly name algorithm textual algorithm object identifier reference
+representation
+elliptic curve cryptog idecpublickey  rfc  
+raphy public key algo
+rithm identifiers
+restricted algorithm iden idecdh  rfc 
+tifiers and parameters
+restricted algorithm iden idecmqv  rfc 
+tifiers and parameters
+curve and curve ided  rfc  
+algorithm identifiers
+curve and curve ided  rfc 
+algorithm identifiers
+curve and curve idx  rfc 
+algorithm identifiers
+curve and curve idx  rfc 
+algorithm identifiers
+ technologies
+
+  consortium members
+  cisco
+ cisco systems or cisco delivers collaboration enterprise and industrial networking and security
+ solutions the companys cybersecurity team cisco secure is one of the largest cloud and network
+ security providers in the world ciscos talos intelligence group the largest commercial threat
+ intelligence team in the world is comprised of worldclass threat researchers analysts and engineers
+ and supported by unrivaled telemetry and sophisticated systems the group feeds rapid and actionable
+ threat intelligence to cisco customers products and services to help identify new threats quickly and
+ defend against them cisco solutions are built to work together and integrate into your environment
+ using the network as a sensor and network as an enforcer approach to both make your team more
+ efficient and keep your enterprise secure
+  ibm
+ ibm researchers with their academic and industry partners developed three of the four postquantum
+ cryptographic algorithms to be standardized by nist ibm z enterprise server leverages hybrid key
+ agreement schemes and dual signing schemes to protect its infrastructure and relevant to the project it
+ provides a hardware security module and software libraries which allow its clients to experiment with
+ fips  crystals kyber and fips  crystals dilithium two of the primary postquantum
+ algorithms slated to be standardized
+nist sp b migration to postquantum cryptography 
+preliminary draft
+ ibms technology contribution consists of remote access to a zos image of an ibm z mainframe
+ environment a workstation server and the software hardware and tools needed to demonstrate the
+ crypto discovery capabilities in support of the discovery workstream this system is hosted at an ibm
+ facility with remote access from the nccoe laboratory over a vpn allowing collaborators to experiment
+ with and understand ibm technologies that discover cryptographic usage within applications with or
+ without source code and network connections
+  infosec global isg
+ isg is a fastgrowing cybersecurity company providing innovative solutions in the field of cryptographic
+ agility management cryptographic discovery and postquantum cryptography isg has a global
+ footprint with offices in canada switzerland and the us the isg team combines the best cryptography
+ experts including the father of ssl with seasoned business leaders experienced in building and
+ growing new businesses globally
+  isara corporation
+ isara is a security solutions company specializing in cryptographic risk management quantumsafe
+ cryptography and cryptographic agility for todays information technology ecosystems cofounded in
+  by former blackberry security executives isaras cuttingedge technologies are enabling next
+ generation security for enterprises and governments with isara you can inventory and manage your
+ cryptographic risks futureproof your missioncritical systems and achieve your quantumsafe and zero
+ trust goals with an emphasis on interoperability isara proudly collaborates on international
+ standardssetting efforts
+  keyfactor
+ keyfactor brings digital trust to the hyperconnected world with identity encryption and authentication
+ for every machine workload human and connected thing by modernizing pki discovering and
+ automating every digital certificate and protecting critical software and product supply chains with
+ secure digital signing and cryptography keyfactor helps organizations establish digital trust  then
+ maintain it
+ keyfactor is committed to making quantumready pki signing and cryptography solutions accessible for
+ all founding and actively supporting widely adopted opensource projects including ejbca signserver
+ and the fips validated bouncy castle cryptography apis as a member of the x committee
+ keyfactor is an active participant in standardssetting and has incorporated pqc algorithms into the
+ bouncy castle apis and its commercial pki and signing solutions with quantumready solutions and
+ expertise keyfactor is working with customers to stay resilient in the postquantum world
+  microsoft
+ microsoft is committed to providing secure and trustworthy products and services to its customers as
+ such microsoft has been investing in pqc research development experimentation and collaboration
+ since  playing a role in the emergence of pqc and public standards in particular microsoft
+ submitted four algorithms in nists standardization effort microsoft is proud to participate in the open
+ quantum safe project where they help develop the liboqs library used in this project and by many pqc
+nist sp b migration to postquantum cryptography 
+preliminary draft
+ industry vendors microsoft established the quantum safe program aiming to accelerate and advance
+ all quantumsafe efforts across the company from both technical and business perspectives
+  safelogic
+ safelogic is a premier provider of cryptographic solutions that enable enduring privacy and trust in the
+ everchanging digital world founded in  safelogic supplies organizations with strong fips 
+ validated cryptography via its fips validationasaservice safelogics cryptocomply fips  validated
+ cryptographic software modules support a broad range of platforms programming languages operating
+ systems and opensource libraries safelogic expedites delivery of fips  cmvp certificates for its
+ cryptocomply customers via rapidcert managed service it then keeps those certificates active over
+ time via maintaincert the companys white glove managed service that uniquely provides both
+ software support and certificate maintenance
+ safelogic is keenly interested in building and supporting nextgeneration cryptographic solutions that
+ will remain secure and compliant with the advent of quantum computers and will be easy for
+ organizations to adopt as part of that endeavor safelogic is committed to working with nist and
+ fellow collaborators to capture lessons learned and develop best practices for adopting postquantum
+ cryptography
+  samsung sds
+ samsung sds provides cloud and digital logistics services samsung sds builds optimized cloud
+ environments with samsung cloud platform and provides allinone management service as well as
+ saas solutions proven successful in many use cases one of the core capabilities for delivering their
+ service is cybersecurity and cryptographic technology plays a fundamental role to enhance security to
+ this end samsung sds is engaged in various cryptographic research and development activities
+ including the design implementation and architecting of cryptographic techniques including post
+ quantum cryptography
+  sandboxaq
+ sandboxaq recently launched its security suite a product for modern cryptography management which
+ enables customers to pilot this change process towards a world where cryptography is observable
+ controllable compliant and secure the sandboxaq security suite is an endtoend cryptoagility
+ platform that provides a full inventory of existing cryptography use including vulnerability and
+ compliance analysis as well as a path to centrally managed robust and agile cryptography the result is
+ protection from todays attacks as well as security against the future threat of a largescale quantum
+ computer
+  wolfssl
+ wolfssl focuses on providing lightweight and embedded security solutions with an emphasis on speed
+ size portability features and standards compliance with its ssltls products and crypto library
+ wolfssl is supporting highsecurity designs in automotive avionics and other industries in avionics
+ wolfssl supports radio technical commission for aeronautics software considerations in airborne
+ systems and equipment certification in automotive wolfssl supports misrac capabilities for
+nist sp b migration to postquantum cryptography 
+preliminary draft
+ government consumers wolfssl has a valid fips  certificate wolfssl supports industry standards
+ up to the current tls  and dtls  offers a simple api and an openssl compatibility layer is backed
+ by the wolfcrypt cryptography library and provides x support and much more wolfssls products
+ are open source giving customers the ability to examine them
+  products and technologies
+ the organizations listed in section  have contributed the products and technologies listed in table 
+ for each product or technology the table specifies the type of component its name and the function
+ the technology will serve in the demonstration
+ table  products and technologies
+component product or tech function
+type nology name
+vulnerable al ibm z main computing platform supporting tools applications and crypto
+gorithm dis frame hardware
+covery plat
+form system
+vulnerable al ibm workstation computing platform supporting tools
+gorithm dis server
+covery plat
+form system
+quantum ibm crypto ex hsm providing support for cryptographic algorithm services
+ready crypto press s
+implementa
+tion
+vulnerable al ibm zos inte captures cryptorelated information by writing system manage
+gorithm dis grated crypto ment facility smf activity log records aggregating usage of
+covery plat graphic service cryptographic engines services and algorithms the information
+form facility icsf is captured dynamically while the application is running this fa
+cility can be used both to provide an inventory and to audit and
+observe during the complete migration process
+vulnerable al ibm application serves as a static analysis tool that analyzes cobol application
+gorithm dis discovery and source files capturing all icsf crypto services the parameters as
+covery plat delivery intelli sociated with the services and valuable metadata produces a
+form gence addi crypto discovery report
+v
+vulnerable al ibm crypto ana provides snapshots of the zos environment by extracting secu
+gorithm dis lytics tool cat rity and cryptographic information based on configurable poli
+covery plat cies provides details on keys managed by icsf and racf helps
+form identify insecure keys algorithms and enabled services
+nist sp b migration to postquantum cryptography 
+preliminary draft
+component product or tech function
+type nology name
+vulnerable al ibm zos encryp collects and reports the cryptographic security attributes of ipv
+gorithm dis tion readiness and ipv connections that are protected using the tlsssl ssh
+covery plat technology and ipsec cryptographic network security protocols this tool
+form zert helps provide the context for linking keys certificates and the
+applications using them it identifies security protocols crypto al
+gorithms key lengths etc all important information to have
+during the crypto discovery process
+vulnerable al sandboxaq se provides cryptographic observability capabilities analyzes it in
+gorithm dis curity suite  dis frastructure and creates a cryptographic inventory that allows
+covery plat covery modules stakeholders to monitor whowhat where when and how cryp
+form tography is used across an organization including pqc
+vulnerable al samsung sds a platform that enables the discovery of pqvulnerable algo
+gorithm dis crypto agility rithms across the enterprises devsecops pipeline by consolidat
+covery plat platform for en ing the data from various sensors it provides visibility and esti
+form terprise scape mated risk scores for the identified pq vulnerabilities
+cryptographic infosec agilesec agilesec analytics is an enterprisegrade security solution de
+inventory analytics enter signed to enable companies in building a comprehensive and
+prise server centralized inventory of all cryptographic assets including cryp
+tographic keys keystores x certificates cryptographic librar
+ies cryptographic algorithms and cryptographic protocols de
+ployed across their digital footprint
+cryptographic infosec agilesec agilesec analytics dashboard is a core component of agilesec
+risk assess analytics dash analytics enabling companies to review the cryptographic inven
+ment board tory and proactively identify cryptographic weaknesses compli
+ance gaps or quantumvulnerable objects based on a customiza
+ble cryptographic policy
+cryptographic infosec agilesec agilesec analytics sensors are core components of agilesec ana
+data collec sensors lytics and are used to scan different technologies and systems
+tion deployed within a digital footprint the sensors can be used to
+scan hosts filesystem binary data running processes certificate
+store network interfaces cicd pipelines application reposito
+ries key management systems pki systems hsm systems and
+other technologies
+cryptographic agilesec analyt agilesec analytics vulnerability response connector enables
+vulnerability ics vulnerability companies to seamlessly process the remediation of crypto
+remediation response con graphic vulnerabilities detected across their digital footprint with
+nector their existing solutions eg servicenow
+nist sp b migration to postquantum cryptography 
+preliminary draft
+component product or tech function
+type nology name
+cryptographic agilesec agility agilesec agility sdk enables companies building applications to
+agility sdk natively integrate cryptographic agility within their sensitive busi
+ness applications with agilesec agility sdk the cryptographic
+operations are abstracted from the developers and managed
+through policy enabling seamless migration from classical to
+postquantum national or any other future cryptographic stand
+ards
+vulnerable al isara advance a platform for analyzing and inventorying the use of cryptog
+gorithm dis cryptographic raphy on enterprise networks includes features for inventorying
+covery plat discovery and devices and servers and analyzing cryptographic risk to help you
+form risk assessment prioritize assets for cryptographic migrations results can be
+tool viewed in the platforms easytouse dashboard or exported to
+other systems
+vulnerable al samsung sds a virtualized firewall configured to detect the presence of post
+gorithm dis secui bluemax quantum vulnerable traffic
+covery plat ngf ve
+form
+vulnerable al microsoft extension of visual studio code and github action that detects
+gorithm dis codeql postquantum vulnerable code
+covery plat
+form
+vulnerable al cisco mercury postquantum vulnerable network packet metadata capture and
+gorithm dis analysis
+covery plat
+form
+tls crypto wolfssl a software library that implements tls and dtls  supporting
+graphic li classical and quantumsafe symmetric and asymmetric ciphers to
+brary protocol be standardized by nist
+implementa
+tion
+cryptographic keyfactor in partnership with the legion of the bouncy castle inc the
+library imple bouncy castle bouncy castle libraries now include support for both classical and
+mentation quantumsafe algorithms nist upcoming standards included
+together with support for protocols such as tlsdtls cms
+timestamp protocol openpgp and a variety of protocols
+around x certificate generation and management
+certificate keyfactor com command is a certificate discovery and lifecycle automation so
+discovery and mand lution that provides centralized visibility governance and lifecy
+management cle automation for digital certificates at scale helping organiza
+tions to identify and replace weak and noncompliant certifi
+cates
+nist sp b migration to postquantum cryptography 
+preliminary draft
+component product or tech function
+type nology name
+quantum keyfactor ejbca ejbca is a modern cryptoagile pki platform that can be easily
+ready pki deployed in the cloud onpremises or in a hybrid mode ejbca
+platform supports issuance of certificates using both classical and quan
+tumsafe algorithms
+quantum keyfactor sign signserver is a flexible cryptoagile signing solution that enables
+ready digital server application manufacturing and product teams to digitally sign
+signing code and artifacts with quantumsafe algorithms
+nist sp b migration to postquantum cryptography 
+preliminary draft
+ future project considerations
+
+ this volume presents a desired end state of an architecture which demonstrates tools that will discover
+ vulnerable algorithms in an existing enterprise operational environment we hope that publishing this
+ document prior to integration activities will allow for refinements that will be submitted during the
+ public comment period as of the writing of this document the project has installed configured and
+ deployed technologies and tools from multiple consortium members that address discovery in our lab
+ environment these technologies are at the leading edge of the migration process and as such the
+ project has taken a deliberate approach in learning the capabilities each platform provides by
+ developing the demonstration plan described in appendix c and  the demonstration plan serves as a
+ rough guide to develop the practical and readily adoptable use cases described within this guide in
+ future iterations we will finalize a data normalization scheme and add components that will enable
+ automation and prioritization using a riskmanaged approach
+ cryptographic discovery tools may produce inventories that indicate an organization is using more
+ quantumvulnerable cryptography than was expected highlighting to the organization that they need to
+ use a riskbased approach to mitigating the risks of the use of quantumvulnerable cryptography future
+ demonstrations within this project may address one or more of the risk methodologies identified in
+ section  to support the riskbased decisions an organization needs to make to prioritize its actions
+ to migrate to postquantum cryptography
+ in the next revision of the draft document we may broaden the scope of the project to include other
+ discovery cases one area that we are exploring is dataatrest protection when thinking of dataatrest
+ the focus is primarily on the encryption algorithm but attention must also be paid to the integrity of
+ dataatrest an example is ensuring the integrity of audit records in this case hashes andor digital
+ signatures are often used to ensure that records have not been tampered with digital signatures will be
+ susceptible to attack and broken by shors algorithms example scenarios of dataatrest protection
+ could include database protection schemes secure multipurpose internet mail extensions smime
+ code signing and record integrity
+ finally the project has also submitted the cwe described in section  to the federally funded
+ research and development center the mitre corporation that maintains the cwe program for
+ review in the next version of this document we hope that the submission spurs conversation in this
+ space and that a consensus is achieved on one or more cwes that will benefit organizations and
+ industry alike
+nist sp b migration to postquantum cryptography 
+preliminary draft
+appendix a list of acronyms
+
+addi ibm application discovery and delivery intelligence
+aitm adversaryinthemiddle
+alpn tls application layer protocol negotiation
+api application programming interface
+arp address resolution protocol
+cai cryptographic agility index
+caraf crypto agility risk assessment framework
+cat ibm crypto analytics tool
+cbom cryptography bill of materials
+cfdir canadian forum for digital infrastructure resilience
+cicd continuous integrationcontinuous delivery
+cisa cybersecurity  infrastructure security agency
+ciso chief information security officer
+cpe common platform enumeration
+cps cyber physical system
+crada cooperative research and development agreement
+crqc cryptanalytically relevant quantum computer
+csf cybersecurity framework
+cwe common weakness enumeration
+dast dynamic application security testing
+dh diffie hellman
+dhs us department of homeland security
+dns domain name system
+doh dns over https
+dss digital signature standard
+dtls datagram transport layer security
+ecdh elliptic curve diffie hellman
+ecdsa elliptic curve digital signature algorithm
+nist sp b migration to postquantum cryptography 
+preliminary draft
+eddsa edwardscurve digital signature algorithm
+edr endpoint detection and response
+etl extract transform and load
+fips federal information processing standard
+fsisac financial services information sharing and analysis center
+hsm hardware security module
+https hypertext transfer protocol secure
+iana internet assigned numbers authority
+icsf ibm zos integrated cryptographic service facility
+ide integrated development environment
+ietf internet engineering task force
+ikev internet key exchange version 
+imaps internet message access protocol secure
+ipsec internet protocol security
+json javascript object notation
+llmnr linklocal multicast name resolution
+mldsa module learning with errors digital signature algorithm
+mlwekem module learning with errors key encapsulation mechanism
+mqv menezes qu vanstone
+nccoe national cybersecurity center of excellence
+ncf national critical function
+nist national institute of standards and technology
+nsa national security agency
+nsm national security memorandum
+omb office of management and budget
+pasta process of attack simulation and threat analysis
+pkcs publickey cryptography standard
+pki public key infrastructure
+pkix public key infrastructure x
+nist sp b migration to postquantum cryptography 
+preliminary draft
+pops post office protocol  secure
+pq postquantum
+pqc postquantum cryptography
+qrwg quantumreadiness working group
+racf ibm resource access control facility
+rdp microsoft remote desktop protocol
+rfc request for comment
+scape samsung sds crypto agility platform for enterprise
+sarif static analysis results interchange format
+sast static application security testing
+sbom software bill of materials
+sca software composition analysis
+sdk software development kit
+sdlc software development life cycle
+siem security information and event management
+slhdsa stateless hashbased digital signature algorithm
+smf system management facility
+smtp simple mail transfer protocol
+sp special publication
+ssdf secure software development framework
+ssh secure shell
+tls transport layer security
+vpn virtual private network
+xml extensible markup language
+zert ibm zos encryption readiness technology
+nist sp b migration to postquantum cryptography 
+preliminary draft
+appendix b references
+
+  barker wc polk wt souppaya mp  getting ready for postquantum cryptography
+ exploring challenges associated with adopting and using postquantum cryptographic
+ algorithms national institute of standards and technology gaithersburg md nist
+ cybersecurity white paper cswp nist cswp  httpsdoiorgnistcswp
+  barker w souppaya m newhouse w  migration to postquantum cryptography project
+ description national institute of standards and technology gaithersburg md available at
+ httpscsrcnistgovpubspdmigrationtopostquantumcryptographyfinal
+  national security memorandum  nsm  national security memorandum on
+ promoting united states leadership in quantum computing while mitigating risks to
+ vulnerable cryptographic systems the white house washington dc available at
+ httpswwwwhitehousegovbriefingroomstatementsreleasesnational
+ securitymemorandumonpromotingunitedstatesleadershipinquantumcomputingwhile
+ mitigatingriskstovulnerablecryptographicsystems
+  cybersecurity  infrastructure security agency national security agency and national institute
+ of standards and technology  quantumreadiness migration to postquantum
+ cryptography cisa arlington virginia august   available at
+ httpswwwcisagovresourcestoolsresourcesquantumreadinessmigrationpostquantum
+ cryptography
+  office of management and budget  migrating to postquantum cryptography the white
+ house washington dc omb memorandum m november   available at
+ httpswwwwhitehousegovwpcontentuploadsmmmemoonmigrating
+ topostquantumcryptographypdf
+  souppaya m ogata m watrobski p scarfone k  software supply chain and devops
+ security practices implementing a riskbased approach to devsecops project description
+ national institute of standards and technology gaithersburg md available at
+ httpswwwnccoenistgovsitesdefaultfilesdevsecopsprojectdescription
+ finalpdf
+  souppaya mp scarfone ka dodson df  secure software development framework ssdf
+ version  recommendations for mitigating the risk of software vulnerabilities national
+ institute of standards and technology gaithersburg md nist special publication sp 
+ httpsdoiorgnistsp
+  quantumreadiness working group of the canadian forum for digital infrastructure resilience
+  canadian national quantumreadiness best practices and guidelines version 
+ available at httpsisedisdecanadacasitespectrummanagement
+ telecommunicationssitesdefaultfilesattachmentscfdirquantumreadinessbest
+ practicesvpdf
+nist sp b migration to postquantum cryptography 
+preliminary draft
+  alagic g apon d cooper da dang qh dang t kelsey jm lichtinger j liu yk miller ca moody
+ d peralta r perlner ra robinson a smithtone d  status report on the third round of
+ the nist postquantum cryptography standardization process national institute of standards
+ and technology gaithersburg md nist interagency or internal report ir nist ir upd
+ includes updates as of september   httpsdoiorgnistirupd
+  florence d  terminology for postquantum traditional hybrid schemes internet
+ engineering task force ietf internetdraft draftietfpquippqthybridterminology available
+ at httpsdatatrackerietforgdocdraftietfpquippqthybridterminology
+  national institute of standards and technology  modulelatticebased keyencapsulation
+ mechanism standard us department of commerce washington dc federal information
+ processing standards publication fips  draft httpsdoiorgnistfipsipd
+  national institute of standards and technology  modulelatticebased digital signature
+ standard us department of commerce washington dc federal information processing
+ standards publication fips  draft httpsdoiorgnistfipsipd
+  national institute of standards and technology  stateless hashbased digital signature
+ standard us department of commerce washington dc federal information processing
+ standards publication fips  draft httpsdoiorgnistfipsipd
+  national institute of standards and technology  digital signature standard dss us
+ department of commerce washington dc federal information processing standards
+ publication fips  httpsdoiorgnistfips
+  barker eb chen l roginsky al vassilev a davis r  recommendation for pairwise key
+ establishment schemes using discrete logarithm cryptography national institute of standards
+ and technology gaithersburg md nist special publication sp a rev 
+ httpsdoiorgnistspar
+  mitre  attck available at httpsattackmitreorgtacticsta
+  barker eb chen l roginsky al vassilev a davis r simon s  recommendation for pair
+ wise keyestablishment using integer factorization cryptography national institute of
+ standards and technology gaithersburg md nist special publication sp b rev 
+ httpsdoiorgnistspbr
+  accredited standards committee x  quantum computing risks to the financial services
+ industry x informative report  x ir f available at httpsxorgdownloadqcir
+  mitre  common weakness enumeration cwe available at httpscwemitreorg
+  mosca m mulholland j a methodology for quantum risk assessment global risk institute
+ available at httpsglobalriskinstituteorgmpfilesamethodologyforquantumrisk
+ assessmentpdfpdf
+nist sp b migration to postquantum cryptography 
+preliminary draft
+  vermeer mjd parker e kochhar a  preparing for postquantum critical infrastructure
+ assessments of quantum computing vulnerabilities of national critical functions homeland
+ security operational analysis center operated by the rand corporation available at
+ httpswwwrandorgpubsresearchreportsrrahtml
+  ma c colon l dera j rashidi b garg v  caraf crypto agility risk assessment
+ framework journal of cybersecurity volume  issue  pp 
+ httpsdoiorgcybsectyab
+  postquantum cryptography working group  risk model technical paper fsisac post
+ quantum cryptography working group available at
+ httpswwwfsisaccomhubfsknowledgepqcriskmodelpdfhslangen
+  gsm association  guidelines for quantum risk management for telco version  gsm
+ association available at httpswwwgsmacomaboutusworkinggroupswp
+ contentuploadsguidelinesforquantumriskmanagementfortelcovpdf
+  cybersecurity  infrastructure security agency national security agency and national institute
+ of standards and technology  quantumreadiness migration to postquantum
+ cryptography cisa arlington virginia august   available at
+ httpswwwcisagovresourcestoolsresourcesquantumreadinessmigrationpostquantum
+ cryptography
+  lee cc tan tg sharma v zhou j  quantum computing threat modelling on a generic
+ cps setup available at httpslinkspringercomchapter
+  chandramouli r  implementation of devsecops for a microservicesbased application
+ with service mesh national institute of standards and technology gaithersburg md nist
+ special publication sp c httpsdoiorgnistspc
+  github  configuring default setup for code scanning available at
+ httpsdocsgithubcomencodesecuritycodescanningautomaticallyscanningyourcode
+ forvulnerabilitiesanderrorsconfiguringcodescanningforarepositoryconfiguringcode
+ scanningautomatically
+  bray t  the javascript object notation json data interchange format internet
+ engineering task force ietf ietf request for comments rfc 
+ httpsdoiorgrfc
+  cotton m eggert l touch j westerlund m cheshire s  internet assigned numbers
+ authority iana procedures for the management of the service name and transport protocol
+ port number registry internet engineering task force ietf ietf request for comments
+ rfc  httpsdoiorgrfc
+  friedl s popov a langley a stephan e  transport layer security tls applicationlayer
+ protocol negotiation extension internet engineering task force ietf ietf request for
+ comments rfc  httpsdoiorgrfc
+nist sp b migration to postquantum cryptography 
+preliminary draft
+  cheikes ba waltermire da scarfone ka  common platform enumeration naming
+ specification version  national institute of standards and technology gaithersburg md
+ nist interagency or internal report ir  httpsdoiorgnistir
+  braden r  requirements for internet hosts  application and support internet
+ engineering task force ietf ietf request for comments rfc 
+ httpsdoiorgrfc
+  eastlake d  transport layer security tls extensions extension definitions internet
+ engineering task force ietf ietf request for comments rfc 
+ httpsdoiorgrfc
+  oasis static analysis results interchange format technical committee  static analysis
+ results interchange format sarif version  plus errata  available at httpsdocsoasis
+ openorgsarifsarifvsarifvpdf
+  bassham l polk w housley r  algorithms and identifiers for the internet x public key
+ infrastructure certificate and certificate revocation list crl profile internet engineering task
+ force ietf ietf request for comments rfc  httpsdoiorgrfc
+  schaad j kaliski b housley r  additional algorithms and identifiers for rsa cryptography
+ for use in the internet x public key infrastructure certificate and certificate revocation list
+ crl profile internet engineering task force ietf ietf request for comments rfc 
+ httpsdoiorgrfc
+  turner s brown d yiu k housley r polk t  elliptic curve cryptography subject public key
+ information internet engineering task force ietf ietf request for comments rfc 
+ httpsdoiorgrfc
+  josefsson s schaad j  algorithm identifiers for ed ed x and x for use
+ in the internet x public key infrastructure internet engineering task force ietf ietf
+ request for comments rfc  httpsdoiorgrfc
+nist sp b migration to postquantum cryptography 
+preliminary draft
+appendix c discovery platform lab functional
+
+demonstration plan
+
+ c use case 
+ scenario
+ validate the discovery of quantumvulnerable algorithms in tls protocol version 
+ steps
+  configure discovery tool to scan layer  transport traffic this process will depend on the indi
+ vidual discovery tool deployment methodology
+  modify test data packet capture ip addresses as needed for target network
+  replay tls  test data onto network segment with deployed discovery tool using a utility such
+ as tcpreplay
+ test data
+ encrypted web traffic dataset from network monitoring and hostbased monitoring across a large
+ campus network
+ expected results
+ discovery tool detects the presence of vulnerable key exchangeagreement and authentication
+ algorithms with results captured in an output file andor dashboard
+ c use case 
+ scenario
+ validate the discovery of quantum vulnerable algorithms in ssh protocol version 
+ steps
+  configure discovery tool to scan layer  transport traffic this process will depend on the indi
+ vidual discovery tool deployment methodology
+  modify test data packet capture ip addresses as needed for target network
+  replay ssh  test data onto network segment with deployed discovery tool using a utility such
+ as tcpreplay
+ test data
+ azsecure data provided by azsecure data and the university of arizona artificial intelligence lab
+nist sp b migration to postquantum algorithms 
+preliminary draft
+ expected results
+ discovery tool detects the presence of vulnerable key exchange algorithms refer to rfc  key
+ exchange kex method updates and recommendations for secure shell ssh for existing key exchange
+ method names with results captured in an output file andor dashboard
+ c use case 
+ scenario
+ validate the discovery of quantumvulnerable algorithms in nonexecutable files in windowsbased
+ operational systems
+ steps
+  create a fully updated windows  virtual machine
+  install the discovery tool sensor component if applicable
+  confirm proper communication between the sensor component and backend systems provided
+ by the discovery tool
+  move dataset files to the local disk of the target virtual machine
+  trigger the discovery sensor to perform a scan
+ test data
+ using algorithms listed in table  the following datasets are projectspecific artifacts generated by the
+ project team
+  pkcs keystores created via openssl
+  java keystores created via keytool utility
+  pkcs keystores created via openssl
+  pkcs keystores created via openssl
+  openssh keystores created via sshkeygen
+  openpgp keystores created via gpg
+ expected results
+ discovery tool sensor detects files from dataset with results captured in an output file andor
+ dashboard
+ c use case 
+ scenario
+ validate the discovery of quantumvulnerable algorithms in nonexecutable files in a linuxbased
+ operational system
+nist sp b migration to postquantum cryptography 
+preliminary draft
+ steps
+  create a fully updated ubuntu  virtual machine
+  install the discovery tool sensor component if applicable
+  confirm proper communication between the sensor component and backend systems provided
+ by the discovery tool
+  move dataset files to the local disk of the target virtual machine
+  trigger the discovery sensor to perform a scan
+ test data
+ see use case 
+ expected results
+ discovery tool sensor detects files from dataset with results captured in an output file andor
+ dashboard
+ c use case 
+ scenario
+ validate the discovery of quantumvulnerable algorithms in executable files on windowsbased
+ operational systems that are representative of a typical enterprise deployment
+ steps
+  install configure and deploy discovery tool endpoint agent
+  note discovered artifacts given discovery platform capabilities
+ test data
+ windows based client with the following software packages
+  google chrome
+  java runtime environment
+  vlc media player
+  openvpn connect
+  grr rapid response
+  slack
+ expected results
+ the discovered artifacts are collected and optionally transmitted to a backend system for review
+nist sp b migration to postquantum cryptography 
+preliminary draft
+ c use case 
+ scenario
+ validate the discovery of quantumvulnerable algorithms in executable files on linuxbased operational
+ systems that are representative of a typical enterprise deployment
+ steps
+  install configure and deploy discovery tool endpoint agent
+  note discovered artifacts given discovery platform capabilities
+ test data
+ ubuntu  server edition image with all base services enabled
+ expected results
+ the discovered artifacts are collected and optionally transmitted to a backend system for review
+ c use case 
+ scenario
+ validate the discovery of quantumvulnerable algorithms in code that leverages cryptography in a cicd
+ pipeline ide plugin
+ steps
+  create a development project in ide using source code from dataset
+  trigger the discovery tool within the ide
+ test data
+  source code
+ o rsa encryptiondescription api usage
+ o ecdsa signverify api usage
+  libraryprocess
+ o keypairgenerator keyfactory signature signatureexception java class
+ expected results
+ discovery tool identifies files and lines of code that use the methods described in the test dataset and
+ displays results within the ide
+ c use case 
+ scenario
+ validate the discovery of quantumvulnerable algorithms in code that leverages cryptography in a cicd
+ pipeline repository
+nist sp b migration to postquantum cryptography 
+preliminary draft
+ steps
+  clone repository containing source code from dataset
+  make a change in the codebase eg add a print statement such as hello world
+  commit the change
+  create a pull request in the configured remote repository
+  code scan is triggered automatically
+ test data
+  source code
+ o rsa encryptiondescription api usage
+ o ecdsa signverify api usage
+  libraryprocess
+ o keypairgenerator keyfactory signature signatureexception java class
+ expected results
+ discovery tool identifies files and lines of code that use the methods described in the test dataset and
+ displays results within the repository console
+nist sp b migration to postquantum cryptography 
+preliminary draft
+appendix d ibm z remote discovery platform functional
+
+demonstration plan
+
+ d use case 
+ scenario
+ validate the discovery of postquantum vulnerable algorithms in executable modules in the zosbased
+ operational system
+ steps
+  enable the icsf crypto usage tracking feature of zos
+  run the job associated with the application to be evaluated
+  retrieve the smf  andor  records associated with that job from the dataset
+  run the supplied job to parse desired information from the smf dataset
+  generate the desired reports from the collected data
+ test data
+  smf  log records  icsf andor
+  smf  log records  processor activity instrumentation
+ expected results
+ discovery feature detects use of icsf and cpacf crypto including engines algorithms and key lengths
+ used with results captured in smf data sets
+ d use case 
+ scenario
+ validate the discovery of postquantum vulnerable algorithms in code that leverages icsf cryptography
+ in cobol application source
+ steps
+  download code to application discovery and delivery intelligence system
+  start addi
+  enable the json configuration file
+  select the source code to analyze
+  perform the addi build step
+  review the report
+ test data
+ cobol source code containing
+  icsf crypto calls csnbenc csnddsg csndpke csndedh etc
+  rule array keywords
+nist sp b migration to postquantum algorithms 
+preliminary draft
+ expected results
+ discovery tool identifies and reports cryptographic calls important parameters call line numbers and
+ metadata and writes it to a file for later display or export to a csv file
+ d use case 
+ scenario
+ validate the discovery of postquantum vulnerable algorithms in code that leverages a crypto api in
+ cobol application source
+ steps
+  download code to application discovery and delivery intelligence system
+  update the json file to identify the crypto calls you would like to search for
+  start addi
+  enable the customconfiguration file
+  select the source code to analyze
+  perform the addi build step
+  review the report
+ test data
+ cobol source code containing
+  crypto calls eg csign cverify as defined in json configuration file
+  parameters
+ expected results
+ discovery tool identifies and reports cryptographic calls important parameters call line numbers and
+ metadata and writes it to a file for later display or export to a csv file
+ d use case 
+ scenario
+ validate the discovery of postquantum vulnerable algorithms in code that leverages cryptography in a
+ cicd pipeline ide plugin
+ steps
+  in an ide populate the data
+  checkin and commit in git
+  execute pipeline which triggers addis build
+  perform the discovery
+ test data
+ source code with crypto calls such as
+  rsa encryptiondecryption api usage
+nist sp b migration to postquantum cryptography 
+preliminary draft
+  rsa signverify api usage
+  ecdsa signverify api usage
+  eddsa signverify api usage
+ expected results
+ discovery tool identifies files and lines of code that use the methods described in the test dataset and
+ displays results within the ide
+ d use case 
+ scenario
+ validate the discovery of postquantum vulnerable algorithms in network traffic
+ steps
+  capture a snapshot of network traffic by collecting smf  records
+  make smf data available to zos encryption readiness technology
+  log on to zos management facility
+  start the znetwork analyzer
+  select the run and manage query option
+  create a query that looks for eccdhdsa and other quantumvulnerable algorithm usage
+  run query to generate a report
+ test data
+ smf  data
+  cipher suites
+  tls version
+  certificate information  expiration serial numbers etc
+  ip address
+  protocol session identifiers
+  protection information  key lengths algorithm etc
+  user id ports jobnames
+ expected results
+ discovery tool can display on a dashboard andor produce a report that identifies connections that
+ are using vulnerable cryptography
+ d use case 
+ scenario
+ discover if quantumvulnerable keys are managed by icsf or racf
+ steps
+  start the crypto analytics tool
+nist sp b migration to postquantum cryptography 
+preliminary draft
+  take a snapshot of the certificates and keys and their related protectionauthorization infor
+ mation stored in the racf data base and the keys in the icsf key data sets ckds pkds and
+ tkds
+  define a policy to identify the characteristics of the keys and certificates to be evaluated
+  apply the policy which will create a report that identifies keys and certificates matching the cri
+ teria specified in the policy
+  review the results
+ test data
+ icsf key data sets and racf information
+ expected results
+ the discovery tool
+  identifies keys that are considered quantumvulnerable
+  identifies keys that match the desired search criteria
+  identifies characteristics of certificates managed by racf
+  identifies callable services that are available for use in the hsm that should be disabled
+  displays information on the dashboard reports can also be generated
+nist sp b migration to postquantum cryptography 

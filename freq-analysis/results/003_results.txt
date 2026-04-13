@@ -1,8 +1,8 @@
 Framework: 003.txt
-Total Words: 3101
+Total Words: 2831
 ========================================
 crypto_assets: 0
-crypto_agility: 2
-migration_planning: 4
-risk_management: 1
+crypto_agility: 0
+migration_planning: 0
+risk_management: 0
 standards_compliance: 2

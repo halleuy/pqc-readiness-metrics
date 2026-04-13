@@ -1,0 +1,8 @@
+Framework: 023.txt
+Total Words: 14221
+========================================
+crypto_assets: 20
+crypto_agility: 13
+migration_planning: 14
+risk_management: 16
+standards_compliance: 40

@@ -1,0 +1,319 @@
+unclassified  non class ifi
+roadmap for the migration to post
+quantum cryptography for the
+government of canada itsm
+itsm
+ his majesty the king in right of canada as represented 
+by the minister of national defence 
+unclassified  non class ifi
+foreword
+this is an unclassified publication issued under the authority of the head of the canadian centre for cyber security
+cyber centre for more information or to suggest amendments contact the cyber centre
+ by email cryptographycryptographiecybergcca
+ by phone  or cyber
+effective date
+this publication takes effect on june  
+revision history
+revision amendments date
+ first release june  
+
+isbn 
+cat depdf
+unclassified  non class ifi
+overview
+every organization managing information technology it systems must migrate cyber security components to become
+quantumsafe this will help protect against the cryptographic threat of a future quantum computer the cyber centre
+recommends the adoption of standardized postquantum cryptography pqc to mitigate this threat
+this publication outlines the cyber centres recommended roadmap for the government of canada gc to migrate non
+classified it systems to use pqc including milestones deliverables and guidance for departmental planning and
+execution
+milestones and deliverables for federal departments and agencies are as follows
+ april  develop an initial departmental pqc migration plan
+ beginning april  and annually after report on pqc migration progress
+ end of  completion of pqc migration of high priority systems
+ end of  completion of pqc migration of remaining systems
+ nonclassified it systems are those that do not contain transfer or otherwise handle classified information in the government of
+canada nonclassified systems manage unclassified protected a and protected b information for classified systems and
+systems handling protected c information departments must contact the cyber centre to obtain advice on migrating commercial
+equipment
+
+unclassified  non class ifi
+table of contents
+ introduction  
+ stakeholders and planning  
+ execution phases  
+ preparation  
+ roles and responsibilities 
+ financial planning  
+ education strategy  
+ procurement policies  
+ plan approaches for identification  
+ identification  
+ transition  
+ milestones and deliverables  
+ governance and coordination  
+ relevant government of canada governance bodies  
+ reporting on progress  
+ additional resources and support 
+
+unclassified  non class ifi
+ introduction
+the cyber centre recommends organizations managing it systems migrate to use pqc in order to replace publickey
+cryptography vulnerable to a future quantum computer all instances of publickey cryptography must be migrated to secure
+gc it systems and canadians data against this threat
+the united states national institute of standards and technology nist has worked globally with cryptographic experts to
+standardize pqc algorithms that can replace existing vulnerable publickey cryptography cyber centre recommendations for
+pqc algorithms are provided in cryptographic algorithms for unclassified protected a and protected b information
+itsp  as standards for network security protocols support pqc algorithms the cyber centre will update the
+guidance on securely configuring network protocols itsp publication vendors are incorporating pqc in their
+products to rapidly meet the needs of government and industry
+the pqc migration within the gc will require significant commitment and take several years the cyber centre is working
+with treasury board of canada secretariat tbs and shared services canada ssc to prepare necessary updates to gc
+guidance support and policy departments will need to clearly understand their cryptography usage it infrastructure both
+hardware and software and data will need to be analyzed across the entire enterprise starting the pqc migration early is
+important to leverage existing it lifecycle budgets as much as possible
+this publication is the cyber centres recommended roadmap for the migration of nonclassified it systems within the gc to
+use pqc it outlines the stakeholders execution phases milestones and governance involved in this gcwide cyber security
+activity the intention is to provide key activities and timelines that will assist in coordination of departmental planning
+activities for migrating to pqc across the gc it is aimed at directors and managers of it systems in federal departments
+and agencies and decision makers accountable for the migration to pqc
+ for more information on the quantum computing threat to cryptography read the publication preparing your organization for the
+quantum threat to cryptography itsap httpswwwcybergccaenguidancepreparingyourorganizationquantumthreat
+cryptographyitsap
+
+unclassified  non class ifi
+ stakeholders and planning
+the cyber centre is the lead technical authority for information technology it security in the gc as part of canadas
+cryptologic agency the communications security establishment canada the cyber centre
+ promotes awareness of the quantum computing threat to cryptography to gc departments
+ provides guidance on cryptographic recommendations such as the use of pqc
+ provides recommendations on incorporating cryptography into a strong cyber security posture
+the cyber centre will continue to provide relevant advice and guidance to support gc departments and agencies in the
+migration to pqc
+tbs is responsible for establishing and overseeing a wholeofgovernment approach to security management including
+cyber security through policy leadership strategic direction and oversight in may  tbs published the government of
+canadas enterprise cyber security strategy identifying a key action to transition gc systems to use standardized pqc to
+protect gc information and assets from the quantum threat tbs will issue the necessary policy instruments to require
+responsible officials to establish a departmental pqc migration plan as well as report on progress under existing
+departmental reporting processes
+ssc manages it infrastructure and services on behalf of many of the departments and agencies across the gc due to its
+critical role in modernizing gc systems ssc is already engaged in developing a plan for the migration to pqc and is working
+directly with the cyber centre and tbs to advise on the feasibility of implementation
+federal departments and agencies in the gc are accountable for managing cyber security risks in their program areas
+departments and agencies will be responsible for maintaining software hosted on sscmanaged it infrastructure and any it
+infrastructure that is managed separately from ssc including contracted cloud services departments and agencies will be
+required to develop a tailored departmental pqc migration plan that covers the migration of systems for which they are
+responsible to use pqc departments and agencies will be responsible for executing that plan as well as tracking and
+reporting on progress this publication contains the initial considerations that can be used to develop a departmental pqc
+migration plan but additional guidance and support will be provided by tbs ssc and the cyber centre
+ treasury board secretariat of canadas policy on government security httpswwwtbssctcanadacapoldocengaspxid
+
+unclassified  non class ifi
+ execution phases
+this roadmap outlines  recommended phases to implement the pqc migration these phases will likely overlap
+ preparation
+during the preparation phase departments and agencies will be responsible for developing a departmental pqc migration
+plan to migrate systems for which they are responsible to use pqc to develop this plan we recommend establishing a
+committee and identify a dedicated migration lead the committee should consist of stakeholders throughout the
+organization and should include at least one member from senior management to ensure executive buy in and support in
+addition to technical areas responsible for managing it systems we recommend the inclusion of stakeholders from non
+technical areas such as finance project management procurement and asset management
+the departmental pqc migration plan needs to be continually revised and expanded upon during the execution of the
+subsequent phases the initial version of the departmental pqc migration plan should establish the individuals responsible
+for the following
+ execution of the plan
+ financial planning
+ education strategy to inform staff on the quantum threat and the progress of this migration within the
+organization
+ procurement policies for new equipment
+ approaches for the identification of vulnerable systems to build an inventory for transition
+ roles and responsibilities
+the departmental pqc migration plan must identify individuals responsible for various tasks in the execution of the plan
+ultimately the designated official for cyber security docs is accountable for mitigating the quantum risk to cyber
+security we recommend the docs or a delegated executive official be assigned the role of pqc migration executive lead
+to provide
+ oversight
+ accountability
+ executive support for the execution of the departmental pqc migration plan
+the coordination and crossdepartmental engagement may be performed by a pqc migration technical lead the technical
+lead would be responsible for facilitating coordination across the organization which may include service delivery network
+management and it procurement as well as other areas pertinent to the migration the committee established to develop
+the departmental pqc migration plan may be repurposed for managing the execution of the plan
+
+unclassified  non class ifi
+ financial planning
+departments and agencies should expect that many existing it systems may need to be replaced or new service contracts
+put into place to support pqc the execution of the pqc migration will have staffing impacts that may require new hiring
+external contractors or the realignment of roles that could affect other projects or work activities the departmental pqc
+migration plan must have a cost estimate that includes resource allocation to complete the execution the initial version of
+plan will not be comprehensive in its cost estimation but the financial estimates can be refined as the identification and
+transition phases proceed
+the costs associated with this pqc migration may be reduced by utilizing existing it equipment lifecycles and system
+modernization plans to do so it is critical to perform the initial phases of this plan quickly to identify where these cost
+efficiencies can be leveraged delays resulting in rushed procurement will increase costs
+ education strategy
+it is important that staff across the organization are aware of the quantum threat and the impact it may have on the systems
+they use or are responsible for the tbs gcxchange platform will be leveraged to share artifacts with departments and
+agencies including material produced by the cyber centre such as presentations and publications for a variety of
+audiences the cyber centres learning hub will provide course material to educate on the quantum threat to cryptography
+senior executives must be briefed to be aware of the impact the migration to pqc will have on their operations
+as the pqc migration progresses its important to keep senior executives informed of developments and progress including
+any emerging challenges or roadblocks that teams may face
+ procurement policies
+to maximize the lifetime of new systems departments and agencies should ensure new procurements have requirements
+that support pqc the cyber centre strongly recommends that systems employ established cyber security standards
+following standards provides assurance of independent security review and promotes interoperability to avoid vendor lock
+in some cyber security standards are still being revised to support pqc the cyber centre is updating guidance for securely
+configuring network protocols itsp as pqc support is finalized in standards it is expected that support for pqc
+may not be currently available in some product categories
+the cyber centre has recommended contract clauses for systems containing cryptographic modules these are available
+upon request and will be made more widely available in general departments and agencies should consider the following
+best practices for procurements
+ contracts have clauses to ensure that the vendor will include support for pqc that is compliant with cyber centre
+recommendations in cryptographic algorithms for unclassified protected a and protected b information
+itsp
+ cryptographic modules have been certified by the cryptographic module validation program
+ support for cryptographic agility to allow for future configuration changes
+the earlier pqc is included in procurement clauses the lower the costs departments will face during the migration
+
+unclassified  non class ifi
+ plan approaches for identification
+the next phase in this roadmap is the identification of where cryptography is used in it systems sometimes called
+cryptographic discovery this identification is necessary to create an inventory of systems that need to be transitioned the
+departmental pqc migration plan must include the approaches that will be undertaken to identify systems and build this
+inventory more detail on identification is provided in the next section
+ identification
+identifying where and how cryptography is used is a critical step in the process to migrate to pqc systems using
+cryptography will include
+ network services
+ operating systems
+ applications
+ code development pipelines
+ all physical it assets such as
+o server racks
+o desktops
+o laptops
+o mobile telephones
+o network appliances
+o printers
+o voice over internet protocol telephony
+o hardware security modules
+o smart cards
+o hardware tokens
+these may be hosted onpremises within contracted it platforms or a cloud service provider or under employee
+possession the scope is wide thus making identification a challenging task
+the information gathered in this phase will be used to create an inventory that should include the following information per
+system
+ system components employing cryptography
+ vendor and product version for each of the components
+ security controls that rely upon the identified cryptography
+ it security risk management itsg annex a  security control catalogue httpswwwcybergccaenguidanceannexasecurity
+controlcatalogueitsg
+
+unclassified  non class ifi
+ applicable network security zones
+ current cryptographic configurations
+ hosting platform
+ system dependencies
+ relevant service contracts and expiry dates
+ expected refresh year for the system or its components
+ responsible departmental point of contact
+ if the system should be prioritized for migration
+other technical information may be relevant to include in the inventory the cyber centre will provide additional guidance to
+departments as experience grows within the gc
+departments must identify systems that are a high priority for migrating to pqc systems protecting the confidentiality of
+information in transit over public network zones may be at risk earlier than expected due to the harvest now decrypt later
+hndl threat a hndl threat is when a threat actor intercepts encrypted information stores it and then decrypts it in the
+future when sufficiently powerful quantum computers exist it is recommended that any systems susceptible to a hndl
+threat be a high priority for migrating to pqc other considerations include the information lifespan support for
+cryptographic agility and the impact of compromise it may be valuable to complete a risk assessment for the quantum
+threat to ensure that systems are properly prioritized
+discovery of systems containing vulnerable cryptography should utilize multiple methodologies leveraging existing it
+service management itsm processes within the organization may be an efficient way to produce an initial departmental
+inventory lifecycle and change management committees should have much of the information needed for an inventory
+system entry however in practice itsm maturity may vary across departments
+software tools and services will be necessary to complete cryptographic discovery this may leverage existing cyber
+security services such as security information and event management siem solutions network monitoring and inspection
+and endpoint detection and response edr technologies these services may require configuration changes thirdparty
+plugins or additional filters to identify the use of cryptography independent tools for cryptography discovery will employ
+technology for scanning networks hosts log files or source code the cyber centres sensors program is a tool expected to
+assist departments in identification additional guidance on cryptographic discovery tools and services will be provided to
+departments by the it security tripartite which includes tbs ssc and the cyber centre
+it is important to not be overwhelmed in completing the discovery and to begin with an initial incomplete inventory with
+actions to iteratively improve the data
+during the identification phase departments should use the inventory to engage relevant it vendors and contractors to
+determine their plans to implement pqc in their products and services understanding which system components will be
+eligible for upgrades versus replacement will assist in the next phase of developing a transition plan
+ baseline security requirements for network security zones itsp httpswwwcybergccaenguidancebaselinesecurity
+requirementsnetworksecurityzonesversionitsp
+
+unclassified  non class ifi
+ transition
+the transition phase leverages the inventory created in the identification phase to plan and execute system upgrades
+replacement tunnelling andor isolation
+in addition to the inventory data the plan must consider departmental resources for identifying and assessing solutions
+performing necessary procurements testing and deployment the plan for each system will typically require multiple stages
+and should be integrated with existing it change management processes to ensure proper preparation including
+ an impact assessment
+ a rollback playbook
+ a staging environment for testing changes
+ monitoring to validate successful operation posttransition
+for each system technical teams must identify and assess solutions to incorporate pqc or otherwise mitigate the quantum
+threat the availability of pqccapable products may be limited in the early stages but vendors are rapidly adopting pqc as
+updates to protocol standards are completed solutions should meet all the procurement requirements established in the
+preparation phase procurement policies 
+many systems will need to maintain backwards compatibility to allow for continued operation with nontransitioned systems
+for a period of time the first stage for a system transition may be to support the use of pqc followed by a second stage to
+disable the vulnerable legacy cryptography
+it may not be feasible to transition some legacy systems to use pqc without a full system replacement to meet migration
+milestones it may be necessary to isolate such systems on the network or to tunnel traffic within a pqcprotected
+encapsulation layer such decisions should be made during the transition phase planning
+early versions of the departmental pqc migration plan may offer limited detail on the transition phase however this section
+should be expanded as identification efforts progress
+
+unclassified  non class ifi
+ milestones and deliverables
+milestones and deliverables for federal departments and agencies are as follows
+ april  develop an initial departmental pqc migration plan
+ beginning april  and annually after report on pqc migration progress
+ end of  completion of pqc migration of high priority systems
+ end of  completion of pqc migration of remaining systems
+these milestones for the completion of migrations implies that quantumvulnerable algorithms are disabled isolated or
+tunnelled that is rather than just supporting pqc the quantum risk has been mitigated it will be critical for departments
+and agencies to create revise and follow their departmental pqc migration plan to migrate systems as early as possible to
+meet the milestone dates
+more information on expectations for reporting progress is given in the next section
+
+unclassified  non class ifi
+ governance and coordination
+ relevant government of canada governance bodies
+departments and agencies are accountable for managing cyber security risks in their program areas however gcwide
+initiatives such as this migration to pqc requires a wholeofgovernment approach managed at the enterprise level in
+accordance with accountabilities outlined under the tbs policy instruments
+the it security tripartite consists of the tbs ssc and the cyber centre the tripartite is a centralized body that provides
+advice guidance oversight and direction on gcwide cyber security initiatives such as the gc migration to pqc the
+tripartite supports departments and agencies under tbs authorities
+the gc enterprise architecture review board gc earb provides a governance mechanism to assess if proposed enterprise
+systems are aligned to the gc enterprise architecture framework the framework ensures business information
+application technology security and privacy architecture domains meet the service and digital target enterprise
+architecture cyber security requirements such as compliance to the cyber centres cryptographic recommendations are
+part of the gc target enterprise architecture which is aligned with overall tbs strategic direction and tbs policy
+instruments
+the gc has interdepartmental quantum science and technology st coordination committees at senior executive levels
+to synchronise efforts and maintain canadas leadership in quantum st these committees oversee the federal
+governments actions supporting canadas national quantum strategy nqs including the nqs roadmap on quantum
+communication and postquantum cryptography
+ reporting on progress
+monitoring the progress of the gc migration to pqc is essential for effective activity oversight and governance this ensures
+accountability and the completion of milestones tbs oversees compliance to its policy instruments in accordance with the
+treasury board framework for management of compliance it also tracks progress on the departmental plan on service and
+digital which includes cyber security as required under the policy on service and digital reporting on departmental progress
+and on the activities needed to complete the migration to pqc will be requested and collected by tbs as part of the annual
+submissions for the departmental plan on service and digital
+ additional resources and support
+the tbs gcxchange platform will be leveraged to share artifacts with federal departments and agencies to assist in the
+migration to pqc the cyber centre will continue to publish guidance and recommendations for organizations on the cyber
+centre website
+please use the cyber centre contact information at the top of this page to request more information on the quantum threat
+pqc or this roadmap
+

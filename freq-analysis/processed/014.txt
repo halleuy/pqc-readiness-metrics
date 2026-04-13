@@ -1,319 +1,1429 @@
-unclassified  non class ifi
-roadmap for the migration to post
-quantum cryptography for the
-government of canada itsm
-itsm
- his majesty the king in right of canada as represented 
-by the minister of national defence 
-unclassified  non class ifi
-foreword
-this is an unclassified publication issued under the authority of the head of the canadian centre for cyber security
-cyber centre for more information or to suggest amendments contact the cyber centre
- by email cryptographycryptographiecybergcca
- by phone  or cyber
-effective date
-this publication takes effect on june  
-revision history
-revision amendments date
- first release june  
 
-isbn 
-cat depdf
-unclassified  non class ifi
-overview
-every organization managing information technology it systems must migrate cyber security components to become
-quantumsafe this will help protect against the cryptographic threat of a future quantum computer the cyber centre
-recommends the adoption of standardized postquantum cryptography pqc to mitigate this threat
-this publication outlines the cyber centres recommended roadmap for the government of canada gc to migrate non
-classified it systems to use pqc including milestones deliverables and guidance for departmental planning and
-execution
-milestones and deliverables for federal departments and agencies are as follows
- april  develop an initial departmental pqc migration plan
- beginning april  and annually after report on pqc migration progress
- end of  completion of pqc migration of high priority systems
- end of  completion of pqc migration of remaining systems
- nonclassified it systems are those that do not contain transfer or otherwise handle classified information in the government of
-canada nonclassified systems manage unclassified protected a and protected b information for classified systems and
-systems handling protected c information departments must contact the cyber centre to obtain advice on migrating commercial
-equipment
+d p c 
+raft for ublic onsultation
+quantum
+readiness index
 
-unclassified  non class ifi
 table of contents
- introduction  
- stakeholders and planning  
- execution phases  
- preparation  
- roles and responsibilities 
- financial planning  
- education strategy  
- procurement policies  
- plan approaches for identification  
- identification  
- transition  
- milestones and deliverables  
- governance and coordination  
- relevant government of canada governance bodies  
- reporting on progress  
- additional resources and support 
+developed in consultation with 
+disclaimer 
+preface 
+executive summary 
+ introduction 
+ purpose and objectives of the qri 
+ target audience 
+ constructs of the qri 
+ domains and objectives 
+ levels 
+ assessment results and recommendations 
+ report 
+ process flow of using the qri 
+ conclusion 
+glossary of key terms 
+references 
+annex a  qri domains objectives levels and recommendations 
+governance gv 
+risk assessment ra 
+training and capability tc 
+external engagement ee 
+technology te 
+annex b  qri questions 
 
-unclassified  non class ifi
+developed in consultation with
+this document is published by the cyber security agency of singapore in
+consultation with partners across the quantumsafe communities listed in
+alphabetical order
+ astar
+ accenture
+ deloitte
+ evolutionq
+ sgtech
+ speqtral
+ world economic forum
+disclaimer
+users should use this document in conjunction with the quantumsafe handbook
+as a resource this document is intended for informational purposes only and is not
+mandatory prescriptive nor exhaustive
+the information provided in this document does not and is not intended to
+constitute legal advice all information is for general informational purposes only
+these organisations provided views and suggestions on the framing descriptions
+of the objectives and recommendations included in this document csa and its
+partners shall not be liable for any inaccuracies errors andor omissions contained
+herein nor for any losses or damages of any kind including any loss of profits
+business goodwill or reputation andor any special incidental or consequential
+damages in connection with any use of this document organisations are advised
+to consider how to apply the recommendations within the document to their
+specific circumstances in addition to other measures relevant to their needs this
+document contains links to other thirdparty references such links are
+informational and do not represent endorsement of content from these thirdparty
+references
+
+preface
+the quantum technology landscape is evolving rapidly and much remains
+uncertain the exact timeline for qday  when a quantum computer capable of
+breaking todays cryptography becomes available  cannot be predicted with
+precision nor can we be fully certain about how the technology will develop or
+which quantum safe implementation approaches will prove most effective the
+issue is complex dynamic and subject to scientific breakthroughs and geopolitical
+shifts
+despite this uncertainty the collective assessment is that preparation must begin
+now especially for critical systems where the risks of inaction are greatest
+governments around the world are starting to take steps experimenting with
+different approaches and refining methods as experience is accumulated
+at the same time rushing ahead indiscriminately or in isolation is not encouraged
+some actions are noregrets steps that can and should be taken immediately
+others are less well understood and require more monitoring and careful
+evaluation as early movement could bring unintended costs or firstmover
+disadvantages
+the publications by csa therefore seek to provide guidance and a set of practical
+measures they reflect the collective stance to begin readiness in a measured
+deliberate way whilst staying adaptive to emerging knowledge and standards
+
+executive summary
+quantum computers are poised to revolutionise computing by solving some
+computational problems exponentially faster than classical computers while their
+transformative potential is immense quantum computers can also pose
+significant cybersecurity threats in anticipation of the availability of quantum
+computers threat actors can launch harvest now decrypt later hndl attacks
+where encrypted data is stolen in anticipation of a quantum computer to decrypt
+it in the future the threats may not just compromise confidentiality through hn
+dl attacks but could also undermine integrity and authenticity through the
+forgery of digital signatures recognising these impending quantumenabled
+threats international bodies have been advocating the importance of planning for
+quantum safe migration through guidance strategies and standards
+the journey towards quantum safe migration is resource intensive and may take
+organisations many years to fully migrate their systems organisations grapple
+with the challenge of contextualising international guidance to their current state
+of readiness in particular organisations do not know where they stand in the
+quantum safe migration journey and what the next steps are having a self
+assessment of preparedness through the quantum readiness index qri can help
+organisations address quantumenabled threats and enable them to plan
+prioritise and execute quantumsafe migration effectively
+the qri allows organisations to understand their levels of readiness and enables
+them to prioritise quantumsafe migration action areas it also facilitates
+conversations with organisational leaders and the board about the state of
+readiness to address quantumenabled threats and can be used to seek buyin on
+the recommended steps to strengthen their readiness the qri is intended for
+organisations that lack the awareness of the quantum threats and are keen to
+undertake immediate noregrets moves towards quantum safety the primary
+users of the qri are leaders and decisionmakers who have responsibilities for
+managing technology and mitigating cybersecurity risks within an organisation
+the qri is intended to be a voluntary resource for organisational use and is not
+mandatory or compliance based
+the qri is consistent with the five principles outlined in the world economic
+forum wefs quantum readiness toolkit with readiness levels adapted from the
+capability maturity model integration cmmi of the information systems audit
+and control association isaca the qri was developed in collaboration with
+experts from the industry listed in an earlier section
+ httpswwwietforgarchiveiddraftietfpquippqcengineershtml
+
+the qri has been designed using the constructs of domains objectives levels and
+recommendations a domain refers to an organisational aspect to address the
+quantumenabled threat it comprises various quantum safe objectives that
+manifest the intent of the domain the domains are namely governance risk
+assessment training and capability external engagement and technology
+the levels indicate the readiness of organisations for each objective
+understanding the levels enables the identification of recommended next steps to
+improve the security posture for each objective
+to use the qri organisations answer a series of questions aligned with objectives
+under the domains upon completion of all questions in the qri the readiness level
+for each objective and recommendations on the next steps are shown
+organisations can subsequently develop action plans based on suggested
+recommendations by referring to guidance in the quantumsafe handbook and
+implementing these plans this process is repeated periodically to assess progress
+after the implementation of the plans and to reflect developments in the operating
+environment
+
  introduction
-the cyber centre recommends organizations managing it systems migrate to use pqc in order to replace publickey
-cryptography vulnerable to a future quantum computer all instances of publickey cryptography must be migrated to secure
-gc it systems and canadians data against this threat
-the united states national institute of standards and technology nist has worked globally with cryptographic experts to
-standardize pqc algorithms that can replace existing vulnerable publickey cryptography cyber centre recommendations for
-pqc algorithms are provided in cryptographic algorithms for unclassified protected a and protected b information
-itsp  as standards for network security protocols support pqc algorithms the cyber centre will update the
-guidance on securely configuring network protocols itsp publication vendors are incorporating pqc in their
-products to rapidly meet the needs of government and industry
-the pqc migration within the gc will require significant commitment and take several years the cyber centre is working
-with treasury board of canada secretariat tbs and shared services canada ssc to prepare necessary updates to gc
-guidance support and policy departments will need to clearly understand their cryptography usage it infrastructure both
-hardware and software and data will need to be analyzed across the entire enterprise starting the pqc migration early is
-important to leverage existing it lifecycle budgets as much as possible
-this publication is the cyber centres recommended roadmap for the migration of nonclassified it systems within the gc to
-use pqc it outlines the stakeholders execution phases milestones and governance involved in this gcwide cyber security
-activity the intention is to provide key activities and timelines that will assist in coordination of departmental planning
-activities for migrating to pqc across the gc it is aimed at directors and managers of it systems in federal departments
-and agencies and decision makers accountable for the migration to pqc
- for more information on the quantum computing threat to cryptography read the publication preparing your organization for the
-quantum threat to cryptography itsap httpswwwcybergccaenguidancepreparingyourorganizationquantumthreat
-cryptographyitsap
+quantum computing offers opportunities for transformation in applications and
+environments where fast and efficient calculations are required quantum
+computers can solve some computational problems exponentially faster than
+classical computers leading to advances such as optimised routing better
+pharmaceutical designs and faster and more granular financial models while
+quantum computers will enable some types of calculations to be done
+exponentially faster than classical computers such capabilities can be used by
+threat actors to compromise existing cryptographic algorithms that rely on hard
+mathematical problems although a cryptographically relevant quantum
+computer crqc does not exist today there is an attack known as harvest now
+decrypt later hndl where an attacker steals encrypted data in anticipation of a
+crqc to decrypt it quantumenabled threats may not be limited to hndl attacks
+through compromised confidentiality but could also undermine integrity and
+authenticity through the forgery of digital signatures recognising these
+impending quantumenabled threats international bodies have been advocating
+the importance of planning for quantum safe migration through guidance
+strategies and standards
+to address the hndl and other quantumenabled threats the cryptographic
+community has been developing post quantum cryptographic pqc standards
+and protocols these standards coupled with existing cybersecurity controls uplift
+readiness to address quantumenabled threats quantum cryptographic
+technologies such as quantum key distribution qkd complements pqc to
+safeguard information and the digital communication infrastructure
+while quantum safe technologies are nascent and evolving international bodies
+and governments have put forth guidance on quantum safe readiness and
+migration in anticipation of the arrival of the crqc for example the cryptographic
+community has been developing post quantum cryptographic pqc standards
+and protocols these standards coupled with quantum safe guidance and controls
+uplift readiness to address quantumenabled threats in the midst of such a
+landscape where a plethora of sources is available organisations still find it a
+challenge to understand where they stand in terms of quantum readiness and
+navigate towards quantum safety
+the journey towards quantum safe migration is resource intensive and may take
+organisations many years to fully migrate their systems organisations grapple
+with the challenge of contextualising international guidance to their current state
+of readiness in particular organisations do not know where they stand in the
+quantum safe migration journey and what the next steps are the qri addresses
+this challenge by helping organisations selfassess their preparedness against
+quantumenabled threats enabling them to plan prioritise and execute quantum
+safe migration
 
-unclassified  non class ifi
- stakeholders and planning
-the cyber centre is the lead technical authority for information technology it security in the gc as part of canadas
-cryptologic agency the communications security establishment canada the cyber centre
- promotes awareness of the quantum computing threat to cryptography to gc departments
- provides guidance on cryptographic recommendations such as the use of pqc
- provides recommendations on incorporating cryptography into a strong cyber security posture
-the cyber centre will continue to provide relevant advice and guidance to support gc departments and agencies in the
-migration to pqc
-tbs is responsible for establishing and overseeing a wholeofgovernment approach to security management including
-cyber security through policy leadership strategic direction and oversight in may  tbs published the government of
-canadas enterprise cyber security strategy identifying a key action to transition gc systems to use standardized pqc to
-protect gc information and assets from the quantum threat tbs will issue the necessary policy instruments to require
-responsible officials to establish a departmental pqc migration plan as well as report on progress under existing
-departmental reporting processes
-ssc manages it infrastructure and services on behalf of many of the departments and agencies across the gc due to its
-critical role in modernizing gc systems ssc is already engaged in developing a plan for the migration to pqc and is working
-directly with the cyber centre and tbs to advise on the feasibility of implementation
-federal departments and agencies in the gc are accountable for managing cyber security risks in their program areas
-departments and agencies will be responsible for maintaining software hosted on sscmanaged it infrastructure and any it
-infrastructure that is managed separately from ssc including contracted cloud services departments and agencies will be
-required to develop a tailored departmental pqc migration plan that covers the migration of systems for which they are
-responsible to use pqc departments and agencies will be responsible for executing that plan as well as tracking and
-reporting on progress this publication contains the initial considerations that can be used to develop a departmental pqc
-migration plan but additional guidance and support will be provided by tbs ssc and the cyber centre
- treasury board secretariat of canadas policy on government security httpswwwtbssctcanadacapoldocengaspxid
+ purpose and objectives of the qri
+the qri provides a selfassessment of an organisations preparedness to address
+quantumenabled threats it allows organisations to understand their levels of
+readiness and enables them to prioritise quantumsafe migration action areas it
+also facilitates conversations with organisational leaders and the board about the
+state of readiness to address quantumenabled threats and can be used to seek
+buyin on the recommended next steps to strengthen their readiness
+as organisations vary in size industry and maturity the guidance and
+recommendations provided through the qri is suggestive rather than exhaustive
+each organisation needs to develop its own quantum security migration action
+plan with the qri serving as a starting point for organisations to develop their
+quantum readiness strategy and action plan as a voluntary selfassessment
+questionnaire the qri does not prescribe minimum readiness levels and is
+intended to help organisations track their progress in their journey towards
+quantum safety
+the qri is consistent with the five principles of the world economic forum wefs
+quantum readiness toolkit qrt with readiness levels adapted from the
+capability maturity model integration cmmi of the information systems audit
+and control association isaca
+ target audience
+the qri is intended to be used by organisations that want to raise their awareness
+of the quantumenabled threats and undertake noregrets moves in their
+journey towards quantum safety the primary users of the qri are leaders and
+decisionmakers who have responsibilities for managing technology and
+mitigating cybersecurity risks within an organisation examples of key users
+include the csuite and other senior leaders responsible for leading quantumsafe
+migration for the organisation
+o chief information officers
+o chief information security officers
+o chief data officers
+o chief technology officers
+o chief risk officers and
+o other senior leaders responsible for leading quantumsafe migration
+for the organisation
 
-unclassified  non class ifi
- execution phases
-this roadmap outlines  recommended phases to implement the pqc migration these phases will likely overlap
- preparation
-during the preparation phase departments and agencies will be responsible for developing a departmental pqc migration
-plan to migrate systems for which they are responsible to use pqc to develop this plan we recommend establishing a
-committee and identify a dedicated migration lead the committee should consist of stakeholders throughout the
-organization and should include at least one member from senior management to ensure executive buy in and support in
-addition to technical areas responsible for managing it systems we recommend the inclusion of stakeholders from non
-technical areas such as finance project management procurement and asset management
-the departmental pqc migration plan needs to be continually revised and expanded upon during the execution of the
-subsequent phases the initial version of the departmental pqc migration plan should establish the individuals responsible
-for the following
- execution of the plan
- financial planning
- education strategy to inform staff on the quantum threat and the progress of this migration within the
-organization
- procurement policies for new equipment
- approaches for the identification of vulnerable systems to build an inventory for transition
- roles and responsibilities
-the departmental pqc migration plan must identify individuals responsible for various tasks in the execution of the plan
-ultimately the designated official for cyber security docs is accountable for mitigating the quantum risk to cyber
-security we recommend the docs or a delegated executive official be assigned the role of pqc migration executive lead
-to provide
- oversight
- accountability
- executive support for the execution of the departmental pqc migration plan
-the coordination and crossdepartmental engagement may be performed by a pqc migration technical lead the technical
-lead would be responsible for facilitating coordination across the organization which may include service delivery network
-management and it procurement as well as other areas pertinent to the migration the committee established to develop
-the departmental pqc migration plan may be repurposed for managing the execution of the plan
+ constructs of the qri
+the qri is based on the constructs of domains objectives and levels indepth
+details of the domains objectives levels and recommendations can be found in
+annex a
+ domains and objectives
+the domains of the qri are consistent with the five principles of the world
+economic forum wefs quantum readiness toolkit which are organisational
+aspects to address quantumenabled threats each domain comprises various
+objectives relevant to the intent of the domain the domains are namely
+governance risk assessment training and capability external engagement
+and technology table  provides the descriptions for each qri domain
+wef quantum
+readiness toolkit qri domain description
+principle
+ensure the governance structures institutionalise quantum
+organisational risk management and enable systematic
+governance structure governance implementation through appropriate policies
+institutionalises procedures organisational champions and
+quantum risk resources
+treat and prioritise risk assessment relates to identifying crown
+quantum risk jewels and prioritising critical business functions
+risk assessment
+alongside existing for quantumsafe migration that is supported by
+cyber risks cryptographic asset management
+raise quantum risk training and capability relate to educating
+awareness training and stakeholders on quantum risks and quantum
+throughout the capability safe migration as well as develop essential
+organisation competencies for quantumsafe migration
+external engagement is essential to understand
+organisational risk exposure of productsservices
+encourage
+external from third party vendors as well as to leverage
+collaboration across
+engagement the ecosystem on information regarding
+ecosystems
+identified risks experiences and insights in
+implementing quantum safe migration
+technology involves organisations to think
+make strategic
+ahead and conduct technology
+decisions for future technology
+experimentation and proof of concept projects
+technology adoption
+to assess quantum safe technologies
+table  descriptions of qri domains
 
-unclassified  non class ifi
- financial planning
-departments and agencies should expect that many existing it systems may need to be replaced or new service contracts
-put into place to support pqc the execution of the pqc migration will have staffing impacts that may require new hiring
-external contractors or the realignment of roles that could affect other projects or work activities the departmental pqc
-migration plan must have a cost estimate that includes resource allocation to complete the execution the initial version of
-plan will not be comprehensive in its cost estimation but the financial estimates can be refined as the identification and
-transition phases proceed
-the costs associated with this pqc migration may be reduced by utilizing existing it equipment lifecycles and system
-modernization plans to do so it is critical to perform the initial phases of this plan quickly to identify where these cost
-efficiencies can be leveraged delays resulting in rushed procurement will increase costs
- education strategy
-it is important that staff across the organization are aware of the quantum threat and the impact it may have on the systems
-they use or are responsible for the tbs gcxchange platform will be leveraged to share artifacts with departments and
-agencies including material produced by the cyber centre such as presentations and publications for a variety of
-audiences the cyber centres learning hub will provide course material to educate on the quantum threat to cryptography
-senior executives must be briefed to be aware of the impact the migration to pqc will have on their operations
-as the pqc migration progresses its important to keep senior executives informed of developments and progress including
-any emerging challenges or roadblocks that teams may face
- procurement policies
-to maximize the lifetime of new systems departments and agencies should ensure new procurements have requirements
-that support pqc the cyber centre strongly recommends that systems employ established cyber security standards
-following standards provides assurance of independent security review and promotes interoperability to avoid vendor lock
-in some cyber security standards are still being revised to support pqc the cyber centre is updating guidance for securely
-configuring network protocols itsp as pqc support is finalized in standards it is expected that support for pqc
-may not be currently available in some product categories
-the cyber centre has recommended contract clauses for systems containing cryptographic modules these are available
-upon request and will be made more widely available in general departments and agencies should consider the following
-best practices for procurements
- contracts have clauses to ensure that the vendor will include support for pqc that is compliant with cyber centre
-recommendations in cryptographic algorithms for unclassified protected a and protected b information
-itsp
- cryptographic modules have been certified by the cryptographic module validation program
- support for cryptographic agility to allow for future configuration changes
-the earlier pqc is included in procurement clauses the lower the costs departments will face during the migration
+the domains and their respective objectives of the qri are illustrated below in
+figure 
+risk training and external
+govern ance technology
+assessment capability engagement
+objectives objectives objectives objectives objectives
+ establish formal  perform quantum  educate  evaluate and  conduct
+governance risk assessment organisational manage vendors technology
+structure for the and prioritise stakeholders on and other third experimentation
+mandate on affected assets and quantum risks and parties to address and proofof
+migrating to data importance of supply chain risks concepts to assess
+quantum safety quantumsafe implications of
+ implement  connect with
+migration adoption with
+ establish a cryptographic asset ecosystem
+regards to use
+strategic quantum management  develop the stakeholders to
+cases
+safe roadmap for necessary collectively address
+the competencies to quantum risks  instil agility
+implementation of effectively drive considerations to
+ promote the
+initiatives quantumsafe enable timely
+adoption of
+migration replacement of
+ integrate common quantum
+cryptographic
+quantum r isks into safe standards and
+algorithms
+existing cyber risk guidelines for
+management interoperability
+programme
+ contribute to the
+ develop and ecosystems
+implement policies knowledge base
+and frameworks and future talent
+that guide the pool
+migration to
+quantum safety
+figure  domains and objectives of the qri
 
-unclassified  non class ifi
- plan approaches for identification
-the next phase in this roadmap is the identification of where cryptography is used in it systems sometimes called
-cryptographic discovery this identification is necessary to create an inventory of systems that need to be transitioned the
-departmental pqc migration plan must include the approaches that will be undertaken to identify systems and build this
-inventory more detail on identification is provided in the next section
- identification
-identifying where and how cryptography is used is a critical step in the process to migrate to pqc systems using
-cryptography will include
- network services
- operating systems
- applications
- code development pipelines
- all physical it assets such as
-o server racks
-o desktops
-o laptops
-o mobile telephones
-o network appliances
-o printers
-o voice over internet protocol telephony
-o hardware security modules
-o smart cards
-o hardware tokens
-these may be hosted onpremises within contracted it platforms or a cloud service provider or under employee
-possession the scope is wide thus making identification a challenging task
-the information gathered in this phase will be used to create an inventory that should include the following information per
-system
- system components employing cryptography
- vendor and product version for each of the components
- security controls that rely upon the identified cryptography
- it security risk management itsg annex a  security control catalogue httpswwwcybergccaenguidanceannexasecurity
-controlcatalogueitsg
+ levels
+the levels of the qri are adapted from maturity levels in the capability maturity
+model integration cmmi framework from information systems audit and control
+association isaca the levels indicate the degree of readiness in meeting the
+objectives and enables the identification of organisational gaps and
+recommendations to improve the readiness for each objective each objective has
+four levels l l l and l with the description of each level found in table 
+cmmi maturity levels qri level description of qri level
+the organisation has not begun the
+maturity level  incomplete quantumsafe migration journey and
+l  not started
+ad hoc and unknown does not have capabilities to meet the
+intent of the objective
+maturity level  initial the organisation has begun exploring
+unpredictable and reactive the quantum threat and has started
+l  initial
+maturity level  managed work on meeting the intent of the
+managed on the project level objective
+maturity level  defined
+the organisation has defined an
+organisationwide standards
+l  defined organisational wide approach to meet
+provide guidance across projects
+the intent of the objective
+programs and portfolios
+maturity level  quantitatively
+managed
+measured and controlled
+organisation objectives are
+the organisations capabilities in the
+predictable and align to meet the
+objective have been deployed
+needs of stakeholders l operational
+operationally and are continuously
+maturity level  optimising
+improved
+stable and flexible organization
+continuously improves pivots and
+responds to opportunity and
+change
+table  description of each qri level
+ assessment results and recommendations
+the assessment results are automatically computed per objective after submitting
+the responses to all the questions and are reflected as current level based on the
+current level the qri provides recommendations as next steps an organisation
+can take to progress in the quantumsafe migration journey ie next level after
+the current level these recommendations serve as informative guidance rather
+than prescriptive requirements with references to the relevant portions of the
+quantumsafe handbook where possible
 
-unclassified  non class ifi
- applicable network security zones
- current cryptographic configurations
- hosting platform
- system dependencies
- relevant service contracts and expiry dates
- expected refresh year for the system or its components
- responsible departmental point of contact
- if the system should be prioritized for migration
-other technical information may be relevant to include in the inventory the cyber centre will provide additional guidance to
-departments as experience grows within the gc
-departments must identify systems that are a high priority for migrating to pqc systems protecting the confidentiality of
-information in transit over public network zones may be at risk earlier than expected due to the harvest now decrypt later
-hndl threat a hndl threat is when a threat actor intercepts encrypted information stores it and then decrypts it in the
-future when sufficiently powerful quantum computers exist it is recommended that any systems susceptible to a hndl
-threat be a high priority for migrating to pqc other considerations include the information lifespan support for
-cryptographic agility and the impact of compromise it may be valuable to complete a risk assessment for the quantum
-threat to ensure that systems are properly prioritized
-discovery of systems containing vulnerable cryptography should utilize multiple methodologies leveraging existing it
-service management itsm processes within the organization may be an efficient way to produce an initial departmental
-inventory lifecycle and change management committees should have much of the information needed for an inventory
-system entry however in practice itsm maturity may vary across departments
-software tools and services will be necessary to complete cryptographic discovery this may leverage existing cyber
-security services such as security information and event management siem solutions network monitoring and inspection
-and endpoint detection and response edr technologies these services may require configuration changes thirdparty
-plugins or additional filters to identify the use of cryptography independent tools for cryptography discovery will employ
-technology for scanning networks hosts log files or source code the cyber centres sensors program is a tool expected to
-assist departments in identification additional guidance on cryptographic discovery tools and services will be provided to
-departments by the it security tripartite which includes tbs ssc and the cyber centre
-it is important to not be overwhelmed in completing the discovery and to begin with an initial incomplete inventory with
-actions to iteratively improve the data
-during the identification phase departments should use the inventory to engage relevant it vendors and contractors to
-determine their plans to implement pqc in their products and services understanding which system components will be
-eligible for upgrades versus replacement will assist in the next phase of developing a transition plan
- baseline security requirements for network security zones itsp httpswwwcybergccaenguidancebaselinesecurity
-requirementsnetworksecurityzonesversionitsp
+an illustrative example of assessment results and suggested recommendations is
+shown in table  below
+domainobjective current next suggested recommendations to improve to
+level level  next level
+governance
+identify and appoint organisation champions
+objective   
+for quantum readiness
+objective    initiate discussions
+objective    include quantum risk
+keep up the continuous effort towards
+objective   
+quantumsafety
+risk assessment
+perform a preliminary quantum risk
+objective   
+assessment
+perform a comprehensive inventorisation of all
+objective   
+high value
+training  capability
+establish a quantumsafe migration
+objective   
+information programme
+objective    develop a matrix on competencies
+external engagement
+objective    perform an indepth riskbased evaluation
+objective    contribute experiences and insights
+objective    establish a watchlist
+keep up the continuous effort towards
+objective   
+quantumsafety
+technology
+objective    identify use cases as a basis
+objective    define cryptographic agility considerations
+table  illustrative assessment results and recommendations for an organisation
+using the qri
 
-unclassified  non class ifi
- transition
-the transition phase leverages the inventory created in the identification phase to plan and execute system upgrades
-replacement tunnelling andor isolation
-in addition to the inventory data the plan must consider departmental resources for identifying and assessing solutions
-performing necessary procurements testing and deployment the plan for each system will typically require multiple stages
-and should be integrated with existing it change management processes to ensure proper preparation including
- an impact assessment
- a rollback playbook
- a staging environment for testing changes
- monitoring to validate successful operation posttransition
-for each system technical teams must identify and assess solutions to incorporate pqc or otherwise mitigate the quantum
-threat the availability of pqccapable products may be limited in the early stages but vendors are rapidly adopting pqc as
-updates to protocol standards are completed solutions should meet all the procurement requirements established in the
-preparation phase procurement policies 
-many systems will need to maintain backwards compatibility to allow for continued operation with nontransitioned systems
-for a period of time the first stage for a system transition may be to support the use of pqc followed by a second stage to
-disable the vulnerable legacy cryptography
-it may not be feasible to transition some legacy systems to use pqc without a full system replacement to meet migration
-milestones it may be necessary to isolate such systems on the network or to tunnel traffic within a pqcprotected
-encapsulation layer such decisions should be made during the transition phase planning
-early versions of the departmental pqc migration plan may offer limited detail on the transition phase however this section
-should be expanded as identification efforts progress
+ report
+upon submission of the responses to questions at httpsgogovsgqri the
+assessment results and suggested recommendations will be compiled in a pdf
+report and automatically sent as an attachment via the indicated email see figure
+ for an example of a sample qri report
+figure  sample qri report
 
-unclassified  non class ifi
- milestones and deliverables
-milestones and deliverables for federal departments and agencies are as follows
- april  develop an initial departmental pqc migration plan
- beginning april  and annually after report on pqc migration progress
- end of  completion of pqc migration of high priority systems
- end of  completion of pqc migration of remaining systems
-these milestones for the completion of migrations implies that quantumvulnerable algorithms are disabled isolated or
-tunnelled that is rather than just supporting pqc the quantum risk has been mitigated it will be critical for departments
-and agencies to create revise and follow their departmental pqc migration plan to migrate systems as early as possible to
-meet the milestone dates
-more information on expectations for reporting progress is given in the next section
+ process flow of using the qri
+the organisation starts the selfassessment process by accessing
+httpsgogovsgqri and answering assessment questions organised according to
+objectives the organisation is shown the readiness level and recommended next
+steps for each objective the organisation then develops action plans leveraging
+the guidance in the quantumsafe handbook and implements these plans this
+process is repeated periodically after the plans are implemented and to reflect
+developments in the operating environment see figure  for the flow of using the
+qri
+figure  flow of using the qri
 
-unclassified  non class ifi
- governance and coordination
- relevant government of canada governance bodies
-departments and agencies are accountable for managing cyber security risks in their program areas however gcwide
-initiatives such as this migration to pqc requires a wholeofgovernment approach managed at the enterprise level in
-accordance with accountabilities outlined under the tbs policy instruments
-the it security tripartite consists of the tbs ssc and the cyber centre the tripartite is a centralized body that provides
-advice guidance oversight and direction on gcwide cyber security initiatives such as the gc migration to pqc the
-tripartite supports departments and agencies under tbs authorities
-the gc enterprise architecture review board gc earb provides a governance mechanism to assess if proposed enterprise
-systems are aligned to the gc enterprise architecture framework the framework ensures business information
-application technology security and privacy architecture domains meet the service and digital target enterprise
-architecture cyber security requirements such as compliance to the cyber centres cryptographic recommendations are
-part of the gc target enterprise architecture which is aligned with overall tbs strategic direction and tbs policy
-instruments
-the gc has interdepartmental quantum science and technology st coordination committees at senior executive levels
-to synchronise efforts and maintain canadas leadership in quantum st these committees oversee the federal
-governments actions supporting canadas national quantum strategy nqs including the nqs roadmap on quantum
-communication and postquantum cryptography
- reporting on progress
-monitoring the progress of the gc migration to pqc is essential for effective activity oversight and governance this ensures
-accountability and the completion of milestones tbs oversees compliance to its policy instruments in accordance with the
-treasury board framework for management of compliance it also tracks progress on the departmental plan on service and
-digital which includes cyber security as required under the policy on service and digital reporting on departmental progress
-and on the activities needed to complete the migration to pqc will be requested and collected by tbs as part of the annual
-submissions for the departmental plan on service and digital
- additional resources and support
-the tbs gcxchange platform will be leveraged to share artifacts with federal departments and agencies to assist in the
-migration to pqc the cyber centre will continue to publish guidance and recommendations for organizations on the cyber
-centre website
-please use the cyber centre contact information at the top of this page to request more information on the quantum threat
-pqc or this roadmap
+ conclusion
+achieving quantum readiness is a progressive journey that requires multiyear
+planning preparation and execution the qri enables organisations to measure
+their readiness as they prepare to embark on the migration towards quantum
+safety and provide recommended next steps in the domains of governance risk
+assessment training and capability external engagement and technology as a
+selfassessment resource organisations can use it as a first step to understand
+where they are in the journey towards quantum readiness and subsequently
+develop its own quantum safe action plan using guidance in the quantumsafe
+handbook as a resource
+
+glossary of key terms
+terms and definitions
+asymmetric key algorithm a cryptographic algorithm that uses a public
+private key pair for encryption and is sometimes
+referred to as a public key algorithm
+symmetric key algorithm a cryptographic algorithm that uses the same
+key for both encryption and decryption
+cryptographically relevant a quantum computer that is powerful enough to
+quantum computers crqc break a cryptographic algorithm especially an
+asymmetric cryptographic algorithm
+domain a specific organisational aspect to address the
+quantumenabled threat
+harvest now decrypt later a strategy where an attacker steals encrypted
+hndl attack data now and waits for a quantum computer to
+decrypt it
+post quantum new cryptographic algorithm standards that are
+cryptographic pqc theoretically resistant to threats by quantum
+computers
+algorithm standards
+quantum key distribution a secure communication method that uses
+qkd quantum mechanics to create and exchange
+encryption keys
+
+references
+accenture november  moving toward a quantum security maturity index
+aivd netherlands june  the pqc migration handbook
+bsi germany may  quantum safe cryptography
+cfdir june  canadian national quantumreadiness best practices and
+guidelines
+deloitte april  cryptographic resilience community profile initial draft
+etsi july  migration to quantum safety
+evolutionq january  a methodology for quantum risk assessment
+fsisac  preparing for a postquantum world by managing
+cryptographic risk
+hapkido  organisational readiness model for quantumsafe transition
+isaca  cybersecurity capability maturity model v
+nist december  pqc standardization process
+nist march  nist sp transitioning the use of cryptographic
+algorithms and key lengths
+nist may  nice framework for workforce cybersecurity
+nist september  nist sp rev  security and privacy controls for
+information systems and organisations
+quantum insider february  hndl the truth behind this common
+quantum theory
+us white house november  m migrating to postquantum
+cryptography
+world economic forum june  quantum readiness toolkit
+
+annex a  qri domains objectives levels and
+recommendations
+the objectives levels and recommendations within each domain are described
+below
+governance gv
+governance structures institutionalise quantum risk management and enable
+systematic implementation through appropriate policies procedures
+organisational champions and resources
+objective  establish formal governance structure for mandate on migrating
+to quantum safety
+formal governance structures institutionalise the mandate for migration to
+quantum safety through clear accountability and decision making led by an
+organisational champion
+rationale a formal governance structure enables a strong organisational
+mandate for migrating to quantumsafety by defining organisational
+responsibilities and decisionmaking processes
+level descriptors
+l the organisation has not identified a champion or crossfunctional
+team to institutionalise the migration to quantum safety no formal
+governance structure exists to address these areas
+l the organisation has identified a champion or crossfunctional team
+to institutionalise the migration to quantum safety however their
+roles and responsibilities remain informal and activities are conducted
+on an adhoc basis
+l the organisation has established a formal governance structure led by
+an organisational champion such as a dedicated committee with
+clearly defined roles and responsibilities to institutionalise the
+migration to quantum safety
+l the organisation has convened the governance structure and is
+continuously evaluating the roles responsibilities and processes of the
+governance structure and refining them in tandem with evolving
+requirements
+recommendations
+for suggested recommendations to progress to next level
+level
+l identify and appoint organisation champions for quantum
+readiness
+
+ assign senior personnel with domain knowledge in data
+management cryptography risk or infrastructure as the initial
+point of contact for quantum readiness
+establish functional team to coordinate quantumsafe initiatives
+ form a crossfunctional team comprising of stakeholders such
+as security officers engineers it managers and legal
+representatives to support the champion in coordinating
+quantumsafe initiatives
+l establish a formal governance body led by an organisational
+champion
+ create a quantumsafe governance committee or integrate
+the function into an existing risktechnology committee
+ define formal roles and responsibility of the governance body
+l establish a review cycle for governance effectiveness
+ assess on a regular basis
+o governance objectives versus outcomes
+o relevance of definitions of roles and responsibilities
+o engagement levels of crossfunctional teams
+ refine governance process through feedback and evolving
+requirements
+l keep up the continuous effort towards quantumsafety
+objective  establish a strategic quantumsafe roadmap for the
+implementation of initiatives
+a comprehensive implementation plan with clear objectives resource
+requirements and timelines for quantumsafe initiatives
+rationale a comprehensive implementation plan ensures effective planning
+prioritisation and execution of quantumsafe initiatives through clear milestones
+and resource allocation this provides the ability of organisations to measure
+their progress over time
+level descriptors
+l the organisation has not developed plans or allocated resources for
+quantum safe initiatives
+l the organisation has initiated discussions about quantum safe
+initiatives but formal plans await finalisation and approval for
+integration into broader organisational strategies
+l the organisation has developed a strategic roadmap for quantumsafe
+initiatives outlining objectives resource requirements and
+implementation timelines
+
+l the organisation is executing its strategic roadmap for quantum safe
+initiatives with allocated resources and defined timelines progress is
+continuously monitored and the roadmap is regularly updated to
+align with organisational priorities
+recommendations
+for suggested recommendations to progress to next level
+level
+l initiate discussions to estimate migration costs and timelines
+ identify budgetary needs and identify the timeframe the
+budget is needed
+ develop a costbenefit analysis to support early investment
+requests
+l develop a strategic quantum safe roadmap
+ define key building blocks of the strategic quantum safe
+roadmap such as but not limited to
+o vision and objectives
+o timeline and milestones
+o resourcing needs
+o roles and responsibilities
+o quantum safe initiatives
+l operationalise the planned initiatives according to the roadmap
+ begin rolling out the initiatives in phases and track execution
+update the roadmap on a regular basis
+ update planned initiatives on the roadmap periodically
+l keep up the continuous effort towards quantumsafety
+
+objective  integrate quantum risks into existing cyber risk management
+programme
+treatment of quantum risks alongside other cyber risks under the organisations
+cyber risk management programme
+rationale addressing quantum risks alongside other existing cybersecurity risks
+as part of an organisations risk management approach enables organisations to
+make holistic and informed decisions in risk mitigation
+level descriptors
+l the organisation does not view quantum risks as risks to be addressed
+l the organisation acknowledges that quantum risks need to be
+addressed and has taken initial steps to address them however the
+risks are treated separately from existing cybersecurity risks
+l the organisation has integrated quantum risks into its cybersecurity
+risk management programme treating quantum risks alongside
+existing cybersecurity risks
+l the organisation continuously evaluates and tracks the effectiveness
+in managing quantum risks
+recommendations
+for suggested recommendations to progress to next level
+level
+l seek leadership buyin for quantum risks to be addressed
+ explain that quantum risks are longtail risks and why
+planning to address the risks is crucial for business continuity
+ conduct executive briefings on quantum threats highlighting
+potential business areas that process data which are sensitive
+and with long shelf life eg customer pii trade secrets
+financial records
+l include quantum risks into the enterprise cybersecurity risk
+management programme
+ treat quantum risks alongside existing cybersecurity risks
+ determine how quantum risks can affect other identified
+enterprise risks
+l review the effectiveness in managing quantum risks as part of
+the cybersecurity risk management programme
+ regularly review the effectiveness in managing quantum risks
+to inform updates to quantumsafe migration timelines and
+dependencies
+ refine quantum risk tolerance based on changing business
+needs and evolving ecosystem developments
+l keep up the continuous effort towards quantumsafety
+
+objective  develop and implement policies and frameworks that guide the
+migration to quantum safety
+policies and frameworks guide the organisations migration to quantum safety
+rationale wellstructured policies and frameworks provide clear direction and
+guidance for quantumsafe initiatives while ensuring alignment with
+organisational strategy
+level descriptors
+l the organisation has no established policies or frameworks for data
+cryptography and quantum risk management
+l the organisation has no formal policies or frameworks but has
+implemented basic measures for data cryptography and quantum
+risk management including preliminary key storage practices and
+data classification procedures
+l the organisation has developed formal policies and frameworks for
+data cryptography and quantum risk management but these are not
+fully implemented yet
+l the organisation implements and maintains comprehensive policies
+and frameworks for data cryptography and quantum risk
+management these undergo regular review and updates to align with
+evolving requirements including postquantum cryptography
+adoption
+recommendations
+for suggested recommendations to progress to next level
+level
+l implement basic practices
+ introduce fundamental practices such as
+o adhoc cryptographic key protection guidelines
+o classification of sensitive data
+l develop quantumsafe policy
+ develop and document formal policy including but not limited
+to
+o cryptographic policy
+o key management policy
+o data protection policy
+l establish policy review cycles
+ review policy outcomes on a regular basis
+o determine the need for policy updates in response to
+industry technology andor regulatory developments
+o adjust controls based on policy updates
+l keep up the continuous effort towards quantumsafety
+
+risk assessment ra
+risk assessment relates to identifying crown jewels and prioritising critical
+business functions for quantumsafe migration enabled through cryptographic
+asset management
+objective  perform quantum risk assessment and prioritise affected assets
+and data
+systematic assessment of quantum risks enables prioritisation of affected
+assets and data and facilitates decisionmaking for quantum safe migration
+rationale performing systematic quantum risk assessments enables the
+organisation to make informed decisions on the priority areas for quantum safe
+migration it helps quantify exposure to quantum risks assess the value and shelf
+life of data and identify critical systems that should be prioritised for protection
+level descriptors
+l the organisation has not begun assessing quantum risks or evaluating
+potential impact on its data and cryptographic assets
+l the organisation has begun preliminary quantum risk assessments to
+understand and quantify potential business impact but such
+assessments are informal and limited in scope
+l the organisation has conducted an organisationwide quantum risk
+assessment using a systematic methodology that is based on the
+value and shelf life of data understanding of cryptographic
+vulnerabilities and asset prioritisation
+l the organisation regularly conducts quantum risk assessments
+continuously refining the process to address evolving needs
+recommendations
+for suggested recommendations to progress to next level
+level
+l perform a preliminary quantum risk assessment for a subset of
+key systems
+ perform an initial risk assessment for a subset of key systems
+to estimate business impact if cryptography is compromised
+l perform a comprehensive quantum risk assessment for all key
+systems
+ this is conducted across the entire organisation with the
+following formally documented in the enterprise cyber risk
+register
+o risk scenarios
+o impact on organisation
+o likelihood of occurrence
+o risk level
+o risk appetite
+
+o remediation and mitigation
+ prioritise remediation or treatment based on the risk level
+l continuously refine the quantum risk assessment methodology
+ refine assessments based on updates and feedback including
+new nist pqc standard updates and evolving business
+priorities
+l keep up the continuous effort towards quantumsafety
+objective  implement cryptographic asset management
+identify key systems that handle highvalue data and document their
+associated cryptographic modules such as hardware security modules pki
+cryptographic libraries sensitivity and confidentiality levels of the data this will
+provide the basis for understanding the cryptographic assets for these systems
+eg keys certificates algorithms protocols
+rationale the understanding of key systems that handle highvalue data and
+their associated cryptographic assets enables the organisation to evaluate the
+risk exposure to quantum threat this approach allows organisations to focus on
+key areas that should be prioritised for quantumsafe migration
+level descriptors
+l the organisation has not begun identifying key systems that handle
+highvalue data nor documented their associated cryptographic
+assets and cryptographic dependencies
+l the organisation has taken initial steps to identify a subset of key
+systems that process highvalue data and their associated
+cryptographic assets and cryptographic dependencies
+l the organisation has a comprehensive inventory of all key systems
+that handle highvalue data and associated cryptographic assets and
+cryptographic dependencies inventories include fields such as data
+classification system criticality and cryptographic details
+l the organisations cryptographic inventory is regularly updated to
+inform quantumsafe migration planning
+recommendations
+for suggested recommendations to progress to next level
+level
+l identify a subset of highvalue business systems and cryptographic
+assets
+ list key systems that process highvalue data such as but not
+limited to
+o personally identifiable information pii
+
+o regulated financialhealth data
+o intellectual property or trade secrets
+ for each highvalue system include data classification eg
+public confidential secret and estimated data shelflife
+ for identified systems begin capturing cryptographic assets
+such as
+o cryptographic modules and application library hsm
+vpn
+o certificates eg used by tls smime
+o keys eg rsa ecdh
+o protocols eg tls ssh ipsec
+understand cryptographic dependencies
+ begin mapping cryptographic dependencies such as products
+applications processes that rely on cryptography
+l perform a comprehensive inventorisation of all highvalue systems
+and cryptographic assets through automated cryptographic
+discovery
+ deploy or pilot tools to augment cryptographic discovery
+ include asset inventory of remaining highvalue systems and
+cryptographic assets
+l monitor asset changes and update asset inventory
+ monitor and update changes to inventory of highvalue systems
+and cryptographic assets regularly
+l keep up the continuous effort towards quantumsafety
+
+training and capability tc
+training and capability relate to educating stakeholders on quantum risks and
+quantumsafe migration as well as develop essential competencies for quantum
+safe migration
+objective  educate organisational stakeholders on quantum risks and
+importance of quantumsafe migration
+awareness and education on quantum computing risks and the importance of
+quantum safe migration gives the organisation the impetus to address
+quantumenabled threats
+rationale educating organisation stakeholders on quantumsafe migration
+ensures the awareness of quantum computing risks and provides the impetus
+to drive quantum safe initiatives this would minimise the spread of fear
+uncertainty and doubt about quantumenabled threats
+level descriptors
+l the organisation has no awareness of quantum computing risks and
+its impact on critical digital assets
+l the organisation recognises the importance of quantum safety with
+initial steps taken to educate themselves on quantumsafe migration
+l the organisation has established an awareness programme to
+educate stakeholders of quantum risks and what quantumsafe
+migration entails and aligns these activities to the organisations
+strategic goals and priorities
+l the organisation has implemented an awareness programme to
+educate stakeholders of quantum risks and what quantum safe
+migration entails with regular evaluation of its effectiveness and
+enhancement of the programme based on feedback the organisation
+looks ahead and stays up to date with the latest development of
+quantumsafe migration approaches
+recommendations
+for suggested recommendations to progress to next level
+level
+l obtain clevel and senior management support
+ raise the awareness among clevel and senior management
+by
+o outlining what quantum computing is and explaining
+why it is a business risk
+o highlighting risks such as harvest now decrypt later
+and the lifespan of current data
+conduct adhoc information sessions across all organisational
+levels
+ develop introductory materials such as
+
+o onepagers or infographics on quantum threats
+o internal blog posts or newsletters
+o short videos or email explainers
+l establish a quantumsafe migration information programme
+ customise content for different audiences strategic
+operational technical
+o strategic risk timing and resource allocation to address
+quantumenabled threats for strategic
+o dependency mapping and interlinkages across systems
+and processes for operational
+o technical readiness and limitations of existing systems
+l establish metrics and feedback mechanisms to track programme
+effectiveness
+ track information programme effectiveness by measuring
+metrics such as
+o completion rates of training modules
+o surveys eg posttraining quizzes
+improve the programme through monitoring and feedback
+ regularly review the programme
+o training content relevance and clarity
+o incorporate latest regulatory technological and threat
+updates
+l keep up the continuous effort towards quantumsafety
+
+objective  develop the necessary competencies to effectively drive
+quantumsafe migration
+essential competencies that enable the organisation to implement quantum
+safe initiatives
+rationale building competencies in quantum computing risks and quantum
+safe technologies enable the organisation to effectively assess plan and
+implement quantum safe measures
+level descriptors
+l the organisation has not identified essential competencies needed for
+quantumsafe migration including cryptography and key
+management
+l the organisation has identified key areas of competency required for
+quantumsafe migration but has not yet started developing it
+l the organisation has developed a matrix on the required
+competencies for specific roles to enable quantumsafe migration
+l the organisation has developed and is maintaining a matrix for all
+relevant roles updating competency requirements for each role based
+on evolving needs
+recommendations
+for suggested recommendations to progress to next level
+level
+l identify and build competencies
+ build knowledge base from authoritative sources such as nist
+wef and cfdir for quantumsafe guidance or by attending
+relevant quantum security webinars workshops or industry
+panels for competency development
+l develop a matrix on competencies for specific roles
+ describe competencies according to roles or team functions
+for example
+o cryptographersengineers  pqc primitives
+configuration cryptographic security levels
+o grc teams  cryptographic and policy requirements
+o procurement  vendor cryptographic posture
+assessments
+establish a training plan
+ structure the plan to include
+o internal briefings or targeted training sessions
+o certification opportunities if available
+o access to public resources eg etsi nist webinars
+
+l develop a matrix on competencies for all relevant job roles and
+update the matrix to address evolving needs
+ periodically review and revise
+o role requirements as the organisation progresses
+through quantumsafe migration
+o training materials based on evolving needs
+l keep up the continuous effort towards quantumsafety
+
+external engagement ee
+external engagement is essential to understand organisational risk exposure of the
+productsservices from third party vendors as well as to leverage the ecosystem on
+information regarding identified risks experiences and insights in implementing
+quantum safe migration
+objective  evaluate and manage vendors and other third parties to address
+supply chain risks
+evaluation of quantum risk exposure from vendors and third parties based on
+data access business criticality and quantum readiness
+rationale vendors and other third parties often have access to sensitive systems
+and data making them potential weak links in the organisations quantumsafe
+migration efforts evaluating thirdparty risks enables holistic quantumsafe
+migration planning and strengthens supply chain security
+level descriptors
+l the organisation has not assessed the quantum risk of vendors and
+other third parties
+l the organisation recognises the quantum risks posed by vendors and
+other third parties and has initiated risk evaluations
+l the organisation has assessed thirdparty quantum risk based on data
+access business impact and quantum readiness but has not
+integrated it into vendor governance frameworks
+l the organisation has integrated thirdparty quantum risk assessments
+into vendor governance frameworks and translated mitigating
+measures into security requirements during procurement
+recommendations
+for suggested recommendations to progress to next level
+level
+l identify highrisk third parties
+ identify vendors and other third parties service with
+o access to sensitive or regulated data
+o cryptographically dependent systems eg hsms vpns
+pkis firmware that has critical business impact
+ request relevant information from highrisk vendors such as
+but not limited to
+o cryptographic algorithms used
+o use of asymmetric cryptography
+o existing plans towards pqc or hybrid approaches
+perform preliminary quantum risk assessment of key vendors
+ factor in considerations related to quantum risks in the
+assessment of key vendors
+
+l perform an indepth riskbased evaluation of key vendors
+ map business criticality and data access level
+ determine cryptographic dependencies
+ evaluate whether their products rely on vulnerable
+cryptography
+request asset inventory and quantumsafe roadmaps from
+vendors
+ to support organisational quantumsafe migration planning
+request key vendors to provide details such as but not limited
+to
+o cryptographic bill of materials cboms
+o migration timelines to pqc
+o support for hybrid implementations
+l integrate quantum risk into the enterprises vendor governance
+framework
+ vendor risk evaluation and their mitigation plans should be
+tracked and reviewed periodically
+include quantumsafe requirements into procurement policies
+ rfp templates vendor contracts and renewal documents
+should be updated to include requirements such as but not
+limited to
+o pqc and hybrid implementation support clauses
+o considerations for cryptographic agility
+o cbom submission templates
+l keep up the continuous effort towards quantumsafety
+objective  connect with ecosystem stakeholders to collectively address
+quantum risks
+connect and engage with ecosystems stakeholders including vendors industry
+groups academia and regulators to address quantum computing risks
+collaboratively
+rationale quantum risks are systemic and cannot be mitigated by individual
+organisations alone collaboration across organisations and the ecosystem
+enables shared risk understanding align quantumsafe migration planning
+objectives and access to collective expertise for an effective and unified response
+level descriptors
+l the organisation has not initiated any engagements with external
+stakeholders on quantum risk issues
+l the organisation has an understanding of relevant ecosystem
+stakeholders industry groups isacs and other stakeholder partners to
+address quantumenabled threats
+
+l the organisation is learning from ecosystem stakeholders on their
+identified quantum risks experiences and insights on quantum safe
+migration
+l the organisation is contributing its perspective on quantum risks its
+experiences and insights on quantum safe migration to the ecosystem
+stakeholders
+recommendations
+for suggested recommendations to progress to next level
+level
+l understand relevant ecosystem stakeholders
+ monitor existing events and platforms that spread knowledge
+relevant to quantum safe migration
+ examples of relevant stakeholders could be industry groups
+information sharing and analysis centres isacs and other
+professional groups
+l engage and learn from relevant ecosystem stakeholders
+ start by attending and networking in events such as but not
+limited to
+o quantumsafe migration related conferences
+o technical roundtable hosted by standards bodies or
+industry associations
+o public consultation on quantumsafe guidelines eg
+nist etsi aisp fsisac
+o industryspecific eg fsisac aisp quantum sig scs
+quantum sig
+ engage stakeholders to learn about identified quantum risks
+their experiences and insights on quantumsafe migration
+l contribute experiences and insights to ecosystem stakeholders
+ present insights and lessons learnt from implementing
+quantumsafe migration to the ecosystem through local and
+international events and platforms
+l keep up the continuous effort towards quantumsafety
+objective  promote the adoption of common quantumsafe standards and
+guidelines for interoperability
+promote the adoption of common quantumsafe standards and
+implementation guidelines for interoperability across the ecosystem
+rationale quantumsafe standards and guidelines facilitate interoperability and
+reduce future implementation costs
+level descriptors
+
+l the organisation is not involved in the promotion of the use of
+quantumsafe standards and guidelines
+l the organisation is monitoring national or international developments
+in quantumsafe standards and guidelines and acknowledges the
+importance of adopting relevant standards and guidelines
+l the organisation is actively promoting the use and adoption of
+relevant standards and guidelines
+l the organisation is recognised as a leader in adopting quantumsafe
+standards and guidelines and regularly shares lessons learnt across
+the ecosystem
+recommendations
+for level suggested recommendations to progress to next level
+l establish a watchlist and its relevance to organisation
+ monitor updates in standards such as but not limited to
+o nist pqc algorithm standardisation
+o etsi quantumsafe cryptography qsc series
+o regional and sectorspecific developments
+ review relevance of standards to organisations existing
+cryptographic practices
+l promote the use and adoption of standards and guidelines through
+the organisations quantumsafe journey
+ promote adoption of standards and guidelines through
+industry events eg isaca
+l establish thought leadership on the use and adoption of standards
+and guidelines groups with the ecosystem
+ present insights and lessons learnt from the adoption with
+entire ecosystem through international fora and renowned
+publication outlets
+l keep up the continuous effort towards quantumsafety
+objective  contribute to the ecosystems future talent pool
+organisations collaboration with the ecosystem and academia to expand the
+future talent pool
+rationale collaborating with the ecosystem and academia to support the
+pipeline of futureready quantum security talent can help grow the collective
+knowledge base aid innovation speed and obtain insights on latest research
+level descriptors
+l the organisation has no engagement with the ecosystem and
+academia related to talent pipeline development
+
+l the organisation is exploring collaboration opportunities with the
+ecosystem and academia for talent pipeline development
+l the organisation has established collaborations with the ecosystem
+and academia for talent pipeline development
+l the organisation has contributed significantly to building the
+quantum safe talent pipeline with these initiatives aligned with the
+organisations strategy and their effectiveness tracked
+recommendations
+for level suggested recommendations to progress to next level
+l exploring collaboration opportunities with ecosystem and
+academia
+ understand ongoing initiatives from ecosystem and academia
+such as but not limited to
+o universityhosted initiatives on pqc or cryptographic
+trends
+o quantum safe related innovation and rd projects
+o quantum talent programmes
+l establish collaboration with ecosystem and academia
+ form partnerships with local or international academia such as
+but not limited to
+o universityhosted initiatives on pqc or cryptographic
+trends
+o quantumsafe related innovation and rd projects
+o quantum talent programmes
+l lead or cosponsor impactful ecosystem talent initiatives
+ lead or cosponsor initiatives such as but not limited to
+o academicindustry conferences
+o joint university labs or fellowships in postquantum
+cryptography
+track and review outcomes
+ integrate quantum readiness into longterm talent strategies
+such as but not limited to
+o graduate hiring pipelines
+o talent upskilling roadmaps
+ regularly assess talent acquisition eg internship placement
+rates and conversion to hires
+l keep up the continuous effort towards quantumsafety
+
+technology te
+technology involves organisations to think ahead and conduct technology
+experimentation and proof of concept projects to assess quantum safe
+technologies
+objective  conduct technology experimentation and proofofconcepts
+pocs to assess implications of adoption with regards to use cases
+technology exploration to assess implications of adopting quantumsafe
+technology and concepts
+rationale conducting technology experimentation and pocs for quantumsafe
+migration will help organisations to gain better understanding of the challenges
+and resources involved in turn this will help to inform the quantum safe
+migration journey such technology exploration will also provide insights into the
+viability operational impact and challenges to facilitate a smoother migration to
+realworld implementation
+level descriptors
+l the organisation has not initiated any technology experimentation or
+pocs related to quantumsafe technologies or concepts for assessing
+the impact of quantumsafe technologies on existing systems
+l the organisation has embarked on technology experimentation and
+pocs on quantumsafe technologies or concepts with initial efforts to
+identify use cases
+l the organisations technology experimentation and pocs are based on
+its usecases and are aligned with the strategic quantum safe
+roadmap
+l the organisation has adopted quantumsafe technologies and
+monitors the effectiveness of adoption in use cases
+recommendations
+for suggested recommendations to progress to next level
+level
+l identify use cases as a basis for technology experimentation
+ identify use cases involving vulnerable cryptographic
+algorithms such as vpn or webserver authentications that will
+eventually be replaced with pqc or hybrid methods
+establish a technology experimentation track as part of the
+quantumsafe migration plan
+ designate a workstream to explore and experiment with
+quantumsafe technologies
+ allocate budget and infrastructure for technology
+experimentation activities
+ launch smallscale poc pilots based on organisations use
+cases
+
+l determine technology experimentation and poc projects based on
+use cases
+ develop each project based on use cases such as but not limited
+to
+o secure emailsignature workflows
+o authentication and identity infrastructure
+o thirdparty apis browser and cloud communications
+align quantum safe initiatives with strategic quantum safe
+roadmap
+ timelines for cryptography migration
+ milestones for system upgrades
+ dependencies across applications and thirdparty services
+ quantumsafe cryptographic requirements
+o pqc algorithm selection
+o performance latency resource constraints and
+considerations of pqc algorithms on selected use cases
+l adopt quantumsafe technologies in operational environment
+ share findings of pilots with key stakeholders
+ plan for adoption of quantumsafe technologies with regards to
+their use cases in the wider operational environment
+ monitor the effectiveness of quantumsafe technologies with
+regards to threat landscape
+l keep up the continuous effort towards quantumsafety
+objective  instill agility considerations to enable timely replacement of
+cryptographic algorithms
+agility considerations facilitate the timely replacement of vulnerable
+cryptographic algorithms to alternative quantum safe cryptographic
+algorithms
+rationale it takes a long time and significant resources for organisations to
+replace vulnerable cryptographic algorithms considering cryptographic agility
+upfront in quantumsafe migration will enable timely replacement to other
+quantum safe cryptographic algorithms as needed
+level descriptors
+l the organisation has not considered cryptographic agility in its
+quantumsafe migration plans
+l the organisation acknowledges the importance for cryptographic
+agility and has begun exploring its implementation for quantumsafe
+migration planning
+l the organisation has developed an approach to include cryptographic
+agility considerations into its quantumsafe migration plans
+
+l the organisation continuously refines the approach to implement
+cryptographic agility based on developments arising from quantum
+enabled threats and evolving business needs
+recommendations
+for suggested recommendations to progress to next level
+level
+l educate stakeholders on the importance of cryptographic agility
+ initiate efforts to plan ahead and use quantumsafe
+cryptographic algorithms
+ conduct a sharing with stakeholders on topics such as but not
+limited to
+o the history of cryptographic algorithm failures
+o risks of hardcoded cryptography
+o how long and costly it takes to replace compromised
+cryptography
+l define cryptographic agility considerations
+ define cryptographic agility considerations in the quantum
+safe migration plan such as but not limited to
+o identification of quantumsafe cryptographic algorithms
+and planning for their implementation
+o use of modular cryptographic apislibraries
+o capacity to support hybrid cryptography eg classical
+and postquantum algorithms
+o validation for future algorithm switching in case of pqc
+or other algorithm deprecation
+l monitor quantumsafe algorithm landscape and update
+cryptographic agility considerations
+ regularly monitor the landscape for quantumsafe
+cryptographic algorithms and updates identified algorithms
+based on changing threat landscape and technology
+developments
+ update cryptographic agility considerations to
+o updates from authoritative sources eg nist
+o usecase changes
+o business priorities and risk tolerance levels
+l keep up the continuous effort towards quantumsafety
+
+annex b  qri questions
+the questions can also be accessed at gogovsgqri or the qr code
+
+sn domain objective a b c d
+question
+ref l l l l
+how has your the organisation the organisation has the organisation has the organisation
+organisation established has not identified a identified a established a formal continuously reviews the
+leadership and oversight champion or cross champion or cross governance roles responsibilities and
+to institutionalise the functional team to functional team to structure led by an processes of the
+migration to quantum institutionalise the institutionalise the organisational governance structure and
+safety migration to migration to champion such as a refines them in tandem
+ governance  quantum safety quantum safety dedicated with evolving
+no formal however their roles committee with requirements
+governance and responsibilities clearly defined roles
+structure exists to remain informal and and responsibilities
+address these activities are to institutionalise the
+areas conducted on an ad migration to
+hoc basis quantum safety
+how does your the organisation the organisation has the organisation has the organisation is
+organisation plan and has not developed initiated discussions developed a strategic executing its roadmap for
+allocate resources for plans or allocated about quantum safe roadmap for quantum safe initiatives
+quantum safe initiatives resources for initiatives but formal quantumsafe with allocated resources
+quantum safe plans await and defined timelines
+initiatives outlining
+ governance  initiatives finalisation and progress is continuously
+objectives resource
+approval for monitored and the
+requirements and
+integration into roadmap is regularly
+implementation
+broader updated to align with
+timelines
+organisational organisational priorities
+strategies
+how does your the organisation the organisation the organisation has the organisation
+organisation view does not view the acknowledges that integrated quantum continuously evaluates and
+quantum risks visvis quantum risks as a the quantum risk risks into its broader tracks the effectiveness in
+existing cybersecurity risk to be needs to be cybersecurity risk managing quantum risk as
+risks addressed addressed and has management part of the cybersecurity
+ governance  taken initial steps to programme treating risk management
+address it however quantum risks programme on a regular
+the risk is treated alongside existing basis
+separately from cybersecurity risks
+existing cybersecurity
+risks
+
+sn domain objective a b c d
+question
+ref l l l l
+what is the progress of the organisation the organisation has the organisation has the organisation
+your organisation in has no established no formal policies or developed formal implements and maintains
+developing policies and policies or frameworks but has policies and comprehensive policies
+frameworks for data frameworks for implemented basic frameworks for data and frameworks for data
+cryptography and data cryptography informal measures cryptography and cryptography and
+quantum risk and quantum risk for data quantum risk quantum risk
+management management cryptography and management but management these
+ governance 
+quantum risk these are not yet fully undergo regular review
+management implemented and updates to align with
+including preliminary evolving requirements
+key storage practices including postquantum
+and data cryptography adoption
+classification
+procedures
+how does your the organisation the organisation has the organisation has the organisation regularly
+organisation assess has not begun begun preliminary conducted an conducts quantum risk
+quantum risks to data assessing quantum risk organisationwide assessments continuously
+and cryptographic quantum risks or assessments to quantum risk refining the process to
+assets evaluating understand and assessment using a address evolving needs
+potential impact quantify potential systematic
+ risk assessment  on its data and business impact but methodology that is
+cryptographic such assessments are based on the value
+assets informal and limited and shelf life of data
+in scope understanding of
+cryptographic
+vulnerabilities and
+asset prioritisation
+what is the extent of the organisation the organisation has the organisation has the organisation regularly
+your organisations has not identified taken initial steps to a comprehensive updates its inventory of all
+inventory of its key key systems and identify key systems inventory of all key key systems and their
+systems that handles their highvalue that process high systems and their highvalue data assets
+ risk assessment 
+highvalue data data assets value data and has highvalue data
+identified a subset of assets
+key systems
+
+sn domain objective a b c d
+question
+ref l l l l
+what is the extent of the organisation the organisation has the organisation has the organisation regularly
+your organisations has not identified taken initial steps to a comprehensive updates its inventory of all
+inventory of its their cryptographic identify its inventory of all its cryptographic assets
+cryptographic assets assets cryptographic assets cryptographic assets
+ risk assessment 
+eg keys certificates and has identified a
+algorithms protocols subset of
+cryptographic assets
+how are your the organisation the organisation has the organisation has the organisation regularly
+organisations has not identified taken initial steps to a comprehensive updates its inventory of all
+cryptographic cryptographic identify its inventory of all its cryptographic
+dependencies in key dependencies in cryptographic cryptographic dependencies
+systems products key systems dependencies
+dependencies in key
+ risk assessment  applications processes
+systems and has
+that rely on
+identified a subset of
+cryptography included
+cryptographic
+in cryptographic
+dependencies
+inventories
+what is the extent of the organisation is the organisation the organisation the organisation looks
+organisations awareness not aware of the recognises the aligns awareness of ahead and stays up to date
+of the quantum threat quantum threat importance of the quantum threat with the latest
+and its impact on critical and has not yet quantum safety and and quantum safe development of quantum
+ training and capability  digital assets recognised the migration to its safe migration it is aware
+potential impact of
+relevance and strategic goals and of evolving quantum safe
+quantum threat on
+benefits of priorities environment and
+critical digital assets
+quantum safe strategically plans for
+migration future challenges
+
+sn domain objective a b c d
+question
+ref l l l l
+what is your the organisation the organisation has the organisation has the organisation has
+organisations progress in has not initiated begun discussions to established an implemented an
+building awareness for any initiatives on develop awareness awareness awareness programme to
+quantum risks and educating sessions on quantum programme to educate stakeholders on
+quantum safe migration stakeholders on educate stakeholders quantum risks and what
+risks and what
+quantum risks and on quantum risks quantum safe migration
+quantum safe
+ training and capability  the need for and what quantum entails with regular
+migration entails
+quantum safe safe migration evaluation of its
+migration entails through effectiveness and
+targeted enhancement of the
+communications and programme based on
+training across feedback
+business units
+how does your the organisation the organisation has the organisation has the organisation has
+organisation identify and has not identified identified key areas of developed a matrix developed and is
+develop the essential competency required on the required maintaining a matrix for all
+competencies needed for competencies for quantumsafe competencies for relevant roles updating
+quantumsafe needed for specific roles to competency requirements
+ training and capability  migration but has not
+migration quantumsafe enable quantum for each role based on
+yet started
+migration safe migration evolving needs
+developing it
+including
+cryptography and
+key management
+how does your the organisation the organisation the organisation has the organisation has
+organisation evaluate has not assessed recognises the assessed quantum integrated thirdparty
+and manage quantum the quantum risk quantum risks posed risks of vendors and quantum risk into vendor
+risks from vendors and of vendors or other by vendors and other other third parties governance frameworks
+other third parties third parties third parties and have based on data risk mitigating measures
+ external engagement  initiated risk access business inform procurement
+evaluations impact and quantum requirements
+readiness but has not
+integrated it into
+vendor governance
+frameworks
+
+sn domain objective a b c d
+question
+ref l l l l
+how does your the organisation the organisation has the organisation is the organisation is
+organisation engage has not initiated an understanding of learning from contributing its
+with external any engagements relevant ecosystem ecosystem perspective on quantum
+stakeholders to with external stakeholders stakeholders on their risks its experiences and
+ external engagement  collectively address stakeholders on industry groups identified quantum insights on quantum safe
+quantum risks quantum risk isacs and other risks experiences migration to the
+issues stakeholder partners and insights on ecosystem stakeholders
+to address quantum quantum safe
+enabled threats migration
+how does your the organisation is the organisation is the organisation is the organisation is
+organisation promote not involved in the monitoring national actively promoting recognised as a leader in
+the adoption of common promotion of the or international the use and adoption adopting quantumsafe
+quantumsafe standards use of quantum developments in of relevant standards standards and guidelines
+and guidelines safe standards and quantumsafe and guidelines and regularly shares
+guidelines standards and lessons learnt across the
+ external engagement 
+guidelines and ecosystem
+acknowledges the
+importance of
+adopting relevant
+standards and
+guidelines
+how does your the organisation the organisation is the organisation has the organisation has
+organisation engage has no exploring established contributed significantly to
+with ecosystem and engagements with collaboration collaborations with building the quantum safe
+academia to support ecosystems and opportunities with ecosystem and talent pipeline with these
+ external engagement 
+talent pipeline academia related ecosystem and academia for talent initiatives aligned with the
+development to talent pipeline academia for talent pipeline organisations strategy and
+development pipeline development their effectiveness tracked
+development
+
+sn domain objective a b c d
+question
+ref l l l l
+to what extent has your the organisation the organisation has the organisations the organisation has
+organisation conducted has not initiated embarked on technology adopted quantumsafe
+experimentation and any technology technology experimentation and technology and monitors
+pocs for quantumsafe experimentation or experimentation and pocs are based on its the effectiveness of
+technologies to inform pocs related to pocs on quantum usecases and aligns adoption in use cases
+quantumsafe migration quantumsafe safe technologies or with the strategic
+ technology  efforts technologies or concepts with initial quantum safe
+concepts for efforts to identify use roadmap
+assessing the cases
+impact of
+quantumsafe
+technologies on
+existing systems
+does your organisation the organisation the organisation has the organisation has the organisation regularly
+plan ahead based on has not planned initiated efforts to identified quantum monitors the landscape for
+quantumsafe ahead based on plan ahead to be safe cryptographic quantum safe
+cryptographic quantum safe quantumsafe and is algorithms for use in cryptographic algorithms
+ technology  algorithms cryptographic considering the use the quantumsafe and updates identified
+algorithms of quantum safe migration plan algorithms based on
+cryptographic changing threat landscape
+algorithms and technology
+developments
+how does your the organisation the organisation the organisation has the organisation
+organisation incorporate has not considered acknowledges the developed an continuously refines the
+cryptographic agility cryptographic importance for approach to include approach to implement
+considerations into its agility in its cryptographic agility cryptographic agility cryptographic agility based
+ technology  quantumsafe migration quantumsafe and has begun considerations into on developments arising
+planning migration plans exploring its its quantumsafe from quantum enabled
+implementation for migration plans threats and evolving
+quantumsafe business needs
+migration planning
 

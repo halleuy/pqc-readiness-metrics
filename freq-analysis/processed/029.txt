@@ -1,0 +1,752 @@
+etsi tr  
+v
+
+technical report
+cyber
+migration strategies and recommendations
+to quantum safe schemes
+ etsi tr   v 
+reference
+dtrcyberqsc
+keywords
+quantum safe cryptography
+etsi
+ route des lucioles
+f sophia antipolis cedex  france
+tel       fax      
+siret n      naf  c
+association  but non lucratif enregistre  la
+sousprfecture de grasse  n 
+important notice
+the present document can be downloaded from
+httpwwwetsiorgstandardssearch
+the present document may be made available in electronic versions andor in print the content of any electronic andor
+print versions of the present document shall not be modified without the prior written authorization of etsi in case of any
+existing or perceived difference in contents between such versions andor in print the prevailing version of an etsi
+deliverable is the one made publicly available in pdf format at wwwetsiorgdeliver
+users of the present document should be aware that the document may be subject to revision or change of status
+information on the current status of this and other etsi documents is available at
+httpsportaletsiorgtbetsideliverablestatusaspx
+if you find errors in the present document please send your comment to one of the following services
+httpsportaletsiorgpeoplecommiteesupportstaffaspx
+copyright notification
+no part may be reproduced or utilized in any form or by any means electronic or mechanical including photocopying
+and microfilm except as authorized by written permission of etsi
+the content of the pdf version shall not be modified without the written authorization of etsi
+the copyright and the foregoing restriction extend to reproduction in all media
+ etsi 
+all rights reserved
+dect plugtests umts and the etsi logo are trademarks of etsi registered for the benefit of its members
+gpp and lte are trademarks of etsi registered for the benefit of its members and
+of the gpp organizational partners
+onemm logo is a trademark of etsi registered for the benefit of its members and
+of the onemm partners
+gsm and the gsm logo are trademarks registered and owned by the gsm association
+etsi
+ etsi tr   v 
+contents
+intellectual property rights  
+foreword  
+modal verbs terminology  
+ scope  
+ references  
+ normative references  
+ informative references  
+ definition of terms symbols and abbreviations  
+ terms  
+ symbols  
+ abbreviations  
+ staged approach to qsc migration  
+ stage   inventory compilation  
+ starting and end states of migration  
+ inventory compilation  
+ business process requirements for stage   
+ stage   preparation of the migration plan  
+ creation of the migration plan  
+ migration issues  
+ considerations for migration impact on hardware based security environment  
+ key management during migration  
+ trust management during migration  
+ isolation approaches during migration  
+ access to nonqsc protected resources after migration  
+ business process requirements for stage   
+ stage   migration execution  
+ migration management  
+ mitigation management  
+ business process requirements for stage   
+annex a migration checklist  
+a inventory compilation and preparatory questions  
+a risk assessment  
+a data assessment  
+a cryptographic assessment  
+a infrastructure inventory  
+a supplier inventory  
+a preparation of the migration plan  
+a orderly transition planning 
+a disorderly transition planning  
+a migration execution  
+a migration management  
+a mitigation management  
+annex b frequently asked questions  
+history  
+etsi
+ etsi tr   v 
+intellectual property rights
+essential patents
+iprs essential or potentially essential to normative deliverables may have been declared to etsi the information
+pertaining to these essential iprs if any is publicly available for etsi members and nonmembers and can be found
+in etsi sr   intellectual property rights iprs essential or potentially essential iprs notified to etsi in
+respect of etsi standards which is available from the etsi secretariat latest updates are available on the etsi web
+server httpsipretsiorg
+pursuant to the etsi ipr policy no investigation including ipr searches has been carried out by etsi no guarantee
+can be given as to the existence of other iprs not referenced in etsi sr   or the updates on the etsi web
+server which are or may be or may become essential to the present document
+trademarks
+the present document may include trademarks andor tradenames which are asserted andor registered by their owners
+etsi claims no ownership of these except for any which are indicated as being the property of etsi and conveys no
+right to use or reproduce any trademark andor tradename mention of those trademarks in the present document does
+not constitute an endorsement by etsi of products services or organizations associated with those trademarks
+foreword
+this technical report tr has been produced by etsi technical committee cyber security cyber
+modal verbs terminology
+in the present document should should not may need not will will not can and cannot are to be
+interpreted as described in clause  of the etsi drafting rules verbal forms for the expression of provisions
+must and must not are not allowed in etsi deliverables except when used in direct citation
+etsi
+ etsi tr   v 
+ scope
+the present document addresses the problem of migration to an environment in a fully quantum safe cryptographic
+state fqscs from a nonquantum safe cryptographic state the present document provides recommendations and
+guidance to ensure safe transition between the two  states
+the scope of attack considered in the present document includes those attacks against the cryptographic elements of the
+system all other elements of the system that rely upon cryptography but which are not susceptible to attack by a
+quantum computer are presumed secure and are not addressed in the scope of the present document
+note the present document assumes an orderly planned migration the concept of emergency migration
+wherein external events such as the immediate availability of a viable quantum computer that is used to
+attack rsa or ecc entities requiring immediate transition to a fqscs is not fully addressed in the
+present document
+ references
+ normative references
+normative references are not applicable in the present document
+ informative references
+references are either specific identified by date of publication andor edition number or version number or
+nonspecific for specific references only the cited version applies for nonspecific references the latest version of the
+referenced document including any amendments applies
+note while any hyperlinks included in this clause were valid at the time of publication etsi cannot guarantee
+their long term validity
+the following referenced documents are not necessary for the application of the present document but they assist the
+user with regard to a particular subject area
+i etsi gr qsc  quantumsafe cryptography quantumsafe threat assessment
+i etsi eg   cyber quantum computing impact on security of ict systems
+recommendations on business continuity and algorithm selection
+i etsi tr   cyber critical security controls for effective cyber defence part  the
+critical security controls
+i recommendation itut x information technology  open systems interconnection  the
+directory public key and attribute certificate frameworks
+i n bindel u heralth m mckague d stebila transitioning to a quantumresistant public key
+infrastructure postquantum cryptography 
+i ietf rfc  the transport layer security tls protocol version  
+i etsi tr   quantumsafe virtual private networks
+i isoiec  information technology  tpm library  part  overview
+i isoiec  information technology  tpm library  part  design principles
+i isoiec  information technology  tpm library  part  structures
+etsi
+ etsi tr   v 
+i isoiec  information technology  tpm library  part  commands
+note the above isoiec documents have been made available from equivalent documents from the trusted
+computing group through jtc a joint committee of the international organization for
+standardization iso and iec international electrotechnical commission who have accepted and
+published the trusted computing group trusted platform module specification version 
+i etsi tr   reconfigurable radio systems rrs security related use cases and threats
+i bob blakley citi group proceedings of etsiiqc quantum safe cryptography workshop
+ how can businesses respond to the quantum threat to cryptography
+note available at
+httpsdocboxetsiorgworkshopqscworkshopexecutivetrackcitiblakle
+ypdf
+i amy m di matteo o gheorghiu v mosca m parent a schanck j  estimating the
+cost of generic quantum preimage attacks on sha and sha in avanzi r heys h eds
+selected areas in cryptography  sac  sac  lecture notes in computer science
+vol  springer cham
+note available at httpslinkspringercomchapter
+ definition of terms symbols and abbreviations
+ terms
+for the purposes of the present document the following terms apply
+cryptoagility property that permits changing or upgrading cryptographic algorithms or parameters
+fully quantum safe cryptographic state fqscs state of the system wherein all cryptographic assets use
+quantum safe cryptography qsc
+inventory set of cryptographic assets and processes in the system
+migration set of processes procedures and technologies required to transition from nonqsc to fqscs
+nonquantum safe cryptographic state qsc state wherein cryptographic assets use classical nonquantum safe
+cryptography qsc
+platform configuration register storage used for platform configuration measurements which are normally
+cryptographic hash values of the running code
+quantum safe not vulnerable to quantum computing attack
+ symbols
+void
+ abbreviations
+for the purposes of the present document the following abbreviations apply
+ca certification authority
+csr certificate signing request
+ecc elliptical curve cryptography
+faq frequently asked questions
+fqscs fully quantum safe cryptographic state
+hbse hardware based security environment
+etsi
+ etsi tr   v 
+hsm hardware security module
+ibe identity based encryption
+ict information and communications technology
+kms key management system
+pep policy enforcement point
+pii personally identifiable information
+pkc public key certificate
+pki public key infrastructure
+pqc post quantum cryptography
+qc quantum computer also quantum computing
+qsc quantum safe cryptography
+ra registration authority
+rsa rivest shamir adleman
+rtm root of trust for measurement
+rtr root of trust for reporting
+rts root of trust for storage
+rtv root of trust for verification
+scms security credential management system
+se secure element
+sla service level agreement
+tee trusted execution environment
+tls transport layer security
+tpm trusted platform module
+vpn virtual private network
+xacml extensible access control markup language
+ staged approach to qsc migration
+the present document identifies a framework of actions that should be taken by an organization to enable migration to a
+fully quantum safe cryptographic state fqscs the migration framework and the migration plan that documents it
+comprises the following three stages
+ inventory compilation
+ preparation of the migration plan
+ migration execution
+the present document describes the activities that fulfil each of these stages the rationale for and purpose of
+migration is to mitigate the existential risk from quantum computing to cryptographic assets that is documented in
+etsi gr qsc  i and in etsi eg   i
+note  annex a of the present document provides a series of checklists that summarize in tabular form the stages
+outlined in the remainder of the present document annex a is derived from a presentation made to the
+ etsi qsc workshop i
+note  annex b offers a review of the threat landscape and rationale for migration in the form of a frequently
+asked questions faq table
+ stage   inventory compilation
+ starting and end states of migration
+the present document addresses migration of systems that use nonquantum safe cryptography for various purposes
+including but not limited to confidentiality and integrity of data at rest or in transit authentication of users or other
+system elements access control to resources of the system migration to a fqscs prevents a cryptographic attack that
+would be aided or enabled by quantum computing
+etsi
+ etsi tr   v 
+in order to consider migration the present document identifies and defines two explicit states
+ nonquantum safe cryptographic state  the initial state wherein cryptographic assets use classical
+nonquantum safe cryptography qsc
+ fully quantum safe cryptographic state fqscs  the target end state of the system wherein all
+cryptographic assets use qsc
+ inventory compilation
+note  as identified in the definition of the term inventory cryptographic assets and processes in the system are
+likely to present in a number of forms in which the cryptographic dependency may or may not be
+immediately apparent in addition many of the cryptographic assets have dependencies on organizational
+assets or on specific hardware or software infrastructures that have to be identified in the inventory
+migration cannot be planned without prior knowledge of the assets in the organization that will be impacted by a
+quantum computer and the application of quantum computing thus the first stage of migration is to identify the set of
+cryptographic assets and processes in the system the inventory the assets can be present in a number of forms
+including hardware and software to identify the assets of the system and assist in the compilation of the system
+inventory at least one of the following resources should be used
+ the questions contained in clause a of the present document or
+ the methods described in etsi tr   i
+note  the resources listed above are complimentary and can be used in combination
+if assets identified in the inventory are not in the control of the organization but need to be migrated to achieve fqscs
+the dependency including the party liable to assure migration of the asset should be clearly indicated in the inventory
+example  a software asset is obtained from an appstore and is signed by a rd party with a classical
+quantum vulnerable algorithm that assets cryptographic protections eg signature details need
+to be listed in the inventory and the liable party for updating the signature noted
+many assets listed in the inventory will have dependencies on management processes and procedures that may be
+retained in whole or in part at the fqscs the most obvious of these dependencies are the means by which keys are
+managed
+example  management of keys for an asymmetric cryptographic system is enabled using a pki system such
+as shown in figure  this forms part of the key management entity there are parts of the pki
+system that are not strictly vulnerable to attack by a quantum computer
+etsi
+ etsi tr   v 
+ request registration
+ request certificate
+ verify identity
+registration certificate
+endentity
+authority authority
+ issue certificate
+ distribute certificate
+ store certificate
+certificate
+repository
+note the ordering of steps  and  is not strict and can be taken in either order or performed in parallel
+figure  example public key architecture and registration process
+the inventory compilation should capture the abstract entities and functions that deliver cryptographic protections that
+will be subject to migration
+example  the role of entities such as certificate authorities do not necessarily change as a result of the
+migration process but the means by which to implement their role can change
+example  the abstract meaning of messages such as those shown in figure  do not change as a result of
+migration but the means by which these messages are implemented can change
+many of the assets that will be identified in the inventory require a trust management framework andor a credential
+management framework for such entities that rely on specific roots of trust the inventory should include identification
+of the root of trust of the asset a summary of various trust models can be found in clause g of etsi
+tr   i and the form should be identified in the inventory along with the trust chain and function it contains
+forms of roots of trust include the following
+ root of trust for verification rtv  this provides a cryptographic accelerator to verify digital signatures
+associated with softwarefirmware and creates assertions based on the results
+ root of trust for storage rts  this provides a protected repository and a protected interface to store and
+manage keying material
+note  the rts often maintains the platform configuration registers pcr output from secure boot and
+configuration processes
+ policy enforcement engine  to enforce the capabilities of the security policy can be considered as analogous
+to the combination of policy administration point policy decision point and policy enforcement point pep
+in protocols such as xacml
+ root of trust for measurement rtm  to undertake the measurement of system state typically taking a
+cryptographic hash of the particular platform element
+ root of trust for reporting rtr  for use in services such as remote attestation
+note  the root of trust can be implemented in a number of ways including specific chipsets or by specific
+combinations of software and chipsets
+note  the term root of trust is nearly but not quite synonymous with the term trust anchor and both terms
+are used throughout the present document the distinction that most often applies is that a service is
+anchored thus for example rtv is a service that will be implemented at a trust anchor where the anchor
+is the physical entity such as an hsm
+etsi
+ etsi tr   v 
+in normal asymmetric encryption practice the principal creates a key pair as part of the inventory and closely related to
+the preparation of the migration plan there should be an assessment of the ability of devices acting on behalf of the
+principal to generate and store a key pair for the quantum safe cryptography solution that will ultimately replace the
+nonquantum safe solution
+note  for the particular case of functional encryption systems such as in identity based cryptography the
+public key remains constant eg an email address in ibe across the nonqsc and qsc states however
+the underlying algorithms and secret key generation are mutable between the nonqsc and qsc state
+note  the cryptographic primitives of the trusted platform module tpm model from the trusted computing
+group tcg are not in level  i i i i fully cryptographically quantum safe but there
+is some provision for cryptographic agility within the same or similar families
+example  many hsms offer the ability to update cryptographic parameters such as changing the curve in
+elliptical curve cryptography and have cryptoagility only within the same cryptographic model
+ business process requirements for stage 
+as a business process the compilation of the inventory should be carefully managed
+ appointment of a migration inventory manager
+ a single manager should be appointed with responsibility for compiling the inventory
+ the migration inventory manager should report to the migration planning manager
+ allocation of budget for inventory compilation
+ the compilation of the inventory can incur significant cost financial temporal organizational and for
+technical provisions if no equivalent inventory already exists
+note whilst most organizations have some form of asset inventory this may need to be extended to address the
+specific aspects of an asset that are required to plan migration
+figure  illustrates an example of the form of organization chart the roles for migration identified here and in
+clauses  and  should be integrated to the existing organization such that it is clear the migration is a board level
+activity ie senior strategic management
+etsi
+ etsi tr   v 
+board
+other direct
+ict security qsc migration
+board reporting
+manager manager
+managers
+qsc migration
+ict
+planning
+development
+manger
+ict qsc inventory
+maintenance manager
+figure  example organization chart showing peer relationship
+of the ict security tree and qsc migration management tree
+ stage   preparation of the migration plan
+ creation of the migration plan
+note  it is assumed that migration will be likeforlike that an asymmetric cryptographically protected asset
+will be protected in like manner after migration and that symmetric cryptographically protected assets
+will likewise also be protected in like manner after migration
+note  whilst the focus of the present document is on migration from algorithms and other cryptographic
+protections that are vulnerable to attack by a quantum computer it is recognized that other quantum
+mechanical effects are used in the cryptographic domain including quantum key distribution and
+quantum random number generators these mechanical effects are not addressed in the present
+document as they are not considered vulnerable to the forms of quantum computing attack that the
+migration described is intended to mitigate
+after completing stage  inventory compilation as defined in clause  stage  can be started preparation of the
+migration plan
+the set of questions contained in clause a of the present document should be used to assist in the preparation of the
+migration plan
+the migration plan should include the following
+ a full inventory of assets as described in clause 
+ for each asset
+ whether a given asset will be migrated
+note  not all assets will need to be migrated some assets can be retired or made obsolete through redesign
+ when a given asset will be migrated
+ an orderly sequence of migration of interdependent assets
+etsi
+ etsi tr   v 
+note  when and in what order assets are migrated depends on an understanding of their cryptographic
+relationship and any dependencies which should have been identified in the inventory
+ the migration solution chosen for each given asset replacement by full qs crypto or a hybrid solution
+ testing including dependency testing
+any cryptographic entity requires that the credentials eg keys are managed organizations can have many such
+security credential management systems scmss for management of both symmetric and asymmetric cryptography
+the most common form of an scms for asymmetric keys is a public key infrastructure pki and specific provisions
+should be made for such pkis and scmss in general for any pki in the inventory and the public key certificates
+pkcs that implement it every entity in the pki will need new pkcs that contain quantum safe public keys if
+backwards compatibility is required during a phased migration then the application will have to support both classical
+and quantum safe algorithms this may be achieved using individual classical and quantum safe endentity
+certificates or by using hybrid certificates depending on the cryptographic agility of the existing application the
+following should all be considered in developing the migration plan
+ the capabilities and limitations of the various entities in the pki
+ the planning should identify the ability of any pki entity to handle certificates containing the larger
+quantum safe public keys and signatures if any pki entity cannot handle qsc primitives these entities
+should be marked for replacement
+note  the ability to update this includes the timing of the update an existing ca can depend on the state of
+migration of individual participants in the supply chain
+note  recommendation itut x i specification for pkcs supports a number of modes that allows for
+staged migration including hybrid modes
+ a pki that has been updated to use quantum safe cryptography will need new trust anchors and certificate
+chains that contain quantum safe signatures
+ if backwards compatibility is required during a phased migration then the pki will have to support both
+classical and quantum safe signing algorithms which can be handled either by using parallel classical
+and quantum safe certificate chains or by using hybrid certificate chains depending on the
+cryptographic agility of the existing relying parties
+ migration planning should take into account the interplay between upgrading the pki and upgrading the
+various applications that depend on it there may be an order of operations necessary in order to minimize cost
+or downtime in the process in this case the analysis and inventory of cryptographic deployments should
+clearly identify dependencies that will allow the lead authority for migration to cater for such dependencies
+ie if a depends on b then b should be migrated before a
+ provisions for cryptographic agility should be considered for any new or updated entities in the pki
+ if a vulnerability is found in the quantum safe algorithm it may be necessary to switch to a different
+quantum safe algorithm entirely although in some instances the specific vulnerability may be addressed
+by restricting modes or by revising the strength of individual parameters ensuring cryptographic agility
+will make this significantly easier
+as highlighted above migration requires detail planning based on knowledge of the inventory of cryptographic assets
+and their dependencies across the system supply chain in any system the cost of implementing an intermediate step
+impacts the migration choices for x based pki systems it is possible to migrate to the qsc endstate by
+hybridising the cryptographic modes allowing classical and qsc modes to coexist
+the migration plan should address the timing of migration and this implies understanding of cryptographic
+dependencies
+note  migration and initial deployment design will achieve the same endpoint but migration differs only
+insofar as there is an existing working deployment that supports business functions that can be sensitive
+to disruption
+as stated in clause  above the inventory of assets should be clearly visible in any plan the migration plan should
+stress the role of dependency testing
+etsi
+ etsi tr   v 
+only when the migration plan is in place can migration be implemented
+ migration issues
+migration is the set of processes procedures and technologies required to transition from nonqsc to qsc the
+development of the migration path requires knowledge of the root or anchor of the security function of each asset
+every link in the chain of security with a qc vulnerability or a dependence on an asset with a qc vulnerability should
+be updated for migration to be considered a success
+example  forms of roots or anchors of trust include the key manager for a cryptographic operation and the
+certificate authority ca or registration authority ra for a certificate in a pki
+example  if an asset creates an asymmetric key pair to be associated in a public key certificate to an attribute
+of the asset normally its identity a number of actions are taken in sequence for the distributable
+key to be usable that includes
+ the key generator has a source of entropy sufficient to ensure keys are suitably random ie
+the entropy source for an rsa key is at least  bits the relative security strength
+metric
+ the signature used to prove the binding of attribute to the key pair needs has security strength
+at least equal to that of the key generator and so on
+if an assets primary state ie its native state is that no cryptographic operation has been applied eg for speech
+transmission over an encrypted radio channel the migration only impacts the key management system and the
+algorithm for encryption and not the content of the speech itself if however the assets primary state is that it has been
+cryptographically protected then the migration should maintain those protections during the transition from nonqsc to
+qsc where the base state is that all data is encrypted and also subjected to cryptographically assured file integrity the
+nonqsc encryption should not be removed ie go clear prior to imposing the qsc based encryption mode
+example  if prior to migration a file on disk is encrypted with a nonqsc key and algorithm then it is
+migrated in such a way that its security state ie encrypted is maintained
+ considerations for migration impact on hardware based
+security environment
+the quantum computing risk to the hardware based security environment hbse is that the implementation of each
+may not be optimized for quantum safe cryptography
+current mid hbses have not been optimized for the kind of algorithms that are considered as quantum safe for
+asymmetric application the degree to which this is an urgent concern depends on the level of cryptographic agility
+defined for the hsmtpm the current version of isoiec  i the  edition supports only rsa and
+ecc using prime curves thus the current version of isoiec  i is not classifiable as quantum safe any
+implementation using a tpmtss that complies with isoiec  i will need to be migrated to a future qs
+variant
+the more general case of hsm as distinct from the tpmtss examples in isoiec  i is that they could
+already be able to support qsc although some fielded examples of hsm can have already been in service for  years
+or more and predate the evolution of qs characteristics
+note globalplatform has started to investigate the evolution needed for secure components management
+including se and tee in terms of algorithms and key sizes for a use in in a qsc environment and is
+more generally looking for cryptographic agility with a new smart card platform scp under
+construction
+if any asset to be migrated is dependent on an hbse then that hbse should be migrated to ensure it supports the
+algorithm and cryptographic key requirements of the migrated asset before the depending asset is migrated
+etsi
+ etsi tr   v 
+ key management during migration
+key management is a critical element of any cryptographic application in any one organization it is highly likely that
+many key management systems kms are deployed with a number of different formats for further discussion of the
+key management topic the use of x is assumed if alternative certificate formats are used the overall structure and
+guidance of this clause still applies subject to the capability of the alternative format
+note  unless otherwise stated certificates in the present clause refer to certificates containing a single signature
+where more than one signature is required eg for hybrid modes this is explicitly stated
+it is straightforward to include a quantum safe public key in the subject key info field of an x i endentity
+certificate provided that the quantum safe algorithm has a corresponding algorithm id and the ca knows how to
+encode the public key although quantum safe algorithms generally have much larger public keys than classical
+algorithms experiments i have shown that many existing cryptographic libraries are able to handle large certificates
+however the ease of use of endentity certificates containing quantum safe public keys depends on whether the
+application allows the negotiation of cryptographic algorithms for example via the signature algorithms extension in
+tls  ietf rfc  i this capability of x suggests that migration using x is possible now
+note  any certificate that has been signed using a classical algorithm and all certificates below it in the chain
+can potentially be replaced with a certificate forged by a quantum attacker
+note  a certificate chain that relies on a classical trust anchor cannot be considered quantum safe
+ trust management during migration
+as identified in clause  the inventory will have identified the trust infrastructures as stated in clause  whilst the roles
+and relationships in the trust infrastructures and the associated key management infrastructures remain constant the
+means by which they perform the technical tasks may change
+example a root authority can require that verification of ca keys is done in a facetoface signing
+ceremony and thus the scheduling of such ceremonies as well as the distribution of new keys and
+certificates throughout the infrastructure will need to be considered in the planning of migration
+many security primitives require a trust management framework multiple models have been proposed for
+cryptographically assured trust management that extend the models for key management in clauses  and  for the trust
+application or service
+a number of functions can be reliant on specific roots of trust and the transfer of each root of trust to a quantum safe
+model is a key element that is present in the migration plan
+ isolation approaches during migration
+not all systems will be updated at the same time as a part of a migration strategy subsystems should be isolated as far
+as is possible to discrete security domains security domains that need to be interconnected may then be interconnected
+by quantum safe pathways such as quantum safe vpns as defined in etsi tr   i
+ access to nonqsc protected resources after migration
+in determining the risk to business of reencrypting previously encrypted assets held in an archive for example the risk
+calculation can determine that it is economically infeasible to migrate all encrypted assets to a quantum safe state in
+such an eventuality steps to quarantine any nonqsc resources ie both physical and logical quarantine from any
+external attack are included in the migration plan in this case all nonqsc protected assets that will not be migrated are
+physically moved to explicitly identified quarantine zones and risk managed inside the quarantine zone if any form of
+pki and associated pkcs have been used to maintain any nonmigrated assets then a reasonable facsimile of the pki
+will be maintained in the quarantined zone there is a strong likelihood that certificates and associated public keys used
+in protecting such assets will expire whilst in the quarantine zone and processes should be put in place to allow the
+cryptographic operations to continue even if normal protocols and policies fail
+etsi
+ etsi tr   v 
+example normal security policy can be to refuse to process any asset protected by an expired key whereas
+for quarantined assets the key can be expected to expire whilst in quarantine and thus if access is
+to be enabled to the asset whilst quarantined the policy is updated to allow for recognition of the
+quarantined state
+however given the nature of the qc threat resources that have to be maintained in a secured state eg encrypted
+cryptographically enabled access restriction over multiple generations of cryptography ie keys or algorithms should
+always be migrated to the latest generation assets that can be covered by such multigeneration concerns include
+patient health records and some critical infrastructure assets
+ business process requirements for stage 
+as a business process migration requires a number of requirements to be met in order to enable the migration to be
+executed these business processes need to be planned and often in place before execution of the plan defined in
+stage 
+ appointment of a migration manager
+ a single manager should be appointed with responsibility for executing the migration the migration
+manager should have knowledge of the overall businessorganization and should have access to all parts
+of the organization to ensure that each stakeholder in the migration is aware and briefed on their role
+ allocation of budget for migration
+ in the task of analysing the inventory to identify which assets are to be migrated which to be retired and
+which need redesign it is essential to be able to assure that budget time finance facilities are available
+to ensure that stage  can be completed
+ it is also essential that stages  and  are sufficiently budgeted for stage  this is considered in
+clause 
+ management of down time
+ in working to develop the plan it may be necessary to close or pause parts of the organization ensuring
+this is possible and approved before entering stage  is essential
+ stage   migration execution
+ migration management
+after completing stage  inventory compilation as defined in clause  and completing stage  preparation of the
+migration plan as defined in clause  stage  can be started migration execution
+whilst stages  and  address respectively the compilation of an inventory of all crypto assets and the preparation of a
+migration plan the role of stage  is to implement the plan from stage  against the inventory from stage  the
+elements of management required for qsc migration are similar to the provisions for effective management of any
+other activity
+ mitigation management
+management checkpoints added to the migration plan as stated in clause  are metrics to track progress where
+management checkpoints are missed mitigations as detailed in the plan should be followed
+a key element of mitigation management in the overall context of migration management is conducting exercises to
+simulate and test the migration with the aim to determine the viability of the plan whilst this is not conceptually at
+least different from any other migration or large project plan there is significant value in such exercises as they can
+uncover missing inventory elements it is highly probable that the inventory will be incomplete or that the supply chain
+has breaks that need to be found and mitigations designed into the plan
+etsi
+ etsi tr   v 
+note the planning of mitigations as above falls in both steps  and  and as such there will be overlap in
+project management if and when mitigations are triggered ie during execution a mitigation may need to
+be invoked or an unforeseen mitigation developed
+mitigations to unexpected events will place strain on any previously agreed budget and thus the exercises and pre
+planning tests will be essential in being able to give an accurate estimate of the budget and other costs of such
+mitigations
+ business process requirements for stage 
+the elements of management required for a qsc migration to a fqscs are similar to the provisions for effective
+management of any other business activity to allow successful management
+ the migration manager see clause  should be given lead and responsibility for the process and
+ the migration manager should be given financial and organizational backing and
+ the migration manager should not stop partway through a phase of the migration plan
+etsi
+ etsi tr   v 
+annex a
+migration checklist
+a inventory compilation and preparatory questions
+a risk assessment
+quantifying the level of risk is the first step of inventory compilation the questions relate to the threat of qc in its own
+right on the wider organization and its supply chain
+magnitude what risks will information disclosure create classifications of where risk lies
+include monetary loss ie direct financial impact compliance ie will existing
+compliance procedures be maintained legal eg will existing legal safeguards
+apply reputation eg how will readiness or failure be ready to impact the
+reputation of the organization either in absolute terms or by comparison to peer and
+competitor organizations
+duration how long has confidentiality to be maintained for each asset or class of assets
+scope are keys or certificates issued by the affected organization to third parties under
+what cpss or slas
+duration can damage due to degradation or interruption of each services that uses crypto be
+quantified
+response is there a plan to protect encrypted assets in case of a crypto failure
+a data assessment
+many organizations group data into classes and have policies relating to the treatment of each data class these
+questions relate to capturing how such data policies will impact the inventory
+type what classes of data are subject to encryption pii trade secret custodial secret
+government classified etc
+protection duration how long does confidentiality need to be maintained for each data class
+retention is encrypted data deleted according to a regular schedule
+disclosure impact what are the consequences of disclosure of each data class
+exposure is encrypted data normally exposed to potential attackers eg in transit or public
+cloud
+a cryptographic assessment
+these questions relate to capturing cryptographic properties of keys for the inventory
+type for each key what is the strength the algorithm binding and the usage signature or
+encryption application specific security etc
+strength what is the effective strength of each key in view of classical and quantum attacks
+lifetime what are the issuance and expiration dates for each key
+management are all keys inventoried and locatable are keys easy to revoke and reissue
+etsi
+ etsi tr   v 
+a infrastructure inventory
+these questions relate to the core of the inventory where an asset in the inventory can have many uses
+crypto software inventory what crypto libraries are in use what protocol libraries are in use
+key inventory what keys are in use by what applications
+admin inventory who or what role is authorized to manage which keys and which crypto modules
+and devices
+certificate inventory what certificates are issued to the organization who issued them
+crypto hardware inventory what crypto hardware is in use what attributes does each certificate have
+application inventory which applications use which libraries which keys and which protocols
+a supplier inventory
+these questions relate to capturing assets related to the supply chain and their role
+certificate authorities cas do the organizations ca agreements hold the ca to an sla for timely reissuance
+does the organization backup ca under contract
+code signatures can and will application vendors in the supply chain resign applications in a timely
+way
+service level agreements do revocation and reissuance requests get priority vs other firms in emergencies
+slas with the ca
+slas with the data custodian what obligations do the custodians of data have in case of algorithm breach
+csrs does the organization retain csrs in order that the organization can request
+reissuance of certs with the correct attributes
+slas with software vendors are vendors in the supply chain obligated to timely upgrades to fix crypto breaches
+see note
+note this is likely to be a specific requirement if the vendor is subject to the constraints of the eu cyber security
+act
+a preparation of the migration plan
+a orderly transition planning
+these questions relate to engaging stakeholders in creating a plan for orderly migration
+supplier readiness plans do all the suppliers in the supply chain have quantum readiness plans are their
+obligations placed on participants in the supply chain to have them
+standards participation is the organization and its key partners in the supply chain participating in
+standards groups preparing for qsc
+product testing is the organization and its key partners in the supply chain testing and certifying
+qsc algorithms and qscenabled products in advance
+hybrid crypto is the organization and its key partners in the supply chain investigating or
+implementing hybrid classicalpqc modes of operation
+crypto agility will the organizations infrastructure support rapid replacement of crypto algorithms
+and protocols
+regulatory engagement is the organization and its key partners in the supply chain engaging with regulators
+on use of pqc
+etsi
+ etsi tr   v 
+a disorderly transition planning
+these questions relate to engaging stakeholders in creating a plan for orderly migration
+exercises is the organization and its key partners in the supply chain planning and executing
+table top and simulation exercises for crypto algorithm failure response
+supplier agreements is the organization and its key partners in the supply chain updating supplier and
+partner agreements to cover algorithm failure
+saved csrs is the organization and its key partners in the supply chain retaining your certificate
+signing requests to support emergency centre issuance
+ca agreements is the organization and its key partners in the supply chain updating your ca
+agreements to cover algorithm failure
+emergency software distribution is the organization and its key partners in the supply chain making arrangements to
+securely receive and deploy patches and updated software versions while network
+protocol and code signing cryptography is insecure
+erisk coverage is the organization and its key partners in the supply chain investigating cyber
+insurance for cryptographic algorithm failures
+a migration execution
+a migration management
+these questions relate to business management of the migration execution phase
+responsibility what executive is responsible for quantum safety
+project management is there a detailed plan for quantum safety what is its priority
+budget is there a budget for quantum safety projects
+metrics and tracking are there metrics for quantum safety to whom are they reported
+a mitigation management
+these questions relate to mitigation measures if the migration execution encounters issues
+stakeholder engagement are legal compliance and corporate communications involved in planning
+exercises is the organization and its key partners in the supply chain planning and executing
+table top and simulation exercises for crypto algorithm failure response
+budget is there a budget for mitigation of crypto algorithm failures
+playbooks have exercises been used to create playbooks for mitigation
+etsi
+ etsi tr   v 
+annex b
+frequently asked questions
+question guidance or answer
+what is impacted by a known attacks on the mathematical properties of some cryptographic algorithms make
+quantum computer vulnerable algorithms null and void in terms of the security they offer this particularly
+impacts popular asymmetric public key systems such as rsa and ecc in which all
+material protected by vulnerable algorithms has their protection voided for symmetric
+algorithms the impact is less severe but the effective key length is at most halved due
+to inherent overhead in running grovers algorithm on realistic quantum architectures
+i eg a bit key will only offer the equivalent security of at least bits
+can existing hardware cope not always for symmetric key systems to cope with increased key size in the same
+with hybrid systems in terms time the required combination of memory io and processor bandwidth may not be
+of memory processing power available hardcoded systems with no cryptoagility may not be able to cope at all for
+crypto agility many systems whilst the qsc and hybrid algorithms can be substantially different the
+building blocks can be the same eg hash processing however unless the base pre
+qsc system has some crypto agility it can be very difficult to reuse these capabilities
+how long will migration take there is no simple answer as this depends on the number of cryptographic assets to
+be migrated the more complex answer is in part given in etsi gr qsc  i as
+the time required to arrive at a qc safe deployment of cryptography
+ x  the number of years the public key cryptography needs to remain
+unbroken
+ y  the number of years it will take to replace the current system with one that
+is quantum safe
+ z  the number of years it will take to break the current tools using quantum
+computers or other means
+ t  the number of years it will take to develop trust in quantum safe
+algorithms
+if x  y  t  z any data protected by that public key cryptographic system is at risk
+and immediate action needs to be taken an organization is in the position to
+determine x and y industry at large will be able to give guidance on t and z
+the migration time is a combination of y and t with the controllable element being y
+with some risk if y is initiated before t is complete ie starting migration before trusted
+algorithms are available as with all major changes in an organization migration
+should be practiced and tested well in advance of the necessary changeover date
+is migration a qsc only no all of the steps and mechanisms given in the present document apply to any
+issue migration of any technology to a new technology the peculiarities of qsc migration
+are only that assets which make a claim of security that is challenged by the existence
+of a quantum computer ie asymmetric cryptography based on discrete logarithms or
+on factorization are made immediately null and void as the trust in the mathematics
+that surrounds their security claim no longer holds true
+are distributed ledger a complete answer depends on the nature of the ledger and the transactions it
+technologies dlts contains however the nature of dlts is that the integrity of each entry the entry can
+impacted by qsc be simply the hash of an externally held transaction and each page is verified by a
+developments hash and each page is verified by finding a hash of the set of transactions and a
+random sealing value that results in a hash of a particular pattern with the hash of the
+sealed page being the first entry in the next page of the ledger hence linking all
+pages in the ledger together if hashing is the only cryptographic function taking place
+the impact of a quantum computing attack is low however in practice transactions can
+also be signed and in some instances encrypted which significantly alters the risk
+assessment
+are all cryptographic yes but to a different degree in each case the default position prior to migration
+operations impacted by a should be that asymmetric cryptographic operations are nullified and that the
+quantum computer cryptographic strength of all other operations are severely cut
+are hybrid solutions quantum hybrid solutions are a waypoint on the path to qsc and do not represent the end
+safe state thus a system with hybrid solutions has not achieved fqscs hybrid solutions
+have themselves to be migrated to the end state
+etsi
+ etsi tr   v 
+history
+document history
+v july  publication
+etsi

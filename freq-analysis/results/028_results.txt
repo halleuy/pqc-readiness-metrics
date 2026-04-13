@@ -1,0 +1,8 @@
+Framework: 028.txt
+Total Words: 29409
+========================================
+crypto_assets: 42
+crypto_agility: 36
+migration_planning: 11
+risk_management: 11
+standards_compliance: 56

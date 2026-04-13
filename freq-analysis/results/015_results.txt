@@ -1,8 +1,8 @@
 Framework: 015.txt
-Total Words: 23367
+Total Words: 11542
 ========================================
-crypto_assets: 0
-crypto_agility: 22
-migration_planning: 46
-risk_management: 84
-standards_compliance: 22
+crypto_assets: 27
+crypto_agility: 111
+migration_planning: 40
+risk_management: 59
+standards_compliance: 33

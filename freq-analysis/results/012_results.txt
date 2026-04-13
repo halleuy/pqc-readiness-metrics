@@ -1,8 +1,8 @@
 Framework: 012.txt
-Total Words: 1538
+Total Words: 1532
 ========================================
 crypto_assets: 2
 crypto_agility: 1
-migration_planning: 14
-risk_management: 15
-standards_compliance: 10
+migration_planning: 6
+risk_management: 0
+standards_compliance: 13
