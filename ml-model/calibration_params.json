@@ -1,37 +1,22 @@
 {
   "crypto_assets": {
-    "slope": 1.84191,
-    "intercept": 1.966373,
-    "cal_mae": 1.278,
-    "loo_mae": 1.444,
-    "spearman_rho": 0.663
+    "slope": 1.7659319877086466,
+    "intercept": 2.0008612536341817
   },
   "crypto_agility": {
-    "slope": 1.107565,
-    "intercept": 2.048358,
-    "cal_mae": 1.333,
-    "loo_mae": 1.5,
-    "spearman_rho": 0.289
+    "slope": 1.0341915562759378,
+    "intercept": 2.2307849338330348
   },
   "migration_planning": {
-    "slope": 1.009161,
-    "intercept": 2.211067,
-    "cal_mae": 1.111,
-    "loo_mae": 1.111,
-    "spearman_rho": 0.0
+    "slope": 0.8742360564070507,
+    "intercept": 2.358227037441054
   },
   "risk_management": {
-    "slope": 0.967517,
-    "intercept": 2.515203,
-    "cal_mae": 1.167,
-    "loo_mae": 1.167,
-    "spearman_rho": 0.0
+    "slope": 1.1707509527526734,
+    "intercept": 2.631704685627329
   },
   "standards_compliance": {
-    "slope": 0.759069,
-    "intercept": 2.870406,
-    "cal_mae": 1.0,
-    "loo_mae": 1.0,
-    "spearman_rho": 0.0
+    "slope": 1.4826175068588063,
+    "intercept": 2.667327909988533
   }
 }

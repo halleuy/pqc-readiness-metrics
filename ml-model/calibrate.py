@@ -1,328 +1,422 @@
-# calibrate.py
-# Learn linear regression mapping from raw NLP cosine similarities to expert 0-5 scores.
-#
-# Run AFTER:
-#   1. expert_scores.csv exists (with your manual scores)
-#   2. main.py has been run at least once (to generate nlp_raw_scores.csv)
-#   3. framework_mapping.csv exists
-#
-# Outputs:
-#   - calibration_params.json  (loaded by main.py on next run)
-#   - calibration_params.csv   (human-readable summary)
-#   - calibration_summary.txt  (readable report)
-#
-# Then re-run main.py — it will auto-load the calibration.
-
-import pandas as pd
-import numpy as np
-from sklearn.linear_model import Ridge
-from sklearn.model_selection import LeaveOneOut
-from sklearn.metrics import mean_absolute_error, cohen_kappa_score
-from scipy.stats import spearmanr
 import os
+import csv
 import json
+import numpy as np
 import warnings
+from scipy.stats import spearmanr
+from sklearn.linear_model import Ridge
+from sklearn.metrics import cohen_kappa_score
 
-warnings.filterwarnings('ignore', category=RuntimeWarning)
+# --- Paths ---
+ML_DIR = os.path.dirname(os.path.abspath(__file__))
+EXPERT_FILE = os.path.join(ML_DIR, '..', 'freq-analysis', 'scripts', 'labels.csv')
+RAW_FILE = os.path.join(ML_DIR, 'nlp_raw_scores.csv')
+DETAIL_FILE = os.path.join(ML_DIR, 'nlp_detailed_features.csv')
 
-SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-PROJECT_DIR = os.path.dirname(SCRIPT_DIR)
+DIMENSIONS = ['crypto_assets', 'crypto_agility', 'migration_planning',
+              'risk_management', 'standards_compliance']
 
-DIMENSIONS = [
-    "crypto_assets", "crypto_agility",
-    "migration_planning", "risk_management",
-    "standards_compliance"
-]
+# All 9 individual signals (excluding 'combined' which is derived)
+SIGNALS = ['max_sim', 'top_k_mean', 'coverage_log', 'depth',
+           'concentration', 'differential',
+           'kw_specific', 'kw_general', 'kw_ratio']
 
-def safe_spearmanr(a, b):
-    """Compute Spearman rho, returning 0.0 if inputs are constant."""
+# =============================================================================
+# DATA LOADERS
+# =============================================================================
+
+def load_expert(path):
+    """Return {framework_id_str: {dim: int_score}}"""
+    data = {}
+    with open(path, 'r', encoding='utf-8') as f:
+        for row in csv.DictReader(f):
+            fid = str(row.get('Framework_ID', '')).strip()
+            try:
+                fid = str(int(fid)).zfill(3)
+            except ValueError:
+                pass
+            if fid:
+                data[fid] = {d: int(row[d]) for d in DIMENSIONS}
+    print(f"    Loaded {len(data)} expert scores: {sorted(data.keys())}")
+    return data
+
+def load_raw(path):
+    """Return {framework_id_str: {dim_raw: float}}"""
+    data = {}
+    with open(path, 'r', encoding='utf-8') as f:
+        for row in csv.DictReader(f):
+            fid = str(row.get('Framework_ID', '')).strip()
+            if fid and fid != 'Unknown':
+                data[fid] = {}
+                for d in DIMENSIONS:
+                    data[fid][f'{d}_raw'] = float(row[f'{d}_raw'])
+    print(f"    Loaded {len(data)} NLP raw scores: {sorted(data.keys())}")
+    return data
+
+def load_detailed(path):
+    """Return {framework_id_str: {dim_signal: float}}"""
+    data = {}
+    with open(path, 'r', encoding='utf-8') as f:
+        for row in csv.DictReader(f):
+            fid = str(row.get('Framework_ID', '')).strip()
+            if fid and fid != 'Unknown':
+                feats = {}
+                for d in DIMENSIONS:
+                    for s in SIGNALS:
+                        key = f'{d}_{s}'
+                        feats[key] = float(row.get(key, 0.0))
+                data[fid] = feats
+    print(f"    Loaded {len(data)} detailed feature sets: {sorted(data.keys())}")
+    return data
+
+# =============================================================================
+# LEAVE-ONE-OUT HELPER
+# =============================================================================
+
+def loo_predict(X, y, alpha=1.0):
+    """LOO Ridge Regression. Returns plain Python list of floats."""
+    n = len(y)
+    preds = []
+    for i in range(n):
+        mask = np.ones(n, dtype=bool)
+        mask[i] = False
+        model = Ridge(alpha=alpha)
+        model.fit(X[mask], y[mask])
+        raw = model.predict(X[~mask])
+        val = raw.ravel()
+        p = float(val.item()) if hasattr(val, 'item') else float(val)
+        p = max(0.0, min(5.0, p))
+        preds.append(p)
+    return preds
+
+# =============================================================================
+# METRICS
+# =============================================================================
+
+def compute_metrics(preds, actuals, label=""):
+    """Compute and print MAE, exact-match, Spearman ρ with p-value, kappa."""
+    preds_list = [x.item() if hasattr(x, 'item') else float(x) for x in preds]
+    actuals_list = [x.item() if hasattr(x, 'item') else float(x) for x in actuals]
+
+    preds_arr = np.array(preds_list)
+    actuals_arr = np.array(actuals_list)
+
+    mae = float(np.mean(np.abs(preds_arr - actuals_arr)))
+    rounded = np.round(preds_arr).astype(int)
+    actual_int = actuals_arr.astype(int)
+    exact = float(np.mean(rounded == actual_int))
+
+    with warnings.catch_warnings():
+        warnings.simplefilter("ignore")
+        if len(set(preds_list)) > 1 and len(set(actuals_list)) > 1:
+            rho, p_val = spearmanr(preds_list, actuals_list)
+        else:
+            rho, p_val = 0.0, 1.0
+
     try:
-        if len(set(a)) < 2 or len(set(b)) < 2:
-            return 0.0, 1.0
-        rho, p = spearmanr(a, b)
-        return float(rho), float(p)
-    except:
-        return 0.0, 1.0
+        kappa = cohen_kappa_score(actual_int, rounded, weights='quadratic')
+    except Exception:
+        kappa = 0.0
 
-def safe_kappa(a, b):
-    """Compute quadratic weighted kappa, returning 0.0 on failure."""
-    try:
-        if len(set(a)) < 2 or len(set(b)) < 2:
-            return 0.0
-        return float(cohen_kappa_score(a, b, weights='quadratic'))
-    except:
-        return 0.0
+    if np.isnan(rho):
+        rho = 0.0
+    if np.isnan(p_val):
+        p_val = 1.0
 
-# ──────────────────────────────────────────────
-# 1. LOAD FRAMEWORK MAPPING
-# ──────────────────────────────────────────────
+    if label:
+        sig = "***" if p_val < 0.01 else "**" if p_val < 0.05 else "*" if p_val < 0.10 else "ns"
+        print(f"    MAE: {mae:.3f}  Exact: {exact:.0%}  ρ: {rho:.3f} (p={p_val:.4f} {sig})  κ: {kappa:.3f}")
+        print(f"    Preds:   {[round(p, 1) for p in preds_list]}")
+        print(f"    Actuals: {[int(a) for a in actuals_list]}")
 
-mapping_path = os.path.join(SCRIPT_DIR, 'framework_mapping.csv')
+    return {'mae': mae, 'exact': exact, 'rho': rho, 'p_val': p_val, 'kappa': kappa}
 
-if not os.path.exists(mapping_path):
-    print(f"❌ framework_mapping.csv not found at: {mapping_path}")
-    exit(1)
+# =============================================================================
+# PHASE 1A — SINGLE-FEATURE RIDGE (combined raw → score)
+# =============================================================================
 
-mapping_df = pd.read_csv(mapping_path)
-# Build lookup: PDF filename → integer ID
-filename_to_id = {}
-for _, row in mapping_df.iterrows():
-    pdf_title = row['PDF_Title'].strip()
-    framework_id = int(row['Framework ID'])
-    filename_to_id[pdf_title] = framework_id
+def phase1a_single_feature(nlp_raw, expert, alpha=1.0):
+    common = sorted(set(nlp_raw) & set(expert))
+    n = len(common)
 
-print(f"✅ Loaded framework mapping ({len(filename_to_id)} frameworks)")
+    print(f"\n{'=' * 70}")
+    print(f"  PHASE 1A — SINGLE-FEATURE RIDGE  (LOO, n={n})")
+    print(f"{'=' * 70}")
 
-# ──────────────────────────────────────────────
-# 2. LOAD & MERGE DATA
-# ──────────────────────────────────────────────
+    if n < 3:
+        print("  ❌ Need ≥ 3 overlapping frameworks.")
+        return None
 
-expert_path = os.path.join(PROJECT_DIR, 'freq-analysis', 'scripts', 'labels.csv')
-raw_path = os.path.join(SCRIPT_DIR, 'nlp_raw_scores.csv')
+    all_mae = []
+    cal_params = {}
 
-# Check files exist
-if not os.path.exists(expert_path):
-    print(f"❌ Expert scores not found at: {expert_path}")
-    exit(1)
-if not os.path.exists(raw_path):
-    print(f"❌ Raw NLP scores not found at: {raw_path}")
-    print("   Run main.py first to generate nlp_raw_scores.csv")
-    exit(1)
+    for dim in DIMENSIONS:
+        X = np.array([[nlp_raw[fid][f'{dim}_raw']] for fid in common], dtype=float)
+        y = np.array([expert[fid][dim] for fid in common], dtype=float)
 
-expert_df = pd.read_csv(expert_path)
-raw_df = pd.read_csv(raw_path)
+        print(f"\n  {dim}:")
+        preds = loo_predict(X, y, alpha=alpha)
+        m = compute_metrics(preds, y, label=dim)
 
-# If nlp_raw_scores.csv already has Framework_ID (from updated main.py), use it directly.
-# Otherwise, map filenames to IDs using the mapping file.
-if 'Framework_ID' not in raw_df.columns:
-    raw_df['Framework_ID'] = raw_df['Framework'].apply(
-        lambda f: filename_to_id.get(f.strip())
-    )
+        full = Ridge(alpha=alpha).fit(X, y)
+        slope = float(full.coef_.ravel().item())
+        intercept = float(full.intercept_.item()) if hasattr(full.intercept_, 'item') else float(full.intercept_)
+        print(f"    Equation: score = {slope:.2f} × raw + ({intercept:.2f})")
 
-# Show mapping results for debugging
-print("\n📎 Filename → ID mapping:")
-for _, row in raw_df.iterrows():
-    fid = row.get('Framework_ID')
-    status = "✅" if pd.notna(fid) else "❌ UNMAPPED"
-    fname = str(row['Framework'])[:65]
-    print(f"   {status} {fname}... → ID {int(fid) if pd.notna(fid) else '?'}")
+        cal_params[dim] = {'slope': slope, 'intercept': intercept}
+        all_mae.append(m['mae'])
 
-raw_df = raw_df.dropna(subset=['Framework_ID'])
-raw_df['Framework_ID'] = raw_df['Framework_ID'].astype(int)
+    overall_mae = float(np.mean(all_mae))
+    print(f"\n  ── Overall Phase 1A ──")
+    print(f"  MAE: {overall_mae:.3f}  {'✅' if overall_mae < 1.0 else '❌'}  (target < 1.0)")
 
-# Ensure expert_df Framework_ID is also integer
-expert_df['Framework_ID'] = expert_df['Framework_ID'].astype(int)
+    path = os.path.join(ML_DIR, 'calibration_params.json')
+    with open(path, 'w') as f:
+        json.dump(cal_params, f, indent=2)
+    print(f"  💾 Saved {path}")
 
-# Merge on Framework_ID (only frameworks that have BOTH expert scores and NLP scores)
-merged = expert_df.merge(raw_df, on='Framework_ID', how='inner')
+    return overall_mae
 
-# Reset index so integer indexing works correctly in the loop
-merged = merged.reset_index(drop=True)
+# =============================================================================
+# PHASE 1B — MULTI-FEATURE RIDGE (9 signals per dimension)
+# =============================================================================
 
-print(f"\n✅ Matched {len(merged)} frameworks for calibration")
-print(f"   Expert IDs:  {sorted(expert_df['Framework_ID'].tolist())}")
-print(f"   NLP IDs:     {sorted(raw_df['Framework_ID'].tolist())}")
-print(f"   Matched IDs: {sorted(merged['Framework_ID'].tolist())}\n")
+def phase1b_multi_feature(detail, expert, alphas=None):
+    """Try multiple alpha values and report best."""
+    if alphas is None:
+        alphas = [0.1, 1.0, 10.0, 50.0, 100.0]
 
-if len(merged) < 4:
-    print("❌ Need at least 4 matched frameworks. Check:")
-    print("   - expert_scores.csv has 'Framework_ID' column with integers")
-    print("   - nlp_raw_scores.csv has matching Framework_ID or filenames")
-    print("   - framework_mapping.csv maps correctly")
-    exit(1)
+    common = sorted(set(detail) & set(expert))
+    n = len(common)
 
-# ──────────────────────────────────────────────
-# 3. DIAGNOSTIC: RAW DISTRIBUTIONS
-# ──────────────────────────────────────────────
+    print(f"\n{'=' * 70}")
+    print(f"  PHASE 1B — MULTI-FEATURE RIDGE  (LOO, n={n}, {len(SIGNALS)} features/dim)")
+    print(f"  Testing alphas: {alphas}")
+    print(f"{'=' * 70}")
 
-print("=" * 65)
-print("📊 RAW SIMILARITY vs EXPERT SCORES")
-print("=" * 65)
+    best_overall_mae = 999
+    best_alpha = alphas
 
-for dim in DIMENSIONS:
-    raw_col = f"{dim}_raw"
-    print(f"\n  {dim}:")
-    print(f"    {'ID':>4} | {'Raw':>7} | {'Expert':>6}")
-    print(f"    {'-'*4}-+-{'-'*7}-+-{'-'*6}")
+    for alpha in alphas:
+        dim_maes = []
+        for dim in DIMENSIONS:
+            X = np.array([[detail[fid][f'{dim}_{s}'] for s in SIGNALS] for fid in common], dtype=float)
+            y = np.array([expert[fid][dim] for fid in common], dtype=float)
+            preds = loo_predict(X, y, alpha=alpha)
+            mae = float(np.mean(np.abs(np.array(preds) - y)))
+            dim_maes.append(mae)
+        overall = float(np.mean(dim_maes))
+        print(f"    Alpha={alpha:<6} → MAE={overall:.3f}")
+        if overall < best_overall_mae:
+            best_overall_mae = overall
+            best_alpha = alpha
 
-    for _, row in merged.sort_values(raw_col).iterrows():
-        print(f"    {int(row['Framework_ID']):>4} | {row[raw_col]:>7.4f} | {int(row[dim]):>6}")
+    # Run best alpha with full output
+    print(f"\n  Best alpha: {best_alpha} (MAE={best_overall_mae:.3f})")
+    print(f"  Detailed results:\n")
 
-    # Check rank correlation
-    rho, p = safe_spearmanr(merged[raw_col].values, merged[dim].values)
-    print(f"    Spearman ρ = {rho:.3f} (p={p:.3f})")
+    all_mae = []
+    for dim in DIMENSIONS:
+        X = np.array([[detail[fid][f'{dim}_{s}'] for s in SIGNALS] for fid in common], dtype=float)
+        y = np.array([expert[fid][dim] for fid in common], dtype=float)
 
-# ──────────────────────────────────────────────
-# 4. LINEAR REGRESSION CALIBRATION
-# ──────────────────────────────────────────────
+        print(f"  {dim}:")
+        preds = loo_predict(X, y, alpha=best_alpha)
+        m = compute_metrics(preds, y, label=dim)
 
-print("\n" + "=" * 65)
-print("🎯 LINEAR REGRESSION CALIBRATION (per dimension)")
-print("=" * 65)
+        full = Ridge(alpha=best_alpha).fit(X, y)
+        weights = {}
+        for j, s in enumerate(SIGNALS):
+            w = full.coef_.ravel()[j]
+            weights[s] = round(float(w.item()) if hasattr(w, 'item') else float(w), 3)
+        print(f"    Weights: {weights}")
+        all_mae.append(m['mae'])
 
-calibration_params = {}
-loo = LeaveOneOut()
+    overall_mae = float(np.mean(all_mae))
+    print(f"\n  ── Overall Phase 1B ──")
+    print(f"  MAE: {overall_mae:.3f}  {'✅' if overall_mae < 1.0 else '❌'}  (target < 1.0)")
 
-overall_expert = []
-overall_default = []
-overall_calibrated = []
-overall_loo = []
+    return overall_mae
 
-for dim in DIMENSIONS:
-    raw_col = f"{dim}_raw"
-    X = merged[[raw_col]].values
-    y = merged[dim].values.astype(int)
+# =============================================================================
+# PHASE 1C — POOLED MULTI-FEATURE RIDGE
+# =============================================================================
 
-    # ---- Default thresholds prediction (what original code produces) ----
-    default_preds = np.digitize(X.flatten(), [0.2, 0.4, 0.6, 0.8]) + 1
-    default_preds = np.clip(default_preds, 1, 5)
+def phase1c_pooled(detail, expert, alphas=None):
+    """Train ONE model across all dimensions with alpha tuning."""
+    if alphas is None:
+        alphas = [0.1, 1.0, 10.0, 50.0, 100.0]
 
-    # ---- Fit Ridge regression (regularised to prevent overfitting) ----
-    model = Ridge(alpha=1.0)
-    model.fit(X, y)
+    common = sorted(set(detail) & set(expert))
+    n = len(common)
 
-    # Extract scalar values from numpy arrays
-    slope = model.coef_.item()
-    intercept = model.intercept_.item() if hasattr(model.intercept_, 'item') else float(model.intercept_)
+    print(f"\n{'=' * 70}")
+    print(f"  PHASE 1C — POOLED RIDGE  (LOO by framework, n={n})")
+    print(f"  Testing alphas: {alphas}")
+    print(f"{'=' * 70}")
 
-    # Calibrated predictions (clipped to 0-5, rounded to integer)
-    cal_preds_raw = model.predict(X)
-    cal_preds = np.clip(np.round(cal_preds_raw), 0, 5).astype(int)
+    # Build pooled dataset
+    X_all, y_all, ids_all, dims_all = [], [], [], []
+    for fid in common:
+        for dim in DIMENSIONS:
+            features = [detail[fid][f'{dim}_{s}'] for s in SIGNALS]
+            X_all.append(features)
+            y_all.append(expert[fid][dim])
+            ids_all.append(fid)
+            dims_all.append(dim)
 
-    # ---- Leave-One-Out cross-validation ----
-    loo_preds = np.zeros_like(y, dtype=float)
-    for train_idx, test_idx in loo.split(X):
-        loo_model = Ridge(alpha=1.0)
-        loo_model.fit(X[train_idx], y[train_idx])
-        loo_preds[test_idx] = loo_model.predict(X[test_idx])
+    X_all = np.array(X_all, dtype=float)
+    y_all = np.array(y_all, dtype=float)
+    N = len(y_all)
 
-    loo_preds_rounded = np.clip(np.round(loo_preds), 0, 5).astype(int)
+    print(f"  Total samples: {N} ({n} frameworks × {len(DIMENSIONS)} dims)")
 
-    # ---- Compute metrics ----
-    default_mae = mean_absolute_error(y, default_preds)
-    cal_mae = mean_absolute_error(y, cal_preds)
-    loo_mae = mean_absolute_error(y, loo_preds_rounded)
+    best_mae = 999
+    best_alpha = alphas
 
-    rho_cal, _ = safe_spearmanr(y, cal_preds)
-    rho_loo, _ = safe_spearmanr(y, loo_preds_rounded)
-    kappa_cal = safe_kappa(y, cal_preds)
+    for alpha in alphas:
+        all_preds = np.zeros(N)
+        for held_out_fid in common:
+            mask = np.array([fid == held_out_fid for fid in ids_all])
+            model = Ridge(alpha=alpha)
+            model.fit(X_all[~mask], y_all[~mask])
+            raw_preds = model.predict(X_all[mask]).ravel()
+            for j, idx in enumerate(np.where(mask)):
+                p = float(raw_preds[j].item()) if hasattr(raw_preds[j], 'item') else float(raw_preds[j])
+                all_preds[idx] = max(0.0, min(5.0, p))
 
-    exact_default = np.mean(y == default_preds) * 100
-    exact_cal = np.mean(y == cal_preds) * 100
-    exact_loo = np.mean(y == loo_preds_rounded) * 100
+        mae = float(np.mean(np.abs(all_preds - y_all)))
+        print(f"    Alpha={alpha:<6} → MAE={mae:.3f}")
+        if mae < best_mae:
+            best_mae = mae
+            best_alpha = alpha
+            best_preds = all_preds.copy()
 
-    # ---- Print results ----
-    print(f"\n  {dim}:")
-    print(f"    Learned equation: score = {slope:.2f} × raw + {intercept:.2f}")
-    print(f"    ")
-    print(f"    {'Metric':<20} {'Default':>8} {'Calibrated':>11} {'LOO':>8}")
-    print(f"    {'-'*20} {'-'*8} {'-'*11} {'-'*8}")
-    print(f"    {'MAE':<20} {default_mae:>8.2f} {cal_mae:>11.2f} {loo_mae:>8.2f}")
-    print(f"    {'Exact Match %':<20} {exact_default:>7.0f}% {exact_cal:>10.0f}% {exact_loo:>7.0f}%")
-    print(f"    {'Spearman ρ':<20} {'—':>8} {rho_cal:>11.3f} {rho_loo:>8.3f}")
-    print(f"    {'Quad. Kappa':<20} {'—':>8} {kappa_cal:>11.3f} {'—':>8}")
+    # Detailed output for best alpha
+    print(f"\n  Best alpha: {best_alpha} (MAE={best_mae:.3f})")
 
-    # Per-framework breakdown
-    print(f"\n    {'ID':>4} | {'Raw':>7} | {'Default':>7} | {'Calibrated':>10} | {'LOO':>5} | {'Expert':>6}")
-    print(f"    {'-'*4}-+-{'-'*7}-+-{'-'*7}-+-{'-'*10}-+-{'-'*5}-+-{'-'*6}")
+    preds_list = [float(x) for x in best_preds]
+    actuals_list = [float(x) for x in y_all]
 
-    for i, (_, row) in enumerate(merged.iterrows()):
-        fid = int(row['Framework_ID'])
-        r = row[raw_col]
-        d = int(default_preds[i])
-        c = int(cal_preds[i])
-        l = int(loo_preds_rounded[i])
-        e = int(row[dim])
-        match_c = "✅" if c == e else f"(off {abs(c-e)})"
-        match_l = "✅" if l == e else f"(off {abs(l-e)})"
-        print(f"    {fid:>4} | {r:>7.4f} | {d:>7} | {c:>10} {match_c:<8} | {l:>5} {match_l:<8} | {e:>6}")
+    rounded = np.round(best_preds).astype(int)
+    actual_int = y_all.astype(int)
+    exact = float(np.mean(rounded == actual_int))
 
-    # Store calibration parameters
-    calibration_params[dim] = {
-        'slope': round(slope, 6),
-        'intercept': round(intercept, 6),
-        'cal_mae': round(float(cal_mae), 3),
-        'loo_mae': round(float(loo_mae), 3),
-        'spearman_rho': round(rho_cal, 3)
-    }
+    with warnings.catch_warnings():
+        warnings.simplefilter("ignore")
+        if len(set(preds_list)) > 1 and len(set(actuals_list)) > 1:
+            rho, p_val = spearmanr(preds_list, actuals_list)
+        else:
+            rho, p_val = 0.0, 1.0
+    if np.isnan(rho):
+        rho = 0.0
 
-    overall_expert.extend(y.tolist())
-    overall_default.extend(default_preds.tolist())
-    overall_calibrated.extend(cal_preds.tolist())
-    overall_loo.extend(loo_preds_rounded.tolist())
+    sig = "***" if p_val < 0.01 else "**" if p_val < 0.05 else "*" if p_val < 0.10 else "ns"
+    print(f"\n  MAE:   {best_mae:.3f}  {'✅' if best_mae < 1.0 else '❌'}")
+    print(f"  Exact: {exact:.0%}")
+    print(f"  ρ:     {rho:.3f} (p={p_val:.4f} {sig})")
 
-# ──────────────────────────────────────────────
-# 5. OVERALL SUMMARY
-# ──────────────────────────────────────────────
+    # Per-dimension breakdown
+    print(f"\n  Per-dimension breakdown:")
+    for dim in DIMENSIONS:
+        dim_mask = np.array([d == dim for d in dims_all])
+        dim_preds = best_preds[dim_mask]
+        dim_actuals = y_all[dim_mask]
+        dim_mae = float(np.mean(np.abs(dim_preds - dim_actuals)))
+        print(f"    {dim}: MAE = {dim_mae:.3f}")
+        print(f"      Preds:   {[round(float(x), 1) for x in dim_preds]}")
+        print(f"      Actuals: {[int(x) for x in dim_actuals]}")
 
-print("\n" + "=" * 65)
-print("📈 OVERALL RESULTS")
-print("=" * 65)
+    # Feature weights
+    full = Ridge(alpha=best_alpha).fit(X_all, y_all)
+    weights = {}
+    for j, s in enumerate(SIGNALS):
+        w = full.coef_.ravel()[j]
+        weights[s] = round(float(w.item()) if hasattr(w, 'item') else float(w), 3)
+    inter = float(full.intercept_.item()) if hasattr(full.intercept_, 'item') else float(full.intercept_)
+    print(f"\n  Feature weights (pooled): {weights}")
+    print(f"  Intercept: {inter:.2f}")
 
-overall_expert = np.array(overall_expert)
-overall_default = np.array(overall_default)
-overall_calibrated = np.array(overall_calibrated)
-overall_loo = np.array(overall_loo)
+    return best_mae
 
-print(f"\n  {'Metric':<25} {'Default':>8} {'Calibrated':>11} {'LOO':>8}")
-print(f"  {'-'*25} {'-'*8} {'-'*11} {'-'*8}")
-print(f"  {'MAE':<25} {mean_absolute_error(overall_expert, overall_default):>8.2f} "
-      f"{mean_absolute_error(overall_expert, overall_calibrated):>11.2f} "
-      f"{mean_absolute_error(overall_expert, overall_loo):>8.2f}")
-print(f"  {'Exact Match %':<25} {np.mean(overall_expert == overall_default)*100:>7.0f}% "
-      f"{np.mean(overall_expert == overall_calibrated)*100:>10.0f}% "
-      f"{np.mean(overall_expert == overall_loo)*100:>7.0f}%")
+# =============================================================================
+# SUMMARY
+# =============================================================================
 
-rho_def, _ = safe_spearmanr(overall_expert, overall_default)
-rho_cal, _ = safe_spearmanr(overall_expert, overall_calibrated)
-rho_loo, _ = safe_spearmanr(overall_expert, overall_loo)
-print(f"  {'Spearman ρ':<25} {rho_def:>8.3f} {rho_cal:>11.3f} {rho_loo:>8.3f}")
+def save_summary(results, n):
+    path = os.path.join(ML_DIR, 'calibration_summary.txt')
+    with open(path, 'w') as f:
+        f.write("PQC Readiness — Calibration Summary\n")
+        f.write("=" * 50 + "\n\n")
+        for label, mae in results.items():
+            if mae is not None:
+                status = "PASS" if mae < 1.0 else "FAIL"
+                f.write(f"{label}: MAE = {mae:.3f}  {status}\n")
+        f.write(f"\nExpert-scored frameworks used: {n}\n")
+        f.write(f"\nTargets:\n")
+        f.write(f"  Phase 1: MAE < 1.0\n")
+        f.write(f"  Phase 2: MAE < 0.8 (Random Forest + frequency features)\n")
+        f.write(f"  Phase 3: MAE < 0.6 (LLM comparison)\n")
+    print(f"\n  💾 Saved {path}")
 
-improvement = (mean_absolute_error(overall_expert, overall_default) -
-               mean_absolute_error(overall_expert, overall_calibrated))
-print(f"\n  MAE improvement over default: {improvement:+.2f}")
+# =============================================================================
+# MAIN
+# =============================================================================
 
-loo_mae_overall = mean_absolute_error(overall_expert, overall_loo)
-if loo_mae_overall < 1.0:
-    print(f"  ✅ LOO MAE = {loo_mae_overall:.2f} (< 1.0 — good generalisation)")
-else:
-    print(f"  ⚠️  LOO MAE = {loo_mae_overall:.2f} (≥ 1.0 — consider adding more data or features)")
+def main():
+    print("=" * 70)
+    print("  PQC READINESS — CALIBRATION PIPELINE (v3 — Hybrid NLP+Keywords)")
+    print("=" * 70)
 
-# ──────────────────────────────────────────────
-# 6. SAVE CALIBRATION PARAMETERS
-# ──────────────────────────────────────────────
+    print("\n  Loading data...")
+    expert = load_expert(EXPERT_FILE)
+    nlp_raw = load_raw(RAW_FILE)
 
-# Save as JSON (loaded by main.py)
-json_path = os.path.join(SCRIPT_DIR, 'calibration_params.json')
-with open(json_path, 'w') as f:
-    json.dump(calibration_params, f, indent=2)
-print(f"\n💾 Saved calibration JSON to: {json_path}")
+    common = sorted(set(nlp_raw) & set(expert))
+    print(f"    Overlap: {len(common)} — IDs: {common}")
 
-# Save as CSV (human-readable summary)
-cal_rows = []
-for dim, params in calibration_params.items():
-    cal_rows.append({'dimension': dim, **params})
+    if len(common) < 3:
+        print("\n  ❌ Not enough overlap. Check Framework_IDs.")
+        print("     Expert IDs:", sorted(expert.keys()))
+        print("     NLP IDs:   ", sorted(nlp_raw.keys()))
+        return
 
-cal_df = pd.DataFrame(cal_rows)
-cal_path = os.path.join(SCRIPT_DIR, 'calibration_params.csv')
-cal_df.to_csv(cal_path, index=False)
-print(f"💾 Saved calibration CSV to: {cal_path}")
+    results = {}
 
-# Save readable summary
-summary_path = os.path.join(SCRIPT_DIR, 'calibration_summary.txt')
-with open(summary_path, 'w') as f:
-    f.write("PQC NLP Scorer — Calibration Summary\n")
-    f.write("=" * 45 + "\n")
-    f.write(f"Trained on {len(merged)} frameworks\n")
-    f.write(f"Overall LOO MAE: {loo_mae_overall:.2f}\n\n")
+    # Phase 1A
+    results['Phase 1A (single-feature Ridge)'] = phase1a_single_feature(nlp_raw, expert)
 
-    for dim, params in calibration_params.items():
-        f.write(f"{dim}:\n")
-        f.write(f"  Equation:  score = {params['slope']:.2f} × raw + {params['intercept']:.2f}\n")
-        f.write(f"  Train MAE: {params['cal_mae']}\n")
-        f.write(f"  LOO MAE:   {params['loo_mae']}\n")
-        f.write(f"  Spearman:  {params['spearman_rho']}\n\n")
+    # Phase 1B + 1C
+    if os.path.exists(DETAIL_FILE):
+        detail = load_detailed(DETAIL_FILE)
+        detail_common = sorted(set(detail) & set(expert))
+        if len(detail_common) >= 3:
+            results['Phase 1B (multi-feature Ridge)'] = phase1b_multi_feature(detail, expert)
+            results['Phase 1C (pooled Ridge)'] = phase1c_pooled(detail, expert)
+    else:
+        print(f"\n  ⚠ {DETAIL_FILE} not found — skipping Phase 1B/1C")
 
-print(f"💾 Saved summary to: {summary_path}")
+    save_summary(results, len(common))
 
-print("\n🎉 Done! Now re-run main.py — it will auto-load calibration_params.json")
+    print(f"\n{'=' * 70}")
+    print("  CALIBRATION COMPLETE")
+    print("=" * 70)
+
+    valid = [v for v in results.values() if v is not None]
+    if valid:
+        best = min(valid)
+        best_name = [k for k, v in results.items() if v == best]
+        print(f"\n  📊 Best MAE: {best:.3f} ({best_name})")
+        if best < 1.0:
+            print("  ✅ Phase 1 target met!")
+            print("     Next: integrate frequency features → Random Forest for Phase 2.")
+        elif best < 1.2:
+            print("  🔶 Close! Consider:")
+            print("     1. Add frequency_scores.csv as additional features")
+            print("     2. Try Random Forest instead of Ridge")
+            print("     3. Refine keyword lists based on which dimensions are worst")
+        else:
+            print("  ❌ Phase 1 target not yet met.")
+
+if __name__ == '__main__':
+    main()
