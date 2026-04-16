@@ -1,20 +1,31 @@
 Framework,Framework_ID,crypto_assets_raw,crypto_agility_raw,migration_planning_raw,risk_management_raw,standards_compliance_raw
-ANSSI views on the Post-Quantum Cryptography transition.pdf,009,0.3854,0.3283,0.2733,0.2331,0.663
+ANSSI views on the Post-Quantum Cryptography transition.pdf,001,0.3854,0.3283,0.2733,0.2331,0.663
+ASC-X9F-IR-01-2025-Post-Quantum-Cryptography-Financial-Readiness-Needs-Assessment-Informative-Report-Final-1.pdf,002,0.5158,0.3559,0.5143,0.3512,0.4787
+CSA_CNSA_2.0_ALGORITHMS.PDF,Unknown,0.3867,0.2407,0.5132,0.256,0.6564
 CSI_CNSA_2.0_FAQ_.PDF,Unknown,0.2921,0.2905,0.3979,0.2432,0.6726
-ENISA Report - Post-Quantum Cryptography Current state and quantum mitigation-V2.pdf,010,0.3164,0.2552,0.334,0.3121,0.655
-MIGRATION TO POST-QUANTUM CRYPTOGRAPHY.pdf,011,0.4785,0.3544,0.4399,0.3347,0.3699
-POST-QUANTUM CRYPTOGRAPHY READINESS IN U.S. COMMUNITY BANKS AND FINANCIAL SMES: A CYBERSECURITY RISK ASSESSMENT FRAMEWORK.pdf,001,0.3724,0.2691,0.5199,0.4517,0.3298
-Post-Quantum Cryptography (PQC) Network Instrument: Measuring PQC Adoption Rates and Identifying Migration Pathways.pdf,002,0.3811,0.2849,0.2902,0.2351,0.4813
-Preparing for Quantum-Safe Cryptography.pdf,012,0.4249,0.2806,0.3504,0.2886,0.3738
-QUANTUM COMPUTING IN FINANCE: A STRATEGIC ROADMAP FOR INVESTORS AND BANKS.pdf,003,0.3179,0.2709,0.6031,0.3461,0.3021
-QUANTUM READINESS INDEX.pdf,004,0.4331,0.3844,0.6544,0.5263,0.2917
-QUANTUM-SAFE MIGRATION HANDBOOK.pdf,005,0.5172,0.3806,0.5555,0.4272,0.4206
-Quantum Computing Cybersecurity Preparedness Act.pdf,013,0.3641,0.2699,0.5227,0.2275,0.2559
-Quantum Readiness in Cryptography: A Maturity-Based Framework for Post- Quantum Transition.pdf,006,0.5044,0.4054,0.6035,0.4207,0.6296
-Quantum Readiness: Unlocking the Quantum Advantage for Australian Industries.pdf,007,0.2189,0.2415,0.6406,0.3628,0.2682
-Quantum computing and the financial system- opportunities and risks.pdf,016,0.3168,0.2967,0.3213,0.354,0.2101
-Transitioning organizations to post-quantum cryptography.pdf,008,0.3641,0.3803,0.4166,0.293,0.5027
-WEF_Quantum_Readiness_Toolkit_2023.pdf,017,0.2965,0.3703,0.5594,0.4846,0.2059
-WEF_Transitioning to_a_Quantum_Secure_Economy_2022.pdf,018,0.3593,0.3245,0.528,0.377,0.268
-itsm.40.001-migration-post-quantum-cryptography-government-canada-e.pdf,014,0.4854,0.2796,0.6497,0.3404,0.2437
-pdf-quantum-threat-timeline-report-2025.pdf,015,0.2501,0.276,0.3758,0.5017,0.2655
+ENISA Report - Post-Quantum Cryptography Current state and quantum mitigation-V2.pdf,003,0.3164,0.2552,0.334,0.3121,0.655
+EN_Position.pdf,004,0.3876,0.3282,0.4431,0.2956,0.4637
+MIGRATION TO POST-QUANTUM CRYPTOGRAPHY.pdf,006,0.4785,0.3544,0.4399,0.3347,0.3699
+POST-QUANTUM CRYPTOGRAPHY READINESS IN U.S. COMMUNITY BANKS AND FINANCIAL SMES: A CYBERSECURITY RISK ASSESSMENT FRAMEWORK.pdf,007,0.3724,0.2691,0.5199,0.4517,0.3298
+PQ.1-Post-Quantum-Telco-Network-Impact-Assessment-Whitepaper-Version1.0.pdf,008,0.4439,0.3609,0.4157,0.3428,0.5056
+Post-Quantum Cryptography (PQC) Network Instrument: Measuring PQC Adoption Rates and Identifying Migration Pathways.pdf,009,0.3811,0.2849,0.2902,0.2351,0.4813
+Practical Preparations for the Post-Quantum World.pdf,010,0.5526,0.3086,0.4168,0.3368,0.3494
+Preparing for Quantum-Safe Cryptography.pdf,011,0.4249,0.2806,0.3504,0.2886,0.3738
+Product Categories for Technologies That Use Post-Quantum Cryptography Standards _ CISA.pdf,012,0.4557,0.2574,0.4051,0.2512,0.4268
+QUANTUM COMPUTING IN FINANCE: A STRATEGIC ROADMAP FOR INVESTORS AND BANKS.pdf,013,0.3179,0.2709,0.6031,0.3461,0.3021
+QUANTUM READINESS INDEX.pdf,014,0.4331,0.3844,0.6544,0.5263,0.2917
+QUANTUM-SAFE MIGRATION HANDBOOK.pdf,015,0.5172,0.3806,0.5555,0.4272,0.4206
+Quantum Computing Cybersecurity Preparedness Act.pdf,016,0.3641,0.2699,0.5227,0.2275,0.2559
+Quantum Readiness in Cryptography: A Maturity-Based Framework for Post- Quantum Transition.pdf,017,0.5044,0.4054,0.6035,0.4207,0.6296
+Quantum Readiness: Unlocking the Quantum Advantage for Australian Industries.pdf,018,0.2189,0.2415,0.6406,0.3628,0.2682
+Quantum computing and the financial system- opportunities and risks.pdf,019,0.3168,0.2967,0.3213,0.354,0.2101
+Transitioning organizations to post-quantum cryptography.pdf,020,0.3641,0.3803,0.4166,0.293,0.5027
+WEF_Quantum_Readiness_Toolkit_2023.pdf,021,0.2965,0.3703,0.5594,0.4846,0.2059
+WEF_Transitioning to_a_Quantum_Secure_Economy_2022.pdf,022,0.3593,0.3245,0.528,0.377,0.268
+draft-ietf-pquip-pqc-engineers-14 - Post-Quantum Cryptography for Engineers.pdf,023,0.438,0.3956,0.3011,0.2607,0.6022
+itsm.40.001-migration-post-quantum-cryptography-government-canada-e.pdf,024,0.4854,0.2796,0.6497,0.3404,0.2437
+pdf-quantum-threat-timeline-report-2025.pdf,025,0.2501,0.276,0.3758,0.5017,0.2655
+pqc-migration-nist-sp-1800-38b-preliminary-draft.pdf,026,0.5578,0.3369,0.3995,0.3668,0.3887
+preparing-for-quantum-safe-cryptography.pdf,027,0.4249,0.2806,0.3504,0.2886,0.3738
+quantum-safe-cryptography.pdf,028,0.3964,0.3306,0.2976,0.2716,0.4634
+tr_103619v010101p.pdf,029,0.6536,0.3684,0.5536,0.2962,0.5781
