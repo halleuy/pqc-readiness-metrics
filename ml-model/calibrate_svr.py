@@ -6,6 +6,7 @@
 #   - SVR (RBF kernel) for nonlinear patterns
 #   - Automatic feature selection (forward selection)
 #   - ElasticNet comparison
+#   - Random Forest (constrained for small n)
 #   - Hyperparameter grid search with LOO
 #
 # Usage:  python calibrate_svr.py
@@ -19,6 +20,7 @@ import warnings
 from scipy.stats import spearmanr
 from sklearn.svm import SVR
 from sklearn.linear_model import ElasticNet
+from sklearn.ensemble import RandomForestRegressor
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import cohen_kappa_score
 
@@ -159,6 +161,30 @@ def loo_elasticnet(X, y, alpha=1.0, l1_ratio=0.5):
         preds.append(p)
     return preds
 
+def loo_random_forest(X, y, n_estimators=300, max_depth=3, min_samples_leaf=4, max_features='sqrt'):
+    """LOO with Random Forest. NO scaling needed for tree-based models."""
+    n = len(y)
+    preds = []
+    for i in range(n):
+        mask = np.ones(n, dtype=bool)
+        mask[i] = False
+
+        model = RandomForestRegressor(
+            n_estimators=n_estimators,
+            max_depth=max_depth,
+            min_samples_leaf=min_samples_leaf,
+            max_features=max_features,
+            random_state=42,
+            n_jobs=-1  # use all CPU cores
+        )
+        model.fit(X[mask], y[mask])
+
+        raw = model.predict(X[~mask])
+        val = raw.ravel()
+        p = float(val.item()) if hasattr(val, 'item') else float(val)
+        p = max(0.0, min(5.0, p))
+        preds.append(p)
+    return preds
 
 # =============================================================================
 # PHASE 2A — FEATURE SELECTION (Forward Selection)
@@ -405,14 +431,91 @@ def phase2d_svr_all_features(detail, expert):
     return overall_mae
 
 # =============================================================================
+# PHASE 2E — RANDOM FOREST (constrained for n=28)
+# =============================================================================
+
+def phase2e_random_forest(detail, expert, selected_features=None):
+    """Random Forest with conservative hyperparameters suitable for n=28."""
+    common = sorted(set(detail) & set(expert))
+    n = len(common)
+
+    # Default features if none provided
+    if selected_features is None:
+        selected_features = {dim: ['max_sim', 'top_k_mean', 'concentration']
+                             for dim in DIMENSIONS}
+
+    # Conservative hyperparameter grid for small n
+    n_estimators_values = [200, 300, 500]
+    max_depth_values = [2, 3, 4]
+    min_samples_leaf_values = [3, 4, 5]
+    max_features_values = ['sqrt', 2]
+
+    print(f"\n{'=' * 70}")
+    print(f"  PHASE 2E — RANDOM FOREST (constrained)  (LOO, n={n})")
+    print(f"  Grid: n_est={n_estimators_values}, depth={max_depth_values},")
+    print(f"        min_leaf={min_samples_leaf_values}, max_feat={max_features_values}")
+    print(f"{'=' * 70}")
+
+    all_mae = []
+    best_params = {}
+
+    for dim in DIMENSIONS:
+        feats = selected_features[dim]
+        print(f"\n  {dim} (features: {feats}):")
+
+        X = np.array([[detail[fid][f'{dim}_{s}'] for s in feats]
+                       for fid in common], dtype=float)
+        y = np.array([expert[fid][dim] for fid in common], dtype=float)
+
+        # Grid search
+        best_mae = 999
+        best_n_est, best_depth, best_leaf, best_feat = 300, 3, 4, 'sqrt'
+
+        for n_est in n_estimators_values:
+            for depth in max_depth_values:
+                for leaf in min_samples_leaf_values:
+                    for feat in max_features_values:
+                        preds = loo_random_forest(X, y, n_estimators=n_est, 
+                                                  max_depth=depth, 
+                                                  min_samples_leaf=leaf,
+                                                  max_features=feat)
+                        mae = float(np.mean(np.abs(np.array(preds) - y)))
+                        if mae < best_mae:
+                            best_mae = mae
+                            best_n_est, best_depth, best_leaf, best_feat = n_est, depth, leaf, feat
+
+        print(f"    Best params: n_estimators={best_n_est}, max_depth={best_depth}, "
+              f"min_samples_leaf={best_leaf}, max_features={best_feat}")
+        best_params[dim] = {
+            'n_estimators': best_n_est, 
+            'max_depth': best_depth,
+            'min_samples_leaf': best_leaf,
+            'max_features': best_feat
+        }
+
+        # Final run with best params
+        preds = loo_random_forest(X, y, n_estimators=best_n_est, 
+                                  max_depth=best_depth,
+                                  min_samples_leaf=best_leaf,
+                                  max_features=best_feat)
+        m = compute_metrics(preds, y, label=dim)
+        all_mae.append(m['mae'])
+
+    overall_mae = float(np.mean(all_mae))
+    print(f"\n  ── Overall Phase 2E (Random Forest) ──")
+    print(f"  MAE: {overall_mae:.3f}  {'✅' if overall_mae < 1.0 else '❌'}  (target < 1.0)")
+
+    return overall_mae, best_params
+
+# =============================================================================
 # SAVE RESULTS
 # =============================================================================
 
-def save_results(results, selected_features, best_params, n):
+def save_results(results, selected_features, svr_params, rf_params, n):
     """Save all results and best configuration."""
     path = os.path.join(ML_DIR, 'calibration_svr_summary.txt')
     with open(path, 'w') as f:
-        f.write("PQC Readiness — SVR Calibration Summary\n")
+        f.write("PQC Readiness — SVR/RF Calibration Summary\n")
         f.write("=" * 50 + "\n\n")
         f.write(f"Frameworks used: {n}\n\n")
 
@@ -427,20 +530,27 @@ def save_results(results, selected_features, best_params, n):
             for dim, feats in selected_features.items():
                 f.write(f"  {dim}: {feats}\n")
 
-        if best_params:
+        if svr_params:
             f.write(f"\nBest SVR params per dimension:\n")
-            for dim, params in best_params.items():
+            for dim, params in svr_params.items():
                 f.write(f"  {dim}: C={params['C']}, ε={params['epsilon']}, γ={params['gamma']}\n")
+
+        if rf_params:
+            f.write(f"\nBest Random Forest params per dimension:\n")
+            for dim, params in rf_params.items():
+                f.write(f"  {dim}: n_est={params['n_estimators']}, depth={params['max_depth']}, "
+                       f"leaf={params['min_samples_leaf']}, feat={params['max_features']}\n")
 
         f.write(f"\nTarget: MAE < 1.0\n")
 
     print(f"\n  💾 Saved {path}")
 
     # Save config as JSON for production use
-    config_path = os.path.join(ML_DIR, 'svr_config.json')
+    config_path = os.path.join(ML_DIR, 'svr_rf_config.json')
     config = {
         'selected_features': selected_features,
-        'best_params': best_params,
+        'svr_params': svr_params,
+        'rf_params': rf_params,
         'results': {k: round(v, 4) for k, v in results.items() if v is not None}
     }
     with open(config_path, 'w') as f:
@@ -453,7 +563,7 @@ def save_results(results, selected_features, best_params, n):
 
 def main():
     print("=" * 70)
-    print("  PQC READINESS — SVR CALIBRATION PIPELINE")
+    print("  PQC READINESS — SVR/RF CALIBRATION PIPELINE")
     print("=" * 70)
 
     # Load data
@@ -482,7 +592,7 @@ def main():
     selected_features = phase2a_feature_selection(detail, expert, max_features=5)
 
     # Phase 2B — SVR with selected features
-    mae_svr, best_params, sel_feats = phase2b_svr(detail, expert, selected_features)
+    mae_svr, svr_params, sel_feats = phase2b_svr(detail, expert, selected_features)
     results['Phase 2B (SVR selected features)'] = mae_svr
 
     # Phase 2C — ElasticNet comparison
@@ -493,12 +603,17 @@ def main():
     mae_svr_all = phase2d_svr_all_features(detail, expert)
     results['Phase 2D (SVR all features)'] = mae_svr_all
 
+    # Phase 2E — Random Forest with selected features
+    print("\n  🌲 Running Random Forest (this will take several minutes)...")
+    mae_rf, rf_params = phase2e_random_forest(detail, expert, selected_features)
+    results['Phase 2E (Random Forest)'] = mae_rf
+
     # Save
-    save_results(results, selected_features, best_params, n)
+    save_results(results, selected_features, svr_params, rf_params, n)
 
     # Summary
     print(f"\n{'=' * 70}")
-    print(f"  SVR CALIBRATION COMPLETE")
+    print(f"  CALIBRATION COMPLETE")
     print(f"{'=' * 70}")
 
     print(f"\n  📊 Results comparison:")
@@ -509,22 +624,26 @@ def main():
         print(f"  {label:<40s} {mae:>6.3f}  {status}")
 
     best = min(results.values())
-    best_name = [k for k, v in results.items() if v == best]
+    best_name_list = [k for k, v in results.items() if v == best]
+    best_name = best_name_list
 
     print(f"\n  🏆 Best: {best_name} (MAE={best:.3f})")
 
     if best < 1.0:
         print("  ✅ Target met! Ready for production scoring.")
+        model_type = best_name.split('(').split(')') if '(' in best_name else best_name
+        print(f"\n  💡 Recommendation: Use {model_type} for production.")
     elif best < 1.1:
         print("  🔶 Very close. Consider:")
         print("     1. Adding more expert-scored frameworks")
         print("     2. Refining keyword lists for worst dimensions")
-        print("     3. Trying polynomial kernel: SVR(kernel='poly', degree=2)")
+        print("     3. Ensemble: average SVR + ElasticNet predictions")
     else:
         print("  ❌ Target not met. Consider:")
         print("     1. More training data (n=30+)")
         print("     2. Better NLP reference descriptions")
         print("     3. Reviewing expert score consistency")
+
 
 if __name__ == '__main__':
     main()

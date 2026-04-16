@@ -1,4 +1,4 @@
-PQC Readiness — SVR Calibration Summary
+PQC Readiness — SVR/RF Calibration Summary
 ==================================================
 
 Frameworks used: 28
@@ -7,6 +7,7 @@ Results:
   Phase 2B (SVR selected features): MAE = 0.797  PASS ✅
   Phase 2C (ElasticNet): MAE = 0.867  PASS ✅
   Phase 2D (SVR all features): MAE = 0.897  PASS ✅
+  Phase 2E (Random Forest): MAE = 0.806  PASS ✅
 
 Selected features per dimension:
   crypto_assets: ['top_k_mean', 'depth', 'coverage_log']
@@ -21,5 +22,12 @@ Best SVR params per dimension:
   migration_planning: C=1.0, ε=0.1, γ=scale
   risk_management: C=1.0, ε=0.3, γ=scale
   standards_compliance: C=1.0, ε=0.1, γ=scale
+
+Best Random Forest params per dimension:
+  crypto_assets: n_est=500, depth=2, leaf=4, feat=2
+  crypto_agility: n_est=200, depth=2, leaf=5, feat=sqrt
+  migration_planning: n_est=300, depth=2, leaf=5, feat=2
+  risk_management: n_est=500, depth=4, leaf=4, feat=sqrt
+  standards_compliance: n_est=300, depth=4, leaf=3, feat=2
 
 Target: MAE < 1.0
