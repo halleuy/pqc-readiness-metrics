@@ -184,7 +184,7 @@ def phase1a_single_feature(nlp_raw, expert, alpha=1.0):
 def phase1b_multi_feature(detail, expert, alphas=None):
     """Try multiple alpha values and report best."""
     if alphas is None:
-        alphas = [0.1, 1.0, 10.0, 50.0, 100.0]
+        alphas = [0.01, 0.1, 1.0, 10.0, 50.0, 100.0]
 
     common = sorted(set(detail) & set(expert))
     n = len(common)
