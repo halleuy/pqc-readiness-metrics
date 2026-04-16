@@ -1,0 +1,91 @@
+{
+  "selected_features": {
+    "crypto_assets": [
+      "top_k_mean",
+      "depth",
+      "coverage_log"
+    ],
+    "crypto_agility": [
+      "kw_ratio",
+      "kw_general"
+    ],
+    "migration_planning": [
+      "top_k_mean"
+    ],
+    "risk_management": [
+      "top_k_mean",
+      "kw_ratio",
+      "kw_specific"
+    ],
+    "standards_compliance": [
+      "depth",
+      "kw_specific",
+      "differential"
+    ]
+  },
+  "svr_params": {
+    "crypto_assets": {
+      "C": 5.0,
+      "epsilon": 0.5,
+      "gamma": "scale"
+    },
+    "crypto_agility": {
+      "C": 1.0,
+      "epsilon": 0.8,
+      "gamma": "scale"
+    },
+    "migration_planning": {
+      "C": 1.0,
+      "epsilon": 0.1,
+      "gamma": "scale"
+    },
+    "risk_management": {
+      "C": 1.0,
+      "epsilon": 0.3,
+      "gamma": "scale"
+    },
+    "standards_compliance": {
+      "C": 1.0,
+      "epsilon": 0.1,
+      "gamma": "scale"
+    }
+  },
+  "rf_params": {
+    "crypto_assets": {
+      "n_estimators": 500,
+      "max_depth": 2,
+      "min_samples_leaf": 4,
+      "max_features": 2
+    },
+    "crypto_agility": {
+      "n_estimators": 200,
+      "max_depth": 2,
+      "min_samples_leaf": 5,
+      "max_features": "sqrt"
+    },
+    "migration_planning": {
+      "n_estimators": 300,
+      "max_depth": 2,
+      "min_samples_leaf": 5,
+      "max_features": 2
+    },
+    "risk_management": {
+      "n_estimators": 500,
+      "max_depth": 4,
+      "min_samples_leaf": 4,
+      "max_features": "sqrt"
+    },
+    "standards_compliance": {
+      "n_estimators": 300,
+      "max_depth": 4,
+      "min_samples_leaf": 3,
+      "max_features": 2
+    }
+  },
+  "results": {
+    "Phase 2B (SVR selected features)": 0.7975,
+    "Phase 2C (ElasticNet)": 0.8669,
+    "Phase 2D (SVR all features)": 0.8971,
+    "Phase 2E (Random Forest)": 0.8057
+  }
+}
