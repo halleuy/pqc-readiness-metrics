@@ -1,8 +1,8 @@
 Framework: 026.txt
-Total Words: 19461
+Total Words: 3323
 ========================================
-crypto_assets: 62
-crypto_agility: 128
-migration_planning: 17
-risk_management: 29
-standards_compliance: 148
+crypto_assets: 0
+crypto_agility: 47
+migration_planning: 33
+risk_management: 19
+standards_compliance: 4

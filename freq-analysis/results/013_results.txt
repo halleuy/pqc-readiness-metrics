@@ -1,8 +1,8 @@
 Framework: 013.txt
-Total Words: 3101
+Total Words: 1538
 ========================================
-crypto_assets: 0
-crypto_agility: 2
-migration_planning: 4
-risk_management: 1
-standards_compliance: 2
+crypto_assets: 2
+crypto_agility: 1
+migration_planning: 14
+risk_management: 15
+standards_compliance: 10

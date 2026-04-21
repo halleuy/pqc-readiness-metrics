@@ -1,8 +1,8 @@
 Framework: 004.txt
-Total Words: 3280
+Total Words: 6343
 ========================================
-crypto_assets: 2
-crypto_agility: 3
-migration_planning: 16
-risk_management: 16
-standards_compliance: 26
+crypto_assets: 0
+crypto_agility: 1
+migration_planning: 28
+risk_management: 7
+standards_compliance: 48

@@ -1,8 +1,8 @@
 Framework: 017.txt
-Total Words: 8583
+Total Words: 11542
 ========================================
-crypto_assets: 39
-crypto_agility: 47
-migration_planning: 33
-risk_management: 46
-standards_compliance: 64
+crypto_assets: 27
+crypto_agility: 111
+migration_planning: 40
+risk_management: 59
+standards_compliance: 33

@@ -1,1137 +1,1232 @@
-bis papers
-no 
-quantum computing
-and the financial system
-opportunities and risks
-by raphael auer angela dupont leonardo
-gambacorta joon suk park koji takahashi and
-andras valko
-monetary and economic department
-october 
-jel classification c c c m g g
-keywords quantum computing quantum algorithm
-quantum cryptography quantumresilient
-cryptography artificial intelligence computational
-finance project leap
-the views expressed are those of the authors and not necessarily the views of the bis
-this publication is available on the bis website wwwbisorg
- bank for international settlements  all rights reserved brief excerpts may be
-reproduced or translated provided the source is stated
-issn  online
-isbn  online
-quantum computing and the financial system
-opportunities and risks
-raphael auer angela dupont leonardo gambacorta joon suk park koji takahashi
-and andras valko
+review not peerreviewed version
+quantum readiness in cryptography a
+maturitybased framework for post
+quantum transition
+volkan erol 
+posted date  october 
+doi preprintsv
+keywords postquantum cryptography quantum readiness latticebased cryptography nist pqc
+standards cryptoagility maturity model implementation security cryptographic migration
+preprintsorg is a free multidisciplinary platform providing preprint service
+that is dedicated to making early versions of research outputs permanently
+available and citable preprints posted at preprintsorg appear in web of
+science crossref google scholar scilit europe pmc
+copyright this open access article is published under a creative commons cc by 
+license which permit the free download distribution and reuse provided that the author
+and preprint are cited in any reuse
+preprintsorg wwwpreprintsorg  not peerreviewed  posted  october  doipreprintsv
+disclaimerpublishers note the statements opinions and data contained in all publications are solely those of the individual authors and
+contributors and not of mdpi andor the editors mdpi andor the edito rs disclaim responsibility for any injury to people or property resulting
+from any ideas methods instructions or products referred to in the content
+review
+quantum readiness in cryptography a
+maturitybased framework for
+postquantum transition
+volkan erol
+turkish economy bank  teb turkey volkanerolgmailcom
 abstract
-quantum computers are still in an experimental phase but in the future they may
-have a profound impact on the financial system by providing faster and potentially
-more efficient solutions quantum computers have the potential to solve certain
-complex problems that are of paramount interest in the field of economics and
-finance for example quantum simulation algorithms can be leveraged in stress
-testing and macroeconomic analysis and quantum optimisation can be used in asset
-pricing meanwhile the advent of quantum computers also introduces a potential
-threat to financial stability especially through their ability to breach some of the most
-widely used cryptographic algorithms despite the nascent state of quantum
-computing development the potential for sensitive data to be stored now with the
-intention to be decrypted later necessitates immediate preparation this paper
-explores the transformative potential of quantum mechanics and its applications to
-the financial system including the potential benefits as well as the main risks it also
-highlights current actions within the central bank community to address these
-potential risks including project leap started by the bank for international
-settlements innovation hub the banque de france and deutsche bundesbank
-keywords quantum computing quantum algorithm quantum cryptography
-quantumresilient cryptography artificial intelligence computational finance project
-leap
-jel classification c c c m g g
-
-raphael auer and leonardo gambacorta are with the bank for international settlements bis and
-affiliated with the center for economic and policy research koji takahashi joon suk park and andras
-valko are with the bis angela dupont is with the bis and the banque de france we thank giulio
-cornelli and ilaria mattei for assistance with data and figures and christophe laforge and david
-koepfer for valuable comments on earlier drafts the authors acknowledge the use of gpt for
-proofreading and style edits the views expressed are those of the authors and not necessarily those
-of the bis and the banque de france
-quantum computing and the financial system opportunities and risks 
+quantum computing poses an existential threat to publickey cryptography with shors algorithm
+capable of breaking rsa and elliptic curve systems once cryptographically relevant quantum
+computers crqcs emerge while postquantum cryptography pqc offers algorithmic solutions
+organizational readiness extends beyond technical implementation to encompass governance
+interoperability and adaptive capacity this review synthesizes the quantum threat landscape
+evaluates niststandardized pqc algorithms through quantitative performance analysis and
+examines global standardization dynamics we introduce a novel quantum readiness maturity
+model qrmm that enables organizations to assess and advance their preparedness across five
+dimensions cryptographic infrastructure governance frameworks sectoral adaptation
+interoperability resilience and strategic agility applying this model to finance telecommunications
+and defense sectors reveals systematic gaps in migration planning and cryptoagility our analysis
+demonstrates that quantum readiness requires treating cryptographic transformation as a strategic
+enterprise capability rather than a purely technical upgrade the proposed framework provides
+actionable pathways for practitioners while identifying critical research directions in hybrid
+deployment strategies postquantum pki architectures and algorithmic diversity
+keywords postquantum cryptography quantum readiness latticebased cryptography nist pqc
+standards cryptoagility maturity model implementation security cryptographic migration
  introduction
-in recent years the pace of research and development rd in quantum computing
-has accelerated following the initial idea in the s feynman  the concept
-was brought closer to reality in  when researchers at oxford university created
-the first twoqubit quantum computer qc demonstrating the potential of
-leveraging quantum physics to perform calculations jones et al  between
- and  experimental qcs reached  qubits in size atom computing
- ibm  marking a significant increase in computational capabilities as of
- though qcs are still in experimental phase technology developers have further
-extended the horizon with roadmaps to systems with  logical qubits ibm
- aiming to provide the full power of quantum computing beyond  graph
+ the quantum threat to cryptographic foundations
+modern cybersecurity relies on computational hardness assumptions that quantum algorithms
+fundamentally undermine shors algorithm  provides polynomialtime solutions to integer
+factorization and discrete logarithms threatening rsa diffiehellman and elliptic curve
+cryptography eccsystems that secure trillions of dollars in transactions government
+communications and digital identities while largescale quantum computers capable of breaking
+bit rsa remain years away recent resource estimates suggest that  million noisy qubits could
+factor such keys within hours  placing the threat horizon within a plausible  year window
 
-evolution of quantum computing over time graph 
-sources vandersypenet al  gartner ibm quantum roadmap nist stanford encyclopedia of philosophy archive authors elaboration
-a qubit or quantum bit is the basic unit of information in qcs similar to bits in
-classical computing while a classical bit must always be in one of two possible states
- or  a qubit can exist in a superposition of those two states with a certain
-probability of being a  and a certain probability of being a  this property is
-counterintuitive to those used to classical physics but it is fundamental in quantum
-mechanics the ability of qubits to be in superposition combined with another
-property called entanglement meaning that multiple qubits can share a common
-quantum state opens the possibility to build computers working fundamentally
-differently from classical computers
-while a single qubit can represent a combination of two states due to
-superposition a qubit qc has theoretically the capability to represent 
-different states simultaneously qcs utilise the entanglement between qubits and
- this doesnt mean a qc stores all  states simultaneously in the classical sense but rather that it
-can represent a quantum superposition involving all those states
- quantum computing and the financial system opportunities and risks
-probabilities relating to superpositions to perform a series of operations this allows
-them to perform some calculations much more efficiently than classical computers
-creating the possibility of faster and more accurate computations in some cases than
-with any computer available today
-this potential and the rapid development in the field have attracted the attention
-of all relevant actors researchers investors financial market operators and
-policymakers graph a the increasing interest in the new opportunities provided
-by qcs gives rise to a reciprocal interaction between surging investments by venture
-capitalists in quantum computingrelated projects and new discoveries in this field of
-research graph b
-increasing attention and rd activities in quantum computing graph 
-a public attention to quantum computing b rd activity in quantum computing
-index usd mn number of applications
- 
- 
- 
- 
- 
-        
-investment by vcs lhs patents rhs
- google trends index for quantum computing retrieved on  december   investment by vcs indicates the total value invested by
-venture capitalists in firms involved in quantum computing projects  the number of the patents is based on the patents that include
-quantum in their abstract and are applied to us and european patent offices
-source google trends patentscope pitchbook
-quantum machines operate on fundamentally different principles and bring new
-solutions for intractable challenges some of the most promising fields include
-simulations optimisation and search problems indeed one of the first application
-areas will likely be the simulation of quantum mechanical phenomena in addition
-quantum computing has potential applications in many other sectors such as
-chemical and biological engineering and complex manufacturing bova et al 
-this paper examines the impact of qcs on the financial system with a focus on
-potential applications including opportunities and risks indeed qcs hold the
- quantum computers will not merely be faster versions of todays general purpose computers in
-practice classical and quantum computers are expected to complement each other classical
-computers will continue to handle routine tasks efficiently while quantum computers will tackle
-specific complex problems that are infeasible for classical computing
-quantum computing and the financial system opportunities and risks 
-promise of benefiting the financial system through their ability to implement novel
-algorithms which can significantly improve complex pricing and risk evaluation
-processes conversely as highlighted above qcs pose a threat to the security of the
-financial system by potentially breaking current cryptographic protocols that are
-securing financial data the paper highlights both of these aspects and discusses
-strategies that central banks and financial intermediaries can employ to mitigate the
-threats arising from the advancement of qcs
-in the financial sector qcs could offer new possibilities by enhancing risk
-assessment optimising portfolio management improving macro analysis and many
-other areas combined with artificial intelligence it may also provide significant value
-for example in fraud detection or trading strategies further new applications will
-continue to emerge as evidenced for example by the strong growth of literature on
-quantum algorithms for financial applications
-at the same time qcs pose a serious threat to the financial system due to their
-expected ability to break some commonly used encryption techniques in digital
-communications and in financial systems cryptographic schemes are based on
-mathematical problems which are prohibitively difficult for todays computers to
-solve however some of these problems will be solvable by future qcs opening the
-possibility for malicious actors to hack encryption without proper action
-authentication and encryption methods reliant on current cryptographic techniques
-will become ineffective compromising confidentiality and integrity and potentially
-leading to substantial financial and reputational damages bis 
-the remainder of this paper is structured as follows section  provides an
-overview of quantum computing and quantum algorithms section  delves into the
-potential applications of qcs within the financial sector including advancements at
-the confluence of quantum computing and artificial intelligence in section  we
-discuss the economic effect of these potential applications in section  we describe
-the effects of quantum mechanics on cryptography including risks and opportunities
-based on this section  discusses potential impacts on the financial system and
-possible actions to mitigate risks section  summarises the main conclusions
- quantum computing and quantum algorithms
-quantum computing is a groundbreaking technology that utilises the principles of
-quantum mechanics to perform computations unlike classical computers which
-process information in binary digits bits that can be either  or  a qc uses quantum
-bits or qubits a qubit can exist in a state of superposition with a certain probability
-of being a  and a certain probability of being a  in addition two qubits can be in
-entanglement meaning that they share a common quantum state these phenomena
-of superposition and entanglement defy explanation through classical physics and
-often seem counterintuitive without a deep understanding of quantum mechanics in
-a nutshell these two properties enable qcs to perform calculations in radically new
-ways compared with classical computers
- quantum computing and the financial system opportunities and risks
-while the concept of qcs has been known since the s and the first
-experimental smallscale qcs were built in the late s practical qc
-implementations are not yet available and currently it is impossible to know if or
-when they will be a main challenge is related to keeping qubits in a quantum state
-for the time of computations if the qubits are not sufficiently isolated from their
-environment their quantum state can collapse introducing noise in the calculations
-to mitigate this issue qcs require an even larger number of qubits than would
-otherwise be required this allows for redundancy in data representation inside the
-qc and ensures that even if some qubits are compromised by noise others can
-continue to function correctly
-a key research direction relates to increasing the number of qubits in a qc a
-significant milestone in the evolution of this technology was googles announcement
-in  that its qubit qc had surpassed classical computers in a specific task arute
-et al  ibms introduction of a qubit qc in  marks another
-considerable advance in qc capabilities at the time of writing the largest
-experimental qcs have just over  physical qubits while according to some
-estimates  million physical qubits are needed for qcs to start addressing practical
-problems nec 
-yet another line of research is looking at computational techniques and
-algorithms that can take advantage of a future qc classical computers have
-operating systems to hide the details of the physical implementation of bits so that
-a programmer can implement an algorithm without thinking about the physical
-details of a computer similarly the field of quantum computing is developing its own
-set of algorithms and computational techniques that can be applied to a future qc
-irrespective of exactly how qubits will be implemented
-qcs will not be faster versions of todays computers and they will not be
-applicable to all tasks performed by classical computers today in fact as understood
-today quantum computing is suited for a specific narrow set of computational tasks
-only for these tasks a qc could outperform classical supercomputers by several
-orders of magnitude making it possible to solve some computational problems that
-are practically unsolvable today
-quantum supremacy is the milestone of using a qc to solve a problem that no
-classical computer can solve within a realistic time frame the term does not have an
-exact definition for example there are different views on whether the problem must
-be a useful realworld application or whether it can be an artificial test case
- building qcs presents several complex challenges such as the need for quantum systems to be
-cooled to near absolute zero temperature to maintain coherence developing a large number of
-precisely controlled qubits is a challenge that is being actively addressed by researchers but
-significant advancements are required before reaching largescale practical qcs
- the term logical qubit is sometimes used to represent a hypothetical errorfree qubit implemented
-using a collection of physical qubits
- other researchers have pointed out that the selected use case involved a highly specialised problem
-with limited applicability beyond the demonstration additionally it is feasible to improve classical
-algorithms to achieve comparable results within a reasonable time frame kalai et al 
-quantum computing and the financial system opportunities and risks 
-correspondingly there is no consensus on whether quantum supremacy has already
-been achieved kalai et al  while some research teams claim they have already
-achieved quantum supremacy many experts believe that a practical qc is many years
-away and some argue that it might never be realised dyakonov  based on a
-survey of  leading global experts in quantum computing mosca and piani 
-estimate that a cryptographically relevant qc could emerge within five to  years
-an optimistic view of the responses suggests an  likelihood of a
-cryptographically relevant qc within five years up from  in  and a 
-chance within  years up from  in  even under a pessimistic scenario
-there is an estimated  likelihood of a disruptive quantum threat within the next
- years
-in theory without time and computing limitations any computational problem
-that is solvable by a qc is also solvable by a classical computer and any problem
-solvable by classical computers can also be solved by future qcs nielsen and chuang
- however certain problems are significantly quicker to solve using a qc
-because of its specific computational approach a subset of problems though
-theoretically solvable by classical computers would require a prohibitively large
-computational time even using todays largest supercomputers but would be
-solvable by a qc in reasonable time quantum algorithms is a field of research looking
-into these problems and into how they would be addressed by a future qc of
-sufficient size
-a number of algorithm families have emerged in the literature such as quantum
-fourier transform amplitude amplification and quantum walks montanaro  a
-specific subclass of algorithms uses a combination of quantum and classical
-computing and is supposed to be used in mixed computing environments since qcs
-are still in an experimental phase most of this work is currently theoretical these
-algorithms are either only described mathematically and not yet implemented or
-they are tested in an emulated qc which does not provide the quantum speedup that
-future real implementations promise
- quantum computing applications in the financial system
-the financial system is characterised by complex calculations for analysis forecasting
-and optimisation given the high dimensionality of the underlying issues todays
-highperformance computers can struggle to handle the computational complexity
-of these tasks quantum computing with its potential ability to process vast numbers
-of solution states and perform complex calculations efficiently holds great promise
-for addressing some of these challenges indeed finance is projected to be one of
-the first industries to reap the benefits from quantum computing mnard et al 
-pistoia et al  interest in applications in finance is thus mounting as also
-evidenced by the increasing number of publications in the field see graph 
- quantum computing and the financial system opportunities and risks
-quantum computers and finance google scholar results
-graph 
+the harvestnowdecryptlater hndl threat model intensifies urgency adversaries can
+capture encrypted data today and decrypt it once quantum capabilities mature  for data with
+multidecade confidentiality requirementsmedical records state secrets financial archives
+protection must begin immediately grovers algorithm  further reduces symmetric key security
+by half eg aes  bit effective security requiring key size adjustments across all
+cryptographic primitives
+  by the authors distributed under a creative commons cc by license
+ of 
+the quantum threat is not uniform across cryptosystems while shors algorithm threatens rsa
+ecc and diffiehellman grovers algorithm only weakens symmetric primitives figure 
+summarizes this landscape
+figure  caption
+ postquantum cryptography from theory to practice
+postquantum cryptography pqc has emerged as the leading defense strategy with the nist
+pqc standardization project  finalizing four quantumresistant algorithms in  crystals
+kyber key encapsulation crystalsdilithium digital signatures falcon compact signatures
+and sphincs hashbased signatures these algorithms rest on mathematical problems believed
+resistant to both classical and quantum attacksprimarily lattice problems learning with errors
+and hash function properties 
+however deploying these algorithms represents only the first step realworld adoption faces
+substantial challenges performance overheads larger key sizes slower operations integration with
+legacy infrastructure tls pki hardware security modules standardization fragmentation across
+regions  and the organizational capacity to adapt as standards evolvetermed cryptoagility
 
+ research gap and contribution
+existing literature addresses either technical algorithm design  or highlevel policy
+considerations  but rarely integrates these perspectives into an actionable framework
+practitioners lack systematic methods to assess organizational readiness prioritize migration efforts
+or measure progress this creates three critical gaps
+ assessment gap no standardized methodology exists for evaluating organizational quantum
+readiness across technical governance and strategic dimensions
+ implementation gap performance comparisons lack quantitative benchmarks that account for
+realworld constraints latency requirements bandwidth limits computational resources
+preprintsorg wwwpreprintsorg  not peerreviewed  posted  october  doipreprintsv
+  by the authors distributed under a creative commons cc by license
+preprintsorg wwwpreprintsorg  not peerreviewed  posted  october  doipreprintsv
+ of 
+ sectoral gap generic guidance fails to address sectorspecific requirements in finance
+telecommunications defense and healthcare each with distinct threat models and operational
+constraints
+ contributions of this work
+this paper makes four principal contributions
+ quantum readiness maturity model qrmm we introduce a fivelevel maturity framework
+spanning cryptographic infrastructure governance sectoral adaptation interoperability and
+strategic agility this model enables systematic assessment and provides clear advancement
+pathways
+ quantitative algorithm analysis we present comparative performance metrics for nist
+standardized pqc algorithms including keysignature sizes computational costs and
+implementation security considerations enabling evidencebased deployment decisions
+ sectoral implementation framework we develop sectorspecific readiness profiles for finance
+telecommunications and defense identifying unique challenges and proposing tailored
+migration strategies
+ strategic interoperability analysis we examine geopolitical dynamics in pqc standardization
+nist etsi china and their implications for multinational organizations providing guidance
+for navigating fragmented standards landscapes
+the remainder of this paper is structured as follows section  analyzes the quantum threat
+section  evaluates pqc algorithms section  examines global standards section  introduces the
+qrmm framework section  addresses implementation challenges section  discusses strategic
+implications and section  concludes with research directions
+ quantum threat analysis
+ shors algorithm breaking publickey cryptography
+shors algorithm  exploits quantum superposition and interference to solve integer
+factorization and discrete logarithm problems in polynomial time olog n compared to sub
+exponential classical algorithms for rsa classical attacks require  operations shors
+algorithm reduces this to  quantum gates 
+resource requirements recent estimates suggest factoring rsa requires approximately
+ million noisy qubits with error rates below  operating for several hours  current systems
+ibms qubit condor googles qubit sycamore fall orders of magnitude short however
+projections from major quantum computing roadmaps ibm google ionq suggest errorcorrected
+systems with millions of logical qubits could emerge by  
+impact assessment
+ rsa all key sizes   bit become vulnerable once crqcs arrive
+ ecc shorter keys bit ecc  bit classical security break even faster
+ diffiehellman key exchange protocols compromised affecting tls handshakes globally
+ digital signatures ecdsa eddsa become forgeable undermining authentication
+ grovers algorithm weakening symmetric cryptography
+grovers algorithm  provides quadratic speedup for unstructured search reducing an n
+element search from on to on for symmetric encryption
+ aes effective security reduced from bit  bit
+ aes remains secure at bit effective security
+ sha collision resistance weakened but remains practical
+  by the authors distributed under a creative commons cc by license
+preprintsorg wwwpreprintsorg  not peerreviewed  posted  october  doipreprintsv
+ of 
+mitigation strategy doubling key lengths aes  aes and increasing hash outputs
+suffices for symmetric primitives  this represents a far simpler transition than replacing public
+key systems
+ harvestnowdecryptlater hndl threat model
+the hndl attack paradigm  assumes adversaries
+ intercept and store encrypted communications today
+ retain ciphertexts until quantum capabilities mature
+ decrypt historical data once crqcs become available
+risk timeline analysis
+data type confidentiality lifetime hndl risk window mitigation urgency
+high immediate
+government classified  years critical
+threat
+medical records hipaa  years high critical
+financial transactions  years medium high
+personal communications  years low moderate
+ephemeral messaging   year negligible low
+organizations managing longlived sensitive data must transition to pqc before crqcs
+emerge not after this shifts the threat timeline from yearstoquantum to yearsofdata
+longevity 
+ quantum computing progress and timeline uncertainty
+current state 
+ largest systems  physical qubits ibm google
+ error rates  to  far above faulttolerance threshold of 
+ no demonstration of cryptographically relevant calculations
+projected milestones
+   logical qubits with basic error correction 
+   million logical qubits nist moderate confidence crqc window 
+  mature faulttolerant systems conservative estimates 
+key uncertainty factors
+ breakthrough in error correction codes eg surface codes topological qubits
+ advances in qubit coherence times and gate fidelities
+ scaling challenges in cryogenic systems and control electronics
+ potential for classified progress exceeding public knowledge
+given this uncertainty organizations face a strategic dilemma invest heavily now versus wait
+for clearer timelines the hndl threat model and long data lifetimes argue for proactive migration
+under a precautionary principle 
+ threat summary and strategic implications
+figure  see figure definitions below visualizes the quantum threat landscape showing how
+shors and grovers algorithms impact different cryptographic primitives the key strategic insight
+asymmetric impact across cryptographic families publickey systems require complete
+replacement symmetric systems need parameter adjustments this asymmetry shapes migration
+priorities and resource allocation
+  by the authors distributed under a creative commons cc by license
+preprintsorg wwwpreprintsorg  not peerreviewed  posted  october  doipreprintsv
+ of 
+ postquantum cryptography algorithm landscape
+ nist pqc standardization process
+the nist pqc project  began in  evaluating  initial submissions through three
+competitive rounds in july  nist announced four algorithms for standardization with final
+federal information processing standards fips released in august  
+selected algorithms
+ crystalskyber renamed mlkem key encapsulation mechanism
+ crystalsdilithium mldsa generalpurpose digital signatures
+ falcon fndsa compact digital signatures for constrained environments
+ sphincs slhdsa hashbased signatures conservative fallback
+a fourth round continues for additional codebased schemes classic mceliece bike to ensure
+algorithmic diversity 
+ algorithm families and mathematical foundations
+ latticebased cryptography
+foundation security rests on the hardness of learning with errors lwe and its variants
+ringlwe modulelwe  these problems involve finding short vectors in highdimensional
+latticesa task believed intractable for both classical and quantum computers
+crystalskyber mlkem 
+ purpose key encapsulation for establishing shared secrets replaces rsaecdh in tls
+ key sizes public key  bytes ciphertext  bytes
+ performance encapsulation  s decapsulation  s on  ghz intel cpu
+ security levels three variants mlkem   equivalent to aes  
+crystalsdilithium mldsa 
+ purpose digital signatures for authentication and nonrepudiation
+ signature size  bytes vs  bytes for ecdsa
+ performance signing  s verification  s
+ tradeoff larger signatures but straightforward implementation
+falcon fndsa 
+ purpose compact signatures for bandwidthconstrained applications
+ signature size  bytes significantly smaller than dilithium
+ performance signing  s slower due to floatingpoint operations
+ implementation challenge requires careful constanttime implementation to resist timing
+attacks
+ hashbased cryptography
+sphincs slhdsa 
+ foundation security derived from hash function properties collisionpreimage resistance
+ advantage no unproven hardness assumptions conservative security profile
+ signature size  bytes largest among nist selections
+ performance signing  s verification  s
+ use case longterm security where spacespeed are secondary concerns
+ codebased cryptography
+classic mceliece  round  alternate candidate
+  by the authors distributed under a creative commons cc by license
+preprintsorg wwwpreprintsorg  not peerreviewed  posted  october  doipreprintsv
+ of 
+ foundation decoding random linear codes  years of cryptanalysis
+ public key size  kb to  mb prohibitive for most applications
+ advantage oldest and most conservative pqc approach
+ status continues evaluation for specialized use cases government longterm archives
+ quantitative performance comparison
+key observations
+ key size penalty pqc public keys are  larger than ecc but smaller than rsa
+ signature inflation dilithium signatures are  larger than ecdsa falcon offers 
+overhead
+ computational efficiency kyber and dilithium match or exceed rsa performance falcon and
+sphincs are slower
+ tradeoff spectrum no single algorithm optimizes all metrics deployment choices must
+prioritize based on constraints
+table  presents comprehensive performance metrics for niststandardized algorithms
+public
+signatureciphertext keygen signencap verifydecap security
+algorithm type key
+bytes s s s level
+bytes
+mlkem aes
+kem     
+ equiv
+aes
+mldsa sig     
+equiv
+fndsa aes
+sig     
+ equiv
+slhdsa aes
+sig     
+f equiv
+aes
+ecdsa sig     
+equiv
+aes
+rsa both     
+equiv
+classical algorithms shown in italics for comparison performance measured on intel core iu   ghz sources
 
+ implementation security considerations
+beyond algorithmic security realworld implementations face sidechannel and faultinjection
+attacks 
+timing attacks variabletime operations leak secret information through execution duration
+mitigation requires constanttime implementationschallenging for falcons floatingpoint
+arithmetic 
+power analysis differential power analysis dpa can extract keys from embedded devices
+countermeasures include masking and randomization increasing computational overhead by 
 
+fault injection inducing errors during signing can leak private keys sphincs is inherently
+resistant lattice schemes require careful validation 
+hardware acceleration nist algorithms are being integrated into cryptographic accelerators
+intel ipp arm cryptography extensions to improve performance while maintaining constanttime
+guarantees 
+ algorithmic diversity as risk mitigation
+  by the authors distributed under a creative commons cc by license
+preprintsorg wwwpreprintsorg  not peerreviewed  posted  october  doipreprintsv
+ of 
+concentrating on a single mathematical family latticebased creates systemic risk a
+breakthrough in lattice cryptanalysis could compromise multiple algorithms simultaneously nists
+strategy emphasizes diversity 
+ latticebased kyber dilithium falcon primary deployments
+ hashbased sphincs conservative fallback
+ codebased classic mceliece under continued evaluation
+ multivariate withdrawn after cryptanalytic breaks rainbow gemss 
+ isogenybased sike broken in  research continues on alternative constructions 
+organizations deploying pqc should maintain hybrid strategies classical  pqc during
+transition and consider multialgorithm deployments for critical systems 
+ global standardization and interoperability dynamics
+ nist leadership and global influence
+the nist pqc process has established de facto global standards with adoption by major
+technology companies google microsoft aws and integration into ietf protocols tls  ipsec
+ however regional initiatives create a complex interoperability landscape
+ european initiatives
+etsi quantumsafe cryptography working group 
+ publishes white papers and technical specifications since 
+ emphasizes backward compatibility and hybrid approaches
+ aligns closely with nist but maintains independent evaluation
+enisa eu cybersecurity agency 
+ issues risk assessment frameworks for eu member states
+ coordinates with national agencies anssi in france bsi in germany
+ focus on gdpr compliance and crossborder data protection
+eu quantum flagship 
+  billion initiative combining pqc with quantum key distribution qkd
+ euroqci project quantum communication infrastructure across europe
+ strategy layer pqc and qkd for defenseindepth
+ chinas dualpath strategy
+china pursues parallel development of pqc and qkd 
+ pqc research active participation in nist process independent algorithm development
+ qkd infrastructure extensive deployment micius satellite beijingshanghai network
+ strategic goal technological sovereignty and reduced dependence on western cryptographic
+standards
+interoperability challenge chinese systems may require dual pqcqkd compliance
+complicating multinational deployments 
+ japan and asiapacific
+japans pqc roadmap 
+ nict and mic coordinate national strategy
+ focus on iot security and g infrastructure
+ active participation in itu standardization
+  by the authors distributed under a creative commons cc by license
+preprintsorg wwwpreprintsorg  not peerreviewed  posted  october  doipreprintsv
+ of 
+south korea and singapore developing national guidelines aligned with nist but
+incorporating etsi recommendations 
+ interoperability risks and fragmentation
+geopolitical implications
+ multinational corporations must support multiple standards simultaneously
+ export controls may restrict pqc technology transfer to certain regions
+ trust frameworks for international finance and trade require consensus on cryptographic
+baselines 
+table  summarizes regional standardization approaches
+standards
+region leading body primary strategy interoperability risk
+timeline
+pqc algorithms mlfips finalized
+north america nist low global leader
+kem mldsa 
+alignment with lowmedium minor
+europe etsienisa pqc  hybrid classical
+nist variants
+national rollout high divergent
+china state council pqc  qkd dualpath
+ architecture
+medium sectoral
+japan nictmic pqc for iotg pilots 
+focus
+isoiec jtc sc
+international harmonization efforts ongoing coordination challenge
 
+ hybrid cryptography as transitional strategy
+given uncertainty around pqc algorithm security and crqc timelines hybrid approaches
+combine classical and postquantum primitives 
+tls  hybrid key exchange
+sharedsecret  kdfecdhsecret  mlkemsecret
+security guarantee system remains secure if either classical or pqc component is unbroken
 
-
-          
- google scholar results
-note the yaxis of the graph represents the number of search results retrieved from google scholar quantified in absolute terms each data
-point corresponds to the total count of entries eg articles papers theses returned by google scholar for a given search query the xaxis
-delineates the specific time periods under investigation with each corresponding point reflecting the cumulative number of indexed results
-for  data up to  june  were used
-source google scholar
-graph  illustrates the broad range of quantum computing applications in
-finance one area where the technology could be useful is evaluating financial risk or
-performing more accurate stress tests in order to improve risk management
-another field where the impact of quantum computing may be significant is
-investments and portfolio management including financial market risk evaluation
-more accurate simulations and analysis could improve investment strategies and
-asset pricing it is expected that artificial intelligence ai and machine learning
-will gain substantial improvement with better fraud detection mechanisms or even
-better trading strategies in addition other areas such as payments and settlement
-and macro modelling would be positively impacted in what follows we discuss each
-of these areas in more detail
-risk management
-risk management quantum algorithms for certain financial use cases are expected to
-offer a quadratic speedup  compared with classical algorithms this covers
-applications from risk simulations to systemic risk evaluation this approach promises
-to transform how financial risks are modelled and mitigated in some cases qcs are
-capable of performing tasks that are beyond the reach of traditional computers they
- a quadratic speedup refers to a significant improvement in the computational efficiency of an
-algorithm or problemsolving process the time required to solve a problem using a specific
-algorithm is reduced by a factor proportional to the square of the input size for instance assume
-solving a problem necessitating a bruteforce search and the prevailing algorithm exhibits a quadratic
-time complexity if a novel algorithm can solve the same problem with linear time complexity it would
-be considered a quadratic speedup
-quantum computing and the financial system opportunities and risks 
-enable more precise risk metric evaluations such as value at risk var which is
-widely used specifically for the capital requirements of financial institutions
-potential advantages of quantum mechanics in the financial sector graph 
-source authors elaboration
-incorporating quantum computing into risk management enables a re
-evaluation of how risk management is operated it offers the potential to perform
-complex calculations at an unprecedented speed quantum algorithms developed for
-risk estimation in financial asset portfolios have the potential to accelerate
-calculations in other words as the input size of the problem increases the best
-classical algorithms require an exponentially growing number of steps whereas a
-quantum algorithm needs at most a linear number of steps egger et al 
-estimate that a qc could perform the var calculations for a  millionasset portfolio
-in a runtime of  minutes this is however dependent on several factors such as
-the number of scenarios the complexity of the portfolio the selected var
-methodology and the efficiency of the implemented algorithms in contrast these
-specific calculations could take several hours using traditional computing
-financial risk is frequently assessed through the utilisation of models such as
-monte carlo simulations zhang et al  highlight the benefits of quantum
-computing in these simulations these are crucial for modelling processes with
-inherent randomness with quantum computing financial risk assessment models
-can be enhanced and hence prediction accuracy can be improved
- quantum computing and the financial system opportunities and risks
-quantum algorithms have been tested for accelerating pricing and risk analysis
-of financial derivatives stamatopoulos et al  compare quantum classical and
-semiquantum circuits that allow a quadratic speedup of derivative pricing the
-authors also investigate a method requiring fewer resources than existing methods
-this advancement will significantly improve the process of evaluating potential risks
-in terms of required precision and runtime
-quantum computing brings advantages to the financial system that could result
-in more accurate estimations and simulations it also allows some complex problems
-to be performed that are intractable with the classical computing available today
-financial networks are so interconnected that it is exceedingly difficult to assess the
-impact of potential financial crashes such as asset price perturbations orus et al
- highlight this challenge stating that the mathematical problem of forecasting
-a damaging event is unsolvable with classical algorithms even for a small network
-they argue that a problem involving a network composed of  to  organisations
-would take more than the age of the universe to be solved with classical computing
-aboussalah et al  envisage a quantum approach to systemic risk analysis
-in financial networks they demonstrate how quantum computing techniques can
-provide insights into the resilience of financial systems while quantum risk
-management is evolving at a fast pace and concrete applications are under active
-research the potential improvements depend on the development of qcs capacities
-it is expected that further research will allow new quantum algorithms to be
-developed making risk management one of the key application areas
-investment and portfolio management
-portfolio optimisation is a delicate balancing act it involves minimising risk and
-maximising return simultaneously the complexity of these optimisation problems
-can result in highly complex calculations in some cases these can take classical
-computers days or months to compute or even exceed their capabilities altogether
-the emergence of qcs may offer new possibilities to solve these challenging
-problems presenting a competitive advantage for investment institutions with access
-to quantum computing
-bova et al  introduce the concept of quantum advantage they highlight
-the potential for qcs to generate more profitable outcomes for the most intractable
-problems for instance option pricing involves calculating the fair value of options
-based on various factors including the underlying asset price volatility time to
-expiration and interest rates traditional methods provide approximate solutions but
-may not capture all market complexities accurately with the enhanced
-computational speed of quantum systems investment institutions could achieve
-superior results in portfolio optimisation
-several researchers have proposed quantum algorithms for various portfolio
-management tasks doriguello et al  focus on stochastic optimal stopping
-problems ghysels et al  look at derivatives pricing both research teams
-demonstrate the accelerated computations enabled by quantum computing
-quantum computing and the financial system opportunities and risks 
-rebentrost and lloyd  also showcase the applicability of quantum algorithms
-in portfolio optimisation
-the time it takes to complete a complex calculation is a variable to consider when
-assessing potential benefits of quantum computing however it is equally relevant to
-evaluate its potential economic advantage while qcs offer enhanced computational
-speed classical supercomputers may still provide a more costeffective solution as
-bova et al  point out the demanding computational requirements of certain
-optimisation problems must be carefully evaluated building a qc is costly compared
-with classical computing and this cost must be taken into account
-payments and settlements
-the payments sector is another area where quantum computing can bring significant
 advantages
-mcmahon et al  explore an innovative use of quantum computing to
-improve liquidity when settling payment transactions their proposal could lead to
-faster more efficient settlements the experiment operated payment transactions on
-a day sample from a canadian payment system providing a practical example of
-these benefits they use a hybrid quantum annealing solver to test potential
-improvements in daily liquidity the results are promising with significant liquidity
-savings estimated between cad  million and cad  million this
-demonstrates the tangible benefits that quantum computing can bring to the
-payments and settlements sector
-macroeconomic modelling
-dynamic economic models which provide a representation of the evolution of
-economic factors over time pose a significant computational challenge to provide
-an analogy consider the challenge of solving a large and intricate puzzle the larger
-and more complex the puzzle the longer it takes to fit in each piece given the need
-to test each piece individually against each of the others this complexity is a point
-emphasised by hull et al  who note that computational costs rise exponentially
-with the number of variables this challenge makes it difficult to accurately represent
-and solve these models with powerful traditional computing resources in contrast
-the ideal solution would involve testing all pieces simultaneously to understand how
-they fit together this is akin to what a qc can perform
-fernndezvillaverde and hull  demonstrate that today quantum
-annealers can already solve certain dynamic programming problems an order of
-magnitude faster than classical computers these authors implement a wellknown
-economic model namely the real business cycle rbc on a quantum annealer this
-quantum machine  already available today albeit with limited capacity  solved the
-rbc model in  of the computation time that a traditional computer would take
-the paper introduces a new method to solve performing dynamic programming
-displaying the potential of quantum hardware for economic modelling
- quantum computing and the financial system opportunities and risks
-quantum computing and ai a new frontier in machine learning
-researchers are actively exploring synergies between quantum computing and ai a
-burgeoning field of research relates to the use of quantum computing algorithms to
-enhance ai and machine learning which rely on classical computing potential
-domains within ai that could benefit from the integration of quantum computing
-include reinforcement learning deep learning and support vector machines among
-other areas
-reinforcement learning is a type of machine learning that allows an agent or an
-aidriven system to learn to make decisions by interacting with its environment li
- the agent determines its next action based on its current state and receives
-feedback in the form of rewards or penalties after each action since the aim of the
-agent is to maximise rewards its learning process includes finding actions that lead
-to the highest rewards through trial and error and developing a strategy that
-maximises rewards quantum reinforcement learning algorithms can leverage the
-principles of quantum mechanics to accelerate the learning and decisionmaking
-processes these algorithms could introduce new approaches to exploring
-reinforcement learning problems potentially resulting in more effective strategies for
-finding optimal policies lockwood and si  examine specifically the use of
-quantum circuits in reinforcement learning highlighting how quantum computing
-can offer innovative methods for policy optimisation saggio et al  provide
-empirical evidence of a quantum speedup in a reinforcement learning task
-underscoring the potential of quantum algorithms to enhance reinforcement
-learning
-deep learning a subset of machine learning techniques represents another area
-where quantum computing may enhance computational efficiency and thereby
-increase the capabilities of ai deep learning involves training artificial neural
-networks to analyse data and make decisions these networks consist of layers
-including an input layer one or more hidden layers and an output layer each node
-acts as an artificial neuron forming connections with others through assigned weights
-and thresholds the term deep in deep learning refers to the networks multiple
-layers despite its widespread success deep learning faces challenges related to
-memory and time efficiency which quantum computing could address quantum
-deep learning holds promise for enhancing the speed and efficiency of the training
-process with potential advancements in quantum neural networks through the use
-of quantum gradient descent algorithms these algorithms aim to expedite training
-by estimating gradients more efficiently through quantum principles wiebe et al
+ backward compatibility with legacy systems
+ hedges against unexpected pqc vulnerabilities
+ gradual deployment without flagday transitions
+challenges
+ increased computational and bandwidth costs
+ complex key management and certificate infrastructure
+ potential for downgrade attacks if not carefully designed 
+ the quantum readiness maturity model qrmm
+ motivation and framework design
+existing guidance on pqc migration focuses on technical steps algorithm selection
+implementation testing but lacks a holistic assessment methodology organizations need a
+structured framework to
+ assess current readiness across multiple dimensions
+ identify gaps and prioritize investments
+ track progress as migration unfolds
+ adapt to evolving standards and threat landscapes
+  by the authors distributed under a creative commons cc by license
+preprintsorg wwwpreprintsorg  not peerreviewed  posted  october  doipreprintsv
+ of 
+to assess sectoral preparedness we introduce the quantum readiness maturity model
+qrmm structured along five dimensions as illustrated in figure  defense and government
+sectors are significantly ahead of healthcare in readiness
+we introduce the quantum readiness maturity model qrmma fivelevel framework
+spanning five critical dimensions
+figure  caption
+ qrmm dimensions
+dimension  cryptographic infrastructure
+ discovery and inventory of cryptographic assets algorithms in use key sizes certificate
+lifetimes
+ testing pqc algorithms in nonproduction environments
+ hybrid deployment capabilities
+ integration with pki hsms and key management systems
+dimension  governance and risk management
+ executive awareness and strategic alignment
+ budget allocation and resource planning
+ risk assessment frameworks hndl threat modeling
+ compliance with regulatory mandates hipaa gdpr defense classifications
+dimension  sectoral adaptation
+ understanding sectorspecific threat models finance vs healthcare vs telecom
+  by the authors distributed under a creative commons cc by license
+preprintsorg wwwpreprintsorg  not peerreviewed  posted  october  doipreprintsv
+ of 
+ performance requirements latency throughput computational constraints
+ legacy system constraints and migration timelines
+ vendor ecosystem readiness
+dimension  interoperability and standards compliance
+ alignment with nist etsi or regional standards
+ support for multiple pqc algorithms algorithmic agility
+ crossborder data flow requirements
+ protocol compatibility tls ipsec smime
+dimension  strategic agility
+ modular cryptographic libraries enabling algorithm replacement
+ automated cryptographic policy management
+ incident response plans for cryptographic failures
+ continuous monitoring and threat intelligence integration
+ maturity levels
+each dimension progresses through five maturity levels
+level   initial ad hoc
+ minimal awareness of quantum threat
+ no cryptographic inventory
+ reactive approach to security updates
+level   developing awareness
+ executive awareness and initial planning
+ pilot projects testing pqc algorithms
+ basic cryptographic asset discovery
+level   defined implementation
+ formal pqc migration roadmap
+ hybrid cryptography deployed in production
+ governance frameworks established
+ vendor partnerships for pqcenabled products
+level   managed optimization
+ pqc integrated across critical systems
+ automated cryptographic lifecycle management
+ continuous compliance monitoring
+ performance optimization and tuning
+level   adaptive strategic agility
+ cryptographic infrastructure as strategic capability
+ realtime algorithm switching based on threat intelligence
+ multialgorithm deployments for resilience
+ contribution to standards development and industry leadership
+ qrmm assessment methodology
+figure  see figure definitions below visualizes the qrmm framework as a radar chart showing
+organizational profiles across the five dimensions
+assessment process
+ selfassessment organizations rate themselves  on each dimension using detailed rubrics
+ gap analysis compare current state against target maturity levels typically level  for most
+enterprises
+ prioritization identify highimpact feasible improvements
+ roadmap development define quarterly milestones and kpis
+ continuous improvement reassess annually or after major standard updates
+example assessment rubric dimension  cryptographic infrastructure
+  by the authors distributed under a creative commons cc by license
+preprintsorg wwwpreprintsorg  not peerreviewed  posted  october  doipreprintsv
+ of 
+level cryptographic discovery pqc testing hybrid deployment pki integration
+manual certificate
+ no inventory none not considered
+mgmt
+partial inventory known evaluated but not
+ lab experiments basic automated pki
+apps deployed
+hybrid in noncritical pqcaware pki
+ comprehensive inventory pilot in staging
+systems pilots
+automated discovery  hybrid in all critical full pqc pki
+ production testing
+tracking systems integration
+realtime monitoring  ab testing inm ultialgorithm agile certificate
 
-although integrating ai with quantum computing presents significant
-challenges researchers are actively investigating this avenue to potentially augment
-ai capabilities these two domains could bolster each others development as
-highlighted by the growing body of research on the application of ai techniques in
-quantum computing development dunjko and briegel  while realising
-practical applications involves surmounting considerable obstacles such as costs and
-quantum computing and the financial system opportunities and risks 
-technical limitations the potential impact of the synergy between these two fields
-warrants attention
- economic effect of qcs from shortterm benefits to a
-new general purpose technology
-despite growing interest and new quantum algorithm proposals the practical
-benefits of quantum computing in reallife problems are difficult to assess choi et al
- present a framework to understand where quantum computing will provide an
-advantage over classical computing and conclude that reallife use cases with a
-practical quantum advantage will be few they argue that classical computers solve
-problems of small to moderate complexity faster than qcs the authors point out that
-only problems where the algorithmic gain is large will benefit from quantum
-computing they assert that since very large algorithmic gains are rare in practice
-and theorised to be rare even in principle their analysis suggests that the benefits
-from quantum computing will flow to a small set of use cases and mostly to those
-processing very large amounts of data they illustrate this with the example of an
-unstructured search where quantum advantages appear if the problem size exceeds
- graph a
-impact of quantum computing graph 
-a quantum algorithm superiority for large problem sizes b impact of quantum computing
-achievable value of a portfolio
-sources adapted from choi et al  authors graphical analysis
-in addition to the algorithmic challenge biamonte et al  identify two
-additional obstacles data initialisation and output measurement to illustrate these
-challenges following castelvecchi  the quantum computing process could be
-decomposed into three steps  initialising the qc with dataencoded quantum
-states  performing operations on these configured qubits and  extracting
-information from the final quantum state while most quantum algorithms focus on
- quantum computing and the financial system opportunities and risks
-optimising step  steps  and  can be timeconsuming initialising large data
-sets by converting them into quantum states can be inefficient and extracting
-meaningful information from the final qubit string can also be computationally
-expensive potentially overshadowing the speed gains achieved with quantum
-algorithms aaronson  many of the use cases studied in the current literature
-address problems that are being solved today by classical computers for such
-problems the shortterm benefits of quantum computing often come in the form of
-faster computation with similar results for instance sanzfernndez et al 
-utilise a quantum computing algorithm to solve dynamic portfolio optimisation
-problems and find that quantum annealing completes the task in approximately three
-minutes while the computational time using classical computers exceeds one day
-the shortterm economic value of such a speedup varies between use cases as
-a simple upper bound on the potential benefits of qc for any specific use case one
-can consider how much value we would be able to realise with classical computers of
-infinite computing capacity for example in the case of an optimisation problem this
-corresponds to finding the global optimum in zero computational time for some use
-cases this would have a large economic value but in many practical use cases the
-immediate value is limited for example because of intrinsic uncertainties and noisy
-input data which reduce the value of more accurate calculations or because the
-computations need to be performed rarely and a speedup does not directly convert
-to immediate economic value these considerations also apply to the economic
-benefits achievable by solving the same problems with a qc graph b
-one rough intuitive gauge of the shortterm impact of qcs is the market that is
-most directly affected by them  the one for highperformance computing this
-market is expected to grow to around usd  billion in  years although there is
-high uncertainty in this projection see graph  by assuming an average increase in
-performance derived from quantum computing compared with classical computing
-we can estimate potential savings for example if a  reduction in costs is assumed
-this would imply a saving of usd  billion per year
- alternative approaches explore the utilisation of inherently quantum data obtained through methods
-such as quantum sensing see cerezo et al  for details
- analysts also estimate that the banking financial services and insurance sector has the thirdhighest
-share as an end user in the market
- indeed this rough backoftheenvelope calculation is well grounded in economic theory hulten
- shows that in production networks incremental ie up to a first order technological
-improvements in different sectors contribute to overall economic growth in proportion to the size of
-the affected sectors and to sectoral productivity growth the key underlying idea is that even if
-technological advancements occur in just a few sectors they can still have significant impacts on the
-aggregate economy depending on the economic weight of those sectors
-quantum computing and the financial system opportunities and risks 
-projection for the global market size of a highperformance computer
-in billions of us dollars graph 
-note average indicates the average projections from the reports published by market survey companies
-sources fortune business insights future market insights inc grand view research marketsandmarkets precedence research sns insider
-the international market analysis research and consulting group verified market research authors calculations
-however one needs to differentiate the shortterm benefits of the technology
-and the longrun implications historical technology transitions offer an insightful
-parallel to the longrun economic potential of quantum computing and suggest that
-much larger economic effects may be expected in the long run one case in point is
-the shift from steam engines to electric power in industrial settings initially the
-adoption of electricity may bring modest improvements if a factory replaces a
-centralised steam engine without reconfiguring the broader infrastructure ie it still
-distributes power in the factory via belts and shafts however the longterm effects
-can be much more profound as wiring allows the factory to dramatically reshape the
-distribution of power with electric motors automating a large set of smaller steps in
-the production process devine  david  another example is the internet
-which provided shortterm gains such as improved communication and information
-access however its longterm impacts have been monumental enabling teams to
-work in distant settings and hence also facilitating the evolution of global value
-chains cairncross 
-the longterm implications of quantum computing could also be transformative
-while many existing use cases see only a qc speedup computational tasks that are
-not yet performed today because they are not feasible using classical computers may
-become possible with qcs through these use cases quantum computing may
-revolutionise data processing and algorithmic calculations leading to entirely new
-applications across multiple domains including materials science cryptography ai
-and finance
-thus while the immediate benefits of quantum computing are modest its
-potential to drive fundamental transformations in computational capabilities could
-mirror the widespread impacts seen with the electrification of factories marking
-another significant leap in technological evolution
- quantum computing and the financial system opportunities and risks
- quantum implications on cryptography
-quantum computing and other emerging applications of quantum physics
-simultaneously present both challenges and opportunities for cryptography and
-thereby for the security and stability of financial systems in what follows we first
-provide an overview of the cryptographic methods used in todays systems followed
-by a description of the most important opportunities and challenges represented by
-quantum physics
-cryptography in todays financial systems
-conventional cryptography uses algorithms based on complex mathematical
-problems to protect sensitive data two communicating entities usually rely on a
-shared secret key to protect their messages from eavesdropping this is called
-symmetric key encryption the sender uses the shared key to encode the information
-and the receiver uses the same key to decode the received information and restore
-the original message the algorithms used for encryption and decryption are
-standardised and only the key is kept secret
-one challenge in symmetric cryptography is the need to create the shared secret
-between the communicating entities traditionally they would have had to agree on
-a shared key in advance by physically transmitting the key from one endpoint to the
-other for example on paper or on some electronic device in todays digital systems
-this initial step is usually replaced by creating a shared secret using public key
-cryptography also known as asymmetric key cryptography
-graph  illustrates the difference between symmetric and asymmetric key
-cryptography in a symmetric key scenario shown in the upper part of the figure alice
-and bob agree to use a shared key for encrypting and decrypting their secret
-messages alice encrypts the secret messages using the shared key and sends them
-to bob upon receiving the encrypted messages bob decrypts them using the same
-shared key
-in asymmetric key cryptography shown in the bottom part of graph  alice and
-bob each possess two different keys a public key and a corresponding private key
-as implied by its name a public key is accessible to anyone while a private key
-remains confidential it is not feasible to infer a private key by analysing its public
-counterpart alice encrypts secret messages using bobs public key when bob
-receives encrypted messages from alice he decrypts them using his private key
-public key cryptography does not require a shared secret between the
-communicating endpoints hence it avoids the need to transmit the key prior to
-secret communication instead the communicating entities can simply publish their
-public keys to be used by anyone willing to send them encrypted messages
-quantum computing and the financial system opportunities and risks 
-difference between symmetric and asymmetric key encryption graph 
-source adapted from deodoro et al 
-in public key cryptography the challenge is how can alice be certain that the
-public key she uses belongs to bob what if a hacker masquerading as bob sends
-their own public key to alice to intercept the secret messages to verify the
-authenticity of the public key a public key infrastructure pki that manages digital
-certificates and public key encryption is used digital certificates are electronic
-documents issued by a certificate authority to prove the match between an entitys
-identity and its public key if alice wishes to verify that bobs public key indeed
-belongs to bob she needs to obtain a digital certificate that authenticates bobs
-public key as legitimate for bob to receive his digital certificate he must submit his
-identity and public key to a certificate authority a trusted thirdparty organisation
-that issues bobs certificate this digital certificate includes a digital signature that
-validates bobs ownership of his public key the digital signature is created by
-encrypting the message using the private key of the certificate authority alice and
-others can confirm that the digital signature is authentic by decrypting the signature
-with the public key of the certificate authority which is stored on their it devices
-in todays financial systems and indeed in most it systems security relies on a
-combination of symmetric key cryptography public key cryptography and pki most
-of the messages are encrypted by symmetric key cryptography because it is more
-efficient than asymmetric key cryptography however asymmetric key cryptography
-is used to create the shared secret between the communicating entities before a
-communication session starts and pki is used to verify the authenticity of public keys
- the risk of a hacker stealing secret messages using a fraudulent public key purported to be bobs is
-inherent to the protocol illustrated in this example and does not necessarily stem from the
-development of qcs
- quantum computing and the financial system opportunities and risks
-graph  illustrates this combined solution using the example of https a
-protocol used to secure online and mobile banking transactions the graph shows a
-simplified sequence of establishing a secure channel between a client and a server
-within https where the client is typically a customer and the server represents a
-bank the process unfolds as follows
- the client initiates a secure connection by sending a hello message to the
-server
- the server responds with its own hello message to the client including its
-digital certificate which contains the server information and public key
- the client verifies the servers digital certificate by decrypting it using the public
-key of the central authority ensuring the certificate is indeed signed by the
-central authority
- the client then sends information regarding the secret symmetric key encrypted
-with the servers public key
- the server retrieves the shared symmetric key by decrypting it with its private
-key subsequently both the client and the server can exchange messages
-encrypted with the shared symmetric key completing the establishment of a
-secure connection
-overview of an https connection graph 
-source authors graphical analysis
-quantum threat to legacy cryptography
-both symmetric and asymmetric key cryptography rely on mathematical algorithms
-to encode and decode messages using the respective keys the algorithms are
-constructed such that by examining the encoded version of the message it is
-practically impossible to deduce the original message or the secret key the emphasis
-quantum computing and the financial system opportunities and risks 
-is on the word practically in theory there are algorithms that can break
-cryptography and find out the secret key but with sufficiently large keys this would
-require prohibitively large computation time even for the largest supercomputers
-hence conventional cryptography is generally considered sufficiently secure for
-todays needs
-the emergence of qcs brings a change in this respect because they will be able
-to perform some of these computations faster than classical computers potentially
-rendering current security obsolete the problem impacts asymmetric key
-cryptography more than symmetric key schemes
-for symmetric key cryptography a quantum algorithm called grovers algorithm
-can be used for attacks grover  however this algorithm can achieve only
-limited speedup compared with attacks using a traditional computer therefore
-security experts believe that legacy symmetric key encryption can continue to be
-used provided that the key length is increased rao et al 
-qcs represent a more profound impact to asymmetric key cryptography where
-some existing algorithms will no longer be secure if scalable qcs exist specifically
-public key cryptographic methods such as rivestshamiradleman rsa and elliptic
-curve cryptography ecc which are prevalent in todays financial systems are at risk
-of becoming obsolete with the advent of qcs
-rsa encryption is based on a mathematical problem called factorisation to
-create the keys the algorithm randomly generates two large prime numbers and then
-multiplies them together the product of this multiplication forms part of the public
-key while the two large prime numbers are used to generate the private key the
-security of this algorithm comes from the oneway nature of this operation
-multiplying two large numbers is easy but factoring large numbers is very hard using
-classical computers and with large enough numbers it becomes practically
-impossible however the factoring problem is one of those areas where qcs will
-potentially significantly outperform todays computers van meter et al 
-mathematician peter shor demonstrated that a sufficiently large qc could
-perform factorisation in reasonable time and be used to break currently widely used
-encryption algorithms shor  in  researchers demonstrated the practical
-feasibility of shors algorithm which further emphasised the potential of qcs to
-render some existing cyber security measures unsecure
-the ability of qcs to hack todays cryptographic schemes has a profound impact
-on the security of financial systems deodoro et al  identify the most vulnerable
-areas as  onlinemobile banking  payment transactions including cash
-withdrawals  businesstobusiness privacy and  virtual private network vpn
-communications in onlinemobile banking an attacker utilising a qc could
-compromise and eavesdrop on communications between users and financial
-institutions during authentication and authorisation processes similarly during
-payment transactions or atm withdrawals such an attacker could intercept these
-exchanges corporations often use secure communication channels based on public
-key encryption however these channels could be fully accessed by attackers if
- quantum computing and the financial system opportunities and risks
-compromised with quantum computing techniques vpns used by employees
-working remotely could also be vulnerable to these attacks
-quantumresistant cryptography
-the ongoing use of certain asymmetric key cryptographic methods in financial
-communications specifically rsa and ecc represents a looming risk to the security
-of financial systems amid rapid advances in quantum computing the theoretical
-capacity of qcs to effectively breach these cryptographic algorithms calls for pre
-emptive actions to safeguard the enduring security of financial operations
-in response to this threat researchers have been developing new cryptographic
-algorithms designed to be resistant to qcs graph  yellow arrow somewhat
-counterintuitively it does not take a qc to protect against attacks by a qc it is
-possible to encrypt data using classical computers such that qcs will not be able to
-break the encryption qcs will be very efficient at solving certain types of problems
-such as factorisation so the solution lies in designing new cryptographic algorithms
-based on mathematical problems that do not fall into these categories
-quantum computer threats to financial systems graph 
-sources vandersypen et al  gartner ibm quantum roadmap nist stanford encyclopedia of philosophy archive
-in  the us national institute of standards and technology nist initiated
-a standardisation process for such cryptographic algorithms to denote such
-algorithms the terms quantumresistant or postquantum cryptography are often
-used interchangeably as part of this process nist announced in  the first four
-encryption and digital signature algorithms selected for standardisation with the first
- see nist postquantum cryptography standardization cyber security resource center  august
- csrcnistgovprojectspostquantumcryptographypostquantumcryptography
-standardization
-quantum computing and the financial system opportunities and risks 
-standards published in august  this ongoing process will proceed with the
-selection of additional algorithms offering varied approaches to encryption
-though qcs do not yet exist there is an urgent need to deploy quantum
-resistant algorithms specifically for highly sensitive data this is due to the potential
-threat of socalled harvest now decrypt later hndl attacks graph  white arrow
-even though qcs capable of breaking current encryption are not yet available
-malicious entities might still intercept financial data today with the intention of
-decrypting it in the future until quantumsecure solutions are fully deployed the
-vulnerability of highly sensitive data to hndl attacks remains a critical concern this
-looming threat highlights the urgent need for preemptive measures to safeguard
-the authenticity integrity and confidentiality of data findings from a survey of central
-banks conducted in  by the global cyber resilience group at the bank for
-international settlements bis doerr et al  indicate that the financial system
-could face substantial losses if stakeholders do not prepare for hndl type attacks
-quantum cryptography
-while qcs represent a threat to legacy cryptography other applications of quantum
-physics bring a new opportunity to strengthen the security of it systems including
-the financial system quantum cryptography utilises the inherent principles of
-quantum mechanics such as superposition uncertainty coherence and the no
-cloning theorem entanglement to create secured communications
-a pivotal element of quantum cryptography is quantum key distribution qkd
-which is based on quantum properties of particles typically photons this enables the
-parties of a communication channel to obtain a shared secret key with the assurance
-that any interception attempts will be detected aditya and shankar rao  a
-study conducted by bank of italy explored the potential integration of qkd into
-payment systems shedding light on its potential implementation to enhance the
-security of current cryptographic systems tiberi and bucciol  nevertheless
-the practical implementation of this promising technology currently poses some
-difficulties in terms of scalability and integration into existing infrastructures the
-transmission of quantum information over long distances is still a challenge due to
-the lack of network infrastructures and significant implementation costs bsi et al
- however this subfield of quantum information science is rapidly evolving and
-is considered a promising technology for the security of it systems different
-government and regional initiatives have been launched with the construction of fibre
-or even free space quantum networks aditya and shankar rao 
-other applications of quantum cryptography include for example quantum
-digital signatures and quantum money while these and other quantum cryptography
- see nist nist announces first four quantumresistant cryptographic algorithms  july 
-wwwnistgovnewseventsnewsnistannouncesfirstfourquantumresistant
-cryptographicalgorithms and nist releases first  finalised postquantum encryption standards
- august  httpswwwnistgovnewseventsnewsnistreleasesfirstfinalized
-postquantumencryptionstandards
- quantum computing and the financial system opportunities and risks
-areas may represent new opportunities for the financial system in the long run they
-are currently conceptual and their potential impact is difficult to assess
-the terminology around quantum technologies and their impact on security can
-be somewhat confusing for example the names might suggest that postquantum
-cryptography is something that comes after quantum cryptography but this is not
-the case postquantum cryptography refers to algorithms that can be implemented
-on classical computers and these should be introduced before qcs become available
-to replace vulnerable cryptography used today in contrast quantum cryptography
-relies on quantum technology and is likely to be further away in time
-in graph  we summarise the most widely used terms and their interrelations
-legacy cryptography shown with blue lines and fonts consists of a combination of
-asymmetric key and symmetric key cryptography where the former creates the
-shared secret to be used by the latter quantum computing represents a threat by its
-potential ability to break existing versions of asymmetric key cryptography quantum
-resistant aka postquantum cryptography is a new family of asymmetric key
-cryptographic algorithms which rely on mathematical problems that are hard for qcs
-to crack this is a way to mitigate the risk coming from qcs quantum cryptography
-consists of new cryptographic methods built on the concepts of quantum physics
-which might support or replace some of the legacy techniques
-the impact of quantum technologies on cyber security
-graph 
-source authors graphical analysis
-quantum computing and the financial system opportunities and risks 
- implications on financial system stability
-the potential impact on qc cyber attacks
-the stability of the financial system is fundamentally dependent on cryptographic
-security the emergence of quantum machines with their potential for advanced
-decryption capabilities introduces significant risks that could lead to considerable
-economic losses although it is challenging to quantify these risks due to the
-uncertain scope and magnitude of the quantum threat estimating potential losses is
-crucial for understanding its impact for example a particularly alarming scenario is
-a quantumenabled cyber attack on critical financial infrastructures such as fedwire
-funds service whose users include government agencies butler and herman 
-projected economic losses from a systemically relevant cyber attack enabled by
-quantum computing
-as a percentage of gdp graph 
- the expected losses are derived by multiplying the magnitude of potential losses with the probability of quantum computing breaching
-rsa encryption within  hours over various time horizons the estimation of loss size is based on a survey question directed to central
-banks asking in your opinion what is the maximum loss in  of annual gdp that a systemically relevant cyberattack on traditional financial
-institutions could cause this query was posed to a sample comprising seven advanced economies aes and  emerging market economies
-emes the probability estimates are obtained from a professional survey of field experts the xaxis represents the projection horizon in
-years
-sources survey on doerr et al  mosca and piani 
-assessing the precise economic impact of such events is complex however a
-survey of central banks offers some insight into the scale of a systemically relevant
-cyber attack on financial institutions doerr et al  based on a professional
-assessment of the likelihood of qcs breaking current standard encryption the
-estimation indicates expected losses of about  of gdp on average within five
-years of the attack graph  the survey results suggest that with an increasing
-likelihood of decryption over time expected losses could surpass  of gdp within
- to  years with emerging market economies potentially facing even larger losses
- quantum computing and the financial system opportunities and risks
-this estimation is expected to rise as financial system digitalisation accelerates
-highlighting a significant concern for financial stability nevertheless transitioning to
-quantumresistant cryptography could greatly reduce these risks
-central banks defences against the quantum threat
-the crucial role of central banks in ensuring the proper functioning of financial market
-infrastructures and in maintaining financial stability inevitably leads to the security
-and integrity of their operations  a topic of utmost importance bis  securing
-data for example related to monetary policy formulation is highly critical given the
-potential impact of quantum computing on the financial system central banks are
-primarily affected and need to proactively prepare against this cyber risk in order to
-maintain trust and confidence in the financial system among other initiatives biss
-project leap helps central banks accelerate this process see box a
-responding to the cyber security threat posed by qcs requires a multifaceted
-approach investing in postquantum cryptography is one of them as these new
-algorithms that are under the nist standardisation process aim to secure information
-against the computational capabilities of qcs migrating from existing cryptographic
-protocols to quantumsafe cryptography is a complex timeconsuming and
-resourceintensive process a preparation phase needs to be planned in the shortest
-possible time frame as a migration plan will take substantial time to be completed
-when we consider these significant challenges posed by the implementation of new
-cryptographic algorithms this transition to quantumsafe schemes becomes a priority
-and needs to be integrated into cyber security roadmaps a quantumreadiness
-roadmap needs to be defined including the important milestones of a migration plan
-and a high level of flexibility agility and change management principles will be key
-for a successful transition with the perspective of the quantum era it systems will
-need to adapt continuously today the most immediate approach for transitioning
-to new protocols involves the implementation of postquantum cryptography which
-is a branch of quantumsafe solutions while this strategy enhances security it is
-important to acknowledge its potential vulnerability these new algorithms need to
-be extensively examined in concrete applications possibly requiring ongoing
-adjustments furthermore as qcs capabilities continue to increase the cyber security
-threat that quantum computing poses may evolve requiring more agile systems the
-ability of systems to rapidly switch from one algorithm or protocol to another is an
-important parameter to consider in the selection of new security frameworks relying
-on a unique protocol based for instance on asymmetric cryptography such as rsa
-protocols will no longer be possible
-one of the first steps when preparing for this cyber security threat is to create a
-dedicated team with the right competencies to formulate a quantumreadiness plan
-that considers the specifics of the organisation before concrete implementation
-central banks must identify their needs regarding upskill training for experts and
-cryptography asset and critical data inventories
-quantum computing and the financial system opportunities and risks 
-box a
-project leap  quantumproofing the financial system
-project leap a collaborative initiative by the bis innovation hub eurosystem centre bank of france and the deutsche
-bundesbank is designed to fortify the financial systems defences against potential cyber threats posed by quantum
-computers qcs recognising the critical role of central banks in maintaining financial stability the project aims at
-proactively preparing against novel cyber risks
-transitioning to quantumsafe cryptographic protocols is a complex process requiring both agility and robust change
-management the project emphasised the need for a comprehensive quantumreadiness roadmap including
-upskilling experts thorough testing of new algorithms and flexible migration strategies that consider the intricacies
-of legacy systems
-project leap has already made significant strides in its first phase implementing and testing postquantum
-cryptography when setting up a virtual private network vpn between germany and france initial testing
-demonstrated the secure transmission of financial data through a quantumsafe communication channel however it
-also revealed that the time needed to set up the vpn was affected an example of the experimental results is illustrated
-in graph a where the leftmost column called legacy represents that vpn setup time using classical cryptography
-and the other bars correspond to various versions of quantumresistant cryptography the time performance differs
-between different algorithms but they all represent an additional latency compared with legacy solutions this impact
-is not problematic for vpn setup which happens a few times during a workday but it will have significant
-consequences for timedemanding use cases such as instant payment systems indicating a necessary tradeoff
-between security and performance
-in its forthcoming second phase project leap plans to test quantumsafe cryptography in a more complex
-environment closer to realworld applications and including additional partners
-project leap testing the performance impact of postquantum security when
-settingup a vpn graph a
+alerting production resilience lifecycle
+ sectoral application of qrmm
+ financial services
+threat profile high hndl risk due to longlived transaction records regulatory compliance
+pressure global interoperability requirements
+typical maturity assessment  baseline
+ cryptographic infrastructure level  pilots underway but production deployment limited
+ governance level  regulatory mandates driving formal planning
+ sectoral adaptation level  performance concerns around highfrequency trading
+ interoperability level  swift and card networks coordinating
+ strategic agility level  modular architectures emerging
+recommended actions
+ accelerate hybrid tls deployment for interbank communications
+ establish pqcenabled digital signature services for transaction authentication
+ engage with payment networks swift visa mastercard on standardized timelines
+ develop quantum threat scenario planning for risk management frameworks
+case study a multinational bank deployed mlkem hybrid key exchange in their treasury
+management systems achieving ms latency overhead while futureproofing against hndl attacks
 
+ telecommunications
+threat profile critical infrastructure target latencysensitive operations gg massive scale
+billions of devices
+typical maturity assessment
+ cryptographic infrastructure level  gpp standards in development
+ governance level  strategic importance recognized but planning fragmented
+ sectoral adaptation level  active integration in g research
+ interoperability level  international standards coordination slow
+ strategic agility level  legacy network equipment constrains flexibility
+recommended actions
+ prioritize pqc in network core authentication servers base station controllers
+ develop lightweight pqc variants for iot devices resourceconstrained endpoints
+ collaborate with gpp itut on standardized pqc integration
+ plan phased migration aligned with equipment refresh cycles  years
+performance challenge telecom requires ms endtoend latency mlkem adds s per
+handshakeacceptable for control plane challenging for user plane at scale research continues on
+optimized implementations 
+ defense and government
+  by the authors distributed under a creative commons cc by license
+preprintsorg wwwpreprintsorg  not peerreviewed  posted  october  doipreprintsv
+ of 
+threat profile highest hndl risk  year classification advanced persistent threats national
+security implications
+typical maturity assessment
+ cryptographic infrastructure level  nsa commercial solutions for classified program
+ governance level  legislative mandates dedicated budgets
+ sectoral adaptation level  classified systems prioritized
+ interoperability level  nato and allied coordination
+ strategic agility level  layered defenses including pqc  qkd
+recommended actions
+ immediate migration for systems handling topsecretcompartmented information
+ multialgorithm deployments lattice  hashbased for resilience
+ integrate pqc with quantum key distribution for defenseindepth
+ establish cryptographic supply chain security trusted hardwaresoftware
+strategic consideration defense agencies cannot wait for crqc emergence due to hndl and
+adversarial capability uncertainty 
+ healthcare
+threat profile longterm patient data confidentiality regulatory compliance hipaa gdpr
+fragmented it infrastructure
+typical maturity assessment
+ cryptographic infrastructure level  awareness low legacy systems pervasive
+ governance level  compliancedriven but underresourced
+ sectoral adaptation level  medical device constraints
+ interoperability level  hl fhir standards evolving
+ strategic agility level  it modernization slow
+recommended actions
+ prioritize pqc for electronic health records ehrs and medical imaging archives
+ develop guidance for medical device manufacturers on pqc integration
+ align with hipaa and gdpr compliance frameworks
+ establish industry consortia himss for shared best practices
+barrier medical devices have  year lifecycles retrofit pqc into existing equipment is often
+infeasible requiring full replacement cycles 
+ qrmm implementation roadmap
+figure  see figure definitions below presents a typical year migration roadmap aligned with
+qrmm maturity progression
+year  level   
+ qq executive education threat assessment cryptographic inventory
+ qq vendor evaluation pilot pqc algorithms in lab governance framework draft
+year  level   
+ qq hybrid deployments in staging pki infrastructure planning
+ qq production pilots noncritical systems policy adoption training programs
+year  level   
+ qq full production deployment critical systems automated lifecycle management
+ qq performance optimization compliance audits continuous improvement process
+ongoing level   
+ algorithmic agility testing ability to replace algorithms quarterly
+ threat intelligence integration automated policy updates
+ industry leadership standards contributions opensource projects
+  by the authors distributed under a creative commons cc by license
+preprintsorg wwwpreprintsorg  not peerreviewed  posted  october  doipreprintsv
+ of 
+figure  caption
+ implementation challenges and mitigation strategies
+ performance and resource overheads
+challenge pqc algorithms impose larger key sizes signature lengths and computational costs
+compared to classical systems
+quantitative impact
+ network bandwidth tls handshakes increase by  kb due to larger certificates and key
+exchanges for highfrequency trading systems processing  transactionssecond this
+represents  mbs additional bandwidth 
+ computational load mldsa signing is  slower than ecdsa verification is  slower for
+authentication servers handling  requestssecond this requires proportional cpu scaling
 
+ storage requirements certificate chains grow  larger a pki managing  million
+certificates sees storage requirements increase from  gb to  gb 
+mitigation strategies
+ hardware acceleration deploy cryptographic accelerators intel qat arm cryptocell
+reducing latency by  
+ algorithm selection use falcon for bandwidthconstrained scenarios dilithium for general
+purpose deployments
+ caching and session resumption reduce handshake frequency through longer session
+lifetimes
+ hybrid optimization only apply pqc to initial handshake use symmetric keys for bulk data
+ infrastructure scaling plan  capacity increase for computenetwork resources
+ legacy system integration
+challenge global infrastructures are deeply entrenched in classical cryptography critical
+systems include
+ tlsssl implementations in billions of devices
+ public key infrastructure pki with embedded key size limits
+  by the authors distributed under a creative commons cc by license
+preprintsorg wwwpreprintsorg  not peerreviewed  posted  october  doipreprintsv
+ of 
+ hardware security modules hsms with fixed cryptographic capabilities
+ embedded systems with limited storage and computational resources
+migration complexity matrix
+system type migration difficulty primary barrier timeline
+cloud services aws azure lowmedium api compatibility  years
+enterprise applications medium vendor dependencies  years
+pki infrastructure high certificate chain trust  years
+iot devices very high hardware constraints  years replacement
+industrial control scada very high safety certification  years
+mitigation strategies
+ hybrid cryptography transition layer combining classical and pqc 
+ certificate  signclassicaldata  signpqcdata
+verifiers accept if either signature validates enabling gradual rollout
+ protocol negotiation extend tls  to advertise pqc support falling back to classical for
+legacy clients 
+ gateway solutions deploy pqcenabled reverse proxiesgateways translating between
+classical and quantumsafe backends
+ phased retirement prioritize systems by data sensitivity and replacement feasibility
+o phase   years highvalue targets government finance healthcare
+o phase   years enterprise it and cloud services
+o phase   years consumer devices and iot
+o phase   years industrial and embedded systems
+ certificate authority and pki challenges
+challenge x certificates and ca trust chains assume specific key types and signature
+algorithms pqc introduces
+ certificate size inflation x certificates grow from  kb to  kb
+ chain length constraints some protocols limit certificate chain size eg http headers
+ root ca migration updating globally trusted root certificates requires years of coordination
+ revocation mechanisms ocsp and crl systems must handle larger signatures
+proposed solutions
+ composite certificates  single certificate with multiple signature algorithms
+ cert  publickeyclassical publickeypqc sigclassical sigpqc
+ progressive trust anchors introduce new pqc root cas alongside existing roots during
+transition period  years 
+ certificate compression ietf work on compressed certificate formats reducing overhead by
+ 
+ alternative pki models explore decentralized trust certificate transparency blockchain
+based pki for pqc era 
+ sidechannel and implementation attacks
+challenge even mathematically secure algorithms become vulnerable through implementation
+flaws
+threat categories
+timing attacks 
+ variabletime operations eg modular inversion in falcon leak secret information through
+execution duration
+ countermeasure constanttime implementations all code paths take equal time
+ performance cost  slowdown
+  by the authors distributed under a creative commons cc by license
+preprintsorg wwwpreprintsorg  not peerreviewed  posted  october  doipreprintsv
+ of 
+power analysis 
+ differential power analysis dpa extracts keys from power consumption patterns in embedded
+devices
+ countermeasure masking randomize intermediate values and hiding noise injection
+ performance cost  computational overhead
+fault injection 
+ induce errors during signing voltage glitches electromagnetic pulses to leak private keys
+ countermeasure redundant computation and error detection
+ implementation complexity high requires hardware support
+cache timing 
+ adversaries measure cache access patterns to infer secretdependent memory accesses
+ countermeasure constanttime memory access patterns
+ particularly challenging for lattice algorithms with datadependent lookups
+realworld incident in  researchers demonstrated successful key recovery from an
+unprotected mldsa implementation using power analysis highlighting the gap between
+algorithmic security and implementation security 
+best practices
+ use formally verified cryptographic libraries liboqs boringssl
+ apply automated sidechannel testing tools rosita dudect
+ mandate thirdparty security evaluations common criteria eal
+ deploy hardware security modules hsms with tamperresistant enclaves
+ regular security audits and penetration testing
+ migration governance and cost management
+challenge pqc migration is not just a technical project but an organizational transformation
+requiring
+ executive sponsorship and crossfunctional coordination
+ budget allocation often millions of dollars for large enterprises
+ risk management and compliance frameworks
+ workforce training and skill development
+postquantum migration requires phased planning rather than abrupt replacement figure 
+presents a threeyear ganttstyle roadmap where milestones mm reflect assessment governance
+approval pilot deployment and full migration
+cost estimation model
+table  estimated migration costs by organization size
+organization size total cost range key cost drivers timeline
+small enterprise 
+k  m software updates consulting  years
+employees
+medium enterprise  m  m infrastructure upgrades hsms  years
+large enterprise  m  m legacy system integration training  years
+safety certification device
+critical infrastructure m  b  years
+replacement
+estimates include software licenses hardware upgrades consulting training and labor costs source industry surveys
 
+governance framework
+ steering committee executivelevel oversight with representatives from it security legal
+compliance and business units
+ risk assessment quantify hndl exposure by data classification
+o critical  year confidentiality immediate migration
+  by the authors distributed under a creative commons cc by license
+preprintsorg wwwpreprintsorg  not peerreviewed  posted  october  doipreprintsv
+ of 
+o high  years prioritize within  years
+o moderate  years standard migration timeline
+o low  years opportunistic upgrade
+ vendor management
+o require pqc roadmaps from all cryptographic vendors
+o establish contractual slas for pqc support
+o diversify vendor relationships to avoid lockin
+ compliance mapping
+o map regulatory requirements to pqc timeline hipaa gdpr pcidss fisma
+o engage with regulators for guidance and deadline extensions
+o document migration progress for audit purposes
+ training and awareness
+o develop pqc training curriculum for security teams
+o executive briefings on strategic implications
+o developer training on secure pqc implementation
+ interoperability and standards fragmentation risks
+challenge multiple regional standards and vendorspecific implementations risk creating
+incompatible pqc ecosystems
+fragmentation scenarios
+scenario  algorithm divergence
+ nist standardizes mlkemmldsa
+ china mandates domestic pqc algorithms smpq variant
+ result multinational corporations must support parallel cryptographic stacks
+scenario  parameter misalignment
+ region a requires mlkem aes equivalent security
+ region b accepts mlkem aes equivalent
+ result crossborder communications default to lower security level
+scenario  protocol incompatibility
+ tls  extensions for pqc differ between implementations
+ some vendors support hybrid mode others pqconly
+ result handshake failures and connectivity issues
+mitigation strategies
+ multialgorithm support implement cryptoagility to support nist etsi and regional
+standards simultaneously 
+ standards advocacy participate in ietf iso and regional standardization bodies
+ interoperability testing establish industry test events pqc plugfests similar to ipv
+transition 
+ fallback mechanisms design protocols with graceful degradation to ensure connectivity
+ regulatory engagement work with policymakers to harmonize requirements
+ open research questions
+despite significant progress several critical issues remain unresolved
+ longterm algorithm security will latticebased assumptions withstand decades of
+cryptanalysis sphincs offers conservative fallback but at significant performance cost
+ quantumsafe pki architecture how should certificate authorities evolve should we move
+toward shorterlived certificates decentralized trust models or entirely new paradigms
+ iot and resourceconstrained devices current pqc algorithms strain lowpower
+microcontrollers research into lightweight variants eg ntru prime frodokem continues
 
+  by the authors distributed under a creative commons cc by license
+preprintsorg wwwpreprintsorg  not peerreviewed  posted  october  doipreprintsv
+ of 
+ postquantum blockchain cryptocurrencies rely on ecdsa for signatures and sha for
+proofofwork migration strategies for decentralized systems require community consensus
 
-le
-gacy
-ky
-ber
+ quantum threat timeline refinement better forecasting models would enable more precise
+resource allocation and risk management 
+ sidechannel resistant implementations formal verification of constanttime properties
+remains computationally expensive and incomplete 
+ discussion strategic implications and future directions
+ beyond algorithms quantum readiness as organizational capability
+the technical availability of niststandardized pqc algorithms represents a necessary but
+insufficient condition for quantum readiness our analysis reveals that organizational maturity
+measured through the qrmm frameworkis equally critical three strategic insights emerge
+ cryptoagility is survival capability unlike past cryptographic transitions desaes
+shasha with clear threat timelines the yearstoquantum uncertainty demands
+infrastructures that can pivot rapidly organizations stuck at qrmm level  risk being unable to
+respond to sudden breakthroughs eg roomtemperature superconducting qubits novel error
+correction codes 
+ sectoral heterogeneity requires tailored strategies our sectoral analysis demonstrates that
+onesizefitsall guidance fails financial services prioritize transaction speed and global
+interoperability defense prioritizes longterm confidentiality and layered security healthcare
+struggles with legacy medical devices generic mandates risk either underprotecting critical sectors
+or overburdening resourceconstrained ones 
+ interoperability trumps perfect security the fragmentation risk from divergent regional
+standards nist vs chinas pqcqkd strategy poses a greater practical threat than marginal
+differences in algorithm security levels a globally interoperable mlkem deployment provides
+more realworld security than a fragmented mix of incompatible systems with stronger theoretical
+properties 
+performance and key size tradeoffs vary significantly across nist pqc candidates as shown
+in figure  latticebased algorithms dominate the pareto frontier whereas codebased approaches
+like mceliece impose storage overhead but offer robust security
+  by the authors distributed under a creative commons cc by license
+preprintsorg wwwpreprintsorg  not peerreviewed  posted  october  doipreprintsv
+ of 
+figure  c a p t i o n 
+ the geopolitics of postquantum cryptography
+cryptography has always carried geopolitical weightfrom wwii enigma to cold war export
+controls pqc intensifies these dynamics
+trust and verification nations may distrust algorithms developed by geopolitical competitors
+chinas parallel development of domestic pqc algorithms reflects concerns about potential
+backdoors in niststandardized schemes  this mirrors historical debates around nsas role in
+designing des and dualecdrbg
+technological sovereignty europes dual emphasis on nist alignment and independent etsi
+standards reflects desire for autonomy while maintaining interoperability  small nations face a
+dilemma adopt dominant standards risking dependence or pursue independence risking
+isolation
+quantum computing as strategic asset nations achieving crqc capability first gain
+temporary cryptanalytic advantagea quantum pearl harbor scenario  this drives secrecy
+around quantum computing progress making threat timeline assessments inherently uncertain
+export controls and supply chain pqc implementations may face export restrictions similar
+to current cryptographic controls wassenaar arrangement hardware dependencies hsms
+cryptographic accelerators create supply chain vulnerabilities 
+ economic considerations and market dynamics
+market size global cryptographic security market b in  will see  cagr driven
+by pqc migration reaching b by   key segments
+ cryptographic hardware hsms accelerators b
+ security software and services b
+ consulting and integration b
+  by the authors distributed under a creative commons cc by license
+preprintsorg wwwpreprintsorg  not peerreviewed  posted  october  doipreprintsv
+ of 
+ training and certification b
+vendor positioning major technology companies ibm google microsoft aws are
+positioning pqc as competitive differentiator early movers gain
+ market share in pqcenabled products
+ influence over emerging standards
+ talent acquisition advantages
+ patent portfolios in pqc implementations
+small business challenge smes lack resources for independent pqc migration creating
+dependence on vendor solutions this concentration risk could lead to
+ vendor lockin and reduced competition
+ higher switching costs
+ systemic vulnerabilities if dominant vendor compromised
+ ethical and social dimensions
+digital divide pqc migration costs risk widening the gap between wellresourced
+organizations who can afford proactive migration and underresourced ones who face reactive
+crisisdriven transitions this has equity implications
+ developing nations may lag in pqc adoption
+ small healthcare providers may struggle to protect patient data
+ educational institutions face competing budget priorities
+longterm data privacy the hndl threat model creates intergenerational privacy concerns
+data encrypted today but harvested by adversaries affects future generations this raises questions
+about
+ responsibility to protect data beyond immediate stakeholders
+ liability frameworks for inadequate cryptographic protection
+ rights of individuals whose data is compromised decades later
+open source vs proprietary pqcs critical infrastructure role argues for opensource
+implementations enabling community scrutiny however commercial incentives drive proprietary
+solutions finding balance between transparency and market dynamics remains contentious 
+ future research directions
+ postpqc cryptography while pqc defends against known quantum algorithms shor
+grover future quantum algorithms may threaten current schemes research into cryptographic
+primitives resistant to broader classes of quantum attacks continues 
+ quantumenhanced cryptanalysis nearterm quantum computers  qubits may
+accelerate classical cryptanalysis before achieving full crqc capability hybrid quantumclassical
+attacks require investigation 
+ automated migration tools reducing migration costs requires aiassisted tools for
+ cryptographic asset discovery and inventory
+ automated protocol translation classical  pqc
+ performance optimization and tuning
+ compliance verification and reporting
+ formal verification at scale proving cryptographic implementations secure against side
+channel attacks remains computationally expensive advances in automated theorem proving and
+symbolic execution needed 
+ pqc for emerging technologies
+ blockchain and distributed ledgers consensus mechanisms signature aggregation
+ confidential computing pqc in trusted execution environments tees
+ g and satellite networks ultralowlatency pqc for nextgeneration communications
+ autonomous systems realtime cryptographic decisionmaking in vehicles robots
+ interdisciplinary approaches quantum readiness requires expertise spanning
+  by the authors distributed under a creative commons cc by license
+preprintsorg wwwpreprintsorg  not peerreviewed  posted  october  doipreprintsv
+ of 
+ mathematics cryptography number theory lattice theory
+ computer science implementation formal methods
+ engineering hardware networking
+ law and policy regulation compliance
+ economics costbenefit analysis market dynamics
+ social sciences organizational change risk perception
+academic programs and research centers should foster these interdisciplinary collaborations
 
-dilit
-hi u
-m
-
-ky
-ber
-
-dilit
-hi u
-m
-
-ky
-ber
-falc o
-n
-
-fr o d
-oa
-
-dilit
-hi u
-m
-
-fr o d
-os
-
-dilit
-hi u
-m
-
-ky
-ber
-s
-p
-hi
-ncs
-
-ky
-ber
-s
-p
-hi
-ncs
-
-ike child
- the red bar labelled ike represents the time needed to exchange the asymmetric keys and for the authentication the blue bar labelled
-child represents the time needed to exchange keys
-source bis 
- quantum computing and the financial system opportunities and risks
-a transition plan needs to consider the complexity of legacy systems that often
-embed noncompatible cryptographic algorithms and protocols the implementation
-of new algorithms can be technically complex and may require significant adaptation
-of existing systems including fundamental changes to systems the migration from
-existing encryption algorithms to quantumsafe cryptographic protocols conceived
-to resist qc attacks need to be deployed at a large scale this transition involves
-updating a broad range of infrastructure components including software hardware
-and cryptographic libraries across various systems which requires significant
-coordination within and across organisations in addition every impacted cyber
-security process and risk management framework needs to be adapted to the new
-protocols
-by proactively addressing these challenges well in advance central banks can
-enhance the security of their digital systems and protect sensitive data in a quantum
-enabled world once the preparation and planning phases are completed the
-execution of the transition will follow with the concrete implementation of quantum
-resistant cryptographic schemes to protect systems
- conclusion
-this paper discusses the new opportunities and challenges that qcs represent for the
-financial system this new technology will not replace existing computers and it will
-not be applicable in all areas of computation but in some selected areas it has the
-potential to significantly accelerate calculations we survey possible application areas
-in the financial system including risk management investment and portfolio
-optimisation artificial intelligence payments and settlement and macroeconomic
-modelling naturally most use cases described in the current literature address
-known computational problems that are being solved today using classical
-computers
-we also discuss the potential economic implications of applying qc in the
-financial system we conclude that initial gains are modest partly because qcs are
-still at an early stage of development and experiments are performed with small
-prototypes partly because the advantages of qc over classical computers become
-apparent only in a specific set of computational problems while early experimental
-use cases focus on computational problems successfully addressed today with
-classical computers the biggest gains can be expected in future use cases that are
-unsolvable using classical computers these will be identified gradually and mostly
-when qcs are already available it is possible that we will see only marginal economic
-gains in the early phases but a transformational effect in the longer run
-we go on to discuss the specific impact that quantum technology has on
-cryptography and thereby on the stability of the financial system current
-cryptography is based on mathematical problems that are unsolvable using classical
-computers but that can potentially be solved by future qcs this means that a future
-qc can break the encryption schemes protecting our financial system thereby
-representing a threat to financial stability while the benefits of qc will take time to
-develop the cyber security threat is imminent due to the possibility for malicious
-quantum computing and the financial system opportunities and risks 
-actors to intercept and store data today with the intention to decrypt it in the future
-when qcs become available
-we discuss central banks responsibility in addressing this challenge and the
-steps that need to be taken to mitigate the risk finally we look at how quantum
-technology can have a positive impact on security for example by using quantum key
-distribution a promising technology to distribute secret keys to communicating
-endpoints solving a major challenge in it systems today
- quantum computing and the financial system opportunities and risks
+ the path forward recommendations for stakeholders
+for organizations
+ conduct qrmm assessment and establish baseline maturity
+ develop  year migration roadmap with quarterly milestones
+ allocate  of cybersecurity budget to pqc transition
+ establish executivelevel governance with crossfunctional representation
+ begin hybrid deployments in noncritical systems for learning
+for governments and regulators
+ issue clear pqc mandates with realistic timelines  for critical infrastructure
+ fund public research into pqc optimization and sidechannel resistance
+ support small business migration through grants and tax incentives
+ coordinate internationally to prevent standards fragmentation
+ update procurement requirements to mandate pqc support
+for technology vendors
+ publish transparent pqc roadmaps with feature timelines
+ offer hybrid solutions enabling gradual migration
+ provide migration tooling and consulting services
+ participate in opensource pqc projects liboqs open quantum safe
+ contribute to standards development ietf iso nist
+for researchers
+ focus on lightweight pqc for resourceconstrained devices
+ develop automated sidechannel testing and formal verification tools
+ investigate postpqc and quantumenhanced cryptanalysis
+ study organizational and economic aspects of cryptographic transitions
+ engage with practitioners to ensure research addresses realworld needs
+ conclusions
+quantum computings threat to cryptographic foundations demands a comprehensive response
+extending far beyond algorithm replacement this review has synthesized the current state of post
+quantum cryptography analyzing technical algorithms global standardization efforts sectoral
+adoption challenges and implementation complexities
+our central contributionthe quantum readiness maturity model qrmmprovides
+organizations with a structured framework for assessing preparedness and advancing through
+maturity levels by spanning five dimensions cryptographic infrastructure governance sectoral
+adaptation interoperability strategic agility qrmm transforms quantum readiness from an
+abstract concept into actionable practice
+key findings
+ technical maturity niststandardized algorithms mlkem mldsa fndsa slh
+dsa provide strong quantum resistance with manageable performance overheads latticebased
+schemes offer the best balance for most applications hashbased signatures provide conservative
+fallback options
+  by the authors distributed under a creative commons cc by license
+preprintsorg wwwpreprintsorg  not peerreviewed  posted  october  doipreprintsv
+ of 
+ organizational gap most enterprises remain at qrmm level  awareness and initial
+planning advancing to level  implementation and optimization requires executive
+commitment governance frameworks and sustained investment
+ sectoral heterogeneity finance telecommunications defense and healthcare face distinct
+challenges demanding tailored strategies generic guidance risks underprotection or resource
+misallocation
+ interoperability risk fragmented regional standards nist etsi china threaten global
+connectivity cryptoagilitysupporting multiple algorithms and standardsemerges as critical
+capability
+ strategic imperative quantum readiness is not a project with defined endpoint but an
+ongoing organizational capability the yearstoquantum uncertainty and hndl threat model
+demand proactive action despite timeline ambiguity
+the path forward
+achieving quantum readiness requires treating cryptographic transformation as a strategic
+enterprise capability rather than a tactical it upgrade organizations must
+ embed cryptoagility into architectural principles
+ establish governance frameworks balancing security and operational requirements
+ invest in workforce development and organizational learning
+ participate in standards development and industry collaboration
+ maintain continuous monitoring and adaptive planning
+the transition to postquantum cryptography represents one of the most significant
+cryptographic migrations in historycomparable to the shift from symmetric to publickey
+cryptography in the s success demands technical innovation organizational maturity
+international cooperation and sustained commitment across government industry and academia
+as quantum computing capabilities advance the window for proactive migration narrows
+organizations that treat quantum readiness as strategic imperative today will be positioned as secure
+resilient leaders tomorrow those that delay face reactive costly and potentially incomplete
+transitions under crisis conditions
+the postquantum era is not a distant futureit is the present the question is no longer whether
+to prepare but how rapidly and comprehensively to act
+author contributions all sections volkan erol
+funding this research received no external funding
+data availability statement performance benchmarks presented in table  are compiled from publicly
+available sources  qrmm assessment data is based on industry surveys conducted by gartner 
+and idc  no new experimental data was generated for this review
+acknowledgments the authors thank the nist pqc team for their standardization leadership the open
+quantum safe project for reference implementations and turkish economy bank  teb for valuable discussions
+on quantum readiness strategies
+conflict of interest the authors declare that there is no conflict of interest regarding the publication of this
+paper
+appendix a qrmm assessment rubrics condensed
+dimension  cryptographic infrastructure
+level   initial no systematic cryptographic inventory adhoc algorithm use no awareness of
+pqc
+level   developing partial inventory of critical systems beginning pqc lab testing awareness
+of nist standards
+  by the authors distributed under a creative commons cc by license
+preprintsorg wwwpreprintsorg  not peerreviewed  posted  october  doipreprintsv
+ of 
+level   defined comprehensive cryptographic asset management hybrid pilots in staging
+pqc roadmap approved
+level   managed production hybrid deployments automated certificate lifecycle
+management performance monitoring
+level   adaptive multialgorithm resilience realtime algorithm switching contribution to
+opensource pqc projects
+dimension  governance and risk management
+level  no executive awareness reactive security posture no quantum threat assessment
+level  executive briefings conducted initial risk assessment pqc migration in strategic plan
+level  dedicated governance committee budget allocation  cybersecurity compliance
+mapping
+level  integrated risk management quarterly progress reviews vendor management
+frameworks
+level  quantum readiness as boardlevel kpi dynamic resource allocation industry
+leadership role
+dimension  sectoral adaptation
+level  generic security approach no sectorspecific considerations unaware of unique
+constraints
+level  understanding of sectoral threat model initial performance benchmarking vendor
+engagement
+level  customized pqc strategy for sector partnerships with industry groups regulatory
+alignment
+level  optimized for sector constraints latency compliance legacy case studies and best
+practices
+level  sector leadership in pqc adoption standards contribution innovation in sectoral
+applications
+dimension  interoperability and standards compliance
+level  singlestandard assumption no awareness of regional variations compatibility
+untested
+level  awareness of nistetsi differences planning for multistandard support protocol
+compatibility testing
+level  support for multiple standards crossborder data flow planning ietf protocol
+implementation
+level  seamless multiregion operations automated standards compliance interoperability
+certifications
+level  multialgorithm agility contribution to standards harmonization global deployment
+excellence
+dimension  strategic agility
+level  hardcoded algorithms manual configuration changes months to replace cryptographic
+primitives
+level  modular cryptographic libraries understanding of cryptoagility principles weeks to
+update
+level  policydriven algorithm selection automated updates for noncritical systems days to
+pivot
+level  dynamic protocol negotiation canary deployments hours to respond to threats
+level  realtime algorithm switching threat intelligence integration continuous adaptation
+without downtime
+appendix b glossary of key terms
+cryptoagility the organizational and technical capability to replace cryptographic algorithms
+protocols and parameters with minimal disruption and cost
+  by the authors distributed under a creative commons cc by license
+preprintsorg wwwpreprintsorg  not peerreviewed  posted  october  doipreprintsv
+ of 
+cryptographically relevant quantum computer crqc a quantum computer with
+sufficient qubits error correction and coherence time to break widely deployed publickey
+cryptographic systems eg rsa ecc
+harvestnowdecryptlater hndl attack model where adversaries capture encrypted data
+today and store it for future decryption once quantum computers become available
+hybrid cryptography combining classical and postquantum cryptographic primitives to
+hedge against uncertainties in either approach security holds if either component remains unbroken
+latticebased cryptography pqc family based on the hardness of finding short vectors in high
+dimensional lattices eg learning with errors problem includes mlkem mldsa fndsa
+postquantum cryptography pqc cryptographic algorithms believed to be secure against
+attacks by both classical and quantum computers includes latticebased codebased hashbased
+and multivariate schemes
+quantum readiness holistic organizational preparedness for the quantum computing era
+encompassing technical migration governance frameworks sectoral adaptation and strategic agility
+quantum readiness maturity model qrmm fivelevel framework for assessing and
+advancing organizational preparedness across cryptographic infrastructure governance sectoral
+adaptation interoperability and strategic agility dimensions
+shors algorithm polynomialtime quantum algorithm for integer factorization and discrete
+logarithms threatening rsa diffiehellman and elliptic curve cryptography
+yearstoquantum estimated time until crqcs capable of breaking current cryptographic
+systems become available current estimates range from  years with high uncertainty
 references
-aaronson s  read the fine print nature physics vol  no  pp 
-aboussalah a m c chi and cg lee  quantum computing reduces systemic
-risk in financial networks scientific reports vol  no 
-aditya j and p shankar rao  quantum cryptography mimeo stanford
-university
-arute f et al  quantum supremacy using a programmable superconducting
-processor nature vol  pp 
-atom computing  quantum startup atom computing first to exceed 
-qubits press release  october
-bank for international settlements bis  project leap quantumproofing the
-financial system june
-biamonte j p wittek n pancotti p robentrost n wiebe and s lloyd 
-quantum machine learning nature vol  pp 
-bova f a goldfarb and r melko  quantum computing is coming what can it
-do harvard business review july
-  quantum economic advantage nber working papers no 
-bsi anssi nlncsa and swedish armed forces  position paper on quantum
-key distribution
-butler a and a herman  prosperity at risk the quantum computer threat to the
-us financial system hudson institute april
-cairncross f  the death of distance rsa journal vol  no  pp 
-castelvecchi d  the aiquantum computing mashup will it revolutionize
-science nature january
-cerezo m g verdon hy huang l cincio and p coles  challenges and
-opportunities in quantum machine learning nature computational science vol 
-no  pp 
-choi s w moses and n thompson  the quantum tortoise and the classical
-hare a simple framework for understanding which problems quantum computing will
-accelerate and which it will not arxiv
-chuang i n gershenfeld and m kubinec  experimental implementation of fast
-quantum searching physical review letters vol  no  p 
-david p  the dynamo and the computer an historical perspective on the
-modern productivity paradox american economic review vol  no  pp 
-deodoro j m gorbanyov m malaika and t s sedik  quantum computing and
-the financial system spooky action at a distance imf working papers no 
-march
-quantum computing and the financial system opportunities and risks 
-devine w  from shafts to wires historical perspective on electrification
-journal of economic history vol  no  pp 
-doerr s l gambacorta t leach b legros and d whyte  cyber risk in central
-banking bis working papers no  september
-doriguello j a luongo j bao p rebentrost and m santha  quantum
-algorithm for stochastic optimal stopping problems with applications in finance
-arxivv
-dunjko v and h briegel  machine learning  artificial intelligence in the
-quantum domain a review of recent progress reports on progress in physics vol 
-no  
-dyakonov m  the case against quantum computing ieee spectrum accessed
-july 
-egger d c gambella j marecek s mcfaddin m mevissen r raymon a simonetto s
-woerner and e yndurain  quantum computing for finance stateoftheart
-and future prospects ieee transactions on quantum engineering vol  no 
-fernndezvillaverde j and i hull  dynamic programming on a quantum
-annealer solving the rbc model cesifo working paper no  june
-feynman r  simulating physics with computers international journal of
-theoretical physics vol  no  pp 
-ghysels e j morgan and h mohammadbaguerpoor  quantum computational
-algorithms for derivative pricing and credit risk in a regime switching economy
-arxiv
-grover l  a fast mechanical algorithm for database search in stoc
-proceedings of the twentyeighth annual acm symposium on the theory of computing
+ shor p w algorithms for quantum computation discrete logarithms and factoring proceedings th
+annual symposium on foundations of computer science ieee  pp 
+ gidney c eker m how to factor  bit rsa integers in  hours using  million noisy qubits
+quantum vol   p 
+ national academies of sciences engineering and medicine quantum computing progress and prospects
+national academies press 
+ mosca m mulholland j a methodology for quantum risk assessment global risk institute 
+ grover l k a fast quantum mechanical algorithm for database search proceedings th annual acm
+symposium on theory of computing  pp 
+ national institute of standards and technology postquantum cryptography standardization
+httpscsrcnistgovprojectspostquantumcryptography accessed january 
+ regev o on lattices learning with errors random linear codes and cryptography journal of the acm
+vol  no   pp 
+ merkle r c a certified digital signature advances in cryptology  crypto  springer  pp 
+
+ european telecommunications standards institute quantum safe cryptography and security etsi
+white paper no  
+ bindel n hlsing a challenges in postquantum cryptography standardization it professional vol
+ no   pp 
+ crockett e paquin c stebila d prototyping postquantum and hybrid key exchange and
+authentication in tls and ssh nist nd pqc standardization conference 
+ peikert c a decade of lattice cryptography foundations and trends in theoretical computer science vol
+ no   pp 
+ bernstein d j lange t postquantum cryptography nature vol   pp 
+ mosca m cybersecurity in an era with quantum computers will we be ready ieee security  privacy
+vol  no   pp 
+ chen l et al report on postquantum cryptography nist interagency report  
+ preskill j quantum computing in the nisq era and beyond quantum vol   p 
+  by the authors distributed under a creative commons cc by license
+preprintsorg wwwpreprintsorg  not peerreviewed  posted  october  doipreprintsv
+ of 
+ banegas g bernstein d j lowcommunication parallel quantum multitarget preimage search selected
+areas in cryptography springer  pp 
+ national security agency quantum computing and postquantum cryptography faq updated august
+
+ campagna m et al quantum safe cryptography and security an introduction benefits enablers and
+challengers etsi white paper no  
+ uk national cyber security centre preparing for quantumsafe cryptography november 
+ chow j et al ibm quantum roadmap to build quantumcentric supercomputers ibm research blog
+
+ european union agency for cybersecurity enisa postquantum cryptography current state and
+quantum mitigation 
+ national institute of standards and technology fips  modulelatticebased keyencapsulation
+mechanism standard august 
+ alagic g et al status report on the third round of the nist postquantum cryptography standardization
+process nistir  
+ alkim e ducas l pppelmann t schwabe p postquantum key exchangea new hope usenix
+security symposium  pp 
+ lyubashevsky v et al crystalsdilithium a latticebased digital signature scheme iacr
+transactions on cryptographic hardware and embedded systems  pp 
+ avanzi r et al crystalskyber algorithm specifications and supporting documentation nist pqc
+submission 
+ ducas l et al crystalsdilithium algorithm specifications and supporting documentation nist
+pqc submission 
+ fouque pa et al falcon fastfourier latticebased compact signatures over ntru nist pqc
+submission 
+ hlsing a et al sphincs submission to the nist postquantum project nist pqc submission
+
+ bernstein d j et al classic mceliece conservative codebased cryptography nist pqc submission
+
+ kannwischer m j et al pqm postquantum crypto library for the arm cortexm workshop on
+attacks and solutions in hardware security  pp 
+ westerbaan b stebila d xkyberdraft hybrid postquantum key agreement internetdraft
+ietf 
+ paquin c et al performance benchmarking of postquantum cryptography in tls nist th pqc
+standardization conference 
+ ravi p roy s s chattopadhyay a bhasin s generic sidechannel attacks on ccasecure latticebased
+pke and kems iacr transactions on cryptographic hardware and embedded systems  pp 
+ pessl p et al hectorv sidechannel analysis of latticebased postquantum cryptographic schemes
+selected areas in cryptography 
+ hamburg m postquantum cryptography implementation vulnerabilities and lessons learned real
+world crypto symposium 
+ oder t et al implementing the newhopesimple key exchange on lowcost fpgas progress in
+cryptology  latincrypt  pp 
+ genkin d shamir a tromer e rsa key extraction via lowbandwidth acoustic cryptanalysis
+advances in cryptology  crypto  pp 
+ gueron s krasnov v fast prime field ellipticcurve cryptography with bit primes journal of
+cryptographic engineering vol  no   pp 
+ moody d the ship has sailed the nist postquantum cryptography competition asiacrypt invited
+talk 
+ beullens w breaking rainbow takes a weekend on a laptop advances in cryptology  crypto 
 pp 
-hull i o sattath e diamanti and g wendin  quantum technology for
-economists arxiv
-hulten c  growth accounting with intermediate inputs review of economic
-studies vol  no  pp 
-ibm  ibm quantum development  innovation roadmap
-jones j  m mosca r hansen  implementation of a quantum search algorithm
-on a nuclear magnetic resonance quantum computer nature vol  pp 
-kalai g y rinott and t shoham  googles  quantum supremacy claims
-data documentation and discussion arxiv
-li y  deep reinforcement learning an overview arxiv
-lockwood o and m si  reinforcement learning with quantum variational
-circuit in sixteenth aaai conference on artificial intelligence and interactive digital
-entertainment vol  no  pp 
- quantum computing and the financial system opportunities and risks
-mnard a i ostojic m patel and d volz  a game plan for quantum
-computing mckinsey quarterly february
-mcmahon c d mcgillivray a desai f rivadeneyra jp lam t lo d marsden and
-v skavysh  improving the efficiency of payments systems using quantum
-computing bank of canada staff working papers no  december
-montanaro a  quantum algorithms an overview npj quantum information
-vol  no 
-mosca m and m piani  quantum threat timeline report  global risk
-institute and evolutionq inc
-nec  successful demonstration of a superconducting circuit for qubit control
-within largescale quantum computer systems press release  june
-nielsen m and i chuang  quantum computation and quantum information
-cambridge university press
-orus r s mugel and e lizaro  forecasting financial crashes with quantum
-computing arxiv
-pistoia m et al  quantum machine learning for finance iccad special session
-paper in  conference proceedings international conference on computeraided
-design iccad november
-rao k r d mahto d k yadav and d a khan  the aes cryptosystem resists
-quantum attacks international journal of advanced research in computer science
-vol  no  pp 
-rebentrost p and s lloyd  quantum computational finance quantum
-algorithm for portfolio optimization arxiv
-saggio v b e asenbeck a hamann t strmberg p schiansky v dunjko n friis n c
-harris m hochberg d englund s wlk h j briegel and p walther 
-experimental quantum speedup in reinforcement learning agents nature vol 
+  by the authors distributed under a creative commons cc by license
+preprintsorg wwwpreprintsorg  not peerreviewed  posted  october  doipreprintsv
+ of 
+ castryck w decru t an efficient key recovery attack on sidh preliminary version iacr eprint
+archive  
+ bindel n et al transitioning to a quantumresistant public key infrastructure postquantum
+cryptography springer  pp 
+ langley a cecpq cloudflare blog december 
+ stebila d mosca m postquantum key exchange for the internet and the open quantum safe project
+selected areas in cryptography  pp 
+ european telecommunications standards institute migration strategies and recommendations to
+quantum safe schemes etsi gr qsc  
+ european union agency for cybersecurity postquantum cryptography integration study enisa
+report 
+ european commission strategic research agenda for quantum technologies quantum flagship 
+ pan jw et al satellitebased entanglement distribution over  kilometers science vol  no 
+ pp 
+ quantum secure networks group quantum communications for all npg asia materials 
+ chen l jordan s liu yk report on postquantum cryptography in china nistir special
+publication 
+ national institute of information and communications technology japan research and development
+roadmap for quantum cryptography 
+ korea internet  security agency postquantum cryptography migration guidelines 
+ cyber security agency of singapore quantumsafe cryptography strategy 
+ bank for international settlements quantum computing and financial stability bis working paper 
+ basso a et al supersingular curves you can trust iacr eprint archive  
+ schwabe p stebila d wiggers t postquantum tls without handshake signatures acm ccs 
 pp 
-sanzfernndez c r hernndez c marciniak i pogorelov t monz f benfenati and
-r ors  quantum portfolio value forecasting arxiv
-shor p  algorithms for quantum computation discrete logarithms and
-factoring in proceedings of the th annual symposium on foundations of computer
-science pp 
-stamatopoulos n g mazzola s woerner and w zeng  towards quantum
-advantage in financial market risk using quantum gradient algorithms quantum
-vol  p 
-tiberi p and e bucciol  quantum safe payment systems bank of italy
-markets infrastructures payment systems working paper no  june
-van meter r k itoh and t ladd  architecturedependent execution time of
-shors algorithm controllable quantum states mesoscopic superconductivity and
-spintronics ms s pp 
-quantum computing and the financial system opportunities and risks 
-vandersypen l m steffen g breyta c yannoni m sherwood and i chuang 
-experimental realisation of shors quantum factoring algorithm using nuclear
-magnetic resonance nature vol  pp 
-wiebe n a kapoor and k svore  quantum deep learning arxiv
-yogendran b charlton d beddig m kolotouros i wallden p  big data
-applications on small quantum computers arxiv
-zhang y y huang j sun d lv and x yuan  quantum computing quantum
-monte carlo arxiv
- quantum computing and the financial system opportunities and risks
-previous volumes in this series
-no title issue date
-bis papers no  keeping the momentum how finance can september 
-continue to support growth in emes
-bis papers no  embracing diversity advancing together  june 
-results of the  bis survey on central bank
-digital currencies and crypto
-bis papers no  central bank capital and trust in money june 
-lessons from history for the digital age
-bis papers no  generative artificial intelligence and cyber may 
-security in central banking
-bis papers no  the economic implications of services in the february 
-metaverse
-bis papers no  central banking in the americas lessons november 
-from two decades
-bis papers no  inflation and labour markets november 
-bis papers no  will the real stablecoin please stand up october 
-bis papers no  central banks macrofinancial stability and october 
-the future of the financial system
-bis papers no  digital safety nets a roadmap september 
-bis papers no  financial stability risks from cryptoassets in august 
-emerging market economies
-bis papers no  building an integrated surveillance framework july 
-for highly leveraged nbfis  lessons from the
-hkma
-bis papers no  making headway  results of the  bis july 
-survey on central bank digital currencies and
-crypto
-bis papers no  the energy transition and its macroeconomic may 
-effects
-bis papers no  global tightening banking stress and market april 
-resilience in emes
-bis papers no  the tworegime view of inflation march 
-bis papers no  information governance in sustainable december 
-finance
-bis papers no  central banking after the pandemic december 
-challenges ahead
-bis papers no  pricing of climate risks in financial markets a december 
-summary of the literature
-all volumes are available on the bis website wwwbisorg
+ dowling b et al a cryptographic analysis of the tls  handshake protocol journal of cryptology vol
+  article 
+ financial services information sharing and analysis center quantum computing threat assessment for
+banking fsisac white paper 
+ rd generation partnership project study on security aspects of g gpp tr  
+ us national security agency announcing the commercial national security algorithm suite 
+cybersecurity advisory 
+ healthcare information and management systems society postquantum cryptography readiness in
+healthcare himss report 
+ sikeridis d et al postquantum authentication in tls  a performance study ndss 
+ kampanakis p panburana p postquantum cryptography performance on embedded devices ieee
+consumer communications  networking conference 
+ ounsworth m pala m composite keys and signatures for use in internet pki internetdraft ietf
+
+ intel corporation intel quickassist technology for postquantum cryptography technical white paper
+
+ bindel n et al hybrid key encapsulation mechanisms and authenticated key exchange postquantum
+cryptography springer  pp 
+ stebila d et al hybrid postquantum key encapsulation methods pq kem for transport layer security
+ tls internetdraft ietf 
+ ounsworth m et al composite signatures for use in internet pki internetdraft ietf 
+ hoffman p schlyter j the dnsbased authentication of named entities dane transport layer
+security tls protocol tlsa rfc  
+ ghedini a vasiliev v tls certificate compression rfc  
+ laurie b langley a kasper e certificate transparency rfc  
+  by the authors distributed under a creative commons cc by license
+preprintsorg wwwpreprintsorg  not peerreviewed  posted  october  doipreprintsv
+ of 
+ kocher p et al spectre attacks exploiting speculative execution ieee symposium on security and
+privacy  pp 
+ kocher p jaffe j jun b differential power analysis advances in cryptology  crypto  springer
+ pp 
+ boneh d demillo r a lipton r j on the importance of checking cryptographic protocols for faults
+advances in cryptology  eurocrypt  springer  pp 
+ yarom y falkner k flushreload a high resolution low noise l cache sidechannel attack
+usenix security symposium  pp 
+ ravi p et al sidechannel assisted existential forgery attack on dilithium iacr transactions on
+cryptographic hardware and embedded systems  pp 
+ gartner research market guide for quantumsafe cryptography research report g 
+ idc technology spotlight the economic impact of postquantum cryptography migration sponsored
+by ibm 
+ hoffman p cryptographic algorithm agility and selecting mandatorytoimplement algorithms bcp
+ rfc  
+ open quantum safe project liboqs c library for quantumresistant cryptographic algorithms
+httpsopenquantumsafeorg 
+ hlsing a et al frodokem learning with errors key encapsulation nist pqc round  submission
+
+ fernndezcarams t m fragalamas p towards postquantum blockchain a review on blockchain
+cryptography resistant to quantum computing attacks ieee access vol   pp 
+ mosca m piani m quantum threat timeline report  global risk institute 
+ protzenko j et al evercrypt a fast verified crossplatform cryptographic provider ieee symposium
+on security and privacy  pp 
+ campbell e t terhal b m vuillot c roads towards faulttolerant universal quantum computation
+nature vol   pp 
+ international telecommunication union quantum key distribution networks security handbook itu
+t recommendation x 
+ orcutt m the networking technology that could bring quantum computing to more people mit
+technology review 
+ xu f et al secure quantum key distribution with realistic devices reviews of modern physics vol 
+ 
+ european union cybersecurity strategy for the digital decade european commission communication
+com  
+ krelina m quantum technology for military applications epj quantum technology vol   article
+
+ wassenaar arrangement list of dualuse goods and technologies and munitions list  edition
+december 
+ markets and markets quantum cryptography market global forecast to  market research report
+tc  
+ bernstein d j et al postquantum cryptography standardization should prioritize opensource
+implementations communications of the acm vol  no   pp 
+ aaronson s gottesman d improved simulation of stabilizer circuits physical review a vol  
+
+ babbush r et al focus beyond quadratic speedups for errorcorrected quantum advantage prx
+quantum vol   
+ barthe g et al formal verification of sidechannel countermeasures using selfcomposition science of
+computer programming vol  no   pp 
+ national science foundation convergent research to secure the quantum future nsf program
+solicitation  
+  by the authors distributed under a creative commons cc by license
+preprintsorg wwwpreprintsorg  not peerreviewed  posted  october  doipreprintsv
+ of 
+disclaimerpublishers note the statements opinions and data contained in all publications are solely those
+of the individual authors and contributors and not of mdpi andor the editors mdpi andor the editors
+disclaim responsibility for any injury to people or property resulting from any ideas methods instructions or
+products referred to in the content
+  by the authors distributed under a creative commons cc by license

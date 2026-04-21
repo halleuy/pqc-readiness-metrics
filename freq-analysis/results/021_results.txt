@@ -1,8 +1,8 @@
 Framework: 021.txt
-Total Words: 5369
+Total Words: 11156
 ========================================
-crypto_assets: 0
-crypto_agility: 1
-migration_planning: 37
-risk_management: 22
-standards_compliance: 4
+crypto_assets: 17
+crypto_agility: 5
+migration_planning: 14
+risk_management: 23
+standards_compliance: 10

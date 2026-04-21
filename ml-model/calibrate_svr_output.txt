@@ -1,0 +1,229 @@
+======================================================================
+  PQC READINESS — SVR/RF CALIBRATION PIPELINE
+======================================================================
+
+  Loading data...
+    Loaded 30 expert scores: ['001', '002', '003', '004', '005', '006', '007', '008', '009', '010', '011', '012', '013', '014', '015', '016', '017', '018', '019', '020', '021', '022', '023', '024', '025', '026', '027', '028', '029', '030']
+    Loaded 29 detailed feature sets: ['001', '002', '003', '004', '005', '006', '008', '009', '010', '011', '012', '013', '014', '015', '016', '017', '018', '019', '020', '021', '022', '023', '024', '025', '026', '027', '028', '029', '030']
+    Overlap: 29 — IDs: ['001', '002', '003', '004', '005', '006', '008', '009', '010', '011', '012', '013', '014', '015', '016', '017', '018', '019', '020', '021', '022', '023', '024', '025', '026', '027', '028', '029', '030']
+
+  🔍 Starting feature selection (this may take a few minutes)...
+
+======================================================================
+  PHASE 2A — FORWARD FEATURE SELECTION  (LOO SVR, n=29)
+======================================================================
+
+  crypto_assets:
+    Step 1: +top_k_mean       → MAE=0.849
+    Step 2: +depth            → MAE=0.807
+    Step 3: +coverage_log     → MAE=0.775
+    Step 4: No improvement — stopping
+    ✓ Selected: ['top_k_mean', 'depth', 'coverage_log'] (MAE=0.775)
+
+  crypto_agility:
+    Step 1: +kw_ratio         → MAE=1.030
+    Step 2: +concentration    → MAE=0.882
+    Step 3: +coverage_log     → MAE=0.864
+    Step 4: No improvement — stopping
+    ✓ Selected: ['kw_ratio', 'concentration', 'coverage_log'] (MAE=0.864)
+
+  migration_planning:
+    Step 1: +top_k_mean       → MAE=0.979
+    Step 2: No improvement — stopping
+    ✓ Selected: ['top_k_mean'] (MAE=0.979)
+
+  risk_management:
+    Step 1: +top_k_mean       → MAE=0.759
+    Step 2: +kw_ratio         → MAE=0.687
+    Step 3: +kw_specific      → MAE=0.677
+    Step 4: No improvement — stopping
+    ✓ Selected: ['top_k_mean', 'kw_ratio', 'kw_specific'] (MAE=0.677)
+
+  standards_compliance:
+    Step 1: +kw_specific      → MAE=0.873
+    Step 2: +differential     → MAE=0.801
+    Step 3: +top_k_mean       → MAE=0.767
+    Step 4: No improvement — stopping
+    ✓ Selected: ['kw_specific', 'differential', 'top_k_mean'] (MAE=0.767)
+
+======================================================================
+  PHASE 2B — SVR (RBF)  (LOO, n=29)
+  Grid: C=[0.1, 0.5, 1.0, 5.0, 10.0], ε=[0.1, 0.3, 0.5, 0.8], γ=['scale', 'auto']
+======================================================================
+
+  crypto_assets (features: ['top_k_mean', 'depth', 'coverage_log']):
+    Best params: C=0.5, ε=0.1, γ=scale
+    MAE: 0.747  Exact: 52%  ρ: 0.738 (p=0.0000 ***)  κ: 0.656
+    Preds:   [1.1, 3.3, 2.1, 1.1, 1.1, 1.4, 3.6, 3.0, 2.8, 1.7, 3.1, 2.1, 3.0, 2.0, 3.8, 3.7, 1.6, 3.5, 2.8, 1.6, 2.6, 2.8, 2.8, 2.2, 3.5, 1.4, 3.4, 2.1, 4.1]
+    Actuals: [1, 3, 2, 1, 2, 1, 5, 3, 3, 5, 3, 2, 3, 0, 5, 5, 3, 3, 0, 1, 2, 3, 3, 2, 5, 0, 4, 2, 4]
+
+  crypto_agility (features: ['kw_ratio', 'concentration', 'coverage_log']):
+    Best params: C=1.0, ε=0.3, γ=scale
+    MAE: 0.846  Exact: 38%  ρ: 0.674 (p=0.0001 ***)  κ: 0.483
+    Preds:   [2.2, 3.2, 2.3, 2.4, 2.1, 1.7, 2.6, 2.3, 3.8, 1.9, 3.5, 1.6, 1.1, 2.7, 4.1, 3.4, 2.0, 3.2, 1.6, 2.1, 3.1, 2.7, 3.0, 3.7, 2.9, 2.9, 3.6, 3.1, 3.5]
+    Actuals: [4, 2, 3, 2, 3, 2, 2, 2, 3, 1, 3, 1, 2, 1, 4, 5, 1, 5, 0, 2, 3, 4, 4, 4, 3, 1, 4, 3, 5]
+
+  migration_planning (features: ['top_k_mean']):
+    Best params: C=1.0, ε=0.5, γ=scale
+    MAE: 0.979  Exact: 28%  ρ: 0.409 (p=0.0275 **)  κ: 0.203
+    Preds:   [2.6, 3.8, 2.6, 2.6, 2.5, 2.3, 4.0, 3.3, 2.5, 2.5, 3.0, 3.4, 2.5, 2.7, 3.7, 3.4, 2.4, 3.5, 2.9, 2.8, 2.8, 2.8, 3.4, 2.6, 2.9, 2.5, 3.4, 2.4, 3.4]
+    Actuals: [3, 3, 5, 4, 2, 2, 4, 2, 3, 1, 3, 2, 2, 2, 4, 5, 3, 3, 0, 2, 3, 4, 4, 2, 5, 1, 5, 3, 5]
+
+  risk_management (features: ['top_k_mean', 'kw_ratio', 'kw_specific']):
+    Best params: C=5.0, ε=0.1, γ=scale
+    MAE: 0.621  Exact: 55%  ρ: 0.576 (p=0.0011 ***)  κ: 0.638
+    Preds:   [2.1, 4.0, 2.0, 1.9, 3.0, 2.2, 2.5, 4.9, 3.2, 2.1, 3.4, 2.4, 2.1, 2.2, 4.5, 5.0, 2.1, 3.4, 2.8, 4.0, 2.5, 4.6, 3.7, 2.9, 3.4, 2.9, 3.7, 2.6, 1.8]
+    Actuals: [2, 4, 4, 3, 2, 2, 4, 5, 3, 2, 3, 2, 2, 1, 5, 5, 2, 4, 1, 2, 3, 4, 4, 2, 4, 3, 4, 3, 3]
+
+  standards_compliance (features: ['kw_specific', 'differential', 'top_k_mean']):
+    Best params: C=1.0, ε=0.1, γ=scale
+    MAE: 0.712  Exact: 52%  ρ: 0.576 (p=0.0011 ***)  κ: 0.470
+    Preds:   [4.1, 3.7, 4.5, 4.7, 4.0, 3.6, 4.0, 2.9, 3.7, 3.7, 2.9, 3.5, 3.8, 2.6, 3.3, 3.3, 3.5, 4.1, 2.2, 2.9, 3.8, 3.8, 3.2, 4.4, 2.9, 2.1, 3.5, 3.2, 3.7]
+    Actuals: [5, 4, 5, 5, 4, 3, 4, 3, 3, 3, 3, 3, 4, 1, 3, 5, 3, 5, 0, 3, 4, 2, 3, 4, 5, 2, 5, 4, 5]
+
+  ── Overall Phase 2B (SVR) ──
+  MAE: 0.781  ✅  (target < 1.0)
+
+======================================================================
+  PHASE 2C — ELASTICNET  (LOO, n=29, all 9 features)
+======================================================================
+
+  crypto_assets:
+    Best params: α=0.1, l1_ratio=0.9
+    MAE: 0.848  Exact: 41%  ρ: 0.704 (p=0.0000 ***)  κ: 0.607
+    Preds:   [2.0, 5.0, 2.5, 1.5, 2.1, 2.3, 3.7, 2.7, 2.8, 1.5, 3.5, 3.0, 3.5, 0.6, 3.7, 4.0, 0.5, 3.2, 0.9, 1.8, 2.3, 2.6, 2.9, 2.8, 4.1, 1.0, 3.7, 1.8, 4.4]
+    Actuals: [1, 3, 2, 1, 2, 1, 5, 3, 3, 5, 3, 2, 3, 0, 5, 5, 3, 3, 0, 1, 2, 3, 3, 2, 5, 0, 4, 2, 4]
+    Active features:  ['top_k_mean(+0.994)', 'concentration(+0.127)', 'differential(-0.011)', 'kw_general(+0.192)', 'kw_ratio(+0.143)']
+    Zeroed features:  ['max_sim', 'coverage_log', 'depth', 'kw_specific']
+
+  crypto_agility:
+    Best params: α=0.5, l1_ratio=0.1
+    MAE: 0.969  Exact: 24%  ρ: 0.570 (p=0.0013 ***)  κ: 0.471
+    Preds:   [2.4, 3.6, 1.4, 2.5, 1.8, 2.9, 3.1, 2.2, 3.5, 2.1, 2.8, 1.9, 1.2, 2.6, 3.9, 3.5, 2.2, 3.9, 1.6, 2.2, 4.3, 3.1, 2.8, 4.1, 1.9, 2.2, 3.0, 3.2, 3.4]
+    Actuals: [4, 2, 3, 2, 3, 2, 2, 2, 3, 1, 3, 1, 2, 1, 4, 5, 1, 5, 0, 2, 3, 4, 4, 4, 3, 1, 4, 3, 5]
+    Active features:  ['max_sim(+0.179)', 'top_k_mean(+0.133)', 'coverage_log(+0.058)', 'concentration(-0.041)', 'kw_specific(+0.273)', 'kw_general(+0.178)', 'kw_ratio(+0.251)']
+    Zeroed features:  ['depth', 'differential']
+
+  migration_planning:
+    Best params: α=0.5, l1_ratio=0.3
+    MAE: 1.011  Exact: 28%  ρ: 0.324 (p=0.0867 *)  κ: 0.197
+    Preds:   [2.3, 3.4, 2.2, 2.7, 2.3, 2.9, 3.4, 3.2, 2.9, 3.1, 3.0, 3.3, 3.8, 2.9, 3.8, 3.8, 2.1, 3.4, 2.9, 2.4, 2.9, 3.0, 3.0, 2.6, 4.1, 2.5, 3.3, 2.3, 3.8]
+    Actuals: [3, 3, 5, 4, 2, 2, 4, 2, 3, 1, 3, 2, 2, 2, 4, 5, 3, 3, 0, 2, 3, 4, 4, 2, 5, 1, 5, 3, 5]
+    Active features:  ['top_k_mean(+0.166)', 'depth(+0.047)', 'differential(+0.289)', 'kw_general(+0.192)', 'kw_ratio(-0.114)']
+    Zeroed features:  ['max_sim', 'coverage_log', 'concentration', 'kw_specific']
+
+  risk_management:
+    Best params: α=0.01, l1_ratio=0.1
+    MAE: 0.775  Exact: 52%  ρ: 0.464 (p=0.0113 **)  κ: 0.449
+    Preds:   [2.4, 3.8, 0.7, 2.5, 1.8, 2.7, 2.5, 3.5, 3.2, 2.9, 3.6, 1.7, 3.7, 0.9, 4.8, 4.1, 2.0, 3.8, 4.0, 2.9, 2.5, 4.3, 3.6, 2.7, 3.9, 5.0, 3.9, 2.0, 2.7]
+    Actuals: [2, 4, 4, 3, 2, 2, 4, 5, 3, 2, 3, 2, 2, 1, 5, 5, 2, 4, 1, 2, 3, 4, 4, 2, 4, 3, 4, 3, 3]
+    Active features:  ['max_sim(-0.187)', 'top_k_mean(+0.288)', 'coverage_log(+0.377)', 'depth(+0.509)', 'concentration(-0.027)', 'differential(+0.488)', 'kw_specific(+0.346)', 'kw_general(-0.574)', 'kw_ratio(-0.137)']
+
+  standards_compliance:
+    Best params: α=0.5, l1_ratio=0.1
+    MAE: 0.788  Exact: 59%  ρ: 0.587 (p=0.0008 ***)  κ: 0.317
+    Preds:   [4.3, 3.6, 4.9, 5.0, 4.2, 3.4, 3.9, 3.2, 3.8, 3.8, 3.4, 3.3, 4.1, 3.1, 3.2, 3.5, 3.5, 3.9, 3.2, 2.6, 3.7, 3.0, 3.1, 4.4, 1.9, 3.0, 3.5, 3.7, 3.5]
+    Actuals: [5, 4, 5, 5, 4, 3, 4, 3, 3, 3, 3, 3, 4, 1, 3, 5, 3, 5, 0, 3, 4, 2, 3, 4, 5, 2, 5, 4, 5]
+    Active features:  ['max_sim(+0.127)', 'top_k_mean(+0.163)', 'coverage_log(+0.095)', 'depth(+0.070)', 'differential(-0.268)', 'kw_specific(+0.181)', 'kw_general(+0.029)', 'kw_ratio(+0.235)']
+    Zeroed features:  ['concentration']
+
+  ── Overall Phase 2C (ElasticNet) ──
+  MAE: 0.878  ✅  (target < 1.0)
+
+======================================================================
+  PHASE 2D — SVR ALL FEATURES  (LOO, n=29, 9 features)
+======================================================================
+
+  crypto_assets:
+    Best params: C=1.0, ε=0.8, γ=scale
+    MAE: 0.901  Exact: 31%  ρ: 0.738 (p=0.0000 ***)  κ: 0.593
+    Preds:   [2.0, 4.0, 2.7, 1.0, 2.7, 2.1, 3.8, 3.0, 2.9, 2.2, 3.7, 2.8, 3.7, 1.7, 3.7, 3.8, 1.6, 3.3, 2.2, 1.5, 2.4, 2.8, 3.1, 3.1, 3.1, 1.3, 3.4, 2.1, 3.0]
+    Actuals: [1, 3, 2, 1, 2, 1, 5, 3, 3, 5, 3, 2, 3, 0, 5, 5, 3, 3, 0, 1, 2, 3, 3, 2, 5, 0, 4, 2, 4]
+
+  crypto_agility:
+    Best params: C=5.0, ε=0.8, γ=scale
+    MAE: 0.968  Exact: 21%  ρ: 0.624 (p=0.0003 ***)  κ: 0.609
+    Preds:   [2.5, 3.6, 1.6, 2.4, 1.8, 3.1, 2.5, 2.6, 4.1, 1.9, 2.9, 2.3, 1.3, 2.3, 4.3, 3.6, 2.1, 3.6, 2.2, 2.2, 3.6, 3.3, 2.7, 4.3, 1.9, 2.4, 3.3, 2.9, 3.6]
+    Actuals: [4, 2, 3, 2, 3, 2, 2, 2, 3, 1, 3, 1, 2, 1, 4, 5, 1, 5, 0, 2, 3, 4, 4, 4, 3, 1, 4, 3, 5]
+
+  migration_planning:
+    Best params: C=1.0, ε=0.8, γ=scale
+    MAE: 1.031  Exact: 28%  ρ: 0.230 (p=0.2292 ns)  κ: 0.203
+    Preds:   [2.5, 3.7, 2.8, 2.2, 3.0, 2.9, 3.4, 3.3, 2.8, 3.1, 3.0, 2.9, 3.4, 3.2, 3.9, 3.8, 2.8, 3.6, 3.2, 2.4, 2.8, 2.9, 3.3, 2.3, 3.3, 2.9, 3.2, 2.3, 4.0]
+    Actuals: [3, 3, 5, 4, 2, 2, 4, 2, 3, 1, 3, 2, 2, 2, 4, 5, 3, 3, 0, 2, 3, 4, 4, 2, 5, 1, 5, 3, 5]
+
+  risk_management:
+    Best params: C=1.0, ε=0.1, γ=scale
+    MAE: 0.754  Exact: 45%  ρ: 0.410 (p=0.0273 **)  κ: 0.458
+    Preds:   [2.3, 3.9, 2.3, 1.9, 3.0, 3.0, 2.3, 4.7, 3.2, 2.7, 3.5, 2.4, 2.9, 3.1, 4.2, 4.7, 2.3, 3.6, 4.0, 3.1, 2.3, 3.8, 3.6, 2.6, 3.1, 3.1, 3.9, 2.4, 2.4]
+    Actuals: [2, 4, 4, 3, 2, 2, 4, 5, 3, 2, 3, 2, 2, 1, 5, 5, 2, 4, 1, 2, 3, 4, 4, 2, 4, 3, 4, 3, 3]
+
+  standards_compliance:
+    Best params: C=1.0, ε=0.1, γ=auto
+    MAE: 0.783  Exact: 48%  ρ: 0.471 (p=0.0099 ***)  κ: 0.167
+    Preds:   [4.4, 3.8, 4.3, 4.7, 4.2, 3.3, 4.0, 3.5, 4.1, 3.7, 3.2, 3.0, 3.7, 3.2, 3.0, 3.3, 3.7, 4.4, 3.6, 2.8, 3.9, 3.8, 2.8, 4.0, 2.8, 3.1, 3.8, 3.7, 3.3]
+    Actuals: [5, 4, 5, 5, 4, 3, 4, 3, 3, 3, 3, 3, 4, 1, 3, 5, 3, 5, 0, 3, 4, 2, 3, 4, 5, 2, 5, 4, 5]
+
+  ── Overall Phase 2D (SVR all features) ──
+  MAE: 0.887  ✅  (target < 1.0)
+
+  🌲 Running Random Forest (this will take several minutes)...
+
+======================================================================
+  PHASE 2E — RANDOM FOREST (constrained)  (LOO, n=29)
+  Grid: n_est=[200, 300, 500], depth=[2, 3, 4],
+        min_leaf=[3, 4, 5], max_feat=['sqrt', 2]
+======================================================================
+
+  crypto_assets (features: ['top_k_mean', 'depth', 'coverage_log']):
+    Best params: n_estimators=300, max_depth=2, min_samples_leaf=4, max_features=2
+    MAE: 0.802  Exact: 38%  ρ: 0.732 (p=0.0000 ***)  κ: 0.726
+    Preds:   [1.2, 4.4, 2.7, 1.2, 1.1, 1.9, 4.0, 3.4, 3.1, 1.8, 3.1, 2.6, 3.7, 1.3, 3.8, 4.0, 0.9, 3.2, 1.3, 2.3, 2.7, 3.1, 3.0, 1.8, 3.9, 1.4, 4.2, 1.3, 4.2]
+    Actuals: [1, 3, 2, 1, 2, 1, 5, 3, 3, 5, 3, 2, 3, 0, 5, 5, 3, 3, 0, 1, 2, 3, 3, 2, 5, 0, 4, 2, 4]
+
+  crypto_agility (features: ['kw_ratio', 'concentration', 'coverage_log']):
+    Best params: n_estimators=300, max_depth=2, min_samples_leaf=5, max_features=2
+    MAE: 0.911  Exact: 34%  ρ: 0.461 (p=0.0119 **)  κ: 0.450
+    Preds:   [1.8, 2.6, 1.9, 2.1, 2.3, 2.0, 2.5, 2.1, 3.8, 2.3, 3.7, 1.9, 1.8, 2.4, 3.6, 3.5, 2.6, 3.5, 2.0, 2.5, 3.7, 3.1, 2.2, 3.7, 3.2, 2.6, 3.7, 3.8, 3.2]
+    Actuals: [4, 2, 3, 2, 3, 2, 2, 2, 3, 1, 3, 1, 2, 1, 4, 5, 1, 5, 0, 2, 3, 4, 4, 4, 3, 1, 4, 3, 5]
+
+  migration_planning (features: ['top_k_mean']):
+    Best params: n_estimators=500, max_depth=4, min_samples_leaf=5, max_features=sqrt
+    MAE: 1.011  Exact: 34%  ρ: 0.247 (p=0.1972 ns)  κ: 0.356
+    Preds:   [2.3, 4.0, 2.1, 2.2, 2.5, 2.3, 3.9, 3.5, 2.5, 2.5, 3.3, 3.9, 2.3, 2.5, 3.9, 3.8, 2.2, 3.9, 2.7, 2.9, 3.3, 2.8, 3.6, 2.5, 2.9, 2.4, 3.8, 2.2, 3.8]
+    Actuals: [3, 3, 5, 4, 2, 2, 4, 2, 3, 1, 3, 2, 2, 2, 4, 5, 3, 3, 0, 2, 3, 4, 4, 2, 5, 1, 5, 3, 5]
+
+  risk_management (features: ['top_k_mean', 'kw_ratio', 'kw_specific']):
+    Best params: n_estimators=300, max_depth=4, min_samples_leaf=3, max_features=sqrt
+    MAE: 0.686  Exact: 48%  ρ: 0.586 (p=0.0008 ***)  κ: 0.570
+    Preds:   [2.2, 3.8, 1.9, 2.2, 3.3, 2.2, 2.6, 4.1, 3.6, 2.2, 3.0, 2.7, 2.3, 2.4, 4.2, 3.9, 2.2, 3.3, 2.8, 3.8, 2.8, 4.0, 4.0, 2.8, 3.6, 3.8, 3.7, 2.7, 2.9]
+    Actuals: [2, 4, 4, 3, 2, 2, 4, 5, 3, 2, 3, 2, 2, 1, 5, 5, 2, 4, 1, 2, 3, 4, 4, 2, 4, 3, 4, 3, 3]
+
+  standards_compliance (features: ['kw_specific', 'differential', 'top_k_mean']):
+    Best params: n_estimators=300, max_depth=4, min_samples_leaf=3, max_features=2
+    MAE: 0.736  Exact: 48%  ρ: 0.548 (p=0.0021 ***)  κ: 0.455
+    Preds:   [4.2, 4.0, 4.6, 4.6, 4.1, 3.8, 3.5, 3.0, 3.9, 3.8, 3.6, 3.8, 3.8, 2.3, 3.3, 3.4, 3.1, 4.0, 2.6, 2.6, 3.9, 3.0, 2.9, 4.1, 2.0, 2.2, 3.6, 3.5, 3.7]
+    Actuals: [5, 4, 5, 5, 4, 3, 4, 3, 3, 3, 3, 3, 4, 1, 3, 5, 3, 5, 0, 3, 4, 2, 3, 4, 5, 2, 5, 4, 5]
+
+  ── Overall Phase 2E (Random Forest) ──
+  MAE: 0.829  ✅  (target < 1.0)
+
+  💾 Saved /Users/halley/Desktop/pqc-readiness-metrics/ml-model/calibration_svr_summary.txt
+  💾 Saved /Users/halley/Desktop/pqc-readiness-metrics/ml-model/svr_rf_config.json
+
+======================================================================
+  CALIBRATION COMPLETE
+======================================================================
+
+  📊 Results comparison:
+  Model                                       MAE  Status
+  -------------------------------------------------------
+  Phase 2B (SVR selected features)          0.781  ✅
+  Phase 2C (ElasticNet)                     0.878  ✅
+  Phase 2D (SVR all features)               0.887  ✅
+  Phase 2E (Random Forest)                  0.829  ✅
+
+  🏆 Best: ['Phase 2B (SVR selected features)'] (MAE=0.781)
+  ✅ Target met! Ready for production scoring.
+
+  💡 Recommendation: Use ['Phase 2B (SVR selected features)'] for production.

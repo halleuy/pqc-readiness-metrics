@@ -1,11 +1,11 @@
 PQC Readiness — Calibration Summary
 ==================================================
 
-Phase 1A (single-feature Ridge): MAE = 1.041  FAIL
-Phase 1B (multi-feature Ridge): MAE = 0.984  PASS
-Phase 1C (pooled Ridge): MAE = 0.968  PASS
+Phase 1A (single-feature Ridge): MAE = 1.036  FAIL
+Phase 1B (multi-feature Ridge): MAE = 0.979  PASS
+Phase 1C (pooled Ridge): MAE = 0.976  PASS
 
-Expert-scored frameworks used: 28
+Expert-scored frameworks used: 29
 
 Targets:
   Phase 1: MAE < 1.0

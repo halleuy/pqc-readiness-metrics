@@ -1,345 +1,674 @@
-anssi views on the postquantum cryptography transition
-march  
-in this position paper the current anssi views on the socalled postquantum cryptography tran
-sition are outlined in particular anssi recalls the context of the quantum threat and introduces a
-provisional transition agenda topreventthisquantumthreatwithaprogressiveincreaseofassuranceon
-the new postquantum algorithms without introducing any vulnerability accessible via todays classical
-computers the objective of this paper is twofold providing directions to industrials developing security
-products and outlining the transition agenda in terms of french security visas 
-what are quantum computers
-quantum computers are based on physical principles that are fundamentally different from those under
-lying todays classical computing at a large scale they would be capable of performing certain tasks
-much faster than todays computers
-while prototypes of small quantum computers often designated by nisq noisy intermediate scale
-quantumcomputersalreadyexistbuildinglargescalereprogrammableonesisstillataveryupstream
-research stage there are many lines of research in quantum physics for the creation of such quantum
-computers but none of them is certain to succeed though their potential benefits are not fully known
-theycouldobviouslybehighthustheindustrygovernmentsandacademiaaroundtheworldaredevot
-ingsignificantresourcestoresearchinquantumcomputingforexampleinthefrenchgovernment
-announced an investment of more than  billion e in quantum technologies including quantum com
-puting  a complete survey on the status of quantum computer development has been detailed by the
-bsi the german counterpart of anssi 
-quantum threat what is the impact on our current digital infrastructures
-the security of the majority of digital infrastructures relies on public key cryptography pkc a tech
-nologythatenablessecurecommunicationsbetweenentitiestypicallyusersorserversthatdonotshare
-any preestablished secret more precisely pkc serves two main functionalities protected channel es
-tablishment key establishment and authentication of digital information including authentication of
-parties inside a communication protocol by the use of digital signatures
-todaythesetechniquesareessentiallybasedontwomathematicalproblemsthefactorizationoflarge
-numbers and the discrete logarithm computation both are dimensioned to be virtually impossible to
-solve with our current computing resources and mathematical knowledge for example the wellknown
-rsa public key algorithm relies on the factorization of large numbers
-these two fundamental problems will no longer be unsolvable if a large scale quantum computer
-is built and thus the security of currently deployed public key cryptography could potentially collapse
-indeedinpshorintroducedaquantumalgorithmabletosolvetheseproblemsquiteefficiently
-thisalgorithmcannotbeperformedonclassicalcomputersbutitcouldbeperformedonlargescaleones
-toavoidanyconfusionwiththeexistingprototypesofsmallscalequantumcomputersthencscbritish
-counterpartofanssiintroducedthenameofcryptographicallyrelevantquantumcomputerscrqcs
-seethencscswhitepaperonquantumsafecryptographyinotherwordsacrqcisaquantum
-computer that is able to execute relevant instances of shors algorithm and thus threatening todays
-publickey cryptography
-theprototypesofquantumcomputersthatexistarepresentlyfarfromtherequiredscaleandstability
-of crqcs and therefore they are currently not a threat to public key cryptography many research
-challenges in physics engineering and computer science must be overcome before scaling up to large
-quantumcomputersabletosolvethefactorizationanddiscretelogarithmproblemsonwhichthecurrent
-pkc is based
-however the threat of retroactive attacks cannot be ruled out a family of attacks called store
-now decrypt later attacks constist in storing today the data exchange corresponding to a secure
-channel establishment and the encrypted messages over such a channel with the purpose of eventually
-decrypting these messages once a crqc becomes available this threat could be relevant in certain
-scenarios involving very sensitive information eg classified information
-furthermorethequantumthreatcouldalsoimpactdigitalsignaturesindeedacrqccouldbeused
-toforgesignaturesandallowimpersonationattacksunlikethethreatofretroactivestorenowdecrypt
-laterattacksthisthreatwouldonlybeeffectiveifthesignaturesaregeneratedatatimewhenacrqc
-existsthusthesignaturesthatareverifiedontheflylikeinauthenticatedchannelscannotbedirectly
-impacted before the existence of a crqc however in a context of document signing the longterm
-validity is sometimes required in certain specific use cases and these signatures can be compromised by
-the existence of a crqc the transition from prequantum signatures to postquantum ones should be
-tackled before the existence of any crqc to avoid any a posteriori impersonation attack
-quantum threat what about symmetric cryptography
-symmetric cryptography a different and complementary branch of cryptographic algorithms could also
-be targeted by potential large scale quantum computers a generic quantum algorithm introduced by
-groverinquadraticallyspeedsuptheexhaustivesearchofsecretkeysinsymmetricalgorithms
-grovers algorithm can also speed up certain attacks on hash functions called collision finding attacks
-these attacks also require the use of crqcs but for numerous algorithms one can reasonnably assume
-that they could be mitigated by adjusting the sizes of the hash outputs and keys using  bits keys
-instead of  for the aes symmetric encryption mechanism and using  bits hash outputs for sha
-and sha for instance thus the generic impact of grovers algorithm on symmetric cryptography is
-far more limited than the impact of shors algorithm on pkc
-why the quantum threat should be taken into account today
-because of a store now decrypt later attack outlined above the quantum threat should be taken into
-accountbeforethequestionofwhetherthedevelopmentofacrqcwilleverbecomeachievableinthefu
-tureisclearedupthusaprofoundchangeoftodayspublickeycryptographytowardsquantumresistant
-algorithms should be globally initiated to anticipate a possible collapse of our current cryptographic in
-frastructure even though protecting our current public key cryptography against this distant threat
-has a cost researching alternative cryptographic solutions can be beneficial from another perspective
-indeed beyond the quantum threat cryptography is never infallible weaknesses are found from time to
-time even on cryptographic mechanisms implemented in classical computers thus it is not possible to
-totally rule out a discovery of a potential weakness impacting the security of hardware andor software
-andrequiringreplacementofalgorithmsnowadaysthepublickeycryptographyusedworldwideisclose
-to a mono culture and would strongly benefit from the introduction of new alternative algorithms
-is quantum key distribution a solution
-quantumkeydistributionqkdsometimescalledquantumcryptographyisawayofenablingsecure
-communications without being vulnerable to classical and quantum computers by using socalled quan
-tum channels nevertheless this technique does not provide a complete functional equivalent to public
-key cryptography and offers limited applications due to the need of a dedicated communication infras
-tructure and without real routing capabilities more information on the anssi position can be found
-under reference  as such except for niche applications where qkd is used for providing some extra
-physical security on top of algorithmic cryptography and not as a replacement it is not considered by
-anssi as a suitable countermeasure to mitigate the quantum threat
-what is postquantum cryptography
-postquantum cryptography pqc is a family of cryptographic algorithms including key establish
-ment and digital signatures that ensures a conjectured security even against an attacker equipped with
-quantum computers postquantum algorithms can be executed on classical computers with classical
-communication channels and thus can be deployed in existing infrastructures unlike qkd besides
-these algorithms are not only for use after a crqc is built they can be deployed in anticipation
-for anssi pqc represents the most promising avenue to thwart the quantum threat
-the international research effort on postquantum cryptography accelerated in  after nsas
-releaseadvisingtoshifttoquantumresistantcryptographyinthenearfutureinthenational
-institute of standards and technologies nist started a standardization campaign to define standard
-postquantum public key algorithms key establishments and signatures at the time of writing this
-process is still ongoing  and currently at its third round standards are expected to be published
- for which no efficient quantum attack exists today
+national security agency  cybersecurity information sheet
+the commercial national security algorithm suite
+ and quantum computing faq
+these frequently asked questions faq and answers are intended to clarify
+commercial national security algorithm suite  cnsa  requirements for national
+security systems nss and recommend guidance for the department of defense
+dod and the defense industrial base dib this information may be useful more
+generally especially for those who interact with nss dod or dib systems
+sections
+ background
+ cnsa 
+ timeframe
+ preparation
+ cnssp 
+ quantum alternatives
+ csfc and niap
+ future cryptographic algorithms
+ hybrids
+ further information
+background
+q to whom are these requirements addressed
+a these are mainly addressed to the following audiences
+ national security system nss owners and operators who need to know the
+requirements for their systems
+ vendors who need to know what to implement to meet nss requirements
+nsa is not using these requirements to dictate to any other entity outside of nss what
+algorithms they should use although nsa recognizes that interoperability requirements
+uoo  pp  december  ver 
+nsa  cnsa suite  and quantum computing faq
+or other interests may lead to scenarios where these recommendations are used by a
+larger community
+q what is a quantum computer and how is it different from the computers we
+use today
+a in place of ordinary bits used by todays computers quantum computers use qubits
+that behave in surprising ways efficiently performing certain mathematical algorithms
+exponentially faster than a classical computer small examples of quantum computers
+have been built
+q what is a cryptanalytically relevant quantum computer crqc
+a also written as cryptographically relevant quantum computer crqc describes
+quantum computers that are capable of attacking real world cryptographic systems
+whether the c indicates cryptanalytically or cryptographically is a matter of writers
+preference as the two terms are essentially equivalent in this context this term
+distinguishes a crqc from any other quantum computer technologies used in other
+settings without the performance metrics required to attack real world cryptographic
+systems
+q what is the threat if a crqc were developed
+a a crqc if built would be capable of undermining the widely deployed publickey
+algorithms currently used for asymmetric key exchanges and digital signatures with
+potentially devastating impact to systems national security systems nss use public
+key cryptography as a critical component to protect the confidentiality integrity and
+authenticity of national security information
+q can i continue to use larger sizes of rsa or ecc to address the threat
+a no rsa and elliptic curve cryptography are the main algorithms that need to be
+replaced to achieve quantum resistance
+q what is quantumresistant or postquantum cryptography
+a quantumresistant qr quantumsafe and postquantum pq cryptography
+are all terms used to describe cryptographic algorithms that can be run on computers
+today and are believed to be resistant to cryptanalytic attacks from both classical and
+quantum computers
+uoo  pp  december  ver  
+nsa  cnsa suite  and quantum computing faq
+q what is the commercial national security algorithm suite  cnsa 
+a cnsa  is the suite of qr algorithms approved for nss use the following table
+lists the algorithms and their functions specifications and parameters
+table commercial national security algorithm suite 
+algorithm function specification parameters
+general purpose algorithms
+advanced symmetric block cipher
+use bit keys for all
+encryption for information fips pub 
+classification levels
+standard aes protection
+mlkem
+previously asymmetric algorithm mlkem for all
+fips pub 
+crystals for key establishment classification levels
+kyber
+asymmetric algorithm
+mldsa
+for digital signatures in
+previously mldsa for all classification
+any use case including fips pub 
+crystals levels
+signing firmware and
+dilithium
+software
+algorithm for computing
+secure hash a condensed use sha or sha for all
+fips pub 
+algorithm sha representation of classification levels
+information
+algorithms allowed in specific applications
+asymmetric algorithm all parameters approved for all
+leightonmicali
+for digitally signing nist sp  classification levels lms sha
+signature lms
+firmware and software  is recommended
+xtended merkle asymmetric algorithm
+all parameters approved for all
+signature scheme for digitally signing nist sp 
+classification levels
+xmss firmware and software
+algorithm used for
+computing a sha or sha allowed
+secure hash
+condensed for internal hardware
+algorithm  fips pub 
+representation of functionality only eg bootup
+sha
+information as part of integrity checks
+hardware integrity
+uoo  pp  december  ver  
+nsa  cnsa suite  and quantum computing faq
+cnsa 
+q where should cnsa  algorithms be used
+a cnsa  algorithms will be required for all products that employ publicstandard
+algorithms in nss whether a future design or currently fielded any usage of suite b or
+cnsa  algorithms will be required to transition to cnsa  the timeframe section
+of this faq and cnssp  provide transition timeframe information more details will be
+released on an ongoing basis as industry adjusts to the new technology
+q how did nsa choose the cnsa  algorithms
+a nsa chose algorithms from among those selected for standardization by the national
+institute of standards and technology nist the us government lead for
+commercial algorithm approval nsa believes they offer optimal performance for given
+nss security requirements
+q how strong does nsa believe cnsa  algorithms are
+a nsa performed its own analysis of cnsa  algorithms and considers them
+appropriate for longterm use in protecting the varied missions of us nss
+q does nsa intend to produce guidance for cnsa  similar to the ietf rfcs
+produced for cnsa 
+a nsa will provide direction for using cnsa  algorithms securely in a variety of use
+cases and is working with the ietf to produce informational guides to aide with
+protocol deployment through the rfc series rfcs detail protocol options in addition to
+algorithm choices and nsa expects to provide protocol guidance to ensure smooth and
+secure operation with cnsa  algorithms
+q for whom is this guidance intended
+a nsa makes cnsa  requirements anticipated timing and this related faq widely
+available primarily to assist nss owners and operators in their transition planning as
+well as to inform industry and vendors of nss requirements this guidance may also be
+useful to those seeking to interoperate with nss or those aiming at similar robust
+security and interoperability requirements
+ internet engineering task force requests for comments
+uoo  pp  december  ver  
+nsa  cnsa suite  and quantum computing faq
+q does cnsa  apply to fielded equipment
+a even nss that are in current use will need to be upgraded in a timely fashion unless
+the system received a waiver through the approved process this is consistent with
+national security memorandums nsms  and  as well as cnssp  and cnssp
 
-within the next one to four years contrary to other standardization campaigns where there was only
-one finalist the postquantum campaign will end up with several standards for different applications
-thisstandardizationprocesshasactedasacatalystallowingastronginvolvementoftheinternational
-cryptography research community and focusing the analysis efforts on a restricted number of candidate
-algorithms while preserving the diversity of the underlying problems this process has also broadened
-the analysis to various implementation use cases like embedded components
-what are the different postquantum algorithms
-the different families of postquantum public key candidate algorithms are defined by the mathematical
-structureonwhichtheyarebuiltnowadayspostquantumpublickeyalgorithmsaremostlybasedupon
- structured or unstructured euclidean lattices
- errorcorrecting codes
- isogenies between elliptic curves
- multivariate systems
- hash trees
-whilethemathematicalproblemswereintroducedinthelastcenturythepqcalgorithmsarerelatively
-recent they offer various compromises between key size signatures or ciphertext size computational
-complexityandsecurityassuranceatechnicalsurveyofthealgorithmsandtheunderlyingmathematical
-problems can be found in 
-what is being done in france to address the quantum threat
-there is a high academic interest in france for this thematic this is why the french community is
-activelyparticipatingtothedesignandsecurityanalysisoftheprimitivesbutalsototheircryptanalysis
-a national group comprising academics industrials and anssi has been formed called risq and will
-publish a whitepaper in  
-as the national cybersecurity authority in france anssi has followed closely and participated to
-the progress in postquantum cryptography anssi has planned to continue its effort in the future
-more generally anssi publishes recommendations on the selection of cryptographic algorithms in
-security products and delivers security labels for products meeting general security requirements but
-anssi is not a standardization agency its role is not to develop cryptographic standards more pre
-cisely anssi has a twofold role when it comes to the use of cryptographic algorithms advisory and
-regulatory on the one hand it promotes the use of wellstudied stateoftheart cryptographic algo
-rithms by publishing national guidelines on cryptography  and by participating to the publication
-of european guidelines on the selection of cryptographic algorithms  on the other hand anssi
-supervises the evaluation and delivery of security labels eg common criteria cc certificates in the
-french certification scheme each evaluation comprises specific cryptographic evaluation tasks according
-totheevaluationlevelitisimportanttohighlightthatthereisnoclosedlistofcryptographicalgorithms
-eligible in order for a product to obtain a security label generally the use of cryptographic algorithms
-that are fitted with a formal standard status delivered by an international standardization body eg
-iso itu ietf etsi etc is strongly recommended however a cryptographic algorithm supported
-by a strong record of scientific publications can be potentially judged sufficient to provide an adequate
-security assurance level conversely there is no automatic and universal recognition of all algorithms
-that obtained a formal standard state from such organizations
-are the future nist standards mature enough to be implemented in security products
-beyond the nist objective to derive standards the past three rounds of the nist standardization
-campaign provide a variety of algorithms along with security analysis although this new postquantum
-toolbox may seem handy for developers the maturity level of the postquantum algorithms presented
-to the nist process should not be overestimated many aspects lack cryptanalytical hindsight or are
-stillresearchtopicseganalysisofthedifficultyoftheunderlyingproblemintheclassicalandquantum
-computationmodelsdimensioningintegrationofschemesinprotocolsandmoreimportantlythedesign
-of secure implementations this situation will probably last some time after the publication of nist
-standards
- regroupement de lindustrie francaise pour la securite postquantique
-
-acknowledging the immaturity of pqc is important anssi will not endorse any
-direct dropin replacement of currently used algorithms in the shortmedium term
-however this immaturity should not serve as an argument for postponing the first
-deploymentsanssiencouragesallindustriestoinitiateinthenextmonthsagrad
-ual overlap transition in order to progressively increase trust on the postquantum
-algorithms and their implementations while ensuring no security regression as far
-as classical prequantum security is concerned
-how to transition smoothly from prequantum to postquantum algorithms
-a hybrid mechanism key establishment or signature combines the computations of a recognized pre
-quantumpublickeyalgorithmandanadditionalalgorithmconjecturedpostquantumsecurethismakes
-the mechanism benefit both from the strong assurance on the resistance of the first algorithm against
-classical attackers and from the conjectured resistance of the second algorithm against quantum attack
-ers certain hybrid protocols are in standardization processes like  for tls  or  for ikev
-more generally for key establishment one can perform both a prequantum and a postquantum key
-establishmentandthencombinebothresultsegusingakeyderivationfunctionkdfalternatively
-one may use for some specific applications a kdf on a preshared key and a shared key obtained from
-a prequantum scheme for signature schemes hybrid signatures can be achieved with the concatena
-tion of signatures issued by a prequantum and a postquantum scheme and the requirement that both
-signatures be valid in order for the hybrid signature to be valid
-even though hybridation is a relatively simple construction anssi emphasizes that the role of
-hybridation in the cryptographic security is crucial and will be mandatory for phases  and  presented
-inthesequelinadditiontheimplementationsecurityofthehybridationtechniqueshouldbealsotaken
-in consideration
-given that most postquantum algorithms involve message sizes much larger than the current pre
-quantum schemes the extra performance cost of an hybrid scheme remains low in comparison with
-the cost of the underlying postquantum scheme anssi believes that this is a reasonable price to pay
-for guaranteeing an additional prequantum security at least equivalent to the one provided by current
-prequantum standardized algorithms
-what is cryptoagility
-as detailed in the sequel the deployment of hybrid pqc is not a mandatory feature as of today how
-everanssiwillencouragetheinitiationofprogresstowardscryptoagility asmuchaspossibleforfuture
-products more precisely a product is said cryptoagile if it includes the possibility to update its cryp
-tographic algorithms without recalling it or substituing it with a new one the quantum threat makes
-cryptoagility particularly relevant and beyond this threat classical attacks may also evolve and make
-cryptographic mechanisms or key lengths obsolete
-in practice cryptoagility also means that in addition to the possibility of patching products could
-include an extra surface for allowing potential updates in order to react to upcoming cryptographic
-recommendations and standard updates even though updates of the cryptographic algorithms should
-be much less frequent than patches the cryptoagility feature is nontrivial to implement due to the
-need for retrocompatibility and the potential requirement for additional security visas if the product is
-certified however as the motivation for cryptoagility is very relevant nowadays anssi believes that
-cryptoagility features should be taken into account during the benefitrisk analysis of future products
-what is the recommended postquantum transition roadmap
-to support a gradual transition anssi encourages the following phase roadmap see below for a
-detailed description
- phase  today hybridation to provide some additional postquantum defenseindepth to the pre
-quantum security assurance
- phasenotearlierthanhybridationtoprovidepostquantum security assurance whileavoid
-ing any prequantum security regression
- phase  probably not earlier than  optional standalone postquantum cryptography
-what is recommended for each phase
-phase  mandatory prequantum security optional pqc no claimed quantum resistance this phase
-
-prequantum
-postquantum
-phase  phase  phase 
-
-time
-level
-ecnarussa
-correspondstothecurrentsituationthepostquantumsecurityshouldnotbeamandatoryrequirement
-but is considered as an optional defenseindepth as the standardization campaign is still ongoing
-the idea of this phase is to enable the first postquantum deployments with flexibility while preserving
-the prequantum security with hybrid mechanisms
-anssi recommends introducing postquantum defenseindepth as soon as possible
-forsecurityproductsaimedatofferingalonglastingprotectionofinformationuntil
-after  or that will potentially be used after  without updates
-the two following conditions below should be met
- the chosen hybridation technique must ensure no security regression ie the security of the mecha
-nism must be at least equivalent to the security of the included recognized prequantum scheme
- while there is no strict guidance for the choice of a postquantum public key algorithm key es
-tablishment or signature mechanisms the chosen algorithm should have stable and wellstudied
-specifications eg be a nist finalist or a trusted alternate finalist moreover the conjectured post
-quantum level should be as high as possible preferably nist level v aes for example at
-the time of the writing the nist candidates frodokem kyber dilithium or falcon could be good
-options for first deployments choosing algorithms selected by nist for standardization is not an
-absolute prerequisite
-anssi encourages to use a conjectured postquantum security level on symmetric primitives con
-sistent with the selected postquantum pkc algorithm  in practice at least the same security level as
-aes for block ciphers and at least the same security level as sha for hash functions
-please note that hashbased signatures are an exception for hybridation due to their wellstudied
-underlying mathematical problem anssi estimates that these algorithms could be used today without
-hybridation however their potential application range is limited low number of signatures queries or
-large signature sizes
- as defined by nist in round  of the campaign
- while few exceptions are expected in practice at least for mainstream cryptography an algorithm that is
-not a nist standard but that is demonstrably stronger that a nist standard could constitute such an
-exception for example a developer should be able to obtain a security visa for a product implementing an
-hybrid frodokem whether nist decides that frodokem will be one of the first pqc standards or not
- this is nevertheless a nonstandard algorithm choice compared to the use of current pkc standards thus
-some analysis of the algorithm may have to be performed by anssi as part of an evaluation and this may
-lead to an increase of the certification process duration
-
-this phase should last until after nists first standards are announced and it is planed to last until
-after 
-phase  mandatory prequantum security optional pqc with claimed quantum resistance in this
-secondphaseallpostquantumpkcalgorithmsshallcontinuetobesystematicallyincludedinsidehybrid
-mechanisms except for hashbased signatures whose hybridation is optional as presented in phase 
-for this phase the postquantum part will be more than an defenseindepth the quantum resistance
-could be claimed as a feature in that case a postquantum security assurance should be mandatory for
-both public key and symmetric mechanisms as integral part of the security analysis by then anssi
-will have identified criteria for acceptable postquantum pkc algorithms depending on their associated
-postquantum security assurance such selected algorithms may not exactly match nist standards for
-this phase anssi will highly recommend the postquantum transition for products claiming longterm
-security in that sense for certain types of security products claiming longterm security postquantum
-security could become a mandatory feature
-this phase should last until at least 
-phase  optional standalone pqc with claimed quantum resistance anssi expects that after years
-of analysis the security assurance level provided by postquantum algorithms will be as high as todays
-prequantumassurancelevelthustheusageofsomepostquantumschemesshouldbepossiblewithout
-hybridation
-please note that the presented recommendations will potentially evolve depending on the global
-advances on postquantum cryptography and on the progress of nist standardization campaign the
-estimated timeline of the roadmap could be advanced or slowed down accordingly
-what is the impact on security visas delivery
-theuseofpqcwillalsoimpactthedeliveryofsecurityvisasanssiwillaccompanythistransitionand
-adapt its evaluation procedures according to the roadmap described above the general procedure 
-will be updated following the three phases as follows
-phase  the security visas only claim a prequantum security assurance the
-optional postquantum security feature is only considered as an additional defense
-indepth addon
-therefore the evaluation method for security products that do not use pqc stays unchanged for
-products that use postquantum defenseindepth the evaluation method for a security visa will be
-defined as follows 
- all prequantum security mechanisms are evaluated as currently defined 
- the hybridation mechanism will be evaluated to ensure that it does not degrade security
- while anssi may go through the pqc algorithms specification it will not be evaluated by it
-security evaluation facilities itsef and thus it will not be part of any security visa if necessary
-it is possible to contact anssi for advice on the choice of pqc algorithms
-in a nutshell security visas will attest that prequantum security is evaluated and that the use of
-postquantum defenseindepth mechanisms do not have any negative impact no formal judgement will
-be made on the quantum security offered by pqc
-phase anssiwilldeliversecurityvisasclaimingaprequantumandoptionally
-postquantum longterm security assurance still with mandatory hybridation
-as in phase  evaluation procedure for products that do not use postquantum longterm security
-remains unchanged for longterm security products that follow anssi recommendations and use hy
-bridation with pqc the evaluation method will include prequantum security analysis hybridation and
-quantum resistance analysis for the latter the analysis should include both symmetric and asymmetric
-mechanisms and should comply with the official guidelines on quantum resistance that will be updated
-by then
-
-phase  anssi will deliver security visas claiming a prequantum and post
-quantumlongtermsecurityassurancewithoptionalhybridationdependingonthe
-context anssi could continue to deliver security visas claiming only prequantum
-security assurance
-this final transition phase strongly depends on the advances of research in postquantum cryptogra
-phy and quantum computing the specific details of this phase will be adapted in the next decades
-what is the position of other governments
-severalgovernmentshavepublishedsimilarpositionpapersrecommendingtopreparethepostquantum
-transition anssis views are similar to the bsis position  on many issues eg necessary migration
-hybridation cryptoagility
+q what policies should i follow to meet nss algorithm requirements
+a highgrade equipment will follow the guidance in cjcsn  and cnssam 
+nsm commercial equipment will follow cnsa  until the transition mandated by
+cnssp  expected to occur sometime between  and  depending on
+equipment type in accordance with nsm and cnssp qr algorithms should be
+implemented in nss mission systems as national information assurance partnership
+niap validated products or in accordance with other implementationspecific
+guidance typically this will include but not be limited to requiring modules be
+validated by the nist cryptographic module validation program cmvp
+q what is the difference between mlkem and crystalskyber or between ml
+dsa and crystalsdilithium
+a mlkem and mldsa are fully specified standards described by nist in fips 
+and  respectively crystalskyber is the name of the proposed algorithm
+submitted to nist that eventually became mlkem and similarly crystalsdilithium
+became mldsa in particular the crystals algorithms had a variety of versions that
+were slightly tweaked prior to the publication of the fips documents once nist
+announced the drafting of crystalskyber and crystalsdilithium into standards
+nsa announced that the standards would be part of cnsa  nsa clarified the cnsa
+ language when the fips documents were published only mlkem and mldsa
+ memorandum on improving the cybersecurity of national security department of defense and intelligence community systems
+ january 
+ national security memorandum on promoting united states leadership in quantum computing while mitigating risks to
+vulnerable cryptographic systems  may 
+ chairman of the joint chiefs of staff notice  information assurance cryptographic device modernization requirements
+august 
+ committee on national security systems advisory memorandum nsm cryptographic equipment modernization planning
+ march 
+ committee on national security systems policy  use of public standards for secure information sharing
+uoo  pp  december  ver  
+nsa  cnsa suite  and quantum computing faq
+are in cnsa  any algorithm that is called crystalskyber or crystals
+dilithium but does not adhere to fips  or  is not cnsa  compliant
+q where can i learn more about hashbased signatures
+a refer to nist standardized stateful hashbased signatures in nist sp 
+this standard also provides references to other technical documentation on the topic
+nsa recommends using federal information processing standards fipsvalidated
+lms or xmss hashbased signatures to protect nss in the specialized scenarios
+outlined in the standardeg for firmware signing and software signing nsas
+preferred parameter set is section  lms with sha
+q can i use hss or xmssmt from nist sp 
+a from nist sp  nsa has only approved lms and xmss for use in nss
+the multitree algorithms hss and xmssmt are not allowed
+q can i use slhdsa aka sphincs to sign software
+a while slhdsa is hashbased it is not part of cnsa and is not approved for any
+use in nss
+q im going to adopt lms or xmss for softwarefirmware validation for nss
+which components need to be validated and how if my hardware security
+module hsm is not fipsvalidated can i get a waiver
+a signature verification is expected to be performed by code that has been validated by
+nists cryptographic algorithm validation program cavp it is expected that signed
+code may be received from a variety of sources signers if your product is only
+verifying signatures cavp testing is all that is required
+code sources signers that are nss are required to produce signatures according to
+nist sp  which requires hardware validated by nists cryptographic module
+validation program cmvp or via other nsa guidance waivers will not be granted for
+this
+while some code sources signers are not considered nss themselves and may not
+be subject to cnsa requirements they are expected to use code that meets the same
+ nist special publication  recommendation for stateful hashbased signature schemes
+uoo  pp  december  ver  
+nsa  cnsa suite  and quantum computing faq
+development and operational quality as the validated code that is code that can pass
+cavp testing for use in nss components
+note to avoid weakening the security of these signatures one should implement
+signing and state management in hardware such as an hsm backup flows which may
+involve transferring keys between modules must prevent state reuse
+q as a commercial vendor how do i know if my nist sp  implementation
+meets cnsa 
+a niap validates products against its published protection profiles which will start
+including quantumresistant signatures consistent with nsas published transition
+timelines for commercial vendors nsa does not anticipate niap protection profiles
+performing signature generation within the target of evaluation toe boundary only
+signature verification as signature generation is the component of lmsxmss that
+requires state management if only signature verification is being performed only cavp
+validation not cmvp will be expected to meet cnsa  for such products
+q why are signatures for software and firmwaresigning listed separately
+a the reasons for choosing separate algorithms for software and firmwaresigning are
+as follows
+ nist standardized the algorithms in nist sp  earlier and has cavp
+validation available while other quantumresistant signatures may not be as
+easily available for integration
+ this signature usecase is more urgent
+ this selection places hashbased algorithms with their substantial history of
+cryptanalysis in a use case where their welldescribed potential performance
+issues have minimal impact in particular this usage coincides well with the
+requirement for keeping track of statethat is ensuring a given node with its
+private data is not used more than once in signing software or firmware when
+deploying these signatures
+q why are firmware signatures more urgent
+a in many firmwaresigning cases the validation algorithm is not easily updated thus
+firmwaresigning algorithms are frequently locked in for the life of a system even in
+uoo  pp  december  ver  
+nsa  cnsa suite  and quantum computing faq
+systems that are designed for extensibility and cryptographic agility a quantum
+resistant root of trust may be required in the firmware years before the rest of the
+system upgrades to quantumresistance nsa prioritizes this in its timelines to avoid
+unexpected costs and security issues later in the nss transition
+q under what circumstances is sha available for use
+a at a vendors discretion for internal components of a hardware system that do not
+interoperate outside a vendors environment sha or  may also be used as
+part of a systems integritychecking process such as secure boot this is specifically
+being allowed in cnsa  to speed the transition process when vendorspecific
+internal processes make use of the properties of a cryptographic hash to enable them to
+transition to the new postquantum signatures with minimal disruption to their workflow
+in order not to be prescriptive in these cases and due to the particular threat vectors
+inherent in these processes nsa is allowing the use of either sha sha
+sha or sha for these purposes
+q can i use sha as a hash
+a no neither sha nor shake are approved for use in cnsa  as a general
+purpose hash algorithm while nsa allows any parameter set of lms including some
+that call sha as a function nsa has not approved sha as a general purpose hash
+algorithm its use is strictly limited to those cases where it is prescribed by the standard
+describing an nsaapproved algorithm such as lms within nist sp  or for
+internal hardware system processes as described above
+the sha selections are sufficient for security and their ubiquity in the commercial
+world ensures interoperability using sha or shake outside those narrowly defined
+applications where it is completely selfcontained such as when called within an
+algorithm function significantly increases the interoperability testing burden and breaks
+many use cases for cnsa 
+q where can i learn more about latticebased key encapsulation mechanisms
+kems and digital signatures
+a nists postquantum standardization page includes reports from previous rounds of
+the standardization effort which detail why nist chose latticebased cryptography
+uoo  pp  december  ver  
+nsa  cnsa suite  and quantum computing faq
+these reports include summaries of all the cryptography under consideration and many
 references
- anssigestiondesclescryptographiquesreglesetrecommandationsconcernantlagestiondesclesutilisees
-dans les mecanismes cryptographiques httpswwwssigouvfruploadsrgsvbpdf
- anssi guide des mecanismes cryptographiques httpswwwssigouvfruploads
-anssiguidemecanismescryptopdf
- anssi modalites pour la realisation des analyses cryptographiques httpswwwssigouvfruploads
-anssicccrypmodalitespourlarealisationdesanalysescryptographiquesv
-pdf
- anssi security visas httpswwwssigouvfrentreprisevisadesecurite
- anssi should quantum key distribution be used for secure communications httpswwwssigouv
-frenpublicationshouldquantumkeydistributionbeusedforsecurecommunications
- bsi migration zu postquantenkryptografie httpswwwbsibunddeshareddocsdownloads
-debsikryptopostquantenkryptografiepdfjsessionidecdcaeebeeb
-internetblobpublicationfilev
- bsi status of quantum computer development httpswwwbsibunddeshareddocsdownloadsde
-bsipublikationenstudienquantencomputerpqcstudievpdfblobpublicationfilev
+q why did nsa choose mldsa over fndsa aka falcon
+a for nss nsa agrees with nist mldsa is preferred as fndsa seems more
+susceptible to implementation errors that may affect security as nist has prioritized
+standardizing mldsa fndsa is not available yet and nsa does not anticipate
+adding it to cnsa  when it is
+q can i use mldsa for firmware or software signing
+a yes however firmware roots of trust are a critical component to upgrade and nsa
+expects this to be implemented for some longlived signatures in  before validated
+mldsa is widely available at this time validated lms and xmss are commercially
+available nsa prefers to see this transition begin now using lms and xmss rather
+than wait for mldsa due to the long timeframes involved in moving from small
+components andor early designs to completed products
+validated mldsa is approved for all signing use cases and when it is available it may
+be the most appropriate choice for some softwarefirmware signing use cases for
+example when a users software signing strategy requires more signatures than can be
+reasonably used with a single lms or xmss key or in software development
+environments with a distributed signing system it would be reasonable to use mldsa
+q is hashmldsa aka the prehash mode of mldsa allowed in cnsa 
+a not at the present time hashmldsa is a variant on mldsa in fips  which
+describes a method of compressing a message before signing while intentionally
+breaking interoperability with mldsa to prevent a vulnerability in the case of key re
+use because hashmldsa does not offer any functionality not already offered by the
+cnsa hash functions combined in a standard way with mldsa and because
+standard mldsa is expected to be widely supported nsa anticipates there will be
+no need for hashmldsa in nss hence at this time hashmldsa is not allowed if at
+a later date protocol usage demands it nsa will provide specific guidance on its limited
+usage at that time
+uoo  pp  december  ver  
+nsa  cnsa suite  and quantum computing faq
+q will nsa add more selections to cnsa in the future
+a nsa does not currently plan to add future nist postquantum standards to cnsa
+circumstances could change in ways not currently foreseen but adding more
+algorithms generally makes interoperability more complex although admittedly less so
+for algorithms for software and firmware signing
+q what if my solution uses hash functions other than sha or sha
+a sha remains approved in the cnsa  as nsa believes it provides sufficient
+security for nss designers often prefer to use sha for performance reasons this
+is now supported by cnsa  however customers need to be certain that using sha
+ does not lead to interoperability issues
+where nsa has approved an algorithm or cryptographic application that incorporates a
+truncated hash value eg sha or other nistapproved hash function eg
+sha as part of its design using those hash functions is acceptable within the scope
+of the algorithm or cryptographic application also use of sha and sha is
+allowed in internal hardware processes but general purpose use of such hash functions
+is not approved at this time for nss
+just as sha was added to cnsa nsa may in the future add another nist
+algorithm if it achieves ubiquity in a key area of the ecosystem satisfies nsas
+independent security requirements and is unlikely to interfere with interoperability
+q how is cnsa  implementation enforced in nss
+a authorizing officials will be reporting regularly on adoption of cnsa  in
+accordance with nsm it is important they use the tools and resources available to
+ensure all systems that use cryptography for security including software update
+mechanisms implement cnsa  algorithms the authorizing officials must report any
+deviations to nsa in accordance with nsm processes
+q can a commercial product be used in my nss that runs cryptography other
+than in cnsa 
+a if a commercial product does not use cnsa  algorithms it is not allowed to be
+used to protect nss unless nsa has provided specific written guidance otherwise
+cnsa  relies on nist standardized algorithms which have been widely vetted as
+uoo  pp  december  ver  
+nsa  cnsa suite  and quantum computing faq
+quantum resistant and other algorithms should not be employed further cnssp
+requires that commercial products used in nss be niap validated and this validation
+will generally require cnsa  compliance
+q when should deployment of cnsa  algorithms in mission systems begin
+a when validated products become available they should be deployed in mission
+systems niap and the commercial solutions for classified csfc program both intend
+to swiftly update profiles as validation with new products becomes feasible for systems
+outside these programs please refer to cnssp  and future guidance for deprecation
+schedules of quantumvulnerable cryptography meanwhile nsa encourages
+responsible testing in vendor and government research environments now to
+understand the effects of deployment of the new algorithms on particular systems given
+the increased sizes used in these algorithms
+timeframe
+q what timeframe information can nsa provide for adoption of cnsa 
+a nsa intends that all nss will be quantumresistant by  in accordance with the
+goal espoused in nsm nsas recent update to cnssp  has set several dates to
+aid in this transition in the commercial space with the hope of completing much of the
+transition sooner
+any nss currently validated against a niap or csfc profile continues to be approved
+for the life of that validation and no requirement to transition will be enforced prior to
+december   however any nss not cnsa  compliant has six months from
+the publication date of the updated cnssp  to come into compliance with cnsa 
+or  days to request a waiver
+cnssp  states that by january   all new acquisitions for nss will be required
+to be cnsa  compliant unless otherwise noted
+by december   all equipment and services that cannot support cnsa  must
+be phased out unless otherwise noted and by december   cnsa 
+algorithms are mandated for use unless otherwise noted
+uoo  pp  december  ver  
+nsa  cnsa suite  and quantum computing faq
+q will i need to transition all my algorithms to cnsa  at once
+a as nss transition to cnsa  by  nsa expects to have a long period of
+systems using both cnsa  and  in different places new nss developments will
+be required to support cnsa  algorithms once appropriate standards for the given
+technology are in place all appropriate system components should be configured to
+prefer cnsa  algorithms as products mature those components should be
+configured to accept only cnsa  algorithms
+nsa will provide guidance and updated protection profiles as standard development
+organizations sdos develop the appropriate standards because product lines may
+develop at different speeds and not every profile supporting cnsa  will support it for
+every cryptographic service offered cnsa  algorithms will continue to be used until
+current solutions can operate in a cnsa  mode
+q what is the timeline for new deployments
+a niap and the csfc program will update their profiles and requirements in
+accordance with industry adoption nsa intends an aggressive timeframe for adoption
+see above and requests industry support starting january   nsa expects new
+deployments to be compliant with cnsa  unless otherwise explicitly noted in
+profiles
+q what is the timeline for transitioning fielded equipment
+a as industry adopts cnsa  algorithms nsa will require transition of fielded
+equipment to cnsa  as well in some circumstances this may require a hardware
+refresh nsa encourages nss owners and operators to plan for this
+cryptographic agility is necessary to accomplish this transition in a timely manner even
+equipment purchased before support is mandated should have sufficient memory and
+processing power when possible to run new algorithms as well as capacity for future
+algorithms and protocols so that any future enhancements can be included via a
+software update
+nsa expects these equipment transitions to be completed by december  
+uoo  pp  december  ver  
+nsa  cnsa suite  and quantum computing faq
+q when will ietf rfcs containing guidance on configurations for cnsa 
+compliant protocols be available
+a ietf and other sdos are independent bodies that are in charge of their own
+publication schedules due to the interest in this guidance beyond standard nsa
+customers and to facilitate quantumresistant deployment more broadly nsa is
+working with ietf and other sdos to produce rfcs and other documentation with the
+appropriate level of security and implementation analysis nsa encourages cnsa 
+adoption in standards and deployment in vendor products but it is not a requirement
+beyond nss
+cnssp  and nsm 
+q what is national security memorandum nsm 
+a national security memorandum  promoting united states leadership in quantum
+computing while mitigating risks to vulnerable cryptographic systems lays out a
+variety of tasks for the federal government to undertake with the goal of achieving
+quantum resistance by  including the creation of quantumresistant standards and
+the deprecation of quantumvulnerable standards nsa is explicitly called out to provide
+timely guidance for quantum resistance in nss and nss owners are given annual
+reporting requirements for quantumvulnerable systems
+q what is cnssp 
+a committee on national security systems policy  cnssp  specifies
+commercial cryptographic algorithms for protecting nss in conjunction with other
+cnss and nsadocumented processes originally it specified nsa suite b as the
+required commercial algorithms for protecting nss and then it was revised to specify
+the cnsa  suite in cnssp  annex b it now includes cnsa  algorithms as
+nist has completed its initial standards from its postquantum standardization
+process further details about cnss are at wwwcnssgov
+q what changes are in the cnssp  update
+a the  update to cnssp  makes three significant changes in order to execute
+nsm  for its users these are as follows
+uoo  pp  december  ver  
+nsa  cnsa suite  and quantum computing faq
+ it updated the list of allowed algorithm standards which was previously defined
+as cnsa  to now require cnsa  this deprecated all quantumvulnerable
+algorithms added quantumresistant public key mechanisms as well as added
+sha into general usage and sha into specific applications
+ it set out dates for the transition from cnsa  to cnsa  including adoption
+dates for new systems as well as deprecation dates for currently deployed
+systems
+ it revoked the previous eight years of waivers to cnssp  which therefore
+requires modernization of several nss
+q as an nss owner when will my quantumresistant transition be completed
+with regard to the reporting requirements under nsm 
+a as noted in cnssp  as long as any component of an nss is still not quantum
+resistant there will still be reporting requirements under nsm  hence while cnssp
+ allows the use of currently validated profiles that rely on cnsa  as long as a
+profile requires any noncnsa  algorithm to function securely such as those in
+cnsa  it will be reportable under nsm  nsa expects this to continue for many
+customers through december   when the vast majority of cryptography in an
+nss should be quantum resistant
+q how does cnssp  relate to cnssi  nist sp  and the rmf
+process
+a cnss instruction  mandates using the risk management framework rmf as
+documented in nist sp  and nist sp  in managing national security
+information systems nist sp  includes security controls eg sc that
+relate to cryptography nss requires the nsa approved selection unless nsa states
+otherwise the nsa approved cryptography selection includes cnsa  algorithm
+requirements as well as all other relevant nsa guidance on product validation and
+operation
+ committee on national security systems instruction  security categorization and control selection for national security
+systems
+ nist special publication  managing information security risk organization mission and information system view
+ nist special publication  rev security and privacy controls for information systems and organizations
+uoo  pp  december  ver  
+nsa  cnsa suite  and quantum computing faq
+q how should the broader government community understand cnssp 
+requirements
+a nsa establishes nss requirements often these systems require protection for long
+periods against sophisticated targeted efforts and wellresourced adversaries in
+potential wartime settings nist establishes cryptographic standards for other
+government systems
+nsa selected the algorithms in cnssp  from those chosen by nist in order to
+satisfy both nsa requirements for nss and to simplify implementation and
+interoperability by aligning with nist standards for general government use if you are
+uncertain whether nss requirements apply to a specific system contact nsa for
+assistance also see nist sp 
+quantum alternatives
+q can i mitigate the quantum threat to nss by using a preshared key
+a many commercial protocols allow a preshared key option that may mitigate the
+quantum threat and some allow the combination of preshared and asymmetric keys in
+the same negotiation however this issue can be complex customers who wish to
+explore this option should contact nsa or follow guidance the csfc program provides
+q will quantum computers affect nonpublickey ie symmetric algorithms
+a quantum computing techniques are generally considered much less effective against
+symmetric algorithms than against current widely used publickey algorithms while
+publickey cryptography requires fundamental design changes symmetric algorithms
+are considered secure provided the key size is sufficiently large cnsa  symmetric
+algorithms which essentially are the same as their cnsa  counterparts are
+quantumresistant
+q why does nsa care about quantum computing today isnt quantum
+computing a long way off
+a nsa has specific requirements documented in nsm  to provide quantum
+resistance for nss by  which requires concrete steps to be taken over the next
+ nist special publication  guideline for identifying an information system as a national security system
+uoo  pp  december  ver  
+nsa  cnsa suite  and quantum computing faq
+decade to achieve nsa does not know when there will be a crqc expert
+assessments disagree significantly about timing because nss often have very long
+lifecycles nsa must produce requirements today for systems that will be used many
+decades in the future consequently the data these systems protect will still require
+cryptographic protection for decades after these systems are at end of life there is
+growing research in the area of quantum computing and enough progress that nsa
+must act now to protect nss by providing the requirements for the transition to cnsa
 
- cnrs la recherche francaise au cur du plan quantique httpswwwiledefrancegifcnrsfrfr
-cnrsinfolarecherchefrancaiseaucoeurduplanquantique
- cnss cnss advisory memorandum httpscryptomeorgcnssadvisorymemopdf
-
- enisa postquantumcryptographycurrentstateandquantummitigation httpswwwenisaeuropa
-eupublicationspostquantumcryptographycurrentstateandquantummitigation
- l k grover a framework for fast quantum mechanical algorithms in th acm stoc pages 
-acm press may 
- ncsc preparing for quantumsafe cryptography httpswwwncscgovukwhitepaper
-preparingforquantumsafecryptography
- nist postquantumcryptographyofficialstandardizationwebpage httpscsrcnistgovprojects
-postquantumcryptography
- risq to appear on risq official webpage httpsrisqfr
- p shor algorithms for quantum computation discrete logarithms and factoring in th focs pages
- ieee computer society press nov 
- sogis agreed cryptographic mechanisms httpswwwsogiseuuksupportingdocenhtml
- d stebila s fluhrer and s gueron hybrid key exchange in tls  draft ietf httpswwwietf
-orgiddraftietftlshybriddesignhtml
- c tjhai m tomlinson g bartlett s fluhrer d vangeest o garciamorchon and
-v smyslov multiple key exchanges in ikev draft ietf httpsdatatrackerietforgdoc
-draftietfipsecmeikevmultipleke
-
+q what is quantum key distribution qkd
+a the field of quantum cryptography involves specialized hardware using the physics
+of quantum mechanics to protect the confidentiality of sensitive information the most
+common example today uses quantum physics to distribute keys for use in a traditional
+symmetric algorithm known as quantum key distribution or qkd this technology
+exists today and is distinct from the quantum computing technology that might one day
+attack cryptographic algorithms the sole function of qkd is to distribute keys between
+users hence it is only one part of a cryptographic system
+q can i use a qkd system to protect my national security system from a
+quantum computer
+a no the technology involved is of significant scientific interest but it only addresses
+some security threats and requires significant engineering modifications to nss
+communications systems nsa does not generally consider qkd a practical security
+solution for protecting nss nss owners should not use or research qkd at this time
+without consulting nsa directly for specific questions nss owners can contact nsa
+q what is a quantum random number generator quantum rng
+a quantum random number generators are hardware random number generators that
+use specific quantum effects to generate nondeterministic randomness the decision on
+which rng is appropriate in a specific scenario depends on many factors in addition
+any properly certifiedapproved rng should be acceptable if you implement it within the
+constraints of that approval
+uoo  pp  december  ver  
+nsa  cnsa suite  and quantum computing faq
+commercial solutions for classified csfc and national
+information assurance partnership niap
+q can i use any cnsacapable products in my nss without going through
+niapcsfc
+a no cnssp  states that all commercialofftheshelf information assurance ia
+and iaenabled information technology products acquired to protect information on nss
+shall comply with niap program requirements according to nsaapproved processes
+and where applicable the requirements of fips cryptographic validation programs
+furthermore cnssp  states that a csfc solution may protect nss provided the
+appropriate authorizing official approved it and registration with nsas csfc program
+management office showed it is compliant with an nsaprovided capability package
+q i have long data life concerns and want to adopt csfc solutions how can i
+ensure my communications and data remain secure against an adversary with a
+quantum computer
+a some csfc solutions may be implemented today using symmetric preshared keys
+that protect against the longterm quantum computing threat nsa considers using pre
+shared symmetric keys in a standardscompliant fashion a better nearterm post
+quantum solution than implementing unvalidated postquantum asymmetric algorithms
+eventually nsa will provide capability packagesto coincide with commercial
+technological developmentto support cnsa  algorithms
+for details contact the csfc program office
+future cryptographic algorithms
+q what algorithms should i use for other areas of cryptography eg
+blockchain private information retrieval identity based encryption
+a nsa wants to know about potential use cases for any of the innovative cryptography
+listed below or other similar cryptographic innovation cnssp  mandates using
+public standards while allowing exceptions for additional nsaapproved options when
+needed neither nsa nor nist has produced standards for these areas and nsa has
+not issued any general approval for using these technologies on nss
+uoo  pp  december  ver  
+nsa  cnsa suite  and quantum computing faq
+many of these topics involve novel security properties requiring further scrutiny nss
+owners should consult nsa before using any cryptography that cnsa  or cnsa 
+and other published guidance do not specify in particular the following have no
+generally approved solutions
+ distributed ledgers or blockchains
+ private information retrieval pir
+ private set intersection psi
+ identitybased encryption ibe
+ attributebased encryption abe
+ homomorphic encryption he
+ group signatures
+ ring signatures
+ searchable encryption
+ threshold signatures
+q i have a novel cryptographic solution how do i get my solution nsa
+approved
+a nsa has programs for certifying solutions built to protect classified information this
+certification process applies to developments intended specifically for government use
+or control nsa also manages efforts such as niap and the csfc program that require
+strict compliance with traditional cryptographic standards and designs
+nsa does not accept direct requests from commercial vendors to validate their products
+or offer a general use vendor certification for novel cryptographic solutions if an nss
+customer believes they have a mission need to use cryptography beyond what is
+currently available they should engage with nsa directly to discuss their unique
+situation
+q will nsa be adopting the standards from nists lightweight cryptography
+effort
+a nsa does not intend to add the ciphers resulting from nists lightweight
+cryptography effort to cnsa the lightweight cryptography effort resulted in the
+selection of symmetric primitives based on the ascon family their targeted security is
+substantially less than aes rendering them generally unsuitable for nss use
+uoo  pp  december  ver  
+nsa  cnsa suite  and quantum computing faq
+cases if cnsa  algorithms do not meet mission system performance requirements
+early consultation with nsa is required
+hybrids
+q what is a hybrid cryptographic solution
+a a hybrid solution for a protocol is one using multiple algorithms to perform the same
+function such as key agreement or authentication the solution uses algorithms in a
+way that requires an attacker to break each one to compromise system security hybrid
+solutions can consist of many traditional or qr algorithms component algorithms are
+individual algorithms used in a hybrid solution
+q what is nsas position on the use of hybrid solutions
+a nsa has confidence in cnsa  algorithms and will not require nss developers to
+use hybrid certified products for security purposes however product availability and
+interoperability requirements may lead to adopting hybrid solutions
+nsa recognizes that some protocols may require using hybridlike constructions to
+accommodate the larger sizes of mlkem or mldsa and will work with
+industry and sdos to identify the best options for implementation
+q what complications can using a hybrid solution introduce
+a hybrid solutions add complexity to protocols and crypt libraries as designers need to
+incorporate additional negotiation and error handling and implementers need to modify
+apis and testing
+rather than ease the transition to quantum resistance hybrid deployments introduce
+additional interoperability concerns because all the algorithms and the method of
+hybridization must be features common to all parties to a communication similarly
+hybrid deployments add a second transition later as users eventually move away from
+classical algorithms in the future entirely and use only quantumresistant algorithms at
+the same time hybrid solutions make the implementations more complex so one must
+balance the risk of flaws in an increasingly complex implementation with the risk of a
+cryptanalytic breakthrough because more security products fail due to implementation
+or configuration errors than failures in their underlying cryptographic algorithms
+uoo  pp  december  ver  
+nsa  cnsa suite  and quantum computing faq
+spending limited resources to add cryptographic complexity can at times weaken
+security rather than improve it
+in many scenarios adding a hybrid option will require the standards community to
+determine nonobvious choices such as how to negotiate hybrid algorithms or how to
+combine keys securely which may slow down the process of standardization past
+nsas deployment goals
+where nsa recognizes a need to support a hybrid solution extensive work will be
+performed to ensure that it can be safely implemented including engineering to a high
+degree of robustness and facilitation of a straightforward transition to qronly
+solutions
+q is there an example where nsa will recommend hybrid solutions
+a due to difficulties introduced when unencrypted ikev messages exceed a certain
+byte size it is not possible to directly replace the cnsa  public key algorithms with
+mlkem and its larger public key because there is no straightforward way to
+construct a solution that uses a standalone mlkem key establishment without
+dramatic changes to this part of ikev nsa anticipates using the solution standardized
+within ietf which effectively manages this problem by performing a smaller key
+establishment followed by a larger but encrypted key establishment as a result for the
+foreseeable future nsas profile of this solution will continue the use of cnsa  key
+establishment algorithms but fortified by key establishment using mlkem
+q should one use a hybrid or other nonstandardized qr solution while waiting
+for a final nist postquantum standard
+a do not use a hybrid or other nonstandardized qr solution on nss mission systems
+except for those exceptions nsa specifically recommends to meet standardization or
+interoperability requirements nsa encourages limited purchase and use for research
+and planning but only to prepare for transitioning to a cnsa  suite because nsa is
+confident that cnsa  algorithms will sufficiently protect nss it does not require a
+hybrid solution for security purposes except as noted above hybrid solutions will not be
+integrated into eventual deployable solutions
+uoo  pp  december  ver  
+nsa  cnsa suite  and quantum computing faq
+using nonstandard solutions entails a significant risk of establishing incompatible
+solutions using a hybrid solution that involves a symmetric key in accordance with
+established standards eg rfc  rfc  may be appropriate but key
+management complexity generally restricts this to specialized applications
+further information
+q where can i get more information
+a for csfcspecific questions customers should contact the commercial solutions for
+classified program management office at csfcnsagov
+other specific questions from nss users may be addressed via email to
+nsacryptotodaynsagov or through normal business channels
+disclaimer of endorsement
+the information and opinions contained in this document are provided as is and without any warranties or
+guarantees reference herein to any specific commercial product process or service by trade name trademark
+manufacturer or otherwise does not constitute or imply its endorsement recommendation or favoring by the united
+states government and this guidance shall not be used for advertising or product endorsement purposes
+purpose
+this document was developed in furtherance of nsas cybersecurity missions including its responsibilities to identify
+and disseminate threats to national security systems department of defense and defense industrial base
+information systems and to develop and issue cybersecurity specifications and mitigations this information may be
+shared broadly to reach all appropriate stakeholders
+contact
+cybersecurity report inquiries and feedback cybersecurityreportsnsagov
+defense industrial base inquiries and cybersecurity services dibdefensecybernsagov
+media inquiries  press desk  mediarelationsnsagov
+uoo  pp  december  ver  

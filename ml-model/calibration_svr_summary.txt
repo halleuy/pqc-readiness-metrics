@@ -1,33 +1,33 @@
 PQC Readiness — SVR/RF Calibration Summary
 ==================================================
 
-Frameworks used: 28
+Frameworks used: 29
 
 Results:
-  Phase 2B (SVR selected features): MAE = 0.797  PASS ✅
-  Phase 2C (ElasticNet): MAE = 0.867  PASS ✅
-  Phase 2D (SVR all features): MAE = 0.897  PASS ✅
-  Phase 2E (Random Forest): MAE = 0.806  PASS ✅
+  Phase 2B (SVR selected features): MAE = 0.781  PASS ✅
+  Phase 2C (ElasticNet): MAE = 0.878  PASS ✅
+  Phase 2D (SVR all features): MAE = 0.887  PASS ✅
+  Phase 2E (Random Forest): MAE = 0.829  PASS ✅
 
 Selected features per dimension:
   crypto_assets: ['top_k_mean', 'depth', 'coverage_log']
-  crypto_agility: ['kw_ratio', 'kw_general']
+  crypto_agility: ['kw_ratio', 'concentration', 'coverage_log']
   migration_planning: ['top_k_mean']
   risk_management: ['top_k_mean', 'kw_ratio', 'kw_specific']
-  standards_compliance: ['depth', 'kw_specific', 'differential']
+  standards_compliance: ['kw_specific', 'differential', 'top_k_mean']
 
 Best SVR params per dimension:
-  crypto_assets: C=5.0, ε=0.5, γ=scale
-  crypto_agility: C=1.0, ε=0.8, γ=scale
-  migration_planning: C=1.0, ε=0.1, γ=scale
-  risk_management: C=1.0, ε=0.3, γ=scale
+  crypto_assets: C=0.5, ε=0.1, γ=scale
+  crypto_agility: C=1.0, ε=0.3, γ=scale
+  migration_planning: C=1.0, ε=0.5, γ=scale
+  risk_management: C=5.0, ε=0.1, γ=scale
   standards_compliance: C=1.0, ε=0.1, γ=scale
 
 Best Random Forest params per dimension:
-  crypto_assets: n_est=500, depth=2, leaf=4, feat=2
-  crypto_agility: n_est=200, depth=2, leaf=5, feat=sqrt
-  migration_planning: n_est=300, depth=2, leaf=5, feat=2
-  risk_management: n_est=500, depth=4, leaf=4, feat=sqrt
+  crypto_assets: n_est=300, depth=2, leaf=4, feat=2
+  crypto_agility: n_est=300, depth=2, leaf=5, feat=2
+  migration_planning: n_est=500, depth=4, leaf=5, feat=sqrt
+  risk_management: n_est=300, depth=4, leaf=3, feat=sqrt
   standards_compliance: n_est=300, depth=4, leaf=3, feat=2
 
 Target: MAE < 1.0

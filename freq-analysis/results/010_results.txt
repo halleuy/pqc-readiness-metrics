@@ -1,8 +1,8 @@
 Framework: 010.txt
-Total Words: 13252
+Total Words: 18772
 ========================================
-crypto_assets: 5
-crypto_agility: 19
-migration_planning: 2
-risk_management: 17
-standards_compliance: 46
+crypto_assets: 38
+crypto_agility: 24
+migration_planning: 49
+risk_management: 49
+standards_compliance: 119
