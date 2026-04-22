@@ -1,0 +1,11 @@
+LLM Scoring Summary
+Model: mlx-community/Qwen2.5-7B-Instruct-4bit
+Frameworks scored: 30
+
+Overall MAE: 1.147
+
+crypto_assets: MAE=1.433, Exact=16.7%
+crypto_agility: MAE=1.033, Exact=23.3%
+migration_planning: MAE=1.167, Exact=20.0%
+risk_management: MAE=1.067, Exact=20.0%
+standards_compliance: MAE=1.033, Exact=23.3%
