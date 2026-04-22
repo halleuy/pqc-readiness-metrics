@@ -1,0 +1,197 @@
+# ============================================================================
+# PQC Readiness Metrics - .gitignore
+# ============================================================================
+
+# =========================
+# SECURITY - API TOKENS
+# =========================
+.env
+.env.local
+.env.*.local
+*.env
+config.py
+secrets/
+
+# =========================
+# PYTHON
+# =========================
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*\$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Virtual environments
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pyenv
+.python-version
+
+# =========================
+# ML/NLP MODELS & DATA
+# =========================
+# MLX model cache (Hugging Face)
+*.mlx/
+mlx-models/
+~/.cache/huggingface/
+
+# Large model files (if accidentally downloaded locally)
+*.bin
+*.safetensors
+*.onnx
+*.pt
+*.pth
+*.h5
+*.keras
+
+# Exception: keep requirements
+!requirements.txt
+
+# =========================
+# PROJECT OUTPUT FILES
+# =========================
+# LLM pipeline outputs
+llm-pipeline/outputs/*.csv
+llm-pipeline/outputs/*.json
+llm-pipeline/outputs/*.txt
+llm-pipeline/outputs/llm_raw_*.txt
+
+# Calibration outputs
+ml-model/*.json
+ml-model/*.txt
+ml-model/calibration_*.json
+ml-model/svr_rf_config.json
+
+# Exception: keep example outputs (if you want to commit samples)
+!llm-pipeline/outputs/.gitkeep
+!ml-model/.gitkeep
+
+# Frequency analysis intermediate files
+freq-analysis/processed/*.tmp
+freq-analysis/logs/
+
+# =========================
+# OPERATING SYSTEM
+# =========================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+\$RECYCLE.BIN/
+
+# Linux
+*~
+
+# =========================
+# IDEs & EDITORS
+# =========================
+# VS Code
+.vscode/
+*.code-workspace
+
+# PyCharm
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+.\#*
+
+# =========================
+# LOGS & TEMPORARY FILES
+# =========================
+*.log
+*.tmp
+*.temp
+logs/
+temp/
+
+# =========================
+# DOCUMENTS (keep PDFs but ignore processing artifacts)
+# =========================
+# Keep original PDFs in freq-analysis/pdfs/
+# But ignore processing artifacts
+freq-analysis/pdfs/*.txt
+freq-analysis/pdfs/~\$*
+
+# =========================
+# OPTIONAL: Uncomment if needed
+# =========================
+# If you want to ignore ALL CSVs except specific ones:
+# *.csv
+# !freq-analysis/framework_mapping.csv
+# !freq-analysis/scripts/labels.csv
+
+# If you want to ignore large datasets:
+# data/raw/
+# data/processed/
