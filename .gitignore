@@ -195,3 +195,4 @@ freq-analysis/pdfs/~\$*
 # If you want to ignore large datasets:
 # data/raw/
 # data/processed/
+.env
