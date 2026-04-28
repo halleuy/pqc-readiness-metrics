@@ -1,14 +1,19 @@
 # =============================================================================
-# llm_score_multigpu.py — Multi-GPU PQC Readiness Scoring (3x RTX 3090)
+# llm_score_multigpu.py — Enhanced Multi-GPU PQC Readiness Scoring
 # =============================================================================
 
 import os
 import json
 import csv
 import re
+import gc
+import hashlib
+import logging
 from pathlib import Path
+from datetime import datetime
+from typing import Dict, List, Optional, Tuple
 import numpy as np
-from scipy.stats import spearmanr
+from scipy.stats import spearmanr, bootstrap
 from sklearn.metrics import cohen_kappa_score
 import torch
 from transformers import (
@@ -37,28 +42,30 @@ MAPPING_FILE = FREQ_ANALYSIS_DIR / "framework_mapping.csv"
 OUTPUT_DIR = BASE_DIR / "outputs"
 OUTPUT_DIR.mkdir(exist_ok=True)
 
-# -------------------------
-# Model choices
-# -------------------------
-# Best practical choice:
 MODEL_NAME = "Qwen/Qwen2.5-32B-Instruct"
-
-# If you want to push harder later:
-# MODEL_NAME = "meta-llama/Llama-3.1-70B-Instruct"
-
 USE_4BIT = True
 MAX_NEW_TOKENS = 120
+DO_SAMPLE = False
 TEMPERATURE = 0.0
-TOP_P = 1.0
 
-# Context / chunking
 MAX_INPUT_TOKENS = 3000
+MAX_TOTAL_TOKENS = 4096
 USE_CHUNKING = True
 CHUNK_SIZE = 1200
+CHUNK_OVERLAP = 0.8
 MAX_CHUNKS = 3
 AGGREGATION = "max"
 
 MAX_RETRIES = 2
+USE_CACHE = True
+CACHE_FILE = OUTPUT_DIR / "chunk_cache.json"
+
+GPU_MAX_MEMORY = {
+    0: "22GiB",
+    1: "22GiB",
+    2: "22GiB",
+    "cpu": "64GiB"
+}
 
 DIMENSIONS = [
     "crypto_assets",
@@ -68,21 +75,34 @@ DIMENSIONS = [
     "standards_compliance"
 ]
 
-# Reserve some VRAM headroom per GPU
-GPU_MAX_MEMORY = {
-    0: "22GiB",
-    1: "22GiB",
-    2: "22GiB",
-    "cpu": "64GiB"
-}
+# =============================================================================
+# LOGGING
+# =============================================================================
+
+def setup_logging():
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    log_file = OUTPUT_DIR / f"run_{timestamp}.log"
+    
+    logging.basicConfig(
+        level=logging.INFO,
+        format='%(asctime)s | %(levelname)8s | %(message)s',
+        datefmt='%Y-%m-%d %H:%M:%S',
+        handlers=[
+            logging.FileHandler(log_file, encoding='utf-8'),
+            logging.StreamHandler()
+        ]
+    )
+    
+    return logging.getLogger(__name__)
+
+logger = setup_logging()
 
 # =============================================================================
 # PROMPTS
 # =============================================================================
 
 SYSTEM_PROMPT = """You are an expert evaluator of Post-Quantum Cryptography (PQC) readiness frameworks.
-Your task is to analyze technical documents and assign scores (0-5) based ONLY on explicit evidence in the text.
-Do not infer capabilities that are not clearly stated. When evidence is ambiguous, assign the lower score."""
+Your task is to analyze technical documents and assign scores (0-5)."""
 
 SCORING_RUBRIC = """
 **Scoring Scale (0-5):**
@@ -126,6 +146,14 @@ SCORING_RUBRIC = """
 - 3: References specific standards (FIPS 203/204, CNSA 2.0, SP 800-208)
 - 4: Detailed coverage with algorithm names (ML-KEM, ML-DSA, SLH-DSA)
 - 5: Exhaustive with certification requirements, regulatory compliance, parameter sets
+
+**Example Responses:**
+
+Document: "Organizations must identify all cryptographic assets including certificates, keys, and algorithms."
+Response: {"crypto_assets": 2, "crypto_agility": 0, "migration_planning": 0, "risk_management": 0, "standards_compliance": 0}
+
+Document: "Implement ML-KEM-768 for key encapsulation following FIPS 203. Use modular architecture for algorithm switching."
+Response: {"crypto_assets": 0, "crypto_agility": 3, "migration_planning": 0, "risk_management": 0, "standards_compliance": 4}
 """
 
 def build_scoring_prompt(text_excerpt):
@@ -139,11 +167,58 @@ def build_scoring_prompt(text_excerpt):
 **Task:**
 Based ONLY on the evidence in the document above, assign integer scores (0-5) for each dimension.
 
-Return ONLY a valid JSON object with this exact structure (no markdown, no additional text):
+Return ONLY a valid JSON object with this exact structure (no explanations, no markdown):
 
 {{"crypto_assets": <int>, "crypto_agility": <int>, "migration_planning": <int>, "risk_management": <int>, "standards_compliance": <int>}}
 
 JSON:"""
+
+# =============================================================================
+# CACHING
+# =============================================================================
+
+class ChunkCache:
+    def __init__(self, cache_file):
+        self.cache_file = cache_file
+        self.cache = self._load_cache()
+    
+    def _load_cache(self):
+        if USE_CACHE and self.cache_file.exists():
+            try:
+                with open(self.cache_file, 'r', encoding='utf-8') as f:
+                    cache = json.load(f)
+                logger.info(f"Loaded cache with {len(cache)} entries")
+                return cache
+            except Exception as e:
+                logger.warning(f"Failed to load cache: {e}")
+        return {}
+    
+    def _save_cache(self):
+        if USE_CACHE:
+            try:
+                with open(self.cache_file, 'w', encoding='utf-8') as f:
+                    json.dump(self.cache, f, indent=2)
+            except Exception as e:
+                logger.warning(f"Failed to save cache: {e}")
+    
+    def get_hash(self, text):
+        return hashlib.md5(text.encode('utf-8')).hexdigest()
+    
+    def get(self, chunk):
+        if not USE_CACHE:
+            return None
+        chunk_hash = self.get_hash(chunk)
+        return self.cache.get(chunk_hash)
+    
+    def set(self, chunk, scores, response):
+        if USE_CACHE:
+            chunk_hash = self.get_hash(chunk)
+            self.cache[chunk_hash] = {
+                'scores': scores,
+                'response': response,
+                'timestamp': datetime.now().isoformat()
+            }
+            self._save_cache()
 
 # =============================================================================
 # DATA LOADING
@@ -156,6 +231,7 @@ def load_expert_scores(path):
         for row in reader:
             fid = str(row["Framework_ID"]).strip().zfill(3)
             scores[fid] = {dim: int(row[dim]) for dim in DIMENSIONS}
+    logger.info(f"Loaded expert scores for {len(scores)} frameworks")
     return scores
 
 def load_framework_mapping(path):
@@ -165,35 +241,54 @@ def load_framework_mapping(path):
         for row in reader:
             fid = str(row["Framework ID"]).strip().zfill(3)
             mapping[fid] = row["PDF_Title"].strip()
+    logger.info(f"Loaded mapping for {len(mapping)} frameworks")
     return mapping
 
-def load_and_chunk_text(txt_path, chunk_size=CHUNK_SIZE, max_chunks=MAX_CHUNKS):
+def load_and_chunk_text(txt_path, tokenizer, chunk_size=CHUNK_SIZE, max_chunks=MAX_CHUNKS):
     try:
         with open(txt_path, "r", encoding="utf-8") as f:
             text = f.read()
 
         if not text or len(text) < 100:
+            logger.warning(f"Text too short: {txt_path}")
             return None
 
+        tokens = tokenizer.encode(text, add_special_tokens=False)
+        
+        if len(tokens) <= MAX_INPUT_TOKENS:
+            return [text]
+        
+        if len(tokens) > MAX_TOTAL_TOKENS:
+            logger.warning(f"Text exceeds max tokens, truncating: {txt_path}")
+            text = tokenizer.decode(tokens[:MAX_TOTAL_TOKENS], skip_special_tokens=True)
+
+        if not USE_CHUNKING:
+            truncated_tokens = tokenizer.encode(text, add_special_tokens=False)[:MAX_INPUT_TOKENS]
+            return [tokenizer.decode(truncated_tokens, skip_special_tokens=True)]
+
         words = text.split()
-
-        if not USE_CHUNKING or len(words) <= chunk_size:
-            return [" ".join(words[:chunk_size])]
-
         chunks = []
-        step = int(chunk_size * 0.8)
+        step = int(chunk_size * CHUNK_OVERLAP)
 
         for i in range(0, len(words), step):
-            chunk = " ".join(words[i:i + chunk_size])
-            if chunk.strip():
-                chunks.append(chunk)
+            chunk_words = words[i:i + chunk_size]
+            chunk_text = " ".join(chunk_words)
+            
+            chunk_tokens = tokenizer.encode(chunk_text, add_special_tokens=False)
+            if len(chunk_tokens) > MAX_INPUT_TOKENS:
+                chunk_text = tokenizer.decode(chunk_tokens[:MAX_INPUT_TOKENS], skip_special_tokens=True)
+            
+            if chunk_text.strip():
+                chunks.append(chunk_text)
+            
             if len(chunks) >= max_chunks:
                 break
 
+        logger.info(f"Created {len(chunks)} chunks for {txt_path.name}")
         return chunks if chunks else None
 
     except Exception as e:
-        print(f"    ❌ Error loading {txt_path}: {e}")
+        logger.error(f"Error loading {txt_path}: {e}")
         return None
 
 # =============================================================================
@@ -201,18 +296,18 @@ def load_and_chunk_text(txt_path, chunk_size=CHUNK_SIZE, max_chunks=MAX_CHUNKS):
 # =============================================================================
 
 def setup_model():
-    print(f"  Model: {MODEL_NAME}")
-    print(f"  Quantization: {'4-bit' if USE_4BIT else 'Full precision'}")
-    print(f"  CUDA available: {torch.cuda.is_available()}")
-    print(f"  GPU count: {torch.cuda.device_count()}")
+    logger.info(f"Setting up model: {MODEL_NAME}")
+    logger.info(f"Quantization: {'4-bit' if USE_4BIT else 'Full precision'}")
+    logger.info(f"CUDA available: {torch.cuda.is_available()}")
+    logger.info(f"GPU count: {torch.cuda.device_count()}")
 
     if not torch.cuda.is_available():
-        print("❌ CUDA is required for this multi-GPU script.")
+        logger.error("CUDA is required for this multi-GPU script")
         exit(1)
 
     for i in range(torch.cuda.device_count()):
         props = torch.cuda.get_device_properties(i)
-        print(f"    GPU {i}: {props.name} | {props.total_memory / 1e9:.1f} GB")
+        logger.info(f"GPU {i}: {props.name} | {props.total_memory / 1e9:.1f} GB")
 
     bnb_config = None
     if USE_4BIT:
@@ -236,6 +331,7 @@ def setup_model():
 
         model = AutoModelForCausalLM.from_pretrained(
             MODEL_NAME,
+            local_files_only=True,
             token=HF_TOKEN,
             trust_remote_code=True,
             quantization_config=bnb_config,
@@ -244,27 +340,28 @@ def setup_model():
             low_cpu_mem_usage=True
         )
 
+        if hasattr(model, "generation_config"):
+            model.generation_config.max_length = None
+            model.generation_config.max_new_tokens = None
+
         pipe = pipeline(
             "text-generation",
             model=model,
-            tokenizer=tokenizer
+            tokenizer=tokenizer,
+            pad_token_id=tokenizer.eos_token_id
         )
 
-        print("  ✅ Model loaded successfully")
+        logger.info("Model loaded successfully")
+        
         for i in range(torch.cuda.device_count()):
             alloc = torch.cuda.memory_allocated(i) / 1e9
             reserved = torch.cuda.memory_reserved(i) / 1e9
-            print(f"    GPU {i}: allocated={alloc:.2f} GB | reserved={reserved:.2f} GB")
+            logger.info(f"GPU {i}: allocated={alloc:.2f} GB | reserved={reserved:.2f} GB")
 
         return pipe, tokenizer
 
     except Exception as e:
-        print(f"\n❌ Failed to load model: {e}")
-        print("\nTroubleshooting:")
-        print("  1. Check HF_TOKEN")
-        print("  2. Ensure bitsandbytes/accelerate are installed")
-        print("  3. Reduce model size")
-        print("  4. Reduce MAX_INPUT_TOKENS / CHUNK_SIZE")
+        logger.error(f"Failed to load model: {e}")
         exit(1)
 
 # =============================================================================
@@ -286,7 +383,7 @@ def parse_llm_response(response_text):
 
         json_match = re.search(r"\{[^{}]*\}", response_text)
         if not json_match:
-            return None, "No JSON found"
+            return None, "No JSON object found"
 
         scores = json.loads(json_match.group(0))
 
@@ -295,35 +392,71 @@ def parse_llm_response(response_text):
                 return None, f"Missing dimension: {dim}"
 
             val = scores[dim]
-            if isinstance(val, str):
-                val = int(val)
-
-            if not isinstance(val, int):
-                return None, f"Invalid type for {dim}: {type(val)}"
+            
+            if val is None or val == "null":
+                return None, f"Null value for {dim}"
+            
+            try:
+                if isinstance(val, str):
+                    val = float(val)
+                val = int(round(val))
+            except (ValueError, TypeError):
+                return None, f"Invalid type for {dim}: {type(val).__name__}"
 
             if not (0 <= val <= 5):
-                return None, f"Out of range for {dim}: {val}"
+                return None, f"Score out of range for {dim}: {val}"
 
             scores[dim] = val
 
         return scores, "OK"
 
+    except json.JSONDecodeError as e:
+        return None, f"JSON decode error: {e}"
     except Exception as e:
         return None, f"Parse error: {e}"
 
 def generate_response(pipe, prompt):
-    outputs = pipe(
-        prompt,
-        max_new_tokens=MAX_NEW_TOKENS,
-        do_sample=False,
-        temperature=TEMPERATURE,
-        top_p=TOP_P,
-        return_full_text=False,
-        pad_token_id=pipe.tokenizer.eos_token_id
-    )
-    return outputs["generated_text"]
+    try:
+        outputs = pipe(
+            prompt,
+            max_new_tokens=MAX_NEW_TOKENS,
+            do_sample=DO_SAMPLE,
+            temperature=TEMPERATURE if DO_SAMPLE else None,
+            return_full_text=False,
+            pad_token_id=pipe.tokenizer.eos_token_id
+        )
+        
+        # Debug logging
+        logger.debug(f"Pipeline output type: {type(outputs)}")
+        logger.debug(f"Pipeline output: {outputs}")
+        
+        # Handle list output (normal case)
+        if isinstance(outputs, list):
+            if len(outputs) > 0:
+                return outputs[0]["generated_text"]
+            else:
+                raise ValueError("Pipeline returned empty list")
+        
+        # Handle dict output (edge case)
+        elif isinstance(outputs, dict):
+            return outputs[0]["generated_text"]
+        
+        # Unknown format
+        else:
+            raise ValueError(f"Unexpected pipeline output type: {type(outputs)}")
+            
+    except Exception as e:
+        logger.error(f"Error in generate_response: {e}")
+        logger.error(f"Output was: {outputs if 'outputs' in locals() else 'N/A'}")
+        raise
 
-def score_chunk_with_llm(pipe, chunk, max_retries=MAX_RETRIES):
+
+def score_chunk_with_llm(pipe, chunk, cache, max_retries=MAX_RETRIES):
+    cached = cache.get(chunk)
+    if cached:
+        logger.debug("Cache hit")
+        return cached['scores'], cached['response'], True
+    
     prompt = build_scoring_prompt(chunk)
 
     for attempt in range(max_retries):
@@ -332,14 +465,17 @@ def score_chunk_with_llm(pipe, chunk, max_retries=MAX_RETRIES):
             scores, status = parse_llm_response(response)
 
             if scores is not None:
+                cache.set(chunk, scores, response)
                 return scores, response, True
             else:
                 if attempt < max_retries - 1:
-                    print(f"        Retry {attempt + 1}: {status}")
+                    logger.warning(f"Retry {attempt + 1}/{max_retries}: {status}")
 
         except Exception as e:
             if attempt < max_retries - 1:
-                print(f"        Retry {attempt + 1}: {str(e)[:100]}")
+                logger.warning(f"Retry {attempt + 1}/{max_retries}: {str(e)[:100]}")
+            else:
+                logger.error(f"All retries failed: {str(e)[:100]}")
 
     return None, "", False
 
@@ -348,7 +484,7 @@ def aggregate_chunk_scores(chunk_scores, method="max"):
         return None
 
     if len(chunk_scores) == 1:
-        return chunk_scores
+        return chunk_scores[0]
 
     aggregated = {}
     for dim in DIMENSIONS:
@@ -366,30 +502,32 @@ def aggregate_chunk_scores(chunk_scores, method="max"):
 
     return aggregated
 
-def score_framework_with_llm(pipe, chunks):
+
+def score_framework_with_llm(pipe, chunks, cache):
     chunk_scores = []
     responses = []
 
-    print(f"      Scoring {len(chunks)} chunk(s)...")
+    logger.info(f"Scoring {len(chunks)} chunk(s)...")
 
     for i, chunk in enumerate(chunks):
-        print(f"        Chunk {i+1}/{len(chunks)}...", end=" ")
+        logger.info(f"  Chunk {i+1}/{len(chunks)}...")
 
-        scores, response, success = score_chunk_with_llm(pipe, chunk)
+        scores, response, success = score_chunk_with_llm(pipe, chunk, cache)
 
         if success:
             chunk_scores.append(scores)
             responses.append(response[:300])
-            print("✓")
+            logger.info("  ✓ Success")
         else:
-            print("✗")
+            logger.warning("  ✗ Failed")
 
     if not chunk_scores:
-        print("      ❌ All chunks failed")
+        logger.error("All chunks failed")
         return None, "ALL_CHUNKS_FAILED"
 
     final_scores = aggregate_chunk_scores(chunk_scores, method=AGGREGATION)
-    combined_response = f"[Aggregated from {len(chunk_scores)}/{len(chunks)} chunks] " + " | ".join(responses)
+    combined_response = f"[Aggregated from {len(chunk_scores)}/{len(chunks)} chunks using {AGGREGATION}] " + " | ".join(responses)
+    
     return final_scores, combined_response
 
 # =============================================================================
@@ -413,8 +551,29 @@ def compute_metrics(llm_scores, expert_scores, dimension):
     except Exception:
         kappa = 0.0
 
+    ci_low, ci_high = 0.0, 0.0
+    try:
+        def mae_stat(llm, exp):
+            return np.mean(np.abs(llm - exp))
+        
+        rng = np.random.default_rng(42)
+        res = bootstrap(
+            (llm_vals, expert_vals),
+            mae_stat,
+            n_resamples=1000,
+            confidence_level=0.95,
+            random_state=rng,
+            vectorized=False,
+            method='percentile'
+        )
+        ci_low, ci_high = res.confidence_interval.low, res.confidence_interval.high
+    except Exception as e:
+        logger.warning(f"Failed to compute CI: {e}")
+
     return {
         "mae": mae,
+        "mae_ci_low": ci_low,
+        "mae_ci_high": ci_high,
         "rmse": rmse,
         "exact": exact_match,
         "within_1": within_one,
@@ -432,45 +591,45 @@ def compute_metrics(llm_scores, expert_scores, dimension):
 # =============================================================================
 
 def main():
-    print("=" * 72)
-    print("  PQC READINESS — LLM SCORING PIPELINE (MULTI-GPU 3x3090)")
-    print("=" * 72)
+    logger.info("=" * 72)
+    logger.info("  PQC READINESS — LLM SCORING PIPELINE (MULTI-GPU)")
+    logger.info("=" * 72)
 
-    print("\n[1/5] Loading model...")
+    logger.info("\n[1/5] Loading model...")
     pipe, tokenizer = setup_model()
 
-    print("\n[2/5] Loading expert scores and mappings...")
+    logger.info("\n[2/5] Loading expert scores and mappings...")
     expert_scores = load_expert_scores(LABELS_FILE)
     mapping = load_framework_mapping(MAPPING_FILE)
 
-    print(f"      Expert scores: {len(expert_scores)} frameworks")
-    print(f"      Mapping: {len(mapping)} frameworks")
+    cache = ChunkCache(CACHE_FILE)
 
-    print("\n[3/5] Scoring frameworks with LLM...")
-    print(f"      Chunking: {'Enabled' if USE_CHUNKING else 'Disabled'}")
-    print(f"      Aggregation: {AGGREGATION}\n")
+    logger.info("\n[3/5] Scoring frameworks with LLM...")
+    logger.info(f"  Chunking: {'Enabled' if USE_CHUNKING else 'Disabled'}")
+    logger.info(f"  Aggregation: {AGGREGATION}")
+    logger.info(f"  Caching: {'Enabled' if USE_CACHE else 'Disabled'}\n")
 
     results = []
     llm_scores = {}
     failed_count = 0
 
-    for fid in sorted(expert_scores.keys()):
+    for idx, fid in enumerate(sorted(expert_scores.keys())):
         txt_path = PROCESSED_DIR / f"{fid}.txt"
 
         if not txt_path.exists():
-            print(f"  [{fid}] ⚠️ Text file not found — skipping")
+            logger.warning(f"[{fid}] Text file not found")
             continue
 
         framework_name = mapping.get(fid, f"{fid}.txt")
-        print(f"  [{fid}] {framework_name[:55]}...")
+        logger.info(f"[{fid}] {framework_name[:55]}...")
 
-        chunks = load_and_chunk_text(txt_path)
+        chunks = load_and_chunk_text(txt_path, tokenizer)
         if not chunks:
-            print("      ⚠️ Could not load text — skipping")
+            logger.warning("  Could not load text")
             failed_count += 1
             continue
 
-        scores, raw_response = score_framework_with_llm(pipe, chunks)
+        scores, raw_response = score_framework_with_llm(pipe, chunks, cache)
         if scores is None:
             failed_count += 1
             continue
@@ -502,16 +661,25 @@ def main():
             f"{dim[:5]}: L{scores[dim]} E{expert_scores[fid][dim]} (Δ{abs(scores[dim] - expert_scores[fid][dim])})"
             for dim in DIMENSIONS
         )
-        print(f"      {summary}")
-        print(f"      Mean Δ: {np.mean(deltas):.2f}")
+        logger.info(f"  {summary}")
+        logger.info(f"  Mean Δ: {np.mean(deltas):.2f}")
+
+        if (idx + 1) % 10 == 0:
+            logger.info("  🧹 Cleaning GPU cache...")
+            for i in range(torch.cuda.device_count()):
+                torch.cuda.empty_cache()
+            gc.collect()
 
     if not llm_scores:
-        print("\n❌ No frameworks successfully scored!")
+        logger.error("\nNo frameworks successfully scored!")
         return
 
-    print("\n[4/5] Saving results...")
+    logger.info("\n[4/5] Saving results...")
 
-    csv_path = OUTPUT_DIR / "llm_scores_multigpu.csv"
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    csv_path = OUTPUT_DIR / f"llm_scores_{timestamp}.csv"
+    json_path = OUTPUT_DIR / f"llm_scores_{timestamp}.json"
+
     fieldnames = ["Framework_ID", "Framework", "chunks_evaluated"]
     for dim in DIMENSIONS:
         fieldnames += [f"{dim}_llm", f"{dim}_expert", f"{dim}_delta"]
@@ -522,17 +690,16 @@ def main():
         writer.writeheader()
         writer.writerows(results)
 
-    json_path = OUTPUT_DIR / "llm_scores_multigpu.json"
     with open(json_path, "w", encoding="utf-8") as f:
         json.dump(results, f, indent=2)
 
-    print(f"      ✅ {csv_path}")
-    print(f"      ✅ {json_path}")
+    logger.info(f"  ✅ {csv_path}")
+    logger.info(f"  ✅ {json_path}")
 
-    print("\n[5/5] Computing metrics...\n")
-    print("=" * 72)
-    print("  RESULTS SUMMARY")
-    print("=" * 72)
+    logger.info("\n[5/5] Computing metrics...\n")
+    logger.info("=" * 72)
+    logger.info("  RESULTS SUMMARY")
+    logger.info("=" * 72)
 
     all_metrics = {}
     overall_mae = []
@@ -542,30 +709,48 @@ def main():
         all_metrics[dim] = metrics
         overall_mae.append(metrics["mae"])
 
-        print(f"\n  {dim.replace('_', ' ').title()}")
-        print(f"    MAE:         {metrics['mae']:.3f}")
-        print(f"    RMSE:        {metrics['rmse']:.3f}")
-        print(f"    Exact match: {metrics['exact']:.1%}")
-        print(f"    Within ±1:   {metrics['within_1']:.1%}")
-        print(f"    Spearman ρ:  {metrics['rho']:.3f} (p={metrics['p_value']:.4f})")
-        print(f"    Cohen's κ:   {metrics['kappa']:.3f}")
-        print(f"    LLM mean:    {metrics['llm_mean']:.2f} (σ={metrics['llm_std']:.2f})")
-        print(f"    Expert mean: {metrics['expert_mean']:.2f} (σ={metrics['expert_std']:.2f})")
+        logger.info(f"\n  {dim.replace('_', ' ').title()}")
+        logger.info(f"    MAE:         {metrics['mae']:.3f} (95% CI: [{metrics['mae_ci_low']:.3f}, {metrics['mae_ci_high']:.3f}])")
+        logger.info(f"    RMSE:        {metrics['rmse']:.3f}")
+        logger.info(f"    Exact match: {metrics['exact']:.1%}")
+        logger.info(f"    Within ±1:   {metrics['within_1']:.1%}")
+        logger.info(f"    Spearman ρ:  {metrics['rho']:.3f} (p={metrics['p_value']:.4f})")
+        logger.info(f"    Cohen's κ:   {metrics['kappa']:.3f}")
+        logger.info(f"    LLM mean:    {metrics['llm_mean']:.2f} (σ={metrics['llm_std']:.2f})")
+        logger.info(f"    Expert mean: {metrics['expert_mean']:.2f} (σ={metrics['expert_std']:.2f})")
 
     final_mae = float(np.mean(overall_mae))
 
-    print(f"\n{'=' * 72}")
-    print(f"  Overall MAE:         {final_mae:.3f}")
-    print(f"  Frameworks scored:   {len(llm_scores)}/{len(expert_scores)}")
-    print(f"  Failed:              {failed_count}")
-    print(f"  Success rate:        {len(llm_scores)/len(expert_scores)*100:.1f}%")
-    print(f"  Aggregation method:  {AGGREGATION}")
-    print("=" * 72)
+    logger.info(f"\n{'=' * 72}")
+    logger.info(f"  Overall MAE:         {final_mae:.3f}")
+    logger.info(f"  Frameworks scored:   {len(llm_scores)}/{len(expert_scores)}")
+    logger.info(f"  Failed:              {failed_count}")
+    logger.info(f"  Success rate:        {len(llm_scores)/len(expert_scores)*100:.1f}%")
+    logger.info(f"  Aggregation method:  {AGGREGATION}")
+    logger.info("=" * 72)
+
+    metrics_path = OUTPUT_DIR / f"metrics_{timestamp}.json"
+    with open(metrics_path, "w", encoding="utf-8") as f:
+        json.dump({
+            "overall_mae": final_mae,
+            "success_rate": len(llm_scores) / len(expert_scores),
+            "config": {
+                "model": MODEL_NAME,
+                "aggregation": AGGREGATION,
+                "chunking": USE_CHUNKING,
+                "chunk_size": CHUNK_SIZE,
+                "max_chunks": MAX_CHUNKS,
+                "quantization": "4bit" if USE_4BIT else "none"
+            },
+            "dimensions": all_metrics
+        }, f, indent=2)
+    
+    logger.info(f"\n  ✅ Metrics saved to {metrics_path}")
 
     if torch.cuda.is_available():
         for i in range(torch.cuda.device_count()):
             torch.cuda.empty_cache()
-        print("\n  🧹 GPU cache cleared")
+        logger.info("\n  🧹 GPU cache cleared")
 
 if __name__ == "__main__":
     main()
