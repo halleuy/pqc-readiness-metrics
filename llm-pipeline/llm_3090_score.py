@@ -1,6 +1,3 @@
-# =============================================================================
-# llm_score_multigpu.py — Enhanced Multi-GPU PQC Readiness Scoring
-# =============================================================================
 
 import os
 import json
@@ -9,6 +6,7 @@ import re
 import gc
 import hashlib
 import logging
+import argparse
 from pathlib import Path
 from datetime import datetime
 from typing import Dict, List, Optional, Tuple
@@ -24,6 +22,21 @@ from transformers import (
 )
 import warnings
 warnings.filterwarnings("ignore")
+
+# =============================================================================
+# ARGUMENTS
+# =============================================================================
+
+def parse_args():
+    parser = argparse.ArgumentParser(description="Multi-GPU PQC Readiness Scoring with configurable parameters")
+    parser.add_argument("--model_name", type=str, default="Qwen/Qwen2.5-32B-Instruct", help="Model name or path")
+    parser.add_argument("--temperature", type=float, default=0.0, help="Temperature for sampling")
+    parser.add_argument("--aggregation", type=str, default="max", choices=["max", "mean", "top2_mean"], help="Aggregation method for chunk scores")
+    parser.add_argument("--chunk_size", type=int, default=1200, help="Chunk size for text splitting")
+    parser.add_argument("--max_chunks", type=int, default=3, help="Max number of chunks to process per document")
+    parser.add_argument("--use_cache", action="store_true", help="Enable caching of chunk scoring results")
+    parser.add_argument("--output_suffix", type=str, default="", help="Suffix for output filenames")
+    return parser.parse_args()
 
 # =============================================================================
 # CONFIGURATION
@@ -42,23 +55,16 @@ MAPPING_FILE = FREQ_ANALYSIS_DIR / "framework_mapping.csv"
 OUTPUT_DIR = BASE_DIR / "outputs"
 OUTPUT_DIR.mkdir(exist_ok=True)
 
-MODEL_NAME = "Qwen/Qwen2.5-32B-Instruct"
 USE_4BIT = True
 MAX_NEW_TOKENS = 120
-DO_SAMPLE = False
-TEMPERATURE = 0.0
+DO_SAMPLE = False  # We'll drive sampling via temperature argument
 
 MAX_INPUT_TOKENS = 3000
 MAX_TOTAL_TOKENS = 4096
 USE_CHUNKING = True
-CHUNK_SIZE = 1200
 CHUNK_OVERLAP = 0.8
-MAX_CHUNKS = 3
-AGGREGATION = "max"
 
 MAX_RETRIES = 2
-USE_CACHE = True
-CACHE_FILE = OUTPUT_DIR / "chunk_cache.json"
 
 GPU_MAX_MEMORY = {
     0: "22GiB",
@@ -105,54 +111,54 @@ SYSTEM_PROMPT = """You are an expert evaluator of Post-Quantum Cryptography (PQC
 Your task is to analyze technical documents and assign scores (0-5)."""
 
 SCORING_RUBRIC = """
-**Scoring Scale (0-5):**
-
-**crypto_assets** — Cryptographic Asset Inventory Coverage
-- 0: No mention of cryptographic assets or inventory
-- 1: Brief mention only (e.g., "identify crypto assets")
-- 2: Acknowledges need, minimal detail
-- 3: Describes process with specifics (certificates, keys, algorithms, lifecycle)
-- 4: Comprehensive methodology with tools, templates, classifications, dependencies
-- 5: Exhaustive with automated discovery, dependency mapping, full lifecycle management
-
-**crypto_agility** — Cryptographic Agility and Algorithm Flexibility
-- 0: No mention of agility or algorithm flexibility
-- 1: Brief mention of flexibility or modularity
-- 2: Discusses concept without implementation details
-- 3: Modular design patterns, algorithm switching mechanisms described
-- 4: Detailed architecture, hybrid approaches, abstraction layers, versioning
-- 5: Comprehensive with hot-swapping, backward compatibility, concrete examples
-
-**migration_planning** — Post-Quantum Migration Roadmap Detail
-- 0: No migration discussion
-- 1: Mentions need to migrate to PQC
-- 2: General concepts, no concrete plan
-- 3: Phased approach with some milestones or stages
-- 4: Detailed roadmap with resources, testing phases, rollback procedures, timelines
-- 5: Comprehensive step-by-step guidance with dates, stakeholders, contingencies
-
-**risk_management** — Quantum Threat Risk Assessment Thoroughness
-- 0: No risk or threat discussion
-- 1: Acknowledges quantum threat exists
-- 2: Basic threat discussion without quantification
-- 3: Risk assessment with some quantification (HNDL, timelines, threat actors)
-- 4: Comprehensive matrices, vulnerability assessments, business impact analysis
-- 5: Detailed framework with quantitative scoring, threat modeling, prioritization matrix
-
-**standards_compliance** — PQC Standards and Algorithm Specificity
-- 0: No standards mentioned
-- 1: Generic references to "standards" or "best practices"
-- 2: Names standards bodies (NIST, ETSI, ISO) without specific documents
-- 3: References specific standards (FIPS 203/204, CNSA 2.0, SP 800-208)
-- 4: Detailed coverage with algorithm names (ML-KEM, ML-DSA, SLH-DSA)
-- 5: Exhaustive with certification requirements, regulatory compliance, parameter sets
-
-**Example Responses:**
-
-Document: "Organizations must identify all cryptographic assets including certificates, keys, and algorithms."
-Response: {"crypto_assets": 2, "crypto_agility": 0, "migration_planning": 0, "risk_management": 0, "standards_compliance": 0}
-
-Document: "Implement ML-KEM-768 for key encapsulation following FIPS 203. Use modular architecture for algorithm switching."
+**Scoring Scale (0-5):**  
+  
+**crypto_assets** — Cryptographic Asset Inventory Coverage  
+- 0: No mention of cryptographic assets or inventory  
+- 1: Brief mention only (e.g., "identify crypto assets")  
+- 2: Acknowledges need, minimal detail  
+- 3: Describes process with specifics (certificates, keys, algorithms, lifecycle)  
+- 4: Comprehensive methodology with tools, templates, classifications, dependencies  
+- 5: Exhaustive with automated discovery, dependency mapping, full lifecycle management  
+  
+**crypto_agility** — Cryptographic Agility and Algorithm Flexibility  
+- 0: No mention of agility or algorithm flexibility  
+- 1: Brief mention of flexibility or modularity  
+- 2: Discusses concept without implementation details  
+- 3: Modular design patterns, algorithm switching mechanisms described  
+- 4: Detailed architecture, hybrid approaches, abstraction layers, versioning  
+- 5: Comprehensive with hot-swapping, backward compatibility, concrete examples  
+  
+**migration_planning** — Post-Quantum Migration Roadmap Detail  
+- 0: No migration discussion  
+- 1: Mentions need to migrate to PQC  
+- 2: General concepts, no concrete plan  
+- 3: Phased approach with some milestones or stages  
+- 4: Detailed roadmap with resources, testing phases, rollback procedures, timelines  
+- 5: Comprehensive step-by-step guidance with dates, stakeholders, contingencies  
+  
+**risk_management** — Quantum Threat Risk Assessment Thoroughness  
+- 0: No risk or threat discussion  
+- 1: Acknowledges quantum threat exists  
+- 2: Basic threat discussion without quantification  
+- 3: Risk assessment with some quantification (HNDL, timelines, threat actors)  
+- 4: Comprehensive matrices, vulnerability assessments, business impact analysis  
+- 5: Detailed framework with quantitative scoring, threat modeling, prioritization matrix  
+  
+**standards_compliance** — PQC Standards and Algorithm Specificity  
+- 0: No standards mentioned  
+- 1: Generic references to "standards" or "best practices"  
+- 2: Names standards bodies (NIST, ETSI, ISO) without specific documents  
+- 3: References specific standards (FIPS 203/204, CNSA 2.0, SP 800-208)  
+- 4: Detailed coverage with algorithm names (ML-KEM, ML-DSA, SLH-DSA)  
+- 5: Exhaustive with certification requirements, regulatory compliance, parameter sets  
+  
+**Example Responses:**  
+  
+Document: "Organizations must identify all cryptographic assets including certificates, keys, and algorithms."  
+Response: {"crypto_assets": 2, "crypto_agility": 0, "migration_planning": 0, "risk_management": 0, "standards_compliance": 0}  
+  
+Document: "Implement ML-KEM-768 for key encapsulation following FIPS 203. Use modular architecture for algorithm switching."  
 Response: {"crypto_assets": 0, "crypto_agility": 3, "migration_planning": 0, "risk_management": 0, "standards_compliance": 4}
 """
 
@@ -178,12 +184,13 @@ JSON:"""
 # =============================================================================
 
 class ChunkCache:
-    def __init__(self, cache_file):
+    def __init__(self, cache_file, enabled):
         self.cache_file = cache_file
+        self.enabled = enabled
         self.cache = self._load_cache()
     
     def _load_cache(self):
-        if USE_CACHE and self.cache_file.exists():
+        if self.enabled and self.cache_file.exists():
             try:
                 with open(self.cache_file, 'r', encoding='utf-8') as f:
                     cache = json.load(f)
@@ -194,25 +201,27 @@ class ChunkCache:
         return {}
     
     def _save_cache(self):
-        if USE_CACHE:
+        if self.enabled:
             try:
                 with open(self.cache_file, 'w', encoding='utf-8') as f:
                     json.dump(self.cache, f, indent=2)
             except Exception as e:
                 logger.warning(f"Failed to save cache: {e}")
     
-    def get_hash(self, text):
-        return hashlib.md5(text.encode('utf-8')).hexdigest()
+    def get_hash(self, text, model_name, temperature, aggregation, chunk_size, max_chunks):
+        # Include key params to avoid contamination across runs
+        key_source = f"{text}|{model_name}|{temperature}|{aggregation}|{chunk_size}|{max_chunks}"
+        return hashlib.md5(key_source.encode('utf-8')).hexdigest()
     
-    def get(self, chunk):
-        if not USE_CACHE:
+    def get(self, chunk, model_name, temperature, aggregation, chunk_size, max_chunks):
+        if not self.enabled:
             return None
-        chunk_hash = self.get_hash(chunk)
+        chunk_hash = self.get_hash(chunk, model_name, temperature, aggregation, chunk_size, max_chunks)
         return self.cache.get(chunk_hash)
     
-    def set(self, chunk, scores, response):
-        if USE_CACHE:
-            chunk_hash = self.get_hash(chunk)
+    def set(self, chunk, scores, response, model_name, temperature, aggregation, chunk_size, max_chunks):
+        if self.enabled:
+            chunk_hash = self.get_hash(chunk, model_name, temperature, aggregation, chunk_size, max_chunks)
             self.cache[chunk_hash] = {
                 'scores': scores,
                 'response': response,
@@ -244,7 +253,8 @@ def load_framework_mapping(path):
     logger.info(f"Loaded mapping for {len(mapping)} frameworks")
     return mapping
 
-def load_and_chunk_text(txt_path, tokenizer, chunk_size=CHUNK_SIZE, max_chunks=MAX_CHUNKS):
+def load_and_chunk_text(txt_path, tokenizer, chunk_size, max_chunks):
+    # Adapted to use passed params instead of global
     try:
         with open(txt_path, "r", encoding="utf-8") as f:
             text = f.read()
@@ -254,10 +264,10 @@ def load_and_chunk_text(txt_path, tokenizer, chunk_size=CHUNK_SIZE, max_chunks=M
             return None
 
         tokens = tokenizer.encode(text, add_special_tokens=False)
-        
+
         if len(tokens) <= MAX_INPUT_TOKENS:
             return [text]
-        
+
         if len(tokens) > MAX_TOTAL_TOKENS:
             logger.warning(f"Text exceeds max tokens, truncating: {txt_path}")
             text = tokenizer.decode(tokens[:MAX_TOTAL_TOKENS], skip_special_tokens=True)
@@ -273,14 +283,14 @@ def load_and_chunk_text(txt_path, tokenizer, chunk_size=CHUNK_SIZE, max_chunks=M
         for i in range(0, len(words), step):
             chunk_words = words[i:i + chunk_size]
             chunk_text = " ".join(chunk_words)
-            
+
             chunk_tokens = tokenizer.encode(chunk_text, add_special_tokens=False)
             if len(chunk_tokens) > MAX_INPUT_TOKENS:
                 chunk_text = tokenizer.decode(chunk_tokens[:MAX_INPUT_TOKENS], skip_special_tokens=True)
-            
+
             if chunk_text.strip():
                 chunks.append(chunk_text)
-            
+
             if len(chunks) >= max_chunks:
                 break
 
@@ -295,8 +305,8 @@ def load_and_chunk_text(txt_path, tokenizer, chunk_size=CHUNK_SIZE, max_chunks=M
 # MODEL SETUP
 # =============================================================================
 
-def setup_model():
-    logger.info(f"Setting up model: {MODEL_NAME}")
+def setup_model(model_name):
+    logger.info(f"Setting up model: {model_name}")
     logger.info(f"Quantization: {'4-bit' if USE_4BIT else 'Full precision'}")
     logger.info(f"CUDA available: {torch.cuda.is_available()}")
     logger.info(f"GPU count: {torch.cuda.device_count()}")
@@ -320,7 +330,7 @@ def setup_model():
 
     try:
         tokenizer = AutoTokenizer.from_pretrained(
-            MODEL_NAME,
+            model_name,
             token=HF_TOKEN,
             trust_remote_code=True,
             use_fast=True
@@ -330,8 +340,8 @@ def setup_model():
             tokenizer.pad_token = tokenizer.eos_token
 
         model = AutoModelForCausalLM.from_pretrained(
-            MODEL_NAME,
-            local_files_only=True,
+            model_name,
+            local_files_only=False,
             token=HF_TOKEN,
             trust_remote_code=True,
             quantization_config=bnb_config,
@@ -352,7 +362,7 @@ def setup_model():
         )
 
         logger.info("Model loaded successfully")
-        
+
         for i in range(torch.cuda.device_count()):
             alloc = torch.cuda.memory_allocated(i) / 1e9
             reserved = torch.cuda.memory_reserved(i) / 1e9
@@ -392,10 +402,10 @@ def parse_llm_response(response_text):
                 return None, f"Missing dimension: {dim}"
 
             val = scores[dim]
-            
+
             if val is None or val == "null":
                 return None, f"Null value for {dim}"
-            
+
             try:
                 if isinstance(val, str):
                     val = float(val)
@@ -415,57 +425,46 @@ def parse_llm_response(response_text):
     except Exception as e:
         return None, f"Parse error: {e}"
 
-def generate_response(pipe, prompt):
+def generate_response(pipe, prompt, temperature):
     try:
         outputs = pipe(
             prompt,
             max_new_tokens=MAX_NEW_TOKENS,
-            do_sample=DO_SAMPLE,
-            temperature=TEMPERATURE if DO_SAMPLE else None,
+            do_sample=temperature > 0.0,
+            temperature=temperature if temperature > 0.0 else None,
             return_full_text=False,
             pad_token_id=pipe.tokenizer.eos_token_id
         )
-        
-        # Debug logging
-        logger.debug(f"Pipeline output type: {type(outputs)}")
-        logger.debug(f"Pipeline output: {outputs}")
-        
-        # Handle list output (normal case)
+
         if isinstance(outputs, list):
             if len(outputs) > 0:
                 return outputs[0]["generated_text"]
             else:
                 raise ValueError("Pipeline returned empty list")
-        
-        # Handle dict output (edge case)
         elif isinstance(outputs, dict):
-            return outputs[0]["generated_text"]
-        
-        # Unknown format
+            return outputs.get("generated_text", "")
         else:
             raise ValueError(f"Unexpected pipeline output type: {type(outputs)}")
-            
+
     except Exception as e:
         logger.error(f"Error in generate_response: {e}")
-        logger.error(f"Output was: {outputs if 'outputs' in locals() else 'N/A'}")
         raise
 
-
-def score_chunk_with_llm(pipe, chunk, cache, max_retries=MAX_RETRIES):
-    cached = cache.get(chunk)
+def score_chunk_with_llm(pipe, chunk, cache, model_name, temperature, aggregation, chunk_size, max_chunks, max_retries=MAX_RETRIES):
+    cached = cache.get(chunk, model_name, temperature, aggregation, chunk_size, max_chunks)
     if cached:
         logger.debug("Cache hit")
         return cached['scores'], cached['response'], True
-    
+
     prompt = build_scoring_prompt(chunk)
 
     for attempt in range(max_retries):
         try:
-            response = generate_response(pipe, prompt)
+            response = generate_response(pipe, prompt, temperature)
             scores, status = parse_llm_response(response)
 
             if scores is not None:
-                cache.set(chunk, scores, response)
+                cache.set(chunk, scores, response, model_name, temperature, aggregation, chunk_size, max_chunks)
                 return scores, response, True
             else:
                 if attempt < max_retries - 1:
@@ -502,8 +501,7 @@ def aggregate_chunk_scores(chunk_scores, method="max"):
 
     return aggregated
 
-
-def score_framework_with_llm(pipe, chunks, cache):
+def score_framework_with_llm(pipe, chunks, cache, model_name, temperature, aggregation, chunk_size, max_chunks):
     chunk_scores = []
     responses = []
 
@@ -512,7 +510,12 @@ def score_framework_with_llm(pipe, chunks, cache):
     for i, chunk in enumerate(chunks):
         logger.info(f"  Chunk {i+1}/{len(chunks)}...")
 
-        scores, response, success = score_chunk_with_llm(pipe, chunk, cache)
+        scores, response, success = score_chunk_with_llm(pipe, chunk, cache,
+                                                        model_name,
+                                                        temperature,
+                                                        aggregation,
+                                                        chunk_size,
+                                                        max_chunks)
 
         if success:
             chunk_scores.append(scores)
@@ -525,13 +528,13 @@ def score_framework_with_llm(pipe, chunks, cache):
         logger.error("All chunks failed")
         return None, "ALL_CHUNKS_FAILED"
 
-    final_scores = aggregate_chunk_scores(chunk_scores, method=AGGREGATION)
-    combined_response = f"[Aggregated from {len(chunk_scores)}/{len(chunks)} chunks using {AGGREGATION}] " + " | ".join(responses)
-    
+    final_scores = aggregate_chunk_scores(chunk_scores, method=aggregation)
+    combined_response = f"[Aggregated from {len(chunk_scores)}/{len(chunks)} chunks using {aggregation}] " + " | ".join(responses)
+
     return final_scores, combined_response
 
 # =============================================================================
-# METRICS
+# METRICS (unchanged)
 # =============================================================================
 
 def compute_metrics(llm_scores, expert_scores, dimension):
@@ -555,7 +558,7 @@ def compute_metrics(llm_scores, expert_scores, dimension):
     try:
         def mae_stat(llm, exp):
             return np.mean(np.abs(llm - exp))
-        
+
         rng = np.random.default_rng(42)
         res = bootstrap(
             (llm_vals, expert_vals),
@@ -591,18 +594,36 @@ def compute_metrics(llm_scores, expert_scores, dimension):
 # =============================================================================
 
 def main():
+    args = parse_args()
+
+    # Update globals from args
+    global MODEL_NAME, TEMPERATURE, AGGREGATION, CHUNK_SIZE, MAX_CHUNKS, USE_CACHE
+    MODEL_NAME = args.model_name
+    TEMPERATURE = args.temperature
+    AGGREGATION = args.aggregation
+    CHUNK_SIZE = args.chunk_size
+    MAX_CHUNKS = args.max_chunks
+    USE_CACHE = args.use_cache
+
+    cache_file = OUTPUT_DIR / f"chunk_cache_{args.output_suffix}.json" if args.output_suffix else OUTPUT_DIR / "chunk_cache.json"
+    cache = ChunkCache(cache_file, USE_CACHE)
+
     logger.info("=" * 72)
-    logger.info("  PQC READINESS — LLM SCORING PIPELINE (MULTI-GPU)")
+    logger.info(f"  PQC READINESS — LLM SCORING PIPELINE (MULTI-GPU)")
     logger.info("=" * 72)
+    logger.info(f"\nModel: {MODEL_NAME}")
+    logger.info(f"Temperature: {TEMPERATURE}")
+    logger.info(f"Aggregation: {AGGREGATION}")
+    logger.info(f"Chunk size: {CHUNK_SIZE}")
+    logger.info(f"Max chunks: {MAX_CHUNKS}")
+    logger.info(f"Caching enabled: {USE_CACHE}\n")
 
     logger.info("\n[1/5] Loading model...")
-    pipe, tokenizer = setup_model()
+    pipe, tokenizer = setup_model(MODEL_NAME)
 
     logger.info("\n[2/5] Loading expert scores and mappings...")
     expert_scores = load_expert_scores(LABELS_FILE)
     mapping = load_framework_mapping(MAPPING_FILE)
-
-    cache = ChunkCache(CACHE_FILE)
 
     logger.info("\n[3/5] Scoring frameworks with LLM...")
     logger.info(f"  Chunking: {'Enabled' if USE_CHUNKING else 'Disabled'}")
@@ -623,13 +644,18 @@ def main():
         framework_name = mapping.get(fid, f"{fid}.txt")
         logger.info(f"[{fid}] {framework_name[:55]}...")
 
-        chunks = load_and_chunk_text(txt_path, tokenizer)
+        chunks = load_and_chunk_text(txt_path, tokenizer, CHUNK_SIZE, MAX_CHUNKS)
         if not chunks:
             logger.warning("  Could not load text")
             failed_count += 1
             continue
 
-        scores, raw_response = score_framework_with_llm(pipe, chunks, cache)
+        scores, raw_response = score_framework_with_llm(pipe, chunks, cache,
+                                                        MODEL_NAME,
+                                                        TEMPERATURE,
+                                                        AGGREGATION,
+                                                        CHUNK_SIZE,
+                                                        MAX_CHUNKS)
         if scores is None:
             failed_count += 1
             continue
@@ -677,8 +703,9 @@ def main():
     logger.info("\n[4/5] Saving results...")
 
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    csv_path = OUTPUT_DIR / f"llm_scores_{timestamp}.csv"
-    json_path = OUTPUT_DIR / f"llm_scores_{timestamp}.json"
+    suffix = args.output_suffix if args.output_suffix else "default"
+    csv_path = OUTPUT_DIR / f"llm_scores_{suffix}_{timestamp}.csv"
+    json_path = OUTPUT_DIR / f"llm_scores_{suffix}_{timestamp}.json"
 
     fieldnames = ["Framework_ID", "Framework", "chunks_evaluated"]
     for dim in DIMENSIONS:
@@ -729,22 +756,61 @@ def main():
     logger.info(f"  Aggregation method:  {AGGREGATION}")
     logger.info("=" * 72)
 
-    metrics_path = OUTPUT_DIR / f"metrics_{timestamp}.json"
+    logger.info("\n" + "=" * 72)
+    logger.info("  PHASE 1: DIAGNOSTIC ANALYSIS")
+    logger.info("=" * 72)
+
+    logger.info("\n[DIAGNOSTIC] Error Analysis by Dimension...")
+    for dim in DIMENSIONS:
+        errors = []
+        underscores = []
+        overscores = []
+
+        for fid in llm_scores.keys():
+            llm_val = llm_scores[fid][dim]
+            expert_val = expert_scores[fid][dim]
+            delta = llm_val - expert_val
+
+            errors.append(abs(delta))
+            if delta < 0:
+                underscores.append(delta)
+            elif delta > 0:
+                overscores.append(delta)
+
+        logger.info(f"\n  {dim}:")
+        logger.info(f"    Mean error:      {np.mean(errors):.3f}")
+        logger.info(f"    Underscoring:    {len(underscores)} cases (avg: {np.mean(underscores) if underscores else 0:.2f})")
+        logger.info(f"    Overscoring:     {len(overscores)} cases (avg: {np.mean(overscores) if overscores else 0:.2f})")
+        bias = np.mean([llm_scores[fid][dim] - expert_scores[fid][dim] for fid in llm_scores.keys()])
+        logger.info(f"    Bias:            {bias:.3f}")
+
+    logger.info("\n[DIAGNOSTIC] Worst-performing frameworks...")
+    framework_errors = []
+    for fid in llm_scores.keys():
+        mean_error = np.mean([abs(llm_scores[fid][dim] - expert_scores[fid][dim]) for dim in DIMENSIONS])
+        framework_errors.append((fid, mapping.get(fid, fid), mean_error))
+
+    framework_errors.sort(key=lambda x: x, reverse=True)
+    for fid, name, error in framework_errors[:5]:
+        logger.info(f"  [{fid}] {name[:50]}: MAE={error:.2f}")
+
+    metrics_path = OUTPUT_DIR / f"metrics_{args.output_suffix}_{timestamp}.json" if args.output_suffix else OUTPUT_DIR / f"metrics_{timestamp}.json"
     with open(metrics_path, "w", encoding="utf-8") as f:
         json.dump({
             "overall_mae": final_mae,
-            "success_rate": len(llm_scores) / len(expert_scores),
+            "success_rate": len(llm_scores)/len(expert_scores),
             "config": {
                 "model": MODEL_NAME,
                 "aggregation": AGGREGATION,
                 "chunking": USE_CHUNKING,
                 "chunk_size": CHUNK_SIZE,
                 "max_chunks": MAX_CHUNKS,
+                "temperature": TEMPERATURE,
                 "quantization": "4bit" if USE_4BIT else "none"
             },
             "dimensions": all_metrics
         }, f, indent=2)
-    
+
     logger.info(f"\n  ✅ Metrics saved to {metrics_path}")
 
     if torch.cuda.is_available():
