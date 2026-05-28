@@ -1,0 +1,591 @@
+migration to
+postquantum
+cryptography
+william barker
+dakota consulting
+murugiah souppaya
+william newhouse
+national institute of standards and technology
+august 
+appliedcryptopqcnistgov
+this revision incorporates comments from the public
+project
+description
+the national cybersecurity center of excellence nccoe a part of the national institute of
+standards and technology nist is a collaborative hub where industry organizations
+government agencies and academic institutions work together to address businesses most
+pressing cybersecurity challenges through this collaboration the nccoe develops modular
+adaptable example cybersecurity solutions demonstrating how to apply standards and best
+practices by using commercially available technology to learn more about the nccoe visit
+httpswwwnccoenistgov to learn more about nist visit httpwwwnistgov
+this document describes challenges associated with migration from current publickey
+cryptographic algorithms to quantumresistant algorithms and approaches to facilitating that
+migration
+abstract
+the nist national cybersecurity center of excellence nccoe is initiating the development of
+practices to ease the migration from the current set of publickey cryptographic algorithms to
+replacement algorithms that are resistant to quantum computerbased attacks these practices
+will take the form of white papers playbooks and demonstrable implementations for
+organizations in particular the audience for these practices is intended to include organizations
+that provide cryptographic standards and protocols and enterprises that develop acquire
+implement and service cryptographic products this effort complements the nist post
+quantum cryptography pqc standardization activities
+acknowledgments
+this project description was developed from the presentations and discussions that occurred at
+the nccoehosted virtual workshop on considerations in migrating to postquantum
+cryptographic algorithms nccoe thanks dustin moody lidong chen and matthew scholl for
+contributing to the development of this project description
+keywords
+algorithm cryptographic hardware cryptographic module cryptography encryption identity
+management key establishment and management postquantum cryptography publickey
+cryptography
+disclaimer
+certain commercial entities equipment products or materials may be identified in this
+document in order to describe an experimental procedure or concept adequately such
+identification is not intended to imply recommendation or endorsement by nist or nccoe nor
+is it intended to imply that the entities equipment products or materials are necessarily the
+best available for the purpose
+table of contents
+ executive summary 
+purpose  
+scope  
+assumptions  challenges  
+background  
+ demonstration scenarios 
+scenario  fips validated hardware and software modules that employ quantum
+vulnerable publickey cryptography  
+scenario  cryptographic libraries that include quantumvulnerable publickey
+cryptography  
+scenario  cryptographic applications and cryptographic support applications that include
+or are focused on quantumvulnerable publickey cryptography  
+scenario  embedded quantumvulnerable cryptographic code in computing platforms  
+scenario  communication protocols widely deployed in different industry sectors that
+leverage quantumvulnerable cryptographic algorithms  
+ highlevel architecture  
+component list  
+desired security characteristics and properties  
+ relevant standards and guidance  
+appendix a references  
+appendix b acronyms  
+project description migration to postquantum cryptography 
+ executive summary
+purpose
+as reflected in national institute of standards and technology nist interagency or internal
+report nistir  report on postquantum cryptography  and nistir  status report
+on the second round of the nist postquantum cryptography standardization process  work
+on the development of quantumresistant publickey cryptographic standards is underway and
+the algorithm selection process is well inhand with algorithm selection expected to be
+completed in the next one to two years httpscsrcnistgovprojectspostquantum
+cryptography
+to complement the ongoing effort the national cybersecurity center of excellence nccoe has
+initiated a campaign to bring awareness to the issues involved in migrating to postquantum
+algorithms which will include developing white papers playbooks and proofofconcept
+implementations nist has developed and posted a cybersecurity white paper getting ready
+for postquantum cryptography  to start the discussion the nccoe has also established a
+crypto agility considerations for migrating to postquantum cryptographic algorithms
+webpage
+in addition the nccoe is forming a cryptographic applications community of interest in
+coordination with the nist postquantum cryptography standardization team and the
+department of homeland security dhs cybersecurity and infrastructure security agency cisa
+team the community of interest will work on a migration playbook that would address the
+challenges previously described and provide recommended practices to prepare for a smooth
+cryptographic migration
+finally the nccoe has developed this project description for practical demonstration of
+technology and tools that can support a head start on executing a migration roadmap in
+collaboration with this community of interest
+scope
+there is currently no inventory that can guide updates to standards guidelines regulations
+hardware firmware operating systems communication protocols cryptographic libraries and
+applications that employ cryptography that meets the need to accelerate migration to quantum
+resistant cryptography as a starting point for expeditiously discovering where updates to
+quantumresistant cryptography will be required nist is planning
+ discovery of all instances where nist federal information processing standards fips
+series special publications sps and other guidance will need to be updated or
+replaced
+ discovery of which standards from the international organization for
+standardizationinternational electrotechnical commission isoiec institute of
+electrical and electronics engineers ieee american national standards institute ansi
+x committee industry groups like the trusted computing group and other standards
+developing organizations will need to be updated or replaced and
+ discovery of which internet engineering task force ietf request for comments rfcs
+and other networking protocol standards will need to be updated or replaced
+implementation of quantumsafe algorithms requires identifying hardware and software
+modules libraries and embedded code currently used in an enterprise to support cryptographic
+project description migration to postquantum cryptography 
+key establishment and management underlying the security of cryptographically protected
+information and access management processes as well as provide the source and content
+integrity of data at rest in transit and in use
+the initial scope of this project is to demonstrate the discovery tools that can provide
+automation assistance in identifying where and how publickey cryptography is being used in
+hardware firmware operating systems communication protocols cryptographic libraries and
+applications employed in data centers onpremises or in the cloud and distributed compute
+storage and network infrastructures the audience for the project includes developers of
+products that use publickey cryptographic algorithms integrators of such products customer
+organizations that acquire or configure such products and bodies that standardize protocols
+that employ or are dependent on publickey cryptographic algorithms
+the recommended project will engage industry in demonstrating use of automated discovery
+tools to identify all instances of publickey algorithm use in an example network infrastructures
+computer and communications hardware operating systems application programs
+communications protocols key infrastructures and access control mechanisms the algorithm
+employed and the use for which the algorithm is employed would be identified for each affected
+infrastructure component
+once the publickey cryptography components and associated assets in the enterprise are
+identified the next element of the scope of the project is to prioritize those components that
+need to be considered first in the migration using a risk management methodology informed by
+moscas theorem and other recommended practices
+michele moscas theorem in cybersecurity in an era with quantum computers will we be ready
+httpseprintiacrorg says that we need to start worrying about the impact of
+quantum computers when the amount of time that we wish our data to be secure for x
+added to the time it will take for our computer systems to transition from classical to post
+quantum y is greater than the time it will take for quantum computers to start breaking
+existing quantumsusceptible encryption protocolsor when x  y  z
+finally the project will provide systematic approaches for migrating from vulnerable algorithms
+to quantumresistant algorithms across the different types of assets and supporting underlying
+technology for example
+ each enterprise that produces supports or uses publickey cryptography might conduct
+an inventory to determine what systems and components use publickey cryptography
+and how the cryptography is used to protect the confidentiality or integrity of
+information being exchanged stored or used to control processes both information
+technology and operational technology processes examples include code signing
+platforms publickey infrastructure and dataatrest encryption
+ at the same time quantumvulnerable information stored andor exchanged within the
+enterprise and with customers and partners might be categorized with respect to
+criticality disclosure sensitivity and the consequences of unauthorized and undetected
+modification
+ enterprises might also work with government and industry to identify emerging
+quantumresistant cryptographic standards and products their technical and
+operational characteristics and their anticipated timeframe for availability to replace
+quantumvulnerable systems and components
+project description migration to postquantum cryptography 
+ enterprises might work with public and private sector experts and providers to
+implement the emerging quantumresistant crypto algorithms into protocols and
+technology
+ enterprises might then work with public and private sector experts and providers to
+identify any technical constraints that their cryptographically dependent systems
+impose on replacement systems and components and to resolve any incompatibilities
+ enterprises should also work with service providers partners and customers to
+coordinate adoption of technical solutions as necessary to maintain interoperability and
+to satisfy existing agreements regarding the security of information content and
+continuity of information distribution
+ enterprises might then be able to work with their technology suppliers to establish a
+procurement process consistent with enterprise priorities and plans
+assumptions  challenges
+the discovery of new cryptographic weaknesses or advances in the technologies supporting
+cryptanalysis often lead to the need to replace a legacy cryptographic algorithm the advent of
+quantum computing technology will compromise many of the current cryptographic algorithms
+especially publickey cryptography which is widely used to protect digital information most
+algorithms on which we depend are used worldwide in components of many different
+communications processing and storage systems
+many information systems lack crypto agility that is they are not designed to encourage
+support of rapid adaptations of new cryptographic primitives and algorithms without making
+significant changes to the systems infrastructure as a result an organization may not possess
+complete control over its cryptographic mechanisms and processes so that they can make
+accurate alterations to them without involving intense manual effort
+the replacement of algorithms generally requires the following first steps
+ identifying the presence of the legacy algorithms eg in common applications that
+make use of cryptographic algorithms such as encrypted email or virtual private
+networks access management code in operating systems and network servers code
+signing utilities identification software etc
+ understanding the data formats and application programming interfaces of
+cryptographic libraries to support necessary changes and replacements
+ discovering the hardware that implements or accelerates algorithm performance
+ determining operating system and application code that uses the algorithm
+ identifying all communications devices with vulnerable protocols
+ identifying cryptographic protocol dependencies on algorithm characteristics
+once an enterprise has discovered where and for what it is employing publickey cryptography
+the organization can determine the use characteristics such as
+ current key sizes and hardwaresoftware limits on future key sizes and signature sizes
+ latency and throughput thresholds
+ processes and protocols used for crypto negotiation
+ current key establishment handshake protocols
+project description migration to postquantum cryptography 
+ where each cryptographic process is taking place in the stack
+ how each cryptographic process is invoked eg by a call to a crypto library using a
+process embedded in the operating system by calling to an application using
+cryptography as a service
+ whether the implementation supports the notion of crypto agility
+ whether the implementation may be updated through software
+ suppliers and owners of each cryptographic hardwaresoftwareprocess
+ sources of keys and certificates
+ contractual and legal conditions imposed by and on the supplier
+ whether the use of the implementation requires validation under the nist
+cryptographic module validation program cmvp
+ the support lifetime or expected endoflife of the implementation if stated by the
+vendor
+ intellectual property impacts of the migration
+ sensitivity of the information that is being protected
+the new algorithms will likely not be dropin replacements they may not have the same
+performance or reliability characteristics as legacy algorithms due to differences in key size
+signature size error handling properties number of execution steps required to perform the
+algorithm key establishment process complexity etc
+once the replacement algorithms are selected other operational considerations to accelerate
+adoption and implementation across the organization include
+ developing a riskbased approach that takes into consideration security requirements
+business operations and mission impact
+ developing implementation validation tools
+ identifying cases where interim eg hybrid implementations are necessary to
+maintaining interoperability during migration
+ updating the processes and procedures of developers implementers and users
+ establishing a communication plan to be used both within the organization and with
+external customers and partners
+ identifying a migration timeline and the necessary resources
+ updating or replacing security standards procedures and recommended practice
+documentation
+ specifying procurement requirements to acquire quantumsafe technology
+ providing installation configuration and administration documentation
+ testing and validating the new processes and procedures
+background
+cryptographic technologies are used throughout government and industry to authenticate the
+source and protect the confidentiality and integrity of information that we communicate and
+store cryptographic technologies include a broad range of protocols schemes and
+infrastructures but they rely on a relatively small collection of cryptographic algorithms
+project description migration to postquantum cryptography 
+cryptographic algorithms are the information transformation engines at the heart of these
+cryptographic technologies
+cryptographic algorithms are mathematical functions that transform data generally using a
+variable or key to protect information the protection of these key variables is essential to the
+continued security of the protected data in the case of symmetric cryptographic algorithms the
+same key is used by both the originator and recipient of cryptographically protected
+information symmetric keys must remain secret to maintain confidentiality anyone with the
+key can recover the unprotected data asymmetric algorithms require the originator to use one
+key and the recipient to use a different but related key one of these asymmetric keys the
+private key must be kept secret but the other key the public key can be made public without
+degrading the security of the cryptographic process these asymmetric algorithms are
+commonly called publickey algorithms
+symmetric algorithms offer efficient processing for confidentiality and integrity but key
+management establishing and maintaining secrets known only to the communicating parties
+poses a challenge symmetric algorithms offer weak proofs of origin since either party to an
+exchange can calculate the transformation asymmetric algorithms generally require more
+processing operations and time than are practical for providing confidentiality protection for
+more than very small volumes of data however use of these algorithms is feasible for
+cryptographic key establishment and digital signature processes in the case of publickey
+cryptography one of the keys in a pair can be made public and distribution of private keys is not
+needed asymmetric key algorithms can be used to establish pairwise keys and authenticate an
+entity andor data source in manytomany communications without demanding a secret
+channel for key distribution as a result most cryptographic entity or data source authentication
+and key establishment functions use publickey cryptography
+from time to time the discovery of a cryptographic weakness constraints imposed by
+dependent technologies or advances in the technologies that support cryptanalysis make it
+necessary to replace a legacy cryptographic algorithm most algorithms on which we depend are
+used worldwide in components of many different communications processing and storage
+systems while some components of some systems tend to be replaced by improved
+components on a relatively frequent basis other components are expected to remain in place
+for a decade or more eg components in electricity generation and distribution systems
+communications interoperability and records archiving requirements introduce additional
+constraints on system components as a general rule cryptographic algorithms cannot be
+replaced until all components of a system are prepared to process the replacement updates to
+protocols schemes and infrastructures must often be implemented when introducing new
+cryptographic algorithms consequently algorithm replacement can be extremely disruptive
+and often takes decades to complete
+continued progress in the development of quantum computing a technology required to
+support cryptanalysis using shors algorithm foreshadows a particularly disruptive
+cryptographic transition all widely used publickey cryptographic algorithms are vulnerable to
+attacks based on shors algorithm but the algorithm depends upon operations that can only be
+achieved by a largescale quantum computer practical quantum computing when available to
+cyber adversaries will break the security of nearly all modern publickey cryptographic systems
+consequently all secret symmetric keys and private asymmetric keys that are now protected
+using current publickey algorithms and the information protected under those keys will be
+subject to exposure this includes all recorded communications and other stored information
+project description migration to postquantum cryptography 
+protected by those publickey algorithms any information still considered to be private or
+otherwise sensitive will be vulnerable to exposure the same is true with respect to an
+undetected modification of the information
+once exploitation of shors algorithm becomes practical protecting stored keys and data will
+require reencrypting them with a quantumresistant algorithm and deleting or physically
+securing old copies eg backups integrity and sources of information will become unreliable
+unless they are processed or encapsulated eg resigned or timestamped using a mechanism
+that is not vulnerable to quantum computingbased attacks nothing can be done to protect the
+confidentiality of encrypted material that was stored by an adversary before reprocessing
+we refer to algorithms that are vulnerable to exploitation by quantum computing mechanisms
+as quantumvulnerable
+ demonstration scenarios
+the quantumsafe cryptography discovery project will demonstrate tools for discovery of
+quantumvulnerable cryptographic code or dependencies on such code for several
+implementation scenarios each of the scenarios involves discovery of quantumvulnerable
+cryptographic code or dependencies on quantumvulnerable cryptographic code each scenario
+also addresses some aspect of prioritization for replacement of quantumvulnerable
+cryptographic code or elimination of dependencies on quantumvulnerable cryptographic code
+finally the scenarios address aspects of remediating deficiencies based on security control
+dependence on quantumvulnerable cryptography
+scenario  fips validated hardware and software modules that employ quantum
+vulnerable publickey cryptography
+ the first step in this scenario involves discovery of fips validated hardware and
+software modules present in the enterprise that employ quantumvulnerable publickey
+cryptography
+ this step would be followed by determining the uses of each module eg symmetric
+key wrapping digital signature
+ where the module is used to protect specific data sets or processes an assessment of
+the criticality of the protected information or process should follow based on the
+purposes for which the module is used and what it protects prioritize the identified
+modules for replacement
+ since not all modules will be able to be replaced within the same timeframe due to
+availability validation status or other considerations a replacement availability
+schedule will be developed that accommodates a staged or multiple step replacement
+process not all replacements should necessarily be made using new publickey
+algorithms in some cases use of a keyed hash for example may accomplish the same
+purpose with a module that is both applicable and available sooner in other cases high
+priority components will not have nearterm replacements or the replacements may
+have interface or performance characteristics that conflict with system requirements in
+such cases compensating controls may be considered
+ the result of this scenario will be an identified set of quantumvulnerable components
+identification of priorities for replacement based on the documented risk assessment
+project description migration to postquantum cryptography 
+and the migrationcompensation strategy identified for each component with
+estimated timeline
+scenario  cryptographic libraries that include quantumvulnerable publickey cryptography
+ this scenario has as its initial step identifying a set of cryptographic libraries that are
+commonly used in development of cryptographic software
+ this representative set of libraries will then be reviewed to identify the presence of calls
+to routines associated with quantumvulnerable publickey algorithms
+ the libraries will also be reviewed to determine whether they also include algorithms or
+supporting components for quantumresistant algorithms that were selected for
+standardization by the nist postquantum cryptography standardization process
+ where a library does not include support for a nistselected algorithm the library will
+be identified as such and a recommendation will be made regarding inclusion of one or
+more nistselected algorithms that fulfill one or more functions of the quantum
+vulnerable routines that are included in the library
+ where a library does include support for a nistselected algorithm a recommendation
+will be made to determine that the algorithm or algorithmic element supports a correct
+implementation of the nistselected algorithm
+ based on collaborator input an attempt will be made to identify the most commonly
+called libraries and where in those libraries hooks for cryptographic algorithms are
+present
+ the result of this scenario will be identification of commonly employed cryptographic
+libraries that support only quantumvulnerable algorithms identification of
+cryptographic libraries that support one or more nistselected algorithms and notes
+identifying algorithmsmodes selected issues associated with correct support for the
+quantumresistant algorithms and flagging of those libraries that have known malware
+or other securityrelevant coding flaws
+scenario  cryptographic applications and cryptographic support applications that include or
+are focused on quantumvulnerable publickey cryptography
+ the initial step in this scenario is identification and selection of example cryptographic
+applications and cryptographic support applications that include or are focused on
+quantumvulnerable publickey cryptography applications supporting information
+exchange protocols such as transport layer security tls will be included as well as
+those supporting critical operating system and infrastructure processes including
+financial systems and infrastructure control systems
+ second the team will identify the cryptographic function or functions supported by the
+quantumvulnerable algorithms in each cryptographic application and cryptographic
+support application eg key agreement key wrapping digital signature
+authentication as part of this step the team will flag system security dependencies on
+the availability of each cryptographic application and cryptographic support application
+eg subject identification access authorization confidentiality of data in transit andor
+at rest
+ the third step will be to identify any information exchange and processing protocols
+that are dependent on each cryptographic application and cryptographic support
+application being examined
+project description migration to postquantum cryptography 
+ fourth the team will identify the information technology or operational technology
+environment in which each cryptographic application and cryptographic support
+application is being used and will categorize the fips   risk associated with the
+failure of or unavailability of the application the team will identify any compensating
+controls that might be used to provide the needed control in lieu of an unavailable or
+nonfunctional application
+ the team will next identify algorithm characteristics required by or limited by each
+cryptographic or cryptographic support application examined eg key size block size
+mode of operation supported error tolerance latency throughput
+ the team will then based on the algorithms remaining under consideration by the nist
+postquantum standardization process identify which if any candidate algorithms
+meet the algorithm characteristics requirement for each application and flag those
+applications for which no candidate algorithm can meet a requirement
+ finally the result of the scenario will be a listing of the applications prioritized by risk
+category functional criticality and the numberscope of dependent systems and
+processes for each application candidate replacement algorithms andor
+compensating controls will be identified those cases where no suitable algorithm or
+compensating control can be identified will be flagged
+scenario  embedded quantumvulnerable cryptographic code in computing platforms
+ the initial step in this scenario will be to identify one or more operating system
+environments eg microsoft windows red hat enterprise linux macos ios android
+for which quantumvulnerable cryptography is embedded in operating system code
+access control utility code cryptographic integrity applications and mechanisms and
+code embedded in identity and access management systems and applications
+ for each operating system environment determine and document how widely it is used
+and cite examples of dependent enterprises and infrastructures
+ for each operating system environment identified the team will employ automated
+tools to identify the quantumvulnerable cryptographic code
+ for each instance identified the team will assess the criticality of the code for the ability
+of the system to function eg are there settings that dont require the code instance
+what is the security consequence of not invoking the code
+ for each instance of quantumvulnerable cryptographic code the team will identify
+algorithm characteristics that are required by or limited by the code key size block size
+mode of operation supported error tolerance latency throughput etc
+ the team will then based on the algorithms remaining under consideration by the nist
+postquantum algorithm standardization process identify which if any candidate
+algorithms meet the algorithm characteristics requirement for each code instance and
+flag those instances for which no candidate algorithm can meet a requirement
+ the result of this scenario will be a list of all quantumvulnerable publickey
+cryptographic code identified and for each code instance the following information will
+be provided
+location and purpose of the code
+o
+candidate nist algorithms that were identified as suitable for replacing the
+o
+quantumvulnerable code and projected impact of the replacement on
+project description migration to postquantum cryptography 
+performance of the intended system functionality include replacements
+characteristics such as key size signature size etc
+consequence of simply deleting the code and any mitigation approach that
+o
+might be recommended
+priority of the recommended replacement or other mitigation
+o
+flagging cases where neither replacement nor deletion appears to be practical
+o
+and failure to do either will impair operating system functionality andor
+security
+scenario  communication protocols widely deployed in different industry sectors that
+leverage quantumvulnerable cryptographic algorithms
+ the team will conduct a search for references to quantumvulnerable publickey
+algorithms in communications and network standards used by usbased service
+providers and representative enterprises in the financial healthcare energy
+transportation and other sectors instances will be documented
+ the team will characterize how widespread use of the referenced protocol is and the
+applications that it supports
+ for each documented reference the team will identify any limitations or specifications
+respecting key size block size or latencythroughput constraints
+ for each documented reference the team will then based on the algorithms remaining
+under consideration by the nist postquantum standardization process identify which
+if any candidate algorithms satisfy the limitations and specifications and flag those
+instances for which no candidate algorithm can meet a requirement
+ the result of the scenario will be a list of protocols the list will be prioritized based on
+how widespread its application is the approximate number size and impact of users
+for each protocol the following information will be provided
+protocol identification
+o
+organization responsible for maintaining the protocol
+o
+protocol applications space by whom it is used and for what purpose
+o
+quantumvulnerable algorithms referenced by the protocol
+o
+ nist quantumresistant algorithm candidates potentially suitable to replace the
+referenced quantumvulnerable algorithms will be identified
+ flag where no nist quantumresistant candidate is potentially suitable to replace the
+referenced quantumvulnerable algorithms
+all scenarios will address enterprise data center environments which include onpremises data
+center and hybrid cloud deployment hosted by a thirdparty data center or a public cloud
+provider
+ highlevel architecture
+the highlevel architecture consists of a typical enterprise environment that connects the nccoe
+pqc laboratory hosted in rockville maryland to external sites and cloud resources hosted by
+the collaborators via the internet this will enable the collaborators to install discovery tools in
+the nccoe laboratory and operate them remotely via virtual private network conversely it will
+enable staff in the nccoe laboratory to use tools installed in the laboratory to discover
+project description migration to postquantum cryptography 
+quantumvulnerable software in remote sites either directly or using cloud services the nccoe
+environment will be able to host physical virtualized and containerized workloads it will
+provide core infrastructure services like routing naming etc a set of typical application
+services like directory web servers etc and core security services like firewalls various typical
+endpoints will be available to host clientside operating systems protocols and applications
+component list
+ general it components
+compute storage and network resources necessary to running cryptographic
+o
+code detection tools
+cloud services
+o
+ functional security components
+the data security component
+o
+the endpoint security component
+o
+the identity and access management component
+o
+the security analytics component
+o
+ devices and network infrastructure components
+assets including the devicesendpoints
+o
+core enterprise resources such as applicationsservices
+o
+network infrastructure components
+o
+ approaches and tools for discovering publickey cryptography components in
+operating systems
+o
+application code
+o
+hardware implementing controlling or accelerating crypto functionality
+o
+ approaches and tools for discovering algorithm migration impacts on
+communications and network protocols
+o
+key management protocols processes and procedures
+o
+network management protocols processes and procedures
+o
+business processes and procedures
+o
+desired security characteristics and properties
+all candidate quantumresistant replacements for quantumvulnerable publickey algorithms
+should have a security strength at least equivalent to that possessed by the quantumvulnerable
+algorithm being replaced where the security strength of the algorithm being replaced is
+measured in the absence of quantum computing
+any suggestion for replacement of a quantumvulnerable publickey algorithm by a
+compensating controls should be accompanied by an explanation of how the compensating
+control provides relevant confidentiality and integrity protection commensurate with that
+currently being provided in the absence of quantum computing
+any projected performance degradation resulting from a suggested replacement of a quantum
+vulnerable publickey algorithm by a nist candidate quantumresistant algorithm should be
+characterized in the project findings
+project description migration to postquantum cryptography 
+ relevant standards and guidance
+here is a list of existing relevant standards and guidance documents
+ federal information processing standard fips  security requirements for
+cryptographic modules
+httpsdoiorgnistfips
+ fips  standards for security categorization of federal information and information
+systems
+httpsdoiorgnistfips
+ framework for improving critical infrastructure cybersecurity version 
+httpsnvlpubsnistgovnistpubscswpnistcswppdf
+ getting ready for postquantum cryptography exploring challenges associated with
+adopting and using postquantum cryptographic algorithms
+httpsdoiorgnistcswp
+ nist internal report nistir  report on postquantum cryptography
+httpsdoiorgnistir
+ nistir  status report on the second round of the nist postquantum
+cryptography standardization process
+httpsdoiorgnistir
+ nist privacy framework a tool for improving privacy through enterprise risk
+management version 
+httpsdoiorgnistcswp
+ nist special publication sp  revision  security and privacy controls for
+information systems and organizations
+httpsdoiorgnistspr
+project description migration to postquantum cryptography 
+appendix a references
+ l chen et al report on postquantum cryptography national institute of standards and
+technology internal report nistir  gaithersburg md april   pp available
+httpsdoiorgnistir
+ g alagic et al status report on the second round of the nist postquantum cryptography
+standardization process nist interagency or internal report nistir  gaithersburg
+md july   pp available httpsdoiorgnistir
+ w barker w polk and m souppaya getting ready for postquantum cryptography
+exploring challenges associated with adopting and using postquantum cryptographic
+algorithms nist cybersecurity white paper gaithersburg md april   pp available
+httpsdoiorgnistcswp
+ nist standards for security categorization of federal information and information systems
+federal information processing standard fips  gaithersburg md february  
+pp available httpsdoiorgnistfips
+project description migration to postquantum cryptography 
+appendix b acronyms
+ansi american national standards institute
+cisa cybersecurity and infrastructure security agency
+cmvp cryptographic module validation program
+dhs department of homeland security
+fips federal information processing standard
+iec international electrotechnical commission
+ieee institute of electrical and electronics engineers
+ietf internet engineering task force
+ir nist interagency or internal report
+iso international organization for standardization
+it information technology
+nccoe national cybersecurity center of excellence
+nist national institute of standards and technology
+nistir nist interagency or internal report
+pqc postquantum cryptography
+rfc request for comments
+sp special publication
+tls transport layer security
+project description migration to postquantum cryptography 

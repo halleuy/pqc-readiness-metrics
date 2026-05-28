@@ -1,0 +1,44 @@
+ibm quantum safe roadmap
+first generation available on target planned
+    
+regulatory
+nist selects algorithms for federal agencies plan for pqc nist publishes pqc standards cnsa  preference to pqc vendors complete transition to
+milestones
+standardization adoption compliant vendors pqc
+consortia open quantum safe oqs nccoe payments epaa nacha
+critical infrastructure
+healthcare coalition
+postquantum telco network pqc coalition mitre pqc alliance linux foundation protection coalition
+ibm quantumsafe preparation  quantumsafe transformation application modernization quantumsafe talent
+services advisory services security platform modernization transformation
+ibm ibm quantum safe remediator
+quantum tls vpn ssh automated remediation
+adaptive proxy
+safe encryptionkeycertificate mgmt llmbased recommendation
+performance benchmarking
+technology cryptoagility framework
+ibm guardium quantum safe
+riskbased prioritization
+aidriven risk analysis
+dynamic inventory
+enriched metadata
+cryptography posture management
+cryptography policy management
+ibm quantum safe explorer
+static scan custom library support llmassisted scanning
+cbom generation remediation recommendation
+cicd integration
+algorithms
+key encryption crystals 
+protocols
+cryptography bill of materials mayo uov sqisign
+kyber
+standards
+cbom openssl
+digital signature crystals 
+libraries
+dilithium falcon
+ibm ibm z ibm hyper protect ibm cloud ibm software red ibm cloud ibm software red ibm cloud ibm software
+infrastructure crypto services ibm tape hat ibm storage ibm power  hat ibm storage ibm power  red hat ibm storage
+storage hardware security strategy  planning phase ibm power  phase
+modules hsm

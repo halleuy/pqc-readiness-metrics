@@ -1,0 +1,345 @@
+anssi views on the postquantum cryptography transition
+march  
+in this position paper the current anssi views on the socalled postquantum cryptography tran
+sition are outlined in particular anssi recalls the context of the quantum threat and introduces a
+provisional transition agenda topreventthisquantumthreatwithaprogressiveincreaseofassuranceon
+the new postquantum algorithms without introducing any vulnerability accessible via todays classical
+computers the objective of this paper is twofold providing directions to industrials developing security
+products and outlining the transition agenda in terms of french security visas 
+what are quantum computers
+quantum computers are based on physical principles that are fundamentally different from those under
+lying todays classical computing at a large scale they would be capable of performing certain tasks
+much faster than todays computers
+while prototypes of small quantum computers often designated by nisq noisy intermediate scale
+quantumcomputersalreadyexistbuildinglargescalereprogrammableonesisstillataveryupstream
+research stage there are many lines of research in quantum physics for the creation of such quantum
+computers but none of them is certain to succeed though their potential benefits are not fully known
+theycouldobviouslybehighthustheindustrygovernmentsandacademiaaroundtheworldaredevot
+ingsignificantresourcestoresearchinquantumcomputingforexampleinthefrenchgovernment
+announced an investment of more than  billion e in quantum technologies including quantum com
+puting  a complete survey on the status of quantum computer development has been detailed by the
+bsi the german counterpart of anssi 
+quantum threat what is the impact on our current digital infrastructures
+the security of the majority of digital infrastructures relies on public key cryptography pkc a tech
+nologythatenablessecurecommunicationsbetweenentitiestypicallyusersorserversthatdonotshare
+any preestablished secret more precisely pkc serves two main functionalities protected channel es
+tablishment key establishment and authentication of digital information including authentication of
+parties inside a communication protocol by the use of digital signatures
+todaythesetechniquesareessentiallybasedontwomathematicalproblemsthefactorizationoflarge
+numbers and the discrete logarithm computation both are dimensioned to be virtually impossible to
+solve with our current computing resources and mathematical knowledge for example the wellknown
+rsa public key algorithm relies on the factorization of large numbers
+these two fundamental problems will no longer be unsolvable if a large scale quantum computer
+is built and thus the security of currently deployed public key cryptography could potentially collapse
+indeedinpshorintroducedaquantumalgorithmabletosolvetheseproblemsquiteefficiently
+thisalgorithmcannotbeperformedonclassicalcomputersbutitcouldbeperformedonlargescaleones
+toavoidanyconfusionwiththeexistingprototypesofsmallscalequantumcomputersthencscbritish
+counterpartofanssiintroducedthenameofcryptographicallyrelevantquantumcomputerscrqcs
+seethencscswhitepaperonquantumsafecryptographyinotherwordsacrqcisaquantum
+computer that is able to execute relevant instances of shors algorithm and thus threatening todays
+publickey cryptography
+theprototypesofquantumcomputersthatexistarepresentlyfarfromtherequiredscaleandstability
+of crqcs and therefore they are currently not a threat to public key cryptography many research
+challenges in physics engineering and computer science must be overcome before scaling up to large
+quantumcomputersabletosolvethefactorizationanddiscretelogarithmproblemsonwhichthecurrent
+pkc is based
+however the threat of retroactive attacks cannot be ruled out a family of attacks called store
+now decrypt later attacks constist in storing today the data exchange corresponding to a secure
+channel establishment and the encrypted messages over such a channel with the purpose of eventually
+decrypting these messages once a crqc becomes available this threat could be relevant in certain
+scenarios involving very sensitive information eg classified information
+furthermorethequantumthreatcouldalsoimpactdigitalsignaturesindeedacrqccouldbeused
+toforgesignaturesandallowimpersonationattacksunlikethethreatofretroactivestorenowdecrypt
+laterattacksthisthreatwouldonlybeeffectiveifthesignaturesaregeneratedatatimewhenacrqc
+existsthusthesignaturesthatareverifiedontheflylikeinauthenticatedchannelscannotbedirectly
+impacted before the existence of a crqc however in a context of document signing the longterm
+validity is sometimes required in certain specific use cases and these signatures can be compromised by
+the existence of a crqc the transition from prequantum signatures to postquantum ones should be
+tackled before the existence of any crqc to avoid any a posteriori impersonation attack
+quantum threat what about symmetric cryptography
+symmetric cryptography a different and complementary branch of cryptographic algorithms could also
+be targeted by potential large scale quantum computers a generic quantum algorithm introduced by
+groverinquadraticallyspeedsuptheexhaustivesearchofsecretkeysinsymmetricalgorithms
+grovers algorithm can also speed up certain attacks on hash functions called collision finding attacks
+these attacks also require the use of crqcs but for numerous algorithms one can reasonnably assume
+that they could be mitigated by adjusting the sizes of the hash outputs and keys using  bits keys
+instead of  for the aes symmetric encryption mechanism and using  bits hash outputs for sha
+and sha for instance thus the generic impact of grovers algorithm on symmetric cryptography is
+far more limited than the impact of shors algorithm on pkc
+why the quantum threat should be taken into account today
+because of a store now decrypt later attack outlined above the quantum threat should be taken into
+accountbeforethequestionofwhetherthedevelopmentofacrqcwilleverbecomeachievableinthefu
+tureisclearedupthusaprofoundchangeoftodayspublickeycryptographytowardsquantumresistant
+algorithms should be globally initiated to anticipate a possible collapse of our current cryptographic in
+frastructure even though protecting our current public key cryptography against this distant threat
+has a cost researching alternative cryptographic solutions can be beneficial from another perspective
+indeed beyond the quantum threat cryptography is never infallible weaknesses are found from time to
+time even on cryptographic mechanisms implemented in classical computers thus it is not possible to
+totally rule out a discovery of a potential weakness impacting the security of hardware andor software
+andrequiringreplacementofalgorithmsnowadaysthepublickeycryptographyusedworldwideisclose
+to a mono culture and would strongly benefit from the introduction of new alternative algorithms
+is quantum key distribution a solution
+quantumkeydistributionqkdsometimescalledquantumcryptographyisawayofenablingsecure
+communications without being vulnerable to classical and quantum computers by using socalled quan
+tum channels nevertheless this technique does not provide a complete functional equivalent to public
+key cryptography and offers limited applications due to the need of a dedicated communication infras
+tructure and without real routing capabilities more information on the anssi position can be found
+under reference  as such except for niche applications where qkd is used for providing some extra
+physical security on top of algorithmic cryptography and not as a replacement it is not considered by
+anssi as a suitable countermeasure to mitigate the quantum threat
+what is postquantum cryptography
+postquantum cryptography pqc is a family of cryptographic algorithms including key establish
+ment and digital signatures that ensures a conjectured security even against an attacker equipped with
+quantum computers postquantum algorithms can be executed on classical computers with classical
+communication channels and thus can be deployed in existing infrastructures unlike qkd besides
+these algorithms are not only for use after a crqc is built they can be deployed in anticipation
+for anssi pqc represents the most promising avenue to thwart the quantum threat
+the international research effort on postquantum cryptography accelerated in  after nsas
+releaseadvisingtoshifttoquantumresistantcryptographyinthenearfutureinthenational
+institute of standards and technologies nist started a standardization campaign to define standard
+postquantum public key algorithms key establishments and signatures at the time of writing this
+process is still ongoing  and currently at its third round standards are expected to be published
+ for which no efficient quantum attack exists today
+
+within the next one to four years contrary to other standardization campaigns where there was only
+one finalist the postquantum campaign will end up with several standards for different applications
+thisstandardizationprocesshasactedasacatalystallowingastronginvolvementoftheinternational
+cryptography research community and focusing the analysis efforts on a restricted number of candidate
+algorithms while preserving the diversity of the underlying problems this process has also broadened
+the analysis to various implementation use cases like embedded components
+what are the different postquantum algorithms
+the different families of postquantum public key candidate algorithms are defined by the mathematical
+structureonwhichtheyarebuiltnowadayspostquantumpublickeyalgorithmsaremostlybasedupon
+ structured or unstructured euclidean lattices
+ errorcorrecting codes
+ isogenies between elliptic curves
+ multivariate systems
+ hash trees
+whilethemathematicalproblemswereintroducedinthelastcenturythepqcalgorithmsarerelatively
+recent they offer various compromises between key size signatures or ciphertext size computational
+complexityandsecurityassuranceatechnicalsurveyofthealgorithmsandtheunderlyingmathematical
+problems can be found in 
+what is being done in france to address the quantum threat
+there is a high academic interest in france for this thematic this is why the french community is
+activelyparticipatingtothedesignandsecurityanalysisoftheprimitivesbutalsototheircryptanalysis
+a national group comprising academics industrials and anssi has been formed called risq and will
+publish a whitepaper in  
+as the national cybersecurity authority in france anssi has followed closely and participated to
+the progress in postquantum cryptography anssi has planned to continue its effort in the future
+more generally anssi publishes recommendations on the selection of cryptographic algorithms in
+security products and delivers security labels for products meeting general security requirements but
+anssi is not a standardization agency its role is not to develop cryptographic standards more pre
+cisely anssi has a twofold role when it comes to the use of cryptographic algorithms advisory and
+regulatory on the one hand it promotes the use of wellstudied stateoftheart cryptographic algo
+rithms by publishing national guidelines on cryptography  and by participating to the publication
+of european guidelines on the selection of cryptographic algorithms  on the other hand anssi
+supervises the evaluation and delivery of security labels eg common criteria cc certificates in the
+french certification scheme each evaluation comprises specific cryptographic evaluation tasks according
+totheevaluationlevelitisimportanttohighlightthatthereisnoclosedlistofcryptographicalgorithms
+eligible in order for a product to obtain a security label generally the use of cryptographic algorithms
+that are fitted with a formal standard status delivered by an international standardization body eg
+iso itu ietf etsi etc is strongly recommended however a cryptographic algorithm supported
+by a strong record of scientific publications can be potentially judged sufficient to provide an adequate
+security assurance level conversely there is no automatic and universal recognition of all algorithms
+that obtained a formal standard state from such organizations
+are the future nist standards mature enough to be implemented in security products
+beyond the nist objective to derive standards the past three rounds of the nist standardization
+campaign provide a variety of algorithms along with security analysis although this new postquantum
+toolbox may seem handy for developers the maturity level of the postquantum algorithms presented
+to the nist process should not be overestimated many aspects lack cryptanalytical hindsight or are
+stillresearchtopicseganalysisofthedifficultyoftheunderlyingproblemintheclassicalandquantum
+computationmodelsdimensioningintegrationofschemesinprotocolsandmoreimportantlythedesign
+of secure implementations this situation will probably last some time after the publication of nist
+standards
+ regroupement de lindustrie francaise pour la securite postquantique
+
+acknowledging the immaturity of pqc is important anssi will not endorse any
+direct dropin replacement of currently used algorithms in the shortmedium term
+however this immaturity should not serve as an argument for postponing the first
+deploymentsanssiencouragesallindustriestoinitiateinthenextmonthsagrad
+ual overlap transition in order to progressively increase trust on the postquantum
+algorithms and their implementations while ensuring no security regression as far
+as classical prequantum security is concerned
+how to transition smoothly from prequantum to postquantum algorithms
+a hybrid mechanism key establishment or signature combines the computations of a recognized pre
+quantumpublickeyalgorithmandanadditionalalgorithmconjecturedpostquantumsecurethismakes
+the mechanism benefit both from the strong assurance on the resistance of the first algorithm against
+classical attackers and from the conjectured resistance of the second algorithm against quantum attack
+ers certain hybrid protocols are in standardization processes like  for tls  or  for ikev
+more generally for key establishment one can perform both a prequantum and a postquantum key
+establishmentandthencombinebothresultsegusingakeyderivationfunctionkdfalternatively
+one may use for some specific applications a kdf on a preshared key and a shared key obtained from
+a prequantum scheme for signature schemes hybrid signatures can be achieved with the concatena
+tion of signatures issued by a prequantum and a postquantum scheme and the requirement that both
+signatures be valid in order for the hybrid signature to be valid
+even though hybridation is a relatively simple construction anssi emphasizes that the role of
+hybridation in the cryptographic security is crucial and will be mandatory for phases  and  presented
+inthesequelinadditiontheimplementationsecurityofthehybridationtechniqueshouldbealsotaken
+in consideration
+given that most postquantum algorithms involve message sizes much larger than the current pre
+quantum schemes the extra performance cost of an hybrid scheme remains low in comparison with
+the cost of the underlying postquantum scheme anssi believes that this is a reasonable price to pay
+for guaranteeing an additional prequantum security at least equivalent to the one provided by current
+prequantum standardized algorithms
+what is cryptoagility
+as detailed in the sequel the deployment of hybrid pqc is not a mandatory feature as of today how
+everanssiwillencouragetheinitiationofprogresstowardscryptoagility asmuchaspossibleforfuture
+products more precisely a product is said cryptoagile if it includes the possibility to update its cryp
+tographic algorithms without recalling it or substituing it with a new one the quantum threat makes
+cryptoagility particularly relevant and beyond this threat classical attacks may also evolve and make
+cryptographic mechanisms or key lengths obsolete
+in practice cryptoagility also means that in addition to the possibility of patching products could
+include an extra surface for allowing potential updates in order to react to upcoming cryptographic
+recommendations and standard updates even though updates of the cryptographic algorithms should
+be much less frequent than patches the cryptoagility feature is nontrivial to implement due to the
+need for retrocompatibility and the potential requirement for additional security visas if the product is
+certified however as the motivation for cryptoagility is very relevant nowadays anssi believes that
+cryptoagility features should be taken into account during the benefitrisk analysis of future products
+what is the recommended postquantum transition roadmap
+to support a gradual transition anssi encourages the following phase roadmap see below for a
+detailed description
+ phase  today hybridation to provide some additional postquantum defenseindepth to the pre
+quantum security assurance
+ phasenotearlierthanhybridationtoprovidepostquantum security assurance whileavoid
+ing any prequantum security regression
+ phase  probably not earlier than  optional standalone postquantum cryptography
+what is recommended for each phase
+phase  mandatory prequantum security optional pqc no claimed quantum resistance this phase
+
+prequantum
+postquantum
+phase  phase  phase 
+
+time
+level
+ecnarussa
+correspondstothecurrentsituationthepostquantumsecurityshouldnotbeamandatoryrequirement
+but is considered as an optional defenseindepth as the standardization campaign is still ongoing
+the idea of this phase is to enable the first postquantum deployments with flexibility while preserving
+the prequantum security with hybrid mechanisms
+anssi recommends introducing postquantum defenseindepth as soon as possible
+forsecurityproductsaimedatofferingalonglastingprotectionofinformationuntil
+after  or that will potentially be used after  without updates
+the two following conditions below should be met
+ the chosen hybridation technique must ensure no security regression ie the security of the mecha
+nism must be at least equivalent to the security of the included recognized prequantum scheme
+ while there is no strict guidance for the choice of a postquantum public key algorithm key es
+tablishment or signature mechanisms the chosen algorithm should have stable and wellstudied
+specifications eg be a nist finalist or a trusted alternate finalist moreover the conjectured post
+quantum level should be as high as possible preferably nist level v aes for example at
+the time of the writing the nist candidates frodokem kyber dilithium or falcon could be good
+options for first deployments choosing algorithms selected by nist for standardization is not an
+absolute prerequisite
+anssi encourages to use a conjectured postquantum security level on symmetric primitives con
+sistent with the selected postquantum pkc algorithm  in practice at least the same security level as
+aes for block ciphers and at least the same security level as sha for hash functions
+please note that hashbased signatures are an exception for hybridation due to their wellstudied
+underlying mathematical problem anssi estimates that these algorithms could be used today without
+hybridation however their potential application range is limited low number of signatures queries or
+large signature sizes
+ as defined by nist in round  of the campaign
+ while few exceptions are expected in practice at least for mainstream cryptography an algorithm that is
+not a nist standard but that is demonstrably stronger that a nist standard could constitute such an
+exception for example a developer should be able to obtain a security visa for a product implementing an
+hybrid frodokem whether nist decides that frodokem will be one of the first pqc standards or not
+ this is nevertheless a nonstandard algorithm choice compared to the use of current pkc standards thus
+some analysis of the algorithm may have to be performed by anssi as part of an evaluation and this may
+lead to an increase of the certification process duration
+
+this phase should last until after nists first standards are announced and it is planed to last until
+after 
+phase  mandatory prequantum security optional pqc with claimed quantum resistance in this
+secondphaseallpostquantumpkcalgorithmsshallcontinuetobesystematicallyincludedinsidehybrid
+mechanisms except for hashbased signatures whose hybridation is optional as presented in phase 
+for this phase the postquantum part will be more than an defenseindepth the quantum resistance
+could be claimed as a feature in that case a postquantum security assurance should be mandatory for
+both public key and symmetric mechanisms as integral part of the security analysis by then anssi
+will have identified criteria for acceptable postquantum pkc algorithms depending on their associated
+postquantum security assurance such selected algorithms may not exactly match nist standards for
+this phase anssi will highly recommend the postquantum transition for products claiming longterm
+security in that sense for certain types of security products claiming longterm security postquantum
+security could become a mandatory feature
+this phase should last until at least 
+phase  optional standalone pqc with claimed quantum resistance anssi expects that after years
+of analysis the security assurance level provided by postquantum algorithms will be as high as todays
+prequantumassurancelevelthustheusageofsomepostquantumschemesshouldbepossiblewithout
+hybridation
+please note that the presented recommendations will potentially evolve depending on the global
+advances on postquantum cryptography and on the progress of nist standardization campaign the
+estimated timeline of the roadmap could be advanced or slowed down accordingly
+what is the impact on security visas delivery
+theuseofpqcwillalsoimpactthedeliveryofsecurityvisasanssiwillaccompanythistransitionand
+adapt its evaluation procedures according to the roadmap described above the general procedure 
+will be updated following the three phases as follows
+phase  the security visas only claim a prequantum security assurance the
+optional postquantum security feature is only considered as an additional defense
+indepth addon
+therefore the evaluation method for security products that do not use pqc stays unchanged for
+products that use postquantum defenseindepth the evaluation method for a security visa will be
+defined as follows 
+ all prequantum security mechanisms are evaluated as currently defined 
+ the hybridation mechanism will be evaluated to ensure that it does not degrade security
+ while anssi may go through the pqc algorithms specification it will not be evaluated by it
+security evaluation facilities itsef and thus it will not be part of any security visa if necessary
+it is possible to contact anssi for advice on the choice of pqc algorithms
+in a nutshell security visas will attest that prequantum security is evaluated and that the use of
+postquantum defenseindepth mechanisms do not have any negative impact no formal judgement will
+be made on the quantum security offered by pqc
+phase anssiwilldeliversecurityvisasclaimingaprequantumandoptionally
+postquantum longterm security assurance still with mandatory hybridation
+as in phase  evaluation procedure for products that do not use postquantum longterm security
+remains unchanged for longterm security products that follow anssi recommendations and use hy
+bridation with pqc the evaluation method will include prequantum security analysis hybridation and
+quantum resistance analysis for the latter the analysis should include both symmetric and asymmetric
+mechanisms and should comply with the official guidelines on quantum resistance that will be updated
+by then
+
+phase  anssi will deliver security visas claiming a prequantum and post
+quantumlongtermsecurityassurancewithoptionalhybridationdependingonthe
+context anssi could continue to deliver security visas claiming only prequantum
+security assurance
+this final transition phase strongly depends on the advances of research in postquantum cryptogra
+phy and quantum computing the specific details of this phase will be adapted in the next decades
+what is the position of other governments
+severalgovernmentshavepublishedsimilarpositionpapersrecommendingtopreparethepostquantum
+transition anssis views are similar to the bsis position  on many issues eg necessary migration
+hybridation cryptoagility
+references
+ anssigestiondesclescryptographiquesreglesetrecommandationsconcernantlagestiondesclesutilisees
+dans les mecanismes cryptographiques httpswwwssigouvfruploadsrgsvbpdf
+ anssi guide des mecanismes cryptographiques httpswwwssigouvfruploads
+anssiguidemecanismescryptopdf
+ anssi modalites pour la realisation des analyses cryptographiques httpswwwssigouvfruploads
+anssicccrypmodalitespourlarealisationdesanalysescryptographiquesv
+pdf
+ anssi security visas httpswwwssigouvfrentreprisevisadesecurite
+ anssi should quantum key distribution be used for secure communications httpswwwssigouv
+frenpublicationshouldquantumkeydistributionbeusedforsecurecommunications
+ bsi migration zu postquantenkryptografie httpswwwbsibunddeshareddocsdownloads
+debsikryptopostquantenkryptografiepdfjsessionidecdcaeebeeb
+internetblobpublicationfilev
+ bsi status of quantum computer development httpswwwbsibunddeshareddocsdownloadsde
+bsipublikationenstudienquantencomputerpqcstudievpdfblobpublicationfilev
+
+ cnrs la recherche francaise au cur du plan quantique httpswwwiledefrancegifcnrsfrfr
+cnrsinfolarecherchefrancaiseaucoeurduplanquantique
+ cnss cnss advisory memorandum httpscryptomeorgcnssadvisorymemopdf
+
+ enisa postquantumcryptographycurrentstateandquantummitigation httpswwwenisaeuropa
+eupublicationspostquantumcryptographycurrentstateandquantummitigation
+ l k grover a framework for fast quantum mechanical algorithms in th acm stoc pages 
+acm press may 
+ ncsc preparing for quantumsafe cryptography httpswwwncscgovukwhitepaper
+preparingforquantumsafecryptography
+ nist postquantumcryptographyofficialstandardizationwebpage httpscsrcnistgovprojects
+postquantumcryptography
+ risq to appear on risq official webpage httpsrisqfr
+ p shor algorithms for quantum computation discrete logarithms and factoring in th focs pages
+ ieee computer society press nov 
+ sogis agreed cryptographic mechanisms httpswwwsogiseuuksupportingdocenhtml
+ d stebila s fluhrer and s gueron hybrid key exchange in tls  draft ietf httpswwwietf
+orgiddraftietftlshybriddesignhtml
+ c tjhai m tomlinson g bartlett s fluhrer d vangeest o garciamorchon and
+v smyslov multiple key exchanges in ikev draft ietf httpsdatatrackerietforgdoc
+draftietfipsecmeikevmultipleke
+

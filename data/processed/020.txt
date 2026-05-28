@@ -1,0 +1,292 @@
+ ieee international conference on quantum computing and engineering qce
+quantum readiness unlocking the quantum
+advantage for australian industries
+rebecca coates mohan baruwal chhetri
+environment business unit data
+commonwealth scientific and industrial commonwealth scientific and industrial
+research organisation research organisation
+brisbane australia melbourne australia
+rebeccacoatescsiroau mohanbaruwalchhetricsiroau
+abstractquantum technologies hold immense potential to domestic product gdp and directly employ  indi
+revolutionise industries society and our way of life however viduals while creating over  additional jobs across the
+unlocking its benefits requires a balanced approach one that
+broader economy 
+acknowledges its vast potential while proactively addressing
+however unlocking the full potential of quantum tech
+the potential risks and unforeseen challenges this position
+paper introduces the concept of quantum readiness  a proactive nologies necessitates a strategic approach that goes beyond
+and multifaceted strategy that equips government industry just recognising their economic and national security benefits
+academia and civil society to responsibly navigate the quantum understanding this the australian government unveiled its
+landscape quantum readiness encompasses two key aspects
+ambitiousnationalquantumstrategynqsinmay
+generalquantumreadinessforleveragingthepotentialbenefitsof
+this comprehensive roadmap outlines a bold vision by 
+quantum technologies and quantum cyber readiness to address
+the unique cybersecurity risks and challenges posed by these australiawillbearecognisedleaderintheglobalquantum
+advancements a proactive approach to quantum readiness can industry with these transformative technologies seamlessly
+unlock unprecedented opportunities for businesses government integrating into society fostering prosperity fairness and
+academia and civil society while mitigating emerging cyber
+inclusivity for all australians the strategy aims to achieve
+risks and ensuring a secure competitive and sustainable future
+this through five central themes listed below each with a set
+we also propose a systematic approach guided by responsi
+ble innovation theory for assessing the quantum readiness of of actions to be implemented over the next seven years
+industry sectors we are currently applying it to assess the
+quantumreadinessofaustralianindustrytoidentifycriticalgaps  thrivingresearchanddevelopmentinvestmentinanduse
+vulnerabilities and potential opportunities this assessment will of quantum technologies
+provide actionable insights to policymakers industry leaders  securing access to essential quantum infrastructure and
+and researchers enabling them to enhance australias overall materials
+quantum readiness and position itself as a global leader in  a skilled and growing quantum workforce
+responsible quantum technology development and adoption
+index termsquantum readiness quantum cyber readi  standardsandframeworksthatsupportnationalinterests
+ness quantum technologies responsible innovation  a trusted ethical and inclusive quantum ecosystem
+the nqs outlines a path to quantum leadership but re
+i introduction alising this vision demands a strong focus on quantum
+readiness given the nascent stage of quantum technologies
+quantum technologies stand at the forefront of australias
+as evidenced by their position in overlapping technological
+imminenttechnologydriventransformationpoisedtoreshape
+inventionordiscoveryandtechnologicalemergencephases
+both industry and society identified by australias depart
+in the scientific development pathway  there is an urgent
+ment of industry science and resources disr as one of
+need for quantum readiness assessments to identify gaps and
+the critical technologies that can impact australias national
+opportunities for australias quantum journey
+interests  quantum technologies hold immense potential
+to impact diverse industry sectors and improve the lives of to fully realise the potential of quantum technologies a
+australians some initial application areas of impact include comprehensive understanding of australias quantum readi
+improved data security drug discovery earthquake detection ness is essential in particular the readiness of early adopter
+mineral exploration medical imaging and optimisation in industries is crucial to australias overall quantum ecosystem
+sectors such as logistics utilities energy waste manage these industries at the forefront of technological innovation
+ment and banking  conservative estimates project that can serve both as pioneers and catalysts for broader industry
+by  quantum computing communications and sensing adoption understanding their needs challenges and oppor
+could contribute roughly  billion to australias gross tunities will be instrumental in developing tailored support
+programs and policies the following sections delve into
+bothauthorscontributedequallytothiswork defining and elaborating on the concept of quantum readiness
+  ieee 
+doi qce
+ecq
+iod
+
+eeei
+
+
+
+ecq
+gnireenigne
+dna
+gnitupmoc
+mutnauq
+no
+ecnerefnoc
+lanoitanretni
+eeei
+
+authorized licensed use limited to nanyang technological university library downloaded on february  at  utc from ieee xplore restrictions apply
+withinthecontextofindustrysectorsitsconstituentelements  inclusive deliberation emphasises involving a diverse
+andamethodologicalframeworkforassessingitthroughalens range of stakeholders in the innovation process includ
+of responsible innovation ing researchers technology developers technology con
+sumerspolicymakersethicistsandthepublicincluding
+ii quantumreadiness differentperspectivesensuresthattheinnovationsaddress
+the needs and concerns of wider society
+quantum readiness is a multifaceted strategy that goes
+beyond simply acquiring quantum technology it is about  responsiveness highlights the need to be adaptable and
+change direction in response to stakeholder or public
+equipping key stakeholders  governments businesses and
+values and changing circumstances this could involve
+society  toharnessthepotentialofthesedisruptivetechnolo
+modifyingthetechnologydevelopingsafeguardsoreven
+gies quantum readiness encompasses two pillars  general
+halting development altogether
+quantum readiness and quantum cyber readiness these two
+pillars are interconnected and a successful quantum strategy despite an established foundation of principles and guide
+requires a balanced approach to both lines within the field of responsible innovation recent efforts
+from an industry perspective general quantum readiness have emphasised a need for a more rigorous and scientific
+starts with building a strong foundation of awareness and approach this ensures that responsible innovation is not just
+understanding of the potential of quantum technologies with aspirational but a repeatable and robust process csiros
+this knowledge industries can then identify and prioritise responsibleinnovationfuturescienceplatformhasdevel
+transformative use cases determine infrastructure require oped two innovative science frontiers responsible prediction
+mentssecureadequateinvestmentdeveloprelevantworkforce and social and ethical risk management  that set the
+training and capabilities and advocate for supportive policies conditions for responsible innovation to be used as an applied
+this initial groundwork paves the way for further actions science while responsible prediction explores new ways to
+such as developing a robust national quantum ecosystem and model and measure social systems and conditions social
+developing national standards for interoperability and ethical risk management seeks new methodologies that
+quantum cyber readiness prioritises understanding the demonstratemoresystematicandappliedscientificapproaches
+evolving cyber risks posed by quantum computing including to identifying and mitigating social and ethical risks
+the potential for breaking current cryptographic systems and drawing on the principles of anticipation reflexivity and
+compromising sensitive data it involves developing strategies inclusive deliberation we develop a methodology in the next
+tomitigatetheserisksthroughtheimplementationofquantum sectionforassessingindustriesquantumreadinessthisaligns
+resistant cryptographic algorithms risk assessments incident with csiros responsible innovation framework focusing on
+response plans workforce training and consumer awareness responsible prediction and socialethical risk management
+additionally staying informed about the latest advancements
+in quantum computing and cybersecurity is crucial for main iv quantumreadinessassessmenta
+taining a proactive defence posture responsibleapproach
+iii responsibleinnovation this section outlines a methodology informed by responsi
+ble innovation theory  to assess quantum readiness across
+responsible innovation refers to the idea that innovations
+diverseindustrysectorsourapproachgroundedintheprinci
+can be managed from conception through to implementation
+plesofanticipationreflexivityresponsiblepredictionandso
+and postimplementation in an engaged and interactive rela
+cial and ethical risk management enables a systematic explo
+tionship with society to achieve socially acceptable research
+ration of potential quantum technology applications and their
+and innovation outcomes  it holds the promise that the
+broader implications for informing strategic decisionmaking
+world can be opened up to new opportunities for creating
+we integrate responsible innovation principles throughout our
+value in society through science and technology 
+research not only to ensure responsible outcomes but also to
+the responsible innovation framework developed by owen
+contribute to the ongoing development of responsible innova
+et al  identifies four core dimensions of responsible in
+tion theory itself 
+novation  anticipation reflexivity inclusive deliberation and
+responsiveness
+a stage  anticipatory mapping of quantum use cases
+ anticipation involves considering the potential conse
+quences both positive and negative of a new technol to understand the potential applications of quantum tech
+ogy before it is fully developed or released it prompts nologiesacrossvariousindustriesasystematicmappingexer
+researchers and organisations to ask what if questions ciseisessentialbyidentifyingpromisingusecasesandhigh
+to proactively identifying potential risks and benefits growth sectors this exercise is crucial for informing strategic
+ reflexivity refers to critically examining the values and planning it allows us to anticipate the future landscape of
+assumptions that underlie innovative processes consider quantum technology applications and to predict potential
+ing who benefits who might be harmed and potential highimpactareasthatwillinfluencestrategicinvestmentsand
+biases that might be shaping technology development policy developments
+
+authorized licensed use limited to nanyang technological university library downloaded on february  at  utc from ieee xplore restrictions apply
+ literature search and selection to comprehensively un generatedfromthereflectivestakeholderengagementcanpaint
+derstand the potential applications of quantum technolo a rich picture of the quantum landscape further this method
+giesamultistakeholderperspectiveisessentialthisin ologysupportsresponsiblequantumreadinessbyprovidingthe
+volvesathoroughreviewofrelevantgovernmentpolicies structure to produce rigorous data from across the diversity of
+marketanalysesacademicresearchandindustryreports theassessedindustrysectorsallowinganobjectivesnapshot
+ use case identification and mapping next a system of the current state of quantum industry to be achieved we
+atic process is employed to identify and map potential propose that by generating data from the mapping exercise
+quantum technology applications based on the collected interviews and survey we are able to conduct predictive
+documents each use case is mapped to specific industry responsible research  that contributes to preparations for
+sectors and categorised according to its primary quan the realisation and more widespread application of quantum
+tum technology detailed descriptions and supporting technologies in society furthermore by incorporating stake
+evidence are recorded for each use case it is recom holder interviews and surveys that delve into the perceptions
+mended that multiple researchers independently review ofriskandethicalguidelinesthisresearchcontributestosocial
+the documents to ensure a thorough analysis and ethical risk management  the research findings can
+ use case compilation identified quantum technology informstrategicdecisionmakingforbusinessesgovernments
+applications are consolidated into a comprehensive list and other stakeholders across the quantum ecosystem in the
+categorised by industry sector and primary quantum conduct of both predictive responsible research and social
+technology duplicate use cases are merged and detailed and ethical risk management this responsible methodology
+descriptions with supporting evidence are provided for is also well positioned to provide data and results that may
+each application influence how quantum science is developed and therefore
+ usecaseanalysisacomprehensiveanalysisofthecom potentially the trajectory of the implementation of quantum
+piled usecases is conductedthis caninclude examining technologies in australia
+sectoraldistributiontechnologybreakdowncommonuse given the rapidly evolving nature of quantum technologies
+cases across sectors and stakeholders as well as poten the methodology is designed as an iterative process the
+tial economic social environmental health and policy findingsfromeachstageinformsubsequentstepsallowingfor
+impacts refinementsandadjustmentsasneededthisiterativeapproach
+ usecaseprioritisationfinallyusecaseprioritisationis ensures the methodology remains responsive to the evolving
+done to inform the allocation of resources and the devel quantum landscape
+opment of a roadmap for quantum technology adoption shortfalls of the methodology it is important to acknowl
+prioritisation could be based on factors such as potential edge the limitations of this methodology the exclusive focus
+impactfeasibilityalignmentwithnationalprioritiesand onenglishlanguagedocumentsrestrictsthescopeofthemap
+available resources ping exercise potentially overlooking valuable insights from
+other nations quantum strategies additionally the absence
+b stage  reflective stakeholder engagement
+of a workforce capacity assessment also limits the scope of
+to gain a deeper understanding of the quantum landscape
+the analysis as industries that lack the right skills talent and
+andinformthemappingexerciseacomprehensivestakeholder
+expertise in the workforce will be illequipped to harness the
+engagementstrategyisemployedthisinvolvesacombination
+potential benefits while these factors constrain the studys
+of qualitative and quantitative research methods
+scope they do not diminish the value of its findings in
+ qualitativeresearchindepthinterviewsindepthinter understanding the current quantum landscape
+views are conducted with a range of stakeholders across
+the quantum ecosystem on their understanding of quan v applicationofthemethodology
+tum technologies their perception of quantum readiness csiros responsible innovation future science platform
+and quantum cyber readiness within their organisation is applying the proposed methodology to assess the quan
+and attitudes towards ethical considerations tum readiness of the australian quantum ecosystem to gain
+ quantitative research nationwide survey a quanti insights into industry quantum readiness we are applying
+tative questionnaire is designed to gather data from a the methodology to assess key australian industry sectors
+representative sample of stakeholders from across the by identifying promising use cases aligned with national
+quantum ecosystem a particular emphasis is placed on challenges and determining future infrastructure and material
+end users given their critical role in driving quantum needs we will directly contribute to the nqss goals this
+technology adoption the survey is designed to comple analysis will also inform workforce development regulatory
+ment the qualitative research and explore key emergent frameworks and responsible innovation initiatives
+themesrelatedtogeneralquantumreadinessandquantum to complement the industry focus research has been con
+cyber readiness ducted on the perceptions of cybersecurity professionals and
+theintegrationofqualitativeandquantitativedataprovides thegeneralpublicarecentstudylookedattheperspectivesof
+a comprehensive understanding of the quantum landscape cybersecurity professionals on the ethical and technical risks
+complementingthefindingsofthemappingexercisethedata of quantum computing  this project involving qualitative
+
+authorized licensed use limited to nanyang technological university library downloaded on february  at  utc from ieee xplore restrictions apply
+interviews and a survey revealed a significant gap in partic  departmentofindustryscienceenergyandresourcesnational
+ipants awareness of quantum computing risks which could quantumstrategyonlineavailablehttpswwwindustrygov
+aupublicationsnationalquantumstrategy
+be theorised as a lack of readiness for quantum technologies
+ k e kendall the significance of information systems research on
+additionally another study is examining australian public emergingtechnologiesseveninformationtechnologiesthatpromiseto
+attitudes towards responsible innovation  conducted as improvemanagerialeffectivenessdecisionsciencesvolnopp
+
+a longitudinal study the third wave incorporates a survey
+ r von schomberg prospects for technology assessment in a frame
+module assessing public awareness of both the risks and workofresponsibleresearchandinnovationtechnikfolgenabschatzen
+benefits of quantum technologies lehren bildungspotenziale transdisziplinarer methoden pp 
+
+these pioneering studies are the first in australia to gather
+ rowenjstilgoepmacnaghtenmgormanefisheranddgus
+critical data from representative samples together they rep tonaframeworkforresponsibleinnovationresponsibleinnovation
+resent a collective exercise in inclusive deliberation diverse managing the responsible emergence of science and innovation in
+societypp
+australian populations are represented creating a picture of
+ csiro responsible innovation future science platform 
+what the australian quantum ecosystem thinks in relation to onlineavailablehttpsresearchcsiroauri
+ethical and technical risks quantum readiness and awareness   responsible innovation at csiro apr  online avail
+able httpsresearchcsiroauriwpcontentuploadssites
+ofrisksandbenefitsofquantumtechnologiesrepresentingan
+responsibleinnovationatcsiropdf
+important body of work in responsible innovation  jstilgoerowenandpmacnaghtendevelopingaframeworkfor
+responsibleinnovationintheethicsofnanotechnologygeoengineer
+vi conclusion ingandcleanenergy routledgepp
+ r coates m baruwal chhetri d liu j pieprzyk r richelle
+asindustriesmoveclosertowardsthebenefitsandadvance w kang s kwashie t wu and s nepal understanding the
+ethical implications of quantum computing for cybersecurity using
+ments offered by quantum technologies it is imperative to
+a responsible innovation framework csiro australia tech rep
+considertherisksandchallengesassociatedwiththemtaking csiroep
+a responsible innovation approach in this crucial phase of the  r mccrea r coates e hobman s schmidt and j lacey public
+perceptionsofresponsibleinnovationcsiroaustraliatechrep
+technologies development can mitigate risks while maximis
+csiroep
+ing benefits this paper proposed a twostage methodology
+grounded in responsible innovation theory and emphasising
+anticipation and reflection to navigate the challenges and
+opportunities presented by emerging quantum technologies
+firstly through anticipatory mapping of use cases we can
+systematicallyidentifyandcategorisepotentialapplicationsof
+quantum technologies across industries technology types and
+impacts secondly through reflective stakeholder engagement
+in the form of qualitative interviews and a survey we can
+capture rich contextual data from stakeholders from across
+the quantum ecosystem collectively these data sources form
+the basis for a responsible assessment of quantum readiness
+several avenues exist for extending this research this
+twostage methodology could be applied beyond the aus
+tralian context to gain a comprehensive understanding of
+globalquantumreadinessdoingsowouldallowintercountry
+comparisons of quantum readiness and would also take into
+account the global nature of many tech companies addition
+allyincorporatinganassessmentofworkforcecapacitywould
+significantly enhance the studys scope and relevance lastly
+a longitudinal component could be considered to track the
+evolution of the quantum landscape over time
+acknowledgement
+this work is funded by csiros responsible innovation
+future science platform and quantum technologies future
+science platform
+references
+ department of industry science and resources list of
+critical technologies of national interest  quantum technologies
+ online available httpswwwindustrygovaupublications
+listcriticaltechnologiesnationalinterestquantumtechnologies
+
+authorized licensed use limited to nanyang technological university library downloaded on february  at  utc from ieee xplore restrictions apply

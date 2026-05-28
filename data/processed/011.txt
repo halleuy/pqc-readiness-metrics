@@ -1,0 +1,861 @@
+ ieee international conference on quantum computing and engineering qce
+postquantum cryptography pqc network instrument
+measuring pqc adoption rates and
+identifying migration pathways
+jakub sowa  bach hoang  advaith yeluru steven qie 
+anita nikolich  ravishankar iyer phuong cao 
+national center for supercomputing applications university of illinois at urbanachampaign
+abstracttheproblemofadoptingquantumresistantcrypto this paper describes i the design of a postquantum
+graphicnetworkprotocolsorpostquantumcryptographypqc cryptography pqc network instrument placed in a
+is critically important to democratizing quantum computing
+nationalscale supercomputing center ii the latest results
+the problem is urgent because practical quantum computers
+on pqc adoption rate across a wide spectrum of widely
+will break classical encryption in the next few decades past
+encrypted data has already been collected and can be de used network protocols secure shell  ssh transport layer
+crypted in the near future the main challenges of adopting security  tls etc iii the current state of pqc im
+postquantum cryptography lie in algorithmic complexity and plementation in key scientific applications eg openssh
+hardwaresoftwarenetworkimplementationthegrandquestion
+scitokens iv the challenges of being quantumresistant
+of how existing cyberinfrastructure will support postquantum
+and v discussion of potential novel attacks our result is
+cryptography remains unanswered
+critically important regarding adopting national institute of this paper describes i the design of a novel postquantum
+cryptography pqc network instrument placed at the na standards and technology nists draft algorithms such as
+tional center for supercomputing applications ncsa at the crystalskyber for encryption falcon and spincs
+university of illinois at urbanachampaign and a part of the for digital signature and kemtals for key exchange 
+fabric testbed ii the latest results on pqc adoption rate
+and protocolspecific pqc adaptation such as hybrid stream
+acrossawidespectrumofnetworkprotocolssecureshellssh
+lined ntru ringbased public key cryptosystem prime
+transport layer security  tls etc iii the current state of
+pqcimplementationinkeyscientificapplicationsegopenssh sntrup and x with sha sntrupx
+orscitokensivthechallengesofbeingquantumresistantand sha in openssh  
+v discussion of potential novel attacks motivationthecryptographicalgorithmsweusetosecure
+this is the first largescale measurement of pqc adoption
+and verify all this data today are far more complex than
+at nationalscale supercomputing centers and fabric testbeds
+in centuries past yet still heavily reliant on the hardness
+our results show that only openssh and google chrome have
+successfully implemented pqc and achieved an initial adoption of certain mathematical problems these hard problems
+rateofoutofforopensshconnections such as integer prime factorization and the discrete logarithm
+at ncsa coming from major internet service providers or problem form the basis of modern cryptosystems such as
+autonomous systems ases such as oarnet gtt google
+rsa and ecliptic curve cryptography ecc respectively
+fiberwebpassusanduppsalalanslandstingswedenwith
+as long as no computer can efficiently solve these problems
+anoverallincreasingadoptionrateyearoveryearfor
+our analyses identify pathways to migrate current applications whichareassumedtobehardthesecurityofthecryptosystem
+to be quantumresistant should be maintained for example it would take an exascale
+supercomputer such as frontier   exaflops  longer
+i introduction thantheageoftheuniverseonaverageforanattacktoreveal
+the problem of adopting quantumresistant cryptographic the bit private key in the curve ecc cryptographic
+network protocols or postquantum cryptography pqc is scheme
+criticallyimportanttodemocratizingquantumcomputingthe withnewdevelopmentsinquantumcomputersandquantum
+problem is urgent because practical quantum computers  algorithms on the rise many of these problems previously
+will break classical encryption in the next few decades assumed to be hard appear much easier the  shors
+major applications such as cloud computing  including algorithm for solving both discrete logs and prime factoriza
+hpcsupercomputing financial services and health analyt tion efficiently on quantum computers shows the need for this
+ics  must be migrated to be quantumresistant the main postquantumcryptographypqcwhichismadeevenmore
+challengesofadoptingpostquantumcryptographylieinalgo urgent when you consider an adversary who is storing clas
+rithmiccomplexityandhardwaresoftwarenetworkimplemen sically encrypted traffic now to be decrypted with a quantum
+tation the grand question of how existing cyberinfrastructure computer soon when they are powerful and reliable enough
+will support postquantum cryptography remains unanswered the grand question of how existing cyberinfrastructure will
+support postquantum cryptography remains unanswered and
+correspondingauthorphuongcaodatahttpspmcaogithubiopqc will be addressed in this paper
+  ieee 
+doi qce
+ecq
+iod
+
+eeei
+
+
+
+ecq
+gnireenigne
+dna
+gnitupmoc
+mutnauq
+no
+ecnerefnoc
+lanoitanretni
+eeei
+
+authorized licensed use limited to university of illinois downloaded on november  at  utc from ieee xplore restrictions apply
+key contributions of standards and technology nist and migration pathways
+ a novel network instrument to measure pqc adoption in for hpc developers 
+realtime and provides historical trends of the adoption
+rates across seven layers of computer network protocols
+ii approachoverview
+ thefirststatisticalstudyofpqcsreadinessacrossseven thissectiondescribesthenetworktopologyarchitectureof
+layersofcomputernetworkandhpcapplicationswitha the network optical tap placement of our network instrument
+unique vantage point a petascale supercomputing center datacollectedandstatisticalmethodsusedfiguredescribes
+withnationscalevisibilitythroughthefabricteracore our network instrument using fabric testbed a we de
+network ployed our instrument at the ncsa site b to ingest zeek
+ release of an open sample dataset containing meta connection metadata and parse session and application layer
+data of cryptographic suites across major network pro cipher suite information c d e an example of pqc key
+tocols ssh tls rdp etc  available online at exchangeandstatisticsthatweparsedisshownforthesecure
+httpspmcaogithubiopqc shell ssh protocol f g our instrument is embedded in
+ discussion of potential novel pqc attacks and charac a nationscale network for monitoring a wide spectrum of
+terization of major challenges blocking the adoption of scientific workloads as follows
+pqc in hpc applications fabric testbed fabric  is a nationscale research
+major results our results highlight the difficulty of en infrastructure consisting of a teracore network between uni
+suring all systems are updated and using the most secure versities national labs and supercomputing facilities such
+connection options available which is important to reach as nsf cloud testbeds cloudlab ncsa and chameleon
+widespread pqc adoptions as follows figureafabricpowersexploratorynetworkingresearch
+at scale in a variety of applications including cybersecurity
+ openssh and google chrome have successfully imple
+distributed computing highspeed storage artificial intelli
+mented pqc and achieved an initial adoption rate of
+gence and hpc workloads the unique approach to fabric
+  out of  for openssh connec
+is its application programming interface api allowing
+tions at ncsa
+experiments to programmatically compose extensible high
+ the adoption rate for openssh is increasing yearover
+speed interconnected optical link networks compute and
+year for 
+storage
+ top us large networks autonomous systems  ases
+ncsa the national center for supercomputing applica
+such as oarnet gtt google fiber webpass and
+tions ncsa offers cuttingedge cyberinfrastructure through
+comcastanduppsalalanslandstingswedenarehost
+thenationalpetascalecomputingfacilitynpcfthathouses
+ing clients that have already adopted pqc in openssh
+major ncsa infrastructure including the blue waters super
+ over  of serverside ssh protocols were from 
+computertosupportdiverseresearchneedsmajorcomputing
+and earlier  years before sntrupx was even
+resources include  delta  nsffunded gpu system ideal
+introduced only about  of connections used tls
+for gpuaccelerated applications a and gatewaybased
+version  the most recent and most secure option for
+workflows with nearline storage infiniband interconnect 
+this use case the rest used tls version  which still
+hal cluster supporting deep learning system with ibm
+supports many of the weak cipher suites we found
+power cpus and testbeds for sciencedmz honeypot
+through experimental deployment at the edges our ap
+experiments and fpga boards all these resources are inter
+proachmayhelpidentifyempiricalnovelattacksagainstpqc
+connected with longterm tape archives petabytes and high
+implementations and give feedback to the national institute
+remarkourinstrumentistightlyintegratedwith
+remark  our research vs the state of the art
+zeek and network border gateways
+to the best of our knowledge this is the first net
+our zeekintegrated network instrument to mea
+work instrument that exists to monitor pqc adoption
+sure pqc adoption has three main components
+publicly there are a few related work  eg
+cloudflarereleasedasnapshotoftlsadoptioninfeb  parallel and memorysafe log parser to ingest
+ through their content delivery network  on largevolumezeeklogsfromateracorenetwork
+the other hand our network instrument is the first  historical analyses scripts that perform regres
+of such to monitor the adoption of both openssh sion trend and statistics on the parsed metadata
+tls and other protocols at largescale highspeed of cipher suites
+gigabit to terabit interconnected networks with a  realtimesnapshotandcomparisonofourresults
+wide spectrum of not only traditional cloud but also vsothersifanytodetectnovelattacksandgive
+scientific workloads feedback to nist and security operators
+
+authorized licensed use limited to university of illinois downloaded on november  at  utc from ieee xplore restrictions apply
+a ncsa as a part of fabric teracorenetwork is a vantage point to measure pqc adoption
+fiu
+b
+arista optical tap
+hpc apps
+g example pqc cipher suite statistics
+c zeekintegrated network instrument to measure pqc adoption onlyconnectionmetadata actual data remains encrypted
+sshmsgkexecdhinit
+network connection metadata
+ciphersuites
+sntrup x
+ephemeral ephemeral
+keypair keypair
+policy script interpreter app d l n ic s at  i o s n c i  t s o s k h e  n r s d  p shared shared
+secret secret
+session tls
+sha sha
+event engine shared secret shared secret transport tcp
+appdata appdata
+network ip
+network
+example pqc secure shell ssh key exchange
+d raw network packets e o st u a r t i i s n t s ic t s ru o m f e s n e t s i s n io g n es  ts a p z p ee li k ca m ti e o t n a d la a y t e a r a m nd e t e a s d t a im ta ates fh x y  b  ri  d  s w tr i e th a m sh lin a e  d  n  t  r sn u t r p u r p im  e  s x n  t  ru  p     s  h a a n  d  
+locotorp
+application
+alert
+changecipherspec
+handshake
+drocer
+example ncsa network topology to illustrate the integration of
+the pqc network instrument
+fragmentation
+integrity
+authentication
+encryption
+fig  overview of our instrument deployed at ncsa our instrument has visibility into nationscale network traffic as ncsa is a part of
+fabric testbed a we deployed our instrument at the ncsas network b network topology subject to change to ingest zeek connection
+metadataandparsesessionandapplicationlayerciphersuiteinformationcdepartofcisderivedfromzeekdocumentationand an
+exampleofpqckeyexchangeandthestatisticalresultsthatweparsedisshownforthesecureshellsshprotocolfg
+
+authorized licensed use limited to university of illinois downloaded on november  at  utc from ieee xplore restrictions apply
+speedexternalconnectivitygbpstomajorresearchnet a wide range of cryptographic algorithms eg ecdh rsa
+works such as the energy sciences network esnet figure sha etc and elliptic curves eg x secpr
+b etc that are used for encryptions tasks such as key exchange
+both ncsa and fabric provide a wide gamut of hpc orkeyencapsulationmechanismsincethisdatasetiscollected
+workloadsthatwewillanalyzeforquantumresistantcryptog  for more than  months january   present it
+raphy provides the orthogonal view of pqc adoption in scientific
+zeek network security monitor zeek formerly bro  network traffic
+is a flexible opensource platform with decades of develop
+iv methodresults
+ment history in network security monitoring defenders use
+pqcnetworkinstrumentonopenssh
+zeeks network analyzers to perform deep packet inspections
+and provide a broad view of many network protocols zeek this section presents both i longitudinal studies of pqc
+enables highperformance highlevel stateful semantic analy adoption on the secure shell ssh protocol over  months
+sisattheapplicationlayerandisusedoperationallyatvarious jan   apr  and ii a detailed analysis of cipher
+large sites such as berkeley lab and ncsa the collection suites used in openssh on a sample working day
+and analysis of these data provide a comprehensive view of thefirstandmostinterestingprotocolwestudiedowingto
+pqc adoption as described below its wide usage across most operating systems was the secure
+ethicalconsiderationsourapproachworksonconnection shell ssh protocol which is well understood through our
+metadata produced by zeek we did not use maninthe prior studies  ssh metadata included information
+middle or traditional ssl termination equipment thus we on four types of cryptographic algorithms used to secure
+only see the encrypted data and not the original content the connections the data for each is shown in table  the
+however we have access to the timing information of con most immediately apparent detail in the data is that the vast
+nection establishment to derive the trend and seasonality of majority of the connections seem to be using some version
+the pqc adoption rate the connection metadata generally of openssh additionally there are a few deprecated and
+includes standard information such as ip address certificate insecure cryptographic algorithms in use which would be a
+and negotiation of cipher suites we do not see personally cause for more concern if not for their low usage numbers
+identifiable information pii the data stored as logs using the zeek network analysis
+framework is focused solely on connection metadata the
+iii datasets
+data was parsed and visualized in python using its library
+thissectionpresentsthedatasetthatournetworkinstrument matplotlib and are shown in figure    we first provide
+has collected which is built upon our prior work on the a background on pqc implementation in the latest version of
+security testbed at ncsa  we have collected a heteroge openssh version   then describe our results based on
+neous dataset containing metadata of cryptographic network ssh data
+protocols powering highspeed scientific workloads at ncsa
+a background on pqc adoption in openssh
+betweenintotalapproximatelytbofmetadata
+has been generated and collected using the zeek network this section presents details regarding the implementation
+observability framework from a gbps network border link of pq authentication into the openssh library the first ver
+on the ncsa network and partner facilities which supports a sion that openssh supports pqc is   this developing
+widerangeofscientificapplicationssuchasglobus standard pqc protocol has three main components
+scitokens and kubernetes  sntrup is a keyencapsulation mechanism kem in
+asummaryofourdatasetisspecifiedintableiourdataset a family of ringbased public key cryptosystems called
+contains network connections in encrypted applicationlayer streamlined ntru primes   in which  is
+protocolsabovelayertcpipsuchassecureshellssh a prime number serving as a parameter cryptosystems
+remotedesktopprotocolrdphypertexttransferprotocol in this family are parameterized by  positive integers
+secure https etc with metadata including network con pqw in which pq are prime numbers xpx is
+nections from various sources and destinations we recorded irreducibleinthepolynomialringzqxtheparameters
+of sntrup kem are a triplet of numbers pq 
+w  
+remark  uniqueness of our dataset  x is the widely implemented ellipticcurve
+diffiehellman ecdh key exchange protocol using
+our dataset is unique in its placement at a strategic
+curve as a underlying curve curve 
+network vantage point at the border gateway router is an montgomery elliptic curve in the form of y 
+to observe metadata of a wide spectrum of applica xaxx over the field zp in which p
+tions across different protocols validating our pqc
+is a prime number and a   is an integer that
+measurementforbothhistoricalandrealtimeadoption a is not a square modulo p
+rates
+ sha is a secure cryptographic hash algorithm to
+ensure data integrity  the input for sha is a
+
+authorized licensed use limited to university of illinois downloaded on november  at  utc from ieee xplore restrictions apply
+
+
+     
+yearmonth
+elacs
+gol
+etar
+noitpoda
+ssh adoption rate tls adoption rate
+
+
+
+
+autonomous system as
+fig crossprotocolandcrosssitecomparisonof
+adoptionratebetweensshprotocolatncsaour
+analysis compared with publicly available tls
+adoption rate at cloudflare  ncsa records
+an average of   out of 
+ssh connections adoption rate for ssh while
+cloudflare recorded   percent adoption rate
+for tls more than  adoption came from
+chrome
+stnuoc
+oarnet
+gttbackbone 
+uppsala lans landsting
+
+google fiber webpass
+ comcast
+
+
+
+     
+yearmonth
+fig  a histogram of autonomous systems
+adopting pqc in ssh showing that top  ases
+oarnegttgooglefibercomcastetcfrom
+us and uppsala lans landsting sweden ac
+counted for the majority of pqc in the head of
+the distribution a long list of ases is shown in
+thelongtail
+stnuoc
+sntrupxsha  confidence interval
+fig  increasing adoption rate of pqc
+in ssh key exchange sntrupx
+shaopensshcom starting from january
+ with only  exchanges up to 
+exchangesinapril
+tablei
+heterogeneousmetadataofcryptographicnetworkprotocolspoweringhighspeedscientificworkloadsatncsa
+datacharacteristics datacollection description
+numberofprotocols majornetworkprotocols dnskerberosmodbusmysqlradiusxsslsshapplicationlogssyslog
+datagenerator zeek zeekparsesrawnetworkpacketsandproducesmetadataofnetworkconnections
+datagenerationrate gbcompressedlogsperday dataiscompressedintochunkseveryhourinthegzipformat
+networkspeed gbps thenetworkborderlinksaregbpsandisconnectedtoateracorelink
+dataamount tb totallongitudinaldatacollectedacrossallsevenlayersofnetwork
+format tabseparatedvaluestsv eachnetworkprotocolhasspecificfieldssourcedestinationhostkeyalgorithmetc
+privacy connectionmetadata onlycontainmetadataofhandshakekeyexchangeandpubliccertificatesnoperson
+allyidentifiableuserdata
+batchrealtimeaiinference
+workloadcharacteristics theseworkloadsmakeuseoftheabovenetworkprotocolsprovidingarichsourcefor
+largefiletransferpetabytes
+ouranalysis
+sourceanddestination ncsa and its partner facilities diversesetofpartnersprovideagoodvantagepointforouranalysis
+fabricsdscstarlightesnet
+scientificapplications representativeapplications scitokenskuberneteskerberosglobusandslurm
+timeperiod topresent dataarecollectedinrealtimeandstoredinanetworkattachedstoragesystem
+samplepqcprotocol secureshellsshconnection sample log xxxyyy  sshopensshp debian
+chachapolyopensshcom umacetmopensshcom
+sntrupxshaopensshcom ecdsashanistp
+message with a size up to  bits and the output is willbethefirsttoadoptpqcschemesthedescribedprotocol
+a word with a consistent length of  bits is secure because it combines  a hybrid approach using
+tovisualizethispqcprotocolweshowkeyexchangewith both a postquantum resistant algorithm sntrup and a
+a client and server in figure  traditional algorithm with strong security x to provide
+ ephemeral key generation client and server generate fault tolerance and  sha a hashing function securing
+temporary ephemeral key pairs using both sntrup the final key such that no information about the individual
+and x algorithms shared secrets can be easily derived
+ public key exchange client and server exchange their
+b results on pqc protocols adoption in ssh
+public keys for both sntrup and x
+ sharedsecretcalculationeachsideusesitsprivatekey firstwecomparetheadoptionrateofsshwiththepublicly
+and the others public key to calculate a shared secret availableadoptionratefromcloudflarefigureshowscross
+for both the sntrup and x algorithms protocol and crosssite comparison of adoption rate between
+ combining and hashing the two shared secrets are ssh protocol at ncsa our analysis and tls  protocol
+combined and then hashed using the sha algo at cloudflare  ncsa records   out of
+rithm  monthly adoption rate for ssh while cloudflare
+ final key the result of this process is the final strong recordedpercentadoptionratefortlsmorethan
+key used to encrypt and decrypt the ssh communica  adoption came from chrome 
+tion figure  shows a histogram of autonomous systems adopt
+as ssh is widely adopted and frequently updated against ing pqc in ssh showing that the top  ases oarne
+vulnerabilities it is more likely that ssh clients and servers gtt google fiber comcast advanced communications
+
+authorized licensed use limited to university of illinois downloaded on november  at  utc from ieee xplore restrictions apply
+technology etc from us and uppsala lans landsting
+sshmsgkexecdhinit
+sweden accounted for the majority of pqc in the head of
+the distribution a long list of ases is shown in the long tail
+figure  shows the increasing adoption rate of pqc in
+ssh key exchange sntrupxshaopensshcom
+starting from january  with only  exchanges up to sntrup x
+ exchanges in april  ephemeral ephemeral
+more interestingly it is clear that there are no pq algo keypair keypair
+rithms in use except for one the key exchange algorithm
+sntrupx using the sha hash this algorithm is shared shared
+an implementation of the postquantum ntru prime cryp secret secret
+tographic scheme specifically a hybrid streamlined ntru
+prime paired with the x ecdh key exchange method
+to preserve security against classical adversaries in case a sha sha
+shared secret shared secret
+vulnerability in ntru is found it was introduced in the
+openssh version  and added to the list of defaults in
+version  in  it was developed by openssh before
+appdata appdata
+the third round selections by nist took place later that year
+which actually ended up removing ntru after the second
+round in the process unfortunately we could only identify
+an insignificant amount of connections using this algorithm fig exampleflowofpostquantumcryptographykeyexchangeprotocol
+implementedinopensshderivedfrom
+for key exchange  for a sample day the overall
+average adoption rate is   out of 
+for the period in which we compare ssh adoption rate with
+v methodandresults
+cloudflares tls adoption rate figure 
+pqcnetworkinstrumentonotherprotocols
+c results on classical protocols in ssh this section describes our analysis extended to other major
+here we provide further detailed traffic analysis for a network protocols such as remote desktop protocol rdp
+regular working day in june  for the openssh protocol domain name system dns and transport layer security
+at ncsa network metadata was collected from a  gbps tlsnotethatthisanalysisisfocusedonasampleworking
+network border link on the ncsa network day to illustrate the adoption the objective is to measure
+importantly we see the presence of various deprecated the readiness level of applications using these protocols with
+algorithms used by some connections as shown in table ii regardtopostquantumcryptographyaswealreadyprovided
+this poses a security risk outside the scope of pqc and the trend and seasonality of ssh adoption over the last year
+warrantsanotherlookattheversionsofsshprotocolsinuse in this part we will provide a snapshot of other protocols in
+throughfurtherinspectionofmetadatalogswedetermined a working day of collected network traffic
+that over  of serverside ssh protocols were from 
+a rdp
+and earlier three years before sntrupx was even in
+troducedthishighlightsacommonprobleminthetechnology the next network protocol we looked at was the remote
+spacethe difficulty of ensuring all systems are updated and desktop protocol rdp for remote desktop visualization
+using the most secure connection options available this is of windows machines although the protocol today has no
+important if we are to ever reach a complete pqc adoption simple solution for using pqc it is still worth analyzing the
+cryptography available given the protocols prevalence in the
+itspaceanditshistoryasatoolforattackersrdpplays
+remark  quantumresistant property of stream a crucial role for many organizations as a way to manage
+lined ntru prime sntrup servers troubleshooting and remote work with the rise in
+the sntrup kem is a latticebased postquantum
+algorithm latticebased algorithms are relatively new remark  secure shell ssh are among first
+inthecryptographyworldandarethusnotasstrongly widely adopted pqc implementation
+tested against even prequantum adversaries as some
+moretraditionalschemesmanypqcimplementations ssh is among the first protocols to implement pqc
+such as this one thus combine a more established albeit with a low adoption rate of  recorded at
+cryptosystem to ensure immediate security if just one ncsa however as our results show clients increas
+of the involved algorithms is proven weak  ingly adopt pqc in ssh
+
+authorized licensed use limited to university of illinois downloaded on november  at  utc from ieee xplore restrictions apply
+tableii tableiii
+cryptographicalgorithmsfoundinsamplesshconnection alistofthetopciphersuitesfoundinsampletls
+datapostquantumclassicaldeprecatedalgorithmsas connectiondataintlsvconsiderednonsecure
+determinedbyietfnist
+tlsciphersuites occurrences
+encryptionalgorithm occurrences
+aesgcmopensshcom  tlsaesgcmsha 
+aesctr  tlsecdhersawithaes 
+chachapolyopensshcom  gcmsha
+aesgcmopensshcom  tlsaesgcmsha 
+aesctr  tlsecdhersawithaes 
+aescbc  gcmsha
+descbc  tlsdhanonwithaes 
+gcmsha
+macalgorithm occurrences tlsecdhanonwithaes 
+hmacshaetmopensshcom  cbcsha
+hmacsha  tlsecdhersawithnull 
+umacetmopensshcom  sha
+umacetmopensshcom  tlsecdheecdsawithaes 
+hmacsha  gcmsha
+hmacsha  tlsecdhersawith 
+chachapolysha
+hostkeyalgorithm occurrences tlsecdheecdsawithaes 
+ecdsashanistp  gcmsha
+sshed 
+sshrsa 
+rsasha 
+b dns
+keyexchangealgorithm occurrences
+curvesha 
+curveshalibsshorg  wethenbrieflyexaminedthedomainnamesystemdns
+diffiehellmangroupexchangesha 
+protocol used for deriving ip addresses from domain names
+diffiehellmangroupsha 
+sntrupx  historically with dns packets are not encrypted  this is
+shaopensshcom also true for the ncsa network however there are various
+diffiehellmangroupsha 
+ways of encrypting dns traffic namely through the https
+protocol or over a tls connection
+httpscanbeusedwithdnscalleddohtoencryptdns
+queries with https over port  this type of dns can be
+popularity of remote access solutions ensuring rdp meets enabled on some browsers such as firefox and chrome as
+future quantumsafe standards is necessary to not only protect a side effect dnsoverhttps makes distinguishing it from
+the integrity of data transmitted via rdp but also ensure that general web traffic in logs difficult
+rdpsessionsremainsecureinthefaceofquantumcomputing
+another form of secure dns is dnsovertls dot
+advancements
+dot creates encrypted tls channels for dns queries with
+a dnsovertls domain name resolver instead of the typical
+even though for rdp there was a minimal data set of 
+unencrypted dns resolver
+connections we were able to identify an interesting issue
+generally rdp can be configured to use two types of cryp withboththesemethodsofsecuringdnsandmanyothers
+tographic security enhanced encryption and networklayer not discussed here it should be noted that any security
+authentication nla enhanced encryption for rdp offers properties of dns are transferred from other network proto
+encryptionovertlsofeverythingaftertheconnectioninitia cols hence creating an opportune security dependence chain
+tionstageandalsoallowsauthenticationoftheserverfromthe discussed further in later sections
+client side nla requires the client to be authenticated before
+establishing a session with the server however out of all 
+connectionsonlytwoofthemusedthehybridexsecurity
+remark initial adoption of tls v with hybrid
+protocol setting which uses both enhanced encryption and
+pqc protocol is relatively slow
+nlaaswithsshthiscallsformorecarefulmanagementof
+individualmachinesandmakingsuretheyareallconfiguredto this difficulty in adopting tls v though is still
+use both enhanced encryption and nla for optimal security prevalent throughout the internet and not just here at
+ncsa it brings to light the unfortunate truth that if
+a final thing of note regarding rdp is that on connections
+widely adopting the newest tls has taken this many
+wherebothserverandclientareusingwindowsmachines
+years pqc adoption may show the same challenge
+it can be configured to run over tls  to add additional
+levels of security
+
+authorized licensed use limited to university of illinois downloaded on november  at  utc from ieee xplore restrictions apply
+c tls are not equipped with quantumresistant algorithms except
+for secure shell ssh and secure socket layer ssl ssh
+the final network protocol investigated in our study was
+protocol openssh library has implemented pqc for encryp
+the transport layer security tls protocol as with rdp
+tion in sntrupxshaopensshcom key exchange
+and dns there has not been tremendous work finished in the
+method after the release of its  version ssl protocol
+community regarding pqc implementation in this protocol
+opensslhasanotherlibrarycalledoqsproviderwhichis
+some companies and organizations have begun developing
+a provider to standard openssl to implement quantumsafe
+specifically tailored pqc implementations for their own use
+cryptography for kem key establishment in tls some
+but little has been developed for the common internet user
+quantumsafe algorithms that oqsprovider has implemented
+microsoftforexampleremainsintheprocessofcollaborating
+includekemalgorithmsbikecrystalskyberandsig
+with openssl to integrate pqc into their opensource tls
+nature algorithms falcon crystalsdilithium
+librariesbutthatisstillintheworkswiththatinmindit
+remainstobesaidthatnopqcwasfoundinthetlsnetwork
+vii casestudychallengesofmigrating
+traffic data at ncsa as with rdp though it is again worth
+scitokenstopqc
+lookingatthesecurityandpqcreadinessoftlshereanyway
+scitokens enables a federated ecosystem for authorization
+primarily the security of tls lies in its various cipher
+on distributed scientific computing infrastructures enabling
+suites or groupings of cryptographic algorithms used for
+researchers to authenticate themselves as valid users to access
+securing internet traffic this data was collected in table 
+scoped scientific computing resources  major supercom
+where we show the top ten cipher suites appearing in the
+puting and scientific instruments eg laser interferometer
+connections while the most commonly found cipher suites
+gravitationalwave observatory ligo open science grid
+in the data are today considered to be secure against classical
+extreme science and engineering discovery environment
+adversaries such as the top cipher suite tlsaesgcm
+xsederelyonscitokensitiscriticaltosafeguardscito
+sha a sizable portion of connections over  used
+kenswithquantumresistantcryptographytoavoidtheforgery
+weak cipher suites that have a concerning vulnerability
+of digital signatures used in tokens figure 
+eventhoughchromebrowserandaboveofferstls
+background the scitokens protocol uses json web
+hybridized kyber support for pqc the client does not turn it
+tokens jwts between various parties which will validate
+on by default in addition this problem is in part due to the
+any access to resources the process starts off by including
+other data point we examined the tls versions in use on the
+information within the jwt the information included most
+server end of the connections only about  of connections
+commonly consists of who issued the token who the token is
+used tls version  the most recent and most secure option
+assignedtowhenthetokenwillexpireandwhatpermissions
+for this use case the rest used tls version  which still
+and access the end user of such token will have the tokens
+supportsmanyoftheweakciphersuiteswefoundcontinuing
+are then signed cryptographically to be authentic and certified
+thismessageofheightenedsecuritymaintenancewouldgreatly
+when called upon to use the benefit of this approach is that
+improve the resilience of network traffic to adversaries at
+each organization or institution can issue its tokens allowing
+ncsa if all machines were to adopt support for tls v
+for easier and quicker access to resources without relying on
+vi currentpqcadoptionofnetworkprotocols onecentralauthoritytocontrolthedistributionofsuchtokens
+andtheirapplicationsandlibraries securing scitokens to be quantum resistant existing
+this section describes the current adoption of critical net efforts to secure tokenbased authentications include formal
+work protocols regarding postquantum cryptography pqc verification  the next level of security guarantee is
+theproblemofmigratingapplicationstobequantumresistant to make tokenbased authentication quantumresistant for
+is critical to ensure the security of key exchanges kex and this existing software must migrate cryptographic protocols
+the integrity of digital signatures as there is an increasing in three main steps signing key exchange and encryption
+concern about future attacks made by quantum algorithms key exchange and encryption are currently effective but the
+and computers knowing the current adoption rate in critical loomingthreatofquantumcomputingcouldcompromisethese
+protocols is crucial to ensure that these protocols are all safeguardspotentiallyexposingsensitivedataforscitokens
+secure against all these quantum computers to the best of
+ourknowledgeveryfewifanystudieshavedoneasystematic
+remarkotherthansshandtlsothernetwork
+survey of pqc adoption across network protocol layers and
+protocols are not ready for pqc
+the wide spectrum of workloads
+table iv described the current pqc adoptions of some of
+only ssh and ssl have had pqc implementation
+the most important protocols in the world some protocols
+with realworld adoptions the rest of the protocols
+are one of many protocols lying in the applications layer of
+must develop their quantumresistant cryptographic
+internetprotocolsuitesuchashttpdnsdhcpsshssl
+system or encapsulate their data in tls  hybrid
+etc in addition there are widely used communications and
+quantum key exchange
+authentication protocols such as kerberos modbus mysql
+sipandrdpasdescribedintableivmostcriticalprotocols
+
+authorized licensed use limited to university of illinois downloaded on november  at  utc from ieee xplore restrictions apply
+tableiv
+thecurrentstateofadoptionofscientificapplicationsandprotocolsregardingpostquantumcryptography
+naitemsshowinprogressorincompleteinformationtodeterminepqcreadiness
+protocols applicationslibraries descriptions quantumresistantimplemetation
+bhr ncsabhr blackholerouter na
+dhcp internetprotocol dynamichostconfigurationprotocol na
+dns internetprotocolsuite domainnameservice na
+dpd internetkeyexchange deadpeerdetection na
+http internetprotocolsuite hypertexttransferprotocol implementthroughssltls
+ftp sftp filetransferprotocol implementthroughopensshscp
+kerberos krb networkauthenticationprotocol na
+gssapi
+modbus modbustcp security clientserverdatacommunicationprotocol na
+
+mysql mysqlserver relationaldatabaseprotocol na
+ntlm newtechnologylanmanager na
+radius freeradius remoteauthenticationdialinuserservice na
+rdp freerdp remotedesktopprotocol na
+sip rtpsrtp sessioninitiationprotocol na
+smb samba servermessageblock na
+ssh openssh secureshell sntrupxshaopensshcom
+libssh keyexchangemethod
+ssltls openquantumsafe securesocketslayer kem bike crystalskyber signa
+turecrystalsdilithium
+smtp simplemailtransferprotocol na
+scitokens scitokens federatedauthorizationfordistributedscientificcomputing na
+the main critical component that must be quantum secure is resistant cryptography the general cryptography algorithm
+the signing step when a digital signature is forged the root is crystalskyber which is beneficial due to its small
+of trust about the integrity of the signed token is broken this encryption keys  the three digital signing algorithms
+underminestrustinhistoricaltransactionrecordsasthedigital are crystalsdilithium falcon and sphincs which
+signaturessecuringthemcouldbecompromisedbyaquantum are distinct from each other due to the high efficiency that
+computer crystalsdilithium and falcon provide but also due to
+the variance in terms of mathematical approach sphincs
+has 
+challenges of scitokens migration to pqc
+ as these four algorithms that nist recommended are
+relatively new the mitigation documents are scarce there
+are protocol descriptions such as crystalsdilithium and
+falcon algorithms along with sphincs    but
+implementation guidelines are very few if there are any
+ simply adapting scitokens using existing cipher suites
+such as rsa will create a new integration problem for
+example extending the length of the rsa digital signature
+from  bits to  bits will exceed the length of the
+x http header as defined in rfc  breaking jwt when
+pqc
+transmitted through intermediate proxies and interpreted by
+digital
+standard http servers
+signature forgery
+remark  uncertainty in adopting pqc
+fig quantumresistantscitokensmeansthedigitalsignaturesintokens
+cannotbeforgedbyaquantumcomputerpartofthefigureisadaptedfrom
+scitokensillustrationtoillustrateanadditionalsignatureschemeneeded to the developer community it is unclear what is
+tobeaddedtoscitokenstobequantumresistant theprocessofdeterminingwhichpostquantumsecure
+algorithmtouseandhowtoimplementthosecorrectly
+existing work the nist national institute of standards
+in the future we will work with the scitokens com
+and technology has determined four postquantum resistant
+munity to correctly implement its quantumresistant
+cryptographic algorithms while there are four determined
+digital signature algorithm
+oneofthealgorithmsappliestojustgeneralencryptionwhile
+the other three refer to the digital signing aspect of quantum
+
+authorized licensed use limited to university of illinois downloaded on november  at  utc from ieee xplore restrictions apply
+ emerging sidechannel attacks targeting pqc imple remark  an open dataset containing metadata of
+mentations such as kyber and dilithium show that it is cryptographic suites for major network protocols
+challenging to have a correct implementation despite that the
+pqc protocols are correct  we are releasing an open dataset containing metadata
+ofcryptographicsuitesacrossmajornetworkprotocols
+viii lessonslearned
+ssh tls rdp etc upon the papers publication
+actionitemstopreemptnovelpqcattacks
+at httpspmcaogithubiopqc with our
+endtoend pqc requires both clientserver support to networkinstrumentinplacewewilltracktheadoption
+completely support pqc we have found that both client and of pqc algorithms give feedback to nist expect
+server have to support the same cipher suite widespread to discover potential novel pqc attacks in the wild
+adoption hinges upon effective protocol negotiation when and help migrate hpc applications to be quantum
+establishing the initial handshake followed by key exchanges safe finally we will expand our network instrument
+and digital signatures for effective postquantum security to to a set of networked vantage points pqc telescopes
+be possible it is thus necessary that as many machines as to continuously measure pqc adoption at the internet
+possible adopt postquantum versions of network protocols scale
+internetwide scan for pqc implementations another di
+rection is to create a web spider that measures postquantum
+cryptography at ncsa and other organizations constituting
+a network of pqc telescopes that actively scans ipv and pqc downgrade attack the security of a pqc scheme
+ipvspaceforpqcadoptionacrosswebservicesinaddition depends on both the protocol itself the implementation and
+each organization can adopt its own internal pqc compliance the effective negotiation of cipher suites eg hybrid during
+checking tool as an https service so users can visit and the migration period we hypothesize that future attacks may
+perform selfassessments not attempt to exploit the pqc scheme directly but rather
+tls v supporting pqc by default a more ambitious downgrade a pqc protocol to a classical protocol which is
+yet significant direction for pqc adoption would be the intro less secure similar to the ssl downgrade attack shown in
+duction of pqc directly into the tls standard as tls v 
+while some organizations are already working on integrating
+pqc as additions onto their tls versions  and  
+conclusionandfuturework
+distinguishing a fully postquantum implementation with a we have successfully implemented and deployed a novel
+new version number could prove to be essential in marketing network instrument to measure pqc adoption in realtime
+the dire urgency in tls adoption of pqc internetwide and provide historical trends of the adoption rates across
+this urgency is highlighted by the incredible potential seven layers of computer network protocols at the national
+of securing most network traffic against both quantum and center for supercomputing applications at the university of
+classical adversaries under tls we have shown in earlier illinois at urbanachampaign the instrument is placed at
+sections that there are various methods to secure protocols the network border router of nationscale highperformance
+such as dns and rdp using just tls as a wrapper in supercomputing centers and is a testbed for measurements
+addition to those methods tls termination proxies can also using only metadata of network connections without com
+be used as wrappers around current legacy infrastructures to promising users privacy we present the first statistical study
+securetrafficseamlesslywithmanytlsbasedsolutions of pqcs readiness across seven layers of computer network
+for cryptographically lacking protocols already out there it andhpcapplicationswithauniquevantagepointapetascale
+should not be unrealistic to extend this security to the post supercomputing center with nationscale visibility through the
+quantum world under a new version number implementation fabric teracore network
+and standard
+acknowledgements
+observing and preempting pqc attacks despite numerous
+attack attempts  and analyses against current pqc drafts we acknowledge dr jim basney for indepth discussions
+none of the attacks have been publicly confirmed we assert about scitokens dr santiago nunezcorrales dr edoardo
+that if there were any successful attacks they would highly giusto members of ncsa quantum task force dependable
+likely leave traces in the network metadata which would be classicalquantum computing systems engineering working
+measuredbyournetworkinstrumentorahoneypotgiven group and the illinois quantum information science and
+that we can achieve a widespread deployment on the internet technology center iquist faculty members particularly
+scalethereforeitisimportanttocontinuethislineofnetwork dr brian demarco for insightful feedback this work was
+instruments for pqc measurement to preempt attacks  partly supported by the national science foundation nsf
+ and failures  particularly in hpc environments we under contract ccf  we also want to recognize
+suspect that futuristic malware  may employ pqc in the following organizationsprograms the nsfs trusted ci
+additiontoothertechniquessuchasmachinelearningtohide cybersecurity center of excellence ncsa student pushing
+themselves from forensic analyses innovation program spin illinois computes ibmillinois
+
+authorized licensed use limited to university of illinois downloaded on november  at  utc from ieee xplore restrictions apply
+discovery accelerator institute fabric pposs and the yorknyusaassociationforcomputingmachineryonline
+nsfs cybercorps scholarship for service sfs program availablehttpsdoiorg
+ kuberneteskubernetes productiongrade container scheduling and
+access and delta allocations ncsa integrated cyberin
+management httpsgithubcomkuberneteskubernetes accessed on
+frastructureirst team particularly timothy boerner james 
+eyrich ryan walker christopher clausen and dr yang guo  kerberos the network authentication protocol httpswebmitedu
+kerberosaccessedon
+at the nist hpc security working group any opinions
+ globushttpswwwglobusorgaccessedon
+findings conclusions or recommendations expressed in this  slurm workload manager  overview httpsslurmschedmdcom
+materialarethoseoftheauthorsanddonotnecessarilyreflect overviewhtmlaccessedon
+ p cao e c badger z t kalbarczyk r k iyer a withers
+the views of their employers or the sponsors
+and a j slagell towards an unified security testbed and security
+analytics framework in proceedings of the  symposium and
+references
+bootcamponthescienceofsecurityserhotsos newyorkny
+ t simonite ibms condor quantum computer aims for utilityscale usaassociationforcomputingmachineryonlineavailable
+quantum computing ieee spectrum  accessed  july  httpsdoiorg
+onlineavailablehttpsspectrumieeeorgibmcondor  pmcaoywussbanerjeejazoffawithersztkalbarczyk
+ cphampcaozkalbarczykandrkiyertowardahighavail and r k iyer caudit continuous auditing of ssh servers
+ability cloud techniques and challenges in ieeeifip international to mitigate bruteforce attacks in th usenix symposium on
+conference on dependable systems and networks workshops dsn networked systems design and implementation nsdi   pp
+ ieeepp 
+ y cao p cao h chen k m kochendorfer a b trotter w l  y wu p cao a withers z t kalbarczyk and r k iyer poster
+galanter p m arnold and r k iyer predicting icu admissions miningthreatintelligencefrombillionscalesshbruteforceattacksin
+forhospitalizedcovidpatientswithafactorgraphbasedmodelin procnetwdistribsystsecuritypp
+multimodal ai in healthcare a paradigm shift in health intelligence  p cao h li k nahrstedt z kalbarczyk r iyer and a j
+springerpp slagell personalized password guessing a new security threat
+ d sikeridis p kampanakis and m devetsikiotis postquantum in proceedings of the  symposium and bootcamp on the
+authentication in tls  a performance study httpseprintiacrorg science of security ser hotsos  new york ny usa
+pdfaccessedon association for computing machinery  online available
+ mfriedljmojzisandsjosefssonsecureshellsshkeyexchange httpsdoiorg
+method using hybrid streamlined ntru prime sntrup and x  djbernsteincchuengsatiansuptlangeandcvanvredendaal
+with sha sntrupxsha internet engineering task ntru prime reducing attack surface at low cost cryptology eprint
+force tech rep  accessed  apr  online available archive vol  no  pp   last accessed  july
+httpswwwietforgarchiveiddraftjosefssonntruprimesshhtml onlineavailablehttpseprintiacrorg
+ opensshcomtxtreleasehttpswwwopensshcomtxtrelease  jhoffsteinjpipherandjhsilvermanntruaringbasedpublic
+accessedon keycryptosystempp
+ cqchoithebeatingheartoftheworldsfirstexascalesupercom  d j bernstein b b brumley ms chen c chuengsatiansup
+puterieeespectrum tlangeamarotzkebypengntuvericvanvredendaaland
+ msrdpbcgr remote desktop protocol basic connectivity by yang ntru prime round  national institute of standards
+and graphics remoting  microsoft learn httpslearn andtechnologytechrepaccessedjulyonline
+microsoftcomenusopenspecswindows protocolsmsrdpbcgr availablehttpsntruprimecryptonistntruprimepdf
+fedeebeccredirectedfrommsdn  d j bernstein curve new diffiehellman speed records in
+accessedon publickeycryptographypkcserlecturenotesincomputer
+ b chen y wang p shome c w fletcher d kohlbrenner science vol  springer  pp  accessed  july
+rpaccagnellaanddgenkingofetchbreakingconstanttimecryp  online available httpswwwiacrorgcryptodbarchive
+tographic implementations using data memorydependent prefetchers pkcpdf
+inusenixsecurity  nationalinstituteofstandardsandtechnologysecurehashstandard
+ the state of the postquantum internet httpsblogcloudflarecom shsusdepartmentofcommercefederalinformationprocessing
+pqaccessedon standardspublicationaccessedjulyonline
+ d sikeridis p kampanakis and m devetsikiotis postquantum au availablehttpsnvlpubsnistgovnistpubsfipsnistfipspdf
+thenticationintlsaperformancestudycryptologyeprintarchive  s josefsson hybrid x and streamlined ntru prime
+ sntrup with sha chempatx internet engineering task
+ g twardokus n bindel h rahbari and s mccarthy when cryp force internetdraft draftjosefssonntruprimehybrid jan 
+tography needs a hand practical postquantum authentication for vv work in progress online available httpsdatatrackerietforgdoc
+communicationscryptologyeprintarchive draftjosefssonntruprimehybrid
+ cybersecurity and infrastructure security agency national security  a g john shier its oh so quiet  the sophos active ad
+agencyandnationalinstituteofstandardsandtechnologyquantum versary report for h  httpsnewssophoscomenus
+readiness migration to postquantum cryptography us department activeadversaryreporth april  accessed on
+of defense tech rep   accessed  july  online 
+available httpsmediadefensegovaug  k easterbrook and c paquin postquantum tls httpswww
+csiquantumreadinesspdf microsoftcomenusresearchprojectpostquantumtls accessed on
+ i grigorik high performance browser networking what every web 
+developer should know about networking and web performance   ncsabhrsite blackhole router site httpsgithubcomncsabhrsite
+oreillymediainc accessedon
+ i baldin a nikolich j griffioen i i s monga kc wang  krbkrbmirrorofmitkrbrepositoryhttpsgithubcomkrbkrb
+t lehman and p ruth fabric a nationalscale programmable ex accessedon
+perimental network infrastructure ieee internet computing vol   rfc   the kerberos version  gssapi mechanism https
+nopp datatrackerietforgdochtmlrfcaccessedon
+ vpaxsonbroasystemfordetectingnetworkintrudersinrealtime  mb tcp security vpdf httpswwwmodbusorgdocs
+computernetworksvolnopp mbtcpsecurityv pdfaccessedon
+ awithersbbockelmandweitzeldbrownjgaynorjbasney  mysqlmysqlserver mysql server the worlds most popular open
+t tannenbaum and z miller scitokens capabilitybased secure source database and mysql cluster a realtime open source transac
+access to remote scientific data in proceedings of the practice and tional database httpsgithubcommysqlmysqlserver accessed on
+experienceonadvancedresearchcomputingserpearc new 
+
+authorized licensed use limited to university of illinois downloaded on november  at  utc from ieee xplore restrictions apply
+ freeradiusfreeradiusserver freeradius  a multiprotocol policy
+serverhttpsgithubcomfreeradiusfreeradiusserveraccessedon
+
+ freerdphttpswwwfreerdpcomaccessedon
+ sambateamsambahttpsgitlabcomsambateamsambaistheofficial
+gitlabmirrorofhttpsgitsambaorgsambagitmergerequestsshould
+be made on gitlab not on github httpsgithubcomsambateam
+sambaaccessedon
+ openquantumsafeoqsprovider openssl  provider containing
+postquantum algorithms httpsgithubcomopenquantumsafe
+oqsprovideraccessedon
+ schenmmccutchenpcaosqadeerandrkiyersvautha
+singlesignonintegrationsolutionwithruntimeverificationinruntime
+verificationthinternationalconferencervseattlewausa
+septemberproceedings springerpp
+ awithersbbockelmandweitzeldbrownjgaynorjbasney
+t tannenbaum and z miller scitokens capabilitybased secure
+access to remote scientific data in proceedings of the practice and
+experienceonadvancedresearchcomputingpp
+ n i of standards and technology nist announces first four
+quantumresistant cryptographic algorithms july  accessed on
+
+ resources httpspqcrystalsorgdilithiumresourcesshtml
+accessedon
+ aboutfalconhttpsfalconsigninfoaccessedon
+ resources httpssphincsorgresourceshtml accessed on
+
+ whatissslterminationhttpswwwfcomglossaryssltermination
+accessedon
+ ychenquantumalgorithmsforlatticeproblemscryptologyeprint
+archive paper   accessed  july  online
+availablehttpseprintiacrorg
+ v tay x li d mashima b ng p cao z kalbarczyk and r k
+iyer taxonomy of fingerprinting techniques for evaluation of smart
+grid honeypot realism in  ieee international conference on
+communicationscontrolandcomputingtechnologiesforsmartgrids
+smartgridcomm ieeepp
+ cphamzestradapcaozkalbarczykandrkiyerreliability
+andsecuritymonitoringofvirtualmachinesusinghardwarearchitectural
+invariantsinthannualieeeifipinternationalconferenceon
+dependablesystemsandnetworks ieeepp
+ pcaoebadgerzkalbarczykriyerandaslagellpreemptive
+intrusion detection theoretical framework and realworld measure
+ments in proceedings of the  symposium and bootcamp on the
+scienceofsecuritypp
+ j basney p cao and t fleury investigating root causes of authen
+ticationfailuresusingasamlandoidcobservatoryinieeeth
+international conference on dependability in sensor cloud and big
+datasystemsandapplicationdependsyspp
+ kchungpcaoztkalbarczykandrkiyerstealthmldata
+drivenmalwareforstealthydataexfiltrationinieeeinternational
+conferenceoncybersecurityandresiliencecsr ieeepp
+
+ b moller t duong and k kotowicz this poodle bites exploiting
+thesslfallbacksecurityadvisoryvolpp
+
+authorized licensed use limited to university of illinois downloaded on november  at  utc from ieee xplore restrictions apply

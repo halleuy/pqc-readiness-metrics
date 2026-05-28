@@ -1,0 +1,312 @@
+national security agency  cybersecurity advisory
+announcing the commercial national security
+algorithm suite 
+executive summary
+the need for protection against a future
+deployment of a cryptanalytically
+relevant quantum computer crqc is
+well documented that story begins in
+the mids when peter shor
+discovered a crqc would break
+publickey systems still used today continued progress in quantum computing research
+by academia industry and some governments suggests that the vision of quantum
+computing will ultimately be realized hence now is the time to plan prepare and
+budget for an effective transition to quantumresistant qr algorithms to assure
+continued protection of national security systems nss and related assets
+this advisory notifies nss owners operators and vendors of future requirements for
+qr algorithms for nss these algorithms also referred to as postquantum algorithms
+are analyzed as being secure against both classical and quantum computers they are
+an update to those in the commercial national security algorithm suite referred to as
+cnsa  the algorithms currently listed in cnssp  annex b nsa will reference
+this update as cnsa suite  and any future updates will modify the version number
+nsa is providing this advisory in accordance with authorities detailed in nsd nsm
+ nsm cnssp  and cnssp  its direction applies to all nss use of public
+cryptographic algorithms as opposed to algorithms nsa developed including those on
+all unclassified and classified nss using any cryptographic algorithms the national
+manager did not approve is generally not allowed and requires a waiver specific to the
+algorithm implementation and use case in accordance with cnssp  software and
+hardware providing cryptographic services require national information assurance
+partnership niap or nsa validation in addition to meeting the requirements of the
+appropriate version of cnsa
+ pp  sep  ver 
+nsa  commercial national security algorithm suite 
+introduction
+this advisory includes the following sections
+ algorithms for software and firmwaresigning the national institute of
+standards and technology nist standardized these algorithms some time ago
+but using different algorithms for this special use case is new in cnsa 
+ symmetrickey algorithms there is only a modest change from cnsa  in this
+section that allows a bit more flexibility
+ generaluse quantumresistant publickey algorithms these are the main public
+key algorithms that most applications will require as they have not completed
+standardization this section is forwardlooking
+ timing discusses the timing of the transition to cnsa 
+ enforcement summarizes requirements related to enforcing nss algorithm
+requirements
+ additional guidance rfcs provides links to helpful internet engineering task
+force requests for comment ietf rfcs used to implement cnsa 
+ reference tables features two tables that list algorithms for cnsa  and for
+cnsa 
+algorithms for software and firmwaresigning
+the reasons for choosing separate algorithms for software and firmwaresigning are
+threefold
+ nist has standardized these algorithms already while other postquantum
+signatures are not yet standardized
+ this signature usecase is more urgent and
+ this selection places algorithms with the most substantial history of cryptanalysis
+in a use case where their potential performance issues have minimal impact in
+particular this usage coincides well with the requirement for keeping track of
+statethat is how many times a given public key was used in signing software
+or firmware when deploying these signatures
+the algorithms chosen for software and firmwaresigning are those specified in nist
+special publication  nsa recommends leightonmicali with sha but
+all nist sp  algorithms are approved for this use case note that to avoid
+ pp  sep  ver  
+nsa  commercial national security algorithm suite 
+weakening the security of these signatures you must meet all the requirements of sp
+ including the need to manage state and implement signing in hardware
+nsa encourages vendors to begin adopting nist sp  signatures immediately
+for more information on requirement timelines see the timing section the following
+table lists cnsa  algorithms for software and firmware updates
+table i cnsa  algorithms for software and firmware updates
+algorithm function specification parameters
+all parameters approved
+asymmetric algorithm for
+leightonmicali for all classification
+digitally signing firmware nist sp 
+signature lms levels sha
+and software
+recommended
+xtended merkle asymmetric algorithm for all parameters approved
+signature scheme digitally signing firmware nist sp  for all classification
+xmss and software levels
+symmetrickey algorithms
+the following table shows the addition of sha to the list the only change when
+compared with cnsa 
+table ii cnsa  symmetrickey algorithms
+algorithm function specification parameters
+symmetric block cipher
+advanced encryption use bit keys for all
+for information fips pub 
+standard aes classification levels
+protection
+algorithm for
+computing a use sha or sha
+secure hash algorithm
+condensed fips pub   for all classification
+sha
+representation of levels
+information
+generaluse quantumresistant publickey algorithms
+nist recently announced its standardization selections for postquantum cryptography
+consequently there are neither final standards nor federal information processing
+standard fipsvalidated implementations available at this time nsa is announcing
+ pp  sep  ver  
+nsa  commercial national security algorithm suite 
+this selection of publickey algorithms to provide future nss requirements so vendors
+may begin building toward these requirements and so acquisition officials and nss
+owners and operators will know what the requirements are
+note that this will effectively deprecate the use of rsa diffiehellman dh and elliptic
+curve cryptography ecdh and ecdsa when mandated nsa urges nss owners and
+operators to pay special attention to these requirements in the interim cnsa 
+compliance continues to be required the following section defines transition timelines
+and the following table lists cnsa  algorithms
+table iii cnsa  quantumresistant publickey algorithms
+algorithm function specification parameters
+use level v
+asymmetric algorithm
+crystalskyber tbd parameters for all
+for key establishment
+classification levels
+use level v
+asymmetric algorithm
+crystalsdilithium tbd parameters for all
+for digital signatures
+classification levels
+timing
+the timing of the transition depends on the proliferation of standardsbased
+implementations because different technologies will adopt qr algorithms at different
+paces nsa is providing an overall transition end date and the process for determining
+specific dates going forward
+nsa expects the transition to qr algorithms for nss to be complete by  in line with
+nsm nsa urges vendors and nss owners and operators to make every effort to
+meet this deadline where feasible nss owners and operators will be required to prefer
+cnsa  algorithms when configuring systems during the transition period when
+appropriate use of cnsa  algorithms will be mandatory in classes of commercial
+products within nss while reserving the option to allow other algorithms in specialized
+use cases
+ pp  sep  ver  
+nsa  commercial national security algorithm suite 
+the following is the general method for transitioning to cnsa  algorithm use
+niap will release protection profiles specifying that products support cnsa
+  algorithms in accordance with nist and other standards from
+standards development organizations and the development of standards
+compliant cryptographic equipment
+all new equipment must meet the protection profile requirements older
+
+equipment must meet the requirement at its next update to remain niap
+compliant
+ using cnsa  algorithms as the preferred configuration option will begin
+as soon as validated and tested solutions are available
+ niap protection profile requirements and nsm technology refresh
+requirements will determine the removal of legacy algorithm support
+ at that point legacy equipment and software not refreshed regularly will
+require a waiver and a plan to bring it into compliance
+timing for software signing and firmware signing
+for software signing and firmware signing nsa recommends
+ software and firmware signing begin transitioning immediately
+ new software and firmware use cnsa  signing algorithms by 
+ transitioning deployed software and firmware not cnsa  compliant to cnsa
+compliant algorithms by 
+ transitioning all deployed software and firmware to cnsa compliant
+signatures by 
+ pp  sep  ver  
+nsa  commercial national security algorithm suite 
+other requirements for nss
+nsa anticipates the following timetable for implementing other cnsa  requirements
+for nss
+ software and firmware signing begin transitioning immediately support and
+prefer cnsa  by  and exclusively use cnsa  by 
+ web browsersservers and cloud services support and prefer cnsa  by
+ and exclusively use cnsa  by 
+ traditional networking equipment eg virtual private networks routers
+support and prefer cnsa  by  and exclusively use cnsa  by 
+ operating systems support and prefer cnsa  by  and exclusively use
+cnsa  by 
+ niche equipment eg constrained devices large publickey infrastructure
+systems support and prefer cnsa  by  and exclusively use cnsa 
+by 
+ custom applications and legacy equipment update or replace by 
+figure  transition timeline
+ even though hybrid solutions may be allowed or required due to protocol standards product availability or interoperability requirements cnsa  algorithms
+will become mandatory to select at the given date and selecting cnsa  algorithms alone will no longer be approved
+ pp  sep  ver  
+nsa  commercial national security algorithm suite 
+enforcement
+nss owners and operators must report on their progress in updating to cnsa  and
+cnsa  as part of their responsibilities under nsm and nsm approving officials
+aos should measure compliance as part of the risk management framework rmf
+process when assessing security control  sc furthermore aos will need to
+verify compliance with cnsa  for software and firmwaresigning on their systems
+nss should not be assessed against fipsvalidated in the rmf process instead
+solutions must be nsaapproved in applications where a commercial product is
+accepted nsa generally approves products that comply with cnssp  ie are niap
+validated against an approved protection profile as long as they are configured
+correctly in accordance with cnssp  and other specific directions or guidance
+additional guidance rfcs
+the following documents specify how to configure solutions to comply with cnsa
+requirements these include
+ rfc  commercial national security algorithm cnsa suite certificate and
+certificate revocation list crl profile
+httpsdatatrackerietforgdochtmlrfc
+ rfc  using commercial national security algorithm suite algorithms in
+securemultipurpose internet mail extensions
+httpsdatatrackerietforgdocrfc
+ rfc  commercial national security algorithm cnsa suite profile of
+certificate management over cms httpsdatatrackerietforgdocrfc
+ rfc  commercial national security algorithm cnsa suite profile for tls
+and dtls  and  httpsdatatrackerietforgdocrfc
+ rfc  commercial national security algorithm cnsa suite cryptography
+for internet protocol security ipsec httpsdatatrackerietforgdocrfc
+ rfc  commercial national security algorithm cnsa suite cryptography
+for secure shell ssh httpsdatatrackerietforgdocrfc
+these documents currently apply to cnsa  nsa will release updated guidance as
+the standardization process progresses
+ pp  sep  ver  
+nsa  commercial national security algorithm suite 
+disclaimer of endorsement
+the information and opinions contained in this document are provided as is and without any warranties or
+guarantees reference herein to any specific commercial product process or service by trade name trademark
+manufacturer or otherwise does not constitute or imply its endorsement recommendation or favoring by the united
+states government and this guidance shall not be used for advertising or product endorsement purposes
+purpose
+this document was developed to further nsas cybersecurity missions including its responsibilities to identify and
+disseminate threats and vulnerabilities to national security systems department of defense and defense industrial
+base information systems and to develop and issue cybersecurity specifications and mitigations this information
+may be shared broadly to reach all appropriate stakeholders
+contact
+cybersecurity report inquiries and feedback cybersecurityreportsnsagov
+defense industrial base inquiries and cybersecurity services dibdefensecybernsagov
+media inquiries  press desk  mediarelationsnsagov
+ pp  sep  ver  
+nsa  commercial national security algorithm suite 
+appendix reference tables
+the following two tables list the algorithms for cnsa  and for cnsa 
+respectively cnsa  is the current standard while cnsa  is the future one nsa
+recommends adopting the cnsa  software and firmwaresigning algorithms now
+table iv cnsa  algorithms
+algorithm function specification parameters
+symmetric block cipher
+advanced encryption use bit keys for all
+for information fips pub 
+standard aes classification levels
+protection
+use level v
+asymmetric algorithm
+crystalskyber tbd parameters for all
+for key establishment
+classification levels
+use level v
+asymmetric algorithm
+crystalsdilithium tbd parameters for all
+for digital signatures
+classification levels
+algorithm for
+computing a use sha or sha
+secure hash algorithm
+condensed fips pub   for all classification
+sha
+representation of levels
+information
+all parameters
+asymmetric algorithm approved for all
+leightonmicali
+for digitally signing nist sp  classification levels
+signature lms
+firmware and software sha
+recommended
+xtended merkle asymmetric algorithm all parameters
+signature scheme for digitally signing nist sp  approved for all
+xmss firmware and software classification levels
+ pp  sep  ver  
+nsa  commercial national security algorithm suite 
+table v cnsa  algorithms
+algorithm function specification parameters
+symmetric block cipher
+advanced encryption use bit keys for all
+for information fips pub 
+standard aes classification levels
+protection
+elliptic curve diffie
+asymmetric algorithm use curve p for all
+hellman ecdh key nist sp a
+for key establishment classification levels
+exchange
+elliptic curve digital
+asymmetric algorithm use curve p for all
+signature algorithm fips pub 
+for digital signatures classification levels
+ecdsa
+algorithm for
+computing a
+secure hash algorithm use sha for all
+condensed fips pub 
+sha classification levels
+representation of
+information
+minimum bit
+diffiehellman dh asymmetric algorithm
+ietf rfc  modulus for all
+key exchange for key establishment
+classification levels
+minimum bit
+asymmetric algorithm
+rsa fips sp b modulus for all
+for key establishment
+classification levels
+minimum bit
+asymmetric algorithm
+rsa fips pub  modulus for all
+for digital signatures
+classification levels
+ pp  sep  ver  

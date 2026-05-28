@@ -1,0 +1,2485 @@
+gsm association nonconfidential
+official document pq post quantum telco network impact assessment whitepaper
+post quantum telco network impact assessment
+whitepaper
+version 
+ february 
+this is a whitepaper of the gsma
+security classification nonconfidential
+access to and distribution of this document is restricted to the persons permitted by the security classification this document is subject to
+copyright protection this document is to be used only for the purposes for which it has been supplied and information contained in it must not be
+disclosed or in any other way made available in whole or in part to persons other than those permitted under the security classification without
+the prior written approval of the association
+copyright notice
+copyright   gsm association
+disclaimer
+the gsm association association makes no representation warranty or undertaking express or implied with respect to and does not accept
+any responsibility for and hereby disclaims liability for the accuracy or completeness or timeliness of the information contained in this document
+the information contained in this document may be subject to change without prior notice
+compliance notice
+the information contain herein is in full compliance with the gsm associations antitrust compliance policy
+pq version  page  of 
+gsm association nonconfidential
+official document pq  post quantum telco network impact assessment whitepaper
+table of contents
+ introduction 
+ overview 
+ scope 
+ intended audience 
+ post quantum cryptography  executive summary 
+ post quantum telco network  market drivers and timelines 
+ market driver  network security 
+ market driver  new services 
+ customer demand for services 
+ examples of new services 
+ market driver  business verticals 
+ public sector 
+ financial services 
+ timelines 
+ post quantum telco network  ecosystem 
+ potentially impacted entities 
+ post quantum government initiatives by country and region 
+ australia 
+ pqc algorithms 
+ published recommendations 
+ timeline 
+ canada 
+ pqc algorithms 
+ published recommendations 
+ timeline 
+ china 
+ pqc algorithms 
+ published recommendations 
+ timeline 
+ european commission 
+ published recommendations 
+ timeline 
+ other information 
+ japan 
+ pqc algorithms 
+ published recommendations 
+ timeline 
+ other information 
+ new zealand 
+ pqc algorithms 
+ published recommendations 
+ timeline 
+pq version  page  of 
+gsm association nonconfidential
+official document pq  post quantum telco network impact assessment whitepaper
+ singapore 
+ pqc algorithms 
+ published recommendations 
+ timelines 
+ other information 
+ south korea 
+ pqc algorithms 
+ published recommendations 
+ timeline 
+ other information 
+ france 
+ pqc algorithms 
+ published recommendations 
+ timeline 
+ germany 
+ pqc algorithms 
+ published recommendations 
+ timeline 
+ uk 
+ pqc algorithms 
+ published recommendations 
+ timelines 
+ other information 
+ usa 
+ pqc algorithms 
+ published recommendations 
+ timeline 
+ post quantum telco network  technology analysis 
+ the quantum threat  technical risk 
+ the quantum threat  business risk 
+ postquantum cryptography 
+ preshared keys 
+ codebased approaches to pqc 
+ latticebased approaches to pqc 
+ hashbased approaches to pqc 
+ multivariatebased approaches to pqc 
+ isogenybased approaches to pqc 
+ hybrid approaches for pqc 
+ relationships to other quantum technologies 
+ quantum key distribution 
+ quantum random number generation 
+ standardisation of pqc algorithms 
+ nist 
+ isoiec 
+ ietf 
+pq version  page  of 
+gsm association nonconfidential
+official document pq  post quantum telco network impact assessment whitepaper
+ etsi 
+ itu 
+ application of post quantum crypto to telco networks 
+ technology 
+ scope of technical change 
+ cryptography management 
+ nature of change and required actions 
+ new technology to assist operators in the journey to quantumsafe 
+ business processes 
+ areas vulnerable to attacks  macro view 
+ risk assessment frameworks 
+ post quantum telco network  impact assessment 
+ domains 
+ device 
+ uicc esimeuicc 
+ g network 
+ systems oss 
+ systems bss 
+ systems erp 
+ infrastructure cloud 
+ interfaces where cryptography is used in telecoms 
+ bss systems 
+ data 
+ infrastructure 
+ security 
+annex a definitions abbreviations and references 
+a definitions 
+a abbreviations 
+a references 
+annex b document management 
+b document history 
+b other information 
+pq version  page  of 
+gsm association nonconfidential
+official document pq  post quantum telco network impact assessment whitepaper
+ introduction
+ overview
+to address the security challenges presented by emerging quantum technologies many
+countries have created national postquantum cryptography pqc initiatives one example
+is the us national institute of standards and technology nist announcement  in july
+ announcing the first pqc algorithm standardisation candidates for the quantum
+computing era
+the telecom industry needs to mobilise to define guidelines and processes for the pqc
+adoption to secure networks devices and systems given that this affects the entire telecom
+supply chain and ecosystem operators network and it vendors integrators regulators
+standards and open source communities
+to date significant work in the telecom industry has focused on quantum key distribution
+qkd and quantum random number generation with limited concerted focus on pqc
+adoption
+ scope
+scope of this report is to analyse the dependencies and timelines for a responsible industry
+transition to quantumsafe technology
+this includes algorithms considered capable of resisting attacks by cryptographically
+relevant quantum computers such as those selected by the nist process and how to
+introduce and maintain quantum resistance andor crypto agility where applicable within the
+telco ecosystem it considers a wide range of aspects such as pqc technology and
+standards business processes security policy and regulation the risk assessment will
+inform and guide a set of priority actions needed to mitigate the various risks and maintain
+defence capacity
+in this report quantum computer refers to a cryptographically relevant quantum
+computer
+technologies out of scope of this document include quantum computing quantum
+networking quantumsafe mechanisms which rely on quantum properties such as qkd
+quantum sensing and quantum internet while other architectures may be studied over time
+this report focuses on g wireless architecture to provide a baseline
+ intended audience
+the audience for this document is the following stakeholders in the telecom industry cto
+cio ciso stakeholders in the supply chain cto cio ciso industry analysts industry
+regulators responsible for security policy and security researchers the message of this
+document is intended to be relevant for ceos and company boards
+ post quantum cryptography  executive summary
+this report assesses postquantum cryptography pqc quantumsafe market drivers
+government initiatives and implications for operators and their partners in summary we
+highlight the following insights
+pq version  page  of 
+gsm association nonconfidential
+official document pq  post quantum telco network impact assessment whitepaper
+ the transition to pqc is underway
+o governments and civilsociety groups have started planning and are
+recommending businesses start the planning process
+o standards groups have identified pqc algorithms and begun the standardisation
+process
+ prepare as an industry for the transition to pqc
+o to address store now decrypt later and other quantum attacks overhauling
+existing pki architectures is required as existing algorithms become obsolete
+o engage with industry groups government and vendors on the roadmaps to
+implement pqc
+o prepare how to handle the legacy understand how to treat
+systemsservicesproducts that may not be updated
+o consider how to reduce the creation of technical cryptographic debt eg assess
+available quantumsafe symmetric cryptography in some cases where publickey
+cryptography is used quantumsafe symmetric keys may be a secure alternative
+o adapt or account for impacts to key management systems
+ operator business and technology preparation
+o plan to establish a cryptographic inventory eg currently used cryptographic
+algorithms and keylengths identify systems or vendor products dependent on
+cryptography
+o plan to perform a risk assessment of cryptography used in network systems
+ develop inhouse expertise in pqc and security
+o support pqc standardisation and opensource projects
+o sponsor or support research on cryptographic agility
+o engage with customers on requirements and potential benefits
+o develop a pqc plan see section 
+operators and industry partners should
+ plan for future implementation of the transition to quantumsafe
+ deploy standardised quantumsafe algorithms see section 
+ post quantum telco network  market drivers and timelines
+ market driver  network security
+a standard ongoing activity of network operators is to evolve and adapt network security
+against risks in this sense the quantum threat is an intrinsic driver for the telco industry
+this means completing risk assessments across the broad set of cryptographic applications
+in operations including the areas below each area will be expected to have different
+timelines and dependencies to manage
+ cryptographic technology including cryptographic libraries cryptographic protocols
+cryptographic hardware
+pq version  page  of 
+gsm association nonconfidential
+official document pq  post quantum telco network impact assessment whitepaper
+ cryptographic systems including public key infrastructure certificate authority
+hardware security modules identityaccess management and privilege access
+management
+ computing technology eg servers firmware operating systems virtualisation cloud
+infrastructure databases column length software data structures middleware
+security systems
+ networking equipment eg ethernet switches ip routers
+ telecom architectures eg settlement telecomspecific network functions radio
+core transmission communication services voice messaging mission critical
+ossbss systems
+ telecomspecific business processes eg device activation roaming and settlement
+ market driver  new services
+post quantum cryptography is intended to secure communication networks from potential
+threats from quantum computers given the estimated high risk that these threats may
+materialise in the next decade the question arises
+what is cost of doing business for telecoms service providers versus what can be monetised
+as a service for customers including enterprise customers as a service that is new or
+upgraded due to a premium level of security
+the answer to the above question may relate to time and awareness of customers from the
+enterprise and government sectors and the position service providers take
+for example migrating to pqc to secure key network infrastructure and communication
+links of public networks may be considered a must do by network operators and could be
+considered a cost of doing business the goal post is set by the service providers
+themselves in the interest of managing reputation and brand value
+ customer demand for services
+different demand scenarios dictated by private and public sector clients may materialise
+the first possibility is that they could actively demand that networks and services become
+quantumsafe while it is unlikely that enterprises from different sectors have sufficient
+market power to exercise effective influence on service providers it could be very different
+regarding governments those could resort to mandating that service providers meet certain
+requirements andor they may activate their national telecoms regulators
+the second possibility is that enterprise customers are slow in taking proactive action to
+mitigate any quantum threats this could for example be the case for the sme sector
+companies may express little demand for quantumsafe telecoms services like quantum
+safe sdwan services at least in the early phase of migration to pqc in this transition
+phase service providers could offer early quantumsafe service propositions to customer
+groups who for certain reasons would welcome a premium level of protection premium at
+least for a transition period until that level of protection becomes standard for all
+where service providers offer private mobile networks to enterprise customers and operate
+those networks certain customer groups who become early adopters of quantumsafe
+technology could well demand of their suppliers to render those networks quantumready as
+pq version  page  of 
+gsm association nonconfidential
+official document pq  post quantum telco network impact assessment whitepaper
+long as technology that leverages pqc is not a commodity or commonplace yet service
+providers could meet that market demand through extra features or premium network
+service levels and aim to monetise those
+from the above discussion timing appears important an opportunity for monetisation of
+quantumsafe network services may arise during the migration to a quantumready status
+as opportunities to monetise quantumsafe services may arise the interdependency on
+technology standards becomes an important factor to consider to assist planning this
+report analyses this in more detail within section 
+followup questions for those different scenarios are occurred
+ under the assumption that there is a market for new securityupgraded services
+based on pqc at least during the multiyear long migration period what kind of
+services might be of value to different customer groups
+ could pqc be an enabler for completely new types of services
+ examples of new services
+regarding securityupgraded services the following are examples of potential new services
+ quantumsafe virtual private networks
+ quantumsafe softwaredefined wide area networks
+ quantumsafe connection of enterprise customers to telco cloud computing centres
+ quantumsafe interconnection of telecoms edge cloud computing services and
+infrastructure to public and private clouds
+ quantumsafe iot connectivity
+ quantumsafe satellite communication links for enterprises and governments
+ quantumsafe cloud storage with telecoms service providers eg to mitigate
+against store now decrypt later attacks
+the search for new services leveraging pqc could also be inspired by considering what
+might be most at risk from quantum attacks when seen through the eyes of a hypothetical
+malicious actor eg a state actor quantum attacks can be used for different purposes
+ranging from spying on secret information and transactions eg banking transactions to
+disrupting services and infrastructure and enabling hacking of critical it infrastructure based
+on areas of high vulnerability or areas of high attractiveness to malicious actors one could
+consider new services that help to mitigate such risk in a preemptive way an example
+might be the protection of a private mobile network if used for critical national infrastructure
+ market driver  business verticals
+as an operator market driver interest from customers across multiple industries in quantum
+safe communications is an important consideration while prioritizing pqc relatedefforts
+though all verticals are expected to benefit from the improvements from pqc including the
+new services above certain industries are also mentioned specifically with additional detail
+regarding their expressed interest in pqc
+pq version  page  of 
+gsm association nonconfidential
+official document pq  post quantum telco network impact assessment whitepaper
+ public sector
+please refer to section  for details of global public sector interest related directly to pqc
+ financial services
+the financial services industry has started planning for pqc
+the bank for international settlements started a research program in its innovation hub on
+post quantum cryptography and payments in june  this project will investigate and test
+potential cryptographic solutions that can withstand the vastly improved processing power of
+quantum computers the goal is to test use cases in various payment systems and examine
+how the introduction of quantumresistant cryptography will affect their performance 
+the depository trust and clearing corporation dtcc published a white paper in
+september  with recommendations for clearing bank members and the banking industry
+on the implication of pqc on interbank settlements and payments 
+the banque de france the french central bank has tested the implementation of pqc in
+its innovation centre in september  
+the world bank includes pqc on the list of future technologies where banks need to act
+and on its education curriculum
+ timelines
+through assessment of the intrinsicextrinsic market drivers operators can determine the
+appropriate timeline for their business we present below a generalised pqc transition
+timeline which can be adapted
+ phase i pqc research and algorithm standardisation
+o algorithms selected for ongoing standardisation eg nist kpqc
+o pqcenablement of protocols including hybrid modes
+o partner with sdos eg gpp etsi to standardise pqc as appropriate
+ phase ii operator architecture and planning
+o update operator requirements to support pqc
+o collaboration with telco vendors on roadmaps
+o collaboration with opensource communities eg linux openssl
+o cryptographic inventory
+o crypto agility considerations
+ phase iii engineering
+o pqc enablement of cryptographic systems including pki ca and hsm
+o vendor products and opensource projects updated to support pqc
+o validate and test systems network functions and processes are quantumsafe
+ phase iv implementation prioritised by operatorspecific risk assessments and
+customer requirements
+pq version  page  of 
+gsm association nonconfidential
+official document pq  post quantum telco network impact assessment whitepaper
+o updating the mobile network itself to be quantumsafe this is where we evolve
+devices and network to use pqc or other quantumsafe approaches according to
+industry standards
+ phase v once the standards are updated vendors have implemented the new
+standards and operators have deployed them we can consider the endtoend
+network to be quantumsafe
+ post quantum telco network  ecosystem
+the following ecosystem map provides a highlevel view on quantumspecific standards and
+industry groups internationally as this pqtn report focuses on pqc we connect the
+activities in the top row quantum security to the broader telco networks context of
+standards and industry groups this is not an exhaustive list
+figure  quantum standards and industry groups
+ potentially impacted entities
+the following table shows the list of potential entities impacted by the transition to pqc
+gsma may collaborate with those entities as required
+group name subgroups
+oda openapi
+tm forum
+fasg esimwg rcs qns
+gsma
+gpp sa ct and ran entry point sa
+gpp
+gpp architecture usim ran core ims and service aspects
+wg architecture and wg security ngrg
+open ran
+pq version  page  of 
+gsm association nonconfidential
+official document pq  post quantum telco network impact assessment whitepaper
+tccyber tcli tetra isgmec isgnfv isgzsm osg osm tc
+etsi
+set
+open daylight onap isrg cncf
+linux foundation
+sct g
+ngmn
+nga and qscii
+atis
+sg sg and sg
+itut
+httpsopenquantumsafeorg
+open quantumsafe
+httpslinkspringercomchapter
+crossindustry opensource communities and standards bodies which are impacted by pqc
+open source kubernetes kvm linux openssl openstack
+ietf iana ssh tlsssl https dtls ipsecike oauth bgpsec dnssec sip
+diameter
+ post quantum government initiatives by country and region
+the scope of this section is to provide a summary of countries with active pqc programs as
+context for the postquantum telco analysis this is not an exhaustive list and is intended to
+be indicative only given the rapidly evolving area for governments globally ongoing
+monitoring will be required to ensure consistency with strategic plans and roadmaps
+country pqc published timeline summary
+algorithms guidance
+under
+consideration
+australia nist ctpco  start planning early implementation
+
+canada nist cyber centre  start planning impl from 
+china china specific cacr  start planning
+european nist enisa  start planning and mitigation
+commission
+france nist but not anssi  start planning transition from 
+restricted to
+germany nist but not bsi  start planning
+restricted to
+japan monitoring nist cryptrec start planning initial timeline
+new zealand nist nzism  start planning
+singapore monitoring nist mci  no timeline available
+pq version  page  of 
+gsm association nonconfidential
+official document pq  post quantum telco network impact assessment whitepaper
+south korea kpqc msit  start competition first round
+novnov
+united kingdom nist ncsc  start planning
+united states nist nsa  implementation 
+country key references
+australia postquantum cryptography australian cyber security center 
+canada canadian center for cyber security 
+china cacr 
+ec pqc  integration study  enisa 
+france anssi views on the postquantum cryptography transition
+
+germany bsi  quantum technologies and quantumsafe cryptography bundde
+
+japan cryptography research and evaluation committees cryptrec 
+new zealand security manual version  september  te tira tikai  new zealand
+government communications security bureau
+singapore mci response to pq on assessment of risk and impact of quantum
+computing technology and efforts to ensure encrypted digital records and
+communications networks remain secure 
+south korea kpqc
+united kingdom ncsc
+united states nist
+ australia
+ pqc algorithms
+the australian cyber security centre acsc is the australian government agency for
+cyber security acsc is not developing pqc algorithms acsc has not selected pqc
+algorithms the selection will be informed by the nist process
+ published recommendations
+the australian government department of industry science and resources published
+national policy on pqc
+ action plan for critical technologies postquantum cryptography oct  
+ csiro the australian governments national science agency published a white
+paper the quantum threat to cybersecurity looking through the prism of post
+quantum cryptography april  csiro 
+ acsc published postquantum cryptography july  and plans to update the
+australian information security manual to address pqc 
+pq version  page  of 
+gsm association nonconfidential
+official document pq  post quantum telco network impact assessment whitepaper
+ timeline
+policy recommends early adopters in the commercial sector should implement pqc in the
+period  beyond  pqc should be implemented in all applications summary
+of the october  australian national policy for pqc
+readiness level  
+ implementation of prestandardised pqc for classified networks
+ cyber security companies providing prestandardised pqc services
+ laboratory testing of hardware accelerators for prestandardisation pqc algorithms
+readiness level   years 
+ early adopters in the commercial sector eg financial institutions may implement
+pqc for critical networks
+readiness level  beyond  years  on
+ pqc algorithms are incorporated in all consumer commercial and industrial devices
+and software that need to store send or receive sensitive data
+ dedicated hardware for increasing the speed of pqc
+ canada
+ pqc algorithms
+the canadian centre for cyber security the government of canadas authority on cyber
+security is not developing its own pqc algorithms it works with nist on pqc
+ published recommendations
+the canadian center for cyber security has published guidance on planning for the
+transition to pqc and cryptographic agility
+ addressing the quantum computing threat to cryptography itse may 
+canadian center for cyber security
+ preparing your organization for the quantum threat to cryptography itsap
+feb  canadian center for cyber security
+ guidance on becoming cryptographically agile itsap may  canadian
+center for cyber security
+the minister for innovation science and economic development ised canada sponsored
+a working group to publish detailed industry recommendations on the transition canadian
+national quantumreadiness best practices and guidelines version   june  
+published by the quantumreadiness working group qrwg of the canadian forum for
+digital infrastructure resilience cfdir 
+ quantumsafe canada initiative quantumsafe canada  quantumsafe canada
+desktop website aligned to nist standardisation process
+the canadian government specifications for cryptography do not yet include pqc
+algorithms
+pq version  page  of 
+gsm association nonconfidential
+official document pq  post quantum telco network impact assessment whitepaper
+ cryptographic algorithms for unclassified protected a and protected b information
+version  itsp august   canadian centre for cyber security
+ timeline
+the quantum readiness working group qrwg defines the following timeline
+stage i initial planning and scoping to be underway before new pqc standards completed
+in 
+ preparation
+ discovery
+ quantum risk assessment
+stage ii implementation starting in 
+ quantum risk mitigation
+ migration to new qsc
+ validation
+figure  quantumreadiness program timeline 
+ china
+ pqc algorithms
+starting in  the chinese association for cryptologic research cacr held a one
+round competition to select quantumresistant algorithms this competition was open only to
+teams that included at least one chinese participant the cacr  called for public key
+algorithms of three types key exchange digital signature public key encryption schemes
+the winners were announced in january  three algorithms have been ranked first two
+key encapsulation mechanisms and one digital signature scheme the second and third
+ranks include eleven other algorithms three key exchange schemes five key encapsulation
+mechanisms and three digital signature schemes
+ published recommendations
+cacr published recommendations for pqc algorithms in  available in mandarin 
+pq version  page  of 
+gsm association nonconfidential
+official document pq  post quantum telco network impact assessment whitepaper
+ timeline
+it was reported in  that theoretical research of pqc in china has started as well as a
+plan of prototype design standardisation and application in several stages
+figure  trend of pqc in china 
+ european commission
+ published recommendations
+the ec through enisa the european union agency for cybersecurity has published
+multiple reports on pqc the most recent report  focuses on technical changes required
+to update existing systems using cryptography to use pqc
+ timeline
+the enisa reports do not include a timeline for the transition
+ other information
+the european commission has launched a call on transition towards quantumresistant
+cryptography httpseceuropaeuinfofunding
+tendersopportunitiesportalscreenopportunitiestopicdetailshorizonclcs
+callcodehorizonclcs
+the european commission closed a new call on  november  entitled transition
+towards quantumresistant cryptography horizonclcs this new call is
+part of the horizon europe framework programme
+the european union recognises the potential and opportunities that quantum technologies
+will bring and understands their significant risk to the security of the society the european
+union has also recognised the need to advance in the transition to quantumresistant
+cryptography they argue that many companies and governments cannot afford to have
+their protected communicationsdata decrypted in the future even if that future is a few
+decades away
+in this context european commission launched this call with the following expected
+outcomes
+ measuring assessing and standardisingcertifying futureproof cryptography
+pq version  page  of 
+gsm association nonconfidential
+official document pq  post quantum telco network impact assessment whitepaper
+ addressing gaps between the theoretical possibilities offered by quantumresistant
+cryptography and its practical implementations
+ quantum resistant cryptographic primitives and protocols encompassed in security
+solutions
+ solutions and methods that could be used to migrate from current cryptography
+towards futureproof cryptography
+ preparedness for secure information exchange and processing in the advent of large
+scale quantum attacks
+participants are expected to develop cryptographic systems which are secure against
+attacks using quantum computers and classical computers ie secure against both types of
+attacks they should equally look at the implementation of quantumresistant algorithm on
+software as well as specific hardware and provide different migration strategies by
+deploying pilot demonstrators in relevant use cases
+this call recognises not only the importance of the entire ecosystem but also the importance
+of crossdisciplinary cooperation participants are encouraged to take stock of and build on
+the relevant outcomes from other research fields such as mathematics physics electrical
+engineering and actions eg h projects nist pqc competition efforts in etsi they
+are also encouraged to plan to engage and cooperate with them as much as is possible
+it is worth pointing out that the security of pqc depends on the computational hardness of
+certain mathematical problems there are many established theorems and results that may
+have an impact on pqc for instance sike supersingular isogeny key encapsulation
+one of the finalists in the nist competition third round was cracked by researchers from ku
+leuven using a single core process the mathematics underlying the attack was based on a
+relatively old theorem dated in  by the mathematician ernst kani involving people from
+other research fields into the study of pqc would bring new perspectives and thus
+accelerate the development
+finally this project demands not only an analysis of how to develop combined quantum
+classical cryptographic solutions in europe but also an analysis taking in to account relevant
+actions in quantum cryptography eg h open qkd project euroqci
+ japan
+led by japans cabinet office the national institute of information and communications
+technology nict is researching quantum secure cloud technology and has developed
+systems featuring quantum cryptography secret sharing and nextgeneration postquantum
+public key infrastructure
+japan cryptrec cryptography research and evaluation committees is a nict project
+to evaluate and monitor the security of cryptographic techniques used in japanese e
+government systems the goal of cryptrec is to ensure the security of japanese e
+government systems by using secure cryptographic techniques and to realize a secure it
+society
+in  cryptrec set up a task force to follow the research trends regarding quantum
+computers and discuss how to deal with pqc
+pq version  page  of 
+gsm association nonconfidential
+official document pq  post quantum telco network impact assessment whitepaper
+the cryptography research and evaluation committees cryptrec has evaluated 
+the impact of quantum computers on current cryptographic algorithms and considered the
+adoption of pqc in the future
+ pqc algorithms
+japanese researchers have contributed to the nist process
+ published recommendations
+cryptrec lsr japan egovernment recommended cipher list last
+update   has not been updated to cover pqc
+ timeline
+the bank of japans institute for monetary and economic studies published
+ recent trends on research and development of quantum computers and
+standardisation of pqc discussion paper no e 
+ on mitigation to pqcs in japanese includes a proposed timeline
+ other information
+japan has significant national and commercial research and development activities on
+quantumsafe networks qkd and pqc in  a programme to build a global qkd
+network was announced with  nodes this will include fibre and satellite communication
+sumimoto toshiba and nict are among the leading national organisations in quantum
+safe communication development
+ paper on quantum network building an international hub for quantum security 
+ toshiba to lead joint rd project commissioned by japans mic to develop global
+quantum cryptography communications network aiming at deploying worlds first
+widerange and largescale quantum cryptography communication networks 
+corporate research  development center  toshiba
+ press release  worlds first demonstration of space quantum communication
+using a microsatellite  nictnational institute of information and communications
+technology
+ new zealand
+ pqc algorithms
+the new zealand government communications security bureau gcsb will review the
+outcome of the international standardisation program for pqc run by nist before selecting
+pqc algorithms
+ published recommendations
+the new zealand information security manual was updated in september  to give
+recommendations on planning for the transition to pqc
+recommendations include creation of cryptographic inventory identification of systems
+using public key cryptography which are vulnerable to attack from a quantum computer and
+creation of an inventory of datasets and the time for which the data must remain secure
+pq version  page  of 
+gsm association nonconfidential
+official document pq  post quantum telco network impact assessment whitepaper
+the final recommendation is the development of a transition plan
+ timeline
+prepare to transition away from classical cryptographic algorithms possibly from 
+ singapore
+ pqc algorithms
+singapore is monitoring the nist process
+ published recommendations
+the ministry of communications and information the cyber security agency of singapore
+and the information and media development authority are working with other relevant
+agencies to develop quantumsafe approaches for the continued security of digital
+communications and records
+ timelines
+the timeline for singapore is not available at the time of writing this document
+ other information
+ nov  minister for communications and information response to parliamentary question
+on assessment of risk and impact of quantum computing technology and efforts to ensure
+encrypted digital records and communications networks remain secure
+singapore announced  that it will build a national quantumsafe network consisting of
+ nodes initially and encompassing both pqc and qkd frauenhofer singapore and aws
+are among the companies contributing to usecases
+the network will provide the following technologies
+ i quantum key distribution  a hardware approach to quantumsafe communication
+requiring the installation of devices to create and receive quantum signals and
+ ii postquantum cryptography  upgrading software to run new cryptographic
+algorithms perceived to be resistant to attacks by quantum computers
+ south korea
+quantum cryptography is included in the ministry of science and ict th science and
+technology forecast nov 
+ pqc algorithms
+a korean standardisation project for pqc kpqc was announced in   this
+competition is a tworound process that aims at selecting three types of postquantum
+algorithms key exchangekey establishment digital signature and public key encryption
+schemes the first round finishes by the end of  and the second round by the end of
+
+the procedure is similar to that of the nist competition the proposals must be published in
+the proceedings of a highrank international conference or journal or at least appear on the
+pq version  page  of 
+gsm association nonconfidential
+official document pq  post quantum telco network impact assessment whitepaper
+iacr cryptology eprint archive  each proposal must specifically include a technical
+description of the algorithm security proofs and a reference implementation in ansi c
+ published recommendations
+the ministry of science and ict has published a work plan indicated as follows
+httpswwwmsitgokrengbbsviewdoscodeengmidmpidpageindexbbsseq
+nonttseqnosearchoptallsearchtxt
+ timeline
+start competition first round novnov
+ other information
+the ministry of science and ict initiated a quantumsafe communication infra project with
+qkd as part of the digital new deal initiative in  the quantumsafe communication
+infra demonstrated its potential to be commercialised as pilottypes of quantum cryptography
+networks have been deployed across the  public and private institutes in south korea
+httpswwwmsitgokrengbbsviewdoscodeengmidmpidpageindexbbsseq
+nonttseqnosearchoptallsearchtxt
+ france
+ pqc algorithms
+anssi closely follows the nist pqc process yet anssi does not intend to limit the
+recommended postquantum algorithms to the nist winners and may consider additional
+algorithms thus anssi deems kyber dilithium falcon future nist standards but also
+frodokem not selected by nist as good options for first deployments  of quantum
+resistant solutions moreover anssi advises the security level of these asymmetric
+algorithms to be as high as possible that is level  in the nist scale
+ published recommendations
+in  the french cybersecurity agency anssi issued a position paper anssi views on
+the postquantum cryptography transition  providing its views on the postquantum
+transition in this document anssi clearly states its support for pqc pqc that is
+presented as the most promising avenue to thwart the quantum threat conversely they
+dismiss quantum key distribution qkd as an unsuitable countermeasure except for
+niche applications where qkd is used for providing some extra physical security on top of
+algorithmic cryptography and not as a replacement
+httpswwwssigouvfrenpublicationanssiviewsonthepostquantumcryptography
+transition
+ timeline
+this support for pqc must however be qualified as the anssi clearly acknowledges the
+lack of maturity of such solutions they therefore propose a gradual transition consisting of
+three stages in the first two stages no standalone pqc will be recommended except in the
+pq version  page  of 
+gsm association nonconfidential
+official document pq  post quantum telco network impact assessment whitepaper
+very particular case of hashbased signatures that is any system targeting quantum
+resistance will have to be based on hybrid solutions
+ phase  to  defenceindepth systems should consider the use of pqc within
+a hybrid framework
+ phase   anssi will consider quantum resistance as optional but intends
+to recommend it for products claiming longterm security anssi also makes
+recommendations that postquantum security could become a mandatory feature for
+the latter type of products
+ phase   and beyond anssi considers standalone pqc solutions can be
+deployed
+ germany
+ pqc algorithms
+bsi has been involved in supporting the us nist pqc project and actively promoting
+preparation for a quantumsafe cybersecurity strategy that is based on a working
+hypothesis that cryptographically relevant quantum computers will be available early 
+timeline for risk assessment
+ published recommendations
+the federal government objective is to use quantum technology to secure it systems bsi
+has published a set of recommendations regarding accelerating preparation the
+implementation of cryptoagility and interim protective measures and the implementation of
+pqc  additionally bsi highlights the need for further research to address open
+questions concerning pqc
+additionally the bsi has updated studies on random number generation to include quantum
+sources their position is qrngs are a special type of random number generator that is not
+necessarily superior to conventional physical generators this is relevant for pqc
+algorithms deployments since implementations must ensure entropy sources are effectively
+chosen details of this assessment may be found within ais  
+ timeline
+further information bsi  postquantum cryptography bundde
+bsi  quantum technologies and quantumsafe cryptography bundde
+ uk
+ pqc algorithms
+the national cyber security centre ncsc is the uks national authority for cyber threats
+it is part of the government communication headquarters gchq current guidance is
+that adoption of quantumsafe cryptography qsc will provide the most effective mitigation
+for the quantum computing threat supporting the work that nist is pursuing to provide a set
+of standardised algorithms that will fulfil the requirements of different use cases for key
+agreements and digital signatures the expectation is that commercial products and services
+will include a transition to quantumsafe cryptography as part of their roadmap based on
+pq version  page  of 
+gsm association nonconfidential
+official document pq  post quantum telco network impact assessment whitepaper
+nist and etsi guidance standards and protocols additionally ncsc is not recommending
+the adoption of prestandard qsc to mitigate security and business continuity risks linked to
+replacement of cryptographic components for organisations that are managing their own
+cryptographic infrastructure a longerterm plan for quantumsafe transition that factors in
+priorities and dependencies should be prepared
+ published recommendations
+preparing for quantumsafe cryptography version   november  ncsc
+httpswwwncscgovukwhitepaperpreparingforquantumsafecryptography
+ timelines
+ncsc advises against early adoption of nonstandardised qsc more guidance will follow
+the outcome of the nist process
+ other information
+additionally the uk has significant ongoing research activities both in the development of
+pqc and the implementation of quantum communication networks one example is a
+qrng assurance project at the national physical laboratory  british telecom and
+toshiba have implemented a pilot quantumsafe qkd metronetwork  in london and
+is trialling the service for high bandwidth dedicated links between large sites such as
+corporate offices and datacentres
+ usa
+ pqc algorithms
+in september  cnsa commercial national security algorithm suite  was
+announced which includes pqc algorithms timelines and usage recommendations the
+pqc algorithms selected are based on the nist standardisation process
+ published recommendations
+for software and firmware signing
+ algorithms are specified in nist sp
+httpscsrcnistgovpublicationsdetailspfinal
+symmetrickey algorithms
+ same as cnsa  but with the addition of sha
+publickey algorithms
+ cnsa  has identified crystalskyber key establishment and crystals
+dilithium digital signatures as the candidate algorithms for the ongoing nist
+standardisation process when the nist process is complete the new algorithms will
+deprecate rsa diffiehellman and elliptic curve cryptography
+the us federal government in may  in alignment with the nist pqc standardisation
+activities described in section  issued a national security memorandum  directing
+pq version  page  of 
+gsm association nonconfidential
+official document pq  post quantum telco network impact assessment whitepaper
+federal agencies to begin the multiyear process of migrating vulnerable systems to
+quantumresistant cryptography
+the us executive branch issued on november   additional guidance for
+departments and agency heads to assist compliance with nsm 
+in december  the us executive branch also signed the bipartisan quantum
+computing cybersecurity preparedness act as publiclaw  formerly hr
+which mandates planning for pqc across us government within  months
+ timeline
+the cnsa  timeline is provided below as reference and can be considered an effective
+baseline for us operators
+figure  cnsa  timeline from announcing the commercial national security algorithm suite 
+ post quantum telco network  technology analysis
+ the quantum threat  technical risk
+the security of commonly employed cryptographic algorithms such as rsa and elliptic
+curvebased public key encryption and digital signature schemes is reliant upon the
+hardness of solving certain underlying mathematical problems rsabased protocols rely on
+the hardness of finding the prime factors of large integers while elliptic curvebased
+methods and diffiehellman key exchanges rely on the hardness of the discrete log problem
+security of these asymmetric protocols is founded on the assumption that a compute or
+time bounded attacker is unable to efficiently compute the prime factors of large integers or
+solve the discrete log problem the advent of quantum computing fundamentally changes
+our assumptions regarding the compute powers available to bad actors shors algorithm for
+example enables the efficient factorisation of large integers and allows attackers to
+efficiently solve the discrete log problem importantly shors algorithm can achieve an
+exponential speedup relative to known classical methods rendering it infeasible to simply
+increase key sizes consequently a sufficiently large fault tolerant quantum computer poses
+a threat to systems and protocols that utilise public key cryptography andor digital
+pq version  page  of 
+gsm association nonconfidential
+official document pq  post quantum telco network impact assessment whitepaper
+signatures and largescale changes are required to retain presentday security assurances
+in the face of this quantum threat
+in addition to the abovementioned threat to asymmetric protocols symmetric cryptographic
+protocols such as block ciphers may also require modification owing to the quantum threat
+grovers quantum algorithm permits a quadratic speedup in unstructured data base
+searches relative to classical methods and may be employed to attack symmetric key
+protocols such as aes or hash functions note however that there is an ongoing line of work
+which aims at finding attacks more efficient than grovers algorithm
+the timescale for the development of a large faulttolerant quantum computer that is
+capable of running crypto analytic algorithms that threaten modern day cryptography is
+uncertain however it is widely considered that there is a significant   risk of such
+a computer emerging in the next decade by  and therefore requires preparation
+particularly because some forms of attack may be retrospective as discussed below eg
+store now decrypt later
+ the quantum threat  business risk
+the quantum threat presents multiple high impact risks for the telecom industry and its
+users the table below gives an overview of some of these threats
+risk description
+prior to the availability of a cryptographically relevant quantum computer
+crqc motivated bad actors may harvest data and store it with the goal of
+store now
+decrypting it once quantum computing capabilities become available this attack
+decrypt later
+undermines the security of data with longlived confidentiality needs such as
+corporate ip state secrets or individual biodata it is widely believed that some
+actors are already engaging in this type of attack
+codesigning
+and digital if algorithms become vulnerable then service authentication can be attacked and
+signatures lead to vulnerabilities in software updates
+if digital signature algorithms become vulnerable the integrity of digitally signed
+rewriting
+data can be compromised eg audit records call records contracts other data
+history
+key it is possible that infrastructure is used to store symmetric keys using vulnerable
+management wrappers keys used for such longterm storage can therefore become vulnerable
+attacks by attacking the wrapping mechanisms
+the business consequences of the risks above are important to stakeholders as they may
+lead to privacy breach reputational damage network disruption or other impacts with
+significant financial implications
+ postquantum cryptography
+pqc refers to a category of cryptographic protocols aiming to provide security against
+quantumempowered adversaries by using classical ie nonquantum techniques since
+pq version  page  of 
+gsm association nonconfidential
+official document pq  post quantum telco network impact assessment whitepaper
+the quantumthreat to symmetric algorithms posed by grovers algorithm is less severe the
+pathway to a postquantum status is perhaps more straightforward for symmetric protocols
+namely it remains feasible to retain similar cryptographic methods in the presence of a
+quantumempowered adversary by employing a higher level of security for example in
+some cases increasing the bitsize of keys under the correct design paradigm may be
+sufficient to retain an adequate level of security in the face of grovers algorithm such
+changes can elevate symmetric protocols from quantumvulnerable to postquantum secure
+the transition to postquantum status is more complex for asymmetric algorithms since
+shors algorithm permits an exponential speedup it is not feasible to simply increase the
+security level of current methods instead one must replace existing asymmetric techniques
+with alternative methods that provide security assurances against quantum adversaries
+note that asymmetric protocols such as commonly deployed public key encryption schemes
+and digital signature schemes found favour due to the increased functionality and utility they
+afford since the quantum threat impacts these commonly deployed asymmetric
+cryptographic protocols one must either forego this additional functionality or replace the
+vulnerable algorithms with new algorithms that provide the same functionality but are
+believed secure against a quantum attack
+one may retain the functionality offered by presently deployed public key encryption and
+digital signature algorithms by implementing replacement algorithms that are believed
+secure against quantum attacks algorithms in this category are referred to as postquantum
+asymmetric cryptographic algorithms meaning they are plausibly secure against quantum
+attacks pqc is expected to play the dominant role in addressing the quantum threat and is
+recommended for adoption by agencies such as nist though standardisation remains
+ongoing such replacement algorithms are not as trivial as they may sound since even
+when the desired cryptographic functionality and quantum protection is achieved the
+algorithm may incur a compute or failure rate or keysize cost that is incompatible with given
+usecase constraints
+research in the fields of quantum computing quantum algorithms and quantumrelated
+cryptography continues to rapidly evolve consequently the notions of plausible quantum
+security and provable quantum security remain as distinct but related categories new
+attacks new algorithms or other technological advances may illuminate vulnerabilities in
+cryptographic algorithms that otherwise appear plausibly quantum secure ie pqc is not
+synonymous with provably quantumsafe an ongoing nist pqc standardisation project
+is one of the leading projects currently aimed at standardising a set of postquantum secure
+encryptionkey exchange algorithms and digital signature algorithms during this
+standardisation project new attacks and cryptanalyses of purportedly quantum secure
+algorithms such as rainbow and sike were uncovered demonstrating the relative infancy
+of this field nonetheless there are strong motivations for expecting candidate pqc
+algorithms to be quantum secure moreover plausible quantum security is the next best
+alternative currently available confidence in cryptographic algorithms grows with the test of
+time and it is the latter that will ultimately determine which pqc algorithms remain viable
+postquantum asymmetric algorithms typically rely on new hardness assumptions that are
+plausibly quantum secure below some key categories of pqc algorithms are briefly
+summarised since the nist pqc standardisation process is currently the most advanced
+such project the discussion references the nist project
+pq version  page  of 
+gsm association nonconfidential
+official document pq  post quantum telco network impact assessment whitepaper
+ preshared keys
+as an example of foregoing the functionality of asymmetric protocols one possibility is to
+use keys established only using symmetric key methods this approach forgoes some of the
+flexibility afforded by key exchange protocols that employ quantumvulnerable algorithms
+such as public key encryption and digital signature schemes both symmetric and
+asymmetric methods require preestablished secure authenticated communication
+channels either for presharing secret keys or root certificates for pki using preshared
+keys to avoid the quantum threat may be feasible in certain use cases indeed simbased
+mobile communications already rely upon preshared keys to achieve key agreement and
+authentication between user equipment and the network in internet standards the tls
+protocol supports key establishment based on preshared keys additionally the ikev key
+establishment scheme used in ipsec typically uses preshared keys for authentication and
+allows prepositioned keys to add quantum safety to key exchanges per rfc  use
+of preshared keys may therefore form part of the solution to the quantum threat but this
+approach appears unlikely to replace all presentday use cases of quantumvulnerable
+asymmetric algorithms note that any preshared keys must themselves be used within
+protocols that can withstand the quantum threat meaning key lengths need to be sufficiently
+long and symmetric protocols using the keys must themselves be postquantum secure
+ codebased approaches to pqc
+codebased cryptography utilises the mathematics of errorcorrecting codes leveraging the
+hardness of problems such as correcting errors in random linear codes codebased
+techniques have been studied for many decades dating back to foundational work by
+mceliece  nonetheless despite predating shors algorithm and the interest in pqc
+these wellstudied techniques did not initially find widespread adoption owing to superior
+performance characteristics of leaner techniques such as rsa and elliptic curvebased
+methods codebased methods typically require a much larger public key and incur
+associated compute costs for example the discovery of quantum attacks on rsa and
+eccbased techniques rekindled interest in both wellstudied codebased protocols and the
+design of newer codebased methods
+multiple codebased algorithms were submitted to the nist pqc project however all
+submitted digital signature schemes leveraged newer codebased assumptions that were
+ultimately broken similarly nist deselected some codebased encryption schemes owing
+to cryptanalysis that emerged during the standardisation process ultimately no codebased
+methods were selected by nist in the third round nonetheless the remaining codebased
+schemes for key establishment namely classic mceliece hqc and bike all progressed to
+the fourth round hqc and bike are newer codebased approaches that aim to reduce the
+public key size classic mceliece has a large public key and small ciphertexts making it less
+useful for eg ephemeral tls key exchange nist may select a codebased
+encryptionkem method for standardisation in the next round to compliment the lattice
+based algorithm selected in the third round standardising algorithms which rely on different
+ie nonlatticebased assumptions would provide diverse options in case future
+cryptanalysis reveals vulnerabilities in one method
+pq version  page  of 
+gsm association nonconfidential
+official document pq  post quantum telco network impact assessment whitepaper
+ latticebased approaches to pqc
+a lattice is a repeating structure of points in a multidimensional module mathematical
+space for lattices residing in many dimensions it may be computationally hard to
+determine certain properties of points and lines in the space relative to the structure of the
+lattice this hardness provides the basis for latticebased cryptography and hence mitigates
+the risks posed by shors algorithm
+ latticebased analysis
+latticebased techniques date back to   and are relatively wellstudied compared to
+some newer pqc methods latticebased algorithms submitted to the nist standardisation
+project rely on latticebased hardness problems such as module learning with errors lwe
+module learning with rounding lwr and the ntru problem  informally the lwe
+problem involves solving a set of noisy linear equations  the lwr problem can be
+considered a variant of the lwe problem  confidence in the hardness of the lwe
+problem stems from the fact that for some latticebased problems the averagecase
+hardness of solving the problem is provably as hard as the worstcase hardness for solving a
+related wellstudied lattice problem however questions exist regarding the concrete
+security assurances provided by these reductions for the lwe problem  moreover such
+reductions between problems are not known for all latticebased hardness problems of
+cryptographic interest including the ntru problem in short cryptanalysis in this domain
+provides strong arguments that both the lwe problem and the ntru problem are plausibly
+postquantum secure but existing analysis is perhaps insufficiently mature to unambiguously
+preference lwebased algorithms versus ntrubased algorithms based solely on security
+claims 
+ hashbased approaches to pqc
+a hash function is a standard cryptographic primitive that maps input strings to seemingly
+random output strings such that it is hard to invert the output of an unknown input and hard
+to find two inputs that produce colliding ie identical outputs generic quantum attacks on
+hash functions rely on grovers algorithm and are therefore less severe making hash
+functions a suitable building block for the construction of quantum secure algorithms hash
+functions are routinely leveraged as part of commonly employed signature schemes to
+handle messages of arbitrary length for example a signer may sign the hash of a message
+rather than the actual message however hash functions can also be used to construct
+signature schemes rather than merely being used within a scheme hashbased signature
+schemes do not rely on eg numbertheoretic or other mathematically structured hardness
+assumptions and instead rely on the security of the underlying hash function meaning the
+hash function must sufficiently well approximate a truly random oracle
+within the hashbased category of algorithms its helpful to differentiate between stateful
+and stateless signature schemes a stateful signature scheme requires users to keep track
+of some information since eg reusing the same values may compromise security nist
+already released standards  for two hashbased stateful signature schemes namely
+xmss  and lms  stateless signature schemes do not require users to keep track
+of a state ie additional information and therefore offer additional flexibility relative to
+stateful schemes in the third round of the pqc standardisation project nist selected the
+stateless hashbased signature scheme sphincs  promoting the algorithm from the
+pq version  page  of 
+gsm association nonconfidential
+official document pq  post quantum telco network impact assessment whitepaper
+alternatives category note all other signature schemes described in this section are also
+stateless
+ multivariatebased approaches to pqc
+the security of multivariatebased cryptosystems relies on the hardness of solving systems
+of multivariate quadratic equations over finite fields efficient constructs typically employ
+seemingly random systems of equations which actually possess hidden structure owing to
+the existence of a trapdoor multivariatebased constructs progressed as far as the third
+round of the nist pqc project but were not ultimately selected after new attacks were
+discovered on the remaining candidates   further analysis is required to determine
+whether potential efficiencies offered by multivariatebased schemes remain valid after the
+newly discovered attacks are addressed
+ isogenybased approaches to pqc
+two elliptic curves are said to be isogenous if there is a mathematical map between them
+called an isogeny that preserves their underlying algebraic and geometric properties
+isogenybased cryptosystems rely on problems relating to the hardness of finding isogenies
+ sike is a key exchange mechanism based on supersingular isogenies that
+progressed to the third round of the nist process it has very small key and ciphertext sizes
+but is computationally more expensive than other candidate key exchange schemes
+however recent cryptanalysis uncovered a devastating key recovery attack on
+supersingular isogenybased protocols  accordingly the authors of sike currently
+state that sike is insecure and should not be used see httpssikeorg
+ hybrid approaches for pqc
+a hybrid mechanism key establishment or signature combines the computations of a
+recognised prequantum public key algorithm and an additional algorithm that is post
+quantum secure this makes the mechanism benefit both from the strong assurance on the
+resistance of the first algorithm against classical attackers and from the expected resistance
+of the second algorithm against quantum attackers for key establishment one can perform
+both a prequantum and a postquantum key establishment and then combine both results
+eg using a key derivation function kdf alternatively one may use for some specific
+applications a kdf on a preshared key and a shared key obtained from a classical scheme
+for signature schemes hybrid signatures can be achieved with the concatenation of
+signatures issued by a prequantum and a postquantum scheme and the requirement that
+both signatures be valid in order for the hybrid signature to be valid given that most post
+quantum algorithms involve message sizes much larger than the current prequantum
+schemes the additional message size of a hybrid scheme remains low in comparison with
+the cost of the underlying postquantum scheme
+for additional details on hybrid scheme please refer to section 
+ relationships to other quantum technologies
+ quantum key distribution
+quantum key distribution qkd aims to leverage the quantum properties of matter to
+enable secret key exchange for this reason qkd falls into the category of quantum
+cryptography meaning the protocol itself utilises the quantum properties of matter security
+pq version  page  of 
+gsm association nonconfidential
+official document pq  post quantum telco network impact assessment whitepaper
+derives from quantum physical properties in particular the nocloning theorem in quantum
+mechanics which asserts the impossibility of making a perfect copy ie a clone of an
+unknown quantum state without altering the original state in some observable way an
+adversary who intercepts an intransit quantum state is therefore unable to both
+simultaneously learn all information within the state and send the state onwards to the
+intended recipient undisturbed accordingly qkd leverages the laws of physics to provide
+the basis for cryptographic security avoiding the need for a hardness assumption
+nonetheless implementations typically require additional security ingredients to ensure
+secure secret key establishment such as preauthenticated communication channels given
+these limitations qkd is presently not recommended for adoption within certain scenarios
+by multiple agencies including for use within us and uk government applications
+however qkd has certain strengths including complete invulnerability to computational and
+mathematical breakthroughs and as such may support key refresh in symmetric
+cryptography over ultrasecure links industry and research institutes continue to actively
+explore and develop the potentialities of qkd
+the second solution quantum key distribution qkd represents a new way to distribute
+these random numbers and generate secure keys between different locations that is
+because it rests on fundamental physical principles rather that specific mathematical
+assumptions qkd can establish such a key remotely between two distinct parties and it is
+essentially immune to hacking by both conventional hackers and quantum computers this
+is because if anyone tries to tamper with the data the two qkd parties normally called alice
+and bob will immediately know the security of a complete cryptographic protocol is
+certainly no more secure than the weakest of all cryptographic elements used but the key
+exchange element need not be the weakest link but the strongest in short qkd is the only
+known method for transmitting a secret key over long distance that is provably secure in
+accordance with the fundamental properties of quantum physics qkd can be used
+standalone to provide secure symmetric keys between parties qkd can also be used with
+pqc there are several activities on hybrid approaches for migration towards quantumsafe
+algorithms or protocols hybrid approaches for key exchange consist in generating a key
+exchange functionality by combining at least two different key exchange methods
+there are several activities of various sdos on hybrid approaches for key exchange
+mechanisms such as itut x  etsi ts    nist special publication
+ revision   nist special publication c revision   ietf rfc 
+ ietf draftietfipsecmeikevmultiplele 
+ quantum random number generation
+a random number is one that is both unpredictable and unbiased  random numbers are
+essential to network security because all forms of cryptography require a strong source of
+entropy examples of applications for random number generators in symmetric
+cryptography the generation of the key and possibly also the initialisation vector in pqc
+the choice of noise vector in the lwe problem in qkd the choice of bit values and basis
+values
+ pseudorandom number generators prngs are deterministic prngs may be
+acceptable for security applications when using a seed containing sufficient entropy
+pq version  page  of 
+gsm association nonconfidential
+official document pq  post quantum telco network impact assessment whitepaper
+ quantum random number generators qrngs are nondeterministic qrngs use
+the randomness of quantum physics to generate true random numbers used for
+encrypting messages and for other cryptographic applications the selection of a
+qrng requires characterisation and assurance of the entropy source and its
+implementation eg for operating temperature aging effects and correlation
+ standardisation of pqc algorithms
+there are ongoing programs to standardise pqc algorithms from nist and the chinese
+academy of science and national programs to adopt pqc in many countries
+ nist
+in april  nist published a report on pqc and announced a competition to standardise
+postquantum digital signature algorithms and public key encryptionkey encapsulations
+mechanisms the deadline for the first round submission was in november  at that
+time  propositions were submitted the majority of these submissions were based on
+lattices illustrating the potential of this mathematical tool to resist quantum computers
+for more than  years the different candidates have been extensively studied by the
+cryptographic community several attacks were considered serious enough to lead to the
+nonselection of the concerned algorithms for the second round of the nist competition
+in january  the nist announced the candidates selected for the second round of the
+competition in july  the list of candidates was narrowed down to  candidates
+entering the third round of the competition but not with the same status seven of them were
+indeed selected as finalists meaning that they will continue to be reviewed for potential
+standardisation at the end of the round the eight others were only selected as alternate
+candidates meaning that they might be standardisation in the future but not at the end of the
+competition
+in july  the nist announced a first list of algorithms to be standardised one key
+encapsulation mechanism and three digital signatures moreover a fourth round was
+launched to diversify the kem portfolio in addition to new proposals that are expected four
+key establishment candidates from the third round have been retained as alternative
+candidates to be considered for future standardisation in the meantime one of them sike
+has been fully broken and has been discarded
+nist estimates draft of pqc standards in 
+httpscsrcnistgovcsrcmediapresentationsthebeginningoftheendthefirstnist
+pqcstandaimagesmediapkcmarchmoodypdf
+ summary of algorithm standardisation process
+to summarise the third round of the nist pqc project selected the latticebased
+encryptionkem algorithm crystalskyber for standardisation in the encryptionkem
+category further candidate algorithms also progressed to the next round and may ultimately
+be selected for standardisation in the digital signatures category the latticebased
+crystalssdilithium was selected as the primary recommendation the ntru lattice
+based scheme falcon was selected owing to efficiencies that may be preferred in some
+pq version  page  of 
+gsm association nonconfidential
+official document pq  post quantum telco network impact assessment whitepaper
+usecases and the hashbased algorithm sphincs was also selected giving a non
+latticebased option
+in addition nist announced a new call for further pqc digital signature submissions the
+analysis and design of pqc digital signatures has developed considerably since the nist
+pqc standardisation project first began in addition to analyses revealing weaknesses in
+some submissions it became clear that other promising algorithms may exist the picnic
+digital signature scheme serves as an illustrative example to help understand the motivation
+for inviting new submissions picnic is a modular protocol that utilises both a hash function
+and a block cipher the scheme which progressed to the third round of the nist pqc
+project is therefore hashbased but security also depends on the security of the particular
+block cipher employed picnic also has the somewhat novel property of leveraging non
+interactive zero knowledge proofs to achieve efficiencies the picnic submission to nist
+used a newer block cipher called lowmc  but cryptanalysis subsequently found
+security weaknesses in lowmc   accordingly picnic did not progress beyond the
+third round however it may be possible to construct variants of picnic that employ a better
+trusted block cipher such as aes  the new call for pqc digital signature submissions
+allows algorithm designers to utilise the lessons learnt already through the nist project to
+submit candidate algorithms whose performance andor security assurances compliment the
+schemes already selected for standardisation
+in the third round nist selected crystalskyber as an encryptionkey exchange
+algorithm motivated in part by kybers smaller key size and speed of operation in relative
+terms as a key encapsulation mechanism kyber derives from an underlying encryption
+algorithm whose security relies on the hardness of the module lwe problem
+nist also selected crystalsdilithium as the primary digital signature scheme in the third
+round dilithium is also based on the hardness of lattice problems over module lattices and
+was selected in part for its relatively high efficiency nist also selected the latticebased
+digital signature scheme falcon due to its efficiency and smaller signature size security
+of falcon relies on hardness assumptions relating to ntru lattices enabling signatures
+that are considerably shorter relative to other latticebased signature schemes with the
+same security assurance public keys remain around the same size note however that
+falcon requires fast constanttime doubleprecision floatingpoint arithmetic to provide
+acceptable signing performance deviation from this constanttime requirement can avail
+new attack vectors though most pcs have fast constanttime doubleprecision operations
+not all devices do meaning particular care must be taken when considering falcon
+deployment dilithium is considered easier to safely implement and has better signing
+performance though it incurs larger public keys and signatures in short dilithium is
+currently recommended as a generalist type algorithm by nist whereas falcon may be
+preferred for particular use cases with greater sensitivity to public key and signature size
+sphincs is an alternative to latticebased that has much larger signature sizes but
+significantly smaller public and private keys sizes
+owing to their relative infancy it is anticipated that asymmetric pqc algorithms may initially
+be deployed in a hybrid approach in combination with classical algorithms for example by
+encrypting shared keys with both a pqc algorithm and a classical technique one provides
+fallback security in case the newer pqc algorithm is subsequently found to be insecure as
+pq version  page  of 
+gsm association nonconfidential
+official document pq  post quantum telco network impact assessment whitepaper
+confidence grows in the pqc algorithms a transition from hybrid methods to solely pqc
+methods would follow
+to conclude this section pqc aims to provide security against the quantum threat and the
+transition to a postquantum future poses a challenge for the telco industry with regards to
+symmetric protocols achieving postquantum security is perhaps more straightforward
+since one may adopt similar methods with stronger security levels addressing the threat to
+asymmetric protocols will likely involve a combination of mitigation techniques such as
+replacing quantumvulnerable algorithms with their pqc counterparts or reverting to pre
+shared keys other techniques such as qkd may find a role in some use cases though pqc
+is expected to play a dominant role particularly as standards emerge the viability of each
+approach depends on the needs of the particular use case and the performance
+characteristics of the given approach several pqc algorithms have already been chosen for
+standardisation by nist and more will follow in the years ahead as noted below related
+standardisation processes are being pursued by similar bodies in other jurisdictions and
+contexts ushering in the era of pqc
+ isoiec
+following the selection by nist of the  future standards in pqc the working group  of
+the subcommittee  of isoiec has decided during its meeting on  october  to
+initiate a preliminary work item inclusion of key encapsulation mechanisms for pqc in
+isoiec standards
+as this title suggests the specificity of the isoiec initiative is that it only concerns so far
+key encapsulation mechanisms whereas the nist competition also considered digital
+signature mechanisms
+another specificity of the isoiec initiative is that they are willing to consider candidates that
+were dismissed by the nist such as frodokem more specifically the report mentions three
+potential targets for standardisation namely kyber future nist standard classic mceliece
+which is still under consideration by nist in its fourth round and frodokem the last two
+schemes suggest that isoiec will favor conservative designs over performance which
+would result in an alternative list of standards somewhat complementary to the nist ones
+ ietf
+ietf has multiple workstreams of activity related to pqc
+in terms of postquantum algorithms a new working group is under scrutiny to focus on the
+algorithms selected by nist postquantum symmetrickey algorithms and other post
+quantum asymmetric algorithms are out of the scope of this working group the transition of
+existing protocols to postquantum variants is still to be done in the relevant working groups
+as such the crypto forum research group of the internet research task force irtf is
+tasked with providing longterm advice to the ietf on cryptographic algorithms for
+communication protocols such as tls ssh or ipsec in particular the design of hybrid key
+exchange ie a protocol mixing a timetested standard cryptographic algorithm with a post
+quantum one for tls is discussed and several drafts have been published 
+mechanisms based on symmetric preshared keys have also been proposed to authenticate
+the communication parties in tls   or to perform a key exchange in ikev  other
+drafts have also been published for instance  and  aim at adapting x
+pq version  page  of 
+gsm association nonconfidential
+official document pq  post quantum telco network impact assessment whitepaper
+certificates and certificate revocation lists crl respectively to the postquantum key
+encapsulation mechanism kyber and the signature algorithm dilithium two algorithms
+selected by nist  describes how to use the postquantum signature sphincs also
+selected by nist with the cryptographic message syntax cms
+ etsi
+etsi has created the tc cyber working group and within this the etsi quantumsafe
+cryptography qsc group aimed at assessing and making recommendations for quantum
+safe cryptographic primitives and protocols
+the group has surveyed all third round nist candidates for postquantum digital signatures
+and key encapsulation mechanisms resulting in two technical reports  and 
+respectively all these technical reports are informative only as etsi so far does not plan to
+support specific candidates
+in parallel etsi has issued a technical report  defining migration strategies to achieve
+postquantum security more specifically this report presents a framework of actions that an
+organisation should take to anticipate transition to postquantum systems this increases
+awareness among organisations about the practical consequences of the advent of quantum
+computers but this report remains highlevel and does not promote concrete cryptographic
+solutions
+finally the tc cyber working group has published in december  a technical report
+ on quantumsafe identitybased encryption an advanced application that seems to
+fall outside the scope of this whitepaper
+ itu
+itu has published security guidelines for the application of quantumsafe symmetric and
+asymmetric algorithms to mobile telecommunication systems as well as the alignment of
+security levels between quantumsafe symmetric and asymmetric algorithms 
+ application of post quantum crypto to telco networks
+ technology
+in this section we address high level technology and infrastructure implications for network
+operators applying pqc such as
+ what is the likely scope of technical change relevant for network operators
+ how are existing public key infrastructures impacted
+ what is the likely nature of change and actions required to be undertaken by network
+operators and vendors
+ what technology may network operators need to assist with change management
+and migration to quantumsafe
+ scope of technical change
+pqc is expected to be wrapped into various communications protocols to make those
+quantumsafe since fixed and mobile networks including devices like customer premises
+equipment cpe smartphones or iot devices with sim cards management systems and
+pq version  page  of 
+gsm association nonconfidential
+official document pq  post quantum telco network impact assessment whitepaper
+valueadding services often represent distributed systems with a large variety of hardware
+and software components all using communication protocols to communicate to each other
+a very large number of components will benefit from quantumsafe versions of such
+communication protocols
+any component that today uses a protocol which is vulnerable to future quantum attacks and
+is deemed to be sufficiently exposed to potential attacks because it is not part of a very
+trusted network should be considered inscope this includes network components which
+use protocols like ipsec tls https authentication mechanisms based on publicprivate
+keys public key infrastructure pki and digital certificates the scope extends across
+different planes like user plane control plane and management plane
+the list of network components fixed and mobile network functions service components
+eg for sdwan and management components is large and very long so there is no
+point in trying to exhaustively list them here it is more useful to provide a few examples
+figure  pq ecosystem dependencies structure
+sdwan services a workhorse to achieve secure communication tunnels between network
+devices is the ipsec protocol which is often used to tunnel across internet connections
+network endpoints may use rsabased public key certificates and use a diffiehellman key
+exchange mechanism to establish a common secret key for data encryption this process is
+quantumvulnerable rfc   outlines a method to provide quantum security using
+prepoistioned keys additional standards that support other quantumsafe versions of
+ipsec are expected to be elaborated by ietf ipsec network endpoints will then have to
+support new standards as part of their communication protocol stacks
+base station to security gateway connection the connection from ran to core network can
+optionally use the ipsec protocol as well similar to the previous example the setup is
+quantumvulnerable unless rfc   methods are used thus both components
+protocol stacks are impacted in network deployments where such ipsec tunnels are used
+pq version  page  of 
+gsm association nonconfidential
+official document pq  post quantum telco network impact assessment whitepaper
+service provider ecommerce portals customers access those portals over the internet via
+https and tls protocols to subscribe to services shop for devices check their account
+etc the current version of tls is quantumvulnerable due to its reliance on certificates
+based on public key cryptography and diffiehellman key establishment it means that it
+components that support protocols and application layer cryptography need to be made
+quantumsafe eg load balancers http servers jwt etc
+iot and cpe devices often software is remotely installed on such devices by downloading
+software images these images are protected through digital signatures using eg the digital
+signature algorithm dsa since dsa is based on discrete logarithm the whole process of
+signing software images to avoid malicious code installation is quantumvulnerable this
+implies that the digital workflow for image signing and decoding needs to be replaced or
+upgraded to render the architecture quantumsafe
+another aspect to take into account is that some iot devices will be constrained in terms of
+processing and memory pqc implementation will need to consider any limitations of the
+device to ensure that pqc algorithms are able to run efficiently
+sim cards and devices in g networks an encrypted version of the subscription permanent
+identifier supi is used which is called the subscription concealed identifier suci the
+latter can be generated by the user equipment or the sim on the deviceside the suci is
+generated with a public key provisioned by the home network again as the encryption
+scheme is based on discrete logarithm the process is quantumvulnerable and calls for a
+quantumsafe version
+systems for remote sim provisioning mutual authentication between the application on a
+euicc and the system which network operators use to securely encrypt operator credentials
+for overtheair installation in the euicc is based on classical asymmetric cryptography and
+is therefore quantumvulnerable as a consequence protocol changes on protocols within
+remote sim provisioning have to be made
+operator administrative access to network components often the ssh protocol is used by
+operational staff to log into remote components for oam purposes ssh also uses classical
+public key cryptography and is therefore quantumvulnerable again the protocol stacks on
+both endpoints are impacted including laptops and pcs used by operations personnel of the
+network operator and engineers from vendors
+software modifications
+ software developers may need to review data structures and field lengths for keys
+ database developers may need to consider database column width for keys
+the examples mentioned illustrate the broad scope of where quantumsafe cryptography is
+relevant to telecoms and it systems and technology
+ cryptography management
+most of the current application of cryptography in telecommunications networks are related to
+the use of public key infrastructures pki supporting digital signatures authentication and
+the agreement and distribution of the symmetric session keys applied for encrypting data
+pq version  page  of 
+gsm association nonconfidential
+official document pq  post quantum telco network impact assessment whitepaper
+exchange the evolution of the stack of internet protocols the one traditionally known as
+tcpip towards the generalised use of tls and the use of servicebased architectures has
+made this trend even stronger in the last years
+with the exceptions of the use of a shared secret or some kind of security controller the
+secure handshake including peer authentication and the session key negotiation phase for
+secure communication rely on the use of a pki
+whatever the symmetric algorithms in use whenever they are the only mechanism used to
+secure communications proper key and shared secret rotation intervals and the appropriate
+crypto material distribution mechanisms must be in place the transition to quantumsafe
+algorithms does not preclude the possibility of side attacks most notably via social
+engineering
+there can be variations in the scope of a pki from global ones to those circumscribed to a
+single site but the structure based on acknowledged authorities vouching for the validity of a
+particular public key and its association to a particular identity is the method used in the vast
+majority of the application of cryptographic procedures in telecommunications
+taking into account that most of the vulnerabilities and security issues related to pki have
+been caused by poor key and identity management it becomes critical to analyse the
+implications for these procedures from the pqc transition the main fields to take into
+consideration include
+ algorithm and parameter identifiers to describe available algorithms and their
+configuration in security session negotiations and signatures
+ public and private key formats to be included in the distribution of crypto materials
+especially in certificates
+ revocation mechanisms to verify the status of the certificates
+it is necessary to have standardised identifiers and key formats available to avoid unintended
+leakage of crypto materials or unintended impersonations in identity management procedures
+such as certificate requests and responses an assessment of revocation mechanisms must
+be performed in the light of the computational costs of new algorithms revocation verification
+is one of the most sensitive aspects even in current pki environments
+ cryptographic agility
+cryptographic agility is the ability to rapidly update the cryptography used in deployed
+networks and applications without requiring a major effort to redesign and update the
+underlying systems infrastructure and supporting processes
+we know there will be a significant effort involved in the transition to pqc cryptographic
+agility means designing and implementing both the systems that use pqc and the systems
+that provide pqc so they can support the proposed nist pqc algorithms but can be rapidly
+extended to support other pqc algorithms if a weakness in a pqc algorithm is discovered
+we have the option to transition to a new pqc algorithm after suitable review cryptographic
+agility requires an inventory of all the cryptography in use so we know what is affected the
+cryptographic bill of materials cryptographic agility requires updates to the cryptographic
+libraries to support new pqc and pqt hybrid schemes and configuration interfaces so we
+can define the cryptography we are using algorithms and schemes by policy and
+pq version  page  of 
+gsm association nonconfidential
+official document pq  post quantum telco network impact assessment whitepaper
+configuration not reengineering in practice crypto agility also means that in addition to the
+possibility of patching products could include an extra surface for allowing potential updates
+in order to react to upcoming cryptographic recommendations and standard updates
+ nature of change and required actions
+introduction of pqc will occur over time through system upgrades replacement of legacy
+components and deployment of new components which have already been designed with
+cryptoagility in mind to render the migration process economical network and service
+providers will have to consider the natural refresh cycles as opportunities to lift components
+up to a quantumsafe status
+new hardware and software components should meet requirements related to cryptographic
+agility the latter refers to practices and software architectures that allow to adapt eg to an
+alternative cryptographic standard or a secret key length quickly and thus with agility should
+the need arise because an existing mechanism gets broken without the need for costly
+infrastructure changes and long extra development and procurement lead times
+network operators will also have to decide on a most appropriate strategy to migrate from
+current status to a quantumsafe network and services environment an example is the
+potential introduction and use of hybrid certificates which are traditional ones with additional
+quantumsafe components added to them that can be used by it or network systems which
+are quantumaware while legacy equipment may ignore the new quantumsafe
+components this is a way to introduce more flexibility for an operators migration strategy
+ new technology to assist operators in the journey to quantumsafe
+a first step in the journey to quantumsafe is an analysis to understand vulnerability and
+prioritisation network operators and service providers therefore face a fundamental first
+challenge to discover the detailed security configurations used in production across many
+technical domains as a snapshot at any time during the migration journey to assess the
+current levels of risk remaining vulnerability to quantum attacks and any level of accidental
+noncompliance to updated corporate security policies
+given the size of the challenge such discovery and the inferencing on top of it should ideally
+benefit from automation an example is the autodiscovery of securityrelevant configuration
+settings of network components retrievable from network element systems automation is
+expected to reduce the otherwise required operational expense for network operators
+however in above scenario of security configuration crawling the question arises whether
+any interface or api aspects should be standardised or harmonised across network
+components to render this feasible and to truly harvest the benefits of automation
+ business processes
+the pqtn task force have assessed the quantum threat landscape and summarize at risk
+areas below along with these risk areas risk assessment frameworks are presented which
+can help inform business processes impacted along with mitigation strategies
+ areas vulnerable to attacks  macro view
+international organisations such as nsa in usa  enisa in europe  and ncsc in
+the uk  have identified areas vulnerable to the quantum threat
+pq version  page  of 
+gsm association nonconfidential
+official document pq  post quantum telco network impact assessment whitepaper
+cnsa  groups the areas as follows
+ software and firmware signing
+ web browsersservers and cloud services
+ traditional networking equipment eg virtual private networks routers
+ operating systems
+ niche equipment eg constrained devices large publickey infrastructure systems
+ custom applications and legacy equipment
+ risk assessment frameworks
+the quantum threat has created an evolution of cryptographic algorithms and technology
+additionally researchers have provided security risk assessment frameworks to help
+business and strategic planning related to the considerable tradeoffs in managing a
+cryptographic upgrade two methodologies are described briefly for reference this is not
+comprehensive and should not be considered a specific endorsement
+ moscas theorem
+as first described in  and later elaborated ieee  michele mosca  from the
+university of ottawa proposes an assessment method based on three quantities
+x the security shelf life of information and assets
+y the migration time to pqc
+z time remaining before the quantum threat is realised ie realworld application of
+shors algorithm
+in summary if x  y  z then worry
+ caraf
+caraf is a proposed crypto agility risk assessment framework which is grouped into
+five stages
+ organisations must determine the specific threat vector that is driving the crypto agility
+risk assessment
+ identify the assets impacted by that threat vector
+ evaluate the expected value of impacted assets being compromised
+ identify the appropriate mitigation strategy based on the expected value of the
+compromised asset
+ develop a roadmap that outlines how to implement the distinct mitigation strategies for
+the different classes of assets differentiated by risk
+full details of caraf have been published in the journal of cybersecurity  
+ post quantum telco network  impact assessment
+cryptography provides the building blocks that are used to secure networks devices and
+systems examples of the uses of cryptography in telecom cover multiple domains
+pq version  page  of 
+gsm association nonconfidential
+official document pq  post quantum telco network impact assessment whitepaper
+domain confidentiality identification integrity non
+repudiation
+device secure userto identify the user critical software emergency call
+network registration imsi and device rf baseband is origin
+imei to the unaltered
+network
+simesim secure userto identify the user data on sim is call origin and
+network the root of trust unmodified billing
+communication for user identity
+against casual
+eavesdropping
+network secure network limit access to network function control plane
+signalling network functions software is not and routing
+to privileged users modified changes
+systems secure network limit access to network origin of critical
+oss topology and management configuration is not network changes
+configuration plane to privileged modified
+users
+systems keep subscriber limit access to ensure subscriber interoperator
+bss account data and subscriber data call records cannot transactions
+call records be altered roaming
+confidential unbundled
+orders cannot be
+revoked
+erp ensure employee limit access to ensure financial payments cannot
+records are unannounced records ledger be revoked
+confidential financial results are not altered
+infrastructur ensure dataatrest limit access to ensure workloads origin of
+e cloud is confidential cloud control plane and configuration workload
+to privileged users are not modified deployment and
+updates
+ domains
+ device
+post quantum security carries implications for user equipment ue such as mobile phones
+smart devices mobile iot and personal computing devices with mitigations eventually being
+required at multiple points in the stack
+for the devices supporting pqc algorithms the impact is new code signing new device
+firmware new application software
+ operating system software
+device operating systems generally provide cryptographic software api frameworks these
+frameworks are generally proprietary and need to be updated by os providers before
+application developers including browsers can become quantumsafe
+pq version  page  of 
+gsm association nonconfidential
+official document pq  post quantum telco network impact assessment whitepaper
+ uicc esimeuicc
+ simuicc
+simuicc is defined in etsi and gpp specifications simuicc implements cryptography
+both symmetric and asymmetric for various use cases
+simuicc is used for network authentication milenage and tuak are based on
+symmetric encryption respectively aes  bits and keccaksha  to  bits
+additionally g simuicc ie gpp rel  and beyond introduce imsi encryption which
+used a combination on symmetric aes and asymmetric elliptic curves algorithms this
+imsi encryption may be executed on the simuicc or on the device a quantum computer
+would break confidentiality of the user identity
+those functionalities are defined in gpp specifications it should be a gpp sa and ct
+group responsibility to ensure that the mechanisms are updated to reach quantum safety
+simuicc content is managed through remote fileapplication management rfmram
+using an ota over the air platform rfmram is defined in etsi gpp and
+globalplatform specifications there are two ways to do this management smsbased or
+https based in both cases security is based on symmetric preshared keys key
+compromise would give attackers access to most of the simuicc content
+review and updating of those protocols are under the responsibility of etsi set gpp ct
+and globalplatform se committee group
+besides simuicc can be accessed through a pointtopoint communication this
+communication might be secured through secure channel protocols scp defined in
+globalplatform specifications these scp may be use in several use cases including
+simuicc personalisation scp are based on various protocols symmetric des des
+aes or asymmetric rsa ecc update of those scp and deprecation of the vulnerable
+ones falls under the responsibility of the globalplatform secure element committee
+some simuicc can be used as a java card platform for application this platform can
+provide support of a wide range of symmetric and asymmetric algorithms to applications
+loaded on the simuicc algorithms usage is applications specific simuicc java card
+platform will have to provide to the applications a quantumsafe solution update of the java
+card specification will be the responsibility of the java card forum
+in addition to the functionalities above there are also various exchanges of assets between
+operators and simuicc manufacturers those assets include but are not limited to master
+key from which other secrets may be derived through a key derivation function kdf
+transport key input files from operator to sim vendors and output files from sim vendors to
+operators some of those data have a lifespan of several years if some of those data are
+compromised it can lead for example to simuicc cloning all those exchanges are purely
+proprietary and specific to each pair of operatorsim vendors therefore it is the duty of
+each actor to review their exchange mechanism in the light of quantum computing more
+specifically all computerbased exchanges relying on some public key cryptography need to
+be assessed
+pq version  page  of 
+gsm association nonconfidential
+official document pq  post quantum telco network impact assessment whitepaper
+ esimeuicc architecture
+the analysis made for the sim in chapter  applies in the esim context as well
+in the context of esim consumer and mm remote sim provisioning mandates the use of
+tls  or  to secure communication over the interfaces between the remote sim
+provisioning servers smdp smds and between the remote sim provisioning servers
+smdp and smds and the device lpa in all cases the use of diffiehellman key
+exchange is required with unilateral or mutual authentication based on digital signatures as
+a consequence both confidentiality and authenticity of the communication will be broken by
+a quantum computer regardless of the key size used for the symmetric components of the
+cipher suites
+in the context of esim consumer and mm the use of tls is not mandatory for the
+operator and remote sim provisioning server smdp smdp but sgp 
+sgp  require a level of security equivalent to tls which is likely to lead to the
+use of the same algorithms and therefore to the same vulnerabilities
+in the context of esim consumer the interface between the remote sim provisioning
+server smdp and the euicc is secured using a procedure different from tls but still
+relies on the same asymmetric components namely diffiehellman key exchange and
+digital signatures and will thus have the same vulnerabilities
+in the context of esim consumer the interface between the operator and the euicc is
+protected either by des or aes in different modes or by the use of the tls protocol in
+preshared key psk mode in the former case the protocol should withstand quantum
+computing in the case where aes with enough key length is used
+in the context of esim mm the sgp cryptographic mechanisms used for  operator
+and euicc interface and euicc are essentially the same as the ones used for operator and
+euicc interface in the esim consumer paragraph above which leads to the same
+conclusions the euicc and remote sim provisioning server smdp interface relies on
+aes in cbc or cmac modes with keys ranging from  to  bits
+the same document sgp also mandates the support of the following cipher suites for
+tls
+ tlspskwithaesgcmsha
+ tlspskwithaescbcsha
+with a preshared key having at least  bits of entropy
+those interfaces are defined by the gsma esim wg it should be gsma esim wg
+responsibility to update those interfaces
+ g network
+mobile communications between the user equipment and the homeserving network are
+secured using the authentication and key agreement aka protocol whose purpose is to
+allow user equipment and network to authenticate each other and establish shared keys that
+will be used to protect confidentiality and integrity of the communications the fact that most
+of the cryptographic mechanisms involved in this process are associated to symmetric
+pq version  page  of 
+gsm association nonconfidential
+official document pq  post quantum telco network impact assessment whitepaper
+cryptography reduces the impact of the postquantum transition on the network but this
+transition cannot be reduced to a mere doubling of the keys size as we explain belowbut
+first we note that g introduced asymmetric cryptographic to conceal the subscriber public
+identifier through the use of the ecies protocol as the latter cannot withstand quantum
+computing the direct consequence will be the loss of the users privacy in a way akin to what
+occurs with imsi catcher attacks the most natural solution to this problem would be to
+move to a postquantum variant of ecies based on eg kyber key encapsulation
+mechanism the suci calculation takes place in the device mandatory support or the
+usim optional support based on operator decision and therefore both are impacted by
+pqc transition
+regarding symmetric algorithms we note that all the keys involved in the communications
+belong to a key structure whose root is the longterm key k the current requirement is that
+k shall be  bits or  bits long regarding the other keys transition to  bits should
+be rather easy as most of them are already generated as bit pseudorandom strings
+before being truncated to  bits
+aka involves a set of algorithms ff which relies on tuak based on the keccak hash
+function or milenage based on the aes block cipher regarding tuak transition to
+bit security should be straightforward regarding milenage the situation is more
+complex indeed although aes supports  bits key size the block size is restricted to
+ regardless of the key sizes milenage is therefore likely to undergo some changes to
+produce bit pseudorandom outputs this could be done by replacing aes by rijndael
+with  bits block sizes aes is rijndael with  bits block size or by designing an adhoc
+construction using aes as a subroutine
+once keys are established communications are protected between the device and the gnb
+up and ran signalling or the amf nas signalling using cryptographic mechanisms
+based on one of the following primitives aes snow and zuc aes inherently supports
+ bits key size and so will not require any changes to achieve postquantum security the
+situation differs for snow and zuc as they do not support such key sizes this has led the
+designers of such schemes to propose bit variants called snow g and zuc 
+regarding snow g etsi sage and academic evaluations suggest a strong design
+providing a comfortable security margin regarding zuc  a recent analysis has shown
+that the number of rounds in the initialisation phase only provides a limited security margin
+for this reason etsi sage has recommended to increase this number of rounds which
+could lead to another version of this algorithm
+the quantum threat also extends to other areas of the network tls is used to secure the
+n interface but also communication between entities in service based architectures
+sba in both cases key exchange is performed using classical algorithms eg ecdhe
+meaning that any privacy guarantees will vanish with the advent of quantum computers
+authentication based on digital signatures will also be broken
+in the specific case of sba an additional issue may arise because of the use of the oauth
+ framework indeed in the case where authorisation tokens are generated using digital
+signatures a quantum attacker could forge such tokens and therefore get access to
+unauthorised resources
+pq version  page  of 
+gsm association nonconfidential
+official document pq  post quantum telco network impact assessment whitepaper
+unlike public networks where eap aka and g aka are used the authentication process
+ue  network in nonpublic networks may also be concerned if a given actor choses to rely
+on eap methods making use of asymmetric cryptography eg eap tls for authentication
+and key agreement
+the detailed assessment of the g network is under the responsibility of gpp sa
+ device
+post quantum security carries implications for user equipment ue such as mobile phones
+smart devices mobile iot and personal computing devices
+customer owned equipment may exist on a telco network
+the impact on the device concerning the esim and g network are captured respectively in
+sections  and 
+ operating system software
+device operating systems generally provide cryptographic software api frameworks these
+frameworks are generally proprietary and need to be updated by os providers before
+applications including browsers can become quantumsafe
+ systems oss
+operational support systems typically include connections at l and below into the
+management network as well as high level apis securing all of these interfaces against
+advanced quantum computational threat should be a goal however the security goal of
+confidentiality of management traffic is usually lower priority than the security goals of data
+origin authenticity integrity and availability in addition the shelf time for confidentiality of
+management traffic is usually not as longterm as for other types of data such as personally
+identifiable information pii therefore it is usually sufficient that the roadmap for upgrading
+these systems is aligned with the roadmap for the development of quantum computers
+since retrospective attacks are usually less significant the highest priority for early
+intervention to provide quantumsafe confidential communication is for data in transit where
+large amounts of network addresses related to critical national infrastructure such as the
+core network nodes could be exposed to an adversary who might perform a retrospective
+attack
+ systems bss
+data at rest the data residing on bss platforms being quantumsafe
+data in transit data in transit on bss platforms can be connected to third party software
+platforms which needs to be quantumsafe
+this is important to facilitate quantumsafe telco communication cases such as intercarrier
+settlements and financial industry transactions
+ systems erp
+data security is dependent on the erp implementation and the underlying database the
+sensitive nature of data in erp includes financial information that may only have a data
+cover time until the next financial results are announced however other information such as
+pq version  page  of 
+gsm association nonconfidential
+official document pq  post quantum telco network impact assessment whitepaper
+the human resources database which has a long data cover time and contains data that
+should always remain confidential to provide best security symmetric key methods are
+recommended eg preshared keys
+ infrastructure cloud
+the underlying infrastructure servers storage torbor switches must support pqc for
+lowlevel management interfaces eg ilo firmware updates identity and access
+management privilege access management eg jumphosts and the automation processes
+cicd
+ interfaces where cryptography is used in telecoms
+cryptography goes beyond the mobile network it is an endtoend problem and not one that
+can be solved in isolation figure  presents the highlevel architectural actors which use
+cryptography and is followed by identifying the relevant interfaces by architectural area
+figure  cryptography interfaces in telecoms
+this section provides an overview of the systems that are affected by pqc and how they
+rely on cryptography to secure interfaces or data
+ bss systems
+ossbss system need secure interfaces which generally rely on asymmetric cryptography
+eg tls ssh etc operators will need to review the risk exposure and plan to upgrade
+the systems using quantumsafe alternatives
+ data
+data bases and federated data stores like data lakes may need to be secure data at rest by
+encrypting stored data they also need to secure remote access interfaces eg odbc
+jdbc sql to ensure confidentiality and integrity of database access
+pq version  page  of 
+gsm association nonconfidential
+official document pq  post quantum telco network impact assessment whitepaper
+ infrastructure
+all infrastructure whether cloudnfvi or the underlying servers and storage need secure
+interfaces to deploy workloads verify the integrity of software updates and authenticate
+administrative requests
+updates to server firmware through the ilo port must be cryptographically verified
+configuration changes through an administrative cli must be secured eg using ssh and
+authenticating the requestor
+ security
+operations administration and maintenance of network elements systems and
+infrastructure requires authenticating and potentially logging all administrative access
+an identity and access management iam system and a privilege access management
+pam system underpin the implementation of cryptographic authentication protocols eg
+tls kerberos oauth
+management of the public keys is usually centralised in a public key infrastructure and
+operators often implement a certificate authority
+master keys are usually stored in a hardware security module hsm which usually supports
+the pkcs  interface for secure access to keys
+cryptographic libraries are embedded in many components and finding and updating these
+libraries to be quantumsafe will be a key task
+pq version  page  of 
+gsm association nonconfidential
+official document pq  post quantum telco network impact assessment whitepaper
+annex a definitions abbreviations and references
+a definitions
+term description
+cryptographic agility a product is said to be cryptographically agile or crypto agile if it includes
+the possibility to update its cryptographic algorithms without recalling it or
+substituting it with a new one
+cryptographically describes quantum computers that can attack real world cryptographic
+relevant quantum systems that would be infeasible to attack with a normal computer if
+computer realisable a crqc would be capable of undermining the widely deployed
+public key algorithms used for asymmetric key exchanges and digital
+signatures
+the goal of postquantum cryptography also called quantumresistant
+cryptography is to develop cryptographic systems that are secure against
+post quantum both quantum and classical computers and can interoperate with existing
+cryptography communications protocols and networks nist definition
+synonyms include quantum resistant cryptography quantum secure
+cryptography
+post
+a cryptographic scheme made up of two or more component algorithms
+quantumtraditional
+where at least one is a postquantum algorithm and at least one is a
+pqt hybrid
+traditional algorithm
+scheme
+pqt hybrid key a key encapsulation mechanism kem made up of two or more
+encapsulation component kem algorithms where at least one is asymmetric post
+mechanism quantum algorithm and at least one is a traditional algorithm ietf 
+a public key encryption pke scheme made up of two or more component
+pqt hybrid public
+pke algorithms where at least one is a postquantum algorithm and at least
+key encryption
+one is a traditional algorithm
+a digital signature scheme made up of two or more component digital
+signature algorithms where at least one is a postquantum algorithm and at
+pqt hybrid digital
+least one is a traditional algorithm pqt hybrid kems pqt hybrid pke
+signature
+and pqt hybrid digital signatures are all examples of pqt hybrid
+schemes
+generally accepted to be invulnerable or resistant to cryptanalysis by
+quantumsafe
+quantum computers
+technology that makes use of quantum physics such as quantum
+quantum
+computers quantum key distribution qrng quantum clocks and
+technology
+quantum sensors
+shelf time the length of time for which plaintext data needs to be kept confidential
+a abbreviations
+term description
+aes advanced encryption standard
+anssi agence nationale de la scurit des systmes dinformation
+bsi bundesamt fr sicherheit in der informationstechnik
+pq version  page  of 
+gsm association nonconfidential
+official document pq  post quantum telco network impact assessment whitepaper
+term description
+bss business support system
+ca certificate authority
+cncf cloud native computing foundation
+cnsa commercial national security algorithm suite
+crm customer relationship management
+crqc cryptographically relevant quantum computer
+csac chip scale atomic clock
+dsa digital signature algorithm
+etsi european telecommunications standards institute
+gdpr general data protection regulation
+hsm hardware security module
+https hypertext transfer protocol secure
+ietf internet engineering task force
+ike internet key exchange
+imei international mobile equipment identity
+imsi international mobile subscriber identity
+ipsec internet protocol security
+kdf key derivation function
+kem key encapsulation mechanism
+kpqc korean postquantum cryptography competition
+nasa national aeronautical and space administration
+ncsc national cyber security centre
+nist national institute of standards and technology
+nsa national security agency
+onap open network automation platform
+osm open source mano
+oss operational support system
+pkcs public key cryptography standards
+pki public key infrastructure
+pqc post quantum cryptography
+pqt postquantumtraditional
+qkd quantum key distribution
+qkdn quantum key distribution network
+qrng quantum random number generator
+rivest shamir and adleman  the most widelyused publickey cryptographic
+rsa
+algorithm  named after its inventors
+ssh secure shell protocol
+tls transport layer security a major internet secure communication protocol
+pq version  page  of 
+gsm association nonconfidential
+official document pq  post quantum telco network impact assessment whitepaper
+term description
+sndl store now decrypt later
+a references
+doc
+ref
+number title
+ anssi views on the postquantum cryptography transition
+httpswwwssigouvfrenpublicationanssiviewsonthepost
+quantumcryptographytransition
+ rfc  key words for use in rfcs to indicate requirement levels s
+bradner march  available at httpwwwietforgrfcrfctxt
+ rfc  ambiguity of uppercase vs lowercase in rfc  key words
+httpswwwrfceditororginforfc
+
+nist ir status report on the third round of the nist postquantum
+ upd cryptography standardisation process updated  sept 
+httpsdoiorgnistirupd
+
+transitioning to a quantumsecure economy world economic forum
+september 
+httpswwwweforumorgdocsweftransitioningtoaquantu
+msecureeconomypdf
+anssi views on the postquantum cryptography transition march 
+
+
+httpswwwssigouvfruploadsanssi
+technicalpositionpaperspostquantumcryptographytransitionpdf
+postquantum cryptography critical technologies policy coordination
+office australian government october 
+
+httpswwwpmcgovausitesdefaultfilespublicationsctpcotech
+cardspostquantumcryptographyaustpdf
+the quantum threat to cybersecurity looking through the prism of post
+quantum cryptography csiro  australias national science agency
+april 
+
+httpsdatacsiroaumediadquantumcyberreport
+datareportquantumcryptographywebpd
+f
+postquantum cryptography australian cyber security center
+australian government july 
+
+httpswwwcybergovausitesdefaultfiles
+protectpost
+quantumcryptographyjulypdf
+information security manual part  guidelines for cryptography 
+december  australian cyber security centre australian
+
+government
+httpswwwcybergovauacscviewallcontentism
+ itsap preparing your organisation for the quantum threat to cryptography 
+ itsap canadian center for cybersecurity february 
+pq version  page  of 
+gsm association nonconfidential
+official document pq  post quantum telco network impact assessment whitepaper
+doc
+ref
+number title
+httpscybergccaenguidancepreparingyourorganizationquantum
+threatcryptographyitsap
+itse  addressing the quantum computing threat to cryptography
+itse
+
+may 
+httpscybergccaenguidanceaddressingquantumcomputing
+threatcryptographyitse
+itsap guidance on becoming cryptographically agile canadian centre for
+ cyber security itsap may 
+
+httpscybergccasitesdefaultfilesitsapguidance
+onbecomingcryptographicallyagileepdf
+canadian national quantumreadiness best practices and
+guidelines
+version   july  
+
+quantumreadiness working group qrwg of the canadian forum
+for digital infrastructure resilience cfdir
+httpswwwicgccaeicsitesmtgstnsfvwapjcfdirpratitech
+quantenpdffilecfdirpratitechquantenpdf
+preparing critical infrastructure for postquantum cryptography
+cybersecurity  infrastructure security agency cisa usa
+
+original release date august  
+httpswwwcisagovsitesdefaultfilespublicationscisainsightpost
+quantumcryptographypdf
+preparing for quantumsafe cryptography national cyber security
+centre ncscuk government version   november 
+
+httpswwwncscgovukwhitepaperpreparingforquantumsafe
+cryptography
+bsi quantumsafe cryptography  fundamentals current developments and
+bro recommendations federal office for information security germany
+ october 
+httpswwwbsibunddeshareddocsdownloadsenbsipublications
+brochurequantumsafecryptographypdfblobpublicationfilev
+
+tr   etsi tr   v  quantumsafe signatures
+etsi tr   v  quantumsafe public key
+ tr  
+encryption and key encapsulation
+etsi tr   migration strategies and recommendations for
+ tr  
+quantum safe schemes
+quantum computing networking and security gsma version 
+march 
+
+httpswwwgsmacomnewsroomwpcontentuploadsig
+quantumcomputingnetworkingandsecuritypdf
+quantum networking and service gsma version  december
+
+
+pq version  page  of 
+gsm association nonconfidential
+official document pq  post quantum telco network impact assessment whitepaper
+doc
+ref
+number title
+httpswwwgsmacomnewsroomwpcontentuploadsig
+quantumnetworkingandservicepdf
+quantum communications new potential for the future of
+
+communications ofcom uk government  july 
+ rfc  rsa cryptography specifications version  ietf
+rfc  deterministic usage of the digital signature algorithm dsa and
+
+elliptic curve digital signature algorithm ecdsa ietf
+ rfc  the transport layer security tls protocol version  ietf
+postquantum security considerations for the financial industry 
+sept  dtcc
+ httpswwwdtcccom
+mediafilesdownloadswhitepapersquantumcomputing
+whitepaper
+pkcs  pkcs  cryptographic token interface base specification version
+
+ oasis standard  june 
+httpsdocsoasisopenorgpkcspkcsbasevospkcsbase
+vospdf
+rfc  mixing preshared keys in the internet key exchange protocol version
+ ikev for postquantum security
+
+rfc   mixing preshared keys in the internet key exchange
+protocol version  ikev for postquantum security ietforg
+ncsc
+preparing for quantumsafe cryptography ncsc  nov 
+
+httpswwwncscgovukwhitepaperpreparingforquantumsafe
+cryptography
+miklos ajtai  generating hard instances of lattice problems in
+
+proceedings of the twentyeighth annual acm symposium on theory of
+computing acm 
+miklos ajtai  the shortest vector problem in l is nphard for
+randomised reductions extended abstract in th annual acm
+
+symposium on theory of
+computing pages  acm press
+gorjan alagic daniel apon david cooper quynh dang thinh dang
+john kelsey jacob lichtinger carl miller dustin moody rene peralta
+ ray perlner angela robinson daniel smithtone and yikai liu
+ status report on the third round of the nist postquantum
+cryptography standardisation process nistir 
+httpscsrcnistgovpublicationsdetailnistirfinal
+m r albrecht c rechberger t schneider t tiessen and m zohner
+ ciphers for mpc and fhe advances in cryptology 
+ eurocrypt  eds e oswald m fischlin springer berlin
+heidelberg berlin heidelberg pp 
+ c baum c d de saint guilhem d kales e orsini p scholl and g
+zaverucha  banquet short and fast signatures from aes
+pq version  page  of 
+gsm association nonconfidential
+official document pq  post quantum telco network impact assessment whitepaper
+doc
+ref
+number title
+publickey cryptography  pkc  ed garay ja springer
+international publishing cham pp 
+abhishek banerjee chris peikert and alon rosen 
+
+pseudorandom functions and lattices advances in cryptology
+eurocrypt   
+daniel j bernstein chitchanok chuengsatiansup tanja lange and
+ christine van vredendaal  ntru prime reducing attack surface
+at low cost in international conference on selected areas in
+cryptography springer 
+daniel j bernstein andreas hulsing stefan kolbl ruben
+niederhagen joost rijneveld and peter schwabe  the
+ sphincs signature framework in lorenzo cavallaro johannes
+kinder xiaofeng wang and jonathan katz editors acm ccs 
+th conference on computer and communications security pages
+ acm press
+ward beullens  breaking rainbow takes a weekend on a
+laptop in dodis y shrimpton t eds advances in cryptology 
+
+crypto  crypto  lecture notes in computer science
+vol  springer cham httpsdoiorg
+
+ wouter castryck and thomas decru  an efficient key recovery
+attack on sidh httpseprintiacrorg
+sanjit chatterjee neal koblitz alfred menezes and palash sarkar
+
+ another look at tightness ii practical issues in cryptography in
+international conference on cryptology in malaysia springer 
+david cooper daniel apon quynh dang michael davidson morris
+dworkin and carl miller  nist special publication 
+recommendation for stateful hashbased signature schemes
+
+technical report national institute of standards and technology
+httpsdoiorgnistsp
+jeffrey hoffstein jill pipher and joseph h silverman  ntru a
+ ringbased public key cryptosystem in joe p buhler editor algorithmic
+number theory  antsiii volume  of lncs pages 
+springer httpdxdoiorgbfb
+andreas hulsing denise butin stefanlukas gazdag joost rijneveld
+
+and aziz mohaisen  xmss extended hashbased signatures
+internet requests for comments
+tanja lange  sd postquantum cryptography  part 
+isogenybased cryptography technical report n  isoiec jtc
+
+scwg  
+httpswwwdinderesourceblobfacdecfbc
+aacscwgsddatazip
+f liu t isobe and w meier  cryptanalysis of full lowmc and
+ lowmcm with algebraic techniques advances in cryptology 
+crypto  eds t malkin c peikert springer international
+publishing cham pp 
+f liu g wang w meier s sarkar and t isobe  algebraic
+
+meetinthemiddle attack on lowmc cryptology eprint archive report
+ httpsiacr 
+pq version  page  of 
+gsm association nonconfidential
+official document pq  post quantum telco network impact assessment whitepaper
+doc
+ref
+number title
+robert j mceliece  a publickey cryptosystem based on
+algebraic coding
+
+theory theory jpl dsn progress report
+httpipnprjplnasagovprogressreportnpdf
+ david a mcgrew michael curcio and scott r fluhrer  hash
+based signatures rfc  rfc editor
+petzoldt and j ding  efficient key recovery for all hfe
+signature variants advances in cryptology  crypto  eds
+ malkin t peikert c springer international publishing cham pp 
+
+pp
+quantum computing and postquantum cryptography frequently
+asked questions pp aug  national security agency
+
+httpsmediadefensegovaug
+quantumfaqspdf
+prasanna ravi james howe anupam chattopadhyay and shivam
+bhasin  latticebased keysharing schemes a survey
+
+acm computing surveys volume  pp 
+httpsdoiorg
+ oded regev  on lattices learning with errors random linear
+codes and cryptography journal of the acm jacm    
+c d de saint guilhem l de meyer e orsini and n p smart 
+ bbq using aes in picnic signatures selected areas in cryptography
+ sac  eds k g paterson d stebila springer international
+publishing cham pp 
+caraf chujiao ma luis colon joe dera bahman rashidi vaibhav garg
+caraf crypto agility risk assessment framework journal of
+cybersecurity volume  issue   tyab
+
+httpsacademicoupcomcybersecurityarticletyab
+pp
+announcing the commercial national security algorithm suite 
+national security agency version  september 
+
+httpsmediadefensegovsep
+csacnsaalgorithmspdf
+transitioning national security systems to a postquantum future 
+november  morgan stern from nist fourth pqc standardisation
+conference  november   december 
+
+httpscsrcnistgovcsrcmediapresentationstransitioning
+nationalsecuritysystemstoapostimagesmediasessionstern
+transitioningnationalsecuritysystemspqcpdf
+ ig gsma ig quantum computing networking and security 
+december 
+
+ig gsma ig quantum networking and service  july 
+  quantum threat timeline report global risk institute  global
+risk institute
+pq version  page  of 
+gsm association nonconfidential
+official document pq  post quantum telco network impact assessment whitepaper
+doc
+ref
+number title
+submission requirements and evaluation criteria
+ for the postquantum cryptography standardisation process
+httpscsrcnistgovcsrcmediaprojectspostquantum
+cryptographydocumentscallforproposalsfinaldecpdf
+nist announces first four quantumresistant cryptographic
+algorithms
+
+httpswwwnistgovnewseventsnewsnistannouncesfirst
+fourquantumresistantcryptographicalgorithms
+bis innovation hub announces new projects and expands cyber
+security and green finance experiments
+
+httpswwwbisorgpressphtm
+postquantum security considerations for the financial industry
+httpswwwdtcccomdtcc
+
+connectionarticlesseptemberpostquantumsecurity
+considerationsforthefinancialindustry
+the banque de france has successfully experimented with cryptonext
+security postquantum security technologies
+ httpswwwbanquefrancefrencommuniquedepressebanquede
+francehassuccessfullyexperimentedcryptonextsecuritypost
+quantumsecurity
+open
+postquantum key exchange for the internet and the open quantum
+ quantum safe project
+safe
+httpslinkspringercomchapter
+postquantum cryptography australian cyber security center  july
+
+httpswwwcybergovauacscviewallcontentpublicationspost
+
+quantumcryptography
+action plan for critical technologies postquantum cryptography oct
+
+
+httpswwwindustrygovaupublicationsactionplancritical
+technologiestechcardspostquantumcryptography
+postquantum cryptography integration study october  tp
+enn
+  enisa
+httpscybergccaennewseventsnistannouncespostquantum
+cryptographyselections
+pq version  page  of 
+gsm association nonconfidential
+official document pq  post quantum telco network impact assessment whitepaper
+doc
+ref
+number title
+postquantum cryptography
+
+httpswwwenisaeuropaeupublicationspostquantumcryptography
+integrationstudydownloadfullreport
+anssi views on the postquantum cryptography transition
+
+httpswwwssigouvfrenpublicationnssiviewsonthepost
+quantumcryptographytransition
+quantum technologies and quantumsafe cryptography
+httpswwwbsibunddeenthemenunternehmenund
+ organisationeninformationenund
+empfehlungenquantentechnologienundpostquanten
+kryptografiequantentechnologienundpostquanten
+kryptografienodehtml
+japan quantum technologies and quantumsafe cryptography
+
+httpswwwcryptrecgojpen
+mci response to pq on assessment of risk and impact of quantum
+computing technology and efforts to ensure encrypted digital records
+and communications networks remain secure
+ httpswwwmcigovsgpressroomnewsand
+storiespressroommciresponsetopqonassessmentofrisk
+andimpactofquantumcomputingtechnologyandeffortstoensure
+encrypteddigitalrecordsandcommunicationsnetworksremain
+secure
+the quantum threat to cybersecurity looking through the prism of post
+quantum cryptography
+
+httpsdatacsiroaumediadquantumcyberreport
+datareportquantumcryptographywebpd
+f
+acsc postquantum cryptography july 
+ httpswwwcybergovausitesdefaultfiles
+protectpost
+quantumcryptographyjulypdf
+acsc information security manual ism
+
+httpswwwcybergovauacscviewallcontentism
+nsm
+national security memorandum on promoting united states leadership
+in quantum computing while mitigating risks to vulnerable
+cryptographic systems
+
+httpswwwwhitehousegovbriefingroomstatements
+releasesnationalsecuritymemorandumonpromoting
+unitedstatesleadershipinquantumcomputingwhilemitigatingrisks
+tovulnerablecryptographicsystems
+memorandum for the heads of executive departments and agencies
+
+httpswwwwhitehousegovwpcontentuploadsmm
+memoonmigratingtopostquantumcryptographypdf
+itut x
+ itut recommendation x  key combination and
+confidential key supply for quantum key distribution networks
+pq version  page  of 
+gsm association nonconfidential
+official document pq  post quantum telco network impact assessment whitepaper
+doc
+ref
+number title
+ etsi ts 
+technical specification ts    cyber quantumsafe
+ hybrid key exchanges 
+ nist sp
+nist special publication  revision   recommendation
+r for cryptographic key generation
+ nist sp
+nist special publication c revision   recommendation
+cr for keyderivation methods in keyestablishment schemes
+ ietf rfc
+ietf standard rfc  tls  extension for certificate
+ based authentication with an external preshared key
+ ietf draft
+ietfipsecme
+ietf draft standard draftietfipsecmeikevmultipleke 
+ikev
+multiple key exchanges in ikev draftietfipsecmeikevmultipleke
+multipleke 
+
+ ietf draft
+campagna ietf draft experimental draftcampagnatlsbikesikehybrid hybrid
+tlsbikesike postquantum key encapsulation methods pq kem for transport
+layer security  tls
+hybrid
+ mosca 
+mosca m cybersecurity in an era with quantum computers will we
+be ready ieee security  privacy  no  september  
+ httpsdoiorgmsp
+ pl 
+hr  quantum computing cybersecurity preparedness act
+httpswwwcongressgovbillthcongresshousebilltext
+
+httpswwwcacrnetorgcnsitecontenthtml
+cacr 
+
+research of postquantum cryptography in china
+jiwu jing data assurance and communications security research
+center chinese academy of sciences
+httpsdocboxetsiorgworkshopetsiiqcquantu
+msafeexecutivetrackjingchineseaccademyofscienc
+epdf
+
+advisory board for cryptographic technology fy  annual report
+cryptrec rp in japanese
+
+cryptrec lsr japan egovernment recommended
+cipher list last update  has
+ recent trends on research and development of quantum
+computers and standardisation of postquantum cryptography
+discussion paper no e
+ itut security guidelines for applying quantumsafe algorithms in imt
+x systems april 
+httpswwwituintrectrecxi
+ draftietf multiple key exchanges in ikev october 
+ipsecme
+pq version  page  of 
+gsm association nonconfidential
+official document pq  post quantum telco network impact assessment whitepaper
+doc
+ref
+number title
+ikev httpsdatatrackerietforgdochtmldraftietfipsecmeikevmultipleke
+multipleke
+
+nictnews white paper on quantum network building an international hub for
+ quantum security
+e
+httpswwwnictgojpendatanictnewsnictnews
+epdf
+
+national quantum safe network that provides robustcybersecurity
+httpsnewsnusedusgnationalquantumsafenetworkthatprovides
+robustcybersecurity
+
+ais  notes on application and interpretation ais
+in line with itsec and common criteria cc
+httpswwwbsibunddedethemenunternehmenund
+organisationenstandardsundzertifizierungzertifizierungund
+anerkennungzertifizierungvonproduktenzertifizierungnach
+ccanwendungshinweiseund
+interpretationenaisaisccnodehtml
+
+terminology for postquantum traditional hybrid schemes
+httpsdatatrackerietforgdocdraftdriscollpqthybridterminology
+
+generating hard instances of lattice problems m ajtai
+published  mathematics computer science electron
+colloquium comput complex
+
+ntru a ringbased public key cryptosystem jeffrey hoffstein jill
+pipher  joseph h silverman 
+
+on lattices learning with errors random linear codes and
+cryptography oded regev may  
+
+pseudorandom functions and lattices abhishek banerjee chris
+peikert and alon rosen 
+
+ntru prime reducing attack surface at low cost daniel j bernstein 
+chitchanok chuengsatiansup tanja lange and christine van
+vredendaal 
+
+will you cross the threshold for me generic sidechannel assisted
+chosenciphertext attacks on ntrubased kems prasanna ravi
+martianus frederic ezerman shivam bhasin anupam chattopadhyay
+sujoy sinha roy 
+
+nist special publication a revision  june 
+recommendation for random number generation using deterministic
+random bit generators httpdxdoiorgnistspar
+
+tr   tr   quantumsafe identitybased encryption
+
+kpqc kpqc comptetion round  algorithms https kpqcorkr
+
+eprint cryptology eprint archive httpseprintiacrorg
+pq version  page  of 
+gsm association nonconfidential
+official document pq  post quantum telco network impact assessment whitepaper
+doc
+ref
+number title
+
+status report on the second round of the nist postquantum
+cryptography standardisation process cooper et al 
+
+rapidly verifiable xmss signatures hulsing et al 
+
+hashbased signatures mcgrew et al 
+
+the sphincs signature framework bernstein et al 
+
+breaking rainbow takes a weekend on a laptop beullens 
+
+efficient key recovery for all hfe signature variants chengdong tao 
+albrecht petzoldt jintai ding 
+
+concrete quantum cryptanalysis of binary elliptic curves lange et al
+
+
+an efficient key recovery attack on sidh wouter castryck and
+thomas decru 
+
+rfc intermediate exchange in the internet key exchange protocol version
+ ikev
+
+ietf draft hybrid key exchange in tls 
+
+ietf draft  internet x public key infrastructure  algorithm
+identifiers for kyber
+
+ietf draft internet x public key infrastructure  algorithm
+identifiers for kyber
+
+ietf draft use of the sphincs signature algorithm in the
+cryptographic message syntax cms
+
+ciphers for mpc and fhe albrecht et al 
+
+lowmemory algebraic attacks on roundreduced lowmc liu et al
+
+
+algebraic meetinthemiddle attack on lowmc liu et al 
+
+bbq using aes in picnic signatures de saint guilhem et al 
+
+assurance of quantum random number generators  quantum
+communications hub quantumcommshubnet
+
+bt and toshiba launch first commercial trial of quantum secured
+communication services  ey uk
+ sgp
+remote provisioning architecture for embedded uicc technical
+
+specification version   july  gsma
+httpswwwgsmacomesimresourcessgpv
+ sgp
+rsp technical specification version   oct  gsma
+
+httpswwwgsmacomesimresourcessgpv
+pq version  page  of 
+gsm association nonconfidential
+official document pq  post quantum telco network impact assessment whitepaper
+annex b document management
+b document history
+version date brief description of change approval authority
+v  final version sent to pqtn group technogloy group
+approval
+b other information
+type description
+document owner post quantum telco network task force
+editor name company name  ayan ghosh arqit
+ daryl burns arqit
+ daniel shui arqit
+ sophie stevens arqit
+ catherine white ee
+ jonathan leghsmith ee
+ jerome dumoulin idemia
+ lory thorpe ibm
+ zygmunt lozinski ibm
+ sad gharout kigen
+ hyungsoo kim kt corp
+ loc ferreira orange
+ olivier sanders orange
+ todor gamishev orange
+ donghi sim sk telecom
+ monique morrow syniverse technologies
+ diego lopez telefonica
+ luke ibbetson vodafone
+ guenter klas vodafone
+ jens ruedinger vodafone
+ chloe ai vodafone
+ kristian mcdonald vodafone
+ michael salmon verizon
+it is our intention to provide a quality product for your use if you find any errors or omissions
+please contact us with your comments you may notify us at prdgsmacom
+your comments or suggestions  questions are always welcome
+pq version  page  of 

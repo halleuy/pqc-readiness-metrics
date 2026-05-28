@@ -1,0 +1,30 @@
+rank,Framework,Framework_ID,weighted_score,rebased_score,crypto_assets,crypto_agility,migration_planning,risk_management,standards_compliance,strongest_dimension,weakest_dimension
+1,Quantum Readiness in Cryptography: A Maturity-Based Framework for Post- Quantum Transition.pdf,19,3.619,72.4,3.68,2.78,4.58,2.92,4.81,standards_compliance,crypto_agility
+2,tr_103619v010101p.pdf,30,3.285,65.7,5.0,2.44,4.12,1.78,4.35,crypto_assets,risk_management
+3,QUANTUM-SAFE MIGRATION HANDBOOK.pdf,17,3.062,61.2,3.79,2.55,4.14,2.97,2.91,migration_planning,crypto_agility
+4,QUANTUM READINESS INDEX.pdf,16,3.018,60.4,3.03,2.59,5.0,3.88,1.74,migration_planning,standards_compliance
+5,ASC-X9F-IR-01-2025-Post-Quantum-Cryptography-Financial-Readiness-Needs-Assessment-Informative-Report-Final-1.pdf,2,2.938,58.8,3.78,2.33,3.77,2.28,3.44,crypto_assets,risk_management
+6,draft-ietf-pquip-pqc-engineers-14 - Post-Quantum Cryptography for Engineers.pdf,25,2.828,56.6,3.07,2.69,1.83,1.46,4.57,standards_compliance,risk_management
+7,PQ.1-Post-Quantum-Telco-Network-Impact-Assessment-Whitepaper-Version1.0.pdf,10,2.786,55.7,3.13,2.37,2.87,2.21,3.69,standards_compliance,risk_management
+8,Transitioning organizations to post-quantum cryptography.pdf,22,2.733,54.7,2.4,2.55,2.88,1.75,3.66,standards_compliance,risk_management
+9,CSA_CNSA_2.0_ALGORITHMS.pdf,3,2.635,52.7,2.61,1.28,3.76,1.42,5.0,standards_compliance,crypto_agility
+10,pqc-migration-nist-sp-1800-38b-preliminary-draft.pdf,28,2.562,51.2,4.16,2.15,2.72,2.43,2.62,crypto_assets,crypto_agility
+11,ANSSI views on the Post-Quantum Cryptography transition.pdf,1,2.557,51.1,2.59,2.08,1.58,1.21,5.0,standards_compliance,risk_management
+12,MIGRATION TO POST-QUANTUM CRYPTOGRAPHY.pdf,8,2.553,51.1,3.44,2.31,3.09,2.13,2.45,crypto_assets,risk_management
+13,CSI_CNSA_2.0_FAQ_.pdf,4,2.545,50.9,1.75,1.73,2.71,1.3,5.0,standards_compliance,risk_management
+14,EN_Position.pdf,6,2.528,50.6,2.61,2.07,3.12,1.78,3.31,standards_compliance,risk_management
+15,WEF_Quantum_Readiness_Toolkit_2023.pdf,23,2.502,50.0,1.79,2.46,4.18,3.5,0.96,migration_planning,standards_compliance
+16,ENISA Report - Post-Quantum Cryptography Current state and quantum mitigation-V2.pdf,5,2.412,48.2,1.97,1.41,2.13,1.93,5.0,standards_compliance,crypto_agility
+17,itsm.40.001-migration-post-quantum-cryptography-government-canada-e.pdf,26,2.376,47.5,3.5,1.63,5.0,2.19,1.31,migration_planning,standards_compliance
+18,Practical Preparations for the Post-Quantum World.pdf,12,2.375,47.5,4.11,1.9,2.88,2.15,2.27,crypto_assets,crypto_agility
+19,WEF_Transitioning to_a_Quantum_Secure_Economy_2022.pdf,24,2.336,46.7,2.36,2.04,3.89,2.52,1.53,migration_planning,standards_compliance
+20,POST-QUANTUM CRYPTOGRAPHY READINESS IN U.S. COMMUNITY BANKS AND FINANCIAL SMES: A CYBERSECURITY RISK ASSESSMENT FRAMEWORK.pdf,9,2.334,46.7,2.48,1.54,3.82,3.2,2.09,migration_planning,crypto_agility
+21,quantum-safe-cryptography.pdf,29,2.292,45.8,2.69,2.1,1.8,1.56,3.3,standards_compliance,risk_management
+22,QUANTUM COMPUTING IN FINANCE: A STRATEGIC ROADMAP FOR INVESTORS AND BANKS.pdf,15,2.252,45.0,1.98,1.55,4.57,2.24,1.84,migration_planning,crypto_agility
+23,Product Categories for Technologies That Use Post-Quantum Cryptography Standards _ CISA.pdf,14,2.142,42.8,3.23,1.43,2.77,1.37,2.97,crypto_assets,risk_management
+24,Post-Quantum Cryptography (PQC) Network Instrument: Measuring PQC Adoption Rates and Identifying Migration Pathways.pdf,11,2.094,41.9,2.56,1.68,1.73,1.23,3.47,standards_compliance,risk_management
+25,Quantum Readiness: Unlocking the Quantum Advantage for Australian Industries.pdf,20,2.077,41.5,1.08,1.29,4.91,2.39,1.53,migration_planning,crypto_assets
+26,Preparing for Quantum-Safe Cryptography.pdf,13,2.057,41.1,2.95,1.64,2.28,1.71,2.49,crypto_assets,crypto_agility
+27,pdf-quantum-threat-timeline-report-2025.pdf,27,1.962,39.2,1.36,1.6,2.51,3.65,1.5,risk_management,crypto_assets
+28,Quantum Computing Cybersecurity Preparedness Act.pdf,18,1.94,38.8,2.4,1.54,3.84,1.16,1.42,migration_planning,risk_management
+29,Quantum computing and the financial system- opportunities and risks.pdf,21,1.738,34.8,1.97,1.79,2.01,2.31,1.0,risk_management,standards_compliance
